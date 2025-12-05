@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" fill="#1a1a1a" rx="15"/>
+  <!-- RED-K avec effet néon (double texte pour effet glow) -->
+  <text x="50" y="45" font-family="Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="middle" fill="#ff0000" opacity="0.6">RED-K</text>
+  <text x="50" y="45" font-family="Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="middle" fill="#d41e24">RED-K</text>
+  <!-- MOTORS en blanc -->
+  <text x="50" y="75" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="white">MOTORS</text>
+</svg>
