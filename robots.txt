@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /assets/audio/
+Allow: /
+
+Sitemap: https://redk-motors.me/sitemap.xml
+
+# TODO : ajouter l'URL de la fiche Google Business Profile dans Google Search Console après mise en ligne
