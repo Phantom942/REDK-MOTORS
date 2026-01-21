@@ -80,7 +80,7 @@ Si vous utilisez un nom de domaine personnalisé, mettez à jour :
 
 ### Variables importantes
 
-- **Téléphone** : `07 51 21 32 55`
+- **Téléphone** : `06.48.74.56.68`
 - **Email** : `contact@redk-motors.me`
 - **Adresse** : `9 rue Michelet, 94200 Ivry-sur-Seine`
 
@@ -111,7 +111,7 @@ Si vous utilisez un nom de domaine personnalisé, mettez à jour :
 
 Pour toute question concernant le site :
 - Email : contact@redk-motors.me
-- Téléphone : 07 51 21 32 55
+- Téléphone : 06.48.74.56.68
 
 ---
 

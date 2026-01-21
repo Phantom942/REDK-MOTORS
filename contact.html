@@ -3,20 +3,57 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Contactez RED-K MOTORS : téléphone 07 51 21 32 55, email contact@redk-motors.me. Prenez rendez-vous pour diagnostic, réparation, entretien ou carrosserie. Horaires : Lun-Sam 10h-20h." />
-    <meta name="keywords" content="contact garage, rendez-vous garage, garage Paris, devis gratuit, diagnostic voiture" />
-    <meta name="robots" content="index, follow" />
-    
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
+    <meta
+      name="description"
+      content="Contactez RED-K MOTORS pour un rendez-vous, un devis ou une question sur nos services automobiles."
+    />
+    <title>Garage RED-K MOTORS | Contact &amp; rendez-vous</title>
+    <meta property="og:site_name" content="RED-K MOTORS" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Garage RED-K MOTORS | Contact &amp; rendez-vous" />
+    <meta
+      property="og:description"
+      content="Coordonnées, horaires et formulaire de contact pour joindre l'équipe RED-K MOTORS."
+    />
+    <meta property="og:site_name" content="RED-K MOTORS" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:image" content="https://redk-motors.me/assets/img/og-default.svg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="RED-K MOTORS - Contact et rendez-vous" />
     <meta property="og:url" content="https://redk-motors.me/contact.html" />
-    <meta property="og:title" content="Contact | RED-K MOTORS - Prendre Rendez-vous" />
-    <meta property="og:description" content="Contactez notre garage automobile. Téléphone, email, formulaire de contact. Prenez rendez-vous pour diagnostic, réparation ou entretien." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Garage RED-K MOTORS | Contact &amp; rendez-vous" />
+    <meta
+      name="twitter:description"
+      content="Prenez rendez-vous ou contactez directement RED-K MOTORS pour vos besoins automobiles."
+    />
+    <meta name="twitter:image" content="https://redk-motors.me/assets/img/og-default.svg" />
+    <meta name="twitter:image:alt" content="RED-K MOTORS - Contact et rendez-vous" />
+    <meta name="author" content="RED-K MOTORS" />
+    <meta name="theme-color" content="#b31217" />
     
-    <title>Contact | RED-K MOTORS - Prendre Rendez-vous</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" type="image/png" href="/favicon.svg" />
-    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://redk-motors.me/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Contact",
+          "item": "https://redk-motors.me/contact.html"
+        }
+      ]
+    }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -24,24 +61,8 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="assets/css/styles.css" />
-    
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-NTC72X2G');</script>
-    <!-- End Google Tag Manager -->
-    
-    <!-- Google Search Console -->
-    <!-- TODO: Remplacez le contenu par votre meta tag de vérification Google Search Console -->
-    <!-- <meta name="google-site-verification" content="VOTRE_CODE_DE_VERIFICATION" /> -->
   </head>
   <body data-page="contact">
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NTC72X2G"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
     <div class="scroll-progress" aria-hidden="true">
       <span class="scroll-progress__indicator"></span>
     </div>
@@ -49,8 +70,8 @@
 
     <div class="top-bar">
       <div class="container">
-        <p>Horaires : Lun-Sam 10h - 20h</p>
-        <a href="tel:+33751213255" class="top-bar__phone">07 51 21 32 55</a>
+        <p>Horaires : Lun-Sam 8h - 19h</p>
+        <a href="tel:+33648745668" class="top-bar__phone">06.48.74.56.68</a>
         <a class="btn btn--ghost" href="contact.html">Prendre rendez-vous</a>
       </div>
     </div>
@@ -80,7 +101,7 @@
     </header>
 
     <main id="main">
-      <section class="hero hero--subpage" data-animate="slide-up">
+      <section class="hero hero--subpage" aria-labelledby="contact-hero-title" data-animate="slide-up">
         <div class="hero__video-bg" aria-hidden="true">
           <video
             class="hero__video-player"
@@ -98,13 +119,14 @@
         <div class="container hero__content">
           <div>
             <p class="hero__kicker">Contact et assistance</p>
+            <h1 id="contact-hero-title">Contact RED-K MOTORS</h1>
             <p>
               Un besoin immédiat ou une simple question ? Notre équipe vous répond rapidement et vous oriente vers la bonne
               expertise.
             </p>
             <div class="hero__actions">
-              <a class="btn btn--primary" href="tel:+33751213255">Nous appeler</a>
-              <a class="btn btn--secondary" href="mailto:contact@redk-motors.me">Envoyer un email</a>
+              <a class="btn btn--primary" href="tel:+33648745668">Nous appeler</a>
+              <a class="btn btn--secondary" href="mailto:contact@redkmotors.fr">Envoyer un email</a>
             </div>
           </div>
         </div>
@@ -118,19 +140,19 @@
             <dl>
               <div>
                 <dt>Téléphone</dt>
-                <dd><a href="tel:+33751213255">07 51 21 32 55</a></dd>
+                <dd><a href="tel:+33648745668">06.48.74.56.68</a></dd>
               </div>
               <div>
                 <dt>Email</dt>
-                <dd><a href="mailto:contact@redk-motors.me">contact@redk-motors.me</a></dd>
+                <dd><a href="mailto:contact@redkmotors.fr">contact@redkmotors.fr</a></dd>
               </div>
               <div>
                 <dt>Adresse</dt>
-                <dd><a href="https://waze.com/ul?q=9%20rue%20Michelet,%2094200%20Ivry-sur-Seine" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">9 rue Michelet,<br>94200 Ivry-sur-Seine</a></dd>
+                <dd>Adresse communiquée prochainement</dd>
               </div>
               <div>
                 <dt>Horaires</dt>
-                <dd>Lundi - Samedi : 10h00 - 20h00 · Dimanche sur rendez-vous</dd>
+                <dd>Lundi - Samedi : 8h00 - 19h00 · Dimanche sur rendez-vous</dd>
               </div>
             </dl>
           </div>
@@ -177,17 +199,17 @@
             <article class="card">
               <h3>Support atelier instantané</h3>
               <p>Chat en direct avec envoi de photos/vidéos et prise de rendez-vous immédiate.</p>
-              <a class="link" href="mailto:atelier@redk-motors.me">atelier@redk-motors.me</a>
+              <a class="link" href="mailto:atelier@redkmotors.fr">atelier@redkmotors.fr</a>
             </article>
             <article class="card">
               <h3>Conciergerie véhicules</h3>
               <p>Estimation reprise, recherche personnalisée, dossier financement complet.</p>
-              <a class="link" href="mailto:conseil@redk-motors.me">conseil@redk-motors.me</a>
+              <a class="link" href="mailto:conseil@redkmotors.fr">conseil@redkmotors.fr</a>
             </article>
             <article class="card">
               <h3>Assistance mobilité 24/7</h3>
-              <p>Dépannage, suivi logistique livraison.</p>
-              <a class="link" href="tel:+33751213255">07 51 21 32 55</a>
+              <p>Dépannage, véhicule de remplacement, suivi logistique livraison.</p>
+              <a class="link" href="tel:+33648745668">06.48.74.56.68</a>
             </article>
           </div>
         </div>
@@ -199,7 +221,7 @@
             <div class="media-card__label">Localisation</div>
             <iframe
               class="map-frame"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2626.5!2d2.3847!3d48.8156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e6723a1234567%3A0xabcdef1234567890!2s9%20Rue%20Michelet%2C%2094200%20Ivry-sur-Seine!5e0!3m2!1sfr!2sfr!4v1700000000000!5m2!1sfr!2sfr&q=9+rue+Michelet+Ivry-sur-Seine"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.9845235870287!2d2.292292615674445!3d48.85837307928733!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66fdb7527cf83%3A0x2250e3da72bb6a2a!2sParis!5e0!3m2!1sfr!2sfr!4v1700000000000"
               allowfullscreen=""
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
@@ -209,11 +231,13 @@
             <p class="section-kicker">Nous rendre visite</p>
             <h2 id="contact-map-title">Un garage facilement accessible</h2>
             <p>
-              Situé au 9 rue Michelet à Ivry-sur-Seine, notre garage dispose d'un parking réservé à la clientèle et
-              d'un dépôt express disponible 24/7 via casier sécurisé.
+              Parking réservé à la clientèle, station Performance à 200 m, lignes de bus 24/58, borne de recharge rapide et
+              dépôt express disponible 24/7 via casier sécurisé.
             </p>
             <ul class="pill-list">
-              <li>Parking client</li>
+              <li>Parking client - 12 places</li>
+              <li>Borne 150 kW</li>
+              <li>Navette courtoisie</li>
               <li>Accueil pro dédié</li>
             </ul>
             <div class="tech-lab__status">
@@ -270,11 +294,11 @@
           <div>
             <h2 id="map-title">Nous rendre visite</h2>
             <p>
-              Le garage se situe au 9 rue Michelet à Ivry-sur-Seine, avec un parking réservé à notre clientèle. Prévenez-nous
-              avant votre venue si nécessaire.
+              Le garage se situe à proximité de la station Performance, avec un parking réservé à notre clientèle. Prévenez-nous
+              avant votre venue pour réserver un véhicule de courtoisie si nécessaire.
             </p>
             <p>
-              Adresse : 9 rue Michelet, 94200 Ivry-sur-Seine. Accès facile en transport en commun et parking disponible.
+              Transport : Métro ligne 3 - Station Performance · Bus 24/58 arrêt Garage Centre · Accès périphérique porte 7.
             </p>
           </div>
           <div class="about__highlights">
@@ -285,6 +309,10 @@
             <div class="highlight">
               <strong>+300</strong>
               <span>rendez-vous / an</span>
+            </div>
+            <div class="highlight">
+              <strong>3</strong>
+              <span>véhicules de courtoisie</span>
             </div>
           </div>
         </div>
@@ -297,20 +325,20 @@
           <a class="logo" href="index.html">
             <span class="logo__accent">RED-K</span> MOTORS
           </a>
-          <p>Garage automobile Paris de confiance. Réparation, entretien, carrosserie et pneumatiques. Rejoignez notre communauté de passionnés.</p>
+          <p>Votre partenaire automobile, vente et entretien toutes marques.</p>
         </div>
         <div>
           <h3>Coordonnées</h3>
           <ul>
-            <li><a href="tel:+33751213255">07 51 21 32 55</a></li>
-            <li><a href="mailto:contact@redk-motors.me">contact@redk-motors.me</a></li>
-            <li><a href="https://waze.com/ul?q=9%20rue%20Michelet,%2094200%20Ivry-sur-Seine" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">9 rue Michelet,<br>94200 Ivry-sur-Seine</a></li>
+            <li><a href="tel:+33648745668">06.48.74.56.68</a></li>
+            <li><a href="mailto:contact@redkmotors.fr">contact@redkmotors.fr</a></li>
+            <li>Adresse communiquée prochainement</li>
           </ul>
         </div>
         <div>
           <h3>Horaires</h3>
           <ul>
-            <li>Lundi - Samedi : 10h00 - 20h00</li>
+            <li>Lundi - Samedi : 8h00 - 19h00</li>
             <li>Dimanche : Sur rendez-vous</li>
           </ul>
         </div>
@@ -318,27 +346,24 @@
           <h3>Suivez-nous</h3>
           <ul class="socials">
             <li><a href="#">Instagram</a></li>
-            <li><a href="#">Snapchat</a></li>
+            <li><a href="#">Facebook</a></li>
             <li><a href="#">LinkedIn</a></li>
           </ul>
         </div>
       </div>
       <div class="site-footer__bottom">
-        <p>© 2026 RED-K MOTORS. Tous droits réservés.</p>
-        <p><a href="#">Mentions légales</a> | <a href="#">Politique de confidentialité</a> | <a href="#">Cookies</a> | <a href="#">CGU</a></p>
-        <p>Designed by PhantomDev</p>
+        <p>© 2025 RED-K MOTORS. Tous droits réservés.</p>
+        <nav aria-label="Liens légaux">
+          <a href="#">Mentions légales</a>
+          <a href="#">Politique de confidentialité</a>
+          <a href="#">Cookies</a>
+        </nav>
       </div>
     </footer>
 
     <button class="back-to-top" type="button" aria-label="Revenir en haut">
       ↑
     </button>
-
-    <a href="https://wa.me/33751213255" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contactez-nous sur WhatsApp">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" fill="currentColor"/>
-      </svg>
-    </a>
 
     <script src="assets/js/main.js" defer></script>
   </body>
