@@ -869,15 +869,23 @@ body {
   .tech-lab__inner {
     grid-template-columns: 1fr;
     gap: 40px;
+    width: 100%;
+    max-width: 100%;
   }
 
   /* Forms */
   .form {
-    padding: 25px 20px;
+    padding: 25px 15px;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .form__group {
     margin-bottom: 20px;
+    width: 100%;
+    max-width: 100%;
   }
 
   .form input,
@@ -886,6 +894,9 @@ body {
     padding: 14px 15px;
     font-size: 16px;
     min-height: 48px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   /* Tabs */
@@ -1399,6 +1410,8 @@ body {
   grid-template-columns: 1fr 1fr;
   gap: 60px;
   align-items: start;
+  width: 100%;
+  max-width: 100%;
 }
 
 .appointment h2 {
@@ -1441,6 +1454,9 @@ body {
   padding: 40px;
   border-radius: 15px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
 }
 
 .form__message {
@@ -1469,12 +1485,14 @@ body {
 .form select,
 .form textarea {
   width: 100%;
+  max-width: 100%;
   padding: 12px 15px;
   border: 2px solid #e0e0e0;
   border-radius: 8px;
   font-family: var(--font-secondary);
   font-size: 16px;
   transition: border-color 0.3s;
+  box-sizing: border-box;
 }
 
 .form input:focus,
