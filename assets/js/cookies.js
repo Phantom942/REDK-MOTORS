@@ -81,20 +81,20 @@
     banner.innerHTML = `
       <div class="cookie-banner__inner">
         <div class="cookie-banner__content">
-          <h2 id="cookie-banner-title" class="cookie-banner__title">Gestion des cookies</h2>
+          <h2 id="cookie-banner-title" class="cookie-banner__title">🍪 Cookies</h2>
           <p class="cookie-banner__text">
             Nous utilisons des cookies pour améliorer votre expérience sur notre site. 
-            Certains cookies sont nécessaires au fonctionnement du site, d'autres nous aident à analyser 
+            Certains sont nécessaires au fonctionnement du site, d'autres nous aident à analyser 
             l'utilisation du site ou à vous proposer des contenus personnalisés.
           </p>
           <p class="cookie-banner__text">
-            <a href="confidentialite.html">Politique de confidentialité</a> | 
+            <a href="confidentialite.html">Politique de confidentialité</a> • 
             <a href="cookies.html">Politique de cookies</a>
           </p>
         </div>
         <div class="cookie-banner__actions">
           <button id="cookie-accept-all" class="btn btn--primary cookie-banner__btn">Tout accepter</button>
-          <button id="cookie-reject-all" class="btn btn--ghost cookie-banner__btn">Tout refuser</button>
+          <button id="cookie-reject-all" class="btn btn--ghost cookie-banner__btn">Refuser</button>
           <button id="cookie-customize" class="btn btn--ghost cookie-banner__btn">Personnaliser</button>
         </div>
       </div>
