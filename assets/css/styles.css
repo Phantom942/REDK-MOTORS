@@ -36,10 +36,27 @@
   box-sizing: border-box;
 }
 
+*,
+*::before,
+*::after {
+  max-width: 100%;
+}
+
+html,
+body {
+  min-width: 100%;
+}
+
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
+  background: var(--color-bg-dark);
+  width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  position: relative;
+  min-height: 100%;
 }
 
 body {
@@ -49,6 +66,13 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: var(--color-bg-dark);
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  box-sizing: border-box;
 }
 
 /* Touch Targets - Minimum 44x44px for mobile */
@@ -91,6 +115,7 @@ body {
   color: var(--color-white);
   padding: 10px 0;
   font-size: 14px;
+  width: 100%;
 }
 
 .top-bar .container {
@@ -119,6 +144,7 @@ body {
   top: 0;
   z-index: 1000;
   border-bottom: 2px solid var(--color-red);
+  width: 100%;
 }
 
 .main-header__inner {
@@ -215,6 +241,7 @@ body {
   justify-content: center;
   color: var(--color-white);
   overflow: hidden;
+  width: 100%;
 }
 
 .hero__video-bg {
@@ -265,6 +292,14 @@ body {
   z-index: 3;
   text-align: center;
   padding: 80px 20px;
+  width: 100%;
+  max-width: 100%;
+  color: var(--color-white);
+}
+
+.hero__content > div {
+  position: relative;
+  z-index: 4;
 }
 
 .hero__kicker {
@@ -281,6 +316,7 @@ body {
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 20px;
+  color: var(--color-white);
 }
 
 .hero p {
@@ -350,6 +386,7 @@ body {
 .services {
   padding: 80px 0;
   background: var(--color-white);
+  width: 100%;
 }
 
 .services h2 {
@@ -436,6 +473,7 @@ body {
   background: var(--color-bg-dark);
   color: var(--color-white);
   padding: var(--spacing-2xl) 0 var(--spacing-md);
+  width: 100%;
 }
 
 .site-footer__grid {
@@ -1218,6 +1256,7 @@ body {
 .why-us {
   padding: 80px 0;
   background: var(--color-white);
+  width: 100%;
 }
 
 .why-us__inner {
@@ -1253,6 +1292,7 @@ body {
 .about {
   padding: 80px 0;
   background: var(--color-gray-light);
+  width: 100%;
 }
 
 .about__inner {
@@ -1292,6 +1332,7 @@ body {
 .faq-section {
   padding: 80px 0;
   background: var(--color-white);
+  width: 100%;
 }
 
 .faq-section h2 {
@@ -2289,6 +2330,18 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+
+  /* Hero section visible immédiatement - pas d'animation */
+  .hero[data-animate] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .hero[data-animate] .hero__content,
+  .hero[data-animate] .hero__content > div {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 /* Respecter les préférences d'accessibilité */
@@ -2326,6 +2379,23 @@ body {
 
 [data-animate="zoom-in"].animated {
   transform: scale(1);
+}
+
+/* Hero section toujours visible - override des animations */
+.hero[data-animate="slide-up"],
+.hero[data-animate="slide-up"].animated {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.hero[data-animate] h1,
+.hero[data-animate] p,
+.hero[data-animate] .hero__kicker,
+.hero[data-animate] .hero__actions,
+.hero[data-animate] .hero__content * {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
 }
 
 /* Lazy Loading Images */
@@ -2400,7 +2470,6 @@ a:focus-visible {
     transform: translateY(0);
   }
 }
-
 
 /* Cookie Banner - Design Moderne */
 .cookie-banner {
@@ -2509,7 +2578,7 @@ a:focus-visible {
   border-color: var(--color-gray);
 }
 
-/* Cookie Customize Panel */
+/* Cookie Customize Panel - Design Moderne */
 .cookie-customize-panel {
   position: fixed;
   top: 0;
