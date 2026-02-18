@@ -67,9 +67,15 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://redk-motors.me/blog/</loc>
+    <loc>https://redk-motors.me/merci.html</loc>
     <lastmod>2026-01-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://redk-motors.me/blog/5-points-controle-avant-ct-ivry.html</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>

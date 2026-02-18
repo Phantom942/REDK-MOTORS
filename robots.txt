@@ -1,6 +1,7 @@
+# Autoriser tous les robots à indexer le site
 User-agent: *
-Disallow: /assets/audio/
 Allow: /
+Disallow: /assets/audio/
 
 Sitemap: https://redk-motors.me/sitemap.xml
 

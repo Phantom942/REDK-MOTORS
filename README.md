@@ -12,29 +12,33 @@ RED-K MOTORS est un garage automobile situé à Ivry-sur-Seine, en Île-de-Franc
 - Achat et revente de véhicules
 - Location de véhicules
 
-## 📁 Structure du projet
+## 📁 Structure du dépôt (fichiers à pousser sur GitHub)
 
 ```
 REDK-MOTORS/
 ├── index.html              # Page d'accueil
-├── mecanique.html          # Page mécanique
-├── carrosserie.html        # Page carrosserie
-├── entretien.html          # Page entretien
-├── pneumatiques.html       # Page pneumatiques
-├── contact.html            # Page contact
-├── achat-revente.html      # Page achat/revente
-├── location.html           # Page location
-├── processus.html          # Page processus
-├── assets/
-│   ├── css/
-│   │   └── styles.css      # Styles principaux
-│   ├── js/
-│   │   └── main.js         # JavaScript principal
-│   ├── img/                # Images
-│   └── video/              # Vidéos
-├── sitemap.xml             # Sitemap pour SEO
-├── robots.txt              # Robots.txt pour SEO
-└── .htaccess               # Configuration Apache (optionnel)
+├── mecanique.html          # Pages services
+├── carrosserie.html
+├── entretien.html
+├── pneumatiques.html
+├── achat-revente.html
+├── location.html
+├── contact.html
+├── processus.html
+├── confidentialite.html    # Mentions légales
+├── cookies.html
+├── favicon.svg
+├── CNAME                   # Domaine personnalisé (redk-motors.me)
+├── sitemap.xml
+├── robots.txt
+├── blog/
+│   └── article-template.html
+└── assets/
+    ├── css/styles.css
+    ├── js/                 # main.js, cookies.js, etc.
+    ├── img/                # Images et logos
+    ├── video/              # Vidéos des pages
+    └── audio/              # Sons (optionnel)
 ```
 
 ## 🚀 Déploiement sur GitHub Pages
@@ -103,9 +107,9 @@ Si vous utilisez un nom de domaine personnalisé, mettez à jour :
 
 ## 📝 Notes
 
-- Le fichier `.htaccess` est pour les serveurs Apache. GitHub Pages ne l'utilise pas.
 - Les vidéos doivent être optimisées pour le web (format MP4 recommandé).
 - Assurez-vous que toutes les images sont optimisées.
+- Le dépôt ne contient que les fichiers nécessaires au site (pas de prévisualisations ni de scripts locaux).
 
 ## 📞 Contact
 

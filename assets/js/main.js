@@ -249,20 +249,11 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
       if (isValid) {
-        const formMessage = form.querySelector('.form__message');
-        if (formMessage) {
-          formMessage.style.display = 'block';
-          formMessage.textContent = 'Merci pour votre message ! Nous vous recontacterons rapidement.';
-          formMessage.style.background = '#4CAF50';
-          formMessage.style.color = 'white';
-          formMessage.style.padding = '15px';
-          formMessage.style.borderRadius = '5px';
-          formMessage.style.marginBottom = '20px';
-          form.reset();
-          
-          // Clear any error messages
-          form.querySelectorAll('.form__error').forEach(error => error.remove());
-        }
+        form.reset();
+        form.querySelectorAll('.form__error').forEach(error => error.remove());
+        // Redirection vers la page de remerciement
+        const thankYouPath = window.location.pathname.includes('/blog/') ? '../merci.html' : 'merci.html';
+        window.location.href = thankYouPath;
       }
     });
 
