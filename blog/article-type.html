@@ -32,13 +32,53 @@
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"BlogPosting","headline":"NOM_ARTICLE","description":"DESCRIPTION_ARTICLE","author":{"@type":"Organization","name":"RED-K MOTORS","url":"https://redk-motors.me"},"publisher":{"@type":"Organization","name":"RED-K MOTORS","logo":{"@type":"ImageObject","url":"https://redk-motors.me/assets/img/achat-revente.jpg"}},"datePublished":"YYYY-MM-DD","dateModified":"YYYY-MM-DD","mainEntityOfPage":{"@type":"WebPage","@id":"https://redk-motors.me/blog/ARTICLE_SLUG.html"}}
     </script>
-    <!-- JSON-LD LocalBusiness -->
+    <!-- JSON-LD LocalBusiness (NAP cohérent avec index) -->
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":["AutoRepair","LocalBusiness"],"name":"RED-K MOTORS","description":"Garage mécanique et carrosserie à Ivry-sur-Seine (94).","url":"https://redk-motors.me","telephone":"+33648745668","address":{"@type":"PostalAddress","streetAddress":"9 rue Michelet","addressLocality":"Ivry-sur-Seine","postalCode":"94200","addressCountry":"FR"},"geo":{"@type":"GeoCoordinates","latitude":48.8105,"longitude":2.3942}}
+    {
+      "@context": "https://schema.org",
+      "@type": ["AutoRepair", "LocalBusiness"],
+      "name": "RED-K MOTORS",
+      "description": "Garage mécanique et carrosserie à Ivry-sur-Seine (94). Devis gratuit 2h, pièces d'origine, véhicule de remplacement. Diagnostic voyant moteur, réparation carrosserie après accident, révision constructeur.",
+      "image": "https://redk-motors.me/assets/img/achat-revente.jpg",
+      "url": "https://redk-motors.me",
+      "telephone": "+33648745668",
+      "email": "contact@redk-motors.me",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "9 rue Michelet",
+        "addressLocality": "Ivry-sur-Seine",
+        "postalCode": "94200",
+        "addressRegion": "Île-de-France",
+        "addressCountry": "FR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 48.8105,
+        "longitude": 2.3942
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "opens": "10:00",
+          "closes": "20:00"
+        }
+      ],
+      "areaServed": { "@type": "City", "name": "Ivry-sur-Seine", "containedInPlace": { "@type": "AdministrativeArea", "name": "Val-de-Marne" } }
+    }
     </script>
   </head>
   <body data-page="blog">
     <a class="skip-link" href="#main">Aller au contenu principal</a>
+
+    <div class="announce-bar" role="banner">
+      <div class="container announce-bar__inner">
+        <span class="announce-bar__text">🚀 OFFRE DE BIENVENUE : -20% sur votre premier diagnostic ou révision !</span>
+        <a href="../contact.html" class="announce-bar__cta" aria-label="Bénéficier de l'offre">En profiter</a>
+      </div>
+    </div>
+
     <div class="top-bar">
       <div class="container">
         <p>Horaires : Lun-Sam 10h-20h</p>

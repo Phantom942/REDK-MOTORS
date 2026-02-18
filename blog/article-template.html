@@ -104,12 +104,50 @@
       ]
     }
     </script>
-    <!-- LocalBusiness JSON-LD -->
+    <!-- JSON-LD LocalBusiness (NAP cohérent avec index) -->
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":["AutoRepair","LocalBusiness"],"name":"RED-K MOTORS","description":"Garage mécanique et carrosserie à Ivry-sur-Seine (94). Devis gratuit.","url":"https://redk-motors.me","telephone":"+33648745668","email":"contact@redk-motors.me","address":{"@type":"PostalAddress","streetAddress":"9 rue Michelet","addressLocality":"Ivry-sur-Seine","postalCode":"94200","addressCountry":"FR"},"geo":{"@type":"GeoCoordinates","latitude":48.8105,"longitude":2.3942},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"10:00","closes":"20:00"}]}
+    {
+      "@context": "https://schema.org",
+      "@type": ["AutoRepair", "LocalBusiness"],
+      "name": "RED-K MOTORS",
+      "description": "Garage mécanique et carrosserie à Ivry-sur-Seine (94). Devis gratuit 2h, pièces d'origine, véhicule de remplacement. Diagnostic voyant moteur, réparation carrosserie après accident, révision constructeur.",
+      "image": "https://redk-motors.me/assets/img/achat-revente.jpg",
+      "url": "https://redk-motors.me",
+      "telephone": "+33648745668",
+      "email": "contact@redk-motors.me",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "9 rue Michelet",
+        "addressLocality": "Ivry-sur-Seine",
+        "postalCode": "94200",
+        "addressRegion": "Île-de-France",
+        "addressCountry": "FR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 48.8105,
+        "longitude": 2.3942
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "opens": "10:00",
+          "closes": "20:00"
+        }
+      ],
+      "areaServed": { "@type": "City", "name": "Ivry-sur-Seine", "containedInPlace": { "@type": "AdministrativeArea", "name": "Val-de-Marne" } }
+    }
     </script>
   </head>
   <body data-page="blog">
+    <div class="announce-bar" role="banner">
+      <div class="container announce-bar__inner">
+        <span class="announce-bar__text">🚀 OFFRE DE BIENVENUE : -20% sur votre premier diagnostic ou révision !</span>
+        <a href="../contact.html" class="announce-bar__cta" aria-label="Bénéficier de l'offre">En profiter</a>
+      </div>
+    </div>
     <!-- Header (same as other pages) -->
     <header class="main-header" role="banner">
       <!-- Header content from index.html -->
