@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" width="400" height="120">
+  <defs>
+    <!-- Effet de lueur néon -->
+    <filter id="neon-red-glow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="neon-white-glow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Fond transparent -->
+  
+  <!-- RED-K avec effet néon rouge -->
+  <text x="20" y="75" font-family="Montserrat, Arial, sans-serif" font-size="48" font-weight="700" fill="#ff0040" filter="url(#neon-red-glow)">
+    RED-K
+  </text>
+  
+  <!-- MOTORS avec effet néon blanc -->
+  <text x="200" y="75" font-family="Montserrat, Arial, sans-serif" font-size="48" font-weight="700" fill="#ffffff" filter="url(#neon-white-glow)">
+    MOTORS
+  </text>
+</svg>
+
+
+
+
