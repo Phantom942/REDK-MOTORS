@@ -222,19 +222,23 @@
   // 5. TEXTE ANIMÉ EN TRAVERSÉE
   // ============================================
   function initTextAnimations() {
-    const animatedTexts = document.querySelectorAll('.hero h1, .hero p, h2');
+    const animatedTexts = document.querySelectorAll('h2');
     
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('text-animate');
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          observer.unobserve(entry.target);
         }
       });
     }, { threshold: 0.1 });
 
     animatedTexts.forEach(text => {
+      if (text.closest('.hero')) return;
+      text.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
       text.style.opacity = '0';
-      text.style.transform = 'translateY(30px)';
+      text.style.transform = 'translateY(20px)';
       observer.observe(text);
     });
   }
