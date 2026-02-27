@@ -384,7 +384,10 @@
             <h2 id="newsletter-title">Nos astuces pour faire durer votre véhicule</h2>
             <p>Recevez chaque mois nos recommandations pour allonger la durée de vie de votre véhicule.</p>
           </div>
-          <form class="newsletter__form">
+          <form class="newsletter__form" action="https://formsubmit.co/contact@redk-motors.me" method="POST">
+            <input type="hidden" name="_next" value="https://redk-motors.me/entretien">
+            <input type="hidden" name="_subject" value="Inscription newsletter RED-K MOTORS">
+            <input type="hidden" name="_captcha" value="true">
             <label class="sr-only" for="newsletter-email">Email</label>
             <input type="email" id="newsletter-email" name="newsletter-email" placeholder="Votre email" required />
             <button class="btn btn--secondary" type="submit">S’abonner</button>
@@ -429,9 +432,7 @@
         <div>
           <h3>Suivez-nous</h3>
           <ul class="socials">
-            <li><a href="#">Instagram</a></li>
             <li><a href="https://www.snapchat.com/@redkmotors" target="_blank" rel="noopener noreferrer">Snapchat</a></li>
-            <li><a href="#">LinkedIn</a></li>
           </ul>
         </div>
       </div>
