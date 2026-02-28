@@ -206,6 +206,7 @@ body {
   width: 100%;
   height: 100%;
   z-index: 1;
+  background: linear-gradient(135deg, var(--color-black) 0%, var(--color-red-dark) 50%, var(--color-red) 100%);
 }
 
 .hero__video-player {

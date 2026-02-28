@@ -38,12 +38,13 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
-    <link rel="stylesheet" href="assets/css/styles.css" />
-    
-    <!-- Preload critical resources (sans video : 50-70Mo bloque le rendu) -->
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" /></noscript>
     <link rel="preload" href="assets/css/styles.css" as="style" />
     <link rel="preload" href="assets/js/main.js" as="script" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
     
     <!-- Meta pour améliorer les performances -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -204,7 +205,6 @@
     <main id="main">
       <section id="accueil" class="hero hero--expanded">
         <div class="hero__video-bg" aria-hidden="true">
-          <!-- TODO: ajouter assets/posters/hero-index.jpg -->
           <video
             class="hero__video-player"
             autoplay
@@ -212,7 +212,7 @@
             loop
             playsinline
             preload="metadata"
-            poster="/assets/posters/hero-index.jpg"
+            poster="/assets/posters/hero-placeholder.svg"
             aria-label="Vidéo de présentation du garage"
             disablePictureInPicture
             disableRemotePlayback
