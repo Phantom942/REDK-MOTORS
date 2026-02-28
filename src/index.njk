@@ -248,14 +248,32 @@ faqSchema:
 
 <section class="launch-offer" aria-labelledby="launch-offer-title" data-animate="slide-up">
   <div class="container launch-offer__inner">
-    <h2 id="launch-offer-title" class="launch-offer__title">Premier passage ? On vous offre le diagnostic</h2>
-    <p class="launch-offer__text">Devis gratuit et pièces d'origine. <strong>Appelez ou passez sans RDV</strong> selon disponibilité – 9 rue Michelet, Ivry-sur-Seine.</p>
+    <h2 id="launch-offer-title" class="launch-offer__title">Offre de lancement — Nouveau client</h2>
+    <div class="launch-offer__cards">
+      <div class="launch-offer__card">
+        <span class="launch-offer__card-icon" aria-hidden="true">🔍</span>
+        <h3>Diagnostic gratuit</h3>
+        <p>Premier passage ? Le diagnostic est offert, sans engagement.</p>
+      </div>
+      <div class="launch-offer__card">
+        <span class="launch-offer__card-icon" aria-hidden="true">🎁</span>
+        <h3>Avantage nouveau client</h3>
+        <p>Bénéficiez d'un tarif préférentiel sur votre première intervention.</p>
+      </div>
+      <div class="launch-offer__card">
+        <span class="launch-offer__card-icon" aria-hidden="true">⏱</span>
+        <h3>Devis sous 24h</h3>
+        <p>Envoyez votre demande, on vous répond avec un devis détaillé sous 24 heures.</p>
+      </div>
+    </div>
     <div class="launch-offer__actions">
-      <a href="tel:{{ site.phone }}" class="btn btn--primary launch-offer__btn">Appeler maintenant</a>
-      <a href="https://wa.me/33648745668?text=Bonjour%2C%20je%20souhaite%20un%20devis%20ou%20prendre%20rendez-vous." class="btn btn--secondary launch-offer__btn" target="_blank" rel="noopener noreferrer" aria-label="Contacter via WhatsApp">Ou via WhatsApp</a>
+      <a href="/contact/" class="btn btn--primary launch-offer__btn">Demander un devis</a>
+      <a href="https://wa.me/33648745668?text=Bonjour%2C%20je%20souhaite%20un%20devis%20pour%20ma%20voiture." class="btn btn--secondary launch-offer__btn" target="_blank" rel="noopener noreferrer" aria-label="Contacter via WhatsApp">Ou via WhatsApp</a>
     </div>
   </div>
 </section>
+
+{% include "trust-block.njk" %}
 
 <section class="faq-section" aria-labelledby="faq-title" data-animate="slide-up">
   <div class="container">

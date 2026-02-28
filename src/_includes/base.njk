@@ -105,6 +105,7 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
+    {% include "offer-banner.njk" %}
     {% include "header.njk" %}
 
     <main id="main">
@@ -112,11 +113,14 @@
     </main>
 
     {% include "footer.njk" %}
+    {% include "floating-whatsapp.njk" %}
+    {% include "cta-sticky-call.njk" %}
 
     <script src="/assets/js/main.js" defer></script>
     <script src="/assets/js/mobile-optimizer.js" defer></script>
     <script src="/assets/js/cookies.js" defer></script>
     <script src="/assets/js/futuristic-effects.js" defer></script>
     <script src="/assets/js/video-lazy.js" defer></script>
+    <script src="/assets/js/track.js" defer></script>
   </body>
 </html>

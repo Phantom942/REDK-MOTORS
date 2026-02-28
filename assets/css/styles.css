@@ -3115,3 +3115,294 @@ a:focus-visible {
   }
 }
 
+/* ========== OFFER BANNER ========== */
+
+.offer-banner {
+  background: var(--color-red);
+  color: var(--color-white);
+  font-size: 14px;
+  text-align: center;
+  position: relative;
+  z-index: 1100;
+}
+
+.offer-banner__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 8px 40px 8px 16px;
+}
+
+.offer-banner p {
+  margin: 0;
+}
+
+.offer-banner a {
+  color: var(--color-white);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.offer-banner__close {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--color-white);
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px 8px;
+  line-height: 1;
+  opacity: .8;
+  transition: opacity .2s;
+}
+
+.offer-banner__close:hover {
+  opacity: 1;
+}
+
+/* ========== CTA STICKY CALL (mobile only) ========== */
+
+.cta-sticky {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .cta-sticky {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1050;
+    padding: 8px 16px;
+    background: var(--color-black);
+    box-shadow: 0 -2px 12px rgba(0,0,0,.3);
+  }
+
+  .cta-sticky__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 14px;
+    background: var(--color-red);
+    color: var(--color-white);
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+    transition: background .2s;
+  }
+
+  .cta-sticky__btn:hover {
+    background: #d41419;
+  }
+
+  body {
+    padding-bottom: 72px;
+  }
+
+  .whatsapp-float {
+    bottom: 80px;
+  }
+}
+
+/* ========== HEADER CALL BUTTON (desktop) ========== */
+
+.header-call-btn {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-white);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 14px;
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 6px;
+  transition: border-color .2s, background .2s;
+  white-space: nowrap;
+}
+
+.header-call-btn:hover {
+  border-color: var(--color-red);
+  background: rgba(179,18,23,.1);
+}
+
+@media (min-width: 769px) {
+  .header-call-btn {
+    display: inline-flex;
+  }
+}
+
+/* ========== TRUST BLOCK ========== */
+
+.trust-block {
+  padding: 60px 0;
+  background: var(--bg-section, #111);
+  color: var(--color-white);
+}
+
+.trust-block__title {
+  text-align: center;
+  font-family: var(--font-primary);
+  font-size: 28px;
+  margin-bottom: 40px;
+}
+
+.trust-block__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.trust-block__item {
+  text-align: center;
+  padding: 24px 16px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+.trust-block__icon {
+  font-size: 28px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.trust-block__item h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.trust-block__item p {
+  font-size: 14px;
+  color: rgba(255,255,255,.7);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.trust-block__reviews {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.trust-block__reviews-text {
+  font-size: 16px;
+  margin-bottom: 16px;
+  color: rgba(255,255,255,.8);
+}
+
+@media (max-width: 768px) {
+  .trust-block__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .trust-block__title {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .trust-block__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ========== LAUNCH OFFER CARDS ========== */
+
+.launch-offer__cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.launch-offer__card {
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 12px;
+  padding: 28px 20px;
+  text-align: center;
+}
+
+.launch-offer__card-icon {
+  font-size: 28px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.launch-offer__card h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.launch-offer__card p {
+  font-size: 14px;
+  color: rgba(255,255,255,.7);
+  margin: 0;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .launch-offer__cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ========== CONTACT FORM CHIPS ========== */
+
+.form__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.form__chip {
+  padding: 8px 16px;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 20px;
+  background: transparent;
+  color: var(--color-white);
+  font-size: 13px;
+  cursor: pointer;
+  transition: background .2s, border-color .2s;
+}
+
+.form__chip:hover {
+  border-color: var(--color-red);
+}
+
+.form__chip.is-active {
+  background: var(--color-red);
+  border-color: var(--color-red);
+  color: var(--color-white);
+}
+
+.form__alternatives {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.form__alternatives p {
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: rgba(255,255,255,.7);
+}
+
+.form__alt-btns {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+

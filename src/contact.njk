@@ -54,37 +54,44 @@ breadcrumb:
         </div>
       </dl>
     </div>
-    <form class="form" aria-label="Formulaire de contact" action="https://formsubmit.co/{{ site.email }}" method="POST">
+    <form class="form" id="contact-form" aria-label="Formulaire de contact" action="https://formsubmit.co/{{ site.email }}" method="POST" data-track-submit="submit_contact">
       <input type="hidden" name="_next" value="{{ site.url }}/merci/">
       <input type="hidden" name="_subject" value="Nouvelle demande depuis le site {{ site.name }}">
       <input type="hidden" name="_captcha" value="true">
       <div class="form__group">
-        <label for="name">Nom complet</label>
-        <input type="text" id="name" name="name" placeholder="Jean Dupont" required />
-      </div>
-      <div class="form__group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="jean.dupont@email.com" required />
+        <label for="name">Nom</label>
+        <input type="text" id="name" name="name" placeholder="Votre nom" required />
       </div>
       <div class="form__group">
         <label for="phone">Téléphone</label>
-        <input type="tel" id="phone" name="phone" placeholder="06 12 34 56 78" />
+        <input type="tel" id="phone" name="phone" placeholder="06 12 34 56 78" required />
       </div>
       <div class="form__group">
-        <label for="service">Sujet</label>
-        <select id="service" name="service">
-          <option value="atelier">Atelier mécanique / entretien</option>
-          <option value="carrosserie">Carrosserie</option>
-          <option value="achat">Achat / reprise véhicule</option>
-          <option value="location">Location</option>
-        </select>
+        <label for="vehicule">Véhicule <span style="font-weight:normal;opacity:.7">(optionnel)</span></label>
+        <input type="text" id="vehicule" name="vehicule" placeholder="Ex : Renault Clio 2019" />
+      </div>
+      <div class="form__group form__group--full">
+        <label>Motif</label>
+        <div class="form__chips" role="group" aria-label="Sélectionnez un motif">
+          <button type="button" class="form__chip" data-chip="Vidange / Entretien">Vidange / Entretien</button>
+          <button type="button" class="form__chip" data-chip="Freins / Pneus">Freins / Pneus</button>
+          <button type="button" class="form__chip" data-chip="Carrosserie">Carrosserie</button>
+          <button type="button" class="form__chip" data-chip="Diagnostic moteur">Diagnostic moteur</button>
+        </div>
       </div>
       <div class="form__group form__group--full">
         <label for="message">Message</label>
-        <textarea id="message" name="message" rows="4" placeholder="Votre demande..."></textarea>
+        <textarea id="message" name="message" rows="3" placeholder="Décrivez votre besoin..." required></textarea>
       </div>
       <button class="btn btn--primary" type="submit">Envoyer ma demande</button>
     </form>
+    <div class="form__alternatives">
+      <p>Ou contactez-nous directement :</p>
+      <div class="form__alt-btns">
+        <a href="tel:{{ site.phone }}" class="btn btn--secondary" data-track="click_call" data-track-pos="contact">Appeler {{ site.phoneDisplay }}</a>
+        <a href="https://wa.me/33648745668?text=Bonjour%2C%20je%20souhaite%20un%20devis%20pour%20ma%20voiture." class="btn btn--secondary" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp" data-track-pos="contact">WhatsApp</a>
+      </div>
+    </div>
   </div>
 </section>
 
