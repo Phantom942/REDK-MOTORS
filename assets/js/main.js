@@ -1,34 +1,28 @@
-// RED-K MOTORS - Main JavaScript
+// RED-K MOTORS - Main JavaScript (allégé)
 
-// Scroll Progress Bar
+function throttle(fn, delay) {
+  let last = 0;
+  return function() {
+    const now = Date.now();
+    if (now - last >= delay) {
+      last = now;
+      fn.apply(this, arguments);
+    }
+  };
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   const scrollProgress = document.querySelector('.scroll-progress__indicator');
-  if (scrollProgress) {
-    window.addEventListener('scroll', function() {
-      const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrolled = (window.scrollY / windowHeight) * 100;
-      scrollProgress.style.width = scrolled + '%';
-    });
-  }
-
-  // Back to Top Button
   const backToTop = document.querySelector('.back-to-top');
-  if (backToTop) {
-    window.addEventListener('scroll', function() {
-      if (window.scrollY > 300) {
-        backToTop.classList.add('visible');
-      } else {
-        backToTop.classList.remove('visible');
-      }
-    });
 
-    backToTop.addEventListener('click', function() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-  }
+  const onScroll = throttle(function() {
+    const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    if (scrollProgress && h > 0) scrollProgress.style.width = (window.scrollY / h) * 100 + '%';
+    if (backToTop) backToTop.classList.toggle('visible', window.scrollY > 300);
+  }, 16);
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  if (backToTop) backToTop.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
 
   // Mobile Menu Toggle
   const navToggle = document.querySelector('.main-nav__toggle');
@@ -80,32 +74,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   animateElements.forEach(el => observer.observe(el));
 
-  // Lazy Loading Images
-  const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-  if (lazyImages.length > 0 && 'IntersectionObserver' in window) {
-    const imageObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const img = entry.target;
-          if (img.dataset.src) {
-            img.src = img.dataset.src;
-            img.removeAttribute('data-src');
-          }
-          img.classList.add('loaded');
-          imageObserver.unobserve(img);
-        }
-      });
-    });
-
-    lazyImages.forEach(img => {
-      if (img.dataset.src) {
-        imageObserver.observe(img);
-      } else {
-        img.classList.add('loaded');
-      }
-    });
-  }
-
   // Accordion FAQ
   const faqQuestions = document.querySelectorAll('.faq__question');
   faqQuestions.forEach(question => {
@@ -156,70 +124,23 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Form Handling with Validation
-  const forms = document.querySelectorAll('form');
+  // Form validation (ne pas bloquer si FormSubmit.co)
+  const forms = document.querySelectorAll('form[action*="formsubmit"]');
   forms.forEach(form => {
     form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // Validate form
       const inputs = form.querySelectorAll('input[required], select[required], textarea[required]');
-      let isValid = true;
-      
-      inputs.forEach(input => {
-        if (!validateField(input)) {
-          isValid = false;
-        }
-      });
-
-      // Validate email format
-      const emailInput = form.querySelector('input[type="email"]');
-      if (emailInput && emailInput.value) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(emailInput.value)) {
-          showFieldError(emailInput, 'Veuillez entrer une adresse email valide');
-          isValid = false;
-        }
+      let valid = true;
+      inputs.forEach(input => { if (!validateField(input)) valid = false; });
+      const email = form.querySelector('input[type="email"]');
+      if (email && email.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+        showFieldError(email, 'Email invalide');
+        valid = false;
       }
-
-      // Validate phone format
-      const phoneInput = form.querySelector('input[type="tel"]');
-      if (phoneInput && phoneInput.value) {
-        const phoneRegex = /^[0-9\s\-\+\(\)]{10,}$/;
-        if (!phoneRegex.test(phoneInput.value.replace(/\s/g, ''))) {
-          showFieldError(phoneInput, 'Veuillez entrer un numéro de téléphone valide');
-          isValid = false;
-        }
-      }
-
-      if (isValid) {
-        const formMessage = form.querySelector('.form__message');
-        if (formMessage) {
-          formMessage.style.display = 'block';
-          formMessage.textContent = 'Merci pour votre message ! Nous vous recontacterons rapidement.';
-          formMessage.style.background = '#4CAF50';
-          formMessage.style.color = 'white';
-          formMessage.style.padding = '15px';
-          formMessage.style.borderRadius = '5px';
-          formMessage.style.marginBottom = '20px';
-          form.reset();
-          
-          // Clear any error messages
-          form.querySelectorAll('.form__error').forEach(error => error.remove());
-        }
-      }
+      if (!valid) e.preventDefault();
     });
-
-    // Real-time validation
-    const inputs = form.querySelectorAll('input, select, textarea');
-    inputs.forEach(input => {
-      input.addEventListener('blur', function() {
-        validateField(input);
-      });
-      
-      input.addEventListener('input', function() {
-        clearFieldError(input);
-      });
+    form.querySelectorAll('input, select, textarea').forEach(input => {
+      input.addEventListener('blur', () => validateField(input));
+      input.addEventListener('input', () => clearFieldError(input));
     });
   });
 
