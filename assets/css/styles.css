@@ -3466,3 +3466,82 @@ a:focus-visible {
   flex-wrap: wrap;
 }
 
+/* =====================================================
+   MOBILE OVERRIDES (fin de fichier — priorité cascade)
+   Les grids 2 colonnes sont définies après les premiers
+   media queries, ce bloc les corrige définitivement.
+   ===================================================== */
+
+@media (max-width: 1024px) {
+  .about__inner,
+  .appointment__inner,
+  .tech-lab__inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-bar {
+    display: none;
+  }
+
+  .about__inner,
+  .appointment__inner,
+  .tech-lab__inner {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .about__highlights {
+    gap: 16px;
+  }
+
+  .highlight-card {
+    padding: 20px;
+  }
+
+  .highlight-card h3 {
+    font-size: 17px;
+  }
+
+  .why-us__grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .appointment__info {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .launch-offer__inner {
+    max-width: 100%;
+  }
+
+  .launch-offer__cards {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .trust-block__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .whatsapp-float {
+    bottom: 84px;
+  }
+
+  .back-to-top {
+    bottom: 148px;
+  }
+}
+
+@media (max-width: 480px) {
+  .trust-block__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
