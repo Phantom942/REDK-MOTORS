@@ -1,0 +1,58 @@
+---
+layout: base.njk
+pagination:
+  data: collections.tagList
+  size: 1
+  alias: tag
+  addAllPagesToCollections: true
+permalink: /blog/tag/{{ tag }}/
+eleventyComputed:
+  title: "Articles {{ tagNames[tag] or tag }} | Blog RED-K MOTORS"
+  description: "Tous les articles du blog RED-K MOTORS tagués « {{ tagNames[tag] or tag }} ». Conseils auto, mécanique et carrosserie à Ivry-sur-Seine."
+pageKey: blog
+---
+
+<section class="blog-index blog-index--tag" aria-labelledby="tag-title">
+  <div class="container">
+    <header class="blog-index__header">
+      <nav class="breadcrumb" aria-label="Fil d'Ariane">
+        <ol>
+          <li><a href="/">Accueil</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li aria-current="page">{{ tagNames[tag] or tag }}</li>
+        </ol>
+      </nav>
+      <h1 id="tag-title">Articles : {{ tagNames[tag] or tag }}</h1>
+      <p>Tous les articles du blog tagués « {{ tagNames[tag] or tag }} ».</p>
+    </header>
+
+    <ol class="blog-list">
+      {% for post in collections.blog %}
+        {% if tag in post.data.tags %}
+      <li class="blog-list__item">
+        <article class="blog-card">
+          {% if post.data.image %}
+          <a href="{{ post.url }}" class="blog-card__image-link">
+            <img src="{{ post.data.image }}" alt="{{ post.data.imageAlt or post.data.title }}" loading="lazy" width="400" height="225" />
+          </a>
+          {% endif %}
+          <div class="blog-card__body">
+            <div class="blog-card__meta">
+              {% if post.data.category %}<span class="blog-card__category">{{ post.data.category }}</span>{% endif %}
+              <time datetime="{{ post.data.date }}">{{ post.data.dateDisplay or post.data.date }}</time>
+            </div>
+            <h2 class="blog-card__title">
+              <a href="{{ post.url }}">{{ post.data.title | replace(" | Blog RED-K MOTORS", "") }}</a>
+            </h2>
+            <p class="blog-card__excerpt">{{ post.data.excerpt }}</p>
+            <a href="{{ post.url }}" class="blog-card__link">Lire l'article →</a>
+          </div>
+        </article>
+      </li>
+        {% endif %}
+      {% endfor %}
+    </ol>
+
+    <p><a href="/blog/">← Retour au blog</a></p>
+  </div>
+</section>

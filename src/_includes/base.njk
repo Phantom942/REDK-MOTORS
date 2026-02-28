@@ -3,28 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" />
-    <meta name="description" content="{{ description }}" />
+    <meta name="description" content="{{ description | default(site.description or 'Garage automobile RED-K MOTORS à Ivry-sur-Seine. Mécanique, carrosserie, entretien et pneumatiques.') }}" />
     <meta name="author" content="{{ site.name }}" />
     <meta name="robots" content="{{ robots | default('index, follow') }}" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="{{ ogType | default('website') }}" />
-    <meta property="og:url" content="{{ site.url }}{{ page.url | replace('/index.html','/') }}" />
+    <meta property="og:url" content="{{ site.url }}{{ page.url | default('/') | replace('/index.html','/') }}" />
     <meta property="og:site_name" content="Garage Automobile {{ site.name }}" />
     <meta property="og:locale" content="{{ site.locale }}" />
-    <meta property="og:title" content="{{ ogTitle | default(title) }}" />
-    <meta property="og:description" content="{{ ogDescription | default(description) }}" />
-    <meta property="og:image" content="{{ site.ogImage }}" />
+    <meta property="og:title" content="{{ ogTitle | default(title) | default(site.name) }}" />
+    <meta property="og:description" content="{{ ogDescription | default(description) | default(site.description) }}" />
+    <meta property="og:image" content="{{ ogImage | default(site.ogImage) }}" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="{{ site.name }} - Garage mécanique et carrosserie Île-de-France" />
 
-    <!-- Twitter -->
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="{{ site.url }}{{ page.url | replace('/index.html','/') }}" />
-    <meta name="twitter:title" content="{{ twitterTitle | default(ogTitle) | default(title) }}" />
-    <meta name="twitter:description" content="{{ twitterDescription | default(ogDescription) | default(description) }}" />
-    <meta name="twitter:image" content="{{ site.ogImage }}" />
+    <meta name="twitter:title" content="{{ twitterTitle | default(ogTitle) | default(title) | default(site.name) }}" />
+    <meta name="twitter:description" content="{{ twitterDescription | default(ogDescription) | default(description) | default(site.description) }}" />
+    <meta name="twitter:image" content="{{ ogImage | default(site.ogImage) }}" />
     <meta name="twitter:image:alt" content="{{ site.name }} - Garage mécanique et carrosserie Île-de-France" />
 
     <!-- Favicon -->
@@ -32,7 +31,9 @@
     <link rel="icon" type="image/png" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/favicon.svg" />
 
-    <title>{{ title }}</title>
+    <title>{{ title | default(site.name) }}</title>
+    <link rel="canonical" href="{{ site.url }}{{ page.url | default('/') | replace('/index.html','/') }}" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
@@ -52,7 +53,23 @@
     })(window,document,'script','dataLayer','{{ site.gtmId }}');</script>
     <!-- End Google Tag Manager -->
 
-    <link rel="canonical" href="{{ site.url }}{{ page.url | replace('/index.html','/') }}" />
+    <!-- JSON-LD global (WebSite + AutoRepair, une seule injection par page) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "{{ site.url }}/#website",
+          "name": "{{ site.name }}",
+          "url": "{{ site.url }}",
+          "description": "{{ site.description | default('Garage automobile à Ivry-sur-Seine') }}",
+          "publisher": { "@id": "https://redk-motors.me/#business" }
+        },
+        {{ (localBusinessSchema or localBusiness.schema) | json | safe }}
+      ]
+    }
+    </script>
 
     {% if breadcrumb %}
     <!-- Breadcrumb Schema -->
@@ -61,15 +78,17 @@
     </script>
     {% endif %}
 
-    <!-- Structured Data - LocalBusiness -->
-    <script type="application/ld+json">
-    {{ (localBusinessSchema or localBusiness.schema) | json | safe }}
-    </script>
-
     {% if faqSchema %}
     <!-- FAQ Schema -->
     <script type="application/ld+json">
     {{ faqSchema | json | safe }}
+    </script>
+    {% endif %}
+
+    {% if articleSchema %}
+    <!-- Article Schema (BlogPosting) -->
+    <script type="application/ld+json">
+    {{ articleSchema | json | safe }}
     </script>
     {% endif %}
   </head>

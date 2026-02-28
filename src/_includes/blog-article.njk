@@ -1,0 +1,50 @@
+<nav class="breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li aria-current="page">{{ title }}</li>
+    </ol>
+  </div>
+</nav>
+
+<article class="blog-article">
+  <header class="article-header">
+    <div class="container">
+      <div class="article-meta">
+        {% if category %}<span class="article-category">{{ category }}</span>{% endif %}
+        <time datetime="{{ date }}">{{ dateDisplay or date }}</time>
+        {% if readingTime %}<span class="article-reading-time">{{ readingTime }}</span>{% endif %}
+      </div>
+      <h1>{{ title }}</h1>
+      <p class="article-excerpt">{{ excerpt }}</p>
+    </div>
+  </header>
+
+  {% if image %}
+  <div class="article-featured-image">
+    <img src="{{ image }}" alt="{{ imageAlt }}" loading="lazy" width="800" height="450" />
+  </div>
+  {% endif %}
+
+  <div class="article-content">
+    <div class="container">
+      <div class="article-body">
+        {{ content | safe }}
+      </div>
+    </div>
+  </div>
+
+  {% if tags and tags.length > 0 %}
+  <footer class="article-footer">
+    <div class="container">
+      <div class="article-tags">
+        <span>Tags :</span>
+        {% for tag in tags %}
+        <a href="/blog/tag/{{ tag }}/">{{ tagNames[tag] or tag }}</a>{% if not loop.last %} {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </footer>
+  {% endif %}
+</article>

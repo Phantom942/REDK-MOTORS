@@ -1,5 +1,7 @@
 User-agent: *
-Disallow: /assets/audio/
 Allow: /
+
+# Exclure les répertoires non pertinents pour le SEO
+Disallow: /assets/audio/
 
 Sitemap: https://redk-motors.me/sitemap.xml

@@ -7,7 +7,11 @@
     "serve": "eleventy --serve",
     "dev": "eleventy --serve"
   },
-  "keywords": ["eleventy", "static-site", "garage"],
+  "keywords": [
+    "eleventy",
+    "static-site",
+    "garage"
+  ],
   "author": "RED-K MOTORS",
   "license": "UNLICENSED",
   "devDependencies": {

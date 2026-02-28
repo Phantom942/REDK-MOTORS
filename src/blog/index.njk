@@ -1,0 +1,70 @@
+---
+layout: base.njk
+title: "Blog | Conseils auto, entretien et mécanique | RED-K MOTORS"
+description: "Conseils et actualités du garage RED-K MOTORS à Ivry-sur-Seine. Entretien, mécanique, carrosserie, pneumatiques — tous nos articles pour prendre soin de votre véhicule."
+pageKey: blog
+pagination:
+  data: collections.blog
+  size: 20
+  reverse: true
+breadcrumb:
+  "@context": "https://schema.org"
+  "@type": "BreadcrumbList"
+  itemListElement:
+    - "@type": "ListItem"
+      position: 1
+      name: "Accueil"
+      item: "https://redk-motors.me/"
+    - "@type": "ListItem"
+      position: 2
+      name: "Blog"
+      item: "https://redk-motors.me/blog/"
+permalink: /blog/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber }}/{% endif %}index.html
+---
+
+<section class="blog-index" aria-labelledby="blog-title">
+  <div class="container">
+    <header class="blog-index__header">
+      <h1 id="blog-title">Blog RED-K MOTORS</h1>
+      <p>Conseils auto, entretien mécanique et carrosserie. Toutes nos actualités et bons réflexes pour votre véhicule à Ivry-sur-Seine (94).</p>
+    </header>
+
+    <ol class="blog-list">
+      {% for post in pagination.items %}
+      <li class="blog-list__item">
+        <article class="blog-card">
+          {% if post.data.image %}
+          <a href="{{ post.url }}" class="blog-card__image-link">
+            <img src="{{ post.data.image }}" alt="{{ post.data.imageAlt or post.data.title }}" loading="lazy" width="400" height="225" />
+          </a>
+          {% endif %}
+          <div class="blog-card__body">
+            <div class="blog-card__meta">
+              {% if post.data.category %}<span class="blog-card__category">{{ post.data.category }}</span>{% endif %}
+              <time datetime="{{ post.data.date }}">{{ post.data.dateDisplay or post.data.date }}</time>
+            </div>
+            <h2 class="blog-card__title">
+              <a href="{{ post.url }}">{{ post.data.title | replace(" | Blog RED-K MOTORS", "") }}</a>
+            </h2>
+            <p class="blog-card__excerpt">{{ post.data.excerpt }}</p>
+            <a href="{{ post.url }}" class="blog-card__link">Lire l'article →</a>
+          </div>
+        </article>
+      </li>
+      {% endfor %}
+    </ol>
+
+    {% if pagination.pages.length > 1 %}
+    <nav class="blog-pagination" aria-label="Pagination des articles">
+      <ul>
+        {% if pagination.previousPageHref %}
+        <li><a href="{{ pagination.previousPageHref }}">← Articles plus récents</a></li>
+        {% endif %}
+        {% if pagination.nextPageHref %}
+        <li><a href="{{ pagination.nextPageHref }}">Articles plus anciens →</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+    {% endif %}
+  </div>
+</section>

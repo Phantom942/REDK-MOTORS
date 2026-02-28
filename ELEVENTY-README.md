@@ -14,13 +14,16 @@ REDK-MOTORS/
 ├── src/
 │   ├── _data/
 │   │   ├── site.json      # Données globales (nav, contact, etc.)
-│   │   └── localBusiness.json
+│   │   ├── localBusiness.json
+│   │   └── tagNames.json  # Libellés des tags du blog
 │   ├── _includes/
-│   │   ├── base.njk       # Layout principal
+│   │   ├── base.njk           # Layout principal
 │   │   ├── header.njk
 │   │   ├── footer.njk
 │   │   ├── hero-video.njk
-│   │   └── hero-simple.njk
+│   │   ├── hero-simple.njk
+│   │   ├── blog-article.njk   # Structure article blog
+│   │   └── layout-blog-post.njk
 │   ├── index.njk
 │   ├── mecanique.njk
 │   ├── carrosserie.njk
@@ -33,7 +36,17 @@ REDK-MOTORS/
 │   ├── processus.njk
 │   ├── confidentialite.njk
 │   ├── cookies.njk
-│   └── 404.njk
+│   ├── 404.njk
+│   └── blog/
+│       ├── index.njk          # Index blog avec pagination
+│       ├── tag.njk            # Pages par tag (/blog/tag/nom-tag/)
+│       └── articles/          # Articles (collection blog)
+│           ├── 5-points-controle-avant-ct-ivry.njk
+│           ├── quand-changer-pneus-usure-securite.njk
+│           ├── entretien-voiture-eviter-pannes-ivry.njk
+│           ├── voyant-moteur-allume-que-faire.njk
+│           ├── rayure-carrosserie-quand-reparer.njk
+│           └── preparer-voiture-hiver-conseils.njk
 └── _site/                 # Output build (généré)
 ```
 
@@ -55,7 +68,7 @@ npm run serve      # Dev local + live reload
 
 ### 2. Première migration
 
-1. **Les anciens HTML ont été supprimés** (nettoyage post-migration). Le dossier `blog/` est conservé en passthrough.
+1. **Les anciens HTML ont été supprimés** (nettoyage post-migration). Le blog est désormais une collection Eleventy dans `src/blog/`.
 
 2. **Commit et push** :
    ```bash
@@ -84,6 +97,9 @@ npm run serve      # Dev local + live reload
 - **Chemins** : `/assets/...` pour compatibilité root
 - **Design** : identique, CSS/JS inchangés
 
-## Pages non migrées (à faire si besoin)
+## Blog (collection Eleventy)
 
-- `blog/*.html` : actuellement en passthrough, conservé tel quel. Possibilité de migrer vers `src/blog/` avec collection Eleventy.
+- **Index** : `/blog/` — liste des articles triés par date décroissante
+- **Articles** : `/blog/slug/` — URLs propres (ex. `/blog/5-points-controle-avant-ct-ivry/`)
+- **Tags** : `/blog/tag/nom-tag/` — filtrage par tag (conseils-auto, mecanique, etc.)
+- **JSON-LD** : chaque article inclut un `BlogPosting` pour le SEO
