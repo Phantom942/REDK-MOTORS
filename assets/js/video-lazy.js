@@ -1,23 +1,10 @@
 /**
  * RED-K MOTORS - Lazy loading des vidéos hero
- * Desktop : charge la vidéo quand le hero entre dans le viewport.
- * Mobile (< 769px) : pas de vidéo, le poster + overlay suffisent.
+ * Charge la vidéo uniquement quand le hero entre dans le viewport.
+ * Gère le déblocage audio iOS (premier tap).
  */
 (function() {
   'use strict';
-
-  var isMobile = window.innerWidth < 769;
-
-  if (isMobile) {
-    document.addEventListener('DOMContentLoaded', function() {
-      document.querySelectorAll('.hero__video-player').forEach(function(video) {
-        video.removeAttribute('autoplay');
-        video.pause();
-        video.style.display = 'none';
-      });
-    });
-    return;
-  }
 
   var hasUnlocked = false;
 
