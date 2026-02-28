@@ -30,6 +30,7 @@ REDK-MOTORS/
 │   ├── location.njk
 │   ├── contact.njk
 │   ├── merci.njk
+│   ├── processus.njk
 │   ├── confidentialite.njk
 │   ├── cookies.njk
 │   └── 404.njk
@@ -54,12 +55,7 @@ npm run serve      # Dev local + live reload
 
 ### 2. Première migration
 
-1. **Archiver les anciens HTML** (optionnel) :
-   ```bash
-   mkdir _legacy
-   mv index.html mecanique.html carrosserie.html entretien.html pneumatiques.html achat-revente.html location.html contact.html merci.html confidentialite.html cookies.html 404.html processus.html _legacy/
-   mv blog _legacy/
-   ```
+1. **Les anciens HTML ont été supprimés** (nettoyage post-migration). Le dossier `blog/` est conservé en passthrough.
 
 2. **Commit et push** :
    ```bash
@@ -90,5 +86,4 @@ npm run serve      # Dev local + live reload
 
 ## Pages non migrées (à faire si besoin)
 
-- `processus.html` → créer `src/processus.njk`
-- `blog/*.html` → créer `src/blog/` avec collection Eleventy
+- `blog/*.html` : actuellement en passthrough, conservé tel quel. Possibilité de migrer vers `src/blog/` avec collection Eleventy.
