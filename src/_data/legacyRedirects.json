@@ -1,0 +1,11 @@
+[
+  { "from": "mecanique", "to": "/mecanique/" },
+  { "from": "carrosserie", "to": "/carrosserie/" },
+  { "from": "entretien", "to": "/entretien/" },
+  { "from": "pneumatiques", "to": "/pneumatiques/" },
+  { "from": "achat-revente", "to": "/achat-revente/" },
+  { "from": "location", "to": "/location/" },
+  { "from": "contact", "to": "/contact/" },
+  { "from": "confidentialite", "to": "/confidentialite/" },
+  { "from": "cookies", "to": "/cookies/" }
+]

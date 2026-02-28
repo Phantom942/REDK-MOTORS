@@ -1,0 +1,24 @@
+---
+layout: null
+pagination:
+  data: legacyRedirects
+  size: 1
+  alias: redirect
+permalink: "/{{ redirect.from }}.html"
+eleventyExcludeFromCollections: true
+sitemap:
+  ignore: true
+---
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex, follow">
+  <meta http-equiv="refresh" content="0; url={{ redirect.to }}">
+  <link rel="canonical" href="https://redk-motors.me{{ redirect.to }}">
+  <title>Redirection – RED-K MOTORS</title>
+</head>
+<body>
+  <p>Cette page a été déplacée. <a href="{{ redirect.to }}">Cliquez ici</a> si vous n'êtes pas redirigé automatiquement.</p>
+</body>
+</html>
