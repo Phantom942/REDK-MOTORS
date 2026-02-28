@@ -1,0 +1,196 @@
+---
+layout: base.njk
+title: "Garage auto proche de Charenton-le-Pont | Entretien & Carrosserie | RED-K MOTORS"
+description: "Garage automobile à Ivry-sur-Seine, accessible depuis Charenton-le-Pont. Mécanique, carrosserie, entretien et pneumatiques. Devis gratuit, pièces d'origine. 06.48.74.56.68."
+pageKey: charenton
+permalink: /charenton-le-pont/
+sitemap:
+  changefreq: monthly
+  priority: 0.8
+breadcrumb:
+  "@context": "https://schema.org"
+  "@type": "BreadcrumbList"
+  itemListElement:
+    - "@type": "ListItem"
+      position: 1
+      name: "Accueil"
+      item: "https://redk-motors.me/"
+    - "@type": "ListItem"
+      position: 2
+      name: "Garage proche Charenton-le-Pont"
+      item: "https://redk-motors.me/charenton-le-pont/"
+localServiceSchema:
+  "@context": "https://schema.org"
+  "@type": "Service"
+  serviceType: "Réparation et entretien automobile"
+  provider:
+    "@id": "https://redk-motors.me/#business"
+  areaServed:
+    "@type": "City"
+    name: "Charenton-le-Pont"
+faqSchema:
+  "@context": "https://schema.org"
+  "@type": "FAQPage"
+  mainEntity:
+    - "@type": "Question"
+      name: "Effectuez-vous un diagnostic avant la réparation ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Oui. Chaque intervention commence par un diagnostic précis. Nous vous transmettons un devis détaillé avant toute prise en charge."
+    - "@type": "Question"
+      name: "Travaillez-vous sur toutes les marques automobiles ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Oui. Notre atelier est équipé pour l'ensemble des marques, y compris hybrides et électriques."
+    - "@type": "Question"
+      name: "Réalisez-vous les révisions et l'entretien courant ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Oui. Révision constructeur, vidange, filtres, climatisation. Pièces d'origine et garantie préservée."
+    - "@type": "Question"
+      name: "Comment obtenir une estimation rapide ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Par téléphone, email ou formulaire en ligne. Nous répondons en général sous 24 heures."
+---
+
+{% set heroActions %}
+<a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
+<a class="btn btn--secondary" href="tel:{{ site.phone }}">Nous appeler</a>
+{% endset %}
+{% set heroClass = "hero--subpage" %}
+{% set heroAria = "charenton-hero-title" %}
+{% set heroTitle = "Garage auto proche de Charenton-le-Pont" %}
+{% set heroKicker = "Zone desservie Val-de-Marne" %}
+{% set heroDesc = "Depuis Charenton, rejoignez RED-K MOTORS à Ivry pour mécanique, carrosserie et entretien. Expertise multimarque, devis gratuit et relation de confiance." %}
+{% set videoSrc = "hero.mp4" %}
+{% include "hero-video.njk" %}
+
+<section class="service-focus" aria-labelledby="pourquoi-charenton" data-animate="slide-right">
+  <div class="container service-focus__inner">
+    <div>
+      <h2 id="pourquoi-charenton">Pourquoi choisir RED-K MOTORS depuis Charenton-le-Pont ?</h2>
+      <p>
+        Charenton-le-Pont et Ivry-sur-Seine sont deux communes du Val-de-Marne bien reliées par la route. Les Charentonnais qui souhaitent faire entretenir ou réparer leur véhicule trouvent chez RED-K MOTORS une proximité géographique réelle et une qualité de service constante. Nous proposons une alternative aux concessionnaires et aux chaînes de distribution, avec une approche plus personnalisée et des tarifs maîtrisés.
+      </p>
+      <p>
+        Notre équipe privilégie la transparence et la communication. Chaque intervention est précédée d'un diagnostic clair et d'un devis détaillé. Les pièces utilisées sont d'origine ou équivalent constructeur, et nous préservons la garantie constructeur lorsque celle-ci est encore en vigueur.
+      </p>
+    </div>
+    <div class="service-focus__visual" aria-hidden="true">Charenton</div>
+  </div>
+</section>
+
+<section class="promesse" aria-labelledby="services-charenton" data-animate="slide-up">
+  <div class="container">
+    <h2 id="services-charenton" class="promesse__title">Nos services pour les conducteurs de Charenton-le-Pont</h2>
+    <p style="margin-bottom: 1.5rem;">
+      Notre gamme de prestations couvre les besoins courants des automobilistes, de l'entretien préventif aux réparations plus conséquentes.
+    </p>
+    <div class="promesse__grid">
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3><a href="/mecanique/">Mécanique</a></h3>
+          <p>Diagnostic moteur, réparation, distribution, injection. Expertise multimarque et pièces certifiées.</p>
+        </div>
+      </div>
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3><a href="/carrosserie/">Carrosserie</a></h3>
+          <p>Peinture, débosselage, réparation sinistre. Agrément assurances et finition soignée.</p>
+        </div>
+      </div>
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3><a href="/entretien/">Entretien</a></h3>
+          <p>Révision, vidange, freins, climatisation. Garantie constructeur maintenue.</p>
+        </div>
+      </div>
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3><a href="/pneumatiques/">Pneumatiques</a></h3>
+          <p>Montage, équilibrage, géométrie 3D. Pneus été, hiver ou toutes saisons.</p>
+        </div>
+      </div>
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3><a href="/achat-revente/">Achat & revente</a></h3>
+          <p>Reprise au juste prix, paiement immédiat. Véhicules contrôlés 120 points.</p>
+        </div>
+      </div>
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3><a href="/location/">Location</a></h3>
+          <p>Véhicule de courtoisie pendant les réparations. Mobilité préservée.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="service-focus service-focus--alt" aria-labelledby="acces-charenton" data-animate="slide-left">
+  <div class="container service-focus__inner">
+    <div>
+      <h2 id="acces-charenton">Accès et temps de trajet depuis Charenton-le-Pont</h2>
+      <p>
+        Depuis Charenton-le-Pont, notre atelier du 9 rue Michelet à Ivry-sur-Seine est rapidement accessible. La liaison entre les deux communes emprunte des axes bien connus des automobilistes locaux. Le trajet reste court et l'atelier est facile à trouver, à proximité de la Mairie d'Ivry et des transports en commun.
+      </p>
+      <p>
+        Horaires d'ouverture : du lundi au samedi, de 10h à 20h. Nous conseillons de réserver un créneau pour optimiser votre passage. Les clients de Charenton peuvent aussi nous joindre par téléphone ou email pour organiser une prise en charge.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="promesse" aria-labelledby="devis-charenton" data-animate="slide-up">
+  <div class="container">
+    <h2 id="devis-charenton" class="promesse__title">Transparence & devis</h2>
+    <p>
+      Tous nos devis sont écrits, détaillés et gratuits. Aucune intervention sans votre accord préalable. Pour toute demande, contactez-nous au <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a> ou via le <a href="/contact/">formulaire de contact</a>. Réponse rapide garantie.
+    </p>
+    <div style="margin-top: 1.5rem;">
+      <a class="btn btn--primary" href="/contact/">Demander un devis gratuit</a>
+    </div>
+  </div>
+</section>
+
+<section class="faq" aria-labelledby="faq-charenton" data-animate="slide-up">
+  <div class="container faq__inner">
+    <div>
+      <p class="section-kicker">FAQ</p>
+      <h2 id="faq-charenton">FAQ – Garage proche de Charenton-le-Pont</h2>
+    </div>
+    <div class="faq__list" data-accordion>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">Effectuez-vous un diagnostic avant la réparation ?</button>
+        <div class="faq__answer" hidden>
+          <p>Oui. Chaque intervention commence par un diagnostic précis. Nous vous transmettons un devis détaillé avant toute prise en charge.</p>
+        </div>
+      </article>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">Travaillez-vous sur toutes les marques automobiles ?</button>
+        <div class="faq__answer" hidden>
+          <p>Oui. Notre atelier est équipé pour l'ensemble des marques, y compris hybrides et électriques.</p>
+        </div>
+      </article>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">Réalisez-vous les révisions et l'entretien courant ?</button>
+        <div class="faq__answer" hidden>
+          <p>Oui. Révision constructeur, vidange, filtres, climatisation. Pièces d'origine et garantie préservée.</p>
+        </div>
+      </article>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">Comment obtenir une estimation rapide ?</button>
+        <div class="faq__answer" hidden>
+          <p>Par téléphone au <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a>, email ou formulaire en ligne. Nous répondons en général sous 24 heures.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

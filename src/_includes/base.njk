@@ -91,6 +91,13 @@
     {{ articleSchema | json | safe }}
     </script>
     {% endif %}
+
+    {% if localServiceSchema %}
+    <!-- JSON-LD Service (zone desservie) -->
+    <script type="application/ld+json">
+    {{ localServiceSchema | json | safe }}
+    </script>
+    {% endif %}
   </head>
   <body data-page="{{ pageKey | default('index') }}">
     <!-- Google Tag Manager (noscript) -->

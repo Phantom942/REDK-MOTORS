@@ -1,0 +1,196 @@
+---
+layout: base.njk
+title: "Garage automobile proche de Vitry-sur-Seine | RED-K MOTORS"
+description: "Mécanique, carrosserie et entretien à deux pas de Vitry-sur-Seine. Devis gratuit, pièces d'origine, véhicule de prêt. Venez au 9 rue Michelet à Ivry."
+pageKey: vitry
+permalink: /vitry-sur-seine/
+sitemap:
+  changefreq: monthly
+  priority: 0.8
+breadcrumb:
+  "@context": "https://schema.org"
+  "@type": "BreadcrumbList"
+  itemListElement:
+    - "@type": "ListItem"
+      position: 1
+      name: "Accueil"
+      item: "https://redk-motors.me/"
+    - "@type": "ListItem"
+      position: 2
+      name: "Garage proche Vitry-sur-Seine"
+      item: "https://redk-motors.me/vitry-sur-seine/"
+localServiceSchema:
+  "@context": "https://schema.org"
+  "@type": "Service"
+  serviceType: "Réparation et entretien automobile"
+  provider:
+    "@id": "https://redk-motors.me/#business"
+  areaServed:
+    "@type": "City"
+    name: "Vitry-sur-Seine"
+faqSchema:
+  "@context": "https://schema.org"
+  "@type": "FAQPage"
+  mainEntity:
+    - "@type": "Question"
+      name: "Proposez-vous un diagnostic avant toute réparation ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Oui. Nous effectuons toujours un diagnostic détaillé avant de proposer une intervention. Vous recevez un devis clair et détaillé avant toute prise en charge."
+    - "@type": "Question"
+      name: "Intervenez-vous sur toutes les marques de véhicules ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Oui, nous sommes équipés pour prendre en charge toutes les marques, du véhicule thermique à l'électrique. Nos techniciens sont formés aux dernières technologies."
+    - "@type": "Question"
+      name: "Faites-vous l'entretien et la révision constructeur ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Absolument. Nous respectons les préconisations constructeur et utilisons des pièces d'origine. Votre garantie constructeur est préservée."
+    - "@type": "Question"
+      name: "Comment obtenir un devis rapidement ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Par téléphone au 06.48.74.56.68, par email ou via notre formulaire de contact. Nous vous répondons sous 24 heures en général."
+---
+
+{% set heroActions %}
+<a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
+<a class="btn btn--secondary" href="tel:{{ site.phone }}">Nous appeler</a>
+{% endset %}
+{% set heroClass = "hero--subpage" %}
+{% set heroAria = "vitry-hero-title" %}
+{% set heroTitle = "Garage automobile proche de Vitry-sur-Seine" %}
+{% set heroKicker = "Zone desservie Val-de-Marne" %}
+{% set heroDesc = "À quelques minutes de Vitry, RED-K MOTORS vous accueille pour mécanique, carrosserie, entretien et pneumatiques. Devis gratuit, expertise multimarque." %}
+{% set videoSrc = "hero.mp4" %}
+{% include "hero-video.njk" %}
+
+<section class="service-focus" aria-labelledby="pourquoi-vitry" data-animate="slide-right">
+  <div class="container service-focus__inner">
+    <div>
+      <h2 id="pourquoi-vitry">Pourquoi choisir RED-K MOTORS depuis Vitry-sur-Seine ?</h2>
+      <p>
+        Vitry-sur-Seine et Ivry-sur-Seine sont des villes limitrophes. De nombreux Vitriots nous font confiance pour l'entretien et la réparation de leur véhicule. Notre atelier du 9 rue Michelet est facilement accessible depuis le centre de Vitry, que vous arriviez par la RD5 ou les axes secondaires. Nous offrons un cadre professionnel, une expertise reconnue et une relation client transparente.
+      </p>
+      <p>
+        Notre équipe connaît les habitudes de circulation des habitants du Val-de-Marne. Nous savons combien il est important de pouvoir compter sur un garage réactif et fiable, sans avoir à traverser tout Paris pour faire réviser sa voiture. C'est pour cela que nous nous engageons sur des délais clairs et une communication directe à chaque étape.
+      </p>
+    </div>
+    <div class="service-focus__visual" aria-hidden="true">Vitry</div>
+  </div>
+</section>
+
+<section class="promesse" aria-labelledby="services-vitry" data-animate="slide-up">
+  <div class="container">
+    <h2 id="services-vitry" class="promesse__title">Nos services pour les conducteurs de Vitry-sur-Seine</h2>
+    <p style="margin-bottom: 1.5rem;">
+      Quels que soient les besoins de votre véhicule, nous proposons une offre complète adaptée aux automobilistes du sud parisien.
+    </p>
+    <div class="promesse__grid">
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3><a href="/mecanique/">Mécanique</a></h3>
+          <p>Diagnostic moteur, réparation, distribution, injection. Nos techniciens identifient et corrigent les pannes avec des pièces d'origine.</p>
+        </div>
+      </div>
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3><a href="/carrosserie/">Carrosserie</a></h3>
+          <p>Rayures, bosses, sinistres : nos carrossiers redonnent à votre véhicule son aspect d'origine. Agréés assurances.</p>
+        </div>
+      </div>
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3><a href="/entretien/">Entretien</a></h3>
+          <p>Révision constructeur, vidange, filtres, climatisation. Garantie constructeur préservée, carnet d'entretien respecté.</p>
+        </div>
+      </div>
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3><a href="/pneumatiques/">Pneumatiques</a></h3>
+          <p>Montage, équilibrage, géométrie 3D. Pneus été, hiver ou toutes saisons, large stock disponible.</p>
+        </div>
+      </div>
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3><a href="/achat-revente/">Achat & revente</a></h3>
+          <p>Reprise de véhicule au juste prix, paiement immédiat. Sélection de modèles contrôlés 120 points.</p>
+        </div>
+      </div>
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3><a href="/location/">Location</a></h3>
+          <p>Véhicule de prêt pendant vos réparations. Citadine, SUV ou utilitaire selon vos besoins.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="service-focus service-focus--alt" aria-labelledby="acces-vitry" data-animate="slide-left">
+  <div class="container service-focus__inner">
+    <div>
+      <h2 id="acces-vitry">Accès et temps de trajet depuis Vitry-sur-Seine</h2>
+      <p>
+        Notre atelier est situé 9 rue Michelet à Ivry-sur-Seine, à quelques minutes de Vitry-sur-Seine. L'accès est fluide via la RD5 (avenue de la République) ou les itinéraires secondaires. Le quartier est bien desservi et la circulation reste raisonnable en dehors des heures de pointe.
+      </p>
+      <p>
+        De nombreux clients de Vitry nous rejoignent facilement, que ce soit en voiture ou en transport en commun (ligne 7 du métro, arrêt Mairie d'Ivry à proximité). Nous sommes ouverts du lundi au samedi de 10h à 20h. Pensez à prendre rendez-vous pour éviter l'attente.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="promesse" aria-labelledby="devis-vitry" data-animate="slide-up">
+  <div class="container">
+    <h2 id="devis-vitry" class="promesse__title">Transparence & devis</h2>
+    <p>
+      Chez RED-K MOTORS, pas de mauvaise surprise. Nous vous fournissons un devis écrit, détaillé et gratuit avant toute intervention. Vous validez, on intervient. Simple et transparent. Pour toute question ou pour demander un devis, contactez-nous par téléphone au <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a> ou via notre <a href="/contact/">formulaire de contact</a>. Notre équipe vous répond sous 24 heures.
+    </p>
+    <div style="margin-top: 1.5rem;">
+      <a class="btn btn--primary" href="/contact/">Demander un devis gratuit</a>
+    </div>
+  </div>
+</section>
+
+<section class="faq" aria-labelledby="faq-vitry" data-animate="slide-up">
+  <div class="container faq__inner">
+    <div>
+      <p class="section-kicker">FAQ</p>
+      <h2 id="faq-vitry">FAQ – Garage proche de Vitry-sur-Seine</h2>
+    </div>
+    <div class="faq__list" data-accordion>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">Proposez-vous un diagnostic avant toute réparation ?</button>
+        <div class="faq__answer" hidden>
+          <p>Oui. Nous effectuons toujours un diagnostic détaillé avant de proposer une intervention. Vous recevez un devis clair et détaillé avant toute prise en charge.</p>
+        </div>
+      </article>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">Intervenez-vous sur toutes les marques de véhicules ?</button>
+        <div class="faq__answer" hidden>
+          <p>Oui, nous sommes équipés pour prendre en charge toutes les marques, du véhicule thermique à l'électrique. Nos techniciens sont formés aux dernières technologies.</p>
+        </div>
+      </article>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">Faites-vous l'entretien et la révision constructeur ?</button>
+        <div class="faq__answer" hidden>
+          <p>Absolument. Nous respectons les préconisations constructeur et utilisons des pièces d'origine. Votre garantie constructeur est préservée.</p>
+        </div>
+      </article>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">Comment obtenir un devis rapidement ?</button>
+        <div class="faq__answer" hidden>
+          <p>Par téléphone au <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a>, par email ou via notre formulaire de contact. Nous vous répondons sous 24 heures en général.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

@@ -1,3 +1,5 @@
+# Workflow Eleventy → GitHub Pages (PAS Jekyll)
+# Réglage requis : Settings → Pages → Build and deployment → Source = "GitHub Actions"
 name: Deploy to GitHub Pages
 
 on:
