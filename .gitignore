@@ -26,9 +26,10 @@ npm-debug.log*
 # Node modules (si vous ajoutez des dépendances plus tard)
 node_modules/
 
-# Fichiers de build (si vous utilisez un build tool)
+# Fichiers de build
 dist/
 build/
+_site/
 
 # Variables d'environnement (si nécessaire)
 .env

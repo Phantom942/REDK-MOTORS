@@ -1,0 +1,32 @@
+<section class="hero {{ heroClass }}" {% if heroAria %}aria-labelledby="{{ heroAria }}"{% endif %}>
+  <div class="hero__video-bg" aria-hidden="true">
+    <video
+      class="hero__video-player"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      poster="/assets/posters/hero-placeholder.svg"
+      aria-label="Vidéo de présentation du garage"
+      disablePictureInPicture
+      disableRemotePlayback
+    >
+      <source data-src="/assets/video/{{ videoSrc }}" type="video/mp4" />
+      Votre navigateur ne supporte pas la lecture de vidéos.
+    </video>
+  </div>
+  <div class="hero__overlay" aria-hidden="true"></div>
+  <div class="container hero__content">
+    <div>
+      {% if heroKicker %}<p class="hero__kicker">{{ heroKicker }}</p>{% endif %}
+      <h1 {% if heroAria %}id="{{ heroAria }}"{% endif %}>{{ heroTitle }}</h1>
+      {% if heroDesc %}<p>{{ heroDesc }}</p>{% endif %}
+      {% if heroActions %}
+      <div class="hero__actions">
+        {{ heroActions | safe }}
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</section>

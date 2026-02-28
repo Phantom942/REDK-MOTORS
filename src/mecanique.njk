@@ -1,0 +1,367 @@
+---
+layout: base.njk
+title: "Diagnostic moteur & réparation mécanique à Ivry-sur-Seine (94) | RED-K MOTORS"
+description: "Votre moteur fait un bruit suspect ou un voyant s'allume ? Nos techniciens identifient le problème en moins d'une heure et vous proposent une solution claire, avec devis offert et pièces d'origine."
+pageKey: mecanique
+breadcrumb:
+  "@context": "https://schema.org"
+  "@type": "BreadcrumbList"
+  itemListElement:
+    - "@type": "ListItem"
+      position: 1
+      name: "Accueil"
+      item: "https://redk-motors.me/"
+    - "@type": "ListItem"
+      position: 2
+      name: "Mécanique"
+      item: "https://redk-motors.me/mecanique/"
+---
+
+{% set heroActions %}
+<a class="btn btn--primary" href="/contact/">Diagnostiquer mon véhicule</a>
+<a class="btn btn--secondary" href="#mecanique">Voir nos expertises</a>
+{% endset %}
+{% set heroClass = "hero--subpage" %}
+{% set heroAria = "mecanique-hero-title" %}
+{% set heroTitle = "Un problème mécanique ? On trouve la solution." %}
+{% set heroKicker = "Diagnostic voyant moteur et réparation à Ivry-sur-Seine" %}
+{% set heroDesc = "Prolongez la durée de vie de votre moteur avec un diagnostic électronique précis et des réparations certifiées. Devis gratuit, pièces d'origine, véhicule de remplacement possible." %}
+{% set videoSrc = "mecanique.mp4" %}
+{% include "hero-video.njk" %}
+
+<section id="mecanique" class="service-focus" aria-labelledby="mecanique-title" data-animate="slide-right">
+  <div class="container service-focus__inner">
+    <div>
+      <h2 id="mecanique-title">On écoute votre moteur avant de toucher à quoi que ce soit</h2>
+      <p>
+        Retrouvez la sérénité au volant : diagnostic électronique multimarque, réparation moteur et transmission par des techniciens certifiés. Interventions rapides et devis transparent à Ivry-sur-Seine.
+      </p>
+      <ul>
+        <li>Diagnostic électronique multimarques</li>
+        <li>Entretiens moteurs thermiques, hybrides et électriques</li>
+        <li>Préparation performance et optimisation</li>
+      </ul>
+    </div>
+    <div class="service-focus__visual" aria-hidden="true">Mécanique</div>
+  </div>
+</section>
+
+<section class="promesse" aria-labelledby="pourquoi-mecanique" data-animate="slide-up">
+  <div class="container">
+    <h2 id="pourquoi-mecanique" class="promesse__title">Ce qui fait la différence chez RED-K</h2>
+    <div class="promesse__grid">
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3>Expertise multimarque</h3>
+          <p>Techniciens formés toutes marques, du véhicule thermique à l'électrique. Diagnostic et réparation moteur de qualité.</p>
+        </div>
+      </div>
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3>Devis transparent</h3>
+          <p>Devis gratuit, détaillé et sans surprise. Vous validez avant toute intervention.</p>
+        </div>
+      </div>
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3>Pièces certifiées</h3>
+          <p>Pièces d'origine ou équivalent qualité constructeur. Garantie constructeur préservée.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="atelier-suite" aria-labelledby="meca-tabs-title" data-animate="slide-right">
+  <div class="container">
+    <div class="section-header atelier-suite__header">
+      <div>
+        <p class="section-kicker">Compétences</p>
+        <h2 id="meca-tabs-title">Tout ce qu'on sait faire sous le capot</h2>
+      </div>
+      <p>
+        Thermique, hybride ou électrique : nos techniciens prennent en charge l'entretien courant comme les interventions
+        plus pointues.
+      </p>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Domaines d'expertise mécanique" data-tabs="meca-tabs">
+      <button
+        id="tab-moteur"
+        class="tabs__trigger"
+        type="button"
+        role="tab"
+        aria-selected="true"
+        aria-controls="panel-moteur"
+        data-tab-target="panel-moteur"
+      >
+        Bloc moteur
+      </button>
+      <button
+        id="tab-transmission"
+        class="tabs__trigger"
+        type="button"
+        role="tab"
+        aria-selected="false"
+        aria-controls="panel-transmission"
+        data-tab-target="panel-transmission"
+      >
+        Transmission
+      </button>
+      <button
+        id="tab-electronique"
+        class="tabs__trigger"
+        type="button"
+        role="tab"
+        aria-selected="false"
+        aria-controls="panel-electronique"
+        data-tab-target="panel-electronique"
+      >
+        Électronique
+      </button>
+    </div>
+
+    <div class="tabs__panels">
+      <article
+        id="panel-moteur"
+        class="tabs__panel is-active"
+        role="tabpanel"
+        tabindex="0"
+        aria-labelledby="tab-moteur"
+      >
+        <div class="tabs__panel-inner">
+          <div>
+            <h3>Entretien moteur et diagnostics</h3>
+            <p>Vidanges, distribution, recherche de pannes : nous intervenons sur toutes les motorisations.</p>
+            <ul class="checklist">
+              <li>Recherche de fuite et tests de compression</li>
+              <li>Distribution, injection, bougies, carburant</li>
+              <li>Compte rendu clair en fin d'intervention</li>
+            </ul>
+          </div>
+          <div class="tabs__panel-visual">
+            <span class="hud" aria-hidden="true">Moteur remis d'aplomb</span>
+          </div>
+        </div>
+      </article>
+      <article
+        id="panel-transmission"
+        class="tabs__panel"
+        role="tabpanel"
+        tabindex="0"
+        aria-labelledby="tab-transmission"
+      >
+        <div class="tabs__panel-inner">
+          <div>
+            <h3>Transmission et liaisons au sol</h3>
+            <p>Boîtes automatiques, ponts, embrayages, trains roulants : on s'occupe du comportement routier.</p>
+            <ul class="checklist">
+              <li>Vidanges de boîtes auto et ponts</li>
+              <li>Remplacement embrayage et volant moteur</li>
+              <li>Essai routier validant les réglages</li>
+            </ul>
+          </div>
+          <div class="tabs__panel-visual">
+            <span class="hud hud--planning" aria-hidden="true">Transmission au top</span>
+          </div>
+        </div>
+      </article>
+      <article
+        id="panel-electronique"
+        class="tabs__panel"
+        role="tabpanel"
+        tabindex="0"
+        aria-labelledby="tab-electronique"
+      >
+        <div class="tabs__panel-inner">
+          <div>
+            <h3>Électronique et confort</h3>
+            <p>Diagnostic valise, climatisation, systèmes d'aide à la conduite : on vérifie que tout fonctionne.</p>
+            <ul class="checklist">
+              <li>Lecture défauts et effacement</li>
+              <li>Climatisation et recharge</li>
+              <li>Calibrage aides à la conduite si nécessaire</li>
+            </ul>
+          </div>
+          <div class="tabs__panel-visual">
+            <span class="hud hud--support" aria-hidden="true">Tableau de bord sans voyant</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="workflow" aria-labelledby="meca-workflow" data-animate="slide-left">
+  <div class="container workflow__inner">
+    <div class="workflow__intro">
+      <p class="section-kicker">Process atelier</p>
+      <h2 id="meca-workflow">Chaque étape documentée, zéro mauvaise surprise</h2>
+      <p>
+        Chaque intervention suit un protocole strict garantissant traçabilité, qualité et restitution dans les délais.
+      </p>
+    </div>
+    <ol class="workflow__steps">
+      <li>
+        <span class="workflow__step-number">01</span>
+        <h3>Diagnostic</h3>
+        <p>Branchement de la valise, lecture des codes défaut, inspection visuelle complète.</p>
+        <span class="workflow__chip">~45 min</span>
+      </li>
+      <li>
+        <span class="workflow__step-number">02</span>
+        <h3>Devis</h3>
+        <p>On vous explique ce qu'on a trouvé, on chiffre les pièces et la main-d'œuvre, vous validez.</p>
+        <span class="workflow__chip">Validation client</span>
+      </li>
+      <li>
+        <span class="workflow__step-number">03</span>
+        <h3>Réparation</h3>
+        <p>Nos mécaniciens interviennent avec des pièces d'origine. Chaque travail est vérifié avant restitution.</p>
+        <span class="workflow__chip">Pièces d'origine</span>
+      </li>
+      <li>
+        <span class="workflow__step-number">04</span>
+        <h3>Restitution</h3>
+        <p>Essai routier si nécessaire, nettoyage et restitution avec explication des travaux réalisés.</p>
+        <span class="workflow__chip">Travaux expliqués</span>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="faq" aria-labelledby="meca-faq" data-animate="slide-up">
+  <div class="container faq__inner">
+    <div>
+      <p class="section-kicker">FAQ mécanique</p>
+      <h2 id="meca-faq">Ce que nos clients nous demandent souvent</h2>
+      <p>Notre chef d'atelier vous répond et vous accompagne avant, pendant et après l'intervention.</p>
+    </div>
+    <div class="faq__list" data-accordion>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">
+          Proposez-vous une voiture de courtoisie pendant les réparations moteur ?
+        </button>
+        <div class="faq__answer" hidden>
+          <p>
+            Oui, sur demande lors de la prise de rendez-vous. Notre système vous réserve automatiquement un véhicule
+            adapté selon la durée d'immobilisation.
+          </p>
+        </div>
+      </article>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">
+          Est-il possible de conserver ma garantie constructeur ?
+        </button>
+        <div class="faq__answer" hidden>
+          <p>
+            Nous respectons les préconisations constructeur, utilisons des pièces d'origine et enregistrons les opérations
+            dans le carnet numérique officiel.
+          </p>
+        </div>
+      </article>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">
+          Réalisez-vous des préparations performance homologuées ?
+        </button>
+        <div class="faq__answer" hidden>
+          <p>
+            Nous pouvons réaliser certaines optimisations moteur. Contactez-nous pour discuter de votre projet, on vous dira ce qui est faisable.
+          </p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="why-us" aria-labelledby="why-title" data-animate="zoom-in">
+  <div class="container">
+    <h2 id="why-title">Un garage de passionnés, pas une chaîne</h2>
+    <div class="grid grid--four">
+      <div class="pill">
+        <h3>Expertise</h3>
+        <p>Techniciens certifiés et formation continue sur les dernières motorisations.</p>
+      </div>
+      <div class="pill">
+        <h3>Équipement</h3>
+        <p>Bancs de diagnostic, outils constructeur et calibrage ADAS.</p>
+      </div>
+      <div class="pill">
+        <h3>Transparence</h3>
+        <p>Compte-rendu détaillé, devis approuvé avant toute intervention.</p>
+      </div>
+      <div class="pill">
+        <h3>Garantie</h3>
+        <p>Pièces d'origine et garantie constructeur préservée.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="appointment" aria-labelledby="appointment-title" data-animate="slide-left">
+  <div class="container appointment__inner">
+    <div>
+      <h2 id="appointment-title">Besoin d'un diagnostic ?</h2>
+      <p>Réservez un créneau en atelier, notre équipe vous recontacte sous 24 heures.</p>
+      <dl>
+        <div>
+          <dt>Téléphone</dt>
+          <dd><a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a></dd>
+        </div>
+        <div>
+          <dt>Email</dt>
+          <dd><a href="mailto:{{ site.email }}">{{ site.email }}</a></dd>
+        </div>
+        <div>
+          <dt>Adresse</dt>
+          <dd><a href="https://www.google.com/maps?q=9+rue+Michelet+94200+Ivry-sur-Seine" target="_blank" rel="noopener noreferrer">{{ site.addressFull }}</a></dd>
+        </div>
+      </dl>
+    </div>
+    <form class="form" aria-label="Formulaire de prise de rendez-vous" action="https://formsubmit.co/{{ site.email }}" method="POST">
+      <input type="hidden" name="_next" value="{{ site.url }}/merci">
+      <input type="hidden" name="_subject" value="Demande mécanique depuis le site {{ site.name }}">
+      <input type="hidden" name="_captcha" value="true">
+      <div class="form__group">
+        <label for="name">Nom complet</label>
+        <input type="text" id="name" name="name" placeholder="Jean Dupont" required />
+      </div>
+      <div class="form__group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="jean.dupont@email.com" required />
+      </div>
+      <div class="form__group">
+        <label for="phone">Téléphone</label>
+        <input type="tel" id="phone" name="phone" placeholder="06 12 34 56 78" />
+      </div>
+      <div class="form__group">
+        <label for="service">Service souhaité</label>
+        <select id="service" name="service">
+          <option value="revision">Révision</option>
+          <option value="diagnostic">Diagnostic</option>
+          <option value="carrosserie">Carrosserie</option>
+          <option value="financement">Projet véhicule</option>
+        </select>
+      </div>
+      <div class="form__group form__group--full">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4" placeholder="Votre demande..."></textarea>
+      </div>
+      <button class="btn btn--primary" type="submit">Envoyer ma demande</button>
+    </form>
+  </div>
+</section>
+
+<section class="guarantees-block" aria-labelledby="garanties-mecanique">
+  <div class="container">
+    <h2 id="garanties-mecanique" class="guarantees-block__title">Notre engagement, noir sur blanc</h2>
+    <ul class="guarantees-block__list">
+      <li>Pièces d'origine</li>
+      <li>Garantie constructeur préservée</li>
+      <li>Devis gratuit</li>
+    </ul>
+  </div>
+</section>

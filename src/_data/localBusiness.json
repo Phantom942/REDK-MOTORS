@@ -1,0 +1,42 @@
+{
+  "schema": {
+    "@context": "https://schema.org",
+    "@type": ["AutoRepair", "LocalBusiness"],
+    "name": "RED-K MOTORS",
+    "description": "Garage automobile à Ivry-sur-Seine spécialisé en mécanique, carrosserie et entretien multimarque. Devis gratuit, pièces d'origine et véhicule de prêt. Ouvert du lundi au samedi de 10h à 20h.",
+    "image": "https://redk-motors.me/assets/img/achat-revente.jpg",
+    "url": "https://redk-motors.me",
+    "telephone": "+33648745668",
+    "email": "contact@redk-motors.me",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "9 rue Michelet",
+      "addressLocality": "Ivry-sur-Seine",
+      "postalCode": "94200",
+      "addressRegion": "Île-de-France",
+      "addressCountry": "FR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 48.8105,
+      "longitude": 2.3942
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "10:00",
+        "closes": "20:00"
+      }
+    ],
+    "areaServed": {
+      "@type": "City",
+      "name": "Ivry-sur-Seine",
+      "containedInPlace": {
+        "@type": "AdministrativeArea",
+        "name": "Val-de-Marne"
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+<div class="scroll-progress" aria-hidden="true">
+  <span class="scroll-progress__indicator"></span>
+</div>
+<a class="skip-link" href="#main">Aller au contenu principal</a>
+
+<div class="top-bar">
+  <div class="container">
+    <p>{{ site.openingHours }} · <a href="tel:{{ site.phone }}" style="color:inherit;text-decoration:underline">{{ site.phoneDisplay }}</a> · <a href="mailto:{{ site.email }}" style="color:inherit;text-decoration:underline">{{ site.email }}</a> · <a href="https://www.google.com/maps?q=9+rue+Michelet+94200+Ivry-sur-Seine" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline">{{ site.addressFull }}</a></p>
+    <a href="tel:{{ site.phone }}" class="top-bar__phone">{{ site.phoneDisplay }}</a>
+    <a class="btn btn--ghost" href="/contact/" aria-label="Prendre rendez-vous au garage">Prendre rendez-vous</a>
+    {% if showWhatsApp %}
+    <a href="https://wa.me/33648745668" class="whatsapp-link" target="_blank" rel="noopener noreferrer" aria-label="Nous contacter sur WhatsApp">
+      WhatsApp
+    </a>
+    {% endif %}
+  </div>
+</div>
+
+<header class="main-header" role="banner">
+  <div class="container main-header__inner">
+    <a class="logo" href="/" aria-label="Accueil {{ site.name }}">
+      <span class="logo__accent">RED-K</span> MOTORS
+    </a>
+    <nav class="main-nav" aria-label="Navigation principale">
+      <button class="main-nav__toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
+        <span class="sr-only">Ouvrir le menu</span>
+        ☰
+      </button>
+      <ul id="primary-menu">
+        {% for item in site.nav %}
+        <li>
+          <a href="{{ item.url }}" {% if pageKey == item.key %}aria-current="page"{% endif %} aria-label="{{ item.title }}">
+            {{ item.title }}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</header>

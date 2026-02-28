@@ -1,0 +1,189 @@
+---
+layout: base.njk
+title: "Processus client Ivry-sur-Seine (94) | Proche Vitry et Paris 13 | RED-K MOTORS"
+description: "Processus client RED-K MOTORS : de la prise de contact à la restitution du véhicule étape par étape."
+pageKey: processus
+breadcrumb:
+  "@context": "https://schema.org"
+  "@type": "BreadcrumbList"
+  itemListElement:
+    - "@type": "ListItem"
+      position: 1
+      name: "Accueil"
+      item: "https://redk-motors.me/"
+    - "@type": "ListItem"
+      position: 2
+      name: "Processus"
+      item: "https://redk-motors.me/processus/"
+---
+
+{% set heroActions %}
+<a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
+{% endset %}
+{% set heroClass = "hero--subpage" %}
+{% set heroAria = "process-hero-title" %}
+{% set heroTitle = "Votre passage au garage, étape par étape" %}
+{% set heroKicker = "Votre parcours client maîtrisé" %}
+{% set heroDesc = "De la prise de contact à la restitution, découvrez comment nous structurons chaque étape pour garantir qualité, transparence et sérénité." %}
+{% set videoSrc = "hero.mp4" %}
+{% include "hero-video.njk" %}
+
+<section class="process-intro" aria-labelledby="process-intro-title" data-animate="slide-up">
+  <div class="container process-hero__meta">
+    <div class="process-hero__meta-card">
+      <span class="status-dot status-dot--online"></span>
+      <span>Suivi en ligne</span>
+    </div>
+    <div class="process-hero__meta-card">
+      <span class="status-dot status-dot--online"></span>
+      <span>Equipe dédiée</span>
+    </div>
+  </div>
+</section>
+
+<section class="process-timeline" aria-labelledby="timeline-title" data-animate="slide-up">
+  <div class="container">
+    <h2 id="timeline-title">Comment ça se passe concrètement</h2>
+    <p class="process-timeline__summary" style="text-align:center; margin-bottom:2rem; font-weight:600; color: var(--color-black);">Prise de RDV → Diagnostic → Réparation → Restitution</p>
+    <div class="process-timeline__wrapper">
+      <ol class="process-timeline__track">
+        <li>
+          <span class="process-step__badge">01</span>
+          <h3>Prise de contact</h3>
+          <p>Vous nous appelez, envoyez un message WhatsApp ou passez directement. On écoute votre problème et on programme un rendez-vous.</p>
+        </li>
+        <li>
+          <span class="process-step__badge">02</span>
+          <h3>Diagnostic</h3>
+          <p>On examine votre véhicule, on identifie le problème et on vous appelle pour vous expliquer ce qu'on a trouvé.</p>
+        </li>
+        <li>
+          <span class="process-step__badge">03</span>
+          <h3>Devis et validation</h3>
+          <p>On vous envoie un devis détaillé avec le prix des pièces et de la main-d'œuvre. Rien ne démarre sans votre accord.</p>
+        </li>
+        <li>
+          <span class="process-step__badge">04</span>
+          <h3>Réparation</h3>
+          <p>Nos mécaniciens interviennent avec des pièces d'origine. On vous tient au courant de l'avancement.</p>
+        </li>
+        <li>
+          <span class="process-step__badge">05</span>
+          <h3>Restitution</h3>
+          <p>On vous explique ce qu'on a fait, on nettoie votre véhicule et vous repartez tranquille.</p>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="process-modules" aria-labelledby="modules-title" data-animate="slide-right">
+  <div class="container process-modules__grid">
+    <div class="process-modules__intro">
+      <p class="section-kicker">Notre façon de travailler</p>
+      <h2 id="modules-title">Suivez l'avancement de votre véhicule en temps réel</h2>
+      <p>
+        On mise sur la communication directe et la transparence pour que vous sachiez toujours où en est votre véhicule.
+      </p>
+    </div>
+    <div class="process-modules__cards">
+      <article class="process-card">
+        <header>
+          <span class="process-card__icon" aria-hidden="true">🔧</span>
+          <h3>Atelier organisé</h3>
+        </header>
+        <p>Chaque véhicule a son planning, ses pièces commandées et son mécanicien attitré.</p>
+        <ul class="checklist">
+          <li>Un interlocuteur dédié</li>
+          <li>Pièces commandées à l'avance</li>
+          <li>Délais respectés</li>
+        </ul>
+      </article>
+      <article class="process-card">
+        <header>
+          <span class="process-card__icon" aria-hidden="true">📱</span>
+          <h3>Vous êtes toujours informé</h3>
+        </header>
+        <p>On vous appelle, on vous envoie des photos par WhatsApp, et rien ne se fait sans votre validation.</p>
+        <ul class="checklist">
+          <li>Appel à chaque étape clé</li>
+          <li>Photos des travaux par WhatsApp</li>
+          <li>Devis validé avant intervention</li>
+        </ul>
+      </article>
+      <article class="process-card">
+        <header>
+          <span class="process-card__icon" aria-hidden="true">📋</span>
+          <h3>Tout est tracé</h3>
+        </header>
+        <p>Chaque intervention est consignée : pièces utilisées, travaux réalisés, prochaines échéances.</p>
+        <ul class="checklist">
+          <li>Facture détaillée</li>
+          <li>Pièces d'origine référencées</li>
+          <li>Historique conservé</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="process-matrix" aria-labelledby="matrix-title" data-animate="slide-left">
+  <div class="container process-matrix__inner">
+    <div class="process-matrix__content">
+      <p class="section-kicker">Nos formules</p>
+      <h2 id="matrix-title">Un accompagnement adapté à chaque situation</h2>
+      <p>
+        Selon vos besoins, on adapte notre prise en charge. Voici ce qu'on propose selon le type d'intervention.
+      </p>
+    </div>
+    <div class="process-matrix__table" role="table" aria-label="Niveaux de service RED-K MOTORS">
+      <div class="process-matrix__row process-matrix__row--head" role="row">
+        <span role="columnheader">Module</span>
+        <span role="columnheader">Essentiel</span>
+        <span role="columnheader">Avancé</span>
+        <span role="columnheader">Signature</span>
+      </div>
+      <div class="process-matrix__row" role="row">
+        <span role="cell">Diagnostic & devis</span>
+        <span role="cell">Devis écrit</span>
+        <span role="cell">Devis + photos</span>
+        <span role="cell">Devis + appel dédié</span>
+      </div>
+      <div class="process-matrix__row" role="row">
+        <span role="cell">Suivi intervention</span>
+        <span role="cell">Appel en fin de travaux</span>
+        <span role="cell">SMS/WhatsApp à chaque étape</span>
+        <span role="cell">Contact direct mécanicien</span>
+      </div>
+      <div class="process-matrix__row" role="row">
+        <span role="cell">Restitution</span>
+        <span role="cell">Restitution sur place</span>
+        <span role="cell">Explication détaillée</span>
+        <span role="cell">Restitution à domicile</span>
+      </div>
+      <div class="process-matrix__row" role="row">
+        <span role="cell">Suivi post-atelier</span>
+        <span role="cell">Rappel prochain entretien</span>
+        <span role="cell">Suivi régulier</span>
+        <span role="cell">Conseiller attitré</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process-cta" aria-labelledby="process-cta-title" data-animate="slide-up">
+  <div class="container process-cta__inner">
+    <div>
+      <p class="section-kicker">Prêt à démarrer ?</p>
+      <h2 id="process-cta-title">Prenez rendez-vous, on s'occupe du reste</h2>
+      <p>
+        Notre équipe vous recontacte sous 24 h pour valider l'analyse, confirmer le créneau atelier et réserver un
+        véhicule de courtoisie si besoin.
+      </p>
+    </div>
+    <div class="process-cta__actions">
+      <a class="btn btn--primary" href="/contact/">Contacter l'atelier</a>
+      <a class="btn btn--secondary" href="/#appointment">Formulaire express</a>
+    </div>
+  </div>
+</section>

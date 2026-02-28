@@ -1,0 +1,295 @@
+---
+layout: base.njk
+title: "Révision & entretien auto à Ivry-sur-Seine (94) | Garantie constructeur préservée | RED-K MOTORS"
+description: "Ne laissez pas l'usure prendre le dessus. Révision complète, vidange, climatisation et freins à Ivry-sur-Seine — on garde votre auto en pleine forme sans toucher à la garantie constructeur."
+pageKey: entretien
+breadcrumb:
+  "@context": "https://schema.org"
+  "@type": "BreadcrumbList"
+  itemListElement:
+    - "@type": "ListItem"
+      position: 1
+      name: "Accueil"
+      item: "https://redk-motors.me/"
+    - "@type": "ListItem"
+      position: 2
+      name: "Entretien"
+      item: "https://redk-motors.me/entretien/"
+---
+
+{% set heroActions %}
+<a class="btn btn--primary" href="/contact/">Planifier une révision</a>
+<a class="btn btn--secondary" href="#entretien">Voir nos formules</a>
+{% endset %}
+{% set heroClass = "hero--subpage" %}
+{% set heroAria = "entretien-hero-title" %}
+{% set heroTitle = "Gardez votre voiture en pleine forme" %}
+{% set heroKicker = "Entretien constructeur multimarques" %}
+{% set heroDesc = "Révision constructeur, vidanges, climatisation : notre équipe maintient votre véhicule dans les meilleures conditions pour garantir fiabilité et sécurité." %}
+{% set videoSrc = "entretien.mp4" %}
+{% include "hero-video.njk" %}
+
+<section id="entretien" class="service-focus" aria-labelledby="entretien-title" data-animate="slide-right">
+  <div class="container service-focus__inner">
+    <div>
+      <h2 id="entretien-title">Votre révision, comme chez le concessionnaire — la proximité en plus</h2>
+      <p>
+        Respectez le carnet d'entretien constructeur tout en profitant de l'expertise RED-K MOTORS pour prolonger la
+        durée de vie de votre automobile.
+      </p>
+      <ul>
+        <li>Révisions multimarques et garantie constructeur préservée</li>
+        <li>Vidange, filtres, climatisation, freins et suspensions</li>
+        <li>Contrôle sécurité avant voyage ou contrôle technique</li>
+      </ul>
+    </div>
+    <div class="service-focus__visual" aria-hidden="true">Entretien</div>
+  </div>
+</section>
+
+<section class="promesse" aria-labelledby="pourquoi-entretien" data-animate="slide-up">
+  <div class="container">
+    <h2 id="pourquoi-entretien" class="promesse__title">Pourquoi nos clients ne retournent plus chez le concessionnaire</h2>
+    <div class="promesse__grid">
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3>Expertise multimarque</h3>
+          <p>Révision et entretien toutes marques. Historique constructeur préservé.</p>
+        </div>
+      </div>
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3>Devis transparent</h3>
+          <p>Devis gratuit. Aucun travail sans votre accord préalable.</p>
+        </div>
+      </div>
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3>Pièces certifiées</h3>
+          <p>Pièces d'origine pour préserver la garantie et la longévité de votre véhicule.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="atelier-suite" aria-labelledby="entretien-tabs" data-animate="slide-left">
+  <div class="container">
+    <div class="section-header atelier-suite__header">
+      <div>
+        <p class="section-kicker">Formules sur-mesure</p>
+        <h2 id="entretien-tabs">Une formule adaptée à votre façon de rouler</h2>
+      </div>
+      <p>
+        Nous respectons les recommandations constructeur et tenons compte de votre utilisation quotidienne.
+      </p>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Formules entretien RED-K" data-tabs="entretien-tabs">
+      <button
+        id="tab-constructeur"
+        class="tabs__trigger"
+        type="button"
+        role="tab"
+        aria-selected="true"
+        aria-controls="panel-constructeur"
+        data-tab-target="panel-constructeur"
+      >
+        Constructeur
+      </button>
+      <button
+        id="tab-hybride"
+        class="tabs__trigger"
+        type="button"
+        role="tab"
+        aria-selected="false"
+        aria-controls="panel-hybride"
+        data-tab-target="panel-hybride"
+      >
+        Hybride &amp; EV
+      </button>
+      <button
+        id="tab-flotte"
+        class="tabs__trigger"
+        type="button"
+        role="tab"
+        aria-selected="false"
+        aria-controls="panel-flotte"
+        data-tab-target="panel-flotte"
+      >
+        Flottes pros
+      </button>
+    </div>
+
+    <div class="tabs__panels">
+      <article
+        id="panel-constructeur"
+        class="tabs__panel is-active"
+        role="tabpanel"
+        tabindex="0"
+        aria-labelledby="tab-constructeur"
+      >
+        <div class="tabs__panel-inner">
+          <div>
+            <h3>Révision constructeur certifiée</h3>
+            <p>Vidanges, filtres, contrôles sécurité : nous suivons le plan du constructeur pas à pas.</p>
+            <ul class="checklist">
+              <li>Pièces et lubrifiants adaptés</li>
+              <li>Mise à jour du carnet d'entretien</li>
+              <li>Essai routier si nécessaire</li>
+            </ul>
+          </div>
+          <div class="tabs__panel-visual">
+            <span class="hud" aria-hidden="true">Garantie maintenue</span>
+          </div>
+        </div>
+      </article>
+      <article
+        id="panel-hybride"
+        class="tabs__panel"
+        role="tabpanel"
+        tabindex="0"
+        aria-labelledby="tab-hybride"
+      >
+        <div class="tabs__panel-inner">
+          <div>
+            <h3>Expertise hybride &amp; électrique</h3>
+            <p>Batterie, système de recharge, freinage régénératif : l'entretien des nouvelles motorisations.</p>
+            <ul class="checklist">
+              <li>Contrôle batterie haute tension</li>
+              <li>Vérification des organes de sécurité</li>
+              <li>Mises à jour du système si besoin</li>
+            </ul>
+          </div>
+          <div class="tabs__panel-visual">
+            <span class="hud hud--planning" aria-hidden="true">Autonomie préservée</span>
+          </div>
+        </div>
+      </article>
+      <article id="panel-flotte" class="tabs__panel" role="tabpanel" tabindex="0" aria-labelledby="tab-flotte">
+        <div class="tabs__panel-inner">
+          <div>
+            <h3>Gestion de parc professionnelle</h3>
+            <p>Entretiens groupés, suivi des kilomètres, alertes conducteurs : on pilote votre flotte avec vous.</p>
+            <ul class="checklist">
+              <li>Planification adaptée à vos contraintes</li>
+              <li>Alertes pour chaque véhicule</li>
+              <li>Facturation regroupée</li>
+            </ul>
+          </div>
+          <div class="tabs__panel-visual">
+            <span class="hud hud--support" aria-hidden="true">Parc toujours opérationnel</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="workflow" aria-labelledby="entretien-workflow" data-animate="slide-up">
+  <div class="container workflow__inner">
+    <div class="workflow__intro">
+      <p class="section-kicker">Méthode Entretien</p>
+      <h2 id="entretien-workflow">Votre véhicule suivi toute l'année</h2>
+      <p>
+        Nous pilotons vos rendez-vous à l'avance, vous recevez les rapports détaillés et les recommandations via votre
+        espace client.
+      </p>
+    </div>
+    <ol class="workflow__steps">
+      <li>
+        <span class="workflow__step-number">01</span>
+        <h3>Diagnostic</h3>
+        <p>Vérification du kilométrage, de l'historique d'entretien et des besoins selon votre usage.</p>
+        <span class="workflow__chip">Bilan personnalisé</span>
+      </li>
+      <li>
+        <span class="workflow__step-number">02</span>
+        <h3>Rendez-vous</h3>
+        <p>On cale un créneau qui vous arrange, avec véhicule de prêt si besoin.</p>
+        <span class="workflow__chip">Flexible</span>
+      </li>
+      <li>
+        <span class="workflow__step-number">03</span>
+        <h3>Révision</h3>
+        <p>Contrôle multipoints, remplacement des fluides et filtres, vérification freins et suspensions.</p>
+        <span class="workflow__chip">Contrôle complet</span>
+      </li>
+      <li>
+        <span class="workflow__step-number">04</span>
+        <h3>Suivi</h3>
+        <p>On note la prochaine échéance et on vous rappelle quand c'est le moment de revenir.</p>
+        <span class="workflow__chip">Rappel prévu</span>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="faq" aria-labelledby="entretien-faq" data-animate="slide-right">
+  <div class="container faq__inner">
+    <div>
+      <p class="section-kicker">FAQ entretien</p>
+      <h2 id="entretien-faq">Vos questions sur l'entretien, nos réponses franches</h2>
+      <p>Nous clarifions l'ensemble de vos interrogations avant la moindre intervention.</p>
+    </div>
+    <div class="faq__list" data-accordion>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">
+          Ma garantie constructeur est-elle préservée ?
+        </button>
+        <div class="faq__answer" hidden>
+          <p>Oui, nous respectons strictement les préconisations et utilisons des pièces certifiées.</p>
+        </div>
+      </article>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">
+          Puis-je suivre l'entretien depuis mon smartphone ?
+        </button>
+        <div class="faq__answer" hidden>
+          <p>
+            On vous envoie des photos et le détail des travaux par WhatsApp ou email, et vous validez avant qu'on intervienne.
+          </p>
+        </div>
+      </article>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">
+          Quels sont vos délais pour un rendez-vous ?
+        </button>
+        <div class="faq__answer" hidden>
+          <p>Moins de 48h pour une révision standard, créneaux express disponibles sur demande.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="newsletter" aria-labelledby="newsletter-title" data-animate="slide-up">
+  <div class="container newsletter__inner">
+    <div>
+      <h2 id="newsletter-title">Nos astuces pour faire durer votre véhicule</h2>
+      <p>Recevez chaque mois nos recommandations pour allonger la durée de vie de votre véhicule.</p>
+    </div>
+    <form class="newsletter__form" action="https://formsubmit.co/{{ site.email }}" method="POST">
+      <input type="hidden" name="_next" value="{{ site.url }}/entretien/">
+      <input type="hidden" name="_subject" value="Inscription newsletter {{ site.name }}">
+      <input type="hidden" name="_captcha" value="true">
+      <label class="sr-only" for="newsletter-email">Email</label>
+      <input type="email" id="newsletter-email" name="newsletter-email" placeholder="Votre email" required />
+      <button class="btn btn--secondary" type="submit">S'abonner</button>
+    </form>
+  </div>
+</section>
+
+<section class="guarantees-block" aria-labelledby="garanties-entretien">
+  <div class="container">
+    <h2 id="garanties-entretien" class="guarantees-block__title">Votre tranquillité d'esprit, c'est notre priorité</h2>
+    <ul class="guarantees-block__list">
+      <li>Pièces d'origine</li>
+      <li>Garantie constructeur préservée</li>
+      <li>Devis gratuit</li>
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,16 @@
+{
+  "name": "redk-motors",
+  "version": "2.0.0",
+  "description": "Site garage RED-K MOTORS - Ivry-sur-Seine",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve",
+    "dev": "eleventy --serve"
+  },
+  "keywords": ["eleventy", "static-site", "garage"],
+  "author": "RED-K MOTORS",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}

@@ -1,0 +1,41 @@
+---
+layout: base.njk
+title: "Restez mobile pendant vos réparations | Véhicule de prêt à Ivry (94) | RED-K MOTORS"
+description: "Votre voiture est au garage ? La vie continue. On vous prête un véhicule le temps des réparations, ou louez une citadine, un SUV ou un utilitaire à Ivry-sur-Seine."
+pageKey: location
+breadcrumb:
+  "@context": "https://schema.org"
+  "@type": "BreadcrumbList"
+  itemListElement:
+    - "@type": "ListItem"
+      position: 1
+      name: "Accueil"
+      item: "https://redk-motors.me/"
+    - "@type": "ListItem"
+      position: 2
+      name: "Location"
+      item: "https://redk-motors.me/location/"
+---
+
+{% set heroActions %}
+<a class="btn btn--primary" href="/contact/">Réserver un véhicule</a>
+{% endset %}
+
+{% set heroAria = "location-hero-title" %}
+{% set heroClass = "hero--subpage" %}
+{% set heroTitle = "Restez mobile, on s'occupe du reste" %}
+{% set heroKicker = "Mobilité Garantie" %}
+{% set heroDesc = "Notre flotte est disponible immédiatement pour les clients du garage : formules de location flexibles, incluant des solutions de courtoisie pendant vos réparations." %}
+{% set videoSrc = "location.mp4" %}
+{% include "hero-video.njk" %}
+
+<section class="upcoming" style="min-height: 50vh; display: flex; align-items: center;" aria-labelledby="coming-soon-title">
+  <div class="container upcoming__inner" style="text-align: center;">
+    <p class="section-kicker">Bientôt disponible</p>
+    <h2 id="coming-soon-title" style="font-size: 2.5rem; margin-bottom: 1rem;">Coming soon</h2>
+    <p style="max-width: 540px; margin: 0 auto 2rem; opacity: 0.85;">
+      Notre service de location et de véhicule de courtoisie est en cours de mise en place. On vous prévient dès que c'est prêt.
+    </p>
+    <a class="upcoming__cta" href="/contact/">Nous contacter</a>
+  </div>
+</section>

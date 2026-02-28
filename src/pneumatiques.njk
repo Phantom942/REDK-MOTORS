@@ -1,0 +1,353 @@
+---
+layout: base.njk
+title: "Pneus, équilibrage & géométrie à Ivry-sur-Seine (94) | RED-K MOTORS"
+description: "Vos pneus sont votre seul contact avec la route. Montage rapide, équilibrage précis et géométrie 3D à Ivry-sur-Seine pour rouler en confiance, été comme hiver. Stock disponible."
+pageKey: pneumatiques
+breadcrumb:
+  "@context": "https://schema.org"
+  "@type": "BreadcrumbList"
+  itemListElement:
+    - "@type": "ListItem"
+      position: 1
+      name: "Accueil"
+      item: "https://redk-motors.me/"
+    - "@type": "ListItem"
+      position: 2
+      name: "Pneumatiques"
+      item: "https://redk-motors.me/pneumatiques/"
+---
+
+{% set heroActions %}
+<a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
+<a class="btn btn--secondary" href="/contact/">Demander un devis</a>
+{% endset %}
+{% set heroClass = "hero--subpage" %}
+{% set heroAria = "pneus-hero-title" %}
+{% set heroTitle = "Roulez en toute confiance, saison après saison" %}
+{% set heroKicker = "Pneumatiques et géométrie express" %}
+{% set heroDesc = "Montage rapide, équilibrage précis et contrôle géométrie : nos spécialistes s'assurent que votre véhicule reste parfaitement stable et sécuritaire. Montage et Équilibrage sans rendez-vous (selon disponibilité)." %}
+{% set videoSrc = "pneumatique.mp4" %}
+{% include "hero-video.njk" %}
+
+<section id="pneumatiques" class="service-focus service-focus--alt" aria-labelledby="pneus-title" data-animate="slide-left">
+  <div class="container service-focus__inner">
+    <div>
+      <h2 id="pneus-title">Le bon pneu, au bon prix, posé dans la journée</h2>
+      <p>
+        Une adhérence optimale toute l'année grâce à notre centre équipé pour le montage, l'équilibrage et le suivi
+        géométrique de vos trains roulants.
+      </p>
+      <ul>
+        <li>Large stock pneus tourisme, utilitaire et sport</li>
+        <li>Montage express, équilibrage, permutation</li>
+        <li>Contrôle et réglage géométrie 3D</li>
+      </ul>
+    </div>
+    <div class="service-focus__visual" aria-hidden="true">Pneumatiques</div>
+  </div>
+</section>
+
+<section class="promesse" aria-labelledby="pourquoi-pneumatiques" data-animate="slide-up">
+  <div class="container">
+    <h2 id="pourquoi-pneumatiques" class="promesse__title">Un centre pneus à taille humaine, à Ivry</h2>
+    <div class="promesse__grid">
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3>Expertise multimarque</h3>
+          <p>Montage, équilibrage et géométrie sur tous types de véhicules. Équipement professionnel.</p>
+        </div>
+      </div>
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3>Devis transparent</h3>
+          <p>Devis gratuit. Pneus été, hiver ou toutes saisons, marques reconnues.</p>
+        </div>
+      </div>
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3>Pièces certifiées</h3>
+          <p>Pneus et prestations qualité. Sécurité et tenue de route optimisées.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="atelier-suite" aria-labelledby="pneus-tabs" data-animate="slide-right">
+  <div class="container">
+    <div class="section-header atelier-suite__header">
+      <div>
+        <p class="section-kicker">Solutions dédiées</p>
+        <h2 id="pneus-tabs">Choisissez la formule qui vous convient</h2>
+      </div>
+      <p>
+        Ville, grands trajets ou conduite dynamique : nous adaptons pneus, montage et réglages à votre usage.
+      </p>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Programmes pneumatiques RED-K" data-tabs="pneus-tabs">
+      <button
+        id="tab-urbain"
+        class="tabs__trigger"
+        type="button"
+        role="tab"
+        aria-selected="true"
+        aria-controls="panel-urbain"
+        data-tab-target="panel-urbain"
+      >
+        Urbain / Mixte
+      </button>
+      <button
+        id="tab-longcourrier"
+        class="tabs__trigger"
+        type="button"
+        role="tab"
+        aria-selected="false"
+        aria-controls="panel-longcourrier"
+        data-tab-target="panel-longcourrier"
+      >
+        Longue distance
+      </button>
+      <button
+        id="tab-sport"
+        class="tabs__trigger"
+        type="button"
+        role="tab"
+        aria-selected="false"
+        aria-controls="panel-sport"
+        data-tab-target="panel-sport"
+      >
+        Track &amp; performance
+      </button>
+    </div>
+
+    <div class="tabs__panels">
+      <article
+        id="panel-urbain"
+        class="tabs__panel is-active"
+        role="tabpanel"
+        tabindex="0"
+        aria-labelledby="tab-urbain"
+      >
+        <div class="tabs__panel-inner">
+          <div>
+            <h3>Monte eco &amp; confort</h3>
+            <p>Pneus adaptés au quotidien : confort, tenue de route et usure régulière.</p>
+            <ul class="checklist">
+              <li>Permutation et équilibrage</li>
+              <li>Contrôle freinage et amortisseurs</li>
+              <li>Suivi d'usure conseillé</li>
+            </ul>
+          </div>
+          <div class="tabs__panel-visual">
+            <span class="hud" aria-hidden="true">Confort en ville</span>
+          </div>
+        </div>
+      </article>
+      <article
+        id="panel-longcourrier"
+        class="tabs__panel"
+        role="tabpanel"
+        tabindex="0"
+        aria-labelledby="tab-longcourrier"
+      >
+        <div class="tabs__panel-inner">
+          <div>
+            <h3>Longue distance &amp; utilitaire</h3>
+            <p>Pneus renforcés, contrôle des pressions et rotation planifiée pour durer plus longtemps.</p>
+            <ul class="checklist">
+              <li>Pressions ajustées pour la charge</li>
+              <li>Alignement complet du châssis</li>
+              <li>Assistance crevaison possible</li>
+            </ul>
+          </div>
+          <div class="tabs__panel-visual">
+            <span class="hud hud--planning" aria-hidden="true">Prêt pour la route</span>
+          </div>
+        </div>
+      </article>
+      <article
+        id="panel-sport"
+        class="tabs__panel"
+        role="tabpanel"
+        tabindex="0"
+        aria-labelledby="tab-sport"
+      >
+        <div class="tabs__panel-inner">
+          <div>
+            <h3>Performance &amp; sport</h3>
+            <p>Pneus sport, équilibrage précis, réglages carrossage et parallélisme pour une tenue de route optimale.</p>
+            <ul class="checklist">
+              <li>Pneus adaptés à votre conduite</li>
+              <li>Réglage para et carrossage</li>
+              <li>Conseils pression sur piste</li>
+            </ul>
+          </div>
+          <div class="tabs__panel-visual">
+            <span class="hud hud--support" aria-hidden="true">Adhérence renforcée</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="workflow" aria-labelledby="pneus-workflow" data-animate="slide-left">
+  <div class="container workflow__inner">
+    <div class="workflow__intro">
+      <p class="section-kicker">Méthode montage</p>
+      <h2 id="pneus-workflow">Du devis à la pose, on vous tient informé</h2>
+      <p>Du choix du pneu à la restitution, tout est tracé et validé via nos check-lists numériques.</p>
+    </div>
+    <ol class="workflow__steps">
+      <li>
+        <span class="workflow__step-number">01</span>
+        <h3>Diagnostic</h3>
+        <p>On vérifie l'usure de vos pneus et on vous conseille sur le meilleur choix selon votre usage.</p>
+        <span class="workflow__chip">Conseil adapté</span>
+      </li>
+      <li>
+        <span class="workflow__step-number">02</span>
+        <h3>Montage</h3>
+        <p>Bras semi-automatique, protection jantes, serrage dynamométrique.</p>
+        <span class="workflow__chip">12 min</span>
+      </li>
+      <li>
+        <span class="workflow__step-number">03</span>
+        <h3>Géométrie</h3>
+        <p>Réglage du parallélisme et du carrossage pour une tenue de route optimale et une usure régulière.</p>
+        <span class="workflow__chip">Réglage précis</span>
+      </li>
+      <li>
+        <span class="workflow__step-number">04</span>
+        <h3>Suivi</h3>
+        <p>On peut stocker vos pneus entre deux saisons et vous rappeler quand il est temps de permuter.</p>
+        <span class="workflow__chip">Stockage possible</span>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="faq" aria-labelledby="pneus-faq" data-animate="slide-up">
+  <div class="container faq__inner">
+    <div>
+      <p class="section-kicker">FAQ pneumatiques</p>
+      <h2 id="pneus-faq">Les questions qu'on nous pose le plus</h2>
+      <p>Nos spécialistes vous conseillent avant, pendant et après votre visite.</p>
+    </div>
+    <div class="faq__list" data-accordion>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">
+          Stockez-vous mes pneus hiver/été ?
+        </button>
+        <div class="faq__answer" hidden>
+          <p>Oui, stockage sécurisé en local climatisé avec assurance incluse et étiquetage individuel.</p>
+        </div>
+      </article>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">
+          Faites-vous la géométrie après chaque montage ?
+        </button>
+        <div class="faq__answer" hidden>
+          <p>Recommandé et inclus dans nos packs premium pour garantir une usure régulière.</p>
+        </div>
+      </article>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">
+          Proposez-vous des pneus pour véhicules électriques ?
+        </button>
+        <div class="faq__answer" hidden>
+          <p>Oui, avec gomme renforcée, faible résistance au roulement et indice de charge adapté aux EV.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="featured-vehicles" aria-labelledby="featured-title" data-animate="slide-up">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Nos formules pneus, claires et sans surprise</h2>
+    </div>
+    <div class="grid grid--three">
+      <article class="vehicle-card">
+        <div class="vehicle-card__badge">Confort</div>
+        <h3>Pack tourisme</h3>
+        <p>Pneus premium + montage + équilibrage + permutation saisonnière.</p>
+      </article>
+      <article class="vehicle-card">
+        <div class="vehicle-card__badge vehicle-card__badge--highlight">Sécurité</div>
+        <h3>Pack hiver</h3>
+        <p>Pneus neige, stockage saisonnier et contrôle géométrie offert.</p>
+      </article>
+      <article class="vehicle-card">
+        <div class="vehicle-card__badge">Performance</div>
+        <h3>Pack sport</h3>
+        <p>Pneus haute performance + analyse usure + calibration ADAS.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="appointment" aria-labelledby="appointment-title" data-animate="slide-right">
+  <div class="container appointment__inner">
+    <div>
+      <h2 id="appointment-title">Un conseil personnalisé ?</h2>
+      <p>Indiquez votre modèle, nous recommandons la monte adaptée à votre usage.</p>
+      <dl>
+        <div>
+          <dt>Téléphone</dt>
+          <dd><a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a></dd>
+        </div>
+        <div>
+          <dt>Email</dt>
+          <dd><a href="mailto:{{ site.email }}">{{ site.email }}</a></dd>
+        </div>
+        <div>
+          <dt>Adresse</dt>
+          <dd><a href="https://www.google.com/maps?q=9+rue+Michelet+94200+Ivry-sur-Seine" target="_blank" rel="noopener noreferrer">{{ site.addressFull }}</a></dd>
+        </div>
+      </dl>
+    </div>
+    <form class="form" aria-label="Formulaire de contact pneumatiques" action="https://formsubmit.co/{{ site.email }}" method="POST">
+      <input type="hidden" name="_next" value="{{ site.url }}/merci">
+      <input type="hidden" name="_subject" value="Demande pneumatiques depuis le site {{ site.name }}">
+      <input type="hidden" name="_captcha" value="true">
+      <div class="form__group">
+        <label for="name">Nom complet</label>
+        <input type="text" id="name" name="name" placeholder="Jean Dupont" required />
+      </div>
+      <div class="form__group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="jean.dupont@email.com" required />
+      </div>
+      <div class="form__group">
+        <label for="phone">Téléphone</label>
+        <input type="tel" id="phone" name="phone" placeholder="06 12 34 56 78" />
+      </div>
+      <div class="form__group">
+        <label for="vehicule">Modèle / dimension</label>
+        <input type="text" id="vehicule" name="vehicule" placeholder="Ex : 225/45 R17" />
+      </div>
+      <div class="form__group form__group--full">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4" placeholder="Votre demande..."></textarea>
+      </div>
+      <button class="btn btn--primary" type="submit">Envoyer ma demande</button>
+    </form>
+  </div>
+</section>
+
+<section class="guarantees-block" aria-labelledby="garanties-pneumatiques">
+  <div class="container">
+    <h2 id="garanties-pneumatiques" class="guarantees-block__title">On roule avec vous, même après la pose</h2>
+    <ul class="guarantees-block__list">
+      <li>Pièces d'origine</li>
+      <li>Garantie constructeur préservée</li>
+      <li>Devis gratuit</li>
+    </ul>
+  </div>
+</section>

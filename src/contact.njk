@@ -1,0 +1,208 @@
+---
+layout: base.njk
+title: "Contactez-nous — Devis gratuit à Ivry-sur-Seine (94) | RED-K MOTORS"
+description: "Une question, un devis ou un rendez-vous ? Notre équipe vous répond rapidement. Appelez, écrivez ou passez directement au 9 rue Michelet à Ivry-sur-Seine. On est là pour vous."
+pageKey: contact
+breadcrumb:
+  "@context": "https://schema.org"
+  "@type": "BreadcrumbList"
+  itemListElement:
+    - "@type": "ListItem"
+      position: 1
+      name: "Accueil"
+      item: "https://redk-motors.me/"
+    - "@type": "ListItem"
+      position: 2
+      name: "Contact"
+      item: "https://redk-motors.me/contact/"
+---
+
+{% set heroActions %}
+<a class="btn btn--primary" href="tel:{{ site.phone }}">Nous appeler</a>
+<a class="btn btn--secondary" href="mailto:{{ site.email }}">Envoyer un email</a>
+{% endset %}
+
+{% set heroAria = "contact-hero-title" %}
+{% set heroClass = "hero--subpage" %}
+{% set heroTitle = "Parlons de votre voiture — on est là pour vous" %}
+{% set heroKicker = "Contact et assistance" %}
+{% set heroDesc = "Un besoin immédiat ou une simple question ? Notre équipe vous répond rapidement et vous oriente vers la bonne expertise." %}
+{% set videoSrc = "contact.mp4" %}
+{% include "hero-video.njk" %}
+
+<section id="appointment" class="appointment" aria-labelledby="appointment-title" data-animate="slide-right">
+  <div class="container appointment__inner">
+    <div>
+      <h2 id="appointment-title">Où nous trouver à Ivry-sur-Seine</h2>
+      <p>Choisissez votre mode de contact préféré, nous restons disponibles du lundi au samedi.</p>
+      <dl>
+        <div>
+          <dt>Téléphone</dt>
+          <dd><a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a></dd>
+        </div>
+        <div>
+          <dt>Email</dt>
+          <dd><a href="mailto:{{ site.email }}">{{ site.email }}</a></dd>
+        </div>
+        <div>
+          <dt>Adresse</dt>
+          <dd><a href="https://www.google.com/maps?q=9+rue+Michelet+94200+Ivry-sur-Seine" target="_blank" rel="noopener noreferrer">{{ site.addressFull }}</a></dd>
+        </div>
+        <div>
+          <dt>Horaires</dt>
+          <dd>{{ site.openingHours }}</dd>
+        </div>
+      </dl>
+    </div>
+    <form class="form" aria-label="Formulaire de contact" action="https://formsubmit.co/{{ site.email }}" method="POST">
+      <input type="hidden" name="_next" value="{{ site.url }}/merci/">
+      <input type="hidden" name="_subject" value="Nouvelle demande depuis le site {{ site.name }}">
+      <input type="hidden" name="_captcha" value="true">
+      <div class="form__group">
+        <label for="name">Nom complet</label>
+        <input type="text" id="name" name="name" placeholder="Jean Dupont" required />
+      </div>
+      <div class="form__group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="jean.dupont@email.com" required />
+      </div>
+      <div class="form__group">
+        <label for="phone">Téléphone</label>
+        <input type="tel" id="phone" name="phone" placeholder="06 12 34 56 78" />
+      </div>
+      <div class="form__group">
+        <label for="service">Sujet</label>
+        <select id="service" name="service">
+          <option value="atelier">Atelier mécanique / entretien</option>
+          <option value="carrosserie">Carrosserie</option>
+          <option value="achat">Achat / reprise véhicule</option>
+          <option value="location">Location</option>
+        </select>
+      </div>
+      <div class="form__group form__group--full">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4" placeholder="Votre demande..."></textarea>
+      </div>
+      <button class="btn btn--primary" type="submit">Envoyer ma demande</button>
+    </form>
+  </div>
+</section>
+
+<section class="featured-vehicles" aria-labelledby="contact-channels-title" data-animate="slide-left">
+  <div class="container">
+    <div class="section-header">
+      <h2 id="contact-channels-title">Écrivez-nous, on répond vite</h2>
+      <p>Choisissez le moyen qui vous convient, on s'adapte.</p>
+    </div>
+    <div class="grid grid--three">
+      <article class="card">
+        <h3>Par téléphone</h3>
+        <p>Appelez-nous directement pour un devis ou une prise de rendez-vous rapide.</p>
+        <a class="link" href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a>
+      </article>
+      <article class="card">
+        <h3>Par email</h3>
+        <p>Envoyez-nous votre demande avec des photos si besoin, on vous répond rapidement.</p>
+        <a class="link" href="mailto:{{ site.email }}">{{ site.email }}</a>
+      </article>
+      <article class="card">
+        <h3>Via WhatsApp</h3>
+        <p>Envoyez-nous un message, une photo ou une vidéo pour un pré-diagnostic rapide.</p>
+        <a class="link" href="https://wa.me/33648745668" target="_blank" rel="noopener noreferrer">Ouvrir WhatsApp</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="tech-lab" aria-labelledby="contact-map-title" data-animate="slide-right">
+  <div class="container tech-lab__inner">
+    <div class="media-card">
+      <div class="media-card__label">Localisation</div>
+      <iframe
+        class="map-frame"
+        src="https://maps.google.com/maps?q=9+rue+Michelet+94200+Ivry-sur-Seine&t=&z=16&ie=UTF8&iwloc=&output=embed"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+    <div class="tech-lab__content">
+      <p class="section-kicker">Nous rendre visite</p>
+      <h2 id="contact-map-title">Facile d'accès depuis Paris et le Val-de-Marne</h2>
+      <p>
+        Le garage se trouve au 9 rue Michelet à Ivry-sur-Seine, à quelques minutes du périphérique et accessible en transports en commun.
+      </p>
+      <ul class="pill-list">
+        <li>Métro ligne 7 — Mairie d'Ivry</li>
+        <li>Ouvert Lun-Sam 10h-20h</li>
+        <li>Stationnement à proximité</li>
+        <li>Accès facile depuis le périphérique</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="faq" aria-labelledby="contact-faq" data-animate="slide-up">
+  <div class="container faq__inner">
+    <div>
+      <p class="section-kicker">FAQ contact</p>
+      <h2 id="contact-faq">Ce qu'on nous demande souvent</h2>
+      <p>Nous clarifions les modalités d'accueil, de devis et de suivi pour simplifier vos démarches.</p>
+    </div>
+    <div class="faq__list" data-accordion>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">
+          Dois-je prendre rendez-vous pour un diagnostic ?
+        </button>
+        <div class="faq__answer" hidden>
+          <p>Oui, pour garantir la disponibilité d'un technicien et réduire votre temps d'attente sur place.</p>
+        </div>
+      </article>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">
+          Puis-je envoyer des photos pour un premier avis ?
+        </button>
+        <div class="faq__answer" hidden>
+          <p>
+            Oui, envoyez-nous des photos ou une vidéo par WhatsApp ou email. On peut souvent vous donner un premier avis et préparer le devis avant votre venue.
+          </p>
+        </div>
+      </article>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">
+          Comment je suis tenu au courant de l'avancement ?
+        </button>
+        <div class="faq__answer" hidden>
+          <p>
+            On vous appelle ou on vous envoie un message WhatsApp à chaque étape clé : validation du devis, début des travaux, véhicule prêt.
+          </p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="about" aria-labelledby="map-title" data-animate="slide-left">
+  <div class="container about__inner">
+    <div>
+      <h2 id="map-title">Nous rendre visite</h2>
+      <p>
+        {{ site.address }}, {{ site.postalCode }} {{ site.city }}. Métro ligne 7, arrêt Mairie d'Ivry. N'hésitez pas à nous prévenir avant votre venue pour qu'on vous réserve un créneau.
+      </p>
+    </div>
+    <div class="about__highlights">
+      <div class="highlight">
+        <strong>Gratuit</strong>
+        <span>devis sans engagement</span>
+      </div>
+      <div class="highlight">
+        <strong>6j/7</strong>
+        <span>{{ site.openingHours }}</span>
+      </div>
+      <div class="highlight">
+        <strong>100%</strong>
+        <span>pièces d'origine</span>
+      </div>
+    </div>
+  </div>
+</section>

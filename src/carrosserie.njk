@@ -1,0 +1,287 @@
+---
+layout: base.njk
+title: "Carrosserie & peinture automobile à Ivry-sur-Seine (94) | RED-K MOTORS"
+description: "Un accrochage, une rayure ou un choc ? Nos carrossiers redonnent à votre voiture son aspect d'origine. Peinture cabine, débosselage soigné, agréé assurances. Devis offert à Ivry-sur-Seine."
+pageKey: carrosserie
+breadcrumb:
+  "@context": "https://schema.org"
+  "@type": "BreadcrumbList"
+  itemListElement:
+    - "@type": "ListItem"
+      position: 1
+      name: "Accueil"
+      item: "https://redk-motors.me/"
+    - "@type": "ListItem"
+      position: 2
+      name: "Carrosserie"
+      item: "https://redk-motors.me/carrosserie/"
+---
+
+{% set heroActions %}
+<a class="btn btn--primary" href="/contact/">Demander un devis</a>
+<a class="btn btn--secondary" href="#carrosserie">Nos expertises</a>
+{% endset %}
+{% set heroClass = "hero--subpage" %}
+{% set heroAria = "carrosserie-hero-title" %}
+{% set heroTitle = "Votre carrosserie retrouve son éclat d'origine" %}
+{% set heroKicker = "Peinture auto 94 &amp; Débosselage" %}
+{% set heroDesc = "De la réparation structurelle aux finitions esthétiques, nos carrossiers certifiés redonnent à votre véhicule son éclat d'origine tout en respectant les standards constructeurs." %}
+{% set videoSrc = "carrosserie.mp4" %}
+{% include "hero-video.njk" %}
+
+<section id="carrosserie" class="service-focus service-focus--alt" aria-labelledby="carrosserie-title" data-animate="slide-left">
+  <div class="container service-focus__inner">
+    <div>
+      <h2 id="carrosserie-title">Du choc à la finition, on s'occupe de tout</h2>
+      <p>
+        Redonnez de l'éclat à votre véhicule : nos carrossiers interviennent sur toutes tailles de chocs, avec une
+        finition peinture cabine et un soin esthétique poussé.
+      </p>
+      <ul>
+        <li>Redressage et remplacement d'éléments</li>
+        <li>Peinture cabine et retouches localisées</li>
+        <li>Polissage, detailing et protection carrosserie</li>
+      </ul>
+    </div>
+    <div class="service-focus__visual" aria-hidden="true">Carrosserie</div>
+  </div>
+</section>
+
+<section class="promesse" aria-labelledby="pourquoi-carrosserie" data-animate="slide-up">
+  <div class="container">
+    <h2 id="pourquoi-carrosserie" class="promesse__title">Pourquoi nos clients reviennent après un sinistre</h2>
+    <div class="promesse__grid">
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3>Expertise multimarque</h3>
+          <p>Carrossiers qualifiés toutes marques. Peinture et débosselage dans les règles de l'art.</p>
+        </div>
+      </div>
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3>Devis transparent</h3>
+          <p>Devis gratuit. Agréé assurances pour faciliter vos démarches sinistre.</p>
+        </div>
+      </div>
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3>Pièces certifiées</h3>
+          <p>Pièces d'origine et peinture cabine qualité constructeur pour une finition durable.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="atelier-suite" aria-labelledby="carrosserie-tabs" data-animate="slide-left">
+  <div class="container">
+    <div class="section-header atelier-suite__header">
+      <div>
+        <p class="section-kicker">Atelier carrosserie</p>
+        <h2 id="carrosserie-tabs">Rayure, bosse ou sinistre : chaque cas a sa solution</h2>
+      </div>
+      <p>
+        Petit impact ou choc plus important, on vous conseille sur la meilleure solution et on suit votre véhicule du
+        début à la fin.
+      </p>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Méthodes carrosserie RED-K" data-tabs="carrosserie-tabs">
+      <button
+        id="tab-debosselage"
+        class="tabs__trigger"
+        type="button"
+        role="tab"
+        aria-selected="true"
+        aria-controls="panel-debosselage"
+        data-tab-target="panel-debosselage"
+      >
+        Débosselage
+      </button>
+      <button
+        id="tab-cabine"
+        class="tabs__trigger"
+        type="button"
+        role="tab"
+        aria-selected="false"
+        aria-controls="panel-cabine"
+        data-tab-target="panel-cabine"
+      >
+        Peinture cabine
+      </button>
+      <button
+        id="tab-detailing"
+        class="tabs__trigger"
+        type="button"
+        role="tab"
+        aria-selected="false"
+        aria-controls="panel-detailing"
+        data-tab-target="panel-detailing"
+      >
+        Detailing
+      </button>
+    </div>
+
+    <div class="tabs__panels">
+      <article
+        id="panel-debosselage"
+        class="tabs__panel is-active"
+        role="tabpanel"
+        tabindex="0"
+        aria-labelledby="tab-debosselage"
+      >
+        <div class="tabs__panel-inner">
+          <div>
+            <h3>Débosselage sans peinture</h3>
+            <p>Suppression des petites bosses sans repeindre : rapide et économique.</p>
+            <ul class="checklist">
+              <li>Outils adaptés aluminium et acier</li>
+              <li>Respect de la peinture d'origine</li>
+              <li>Contrôle visuel avant restitution</li>
+            </ul>
+          </div>
+          <div class="tabs__panel-visual">
+            <span class="hud" aria-hidden="true">Impact effacé</span>
+          </div>
+        </div>
+      </article>
+      <article
+        id="panel-cabine"
+        class="tabs__panel"
+        role="tabpanel"
+        tabindex="0"
+        aria-labelledby="tab-cabine"
+      >
+        <div class="tabs__panel-inner">
+          <div>
+            <h3>Peinture cabine</h3>
+            <p>Préparation, peinture et vernis en cabine pour un rendu homogène et durable.</p>
+            <ul class="checklist">
+              <li>Préparation et masquage minutieux</li>
+              <li>Teinte ajustée à votre véhicule</li>
+              <li>Lustrage et contrôle final</li>
+            </ul>
+          </div>
+          <div class="tabs__panel-visual">
+            <span class="hud hud--planning" aria-hidden="true">Peinture uniforme</span>
+          </div>
+        </div>
+      </article>
+      <article
+        id="panel-detailing"
+        class="tabs__panel"
+        role="tabpanel"
+        tabindex="0"
+        aria-labelledby="tab-detailing"
+      >
+        <div class="tabs__panel-inner">
+          <div>
+            <h3>Finitions et protection</h3>
+            <p>Polissage, lustrage et protection pour redonner de l'éclat à votre carrosserie.</p>
+            <ul class="checklist">
+              <li>Polissage en plusieurs passes</li>
+              <li>Protection adaptée à votre usage</li>
+              <li>Nettoyage intérieur sur demande</li>
+            </ul>
+          </div>
+          <div class="tabs__panel-visual">
+            <span class="hud hud--support" aria-hidden="true">Finition soignée</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="workflow" aria-labelledby="carrosserie-workflow" data-animate="slide-up">
+  <div class="container workflow__inner">
+    <div class="workflow__intro">
+      <p class="section-kicker">Process restitution</p>
+      <h2 id="carrosserie-workflow">Vous savez exactement ce qu'on fait sur votre voiture</h2>
+      <p>
+        Chaque étape est photographiée, validée et archivée dans votre dossier numérique pour garantir une transparence
+        totale.
+      </p>
+    </div>
+    <ol class="workflow__steps">
+      <li>
+        <span class="workflow__step-number">01</span>
+        <h3>Constat</h3>
+        <p>Inspection visuelle des dégâts, photos détaillées et estimation chiffrée.</p>
+        <span class="workflow__chip">Devis rapide</span>
+      </li>
+      <li>
+        <span class="workflow__step-number">02</span>
+        <h3>Redressage</h3>
+        <p>Remise en forme de la structure, alignement des éléments et remplacement si nécessaire.</p>
+        <span class="workflow__chip">Travail soigné</span>
+      </li>
+      <li>
+        <span class="workflow__step-number">03</span>
+        <h3>Peinture</h3>
+        <p>Préparation, peinture en cabine et polissage pour un rendu uniforme et durable.</p>
+        <span class="workflow__chip">Finition soignée</span>
+      </li>
+      <li>
+        <span class="workflow__step-number">04</span>
+        <h3>Restitution</h3>
+        <p>Contrôle final check-list, nettoyage, livraison à domicile sur demande.</p>
+        <span class="workflow__chip">+ véhicule prêt</span>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="faq" aria-labelledby="carrosserie-faq" data-animate="slide-right">
+  <div class="container faq__inner">
+    <div>
+      <p class="section-kicker">FAQ carrosserie</p>
+      <h2 id="carrosserie-faq">On répond à vos questions</h2>
+      <p>Assurances, délais, garanties peinture : tout est clarifié dès la première prise de contact.</p>
+    </div>
+    <div class="faq__list" data-accordion>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">
+          Travaillez-vous avec les assurances ?
+        </button>
+        <div class="faq__answer" hidden>
+          <p>Oui, nous sommes agréés par la majorité des compagnies. Nous gérons la déclaration et le suivi dossier.</p>
+        </div>
+      </article>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">
+          Comment garantissez-vous la teinte exacte ?
+        </button>
+        <div class="faq__answer" hidden>
+          <p>
+            On utilise les références constructeur pour retrouver la teinte exacte de votre véhicule, avec des tests sur plaquettes avant application.
+          </p>
+        </div>
+      </article>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">
+          Est-ce possible de planifier une restitution à domicile ?
+        </button>
+        <div class="faq__answer" hidden>
+          <p>
+            Oui, on peut organiser la restitution de votre véhicule directement chez vous. Contactez-nous pour les modalités.
+          </p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="guarantees-block" aria-labelledby="garanties-carrosserie">
+  <div class="container">
+    <h2 id="garanties-carrosserie" class="guarantees-block__title">On ne vous laisse pas tomber après la réparation</h2>
+    <ul class="guarantees-block__list">
+      <li>Pièces d'origine</li>
+      <li>Garantie constructeur préservée</li>
+      <li>Devis gratuit</li>
+    </ul>
+  </div>
+</section>
