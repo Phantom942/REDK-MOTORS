@@ -12,6 +12,7 @@
       disablePictureInPicture
       disableRemotePlayback
     >
+      <source data-src="/assets/video/{{ videoSrc | replace('.mp4', '-mobile.mp4') }}" type="video/mp4" media="(max-width: 768px)" />
       <source data-src="/assets/video/{{ videoSrc }}" type="video/mp4" />
       Votre navigateur ne supporte pas la lecture de vidéos.
     </video>
