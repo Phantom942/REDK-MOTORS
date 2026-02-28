@@ -199,7 +199,8 @@ body {
   overflow: hidden;
 }
 
-.hero__video-bg {
+.hero__video-bg,
+.hero__img-bg {
   position: absolute;
   top: 0;
   left: 0;
@@ -207,6 +208,12 @@ body {
   height: 100%;
   z-index: 1;
   background: linear-gradient(135deg, var(--color-black) 0%, var(--color-red-dark) 50%, var(--color-red) 100%);
+}
+
+.hero__img-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .hero__video-player {
@@ -746,36 +753,9 @@ body {
     text-decoration: none;
   }
 
-  /* Top Bar */
+  /* Top Bar — masquée sur mobile, remplacée par le sticky call */
   .top-bar {
-    padding: 8px 0;
-    font-size: 12px;
-  }
-
-  .top-bar .container {
-    flex-direction: column;
-    gap: 8px;
-    text-align: center;
-  }
-
-  .top-bar p {
-    margin: 0;
-    font-size: 11px;
-    line-height: 1.5;
-  }
-
-  .top-bar__phone {
-    font-size: 14px;
-  }
-
-  .btn--ghost {
-    padding: 8px 18px;
-    font-size: 12px;
-  }
-
-  .whatsapp-link {
-    padding: 8px 14px;
-    font-size: 12px;
+    display: none;
   }
 
   /* Header */
@@ -1050,12 +1030,25 @@ body {
     padding: 40px 0;
   }
 
+  .launch-offer__inner {
+    max-width: 100%;
+  }
+
   .launch-offer__title {
     font-size: 22px;
   }
 
   .launch-offer__text {
     font-size: 14px;
+  }
+
+  .launch-offer__cards {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .launch-offer__card {
+    padding: 20px 16px;
   }
 
   .launch-offer__actions {
@@ -1184,25 +1177,43 @@ body {
     align-items: center;
   }
 
-  /* Back to Top & WhatsApp */
-  .back-to-top {
-    width: 44px;
-    height: 44px;
-    bottom: 85px;
-    right: 16px;
-    font-size: 20px;
-  }
-
+  /* Back to Top & WhatsApp — repositionnés au-dessus du sticky call (72px) */
   .whatsapp-float {
     width: 52px;
     height: 52px;
-    bottom: 20px;
+    bottom: 84px;
     right: 16px;
   }
 
   .whatsapp-float svg {
     width: 26px;
     height: 26px;
+  }
+
+  .back-to-top {
+    width: 42px;
+    height: 42px;
+    bottom: 148px;
+    right: 16px;
+    font-size: 18px;
+  }
+
+  /* About — 1 colonne sur mobile */
+  .about__inner {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .about__highlights {
+    gap: 16px;
+  }
+
+  .highlight-card {
+    padding: 20px;
+  }
+
+  .highlight-card h3 {
+    font-size: 17px;
   }
 
   /* Map */
@@ -1325,6 +1336,47 @@ body {
     padding: 0 16px;
   }
 
+  /* Appointment info — empilé sur mobile */
+  .appointment__info {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  /* Offer banner mobile */
+  .offer-banner {
+    font-size: 12px;
+  }
+
+  .offer-banner__inner {
+    padding: 6px 36px 6px 12px;
+    text-align: center;
+  }
+
+  /* Trust block mobile */
+  .trust-block {
+    padding: 40px 0;
+  }
+
+  .trust-block__title {
+    font-size: 22px;
+    margin-bottom: 24px;
+  }
+
+  .trust-block__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .trust-block__item {
+    padding: 18px 12px;
+  }
+
+  /* Why-us grid forced 1 col */
+  .why-us__grid {
+    grid-template-columns: 1fr;
+  }
+
   /* iOS zoom prevention on inputs */
   input,
   select,
@@ -1436,6 +1488,14 @@ body {
   .faq__question {
     font-size: 14px;
     padding: 12px 14px;
+  }
+
+  .trust-block__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .trust-block__item {
+    padding: 16px;
   }
 }
 
