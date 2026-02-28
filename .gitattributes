@@ -1,0 +1,2 @@
+# Désactiver LFS pour les vidéos - GitHub Pages ne supporte pas LFS
+*.mp4 !filter !diff !merge
