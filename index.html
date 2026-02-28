@@ -204,18 +204,20 @@
     <main id="main">
       <section id="accueil" class="hero hero--expanded">
         <div class="hero__video-bg" aria-hidden="true">
+          <!-- TODO: ajouter assets/posters/hero-index.jpg -->
           <video
             class="hero__video-player"
             autoplay
             muted
             loop
             playsinline
-            preload="auto"
+            preload="metadata"
+            poster="assets/posters/hero-index.jpg"
             aria-label="Vidéo de présentation du garage"
             disablePictureInPicture
             disableRemotePlayback
           >
-            <source src="assets/video/hero.mp4" type="video/mp4" />
+            <source data-src="assets/video/hero.mp4" type="video/mp4" />
             Votre navigateur ne supporte pas la lecture de vidéos.
           </video>
         </div>
@@ -548,12 +550,7 @@
     <script src="assets/js/mobile-optimizer.js" defer></script>
     <script src="assets/js/cookies.js" defer></script>
     <script src="assets/js/futuristic-effects.js" defer></script>
-    <script>
-      window.addEventListener('load', function() {
-        var v = document.querySelector('.hero__video-player');
-        if (v && v.paused) { v.play().catch(function(){}); }
-      });
-    </script>
+    <script src="assets/js/video-lazy.js" defer></script>
   </body>
 </html>
 

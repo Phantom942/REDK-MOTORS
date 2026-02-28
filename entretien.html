@@ -123,15 +123,17 @@
     <main id="main">
       <section class="hero hero--subpage" aria-labelledby="entretien-hero-title">
         <div class="hero__video-bg" aria-hidden="true">
+          <!-- TODO: ajouter assets/posters/hero-entretien.jpg -->
           <video
             class="hero__video-player"
             autoplay
             muted
             loop
             playsinline
-            preload="auto"
+            preload="metadata"
+            poster="assets/posters/hero-entretien.jpg"
           >
-            <source src="assets/video/entretien.mp4" type="video/mp4" />
+            <source data-src="assets/video/entretien.mp4" type="video/mp4" />
           </video>
         </div>
         <div class="hero__overlay" aria-hidden="true"></div>
@@ -469,6 +471,7 @@
 
     <script src="assets/js/main.js" defer></script>
     <script src="assets/js/futuristic-effects.js" defer></script>
+    <script src="assets/js/video-lazy.js" defer></script>
   </body>
 </html>
 

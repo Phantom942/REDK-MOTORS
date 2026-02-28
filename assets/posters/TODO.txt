@@ -1,0 +1,3 @@
+TODO: Ajouter les images poster pour chaque page hero.
+Fichiers attendus: hero-index.jpg, hero-mecanique.jpg, hero-carrosserie.jpg, hero-entretien.jpg, hero-pneumatiques.jpg, hero-contact.jpg, hero-location.jpg, hero-achat-revente.jpg, hero-processus.jpg
+Dimensions recommandées: 1200x800px
