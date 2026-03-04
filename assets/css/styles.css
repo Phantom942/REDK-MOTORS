@@ -58,11 +58,17 @@ body {
 }
 
 #main .tabs__panel-inner > div {
-  text-align: center;
+  text-align: center !important;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
   max-width: 600px;
+}
+
+#main .tabs__panel-inner > div h3,
+#main .tabs__panel-inner > div p,
+#main .tabs__panel-inner > div ul {
+  text-align: center !important;
 }
 
 #main .checklist {
@@ -2020,6 +2026,19 @@ p, li, td, th, span, a, h1, h2, h3, h4 {
 .atelier-suite .container {
   max-width: 1000px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.atelier-suite .tabs,
+.atelier-suite .tabs__panels {
+  width: 100%;
+}
+
+.atelier-suite .section-header {
+  width: 100%;
 }
 
 .section-header {
@@ -2120,6 +2139,19 @@ p, li, td, th, span, a, h1, h2, h3, h4 {
   color: var(--color-red);
   font-weight: bold;
   font-size: 18px;
+}
+
+/* Override pour #main : checklist centrée */
+#main .atelier-suite .checklist,
+#main .atelier-suite .checklist li {
+  padding-left: 0 !important;
+  text-align: center !important;
+}
+
+#main .atelier-suite .checklist li::before {
+  position: static !important;
+  content: '✓ ' !important;
+  margin-right: 8px;
 }
 
 .tabs__panel-visual {
@@ -3691,5 +3723,16 @@ a:focus-visible {
   .trust-block__grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* Centrage final - toutes les pages avec onglets (mécanique, carrosserie, pneumatiques, entretien) */
+
+#main .atelier-suite .tabs__panel-inner,
+#main .atelier-suite .tabs__panel-inner > div,
+#main .atelier-suite .tabs__panel-inner h3,
+#main .atelier-suite .tabs__panel-inner p,
+#main .atelier-suite .tabs__panel-inner .checklist,
+#main .atelier-suite .tabs__panel-inner .checklist li {
+  text-align: center !important;
 }
 
