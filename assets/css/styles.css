@@ -51,8 +51,38 @@ body {
 #main h1, #main h2, #main h3, #main h4, #main h5, #main h6,
 #main p, #main ul, #main ol, #main li, #main dl, #main dt, #main dd,
 #main .promesse__item, #main .card, #main .checklist,
-#main .tabs__panel, #main .about__inner, #main .tech-lab__content {
+#main .tabs__panel, #main .about__inner, #main .tech-lab__content,
+#main .tabs, #main .tabs__trigger, #main .tabs__panel-inner,
+#main .atelier-suite, #main .section-header {
   text-align: center;
+}
+
+#main .tabs__panel-inner > div {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 600px;
+}
+
+#main .checklist {
+  display: inline-block;
+  text-align: center;
+  padding-left: 0;
+}
+
+#main .checklist li {
+  padding-left: 0;
+  padding-right: 0;
+  list-style: none;
+}
+
+#main .checklist li::before {
+  content: '✓ ';
+  color: var(--color-red);
+  font-weight: bold;
+  margin-right: 8px;
+  position: static;
 }
 
 img {
@@ -2032,6 +2062,7 @@ p, li, td, th, span, a, h1, h2, h3, h4 {
   transition: all 0.3s;
   position: relative;
   bottom: -2px;
+  text-align: center;
 }
 
 .tabs__trigger:hover,
@@ -2055,10 +2086,11 @@ p, li, td, th, span, a, h1, h2, h3, h4 {
 }
 
 .tabs__panel-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  gap: 40px;
+  text-align: center;
 }
 
 .tabs__panel h3 {
