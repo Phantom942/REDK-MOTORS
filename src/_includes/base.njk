@@ -27,11 +27,10 @@
     <meta name="twitter:image:alt" content="{{ site.name }} - Garage mécanique et carrosserie Île-de-France" />
 
     <!-- Favicon + PWA -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
     <title>{{ title | default(site.name) }}</title>
@@ -46,8 +45,8 @@
     <link rel="stylesheet" href="/assets/css/styles.css?v=2" />
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="theme-color" content="#b31217" />
-    <meta name="msapplication-TileColor" content="#b31217" />
+    <meta name="theme-color" content="#0b0b0f" />
+    <meta name="msapplication-TileColor" content="#0b0b0f" />
 
     <!-- GTM chargé uniquement après consentement cookies (voir cookies.js) -->
 
@@ -110,13 +109,14 @@
     {% include "cta-sticky-call.njk" %}
 
     <script src="/assets/js/main.js" defer></script>
+    {% if scripts and scripts.mobileOptimizer == false %}{% else %}
     <script src="/assets/js/mobile-optimizer.js" defer></script>
+    {% endif %}
     <script src="/assets/js/cookies.js" defer></script>
-    {% if hasHeroVideo %}
+    {% if hasHeroVideo or not (scripts and scripts.video == false) %}
     <script src="/assets/js/video-lazy.js" defer></script>
     {% endif %}
-    <script src="/assets/js/track.js" defer></script>
-    {% if scripts and scripts.effects == false %}{% else %}
+    {% if scripts and scripts.effects == true %}
     <script>
       (function(){if('requestIdleCallback' in window){requestIdleCallback(function(){var s=document.createElement('script');s.src='/assets/js/futuristic-effects.js';s.defer=true;document.body.appendChild(s);});}else{var s=document.createElement('script');s.src='/assets/js/futuristic-effects.js';s.defer=true;document.body.appendChild(s);}})();
     </script>
