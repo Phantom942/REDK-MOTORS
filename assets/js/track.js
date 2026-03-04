@@ -1,5 +1,6 @@
 // RED-K MOTORS — GTM dataLayer tracking (chargé uniquement après consentement)
 (function() {
+  if (!window.REDKMotorsCookies || !window.REDKMotorsCookies.hasConsent('analytics')) return;
   var pageKey = document.body.getAttribute('data-page') || 'unknown';
   var pagePath = window.location.pathname;
 

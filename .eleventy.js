@@ -2,11 +2,11 @@ module.exports = function (eleventyConfig) {
   // Filtre JSON pour JSON-LD
   eleventyConfig.addFilter("json", (obj) => JSON.stringify(obj));
 
-  // Filtre date pour sitemap (ISO YYYY-MM-DD)
+  // Filtre date pour sitemap (ISO YYYY-MM-DD) — pas de fallback, retourne vide si invalide
   eleventyConfig.addFilter("dateToIso", (date) => {
-    if (!date) return new Date().toISOString().slice(0, 10);
+    if (!date) return "";
     const d = new Date(date);
-    return isNaN(d.getTime()) ? new Date().toISOString().slice(0, 10) : d.toISOString().slice(0, 10);
+    return isNaN(d.getTime()) ? "" : d.toISOString().slice(0, 10);
   });
 
   // Collection blog triée par date décroissante

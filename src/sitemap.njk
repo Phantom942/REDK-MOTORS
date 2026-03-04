@@ -9,8 +9,9 @@ eleventyExcludeFromCollections: true
   <url>
     <loc>{{ site.url }}{{ item.url | replace('/index.html', '/') }}</loc>
     {% set lastmodVal = item.data.date or item.date %}
-    {% if lastmodVal %}
-    <lastmod>{{ lastmodVal | dateToIso }}</lastmod>
+    {% set lastmodStr = lastmodVal | dateToIso %}
+    {% if lastmodStr %}
+    <lastmod>{{ lastmodStr }}</lastmod>
     {% endif %}
     <changefreq>{{ item.data.sitemap.changefreq | default('weekly') }}</changefreq>
     <priority>{{ item.data.sitemap.priority | default('0.5') }}</priority>
