@@ -88,8 +88,8 @@
             l'utilisation du site ou à vous proposer des contenus personnalisés.
           </p>
           <p class="cookie-banner__text">
-            <a href="confidentialite.html">Politique de confidentialité</a> • 
-            <a href="cookies.html">Politique de cookies</a>
+<a href="/confidentialite/">Politique de confidentialité</a> •
+            <a href="/cookies/">Politique de cookies</a>
           </p>
         </div>
         <div class="cookie-banner__actions">

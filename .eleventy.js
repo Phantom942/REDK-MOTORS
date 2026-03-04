@@ -47,9 +47,11 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("favicon.svg");
   eleventyConfig.addPassthroughCopy("robots.txt");
   eleventyConfig.addPassthroughCopy(".nojekyll");
+  eleventyConfig.addPassthroughCopy("_redirects");
 
   // Données globales accessibles partout
   eleventyConfig.addGlobalData("layout", "base.njk");
+  eleventyConfig.addGlobalData("buildDate", () => new Date().toISOString().slice(0, 10));
 
   return {
     dir: {

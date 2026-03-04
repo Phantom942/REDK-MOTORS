@@ -1,0 +1,21 @@
+# Netlify - Redirections 301 (à la racine du publish = _site)
+# Legacy .html -> canonique
+/mecanique.html    /mecanique/    301
+/carrosserie.html  /carrosserie/  301
+/entretien.html    /entretien/    301
+/pneumatiques.html /pneumatiques/ 301
+/achat-revente.html /achat-revente/ 301
+/location.html     /location/     301
+/contact.html      /contact/      301
+/confidentialite.html /confidentialite/ 301
+/cookies.html      /cookies/      301
+# Trailing slash
+/mecanique         /mecanique/    301
+/carrosserie       /carrosserie/  301
+/entretien         /entretien/    301
+/pneumatiques      /pneumatiques/ 301
+/achat-revente     /achat-revente/ 301
+/location          /location/     301
+/contact           /contact/      301
+/confidentialite   /confidentialite/ 301
+/cookies           /cookies/      301

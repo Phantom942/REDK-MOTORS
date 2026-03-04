@@ -1,0 +1,116 @@
+# RED-K MOTORS - Netlify
+# Pour migration depuis GitHub Pages : redirections 301 vers URLs canoniques
+
+[build]
+  command = "npm run build"
+  publish = "_site"
+
+# Redirections 301 : .html -> slash trailing
+[[redirects]]
+  from = "/mecanique.html"
+  to = "/mecanique/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/carrosserie.html"
+  to = "/carrosserie/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/entretien.html"
+  to = "/entretien/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/pneumatiques.html"
+  to = "/pneumatiques/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/achat-revente.html"
+  to = "/achat-revente/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/location.html"
+  to = "/location/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/contact.html"
+  to = "/contact/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/confidentialite.html"
+  to = "/confidentialite/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/cookies.html"
+  to = "/cookies/"
+  status = 301
+  force = true
+
+# Trailing slash : sans slash -> avec slash (version canonique)
+[[redirects]]
+  from = "/mecanique"
+  to = "/mecanique/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/carrosserie"
+  to = "/carrosserie/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/entretien"
+  to = "/entretien/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/pneumatiques"
+  to = "/pneumatiques/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/achat-revente"
+  to = "/achat-revente/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/location"
+  to = "/location/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/contact"
+  to = "/contact/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/confidentialite"
+  to = "/confidentialite/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/cookies"
+  to = "/cookies/"
+  status = 301
+  force = true

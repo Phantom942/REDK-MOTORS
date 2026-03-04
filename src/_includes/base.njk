@@ -26,10 +26,9 @@
     <meta name="twitter:image" content="{{ ogImage | default(site.ogImage) }}" />
     <meta name="twitter:image:alt" content="{{ site.name }} - Garage mécanique et carrosserie Île-de-France" />
 
-    <!-- Favicon -->
+    <!-- Favicon (SVG prioritaire, fallback cohérent) -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" type="image/png" href="/favicon.svg" />
-    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <link rel="apple-touch-icon" type="image/svg+xml" href="/favicon.svg" />
 
     <title>{{ title | default(site.name) }}</title>
     <link rel="canonical" href="{{ site.url }}{{ page.url | default('/') | replace('/index.html','/') }}" />
@@ -119,8 +118,12 @@
     <script src="/assets/js/main.js" defer></script>
     <script src="/assets/js/mobile-optimizer.js" defer></script>
     <script src="/assets/js/cookies.js" defer></script>
-    <script src="/assets/js/futuristic-effects.js" defer></script>
+    {% if hasHeroVideo %}
     <script src="/assets/js/video-lazy.js" defer></script>
+    {% endif %}
     <script src="/assets/js/track.js" defer></script>
+    <script>
+      (function(){if('requestIdleCallback' in window){requestIdleCallback(function(){var s=document.createElement('script');s.src='/assets/js/futuristic-effects.js';s.defer=true;document.body.appendChild(s);});}else{var s=document.createElement('script');s.src='/assets/js/futuristic-effects.js';s.defer=true;document.body.appendChild(s);}})();
+    </script>
   </body>
 </html>

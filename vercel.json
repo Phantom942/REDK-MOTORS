@@ -1,0 +1,24 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "_site",
+  "redirects": [
+    { "source": "/mecanique.html", "destination": "/mecanique/", "permanent": true },
+    { "source": "/carrosserie.html", "destination": "/carrosserie/", "permanent": true },
+    { "source": "/entretien.html", "destination": "/entretien/", "permanent": true },
+    { "source": "/pneumatiques.html", "destination": "/pneumatiques/", "permanent": true },
+    { "source": "/achat-revente.html", "destination": "/achat-revente/", "permanent": true },
+    { "source": "/location.html", "destination": "/location/", "permanent": true },
+    { "source": "/contact.html", "destination": "/contact/", "permanent": true },
+    { "source": "/confidentialite.html", "destination": "/confidentialite/", "permanent": true },
+    { "source": "/cookies.html", "destination": "/cookies/", "permanent": true },
+    { "source": "/mecanique", "destination": "/mecanique/", "permanent": true },
+    { "source": "/carrosserie", "destination": "/carrosserie/", "permanent": true },
+    { "source": "/entretien", "destination": "/entretien/", "permanent": true },
+    { "source": "/pneumatiques", "destination": "/pneumatiques/", "permanent": true },
+    { "source": "/achat-revente", "destination": "/achat-revente/", "permanent": true },
+    { "source": "/location", "destination": "/location/", "permanent": true },
+    { "source": "/contact", "destination": "/contact/", "permanent": true },
+    { "source": "/confidentialite", "destination": "/confidentialite/", "permanent": true },
+    { "source": "/cookies", "destination": "/cookies/", "permanent": true }
+  ]
+}

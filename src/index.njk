@@ -3,6 +3,7 @@ layout: base.njk
 title: "Garage automobile à Ivry-sur-Seine (94) | Mécanique, carrosserie & entretien | RED-K MOTORS"
 description: "Votre garage de confiance à Ivry-sur-Seine (94). Nos mécaniciens prennent soin de votre voiture comme de la leur : diagnostic précis, réparation soignée et devis gratuit. Passez nous voir au 9 rue Michelet."
 pageKey: index
+hasHeroVideo: true
 showWhatsApp: true
 breadcrumb:
   "@context": "https://schema.org"
@@ -316,7 +317,7 @@ faqSchema:
           Comment vous contacter ? C'est facile de prendre rendez-vous ?
         </button>
         <div class="faq__answer" id="faq-5" hidden>
-          <p>Par téléphone au 06.48.74.56.68, par email ou via WhatsApp. On répond généralement dans l'heure. Vous pouvez aussi passer directement au garage, on est ouverts du lundi au samedi de 10h à 20h.</p>
+          <p>Par téléphone au <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a>, par email ou via WhatsApp. On répond généralement dans l'heure. Vous pouvez aussi passer directement au garage, on est ouverts du lundi au samedi de 10h à 20h.</p>
         </div>
       </article>
     </div>
