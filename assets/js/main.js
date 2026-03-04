@@ -14,15 +14,20 @@ function throttle(fn, delay) {
 document.addEventListener('DOMContentLoaded', function() {
   const scrollProgress = document.querySelector('.scroll-progress__indicator');
   const backToTop = document.querySelector('.back-to-top');
+  const scrollEl = document.getElementById('scroll-root') || document.documentElement;
 
   const onScroll = throttle(function() {
-    const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    if (scrollProgress && h > 0) scrollProgress.style.width = (window.scrollY / h) * 100 + '%';
-    if (backToTop) backToTop.classList.toggle('visible', window.scrollY > 300);
+    const y = scrollEl.scrollTop || window.scrollY;
+    const h = (scrollEl.scrollHeight || document.documentElement.scrollHeight) - (scrollEl.clientHeight || window.innerHeight);
+    if (scrollProgress && h > 0) scrollProgress.style.width = (y / h) * 100 + '%';
+    if (backToTop) backToTop.classList.toggle('visible', y > 300);
   }, 16);
 
-  window.addEventListener('scroll', onScroll, { passive: true });
-  if (backToTop) backToTop.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  scrollEl.addEventListener('scroll', onScroll, { passive: true });
+  if (backToTop) backToTop.addEventListener('click', function() {
+    if (scrollEl.scrollTo) scrollEl.scrollTo({ top: 0, behavior: 'smooth' });
+    else window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 
   // Mobile Menu Toggle
   const navToggle = document.querySelector('.main-nav__toggle');
