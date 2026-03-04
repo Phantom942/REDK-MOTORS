@@ -3736,3 +3736,65 @@ a:focus-visible {
   text-align: center !important;
 }
 
+/* Mobile : centrage forcé atelier-suite et onglets */
+@media (max-width: 768px) {
+  #main .atelier-suite .container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  #main .atelier-suite .section-header,
+  #main .atelier-suite .section-header *,
+  #main .atelier-suite .tabs {
+    text-align: center !important;
+    justify-content: center !important;
+  }
+
+  #main .atelier-suite .tabs__panel-inner,
+  #main .atelier-suite .tabs__panel-inner > div,
+  #main .atelier-suite .tabs__panel-inner h3,
+  #main .atelier-suite .tabs__panel-inner p,
+  #main .atelier-suite .tabs__panel-inner .checklist,
+  #main .atelier-suite .tabs__panel-inner .checklist li {
+    text-align: center !important;
+    display: block !important;
+  }
+
+  #main .atelier-suite .tabs__panel-inner {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  #main .atelier-suite .tabs__panel-inner .checklist {
+    display: inline-block !important;
+    text-align: center !important;
+  }
+
+  #main .atelier-suite .tabs__panel-inner .checklist li {
+    padding-left: 0 !important;
+    text-align: center !important;
+  }
+
+  #main .atelier-suite .tabs__panel-inner .checklist li::before {
+    position: static !important;
+  }
+}
+
+@media (max-width: 480px) {
+  #main .atelier-suite .container,
+  #main .atelier-suite .section-header,
+  #main .atelier-suite .tabs,
+  #main .atelier-suite .tabs__panels,
+  #main .atelier-suite .tabs__panel-inner,
+  #main .atelier-suite .tabs__panel-inner > div,
+  #main .atelier-suite .tabs__panel-inner h3,
+  #main .atelier-suite .tabs__panel-inner p,
+  #main .atelier-suite .tabs__panel-inner .checklist,
+  #main .atelier-suite .tabs__panel-inner .checklist li {
+    text-align: center !important;
+  }
+}
+
