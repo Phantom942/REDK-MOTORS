@@ -4,6 +4,7 @@
   var pagePath = window.location.pathname;
 
   function pushEvent(eventName, ctaPosition) {
+    if (!window.REDKMotorsCookies || !window.REDKMotorsCookies.hasConsent('analytics')) return;
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       event: eventName,

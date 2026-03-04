@@ -275,25 +275,23 @@
     }, 3000);
   }
 
-  // Charger Google Analytics / Tag Manager (si consentement)
+  // Charger Google Tag Manager uniquement après consentement (RGPD)
   function loadAnalytics() {
-    if (consentState.analytics) {
-      // Google Tag Manager est déjà chargé dans le HTML
-      // On peut déclencher un événement pour signaler le consentement
-      if (window.dataLayer) {
-        window.dataLayer.push({
-          'event': 'cookie_consent',
-          'analytics': true,
-          'marketing': consentState.marketing
-        });
-      }
-    }
+    if (!consentState.analytics) return;
+    var gtmId = document.body.getAttribute('data-gtm-id');
+    if (!gtmId) return;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({'event': 'cookie_consent', 'analytics': true, 'marketing': consentState.marketing});
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtm.js?id=' + gtmId;
+    document.head.appendChild(s);
   }
 
   // Retirer les scripts d'analytics
   function removeAnalytics() {
-    // Supprimer les cookies analytics existants
-    const analyticsCookies = ['_ga', '_gid', '_gat', '_gat_gtag_' + 'GTM-NTC72X2G'.replace(/[^a-zA-Z0-9]/g, '_')];
+    var gtmId = document.body.getAttribute('data-gtm-id') || 'GTM-NTC72X2G';
+    var analyticsCookies = ['_ga', '_gid', '_gat', '_gat_gtag_' + gtmId.replace(/[^a-zA-Z0-9]/g, '_')];
     analyticsCookies.forEach(cookie => {
       deleteCookie(cookie);
     });
