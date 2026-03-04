@@ -59,22 +59,20 @@ body {
 
 #main .tabs__panel-inner > div {
   text-align: center !important;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  max-width: 600px;
-}
-
-#main .tabs__panel-inner > div h3,
-#main .tabs__panel-inner > div p,
-#main .tabs__panel-inner > div ul {
-  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: fit-content !important;
+  max-width: 100%;
 }
 
 #main .checklist {
-  display: inline-block;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
   padding-left: 0;
+  padding-inline-start: 0;
+  list-style: none;
 }
 
 #main .checklist li {
@@ -3752,30 +3750,33 @@ a:focus-visible {
     justify-content: center !important;
   }
 
-  #main .atelier-suite .tabs__panel-inner,
-  #main .atelier-suite .tabs__panel-inner > div,
-  #main .atelier-suite .tabs__panel-inner h3,
-  #main .atelier-suite .tabs__panel-inner p,
-  #main .atelier-suite .tabs__panel-inner .checklist,
-  #main .atelier-suite .tabs__panel-inner .checklist li {
-    text-align: center !important;
-    display: block !important;
+  #main .atelier-suite .tabs__panel-inner > div {
+    width: fit-content !important;
+    max-width: 100% !important;
+    margin-inline: auto !important;
   }
 
-  #main .atelier-suite .tabs__panel-inner {
+  #main .atelier-suite .tabs__panel-inner,
+  #main .atelier-suite .tabs__panel-inner .checklist {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
+    text-align: center !important;
+  }
+
+  #main .atelier-suite .tabs__panel-inner h3,
+  #main .atelier-suite .tabs__panel-inner p,
+  #main .atelier-suite .tabs__panel-inner .checklist li {
+    text-align: center !important;
   }
 
   #main .atelier-suite .tabs__panel-inner .checklist {
-    display: inline-block !important;
-    text-align: center !important;
+    padding-inline-start: 0 !important;
   }
 
   #main .atelier-suite .tabs__panel-inner .checklist li {
     padding-left: 0 !important;
-    text-align: center !important;
+    padding-inline-start: 0 !important;
   }
 
   #main .atelier-suite .tabs__panel-inner .checklist li::before {
