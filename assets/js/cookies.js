@@ -275,17 +275,21 @@
     }, 3000);
   }
 
-  // Charger Google Tag Manager uniquement après consentement (RGPD)
+  // Charger GTM + track.js uniquement après consentement (RGPD)
   function loadAnalytics() {
     if (!consentState.analytics) return;
     var gtmId = document.body.getAttribute('data-gtm-id');
     if (!gtmId) return;
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({'event': 'cookie_consent', 'analytics': true, 'marketing': consentState.marketing});
-    var s = document.createElement('script');
-    s.async = true;
-    s.src = 'https://www.googletagmanager.com/gtm.js?id=' + gtmId;
-    document.head.appendChild(s);
+    var gtm = document.createElement('script');
+    gtm.async = true;
+    gtm.src = 'https://www.googletagmanager.com/gtm.js?id=' + gtmId;
+    document.head.appendChild(gtm);
+    var track = document.createElement('script');
+    track.src = '/assets/js/track.js';
+    track.defer = true;
+    document.body.appendChild(track);
   }
 
   // Retirer les scripts d'analytics
