@@ -23,7 +23,8 @@ html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   width: 100%;
-  overflow-x: hidden;
+  height: 100%;
+  overflow: hidden;
 }
 
 body {
@@ -31,10 +32,13 @@ body {
   color: var(--color-black);
   line-height: 1.6;
   overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 100%;
   min-width: 0;
+  min-height: 100%;
 }
 
 /* Anti-débordement mobile : contenu centré sans scroll horizontal */
@@ -803,8 +807,12 @@ p, li, td, th, span, a, h1, h2, h3, h4 {
 
 /* Mobile breakpoint */
 @media (max-width: 768px) {
-  html, body {
+  html {
     overflow-x: hidden;
+  }
+  body {
+    overflow-x: hidden;
+    overflow-y: auto;
     -webkit-overflow-scrolling: touch;
   }
 
