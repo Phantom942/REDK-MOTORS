@@ -43,6 +43,16 @@ body {
   max-width: 100%;
   min-width: 0;
   overflow-x: hidden;
+  text-align: center;
+}
+
+#main .container,
+#main section,
+#main h1, #main h2, #main h3, #main h4, #main h5, #main h6,
+#main p, #main ul, #main ol, #main li, #main dl, #main dt, #main dd,
+#main .promesse__item, #main .card, #main .checklist,
+#main .tabs__panel, #main .about__inner, #main .tech-lab__content {
+  text-align: center;
 }
 
 img {
@@ -903,7 +913,7 @@ p, li, td, th, span, a, h1, h2, h3, h4 {
   .trust-bar__item {
     flex-direction: row;
     gap: 12px;
-    text-align: left;
+    text-align: center;
     width: 100%;
     max-width: 320px;
   }
@@ -1731,7 +1741,7 @@ p, li, td, th, span, a, h1, h2, h3, h4 {
   padding: 20px 30px;
   background: none;
   border: none;
-  text-align: left;
+  text-align: center;
   font-family: var(--font-primary);
   font-size: 18px;
   font-weight: 600;
@@ -1943,7 +1953,7 @@ p, li, td, th, span, a, h1, h2, h3, h4 {
 .service-focus ul {
   list-style: none;
   margin-top: 20px;
-  text-align: left;
+  text-align: center;
   display: inline-block;
 }
 
