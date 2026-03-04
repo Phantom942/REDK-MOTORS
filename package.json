@@ -5,7 +5,8 @@
   "scripts": {
     "build": "eleventy",
     "serve": "eleventy --serve",
-    "dev": "eleventy --serve"
+    "dev": "eleventy --serve",
+    "favicon": "node scripts/generate-favicons.js"
   },
   "keywords": [
     "eleventy",
@@ -15,6 +16,8 @@
   "author": "RED-K MOTORS",
   "license": "UNLICENSED",
   "devDependencies": {
-    "@11ty/eleventy": "^3.0.0"
+    "@11ty/eleventy": "^3.0.0",
+    "sharp": "^0.33.5",
+    "sharp-ico": "^0.1.5"
   }
 }

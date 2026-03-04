@@ -45,6 +45,11 @@ module.exports = function (eleventyConfig) {
   // Copier les assets inchangés
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy("favicon.svg");
+  eleventyConfig.addPassthroughCopy("favicon.ico");
+  eleventyConfig.addPassthroughCopy("favicon-16x16.png");
+  eleventyConfig.addPassthroughCopy("favicon-32x32.png");
+  eleventyConfig.addPassthroughCopy("apple-touch-icon.png");
+  eleventyConfig.addPassthroughCopy("site.webmanifest");
   eleventyConfig.addPassthroughCopy("robots.txt");
   eleventyConfig.addPassthroughCopy(".nojekyll");
   eleventyConfig.addPassthroughCopy("_redirects");
