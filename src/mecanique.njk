@@ -320,37 +320,14 @@ breadcrumb:
         </div>
       </dl>
     </div>
-    <form class="form" aria-label="Formulaire de prise de rendez-vous" action="https://formsubmit.co/{{ site.email }}" method="POST">
-      <input type="hidden" name="_next" value="{{ site.url }}/merci">
-      <input type="hidden" name="_subject" value="Demande mécanique depuis le site {{ site.name }}">
-      <input type="hidden" name="_captcha" value="true">
-      <div class="form__group">
-        <label for="name">Nom complet</label>
-        <input type="text" id="name" name="name" placeholder="Jean Dupont" required />
+    <div class="form__alternatives" style="margin-top: 1.5rem;">
+      <p>Contactez-nous pour réserver un créneau :</p>
+      <div class="form__alt-btns" style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+        <a href="tel:{{ site.phone }}" class="btn btn--primary" data-track="click_call">Appeler {{ site.phoneDisplay }}</a>
+        <a href="mailto:{{ site.email }}" class="btn btn--secondary">Envoyer un email</a>
+        <a href="https://wa.me/33648745668?text=Bonjour%2C%20je%20souhaite%20prendre%20rendez-vous%20pour%20un%20diagnostic%20ou%20une%20r%C3%A9paration." class="btn btn--secondary" target="_blank" rel="noopener noreferrer">WhatsApp</a>
       </div>
-      <div class="form__group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="jean.dupont@email.com" required />
-      </div>
-      <div class="form__group">
-        <label for="phone">Téléphone</label>
-        <input type="tel" id="phone" name="phone" placeholder="06 12 34 56 78" />
-      </div>
-      <div class="form__group">
-        <label for="service">Service souhaité</label>
-        <select id="service" name="service">
-          <option value="revision">Révision</option>
-          <option value="diagnostic">Diagnostic</option>
-          <option value="carrosserie">Carrosserie</option>
-          <option value="financement">Projet véhicule</option>
-        </select>
-      </div>
-      <div class="form__group form__group--full">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="4" placeholder="Votre demande..."></textarea>
-      </div>
-      <button class="btn btn--primary" type="submit">Envoyer ma demande</button>
-    </form>
+    </div>
   </div>
 </section>
 

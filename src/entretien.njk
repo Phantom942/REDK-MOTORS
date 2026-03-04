@@ -267,23 +267,6 @@ breadcrumb:
   </div>
 </section>
 
-<section class="newsletter" aria-labelledby="newsletter-title" data-animate="slide-up">
-  <div class="container newsletter__inner">
-    <div>
-      <h2 id="newsletter-title">Nos astuces pour faire durer votre véhicule</h2>
-      <p>Recevez chaque mois nos recommandations pour allonger la durée de vie de votre véhicule.</p>
-    </div>
-    <form class="newsletter__form" action="https://formsubmit.co/{{ site.email }}" method="POST">
-      <input type="hidden" name="_next" value="{{ site.url }}/entretien/">
-      <input type="hidden" name="_subject" value="Inscription newsletter {{ site.name }}">
-      <input type="hidden" name="_captcha" value="true">
-      <label class="sr-only" for="newsletter-email">Email</label>
-      <input type="email" id="newsletter-email" name="newsletter-email" placeholder="Votre email" required />
-      <button class="btn btn--secondary" type="submit">S'abonner</button>
-    </form>
-  </div>
-</section>
-
 <section class="promesse" aria-labelledby="zones-entretien" data-animate="slide-up">
   <div class="container">
     <p id="zones-entretien" class="promesse__title" style="font-size: 1.1rem; font-weight: 600;">
