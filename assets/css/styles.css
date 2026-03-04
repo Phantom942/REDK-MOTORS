@@ -1337,14 +1337,23 @@ p, li, td, th, span, a, h1, h2, h3, h4 {
     font-size: 80px;
   }
 
-  /* Tabs Panel Visual */
+  /* Tabs Panel Visual — visible en premier sur mobile (modules HUD) */
+  .tabs__panel-inner {
+    display: flex;
+    flex-direction: column;
+  }
+
   .tabs__panel-visual {
-    padding: 30px 16px;
-    min-height: 120px;
+    order: -1;
+    padding: 24px 16px;
+    min-height: 100px;
+    margin-bottom: 20px;
   }
 
   .hud {
-    font-size: 16px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.3;
   }
 
   /* Workflow Intro */
@@ -3552,6 +3561,38 @@ a:focus-visible {
   .tech-lab__inner {
     grid-template-columns: 1fr;
     gap: 30px;
+  }
+
+  /* Modules/visuels en premier sur mobile (toutes les pages) */
+  .tabs__panel-inner {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tabs__panel-visual {
+    order: -1;
+    padding: 24px 16px;
+    min-height: 100px;
+    margin-bottom: 20px;
+  }
+
+  .service-focus__visual {
+    order: -1;
+    margin-bottom: 24px;
+  }
+
+  .appointment .form__alternatives {
+    order: -1;
+    margin-bottom: 24px;
+  }
+
+  .tech-lab__inner .media-card {
+    order: -1;
+  }
+
+  .about__inner .about__highlights {
+    order: -1;
+    margin-bottom: 24px;
   }
 
   .about__highlights {
