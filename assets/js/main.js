@@ -14,19 +14,17 @@ function throttle(fn, delay) {
 document.addEventListener('DOMContentLoaded', function() {
   const scrollProgress = document.querySelector('.scroll-progress__indicator');
   const backToTop = document.querySelector('.back-to-top');
-  const scrollEl = document.getElementById('scroll-root') || document.documentElement;
 
   const onScroll = throttle(function() {
-    const y = scrollEl.scrollTop || window.scrollY;
-    const h = (scrollEl.scrollHeight || document.documentElement.scrollHeight) - (scrollEl.clientHeight || window.innerHeight);
+    const y = window.scrollY || document.documentElement.scrollTop;
+    const h = document.documentElement.scrollHeight - window.innerHeight;
     if (scrollProgress && h > 0) scrollProgress.style.width = (y / h) * 100 + '%';
     if (backToTop) backToTop.classList.toggle('visible', y > 300);
   }, 16);
 
-  scrollEl.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('scroll', onScroll, { passive: true });
   if (backToTop) backToTop.addEventListener('click', function() {
-    if (scrollEl.scrollTo) scrollEl.scrollTo({ top: 0, behavior: 'smooth' });
-    else window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
   // Mobile Menu Toggle

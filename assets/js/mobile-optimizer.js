@@ -21,17 +21,15 @@
       });
       var nav = document.querySelector('#primary-menu');
       var toggle = document.querySelector('.main-nav__toggle');
-      var scrollEl = document.getElementById('scroll-root');
       var lastScroll = 0;
-      function onScroll() {
-        var y = scrollEl ? scrollEl.scrollTop : window.pageYOffset;
+      window.addEventListener('scroll', function() {
+        var y = window.pageYOffset;
         if (nav && nav.classList.contains('is-open') && Math.abs(y - lastScroll) > 50) {
           nav.classList.remove('is-open');
           if (toggle) toggle.setAttribute('aria-expanded', 'false');
         }
         lastScroll = y;
-      }
-      (scrollEl || window).addEventListener('scroll', onScroll, { passive: true });
+      }, { passive: true });
     }
     document.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], textarea').forEach(function(input) {
       if (window.innerWidth < 768 && parseInt(window.getComputedStyle(input).fontSize, 10) < 16) {

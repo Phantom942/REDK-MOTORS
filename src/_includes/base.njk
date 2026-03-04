@@ -97,16 +97,14 @@
     {% endif %}
   </head>
   <body data-page="{{ pageKey | default('index') }}" data-gtm-id="{{ site.gtmId }}">
-    <div id="scroll-root">
-      {% include "offer-banner.njk" %}
-      {% include "header.njk" %}
+    {% include "offer-banner.njk" %}
+    {% include "header.njk" %}
 
-      <main id="main">
-        {{ content | safe }}
-      </main>
+    <main id="main">
+      {{ content | safe }}
+    </main>
 
-      {% include "footer.njk" %}
-    </div>
+    {% include "footer.njk" %}
     {% include "floating-whatsapp.njk" %}
     {% include "cta-sticky-call.njk" %}
 
