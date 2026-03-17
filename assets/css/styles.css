@@ -102,6 +102,7 @@ iframe, .map-frame {
   max-width: 100%;
   height: 100%;
   object-fit: cover;
+  pointer-events: none;
 }
 
 p, li, td, th, span, a, h1, h2, h3, h4 {
@@ -264,15 +265,17 @@ p, li, td, th, span, a, h1, h2, h3, h4 {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Hero Section - pas de scroll interne, seul #scroll-root défile */
+/* Hero Section */
 .hero {
   position: relative;
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--color-white);
   overflow: clip;
+  touch-action: pan-y;
 }
 
 .hero__video-bg,
@@ -284,6 +287,7 @@ p, li, td, th, span, a, h1, h2, h3, h4 {
   height: 100%;
   z-index: 1;
   overflow: clip;
+  pointer-events: none;
   background: linear-gradient(135deg, var(--color-black) 0%, var(--color-red-dark) 50%, var(--color-red) 100%);
 }
 
@@ -297,6 +301,7 @@ p, li, td, th, span, a, h1, h2, h3, h4 {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  pointer-events: none;
 }
 
 .hero__overlay {
@@ -307,6 +312,7 @@ p, li, td, th, span, a, h1, h2, h3, h4 {
   height: 100%;
   background: linear-gradient(135deg, rgba(179, 18, 23, 0.6) 0%, rgba(31, 31, 31, 0.5) 100%);
   z-index: 2;
+  pointer-events: none;
 }
 
 .hero__content {
@@ -912,14 +918,17 @@ p, li, td, th, span, a, h1, h2, h3, h4 {
   /* Hero */
   .hero {
     min-height: 80vh;
+    min-height: 80dvh;
   }
 
   .hero--expanded {
     min-height: 85vh;
+    min-height: 85dvh;
   }
 
   .hero--subpage {
     min-height: 50vh;
+    min-height: 50dvh;
   }
 
   .hero__content {
@@ -1536,20 +1545,18 @@ p, li, td, th, span, a, h1, h2, h3, h4 {
     -webkit-tap-highlight-color: rgba(179, 18, 23, 0.15);
   }
 
-  /* Smooth scrolling on mobile */
-  * {
-    -webkit-overflow-scrolling: touch;
-  }
 }
 
 /* Very Small Screens (iPhone SE, etc.) */
 @media (max-width: 480px) {
   .hero {
     min-height: 75vh;
+    min-height: 75dvh;
   }
 
   .hero--expanded {
     min-height: 80vh;
+    min-height: 80dvh;
   }
 
   .hero h1 {
@@ -2278,10 +2285,12 @@ p, li, td, th, span, a, h1, h2, h3, h4 {
 /* Hero Subpage */
 .hero--subpage {
   min-height: 60vh;
+  min-height: 60dvh;
 }
 
 .hero--expanded {
   min-height: 100vh;
+  min-height: 100dvh;
 }
 
 /* Utilities */
