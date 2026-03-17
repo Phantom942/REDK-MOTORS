@@ -22,7 +22,7 @@ html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {
@@ -32,15 +32,14 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-width: 0;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
-/* Anti-débordement mobile : contenu centré sans scroll horizontal */
 #main {
   width: 100%;
   max-width: 100%;
   min-width: 0;
-  overflow-x: hidden;
+  overflow-x: clip;
   text-align: center;
 }
 
@@ -839,8 +838,7 @@ p, li, td, th, span, a, h1, h2, h3, h4 {
 /* Mobile breakpoint */
 @media (max-width: 768px) {
   html, body {
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
+    overflow-x: clip;
   }
 
   .container {
@@ -865,7 +863,7 @@ p, li, td, th, span, a, h1, h2, h3, h4 {
 
   /* Sections : pas de débordement */
   section {
-    overflow-x: hidden;
+    overflow-x: clip;
     max-width: 100%;
   }
 
