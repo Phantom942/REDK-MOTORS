@@ -16,6 +16,40 @@ breadcrumb:
       position: 2
       name: "Mécanique"
       item: "https://redk-motors.me/mecanique/"
+localServiceSchema:
+  "@context": "https://schema.org"
+  "@type": "Service"
+  serviceType: "Diagnostic moteur et réparation mécanique"
+  provider:
+    "@id": "https://redk-motors.me/#business"
+  areaServed:
+    "@type": "City"
+    name: "Ivry-sur-Seine"
+  description: "Diagnostic moteur, réparation mécanique, distribution et embrayage à Ivry-sur-Seine. Toutes marques, devis gratuit et pièces d'origine."
+  offers:
+    "@type": "Offer"
+    price: "0"
+    priceCurrency: "EUR"
+    description: "Devis gratuit"
+faqSchema:
+  "@context": "https://schema.org"
+  "@type": "FAQPage"
+  mainEntity:
+    - "@type": "Question"
+      name: "Combien de temps dure un diagnostic moteur ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "En général, un diagnostic électronique prend environ 45 minutes. Nous vous appelons ensuite pour vous expliquer ce que nous avons trouvé."
+    - "@type": "Question"
+      name: "Est-il possible de conserver ma garantie constructeur ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Nous respectons les préconisations constructeur et utilisons des pièces d'origine. La garantie constructeur est préservée."
+    - "@type": "Question"
+      name: "Réalisez-vous des préparations performance homologuées ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Nous pouvons réaliser certaines optimisations moteur. Contactez-nous pour discuter de votre projet, on vous dira ce qui est faisable."
 ---
 
 {% set heroActions %}
@@ -317,6 +351,26 @@ breadcrumb:
         <a href="mailto:{{ site.email }}" class="btn btn--secondary">Envoyer un email</a>
         <a href="https://wa.me/33648745668?text=Bonjour%2C%20je%20souhaite%20prendre%20rendez-vous%20pour%20un%20diagnostic%20ou%20une%20r%C3%A9paration." class="btn btn--secondary" target="_blank" rel="noopener noreferrer">WhatsApp</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="related-articles" aria-labelledby="articles-mecanique" data-animate="slide-up">
+  <div class="container">
+    <h2 id="articles-mecanique">Articles utiles sur la mécanique</h2>
+    <div class="grid grid--three">
+      <a class="card card--link" href="/blog/voyant-moteur-allume-que-faire/">
+        <h3>Voyant moteur allumé : que faire ?</h3>
+        <p>Découvrez ce que signifient les différents voyants et quand consulter un garage.</p>
+      </a>
+      <a class="card card--link" href="/blog/entretien-voiture-eviter-pannes-ivry/">
+        <h3>Entretien voiture : éviter les pannes</h3>
+        <p>Les bons réflexes pour prévenir les problèmes mécaniques courants.</p>
+      </a>
+      <a class="card card--link" href="/blog/5-points-controle-avant-ct-ivry/">
+        <h3>5 points de contrôle avant le CT</h3>
+        <p>Préparez votre contrôle technique sereinement grâce à notre checklist.</p>
+      </a>
     </div>
   </div>
 </section>

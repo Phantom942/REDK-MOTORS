@@ -5,11 +5,14 @@
     "@id": "https://redk-motors.me/#business",
     "name": "RED-K MOTORS",
     "description": "Garage automobile à Ivry-sur-Seine spécialisé en mécanique, carrosserie et entretien multimarque. Devis gratuit et pièces d'origine. Ouvert du lundi au samedi de 10h à 20h.",
-    "image": "https://redk-motors.me/assets/img/achat-revente.jpg",
+    "image": "https://redk-motors.me/assets/img/og-default.png",
+    "logo": "https://redk-motors.me/assets/img/og-default.png",
     "url": "https://redk-motors.me",
     "telephone": "+33648745668",
     "email": "contact@redk-motors.me",
     "priceRange": "$$",
+    "currenciesAccepted": "EUR",
+    "paymentAccepted": "Espèces, Carte bancaire, Virement",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "9 rue Michelet",
@@ -32,13 +35,101 @@
         "closes": "20:00"
       }
     ],
-    "areaServed": {
-      "@type": "City",
-      "name": "Ivry-sur-Seine",
-      "containedInPlace": {
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "Ivry-sur-Seine",
+        "containedInPlace": {
+          "@type": "AdministrativeArea",
+          "name": "Val-de-Marne"
+        }
+      },
+      {
+        "@type": "City",
+        "name": "Vitry-sur-Seine"
+      },
+      {
+        "@type": "City",
+        "name": "Villejuif"
+      },
+      {
+        "@type": "City",
+        "name": "Charenton-le-Pont"
+      },
+      {
         "@type": "AdministrativeArea",
-        "name": "Val-de-Marne"
+        "name": "Paris 13e arrondissement"
+      },
+      {
+        "@type": "City",
+        "name": "Kremlin-Bicêtre"
+      },
+      {
+        "@type": "City",
+        "name": "Maisons-Alfort"
+      },
+      {
+        "@type": "City",
+        "name": "Alfortville"
+      },
+      {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": 48.8105,
+          "longitude": 2.3942
+        },
+        "geoRadius": "15000"
       }
-    }
+    ],
+    "sameAs": [
+      "https://www.instagram.com/RedkMotors",
+      "https://www.snapchat.com/@redkmotors"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Services automobile RED-K MOTORS",
+      "itemListElement": [
+        {
+          "@type": "OfferCatalog",
+          "name": "Mécanique",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Diagnostic moteur" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Réparation moteur" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Distribution" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Embrayage" } }
+          ]
+        },
+        {
+          "@type": "OfferCatalog",
+          "name": "Carrosserie",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Réparation carrosserie" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Peinture automobile" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Débosselage" } }
+          ]
+        },
+        {
+          "@type": "OfferCatalog",
+          "name": "Entretien",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Révision constructeur" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Vidange" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Climatisation" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Freins" } }
+          ]
+        },
+        {
+          "@type": "OfferCatalog",
+          "name": "Pneumatiques",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Montage pneus" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Équilibrage" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Géométrie" } }
+          ]
+        }
+      ]
+    },
+    "knowsLanguage": ["fr", "en", "ar"]
   }
 }

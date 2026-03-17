@@ -8,11 +8,11 @@
   <rect width='1200' height='630' fill='url(#bg)'/>
   <g transform='translate(80 140)' fill='#ffffff'>
     <text font-family='Montserrat, Arial, sans-serif' font-size='72' font-weight='700'>RED-K MOTORS</text>
-    <text font-family='Open Sans, Arial, sans-serif' font-size='36' y='110'>Garage automobile - entretien & réparation</text>
-    <text font-family='Open Sans, Arial, sans-serif' font-size='28' y='170'>Mécanique • Carrosserie • Pneumatiques • Location</text>
+    <text font-family='Open Sans, Arial, sans-serif' font-size='36' y='110'>Garage automobile - entretien &amp; r&#233;paration</text>
+    <text font-family='Open Sans, Arial, sans-serif' font-size='28' y='170'>M&#233;canique &#8226; Carrosserie &#8226; Pneumatiques &#8226; Location</text>
     <rect y='230' width='420' height='4' fill='rgba(255,255,255,0.5)'/>
-    <text font-family='Open Sans, Arial, sans-serif' font-size='28' y='300'>06.48.74.56.68 • contact@redkmotors.fr</text>
-    <text font-family='Open Sans, Arial, sans-serif' font-size='24' y='360'>Atelier certifié toutes marques</text>
+    <text font-family='Open Sans, Arial, sans-serif' font-size='28' y='300'>06.48.74.56.68 • contact@redk-motors.me</text>
+    <text font-family='Open Sans, Arial, sans-serif' font-size='24' y='360'>9 rue Michelet, 94200 Ivry-sur-Seine</text>
   </g>
-  <text x='80' y='560' font-size='20' font-family='Open Sans, Arial, sans-serif' fill='rgba(255,255,255,0.75)'>redkmotors.fr</text>
+  <text x='80' y='560' font-size='20' font-family='Open Sans, Arial, sans-serif' fill='rgba(255,255,255,0.75)'>redk-motors.me</text>
 </svg>

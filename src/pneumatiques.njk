@@ -16,6 +16,40 @@ breadcrumb:
       position: 2
       name: "Pneumatiques"
       item: "https://redk-motors.me/pneumatiques/"
+localServiceSchema:
+  "@context": "https://schema.org"
+  "@type": "Service"
+  serviceType: "Montage pneus, équilibrage et géométrie"
+  provider:
+    "@id": "https://redk-motors.me/#business"
+  areaServed:
+    "@type": "City"
+    name: "Ivry-sur-Seine"
+  description: "Montage rapide, équilibrage précis et géométrie à Ivry-sur-Seine. Pneus été, hiver et toutes saisons. Stock disponible."
+  offers:
+    "@type": "Offer"
+    price: "0"
+    priceCurrency: "EUR"
+    description: "Devis gratuit"
+faqSchema:
+  "@context": "https://schema.org"
+  "@type": "FAQPage"
+  mainEntity:
+    - "@type": "Question"
+      name: "Stockez-vous mes pneus hiver/été ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Oui, stockage sécurisé en local climatisé avec assurance incluse et étiquetage individuel."
+    - "@type": "Question"
+      name: "Faites-vous la géométrie après chaque montage ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Recommandé et inclus dans nos packs premium pour garantir une usure régulière."
+    - "@type": "Question"
+      name: "Proposez-vous des pneus pour véhicules électriques ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Oui, avec gomme renforcée, faible résistance au roulement et indice de charge adapté aux EV."
 ---
 
 {% set heroActions %}
@@ -310,6 +344,26 @@ breadcrumb:
         <a href="mailto:{{ site.email }}" class="btn btn--secondary">Envoyer un email</a>
         <a href="https://wa.me/33648745668?text=Bonjour%2C%20je%20souhaite%20un%20conseil%20pneumatiques%20ou%20un%20devis." class="btn btn--secondary" target="_blank" rel="noopener noreferrer">WhatsApp</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="related-articles" aria-labelledby="articles-pneumatiques" data-animate="slide-up">
+  <div class="container">
+    <h2 id="articles-pneumatiques">Articles utiles sur les pneumatiques</h2>
+    <div class="grid grid--three">
+      <a class="card card--link" href="/blog/quand-changer-pneus-usure-securite/">
+        <h3>Quand changer ses pneus ?</h3>
+        <p>Usure, témoin, km : les repères pour savoir quand remplacer vos pneus.</p>
+      </a>
+      <a class="card card--link" href="/blog/preparer-voiture-hiver-conseils/">
+        <h3>Préparer sa voiture pour l'hiver</h3>
+        <p>Pneus hiver, pression, verglas : préparez votre véhicule pour la saison froide.</p>
+      </a>
+      <a class="card card--link" href="/blog/5-points-controle-avant-ct-ivry/">
+        <h3>5 points de contrôle avant le CT</h3>
+        <p>Les pneumatiques font partie des points vérifiés au contrôle technique.</p>
+      </a>
     </div>
   </div>
 </section>

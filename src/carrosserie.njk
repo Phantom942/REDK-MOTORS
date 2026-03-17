@@ -16,6 +16,40 @@ breadcrumb:
       position: 2
       name: "Carrosserie"
       item: "https://redk-motors.me/carrosserie/"
+localServiceSchema:
+  "@context": "https://schema.org"
+  "@type": "Service"
+  serviceType: "Carrosserie et peinture automobile"
+  provider:
+    "@id": "https://redk-motors.me/#business"
+  areaServed:
+    "@type": "City"
+    name: "Ivry-sur-Seine"
+  description: "Réparation carrosserie, peinture automobile, débosselage et finitions esthétiques à Ivry-sur-Seine. Devis gratuit et pièces d'origine."
+  offers:
+    "@type": "Offer"
+    price: "0"
+    priceCurrency: "EUR"
+    description: "Devis gratuit"
+faqSchema:
+  "@context": "https://schema.org"
+  "@type": "FAQPage"
+  mainEntity:
+    - "@type": "Question"
+      name: "Travaillez-vous avec les assurances ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Notre agrément assurances est en cours. En attendant, nous réalisons les travaux et vous fournissons les documents nécessaires pour votre dossier."
+    - "@type": "Question"
+      name: "Comment garantissez-vous la teinte exacte ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "On utilise les références constructeur pour retrouver la teinte exacte de votre véhicule, avec des tests sur plaquettes avant application."
+    - "@type": "Question"
+      name: "Est-ce possible de planifier une restitution à domicile ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Oui, on peut organiser la restitution de votre véhicule directement chez vous. Contactez-nous pour les modalités."
 ---
 
 {% set heroActions %}
@@ -262,6 +296,26 @@ breadcrumb:
           </p>
         </div>
       </article>
+    </div>
+  </div>
+</section>
+
+<section class="related-articles" aria-labelledby="articles-carrosserie" data-animate="slide-up">
+  <div class="container">
+    <h2 id="articles-carrosserie">Articles utiles sur la carrosserie</h2>
+    <div class="grid grid--three">
+      <a class="card card--link" href="/blog/rayure-carrosserie-quand-reparer/">
+        <h3>Rayure carrosserie : quand réparer ?</h3>
+        <p>Superficielle ou profonde : comment évaluer une rayure et choisir la bonne réparation.</p>
+      </a>
+      <a class="card card--link" href="/blog/5-points-controle-avant-ct-ivry/">
+        <h3>5 points de contrôle avant le CT</h3>
+        <p>Préparez votre contrôle technique sereinement grâce à notre checklist.</p>
+      </a>
+      <a class="card card--link" href="/blog/preparer-voiture-hiver-conseils/">
+        <h3>Préparer sa voiture pour l'hiver</h3>
+        <p>Les gestes essentiels pour protéger votre véhicule et sa carrosserie avant le froid.</p>
+      </a>
     </div>
   </div>
 </section>

@@ -423,6 +423,36 @@ p, li, td, th, span, a, h1, h2, h3, h4 {
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
+.card--link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border-left: 3px solid var(--color-accent, #b31217);
+}
+
+.card--link h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  transition: color 0.2s;
+}
+
+.card--link:hover h3 {
+  color: var(--color-accent, #b31217);
+}
+
+.card--link p {
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+.related-articles {
+  padding: 4rem 0 2rem;
+}
+
+.related-articles h2 {
+  margin-bottom: 2rem;
+}
+
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);

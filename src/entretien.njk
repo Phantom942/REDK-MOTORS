@@ -16,6 +16,40 @@ breadcrumb:
       position: 2
       name: "Entretien"
       item: "https://redk-motors.me/entretien/"
+localServiceSchema:
+  "@context": "https://schema.org"
+  "@type": "Service"
+  serviceType: "Révision et entretien automobile"
+  provider:
+    "@id": "https://redk-motors.me/#business"
+  areaServed:
+    "@type": "City"
+    name: "Ivry-sur-Seine"
+  description: "Révision constructeur, vidange, climatisation, freins et contrôle technique à Ivry-sur-Seine. Garantie constructeur préservée."
+  offers:
+    "@type": "Offer"
+    price: "0"
+    priceCurrency: "EUR"
+    description: "Devis gratuit"
+faqSchema:
+  "@context": "https://schema.org"
+  "@type": "FAQPage"
+  mainEntity:
+    - "@type": "Question"
+      name: "Ma garantie constructeur est-elle préservée ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Oui, nous respectons strictement les préconisations et utilisons des pièces certifiées."
+    - "@type": "Question"
+      name: "Puis-je suivre l'entretien depuis mon smartphone ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "On vous envoie des photos et le détail des travaux par WhatsApp ou email, et vous validez avant qu'on intervienne."
+    - "@type": "Question"
+      name: "Quels sont vos délais pour un rendez-vous ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Moins de 48h pour une révision standard, créneaux express disponibles sur demande."
 ---
 
 {% set heroActions %}
@@ -253,6 +287,26 @@ breadcrumb:
           <p>Moins de 48h pour une révision standard, créneaux express disponibles sur demande.</p>
         </div>
       </article>
+    </div>
+  </div>
+</section>
+
+<section class="related-articles" aria-labelledby="articles-entretien" data-animate="slide-up">
+  <div class="container">
+    <h2 id="articles-entretien">Articles utiles sur l'entretien</h2>
+    <div class="grid grid--three">
+      <a class="card card--link" href="/blog/entretien-voiture-eviter-pannes-ivry/">
+        <h3>Entretien voiture : éviter les pannes</h3>
+        <p>Les bons réflexes pour garder votre véhicule fiable au quotidien.</p>
+      </a>
+      <a class="card card--link" href="/blog/5-points-controle-avant-ct-ivry/">
+        <h3>5 points de contrôle avant le CT</h3>
+        <p>Notre checklist pour aborder le contrôle technique sereinement.</p>
+      </a>
+      <a class="card card--link" href="/blog/preparer-voiture-hiver-conseils/">
+        <h3>Préparer sa voiture pour l'hiver</h3>
+        <p>Antigel, batterie, pneus : les gestes essentiels avant le froid.</p>
+      </a>
     </div>
   </div>
 </section>

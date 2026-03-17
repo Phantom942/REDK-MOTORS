@@ -2,4 +2,29 @@ User-agent: *
 Allow: /
 Disallow: /assets/audio/
 
+# Crawlers IA – autoriser l'indexation GEO (Generative Engine Optimization)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Cohere-AI
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
 Sitemap: https://redk-motors.me/sitemap.xml

@@ -50,7 +50,7 @@
 
     <!-- GTM chargé uniquement après consentement cookies (voir cookies.js) -->
 
-    <!-- JSON-LD global (WebSite + AutoRepair, une seule injection par page) -->
+    <!-- JSON-LD global (WebSite + AutoRepair + WebPage, une seule injection par page) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -61,7 +61,30 @@
           "name": "{{ site.name }}",
           "url": "{{ site.url }}",
           "description": "{{ site.description | default('Garage automobile à Ivry-sur-Seine') }}",
-          "publisher": { "@id": "https://redk-motors.me/#business" }
+          "publisher": { "@id": "https://redk-motors.me/#business" },
+          "inLanguage": "fr-FR",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://www.google.com/search?q=site:redk-motors.me+{search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "{{ site.url }}{{ page.url | default('/') | replace('/index.html','/') }}#webpage",
+          "url": "{{ site.url }}{{ page.url | default('/') | replace('/index.html','/') }}",
+          "name": "{{ title | default(site.name) }}",
+          "description": "{{ description | default(site.description) }}",
+          "isPartOf": { "@id": "{{ site.url }}/#website" },
+          "about": { "@id": "https://redk-motors.me/#business" },
+          "inLanguage": "fr-FR",
+          "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": ["h1", "h2", ".hero__desc", ".promesse__title", "meta[name='description']"]
+          }
         },
         {{ (localBusinessSchema or localBusiness.schema) | json | safe }}
       ]
