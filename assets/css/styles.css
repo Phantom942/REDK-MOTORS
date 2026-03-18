@@ -1103,9 +1103,13 @@ p, li, td, th, span, a, h1, h2, h3, h4 {
 
   /* Grids */
   .grid--four,
-  .grid--three,
-  .services-links__grid {
+  .grid--three {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .services-links__grid {
+    grid-template-columns: repeat(2, 1fr);
     gap: 16px;
   }
 
@@ -1547,6 +1551,10 @@ p, li, td, th, span, a, h1, h2, h3, h4 {
 
 /* Very Small Screens (iPhone SE, etc.) */
 @media (max-width: 480px) {
+  .services-links__grid {
+    grid-template-columns: 1fr;
+  }
+
   .hero {
     min-height: 75vh;
     min-height: 75dvh;
@@ -1668,7 +1676,7 @@ p, li, td, th, span, a, h1, h2, h3, h4 {
 
 .services-links__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 30px;
   margin-top: 40px;
 }
