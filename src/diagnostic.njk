@@ -1,0 +1,444 @@
+---
+layout: base.njk
+title: "Diagnostic auto à Ivry-sur-Seine (94) | Valise multimarques | RED-K MOTORS"
+description: "Voyant moteur allumé ? Diagnostic électronique par valise multimarques à Ivry-sur-Seine. Lecture des codes défaut, identification de la panne et devis gratuit. RED-K MOTORS, garage de confiance."
+pageKey: diagnostic
+hasHeroVideo: true
+permalink: /diagnostic/
+sitemap:
+  changefreq: monthly
+  priority: 0.8
+breadcrumb:
+  "@context": "https://schema.org"
+  "@type": "BreadcrumbList"
+  itemListElement:
+    - "@type": "ListItem"
+      position: 1
+      name: "Accueil"
+      item: "https://redk-motors.me/"
+    - "@type": "ListItem"
+      position: 2
+      name: "Diagnostic"
+      item: "https://redk-motors.me/diagnostic/"
+localServiceSchema:
+  "@context": "https://schema.org"
+  "@type": "Service"
+  serviceType: "Diagnostic électronique automobile"
+  provider:
+    "@id": "https://redk-motors.me/#business"
+  areaServed:
+    "@type": "City"
+    name: "Ivry-sur-Seine"
+  description: "Diagnostic électronique par valise multimarques à Ivry-sur-Seine. Lecture des codes défaut, identification de la panne et devis gratuit. Toutes marques."
+  offers:
+    "@type": "Offer"
+    price: "0"
+    priceCurrency: "EUR"
+    description: "Devis gratuit"
+faqSchema:
+  "@context": "https://schema.org"
+  "@type": "FAQPage"
+  mainEntity:
+    - "@type": "Question"
+      name: "C'est quoi exactement un diagnostic auto ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Un diagnostic auto consiste à brancher une valise électronique sur la prise OBD de votre véhicule pour lire les codes défaut enregistrés par les calculateurs. Cela permet d'identifier précisément l'origine d'une panne sans démonter."
+    - "@type": "Question"
+      name: "Combien de temps dure un diagnostic électronique ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "En moyenne, un diagnostic par valise prend entre 30 et 45 minutes. Si des investigations complémentaires sont nécessaires, nous vous prévenons avant de poursuivre."
+    - "@type": "Question"
+      name: "Combien coûte un diagnostic auto chez RED-K MOTORS ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Le tarif d'un diagnostic dépend de la complexité du problème. Nous proposons un devis gratuit et vous expliquons clairement ce qui a été détecté avant toute intervention."
+    - "@type": "Question"
+      name: "Quelles marques de voitures prenez-vous en charge ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Nous disposons de valises de diagnostic multimarques compatibles avec la quasi-totalité des véhicules : Renault, Peugeot, Citroën, BMW, Mercedes, Audi, Volkswagen, Toyota, Ford et bien d'autres."
+---
+
+{% set heroActions %}
+<a class="btn btn--primary" href="/contact/">Diagnostiquer mon véhicule</a>
+<a class="btn btn--secondary" href="#diagnostic">En savoir plus</a>
+{% endset %}
+{% set heroClass = "hero--subpage" %}
+{% set heroAria = "diagnostic-hero-title" %}
+{% set heroTitle = "On trouve la panne, vous retrouvez la route" %}
+{% set heroKicker = "Diagnostic auto Ivry-sur-Seine · Valise multimarques" %}
+{% set heroDesc = "Voyant moteur allumé, comportement anormal ou panne intermittente ? Notre valise multimarques lit les codes défaut de votre véhicule et identifie le problème en moins d'une heure. Devis gratuit." %}
+{% set videoSrc = "mecanique.mp4" %}
+{% include "hero-video.njk" %}
+
+<section id="diagnostic" class="service-focus" aria-labelledby="diagnostic-title" data-animate="slide-right">
+  <div class="container service-focus__inner">
+    <div>
+      <h2 id="diagnostic-title">On branche la valise, on vous dit tout</h2>
+      <p>
+        Un voyant s'allume sur votre tableau de bord ? Pas de panique. Notre diagnostic électronique par valise multimarques identifie précisément l'origine de la panne grâce à la lecture OBD des codes défaut. Pas de démontage inutile, pas de devinette : on vous explique clairement ce qui se passe sous le capot.
+      </p>
+      <ul>
+        <li>Lecture des codes défaut via prise OBD</li>
+        <li>Diagnostic multimarques (européennes, asiatiques, américaines)</li>
+        <li>Analyse des systèmes électroniques et capteurs</li>
+        <li>Effacement des codes après réparation</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="promesse" aria-labelledby="pourquoi-diagnostic" data-animate="slide-up">
+  <div class="container">
+    <h2 id="pourquoi-diagnostic" class="promesse__title">Ce qui fait la différence chez RED-K</h2>
+    <div class="promesse__grid">
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3>Équipement multimarques</h3>
+          <p>Valises de diagnostic professionnelles compatibles avec toutes les marques, des citadines aux utilitaires.</p>
+        </div>
+      </div>
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3>Explication claire</h3>
+          <p>On vous montre les codes défaut, on vous explique ce qu'ils signifient et on vous propose la marche à suivre.</p>
+        </div>
+      </div>
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3>Zéro réparation inutile</h3>
+          <p>On ne remplace que ce qui doit l'être. Si un simple effacement suffit, on vous le dit.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="atelier-suite" aria-labelledby="diag-tabs-title" data-animate="slide-right">
+  <div class="container">
+    <div class="section-header atelier-suite__header">
+      <div>
+        <p class="section-kicker">Types de diagnostic</p>
+        <h2 id="diag-tabs-title">On diagnostique tout, du moteur à la clim</h2>
+      </div>
+      <p>
+        Chaque système embarqué possède son propre calculateur. Notre valise les interroge tous pour dresser un bilan complet de votre véhicule.
+      </p>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Types de diagnostic automobile" data-tabs="diag-tabs">
+      <button
+        id="tab-diag-moteur"
+        class="tabs__trigger"
+        type="button"
+        role="tab"
+        aria-selected="true"
+        aria-controls="panel-diag-moteur"
+        data-tab-target="panel-diag-moteur"
+      >
+        Moteur
+      </button>
+      <button
+        id="tab-diag-transmission"
+        class="tabs__trigger"
+        type="button"
+        role="tab"
+        aria-selected="false"
+        aria-controls="panel-diag-transmission"
+        data-tab-target="panel-diag-transmission"
+      >
+        Transmission
+      </button>
+      <button
+        id="tab-diag-abs"
+        class="tabs__trigger"
+        type="button"
+        role="tab"
+        aria-selected="false"
+        aria-controls="panel-diag-abs"
+        data-tab-target="panel-diag-abs"
+      >
+        ABS / ESP
+      </button>
+      <button
+        id="tab-diag-confort"
+        class="tabs__trigger"
+        type="button"
+        role="tab"
+        aria-selected="false"
+        aria-controls="panel-diag-confort"
+        data-tab-target="panel-diag-confort"
+      >
+        Clim &amp; batterie
+      </button>
+    </div>
+
+    <div class="tabs__panels">
+      <article
+        id="panel-diag-moteur"
+        class="tabs__panel is-active"
+        role="tabpanel"
+        tabindex="0"
+        aria-labelledby="tab-diag-moteur"
+      >
+        <div class="tabs__panel-inner">
+          <div>
+            <h3>Diagnostic moteur</h3>
+            <p>Voyant moteur, raté d'allumage, perte de puissance : la valise interroge le calculateur moteur pour pointer le composant défaillant.</p>
+            <ul class="checklist">
+              <li>Lecture et interprétation des codes défaut moteur</li>
+              <li>Contrôle injection, allumage et capteurs</li>
+              <li>Test des valeurs en temps réel (sondes lambda, pression turbo…)</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+      <article
+        id="panel-diag-transmission"
+        class="tabs__panel"
+        role="tabpanel"
+        tabindex="0"
+        aria-labelledby="tab-diag-transmission"
+      >
+        <div class="tabs__panel-inner">
+          <div>
+            <h3>Diagnostic transmission</h3>
+            <p>À-coups, passages de vitesse difficiles ou voyant boîte auto : on identifie si le problème est mécanique ou électronique.</p>
+            <ul class="checklist">
+              <li>Lecture codes défaut boîte automatique / robotisée</li>
+              <li>Contrôle des électrovannes et capteurs de vitesse</li>
+              <li>Réinitialisation des adaptations boîte si nécessaire</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+      <article
+        id="panel-diag-abs"
+        class="tabs__panel"
+        role="tabpanel"
+        tabindex="0"
+        aria-labelledby="tab-diag-abs"
+      >
+        <div class="tabs__panel-inner">
+          <div>
+            <h3>Diagnostic ABS / ESP</h3>
+            <p>Voyant ABS ou ESP allumé ? On vérifie les capteurs de roue, le groupe hydraulique et le calculateur de freinage.</p>
+            <ul class="checklist">
+              <li>Test des capteurs de vitesse de roue</li>
+              <li>Contrôle du groupe hydraulique ABS</li>
+              <li>Vérification du contacteur de frein et des circuits</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+      <article
+        id="panel-diag-confort"
+        class="tabs__panel"
+        role="tabpanel"
+        tabindex="0"
+        aria-labelledby="tab-diag-confort"
+      >
+        <div class="tabs__panel-inner">
+          <div>
+            <h3>Diagnostic climatisation &amp; batterie</h3>
+            <p>Clim qui ne refroidit plus, batterie qui se décharge : on teste les composants pour trouver la cause exacte.</p>
+            <ul class="checklist">
+              <li>Test de charge et état de santé batterie</li>
+              <li>Contrôle du circuit de climatisation (pressions, compresseur)</li>
+              <li>Vérification alternateur et circuit de charge</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="workflow" aria-labelledby="diag-workflow" data-animate="slide-left">
+  <div class="container workflow__inner">
+    <div class="workflow__intro">
+      <p class="section-kicker">Process diagnostic</p>
+      <h2 id="diag-workflow">4 étapes pour comprendre ce qui cloche</h2>
+      <p>
+        Un diagnostic bien mené, c'est une réparation ciblée et un budget maîtrisé. Voici comment on procède.
+      </p>
+    </div>
+    <ol class="workflow__steps">
+      <li>
+        <span class="workflow__step-number">01</span>
+        <h3>Branchement</h3>
+        <p>On connecte la valise à la prise OBD de votre véhicule pour interroger tous les calculateurs.</p>
+        <span class="workflow__chip">~5 min</span>
+      </li>
+      <li>
+        <span class="workflow__step-number">02</span>
+        <h3>Lecture des codes</h3>
+        <p>La valise relève les codes défaut mémorisés et les données en temps réel des capteurs.</p>
+        <span class="workflow__chip">~15 min</span>
+      </li>
+      <li>
+        <span class="workflow__step-number">03</span>
+        <h3>Analyse &amp; explication</h3>
+        <p>On croise les informations, on identifie la panne et on vous explique tout clairement.</p>
+        <span class="workflow__chip">Compte-rendu clair</span>
+      </li>
+      <li>
+        <span class="workflow__step-number">04</span>
+        <h3>Devis si nécessaire</h3>
+        <p>Si une réparation est à prévoir, on vous remet un devis détaillé. Vous décidez, on intervient.</p>
+        <span class="workflow__chip">Devis gratuit</span>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="faq" aria-labelledby="diag-faq" data-animate="slide-up">
+  <div class="container faq__inner">
+    <div>
+      <p class="section-kicker">FAQ diagnostic</p>
+      <h2 id="diag-faq">Vos questions sur le diagnostic auto</h2>
+      <p>On répond aux questions les plus fréquentes pour que vous sachiez à quoi vous attendre.</p>
+    </div>
+    <div class="faq__list" data-accordion>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">
+          C'est quoi exactement un diagnostic auto ?
+        </button>
+        <div class="faq__answer" hidden>
+          <p>
+            Un diagnostic auto consiste à brancher une valise électronique sur la prise OBD de votre véhicule pour lire les codes défaut enregistrés par les calculateurs. Cela permet d'identifier précisément l'origine d'une panne sans démonter.
+          </p>
+        </div>
+      </article>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">
+          Combien de temps dure un diagnostic électronique ?
+        </button>
+        <div class="faq__answer" hidden>
+          <p>
+            En moyenne, un diagnostic par valise prend entre 30 et 45 minutes. Si des investigations complémentaires sont nécessaires, nous vous prévenons avant de poursuivre.
+          </p>
+        </div>
+      </article>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">
+          Combien coûte un diagnostic auto chez RED-K MOTORS ?
+        </button>
+        <div class="faq__answer" hidden>
+          <p>
+            Le tarif d'un diagnostic dépend de la complexité du problème. Nous proposons un devis gratuit et vous expliquons clairement ce qui a été détecté avant toute intervention.
+          </p>
+        </div>
+      </article>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">
+          Quelles marques de voitures prenez-vous en charge ?
+        </button>
+        <div class="faq__answer" hidden>
+          <p>
+            Nous disposons de valises de diagnostic multimarques compatibles avec la quasi-totalité des véhicules : Renault, Peugeot, Citroën, BMW, Mercedes, Audi, Volkswagen, Toyota, Ford et bien d'autres.
+          </p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="why-us" aria-labelledby="why-diag-title" data-animate="zoom-in">
+  <div class="container">
+    <h2 id="why-diag-title">Un garage de passionnés, pas une chaîne</h2>
+    <div class="grid grid--four">
+      <div class="pill">
+        <h3>Expertise</h3>
+        <p>Techniciens formés au diagnostic électronique sur toutes les motorisations.</p>
+      </div>
+      <div class="pill">
+        <h3>Équipement</h3>
+        <p>Valises professionnelles multimarques et outils constructeur dernière génération.</p>
+      </div>
+      <div class="pill">
+        <h3>Transparence</h3>
+        <p>Compte-rendu détaillé avec codes défaut, explication et recommandation.</p>
+      </div>
+      <div class="pill">
+        <h3>Honnêteté</h3>
+        <p>On ne remplace que ce qui est nécessaire. Pas de vente forcée, jamais.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="appointment" aria-labelledby="appointment-diag-title" data-animate="slide-left">
+  <div class="container appointment__inner">
+    <div>
+      <h2 id="appointment-diag-title">Un voyant allumé ? Prenez rendez-vous</h2>
+      <p>Décrivez-nous votre problème, on vous rappelle sous 24 heures pour planifier le diagnostic.</p>
+      <dl>
+        <div>
+          <dt>Téléphone</dt>
+          <dd><a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a></dd>
+        </div>
+        <div>
+          <dt>Email</dt>
+          <dd><a href="mailto:{{ site.email }}">{{ site.email }}</a></dd>
+        </div>
+        <div>
+          <dt>Adresse</dt>
+          <dd><a href="https://www.google.com/maps?q=9+rue+Michelet+94200+Ivry-sur-Seine" target="_blank" rel="noopener noreferrer">{{ site.addressFull }}</a></dd>
+        </div>
+      </dl>
+    </div>
+    <div class="form__alternatives" style="margin-top: 1.5rem;">
+      <p>Contactez-nous pour réserver un créneau :</p>
+      <div class="form__alt-btns" style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+        <a href="tel:{{ site.phone }}" class="btn btn--primary" data-track="click_call">Appeler {{ site.phoneDisplay }}</a>
+        <a href="mailto:{{ site.email }}" class="btn btn--secondary">Envoyer un email</a>
+        <a href="https://wa.me/33648745668?text=Bonjour%2C%20je%20souhaite%20prendre%20rendez-vous%20pour%20un%20diagnostic%20de%20mon%20v%C3%A9hicule." class="btn btn--secondary" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="related-articles" aria-labelledby="articles-diagnostic" data-animate="slide-up">
+  <div class="container">
+    <h2 id="articles-diagnostic">Articles utiles sur le diagnostic auto</h2>
+    <div class="grid grid--three">
+      <a class="card card--link" href="/blog/voyant-moteur-allume-que-faire/">
+        <h3>Voyant moteur allumé : que faire ?</h3>
+        <p>Découvrez ce que signifient les différents voyants et quand consulter un garage.</p>
+      </a>
+      <a class="card card--link" href="/blog/entretien-voiture-eviter-pannes-ivry/">
+        <h3>Entretien voiture : éviter les pannes</h3>
+        <p>Les bons réflexes pour prévenir les problèmes mécaniques courants.</p>
+      </a>
+      <a class="card card--link" href="/blog/5-points-controle-avant-ct-ivry/">
+        <h3>5 points de contrôle avant le CT</h3>
+        <p>Préparez votre contrôle technique sereinement grâce à notre checklist.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="promesse" aria-labelledby="zones-diagnostic" data-animate="slide-up">
+  <div class="container">
+    <p id="zones-diagnostic" class="promesse__title" style="font-size: 1.1rem; font-weight: 600;">
+      Vous venez de <a href="/vitry-sur-seine/">Vitry-sur-Seine</a>, <a href="/villejuif/">Villejuif</a>, <a href="/charenton-le-pont/">Charenton-le-Pont</a> ou <a href="/paris-13/">Paris 13</a> ? Notre garage à Ivry vous accueille à quelques minutes pour un diagnostic rapide et fiable. Devis gratuit.
+    </p>
+  </div>
+</section>
+
+<section class="guarantees-block" aria-labelledby="garanties-diagnostic">
+  <div class="container">
+    <h2 id="garanties-diagnostic" class="guarantees-block__title">Notre engagement, noir sur blanc</h2>
+    <ul class="guarantees-block__list">
+      <li>Diagnostic multimarques</li>
+      <li>Explication claire des résultats</li>
+      <li>Devis gratuit</li>
+    </ul>
+  </div>
+</section>
