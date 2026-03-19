@@ -1,0 +1,210 @@
+---
+layout: base.njk
+title: "Garage proche Maisons-Alfort | Mécanique & Entretien | RED-K MOTORS"
+description: "Garage automobile à Ivry-sur-Seine, à proximité de Maisons-Alfort. Mécanique, carrosserie, entretien, pneumatiques, diagnostic et vidange. Devis gratuit, pièces d'origine. Contact 06.48.74.56.68."
+pageKey: maisonsAlfort
+hasHeroVideo: true
+permalink: /maisons-alfort/
+sitemap:
+  changefreq: monthly
+  priority: 0.8
+breadcrumb:
+  "@context": "https://schema.org"
+  "@type": "BreadcrumbList"
+  itemListElement:
+    - "@type": "ListItem"
+      position: 1
+      name: "Accueil"
+      item: "https://redk-motors.me/"
+    - "@type": "ListItem"
+      position: 2
+      name: "Garage proche Maisons-Alfort"
+      item: "https://redk-motors.me/maisons-alfort/"
+localServiceSchema:
+  "@context": "https://schema.org"
+  "@type": "Service"
+  serviceType: "Réparation et entretien automobile"
+  provider:
+    "@id": "https://redk-motors.me/#business"
+  areaServed:
+    "@type": "Place"
+    name: "Maisons-Alfort"
+faqSchema:
+  "@context": "https://schema.org"
+  "@type": "FAQPage"
+  mainEntity:
+    - "@type": "Question"
+      name: "Comment venir depuis Maisons-Alfort ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "En voiture, empruntez la D19 direction Ivry ou l'A4 puis la sortie Ivry-sur-Seine. Comptez environ 15 minutes. En transports, le RER D ou la ligne 8 du métro, puis correspondance ligne 7 jusqu'à Mairie d'Ivry."
+    - "@type": "Question"
+      name: "Le devis est-il vraiment gratuit ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Oui. Le devis est entièrement gratuit, détaillé et sans engagement. Vous validez avant que nous intervenions."
+    - "@type": "Question"
+      name: "Intervenez-vous sur les véhicules hybrides et électriques ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Oui. Notre équipe est formée et équipée pour intervenir sur les véhicules thermiques, hybrides et électriques, toutes marques confondues."
+    - "@type": "Question"
+      name: "Peut-on prendre rendez-vous en ligne ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Oui. Utilisez notre formulaire de contact en ligne ou appelez-nous directement. Nous confirmons votre créneau sous 24 heures."
+---
+
+{% set heroActions %}
+<a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
+<a class="btn btn--secondary" href="tel:{{ site.phone }}">Nous appeler</a>
+{% endset %}
+{% set heroClass = "hero--subpage" %}
+{% set heroAria = "maisonsAlfort-hero-title" %}
+{% set heroTitle = "Garage proche Maisons-Alfort" %}
+{% set heroKicker = "Zone desservie Val-de-Marne" %}
+{% set heroDesc = "RED-K MOTORS à Ivry-sur-Seine, facilement accessible depuis Maisons-Alfort. Mécanique, carrosserie, entretien et pneumatiques. Devis gratuit et expertise multimarque." %}
+{% set videoSrc = "hero.mp4" %}
+{% include "hero-video.njk" %}
+
+<section class="service-focus" aria-labelledby="pourquoi-maisonsAlfort" data-animate="slide-right">
+  <div class="container service-focus__inner">
+    <div>
+      <h2 id="pourquoi-maisonsAlfort">Pourquoi choisir RED-K MOTORS depuis Maisons-Alfort ?</h2>
+      <p>
+        Maisons-Alfort et Ivry-sur-Seine sont séparées par quelques kilomètres à peine. Plutôt que de traverser Paris ou de confier votre voiture à une grande enseigne impersonnelle, vous pouvez compter sur RED-K MOTORS : un garage indépendant, à taille humaine, où chaque véhicule est traité avec soin. Notre atelier du 9 rue Michelet vous accueille dans un cadre professionnel avec des tarifs transparents.
+      </p>
+      <p>
+        Nous recevons régulièrement des clients de Maisons-Alfort pour des vidanges, des remplacements de freins, des diagnostics électroniques ou des réparations de carrosserie. La D19 et l'A4 rendent le trajet simple et rapide, environ 15 minutes en voiture. L'atelier est ouvert du lundi au samedi de 10h à 20h, ce qui permet de déposer votre véhicule avant ou après le travail sans contrainte.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="promesse" aria-labelledby="services-maisonsAlfort" data-animate="slide-up">
+  <div class="container">
+    <h2 id="services-maisonsAlfort" class="promesse__title">Nos services pour les conducteurs de Maisons-Alfort</h2>
+    <p style="margin-bottom: 1.5rem;">
+      Mécanique, carrosserie, entretien, freins, vidange, diagnostic, pneumatiques et achat-revente : une offre complète pour répondre à tous les besoins des automobilistes de Maisons-Alfort.
+    </p>
+    <div class="promesse__grid">
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3><a href="/mecanique/">Mécanique</a></h3>
+          <p>Diagnostic moteur, réparation, distribution. Pièces d'origine et techniciens certifiés.</p>
+        </div>
+      </div>
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3><a href="/carrosserie/">Carrosserie</a></h3>
+          <p>Peinture, débosselage, sinistres. Finition professionnelle et devis gratuit.</p>
+        </div>
+      </div>
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3><a href="/entretien/">Entretien</a></h3>
+          <p>Révision constructeur, filtres, climatisation. Garantie constructeur préservée.</p>
+        </div>
+      </div>
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3><a href="/pneumatiques/">Pneumatiques</a></h3>
+          <p>Montage, équilibrage, géométrie. Pneus été, hiver, toutes saisons.</p>
+        </div>
+      </div>
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3><a href="/vidange/">Vidange</a></h3>
+          <p>Vidange moteur, boîte de vitesses, liquide de refroidissement. Huiles homologuées constructeur.</p>
+        </div>
+      </div>
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3><a href="/freins/">Freins</a></h3>
+          <p>Plaquettes, disques, liquide de frein. Contrôle et remplacement pour votre sécurité.</p>
+        </div>
+      </div>
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3><a href="/diagnostic/">Diagnostic</a></h3>
+          <p>Diagnostic électronique complet, lecture des codes défaut, remise à zéro des voyants.</p>
+        </div>
+      </div>
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3><a href="/achat-revente/">Achat & revente</a></h3>
+          <p>Reprise au juste prix, paiement immédiat. Véhicules contrôlés disponibles.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="service-focus service-focus--alt" aria-labelledby="acces-maisonsAlfort" data-animate="slide-left">
+  <div class="container service-focus__inner">
+    <div>
+      <h2 id="acces-maisonsAlfort">Accès et temps de trajet depuis Maisons-Alfort</h2>
+      <p>
+        Notre atelier est situé 9 rue Michelet à Ivry-sur-Seine. Depuis Maisons-Alfort, le trajet en voiture dure environ 15 minutes via la D19 ou en rejoignant l'A4 puis la sortie Ivry. En transports en commun, prenez le RER D ou la ligne 8 du métro jusqu'à Créteil-Préfecture, puis la ligne 7 jusqu'à Mairie d'Ivry. Notre garage est à quelques minutes à pied de la station.
+      </p>
+      <p>
+        Ouvert du lundi au samedi de 10h à 20h, nous nous adaptons à vos contraintes. Prenez rendez-vous en ligne ou par téléphone pour garantir un créneau sans attente. De nombreux Maisons-Alfortais nous font confiance : un garage de proximité, des tarifs honnêtes et un travail soigné, c'est ce qui fait la différence.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="promesse" aria-labelledby="devis-maisonsAlfort" data-animate="slide-up">
+  <div class="container">
+    <h2 id="devis-maisonsAlfort" class="promesse__title">Transparence & devis</h2>
+    <p>
+      Devis écrit, détaillé et gratuit avant toute intervention. Vous validez, nous intervenons. Pour toute demande, appelez-nous au <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a> ou utilisez notre <a href="/contact/">formulaire de contact</a>. Réponse sous 24 heures.
+    </p>
+    <div style="margin-top: 1.5rem;">
+      <a class="btn btn--primary" href="/contact/">Demander un devis gratuit</a>
+    </div>
+  </div>
+</section>
+
+<section class="faq" aria-labelledby="faq-maisonsAlfort" data-animate="slide-up">
+  <div class="container faq__inner">
+    <div>
+      <p class="section-kicker">FAQ</p>
+      <h2 id="faq-maisonsAlfort">FAQ – Garage proche de Maisons-Alfort</h2>
+    </div>
+    <div class="faq__list" data-accordion>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">Comment venir depuis Maisons-Alfort ?</button>
+        <div class="faq__answer" hidden>
+          <p>En voiture, empruntez la D19 direction Ivry ou l'A4 puis la sortie Ivry-sur-Seine. Comptez environ 15 minutes. En transports, le RER D ou la ligne 8 du métro, puis correspondance ligne 7 jusqu'à Mairie d'Ivry.</p>
+        </div>
+      </article>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">Le devis est-il vraiment gratuit ?</button>
+        <div class="faq__answer" hidden>
+          <p>Oui. Le devis est entièrement gratuit, détaillé et sans engagement. Vous validez avant que nous intervenions.</p>
+        </div>
+      </article>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">Intervenez-vous sur les véhicules hybrides et électriques ?</button>
+        <div class="faq__answer" hidden>
+          <p>Oui. Notre équipe est formée et équipée pour intervenir sur les véhicules thermiques, hybrides et électriques, toutes marques confondues.</p>
+        </div>
+      </article>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">Peut-on prendre rendez-vous en ligne ?</button>
+        <div class="faq__answer" hidden>
+          <p>Oui. Utilisez notre <a href="/contact/">formulaire de contact</a> en ligne ou appelez-nous au <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a>. Nous confirmons votre créneau sous 24 heures.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

@@ -1,4 +1,23 @@
+const crypto = require("crypto");
+const fs = require("fs");
+const path = require("path");
+
 module.exports = function (eleventyConfig) {
+  eleventyConfig.addFilter("cacheBust", (filePath) => {
+    if (!filePath || typeof filePath !== "string") return filePath;
+    const normalized = filePath.replace(/^\//, "");
+    const fullPath = path.join(__dirname, normalized);
+    if (!fs.existsSync(fullPath)) return filePath;
+    try {
+      const content = fs.readFileSync(fullPath);
+      const hash = crypto.createHash("md5").update(content).digest("hex").slice(0, 8);
+      const base = filePath.split("?")[0];
+      return `${base}?v=${hash}`;
+    } catch {
+      return filePath;
+    }
+  });
+
   // Filtre JSON pour JSON-LD
   eleventyConfig.addFilter("json", (obj) => JSON.stringify(obj));
 

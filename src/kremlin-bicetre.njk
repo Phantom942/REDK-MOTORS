@@ -1,0 +1,210 @@
+---
+layout: base.njk
+title: "Garage proche Kremlin-Bicêtre | Mécanique & Entretien | RED-K MOTORS"
+description: "Garage automobile à Ivry-sur-Seine, à proximité du Kremlin-Bicêtre. Mécanique, carrosserie, entretien, pneumatiques, diagnostic et vidange. Devis gratuit, pièces d'origine. Contact 06.48.74.56.68."
+pageKey: kremlinBicetre
+hasHeroVideo: true
+permalink: /kremlin-bicetre/
+sitemap:
+  changefreq: monthly
+  priority: 0.8
+breadcrumb:
+  "@context": "https://schema.org"
+  "@type": "BreadcrumbList"
+  itemListElement:
+    - "@type": "ListItem"
+      position: 1
+      name: "Accueil"
+      item: "https://redk-motors.me/"
+    - "@type": "ListItem"
+      position: 2
+      name: "Garage proche Kremlin-Bicêtre"
+      item: "https://redk-motors.me/kremlin-bicetre/"
+localServiceSchema:
+  "@context": "https://schema.org"
+  "@type": "Service"
+  serviceType: "Réparation et entretien automobile"
+  provider:
+    "@id": "https://redk-motors.me/#business"
+  areaServed:
+    "@type": "Place"
+    name: "Kremlin-Bicêtre"
+faqSchema:
+  "@context": "https://schema.org"
+  "@type": "FAQPage"
+  mainEntity:
+    - "@type": "Question"
+      name: "Combien de temps faut-il pour venir depuis le Kremlin-Bicêtre ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Environ 10 minutes en voiture via la D5 ou la N305. En métro, la ligne 7 relie directement le Kremlin-Bicêtre à Mairie d'Ivry, à quelques minutes à pied de notre atelier."
+    - "@type": "Question"
+      name: "Proposez-vous un diagnostic avant intervention ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Oui. Un diagnostic complet est réalisé systématiquement. Vous recevez un devis détaillé et gratuit avant toute réparation."
+    - "@type": "Question"
+      name: "Prenez-vous en charge toutes les marques ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Oui. Nous intervenons sur toutes les marques, véhicules thermiques, hybrides et électriques. Notre équipement et nos formations sont constamment à jour."
+    - "@type": "Question"
+      name: "Quels sont vos horaires d'ouverture ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Nous sommes ouverts du lundi au samedi, de 10h à 20h. La prise de rendez-vous est recommandée pour garantir un créneau adapté."
+---
+
+{% set heroActions %}
+<a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
+<a class="btn btn--secondary" href="tel:{{ site.phone }}">Nous appeler</a>
+{% endset %}
+{% set heroClass = "hero--subpage" %}
+{% set heroAria = "kremlinBicetre-hero-title" %}
+{% set heroTitle = "Garage proche Kremlin-Bicêtre" %}
+{% set heroKicker = "Zone desservie Val-de-Marne" %}
+{% set heroDesc = "RED-K MOTORS à Ivry-sur-Seine, à deux pas du Kremlin-Bicêtre. Mécanique, carrosserie, entretien et pneumatiques. Devis gratuit et expertise multimarque." %}
+{% set videoSrc = "hero.mp4" %}
+{% include "hero-video.njk" %}
+
+<section class="service-focus" aria-labelledby="pourquoi-kremlinBicetre" data-animate="slide-right">
+  <div class="container service-focus__inner">
+    <div>
+      <h2 id="pourquoi-kremlinBicetre">Pourquoi choisir RED-K MOTORS depuis le Kremlin-Bicêtre ?</h2>
+      <p>
+        Le Kremlin-Bicêtre et Ivry-sur-Seine sont deux communes voisines du Val-de-Marne. Les habitants du Kremlin qui cherchent un garage fiable, à tarifs justes et sans intermédiaire, nous rejoignent en quelques minutes. Notre atelier du 9 rue Michelet offre un cadre professionnel, un accueil humain et des prestations complètes. Vous échangez directement avec l'équipe qui intervient sur votre véhicule, sans passer par une chaîne ou un call center.
+      </p>
+      <p>
+        Chaque semaine, nous accueillons des conducteurs du Kremlin-Bicêtre pour des vidanges, des diagnostics électroniques, des réparations de carrosserie ou des changements de pneus. La ligne 7 du métro relie directement la station Kremlin-Bicêtre à Mairie d'Ivry, et le trajet en voiture ne dépasse pas dix minutes. Des horaires étendus (10h-20h, lundi au samedi) vous permettent de venir après le travail ou le samedi matin sans stress.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="promesse" aria-labelledby="services-kremlinBicetre" data-animate="slide-up">
+  <div class="container">
+    <h2 id="services-kremlinBicetre" class="promesse__title">Nos services pour les conducteurs du Kremlin-Bicêtre</h2>
+    <p style="margin-bottom: 1.5rem;">
+      De la mécanique générale au diagnostic en passant par la carrosserie, les freins et les pneumatiques, nous proposons une offre complète pour les automobilistes du Kremlin-Bicêtre et alentours.
+    </p>
+    <div class="promesse__grid">
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3><a href="/mecanique/">Mécanique</a></h3>
+          <p>Diagnostic moteur, réparation, distribution. Pièces d'origine et techniciens certifiés.</p>
+        </div>
+      </div>
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3><a href="/carrosserie/">Carrosserie</a></h3>
+          <p>Peinture, débosselage, sinistres. Finition professionnelle et devis gratuit.</p>
+        </div>
+      </div>
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3><a href="/entretien/">Entretien</a></h3>
+          <p>Révision constructeur, filtres, climatisation. Garantie constructeur préservée.</p>
+        </div>
+      </div>
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3><a href="/pneumatiques/">Pneumatiques</a></h3>
+          <p>Montage, équilibrage, géométrie. Pneus été, hiver, toutes saisons.</p>
+        </div>
+      </div>
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3><a href="/vidange/">Vidange</a></h3>
+          <p>Vidange moteur, boîte de vitesses, liquide de refroidissement. Huiles homologuées constructeur.</p>
+        </div>
+      </div>
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3><a href="/freins/">Freins</a></h3>
+          <p>Plaquettes, disques, liquide de frein. Contrôle et remplacement pour votre sécurité.</p>
+        </div>
+      </div>
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3><a href="/diagnostic/">Diagnostic</a></h3>
+          <p>Diagnostic électronique complet, lecture des codes défaut, remise à zéro des voyants.</p>
+        </div>
+      </div>
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3><a href="/achat-revente/">Achat & revente</a></h3>
+          <p>Reprise au juste prix, paiement immédiat. Véhicules contrôlés disponibles.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="service-focus service-focus--alt" aria-labelledby="acces-kremlinBicetre" data-animate="slide-left">
+  <div class="container service-focus__inner">
+    <div>
+      <h2 id="acces-kremlinBicetre">Accès et temps de trajet depuis le Kremlin-Bicêtre</h2>
+      <p>
+        Notre atelier est situé 9 rue Michelet à Ivry-sur-Seine, à quelques minutes du Kremlin-Bicêtre. En voiture, empruntez la D5 ou la N305 : comptez environ 10 minutes selon la circulation. En transports en commun, la ligne 7 du métro vous amène à Mairie d'Ivry, puis c'est une courte marche jusqu'à notre garage.
+      </p>
+      <p>
+        Ouvert du lundi au samedi de 10h à 20h, nous nous adaptons à vos contraintes horaires. Prenez rendez-vous pour éviter l'attente et garantir un créneau qui vous convient. De nombreux habitants du Kremlin-Bicêtre nous font déjà confiance : la proximité, la transparence des tarifs et le professionnalisme font la différence.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="promesse" aria-labelledby="devis-kremlinBicetre" data-animate="slide-up">
+  <div class="container">
+    <h2 id="devis-kremlinBicetre" class="promesse__title">Transparence & devis</h2>
+    <p>
+      Devis écrit, détaillé et gratuit avant toute intervention. Vous validez, nous intervenons. Pour toute demande, appelez-nous au <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a> ou utilisez notre <a href="/contact/">formulaire de contact</a>. Réponse sous 24 heures.
+    </p>
+    <div style="margin-top: 1.5rem;">
+      <a class="btn btn--primary" href="/contact/">Demander un devis gratuit</a>
+    </div>
+  </div>
+</section>
+
+<section class="faq" aria-labelledby="faq-kremlinBicetre" data-animate="slide-up">
+  <div class="container faq__inner">
+    <div>
+      <p class="section-kicker">FAQ</p>
+      <h2 id="faq-kremlinBicetre">FAQ – Garage proche du Kremlin-Bicêtre</h2>
+    </div>
+    <div class="faq__list" data-accordion>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">Combien de temps faut-il pour venir depuis le Kremlin-Bicêtre ?</button>
+        <div class="faq__answer" hidden>
+          <p>Environ 10 minutes en voiture via la D5 ou la N305. En métro, la ligne 7 relie directement la station Kremlin-Bicêtre à Mairie d'Ivry, à quelques minutes à pied de notre atelier.</p>
+        </div>
+      </article>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">Proposez-vous un diagnostic avant intervention ?</button>
+        <div class="faq__answer" hidden>
+          <p>Oui. Un diagnostic complet est réalisé systématiquement. Vous recevez un devis détaillé et gratuit avant toute réparation.</p>
+        </div>
+      </article>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">Prenez-vous en charge toutes les marques ?</button>
+        <div class="faq__answer" hidden>
+          <p>Oui. Nous intervenons sur toutes les marques, véhicules thermiques, hybrides et électriques. Notre équipement et nos formations sont constamment à jour.</p>
+        </div>
+      </article>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">Quels sont vos horaires d'ouverture ?</button>
+        <div class="faq__answer" hidden>
+          <p>Nous sommes ouverts du lundi au samedi, de 10h à 20h. Appelez-nous au <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a> ou prenez rendez-vous via notre <a href="/contact/">formulaire</a>.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

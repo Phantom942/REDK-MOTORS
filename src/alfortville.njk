@@ -1,0 +1,210 @@
+---
+layout: base.njk
+title: "Garage proche Alfortville | Mécanique & Entretien | RED-K MOTORS"
+description: "Garage automobile à Ivry-sur-Seine, à proximité d'Alfortville. Mécanique, carrosserie, entretien, pneumatiques, diagnostic et vidange. Devis gratuit, pièces d'origine. Contact 06.48.74.56.68."
+pageKey: alfortville
+hasHeroVideo: true
+permalink: /alfortville/
+sitemap:
+  changefreq: monthly
+  priority: 0.8
+breadcrumb:
+  "@context": "https://schema.org"
+  "@type": "BreadcrumbList"
+  itemListElement:
+    - "@type": "ListItem"
+      position: 1
+      name: "Accueil"
+      item: "https://redk-motors.me/"
+    - "@type": "ListItem"
+      position: 2
+      name: "Garage proche Alfortville"
+      item: "https://redk-motors.me/alfortville/"
+localServiceSchema:
+  "@context": "https://schema.org"
+  "@type": "Service"
+  serviceType: "Réparation et entretien automobile"
+  provider:
+    "@id": "https://redk-motors.me/#business"
+  areaServed:
+    "@type": "Place"
+    name: "Alfortville"
+faqSchema:
+  "@context": "https://schema.org"
+  "@type": "FAQPage"
+  mainEntity:
+    - "@type": "Question"
+      name: "Combien de temps pour venir depuis Alfortville ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Environ 10 minutes en voiture en passant par le pont d'Ivry ou le quai Jean Compagnon. L'accès est direct et rapide."
+    - "@type": "Question"
+      name: "Faites-vous le diagnostic électronique ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Oui. Nous réalisons un diagnostic électronique complet avec lecture des codes défaut, avant toute intervention mécanique. Devis gratuit inclus."
+    - "@type": "Question"
+      name: "Utilisez-vous des pièces d'origine ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Oui. Nous privilégions les pièces d'origine ou de qualité équivalente pour préserver la garantie constructeur et la fiabilité de votre véhicule."
+    - "@type": "Question"
+      name: "Proposez-vous un service d'achat-revente de véhicules ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Oui. Nous proposons la reprise de votre véhicule au juste prix avec paiement immédiat, ainsi que des véhicules d'occasion contrôlés et garantis."
+---
+
+{% set heroActions %}
+<a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
+<a class="btn btn--secondary" href="tel:{{ site.phone }}">Nous appeler</a>
+{% endset %}
+{% set heroClass = "hero--subpage" %}
+{% set heroAria = "alfortville-hero-title" %}
+{% set heroTitle = "Garage proche Alfortville" %}
+{% set heroKicker = "Zone desservie Val-de-Marne" %}
+{% set heroDesc = "RED-K MOTORS à Ivry-sur-Seine, à 10 minutes d'Alfortville via le pont d'Ivry. Mécanique, carrosserie, entretien et pneumatiques. Devis gratuit et expertise multimarque." %}
+{% set videoSrc = "hero.mp4" %}
+{% include "hero-video.njk" %}
+
+<section class="service-focus" aria-labelledby="pourquoi-alfortville" data-animate="slide-right">
+  <div class="container service-focus__inner">
+    <div>
+      <h2 id="pourquoi-alfortville">Pourquoi choisir RED-K MOTORS depuis Alfortville ?</h2>
+      <p>
+        Alfortville et Ivry-sur-Seine sont deux communes voisines, séparées par la Seine. Le pont d'Ivry relie les deux rives en quelques minutes. Les Alfortvillais qui cherchent un garage sérieux, avec des tarifs clairs et un vrai suivi, nous rejoignent facilement. Notre atelier du 9 rue Michelet est un garage indépendant, à taille humaine : vous échangez directement avec les techniciens qui travaillent sur votre voiture.
+      </p>
+      <p>
+        Chaque semaine, nous accueillons des conducteurs d'Alfortville pour des révisions, des changements de plaquettes de frein, des diagnostics électroniques ou des réparations de carrosserie. Le trajet ne dépasse pas dix minutes en voiture. Nos horaires étendus (10h-20h, lundi au samedi) vous laissent toute la souplesse nécessaire pour déposer et récupérer votre véhicule sans bousculer votre emploi du temps.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="promesse" aria-labelledby="services-alfortville" data-animate="slide-up">
+  <div class="container">
+    <h2 id="services-alfortville" class="promesse__title">Nos services pour les conducteurs d'Alfortville</h2>
+    <p style="margin-bottom: 1.5rem;">
+      Mécanique, carrosserie, entretien, vidange, freins, diagnostic, pneumatiques et achat-revente : tout ce qu'il faut pour entretenir et réparer votre véhicule, à deux pas d'Alfortville.
+    </p>
+    <div class="promesse__grid">
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3><a href="/mecanique/">Mécanique</a></h3>
+          <p>Diagnostic moteur, réparation, distribution. Pièces d'origine et techniciens certifiés.</p>
+        </div>
+      </div>
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3><a href="/carrosserie/">Carrosserie</a></h3>
+          <p>Peinture, débosselage, sinistres. Finition professionnelle et devis gratuit.</p>
+        </div>
+      </div>
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3><a href="/entretien/">Entretien</a></h3>
+          <p>Révision constructeur, filtres, climatisation. Garantie constructeur préservée.</p>
+        </div>
+      </div>
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3><a href="/pneumatiques/">Pneumatiques</a></h3>
+          <p>Montage, équilibrage, géométrie. Pneus été, hiver, toutes saisons.</p>
+        </div>
+      </div>
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3><a href="/vidange/">Vidange</a></h3>
+          <p>Vidange moteur, boîte de vitesses, liquide de refroidissement. Huiles homologuées constructeur.</p>
+        </div>
+      </div>
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3><a href="/freins/">Freins</a></h3>
+          <p>Plaquettes, disques, liquide de frein. Contrôle et remplacement pour votre sécurité.</p>
+        </div>
+      </div>
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3><a href="/diagnostic/">Diagnostic</a></h3>
+          <p>Diagnostic électronique complet, lecture des codes défaut, remise à zéro des voyants.</p>
+        </div>
+      </div>
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3><a href="/achat-revente/">Achat & revente</a></h3>
+          <p>Reprise au juste prix, paiement immédiat. Véhicules contrôlés disponibles.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="service-focus service-focus--alt" aria-labelledby="acces-alfortville" data-animate="slide-left">
+  <div class="container service-focus__inner">
+    <div>
+      <h2 id="acces-alfortville">Accès et temps de trajet depuis Alfortville</h2>
+      <p>
+        Notre atelier est situé 9 rue Michelet à Ivry-sur-Seine, sur la rive gauche de la Seine. Depuis Alfortville, traversez le pont d'Ivry ou empruntez le quai Jean Compagnon : le trajet dure environ 10 minutes en voiture. En transports en commun, le RER D (gare de Maisons-Alfort – Alfortville) permet de rejoindre la ligne 7 du métro jusqu'à Mairie d'Ivry, à quelques minutes à pied du garage.
+      </p>
+      <p>
+        Ouvert du lundi au samedi de 10h à 20h, nous nous adaptons à votre planning. La prise de rendez-vous garantit un créneau sans attente. De nombreux Alfortvillais nous font confiance pour l'entretien et la réparation de leur véhicule : proximité, transparence et qualité de travail sont nos engagements au quotidien.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="promesse" aria-labelledby="devis-alfortville" data-animate="slide-up">
+  <div class="container">
+    <h2 id="devis-alfortville" class="promesse__title">Transparence & devis</h2>
+    <p>
+      Devis écrit, détaillé et gratuit avant toute intervention. Vous validez, nous intervenons. Pour toute demande, appelez-nous au <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a> ou utilisez notre <a href="/contact/">formulaire de contact</a>. Réponse sous 24 heures.
+    </p>
+    <div style="margin-top: 1.5rem;">
+      <a class="btn btn--primary" href="/contact/">Demander un devis gratuit</a>
+    </div>
+  </div>
+</section>
+
+<section class="faq" aria-labelledby="faq-alfortville" data-animate="slide-up">
+  <div class="container faq__inner">
+    <div>
+      <p class="section-kicker">FAQ</p>
+      <h2 id="faq-alfortville">FAQ – Garage proche d'Alfortville</h2>
+    </div>
+    <div class="faq__list" data-accordion>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">Combien de temps pour venir depuis Alfortville ?</button>
+        <div class="faq__answer" hidden>
+          <p>Environ 10 minutes en voiture en passant par le pont d'Ivry ou le quai Jean Compagnon. L'accès est direct et rapide.</p>
+        </div>
+      </article>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">Faites-vous le diagnostic électronique ?</button>
+        <div class="faq__answer" hidden>
+          <p>Oui. Nous réalisons un diagnostic électronique complet avec lecture des codes défaut, avant toute intervention mécanique. Devis gratuit inclus.</p>
+        </div>
+      </article>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">Utilisez-vous des pièces d'origine ?</button>
+        <div class="faq__answer" hidden>
+          <p>Oui. Nous privilégions les pièces d'origine ou de qualité équivalente pour préserver la garantie constructeur et la fiabilité de votre véhicule.</p>
+        </div>
+      </article>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">Proposez-vous un service d'achat-revente de véhicules ?</button>
+        <div class="faq__answer" hidden>
+          <p>Oui. Nous proposons la reprise de votre véhicule au juste prix avec paiement immédiat, ainsi que des véhicules d'occasion contrôlés et garantis.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
