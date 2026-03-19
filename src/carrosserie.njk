@@ -157,6 +157,28 @@ faqSchema:
       >
         Detailing
       </button>
+      <button
+        id="tab-sinistres"
+        class="tabs__trigger"
+        type="button"
+        role="tab"
+        aria-selected="false"
+        aria-controls="panel-sinistres"
+        data-tab-target="panel-sinistres"
+      >
+        Sinistres
+      </button>
+      <button
+        id="tab-esthetique"
+        class="tabs__trigger"
+        type="button"
+        role="tab"
+        aria-selected="false"
+        aria-controls="panel-esthetique"
+        data-tab-target="panel-esthetique"
+      >
+        Esthétique
+      </button>
     </div>
 
     <div class="tabs__panels">
@@ -213,6 +235,44 @@ faqSchema:
               <li>Polissage en plusieurs passes</li>
               <li>Protection adaptée à votre usage</li>
               <li>Nettoyage intérieur sur demande</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+      <article
+        id="panel-sinistres"
+        class="tabs__panel"
+        role="tabpanel"
+        tabindex="0"
+        aria-labelledby="tab-sinistres"
+      >
+        <div class="tabs__panel-inner">
+          <div>
+            <h3>Gestion sinistres et assurance</h3>
+            <p>Accident, vol, vandalisme : on vous accompagne dans les démarches avec votre assurance. Prise en charge directe.</p>
+            <ul class="checklist">
+              <li>Expertise et chiffrage des dommages</li>
+              <li>Relation directe avec votre assureur</li>
+              <li>Réparation conforme aux standards</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+      <article
+        id="panel-esthetique"
+        class="tabs__panel"
+        role="tabpanel"
+        tabindex="0"
+        aria-labelledby="tab-esthetique"
+      >
+        <div class="tabs__panel-inner">
+          <div>
+            <h3>Finitions et esthétique</h3>
+            <p>Polissage, lustrage, traitement anti-rayures : redonnez de l'éclat à votre carrosserie sans passer par la peinture complète.</p>
+            <ul class="checklist">
+              <li>Polissage et lustrage</li>
+              <li>Traitement céramique</li>
+              <li>Rénovation optiques</li>
             </ul>
           </div>
         </div>
@@ -308,19 +368,19 @@ faqSchema:
         <h3>Rayure carrosserie : quand réparer ?</h3>
         <p>Superficielle ou profonde : comment évaluer une rayure et choisir la bonne réparation.</p>
       </a>
-      <a class="card card--link" href="/blog/5-points-controle-avant-ct-ivry/">
-        <h3>5 points de contrôle avant le CT</h3>
-        <p>Préparez votre contrôle technique sereinement grâce à notre checklist.</p>
-      </a>
       <a class="card card--link" href="/blog/preparer-voiture-hiver-conseils/">
         <h3>Préparer sa voiture pour l'hiver</h3>
         <p>Les gestes essentiels pour protéger votre véhicule et sa carrosserie avant le froid.</p>
+      </a>
+      <a class="card card--link" href="/blog/5-points-controle-avant-ct-ivry/">
+        <h3>5 points de contrôle avant le CT</h3>
+        <p>Préparez votre contrôle technique sereinement grâce à notre checklist.</p>
       </a>
     </div>
   </div>
 </section>
 
-{% include "quick-quote.njk" %}
+{% include "cta-contact.njk" %}
 
 <section class="promesse" aria-labelledby="zones-carrosserie" data-animate="slide-up">
   <div class="container">

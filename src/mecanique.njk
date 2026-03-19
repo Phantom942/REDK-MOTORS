@@ -156,6 +156,28 @@ faqSchema:
       >
         Électronique
       </button>
+      <button
+        id="tab-freins"
+        class="tabs__trigger"
+        type="button"
+        role="tab"
+        aria-selected="false"
+        aria-controls="panel-freins"
+        data-tab-target="panel-freins"
+      >
+        Freinage
+      </button>
+      <button
+        id="tab-diagnostic"
+        class="tabs__trigger"
+        type="button"
+        role="tab"
+        aria-selected="false"
+        aria-controls="panel-diagnostic"
+        data-tab-target="panel-diagnostic"
+      >
+        Diagnostic
+      </button>
     </div>
 
     <div class="tabs__panels">
@@ -213,6 +235,48 @@ faqSchema:
               <li>Climatisation et recharge</li>
               <li>Mise à jour et paramétrage calculateurs</li>
             </ul>
+          </div>
+        </div>
+      </article>
+      <article
+        id="panel-freins"
+        class="tabs__panel"
+        role="tabpanel"
+        tabindex="0"
+        aria-labelledby="tab-freins"
+        hidden
+      >
+        <div class="tabs__panel-inner">
+          <div>
+            <h3>Système de freinage</h3>
+            <p>Plaquettes, disques, liquide de frein, ABS : nous intervenons sur l'ensemble du système de freinage pour garantir votre sécurité.</p>
+            <ul class="checklist">
+              <li>Remplacement plaquettes et disques</li>
+              <li>Purge et remplacement liquide de frein</li>
+              <li>Diagnostic ABS et capteurs</li>
+            </ul>
+            <a href="/freins/" class="btn btn--secondary" style="margin-top: 1rem; display: inline-block;">En savoir plus sur les freins</a>
+          </div>
+        </div>
+      </article>
+      <article
+        id="panel-diagnostic"
+        class="tabs__panel"
+        role="tabpanel"
+        tabindex="0"
+        aria-labelledby="tab-diagnostic"
+        hidden
+      >
+        <div class="tabs__panel-inner">
+          <div>
+            <h3>Diagnostic électronique</h3>
+            <p>Valise multimarques, lecture des codes défaut, identification précise de la panne. On vous explique clairement avant d'intervenir.</p>
+            <ul class="checklist">
+              <li>Lecture codes défaut OBD</li>
+              <li>Diagnostic moteur, transmission, ABS</li>
+              <li>Effacement et paramétrage calculateurs</li>
+            </ul>
+            <a href="/diagnostic/" class="btn btn--secondary" style="margin-top: 1rem; display: inline-block;">En savoir plus sur le diagnostic</a>
           </div>
         </div>
       </article>
@@ -363,19 +427,19 @@ faqSchema:
         <h3>Voyant moteur allumé : que faire ?</h3>
         <p>Découvrez ce que signifient les différents voyants et quand consulter un garage.</p>
       </a>
-      <a class="card card--link" href="/blog/entretien-voiture-eviter-pannes-ivry/">
-        <h3>Entretien voiture : éviter les pannes</h3>
-        <p>Les bons réflexes pour prévenir les problèmes mécaniques courants.</p>
+      <a class="card card--link" href="/blog/batterie-voiture-quand-changer/">
+        <h3>Batterie : quand la changer ?</h3>
+        <p>Signes d'usure, tests et bonnes pratiques pour éviter la panne au mauvais moment.</p>
       </a>
-      <a class="card card--link" href="/blog/5-points-controle-avant-ct-ivry/">
-        <h3>5 points de contrôle avant le CT</h3>
-        <p>Préparez votre contrôle technique sereinement grâce à notre checklist.</p>
+      <a class="card card--link" href="/blog/garage-independant-vs-concessionnaire/">
+        <h3>Garage indépendant ou concessionnaire ?</h3>
+        <p>Prix, garantie et qualité de service : les critères pour bien choisir.</p>
       </a>
     </div>
   </div>
 </section>
 
-{% include "quick-quote.njk" %}
+{% include "cta-contact.njk" %}
 
 <section class="promesse" aria-labelledby="zones-mecanique" data-animate="slide-up">
   <div class="container">

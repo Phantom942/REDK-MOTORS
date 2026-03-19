@@ -156,6 +156,39 @@ faqSchema:
       >
         Flottes pros
       </button>
+      <button
+        id="tab-vidange"
+        class="tabs__trigger"
+        type="button"
+        role="tab"
+        aria-selected="false"
+        aria-controls="panel-vidange"
+        data-tab-target="panel-vidange"
+      >
+        Vidange
+      </button>
+      <button
+        id="tab-climatisation"
+        class="tabs__trigger"
+        type="button"
+        role="tab"
+        aria-selected="false"
+        aria-controls="panel-climatisation"
+        data-tab-target="panel-climatisation"
+      >
+        Climatisation
+      </button>
+      <button
+        id="tab-pre-ct"
+        class="tabs__trigger"
+        type="button"
+        role="tab"
+        aria-selected="false"
+        aria-controls="panel-pre-ct"
+        data-tab-target="panel-pre-ct"
+      >
+        Pré-CT
+      </button>
     </div>
 
     <div class="tabs__panels">
@@ -206,6 +239,64 @@ faqSchema:
               <li>Planification adaptée à vos contraintes</li>
               <li>Alertes pour chaque véhicule</li>
               <li>Facturation regroupée</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+      <article
+        id="panel-vidange"
+        class="tabs__panel"
+        role="tabpanel"
+        tabindex="0"
+        aria-labelledby="tab-vidange"
+      >
+        <div class="tabs__panel-inner">
+          <div>
+            <h3>Vidange moteur</h3>
+            <p>Huile constructeur, filtre à huile neuf et contrôle des niveaux. Intervention rapide, garantie préservée.</p>
+            <ul class="checklist">
+              <li>Vidange huile moteur</li>
+              <li>Remplacement filtre à huile</li>
+              <li>Contrôle des niveaux</li>
+            </ul>
+            <a href="/vidange/" class="btn btn--secondary" style="margin-top: 1rem; display: inline-block;">En savoir plus sur la vidange</a>
+          </div>
+        </div>
+      </article>
+      <article
+        id="panel-climatisation"
+        class="tabs__panel"
+        role="tabpanel"
+        tabindex="0"
+        aria-labelledby="tab-climatisation"
+      >
+        <div class="tabs__panel-inner">
+          <div>
+            <h3>Climatisation et chauffage</h3>
+            <p>Recharge de gaz, désinfection du circuit et vérification du compresseur pour un habitacle sain toute l'année.</p>
+            <ul class="checklist">
+              <li>Recharge de gaz réfrigérant</li>
+              <li>Désinfection du circuit</li>
+              <li>Contrôle compresseur et ventilation</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+      <article
+        id="panel-pre-ct"
+        class="tabs__panel"
+        role="tabpanel"
+        tabindex="0"
+        aria-labelledby="tab-pre-ct"
+      >
+        <div class="tabs__panel-inner">
+          <div>
+            <h3>Préparation contrôle technique</h3>
+            <p>Passez votre CT sereinement. On vérifie les points critiques et on corrige ce qu'il faut avant le passage.</p>
+            <ul class="checklist">
+              <li>Vérification des 133 points de contrôle</li>
+              <li>Correction des défaillances majeures</li>
+              <li>Contre-visite évitée</li>
             </ul>
           </div>
         </div>
@@ -295,23 +386,23 @@ faqSchema:
   <div class="container">
     <h2 id="articles-entretien">Articles utiles sur l'entretien</h2>
     <div class="grid grid--three">
-      <a class="card card--link" href="/blog/entretien-voiture-eviter-pannes-ivry/">
-        <h3>Entretien voiture : éviter les pannes</h3>
-        <p>Les bons réflexes pour garder votre véhicule fiable au quotidien.</p>
+      <a class="card card--link" href="/blog/combien-coute-vidange-voiture/">
+        <h3>Combien coûte une vidange en 2026 ?</h3>
+        <p>Budget moyen, ce qui est inclus et comment éviter les mauvaises surprises.</p>
       </a>
-      <a class="card card--link" href="/blog/5-points-controle-avant-ct-ivry/">
-        <h3>5 points de contrôle avant le CT</h3>
-        <p>Notre checklist pour aborder le contrôle technique sereinement.</p>
+      <a class="card card--link" href="/blog/controle-technique-2026-nouveautes/">
+        <h3>Contrôle technique 2026 : ce qui change</h3>
+        <p>Nouvelles règles et points de vigilance pour réussir le contrôle du premier coup.</p>
       </a>
-      <a class="card card--link" href="/blog/preparer-voiture-hiver-conseils/">
-        <h3>Préparer sa voiture pour l'hiver</h3>
-        <p>Antigel, batterie, pneus : les gestes essentiels avant le froid.</p>
+      <a class="card card--link" href="/blog/climatisation-voiture-recharge-ivry/">
+        <h3>Recharge climatisation : quand et pourquoi ?</h3>
+        <p>Signes d’affaiblissement, fréquence et intérêt d’une recharge pro.</p>
       </a>
     </div>
   </div>
 </section>
 
-{% include "quick-quote.njk" %}
+{% include "cta-contact.njk" %}
 
 <section class="promesse" aria-labelledby="zones-entretien" data-animate="slide-up">
   <div class="container">
