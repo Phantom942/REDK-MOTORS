@@ -3,7 +3,7 @@
     <ol>
       <li><a href="/">Accueil</a></li>
       <li><a href="/blog/">Blog</a></li>
-      <li aria-current="page">{{ title }}</li>
+      <li aria-current="page">{{ title | replace(" | Blog RED-K MOTORS", "") }}</li>
     </ol>
   </div>
 </nav>
@@ -16,7 +16,7 @@
         <time datetime="{{ date }}">{{ dateDisplay or date }}</time>
         {% if readingTime %}<span class="article-reading-time">{{ readingTime }}</span>{% endif %}
       </div>
-      <h1>{{ title }}</h1>
+      <h1>{{ title | replace(" | Blog RED-K MOTORS", "") }}</h1>
       <p class="article-excerpt">{{ excerpt }}</p>
     </div>
   </header>
