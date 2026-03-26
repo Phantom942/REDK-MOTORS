@@ -4075,8 +4075,9 @@ img[loading="lazy"].loaded {
 
 .form__alternatives p {
   margin-bottom: 12px;
-  font-size: 14px;
-  color: rgba(255,255,255,.7);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-black);
 }
 
 .form__alt-btns {
@@ -4084,6 +4085,25 @@ img[loading="lazy"].loaded {
   gap: 12px;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+/* Bloc contact / RDV : fond clair (.appointment) — boutons secondaires lisibles */
+.appointment .form__alt-btns .btn--primary {
+  color: var(--color-white);
+}
+
+.appointment .form__alt-btns .btn--secondary {
+  background: var(--color-white);
+  color: var(--color-red);
+  border: 2px solid var(--color-red);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.appointment .form__alt-btns .btn--secondary:hover {
+  background: var(--color-red);
+  color: var(--color-white);
+  border-color: var(--color-red);
+  box-shadow: 0 6px 20px rgba(179, 18, 23, 0.35);
 }
 
 /* =====================================================
