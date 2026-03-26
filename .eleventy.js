@@ -28,6 +28,15 @@ module.exports = function (eleventyConfig) {
     return isNaN(d.getTime()) ? "" : d.toISOString().slice(0, 10);
   });
 
+  eleventyConfig.addFilter("formatFrNumber", (n) => {
+    if (n == null || n === "" || isNaN(Number(n))) return "";
+    return new Intl.NumberFormat("fr-FR").format(Number(n));
+  });
+
+  eleventyConfig.addFilter("encodeURIComponent", (str) =>
+    encodeURIComponent(str == null ? "" : String(str))
+  );
+
   // Collection blog triée par date décroissante
   eleventyConfig.addCollection("blog", function (collectionApi) {
     return collectionApi

@@ -1,10 +1,11 @@
 ---
 layout: base.njk
-title: "Achat, reprise & vente de véhicules à Ivry-sur-Seine (94) | RED-K MOTORS"
-description: "Envie de changer de voiture ? Notre service d'achat et revente de véhicules arrive bientôt. Contactez-nous pour en savoir plus. RED-K MOTORS à Ivry-sur-Seine."
+title: "Occasions & véhicules d'occasion à Ivry-sur-Seine (94) | RED-K MOTORS"
+description: "Petites annonces auto : occasions contrôlées, filtres par marque et budget. Achat, reprise et vente de véhicules avec RED-K MOTORS à Ivry-sur-Seine — pro ou particuliers."
 pageKey: achat-revente
 scripts:
   effects: false
+  video: false
 breadcrumb:
   "@context": "https://schema.org"
   "@type": "BreadcrumbList"
@@ -20,21 +21,21 @@ breadcrumb:
 ---
 
 {% set heroActions %}
-<a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler pour une estimation</a>
-<a class="btn btn--secondary" href="https://wa.me/33648745668?text=Bonjour%2C%20je%20souhaite%20estimer%20mon%20v%C3%A9hicule%20gratuitement." target="_blank" rel="noopener noreferrer">Estimer via WhatsApp</a>
+<a class="btn btn--primary" href="#annonces">Voir les annonces</a>
+<a class="btn btn--secondary" href="/contact/">Vendre / reprendre mon véhicule</a>
 {% endset %}
 
 
 <section class="hero hero--subpage" aria-labelledby="achat-hero-title">
   <div class="hero__img-bg" aria-hidden="true">
-    <img src="/assets/img/achat-revente.jpg" alt="Service achat et revente de véhicules RED-K MOTORS" loading="eager" />
+    <img src="/assets/img/achat-revente.jpg" alt="Occasions et achat-revente véhicules RED-K MOTORS" loading="eager" />
   </div>
   <div class="hero__overlay" aria-hidden="true"></div>
   <div class="container hero__content">
     <div>
-      <p class="hero__kicker">Expertise Transaction</p>
-      <h1 id="achat-hero-title">Changez de véhicule en toute confiance</h1>
-      <p>Profitez d'une estimation juste et rapide pour votre véhicule ou découvrez notre sélection rigoureuse de modèles contrôlés.</p>
+      <p class="hero__kicker">Petites annonces auto</p>
+      <h1 id="achat-hero-title">Trouvez votre prochaine voiture près d'Ivry</h1>
+      <p>Comme sur une marketplace auto : annonces détaillées, filtres par marque, carburant et budget. Toutes nos occasions passent par notre atelier.</p>
       <div class="hero__actions">
         {{ heroActions | safe }}
       </div>
@@ -42,13 +43,98 @@ breadcrumb:
   </div>
 </section>
 
-<section class="upcoming" style="min-height: 50vh; display: flex; align-items: center;" aria-labelledby="coming-soon-title">
-  <div class="container upcoming__inner" style="text-align: center;">
-    <p class="section-kicker">Bientôt disponible</p>
-    <h2 id="coming-soon-title" style="font-size: 2.5rem; margin-bottom: 1rem;">Coming soon</h2>
-    <p style="max-width: 540px; margin: 0 auto 2rem; opacity: 0.85;">
-      Notre service d'achat, reprise et vente de véhicules est en cours de préparation. Restez connecté, on vous tient au courant très vite.
-    </p>
-    <a class="upcoming__cta" href="/contact/">Nous contacter</a>
+<section class="marketplace" id="annonces" aria-labelledby="marketplace-title">
+  <div class="container">
+    <header class="marketplace__intro">
+      <h2 id="marketplace-title">Annonces véhicules</h2>
+      <p class="marketplace__lede">
+        Sélection d'occasions contrôlées. Une question sur un véhicule ? Contactez-nous par téléphone, formulaire ou WhatsApp depuis chaque fiche.
+      </p>
+      <div class="marketplace__sell-cta">
+        <a class="btn btn--primary" href="/contact/">Proposer mon véhicule</a>
+        <a class="btn marketplace__sell-tel" href="tel:{{ site.phone }}">Estimation au {{ site.phoneDisplay }}</a>
+      </div>
+    </header>
+
+    <div class="marketplace__toolbar">
+      <form class="marketplace__filters" action="javascript:void(0)" autocomplete="off">
+        <div class="marketplace__field marketplace__field--search">
+          <label class="sr-only" for="marketplace-search">Rechercher une annonce</label>
+          <input type="search" id="marketplace-search" name="q" placeholder="Marque, modèle, mots-clés…" />
+        </div>
+        <div class="marketplace__field">
+          <label class="sr-only" for="marketplace-brand">Marque</label>
+          <select id="marketplace-brand" name="brand" aria-label="Filtrer par marque">
+            <option value="">Toutes les marques</option>
+          </select>
+        </div>
+        <div class="marketplace__field">
+          <label class="sr-only" for="marketplace-fuel">Carburant</label>
+          <select id="marketplace-fuel" name="fuel" aria-label="Filtrer par carburant">
+            <option value="">Tous carburants</option>
+            <option value="Essence">Essence</option>
+            <option value="Diesel">Diesel</option>
+            <option value="Hybride">Hybride</option>
+            <option value="Électrique">Électrique</option>
+          </select>
+        </div>
+        <div class="marketplace__field marketplace__field--price">
+          <label class="sr-only" for="marketplace-price-max">Budget maximum</label>
+          <input type="number" id="marketplace-price-max" name="price_max" min="0" step="500" placeholder="Budget max. (€)" inputmode="numeric" />
+        </div>
+        <button type="button" class="marketplace__reset" id="marketplace-reset">Réinitialiser</button>
+      </form>
+    </div>
+
+    <p class="marketplace__count" id="marketplace-empty" hidden>Aucun véhicule ne correspond à ces critères. Modifiez les filtres ou <a href="/contact/">demandez-nous une recherche</a>.</p>
+
+    <div class="marketplace__grid" id="marketplace-grid">
+      {% for listing in vehicleListings.listings %}
+      <article
+        class="marketplace-card"
+        id="listing-{{ listing.id }}"
+        data-listing
+        data-brand="{{ listing.brand }}"
+        data-fuel="{{ listing.fuel }}"
+        data-price="{{ listing.price }}"
+        data-title="{{ listing.title | e }}"
+      >
+        <a class="marketplace-card__media" href="{{ listing.image }}" target="_blank" rel="noopener noreferrer" aria-label="Voir la photo : {{ listing.title | e }}">
+          <img src="{{ listing.image }}" alt="" loading="lazy" width="400" height="225" />
+          {% if listing.highlight %}
+          <span class="marketplace-card__badge">{{ listing.highlight }}</span>
+          {% endif %}
+        </a>
+        <div class="marketplace-card__body">
+          <p class="marketplace-card__price">{{ listing.price | formatFrNumber }}&nbsp;€</p>
+          <h3 class="marketplace-card__title">{{ listing.title }}</h3>
+          <ul class="marketplace-card__specs">
+            <li><span class="marketplace-card__label">Année</span> {{ listing.year }}</li>
+            <li><span class="marketplace-card__label">Kilom.</span> {{ listing.mileage | formatFrNumber }} km</li>
+            <li><span class="marketplace-card__label">Énergie</span> {{ listing.fuel }}</li>
+            <li><span class="marketplace-card__label">Boîte</span> {{ listing.transmission }}</li>
+          </ul>
+          <p class="marketplace-card__location">{{ listing.location }}</p>
+          <div class="marketplace-card__actions">
+            <a class="btn btn--primary marketplace-card__btn" href="https://wa.me/33648745668?text={{ ('Bonjour RED-K MOTORS, je souhaite des informations sur : ' ~ listing.title ~ ' — ' ~ (listing.price | formatFrNumber) ~ ' €. Merci.') | encodeURIComponent }}">WhatsApp</a>
+            <a class="btn marketplace-card__btn marketplace-card__btn--outline" href="/contact/">Message</a>
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
   </div>
 </section>
+
+<section class="marketplace-trust" aria-labelledby="marketplace-trust-title">
+  <div class="container marketplace-trust__inner">
+    <h2 id="marketplace-trust-title">Pourquoi passer par RED-K MOTORS</h2>
+    <ul class="marketplace-trust__list">
+      <li>Véhicules présentés après contrôle en atelier</li>
+      <li>Accompagnement reprise / financement sur demande</li>
+      <li>Garage fixe à Ivry-sur-Seine — pas une annonce anonyme</li>
+    </ul>
+  </div>
+</section>
+
+<script src="/assets/js/marketplace.js" defer></script>
