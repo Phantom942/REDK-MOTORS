@@ -3732,6 +3732,18 @@ img[loading="lazy"].loaded {
   margin: 0.35rem;
 }
 
+.blog-article .article-cta a.btn,
+.blog-article .article-cta a.btn:visited {
+  color: var(--color-white);
+  text-decoration: none;
+}
+
+.blog-article .article-cta a.btn:hover,
+.blog-article .article-cta a.btn:focus-visible {
+  color: var(--color-white);
+  text-decoration: none;
+}
+
 .blog-article .article-footer {
   padding: 2rem 0 3rem;
   border-top: 1px solid rgba(0, 0, 0, 0.08);
