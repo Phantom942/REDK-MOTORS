@@ -9,6 +9,9 @@ permalink: /blog/tag/{{ tag }}/
 eleventyComputed:
   title: "Articles {{ tagNames[tag] or tag }} | Blog RED-K MOTORS"
   description: "Tous les articles du blog RED-K MOTORS tagués « {{ tagNames[tag] or tag }} ». Conseils auto, mécanique et carrosserie à Ivry-sur-Seine."
+  robots: "{{ 'index, follow' if (indexableTags and (tag in indexableTags)) else 'noindex, follow' }}"
+  sitemap:
+    ignore: "{{ false if (indexableTags and (tag in indexableTags)) else true }}"
 pageKey: blog
 ---
 
