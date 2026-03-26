@@ -3593,6 +3593,7 @@ img[loading="lazy"].loaded {
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 10px;
   padding: 1.25rem 1.5rem;
+  margin-top: 1rem;
   margin-bottom: 2.5rem;
 }
 
