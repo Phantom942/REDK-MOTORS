@@ -24,3 +24,39 @@ sitemap:
     </div>
   </div>
 </section>
+
+<script>
+  (function () {
+    // GitHub Pages ne fournit pas de 301 côté serveur.
+    // On corrige les variantes courantes (sans slash) en redirigeant vers l'URL canonique.
+    var path = window.location.pathname || "/";
+    if (!path || path === "/" || path.endsWith("/")) return;
+
+    // Ne pas toucher aux fichiers (favicon, assets, etc.)
+    if (path.includes(".") || path.startsWith("/assets/")) return;
+
+    var map = {
+      "/mecanique": "/mecanique/",
+      "/carrosserie": "/carrosserie/",
+      "/entretien": "/entretien/",
+      "/pneumatiques": "/pneumatiques/",
+      "/achat-revente": "/achat-revente/",
+      "/location": "/location/",
+      "/contact": "/contact/",
+      "/confidentialite": "/confidentialite/",
+      "/cookies": "/cookies/",
+      "/blog": "/blog/"
+    };
+
+    // Pagination blog sans slash
+    var m = path.match(/^\\/blog\\/page\\/(\\d+)$/);
+    if (m) {
+      window.location.replace("/blog/page/" + m[1] + "/");
+      return;
+    }
+
+    if (map[path]) {
+      window.location.replace(map[path]);
+    }
+  })();
+</script>

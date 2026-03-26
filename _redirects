@@ -19,3 +19,11 @@
 /contact           /contact/      301
 /confidentialite   /confidentialite/ 301
 /cookies           /cookies/      301
+
+# Canonisation générique
+# /foo/index.html -> /foo/
+/*/index.html      /:splat/       301
+
+# /blog et pagination -> trailing slash
+/blog              /blog/         301
+/blog/page/:num    /blog/page/:num/ 301
