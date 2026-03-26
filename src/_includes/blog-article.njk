@@ -18,14 +18,13 @@
       </div>
       <h1>{{ title | replace(" | Blog RED-K MOTORS", "") }}</h1>
       <p class="article-excerpt">{{ excerpt }}</p>
+      {% if image %}
+      <figure class="article-header__cover">
+        <img src="{{ image }}" alt="{{ imageAlt }}" loading="lazy" width="800" height="450" decoding="async" />
+      </figure>
+      {% endif %}
     </div>
   </header>
-
-  {% if image %}
-  <div class="article-featured-image">
-    <img src="{{ image }}" alt="{{ imageAlt }}" loading="lazy" width="800" height="450" />
-  </div>
-  {% endif %}
 
   <div class="article-content">
     <div class="container">
