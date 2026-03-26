@@ -465,6 +465,35 @@ p, li, td, th, span, a, h1, h2, h3, h4 {
   color: var(--color-red);
 }
 
+/* Accueil — cartes services : même couleur que le titre (pas bleu / violet visité) */
+.services .card h3 a,
+.services .card h3 a:link,
+.services .card h3 a:visited {
+  color: var(--color-red);
+  text-decoration: none;
+}
+
+.services .card h3 a:hover,
+.services .card h3 a:focus-visible {
+  color: var(--color-red-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.services .card .pill-list a,
+.services .card .pill-list a:visited {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.services .card .pill-list a:hover,
+.services .card .pill-list a:focus-visible {
+  color: var(--color-red);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 .pill-list {
   list-style: none;
   margin-top: 20px;
