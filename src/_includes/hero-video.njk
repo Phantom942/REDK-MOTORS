@@ -25,7 +25,7 @@
       <h1 {% if heroAria %}id="{{ heroAria }}"{% endif %}>{{ heroTitle }}</h1>
       {% if heroDesc %}<p class="hero__lede">{{ heroDesc }}</p>{% endif %}
       {% if heroActions %}
-      <div class="hero__actions">
+      <div class="hero__actions{% if heroActionsCro %} hero__actions--cro{% endif %}">
         {{ heroActions | safe }}
       </div>
       {% endif %}

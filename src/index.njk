@@ -1,7 +1,7 @@
 ---
 layout: base.njk
-title: "Garage Ivry-sur-Seine (94) | Garage Automobile RED-K MOTORS, entretien & réparation auto"
-description: "Garage Ivry-sur-Seine (94) : mécanique, entretien, pneus, freinage. Tarifs affichés. Appelez le 06 48 74 56 68 — devis gratuit au téléphone. 9 rue Michelet, visible sur Google Maps."
+title: "Garage auto Ivry-sur-Seine | RED-K MOTORS — devis & tarifs"
+description: "Garage auto à Ivry-sur-Seine : diagnostic dès 49 €, vidange dès 89 €. Devis clair avant intervention. Appelez le 06 48 74 56 68."
 pageKey: index
 hasHeroVideo: true
 sitemap:
@@ -48,117 +48,111 @@ faqSchema:
 
 {% set heroActions %}
 <a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler maintenant</a>
-<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+<a class="btn btn--secondary" href="https://wa.me/{{ site.phone | replace('+', '') }}?text=Bonjour%2C%20je%20souhaite%20un%20devis." target="_blank" rel="noopener noreferrer">Obtenir un devis</a>
 {% endset %}
-{% set heroClass = "hero--expanded" %}
+{% set heroClass = "hero--expanded hero--home-cro" %}
 {% set heroAria = "home-hero-title" %}
-{% set heroKicker = "Garage Ivry-sur-Seine (94) · Lun–Sam 10h–20h" %}
-{% set heroTitle = "Garage Automobile RED-K MOTORS à Ivry : entretien, réparation auto et pneus" %}
-{% set heroDesc = "Un seul garage pour l'entretien, le diagnostic et le freinage. Devis avant travaux, pièces d'origine ou équivalent constructeur, équipe à taille humaine." %}
-{% set heroMeta = "9 rue Michelet, 94200 Ivry-sur-Seine" %}
+{% set heroTitle = "Garage auto à Ivry-sur-Seine" %}
+{% set heroDesc = "Diagnostic dès 49€. Vidange dès 89€. Devis clair. Intervention rapide." %}
+{% set heroActionsCro = true %}
 {% set videoSrc = "hero.mp4" %}
 {% include "hero-video.njk" %}
 
-<section class="hook-offers" aria-labelledby="hook-offers-title">
+<section class="hook-offers hook-offers--prominent" aria-labelledby="hook-offers-title">
   <div class="container">
-    <h2 id="hook-offers-title" class="sr-only">Offres et prix d'appel</h2>
+    <h2 id="hook-offers-title" class="sr-only">Prix d'appel</h2>
     <ul class="hook-offers__grid">
       <li class="hook-offers__card">
         <span class="hook-offers__label">Vidange</span>
-        <span class="hook-offers__price">89&nbsp;€ – 129&nbsp;€</span>
-        <span class="hook-offers__hint">Huile et filtre selon carnet constructeur</span>
-        <a class="hook-offers__link" href="/vidange/">Voir la vidange</a>
+        <span class="hook-offers__price">dès 89&nbsp;€</span>
       </li>
       <li class="hook-offers__card">
         <span class="hook-offers__label">Diagnostic</span>
-        <span class="hook-offers__price">49&nbsp;€</span>
-        <span class="hook-offers__hint">Valise multimarques, explication claire</span>
-        <a class="hook-offers__link" href="/diagnostic/">Le diagnostic</a>
+        <span class="hook-offers__price">dès 49&nbsp;€</span>
       </li>
       <li class="hook-offers__card">
         <span class="hook-offers__label">Plaquettes</span>
-        <span class="hook-offers__price">99&nbsp;€ – 179&nbsp;€</span>
-        <span class="hook-offers__hint">Pose et contrôle du freinage</span>
-        <a class="hook-offers__link" href="/freins/">Freinage</a>
+        <span class="hook-offers__price">dès 99&nbsp;€</span>
       </li>
     </ul>
   </div>
 </section>
 
-<section class="trust-bar" aria-label="Points forts RED-K MOTORS">
+<section class="trust-bar" aria-labelledby="trust-bar-home-title">
   <div class="container trust-bar__inner">
-    <div class="trust-bar__item">
-      <span class="trust-bar__icon" aria-hidden="true">⭐</span>
-      <strong>5/5 sur Google</strong>
-      <span>Avis clients vérifiables</span>
-    </div>
+    <h2 id="trust-bar-home-title" class="sr-only">Pourquoi nous faire confiance</h2>
     <div class="trust-bar__item">
       <span class="trust-bar__icon" aria-hidden="true">📋</span>
-      <strong>Devis avant travaux</strong>
-      <span>Rien sans votre accord</span>
+      <strong>Devis clair</strong>
+      <span>Expliqué avant travaux, rien sans votre accord.</span>
     </div>
     <div class="trust-bar__item">
       <span class="trust-bar__icon" aria-hidden="true">🔧</span>
       <strong>Toutes marques</strong>
-      <span>Thermique, hybride, électrique</span>
+      <span>Thermique, hybride, électrique.</span>
     </div>
     <div class="trust-bar__item">
       <span class="trust-bar__icon" aria-hidden="true">⏱</span>
-      <strong>Réponse rapide</strong>
-      <span>En général sous 1&nbsp;h en journée</span>
+      <strong>Délais annoncés</strong>
+      <span>Créneau réaliste ; on prévient si ça change.</span>
+    </div>
+    <div class="trust-bar__item">
+      <span class="trust-bar__icon" aria-hidden="true">📍</span>
+      <strong>Garage local fiable</strong>
+      <span>{{ site.city }} (94), équipe sur place.</span>
     </div>
   </div>
 </section>
 
 <section id="services" class="services services--buckets" aria-labelledby="services-buckets-title" data-animate="slide-up">
   <div class="container">
-    <h2 id="services-buckets-title">Réparation auto et entretien à Ivry : nos trois pôles</h2>
-    <p class="services__lead">Entretien courant, mécanique et pneus / freinage : tout est fait au même endroit, avec les mêmes exigences de transparence.</p>
+    <h2 id="services-buckets-title">Entretien, mécanique, pneus — au même endroit</h2>
+    <p class="services__lead">Un seul atelier à Ivry pour l’entretien courant, les réparations et le freinage.</p>
     <div class="grid grid--three services-buckets">
       <article class="card card--bucket">
         <h3>Entretien courant</h3>
-        <p>Vidange, révision, climatisation, pré-contrôle technique : on suit le carnet constructeur pour garder votre garantie.</p>
+        <p>Vidange, révision, clim, pré-contrôle : selon carnet constructeur.</p>
         <ul class="pill-list">
           <li><a href="/entretien/">Révision &amp; entretien</a></li>
           <li><a href="/vidange/">Vidange</a></li>
           <li><a href="/diagnostic/">Diagnostic</a></li>
         </ul>
         <div class="card__cta-row">
-          <a class="btn btn--primary btn--sm" href="tel:{{ site.phone }}">Appeler</a>
+          <a class="btn btn--primary btn--sm" href="tel:{{ site.phone }}">Appeler maintenant</a>
         </div>
       </article>
       <article class="card card--bucket">
         <h3>Réparations &amp; diagnostic</h3>
-        <p>Voyant allumé, distribution, embrayage, amortisseurs : on identifie la panne, on chiffre, puis on répare.</p>
+        <p>Voyant moteur, distribution, embrayage : on chiffre avant de lancer.</p>
         <ul class="pill-list">
           <li><a href="/mecanique/">Mécanique générale</a></li>
           <li><a href="/diagnostic/">Diagnostic électronique</a></li>
           <li><a href="/carrosserie/">Carrosserie</a></li>
         </ul>
         <div class="card__cta-row">
-          <a class="btn btn--primary btn--sm" href="tel:{{ site.phone }}">Appeler</a>
-          <a class="btn btn--secondary btn--sm btn--dark" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          <a class="btn btn--primary btn--sm" href="tel:{{ site.phone }}">Appeler maintenant</a>
+          <a class="btn btn--secondary btn--sm btn--dark" href="https://wa.me/{{ site.phone | replace('+', '') }}?text=Bonjour%2C%20je%20souhaite%20un%20devis." target="_blank" rel="noopener noreferrer">Obtenir un devis</a>
         </div>
       </article>
       <article class="card card--bucket">
         <h3>Pneus &amp; freinage</h3>
-        <p>Montage, équilibrage, géométrie, plaquettes et disques : sécurité et usure régulière.</p>
+        <p>Montage, géométrie, plaquettes et disques.</p>
         <ul class="pill-list">
           <li><a href="/pneumatiques/">Pneumatiques</a></li>
           <li><a href="/freins/">Freins</a></li>
         </ul>
         <div class="card__cta-row">
-          <a class="btn btn--primary btn--sm" href="tel:{{ site.phone }}">Appeler</a>
+          <a class="btn btn--primary btn--sm" href="tel:{{ site.phone }}">Appeler maintenant</a>
         </div>
       </article>
     </div>
   </div>
 </section>
 
-<section class="pricing-section" id="tarifs" aria-labelledby="tarifs-title" data-animate="slide-up">
+<section class="pricing-section pricing-section--readable" id="tarifs" aria-labelledby="tarifs-title" data-animate="slide-up">
   <div class="container">
-    <h2 id="tarifs-title">Tarifs indicatifs garage Ivry-sur-Seine</h2>
-    <p class="pricing-section__intro">Fourchettes courantes au {{ site.city }} (94). <strong>Les tarifs varient selon véhicule et pièces. Devis avant intervention.</strong></p>
+    <h2 id="tarifs-title">Tarifs indicatifs</h2>
+    <p class="pricing-section__intro">À {{ site.city }} (94). <strong>Prix selon véhicule — appelez pour une fourchette ou un créneau.</strong></p>
     <div class="pricing-table-wrap">
       <table class="pricing-table">
         <caption class="sr-only">Grille de prix indicative RED-K MOTORS</caption>
@@ -186,61 +180,17 @@ faqSchema:
     </div>
     <p class="pricing-section__disclaimer">Montants TTC indicatifs. Prix final après inspection au garage.</p>
     <div class="pricing-section__actions">
-      <a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler le {{ site.phoneDisplay }}</a>
-      <a class="btn btn--secondary btn--dark" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp (photos)</a>
+      <a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler maintenant</a>
+      <a class="btn btn--secondary btn--dark" href="https://wa.me/{{ site.phone | replace('+', '') }}?text=Bonjour%2C%20je%20souhaite%20un%20devis." target="_blank" rel="noopener noreferrer">Obtenir un devis</a>
       <a class="btn btn--secondary btn--dark" href="/contact/">Adresse &amp; plan</a>
     </div>
   </div>
 </section>
 
-<section class="why-us" aria-labelledby="why-title" data-animate="slide-up">
-  <div class="container why-us__inner">
-    <h2 id="why-title">Pourquoi choisir notre garage à Ivry (et pas seulement pour le prix)</h2>
-    <div class="why-us__grid why-us__grid--six">
-      <article>
-        <h3>On vous dit ce qu'on fait — avant de facturer</h3>
-        <p>Devis détaillé, pièces et main d'œuvre séparées. Si le chantier évolue, on repasse par vous.</p>
-      </article>
-      <article>
-        <h3>Mécaniciens sur toutes marques</h3>
-        <p>Du citadin au SUV premium : même protocole, valise diagnostic multimarques, respect des préconisations constructeur.</p>
-      </article>
-      <article>
-        <h3>Pièces d’origine ou équivalent agréé</h3>
-        <p>Pas de bricolage sur les composants critiques. Garantie constructeur préservée quand c’est le cas.</p>
-      </article>
-      <article>
-        <h3>Un seul interlocuteur</h3>
-        <p>Garage indépendant à taille humaine : on reconnaît votre voiture et votre historique d’entretien.</p>
-      </article>
-      <article>
-        <h3>Délais annoncés clairement</h3>
-        <p>On vous donne un créneau réaliste et on prévient si ça bouge. Pas de « revenez dans une semaine » sans explication.</p>
-      </article>
-      <article>
-        <h3>À deux pas du centre, ouvert 6 jours / 7</h3>
-        <p>{{ site.address }}, {{ site.postalCode }} {{ site.city }} — {{ site.openingHours }}.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="reassurance-strip" aria-labelledby="reassurance-title">
-  <div class="container">
-    <h2 id="reassurance-title" class="sr-only">Nos engagements</h2>
-    <ul class="reassurance-strip__list">
-      <li><strong>Transparence</strong> — Prix et devis expliqués, pas de lignes floues.</li>
-      <li><strong>Devis gratuit</strong> — Sans obligation, vous comparez tranquillement.</li>
-      <li><strong>Rapidité</strong> — Prise en charge et réponses dans les meilleurs délais.</li>
-      <li><strong>Sérieux</strong> — Outillage pro, traçabilité des interventions.</li>
-    </ul>
-  </div>
-</section>
-
 <section id="rdv" class="appointment appointment--final" aria-labelledby="appointment-title" data-animate="slide-up">
   <div class="container appointment__centered">
-    <h2 id="appointment-title">Une question sur votre voiture ? Appelez le garage</h2>
-    <p>Entretien, réparation ou pneus à Ivry : un appel, c'est le plus rapide pour un créneau ou une fourchette de prix. Vous pouvez aussi nous écrire sur WhatsApp (photos utiles). Devis gratuit au téléphone avant toute intervention.</p>
+    <h2 id="appointment-title">Prix ou créneau ? Appelez</h2>
+    <p>Un appel suffit souvent pour une fourchette de prix ou un rendez-vous rapide. Sinon, message pour un devis écrit.</p>
     <dl class="appointment__info">
       <div>
         <dt>Téléphone</dt>
@@ -257,8 +207,8 @@ faqSchema:
     </dl>
     <div class="appointment__actions">
       <a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler maintenant</a>
-      <a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-      <a class="btn btn--secondary" href="/contact/">Voir adresse &amp; horaires</a>
+      <a class="btn btn--secondary" href="https://wa.me/{{ site.phone | replace('+', '') }}?text=Bonjour%2C%20je%20souhaite%20un%20devis." target="_blank" rel="noopener noreferrer">Obtenir un devis</a>
+      <a class="btn btn--secondary" href="/contact/">Coordonnées</a>
     </div>
   </div>
 </section>
@@ -280,7 +230,7 @@ faqSchema:
 
 <section class="faq-section" aria-labelledby="faq-title" data-animate="slide-up">
   <div class="container">
-    <h2 id="faq-title">Questions fréquentes — garage {{ site.city }}</h2>
+    <h2 id="faq-title">Questions fréquentes</h2>
     <div data-accordion>
       <article class="faq__item">
         <button class="faq__question" aria-expanded="false" aria-controls="faq-1">
