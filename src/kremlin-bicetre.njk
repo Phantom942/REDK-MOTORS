@@ -56,8 +56,8 @@ faqSchema:
 ---
 
 {% set heroActions %}
-<a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
-<a class="btn btn--secondary" href="tel:{{ site.phone }}">Nous appeler</a>
+<a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler le garage</a>
+<a class="btn btn--secondary" href="/contact/">Adresse &amp; horaires</a>
 {% endset %}
 {% set heroClass = "hero--subpage" %}
 {% set heroAria = "kremlinBicetre-hero-title" %}
@@ -166,10 +166,10 @@ faqSchema:
   <div class="container">
     <h2 id="devis-kremlinBicetre" class="promesse__title">Transparence & devis</h2>
     <p>
-      Devis écrit, détaillé et gratuit avant toute intervention. Vous validez, nous intervenons. Pour toute demande, appelez-nous au <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a> ou utilisez notre <a href="/contact/">formulaire de contact</a>. Réponse sous 24 heures.
+      Devis écrit, détaillé et gratuit avant toute intervention. Vous validez, nous intervenons. Pour toute demande, appelez le <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a> ou consultez <a href="/contact/">adresse et horaires</a>.
     </p>
     <div style="margin-top: 1.5rem;">
-      <a class="btn btn--primary" href="/contact/">Demander un devis gratuit</a>
+      <a class="btn btn--primary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
     </div>
   </div>
 </section>
@@ -202,7 +202,7 @@ faqSchema:
       <article class="faq__item">
         <button class="faq__question" type="button" aria-expanded="false">Quels sont vos horaires d'ouverture ?</button>
         <div class="faq__answer" hidden>
-          <p>Nous sommes ouverts du lundi au samedi, de 10h à 20h. Appelez-nous au <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a> ou prenez rendez-vous via notre <a href="/contact/">formulaire</a>.</p>
+          <p>Nous sommes ouverts du lundi au samedi, de 10h à 20h. Appelez le <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a> pour un créneau. <a href="/contact/">Adresse et plan</a>.</p>
         </div>
       </article>
     </div>

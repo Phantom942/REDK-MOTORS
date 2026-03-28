@@ -1,7 +1,7 @@
 ---
 layout: base.njk
-title: "Changement de freins à Ivry-sur-Seine (94) | Plaquettes, disques & diagnostic | RED-K MOTORS"
-description: "Plaquettes usées, bruit au freinage ou pédale molle ? Changement de freins à Ivry-sur-Seine : diagnostic, plaquettes, disques et liquide de frein. Devis gratuit, pièces d'origine. RED-K MOTORS."
+title: "Freins & plaquettes à Ivry-sur-Seine (94) | Garage RED-K MOTORS"
+description: "Changement plaquettes et disques à Ivry, Val-de-Marne : fourchettes dès 99 € selon véhicule. Devis avant pose. Réparation auto 94 — 06 48 74 56 68."
 pageKey: freins
 hasHeroVideo: true
 permalink: /freins/
@@ -53,7 +53,7 @@ faqSchema:
       name: "Combien coûte un changement de freins ?"
       acceptedAnswer:
         "@type": "Answer"
-        text: "Le prix dépend du véhicule et des pièces à remplacer. Comptez en moyenne 120 à 250 € pour un changement de plaquettes avant et 250 à 500 € si les disques sont également à remplacer. Le devis est gratuit chez RED-K MOTORS."
+        text: "Chez RED-K MOTORS, comptez en général entre 99 € et 179 € pour des plaquettes (selon véhicule et essieu) et entre 219 € et 449 € pour disques + plaquettes. Le montant exact est sur devis après inspection."
     - "@type": "Question"
       name: "Combien de temps dure un changement de freins ?"
       acceptedAnswer:
@@ -62,29 +62,30 @@ faqSchema:
 ---
 
 {% set heroActions %}
-<a class="btn btn--primary" href="/contact/">Faire vérifier mes freins</a>
-<a class="btn btn--secondary" href="#freins">Voir nos prestations</a>
+<a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler maintenant</a>
+<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
 {% endset %}
 {% set heroClass = "hero--subpage" %}
 {% set heroAria = "freins-hero-title" %}
-{% set heroTitle = "Vos freins, c'est votre sécurité" %}
-{% set heroKicker = "Freinage auto Ivry-sur-Seine · Diagnostic et remplacement" %}
-{% set heroDesc = "Plaquettes usées, bruit suspect ou pédale molle ? Nos techniciens inspectent votre système de freinage, remplacent les pièces défaillantes et vous rendent un véhicule sûr. Devis gratuit, pièces d'origine." %}
+{% set heroTitle = "Plaquettes et disques à Ivry : contrôle, devis, pose pro" %}
+{% set heroKicker = "Garage 94 · Freinage toutes marques" %}
+{% set heroDesc = "Mesure d'usure, état des disques et du liquide : on ne remplace que le nécessaire. Fourchettes indicatives dès 99 € pour plaquettes — devis ferme au véhicule." %}
 {% set videoSrc = "mecanique.mp4" %}
 {% include "hero-video.njk" %}
 
 <section id="freins" class="service-focus" aria-labelledby="freins-title" data-animate="slide-right">
   <div class="container service-focus__inner">
     <div>
-      <h2 id="freins-title">On ne plaisante pas avec le freinage</h2>
+      <h2 id="freins-title">Freinage : sécurité d'abord, facture expliquée</h2>
       <p>
-        Des plaquettes usées ou un disque voilé, c'est une distance de freinage qui s'allonge et un risque d'accident qui augmente. Chez RED-K MOTORS, on inspecte l'ensemble du circuit de freinage — plaquettes, disques, étriers, flexibles et liquide — pour garantir un freinage efficace et sécurisé à Ivry-sur-Seine.
+        Bruit, vibration ou voyant ABS : on inspecte plaquettes, disques, étriers et niveau de liquide avant de vous proposer un devis. Objectif : un freinage fiable, sans pièces inutiles.
       </p>
       <ul>
-        <li>Changement de plaquettes et disques de frein toutes marques</li>
-        <li>Purge et remplacement du liquide de frein</li>
-        <li>Diagnostic ABS, ESP et capteurs de freinage</li>
+        <li>Remplacement plaquettes / disques selon usure réelle</li>
+        <li>Purge et liquide de frein conforme</li>
+        <li>Contrôle capteurs ABS / ESP si symptômes</li>
       </ul>
+      <p class="service-focus__cta"><a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler</a> <a class="btn btn--secondary btn--dark" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a></p>
     </div>
   </div>
 </section>

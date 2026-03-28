@@ -183,20 +183,6 @@ document.addEventListener('DOMContentLoaded', function() {
     field.style.borderColor = '';
   }
 
-  // Offer banner dismiss (7-day localStorage)
-  var offerBanner = document.getElementById('offer-banner');
-  var offerClose = document.getElementById('offer-banner-close');
-  if (offerBanner && offerClose) {
-    var dismissed = localStorage.getItem('offer_banner_dismissed');
-    if (dismissed && Date.now() - parseInt(dismissed, 10) < 7 * 24 * 60 * 60 * 1000) {
-      offerBanner.style.display = 'none';
-    }
-    offerClose.addEventListener('click', function() {
-      offerBanner.style.display = 'none';
-      localStorage.setItem('offer_banner_dismissed', Date.now().toString());
-    });
-  }
-
   // Contact form chips
   var chips = document.querySelectorAll('.form__chip');
   var msgField = document.getElementById('message');

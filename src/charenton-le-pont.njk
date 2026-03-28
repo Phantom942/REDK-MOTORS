@@ -52,12 +52,12 @@ faqSchema:
       name: "Comment obtenir une estimation rapide ?"
       acceptedAnswer:
         "@type": "Answer"
-        text: "Par téléphone, email ou formulaire en ligne. Nous répondons en général sous 24 heures."
+        text: "Par téléphone au 06 48 74 56 68 (prioritaire), par email ou WhatsApp. Adresse et plan sur redk-motors.me/contact/. Réponse en général sous 24 heures."
 ---
 
 {% set heroActions %}
-<a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
-<a class="btn btn--secondary" href="tel:{{ site.phone }}">Nous appeler</a>
+<a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler le garage</a>
+<a class="btn btn--secondary" href="/contact/">Adresse &amp; horaires</a>
 {% endset %}
 {% set heroClass = "hero--subpage" %}
 {% set heroAria = "charenton-hero-title" %}
@@ -152,10 +152,10 @@ faqSchema:
   <div class="container">
     <h2 id="devis-charenton" class="promesse__title">Transparence & devis</h2>
     <p>
-      Tous nos devis sont écrits, détaillés et gratuits. Aucune intervention sans votre accord préalable. Pour toute demande, contactez-nous au <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a> ou via le <a href="/contact/">formulaire de contact</a>. Réponse rapide garantie.
+      Tous nos devis sont écrits, détaillés et gratuits. Aucune intervention sans votre accord préalable. Pour toute demande, appelez le <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a> ou consultez nos <a href="/contact/">coordonnées et le plan d'accès</a> à Ivry-sur-Seine.
     </p>
     <div style="margin-top: 1.5rem;">
-      <a class="btn btn--primary" href="/contact/">Demander un devis gratuit</a>
+      <a class="btn btn--primary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
     </div>
   </div>
 </section>
@@ -188,7 +188,7 @@ faqSchema:
       <article class="faq__item">
         <button class="faq__question" type="button" aria-expanded="false">Comment obtenir une estimation rapide ?</button>
         <div class="faq__answer" hidden>
-          <p>Par téléphone au <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a>, email ou formulaire en ligne. Nous répondons en général sous 24 heures.</p>
+          <p>Par téléphone au <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a>, email ou WhatsApp. Coordonnées complètes sur <a href="/contact/">la page Coordonnées</a>.</p>
         </div>
       </article>
     </div>

@@ -1,7 +1,7 @@
 ---
 layout: base.njk
-title: "Vidange voiture à Ivry-sur-Seine (94) | Prix et rendez-vous | RED-K MOTORS"
-description: "Vidange moteur à Ivry-sur-Seine : huile constructeur, filtre à huile et contrôle des niveaux. Devis gratuit, intervention rapide et garantie constructeur préservée. RED-K MOTORS."
+title: "Vidange voiture Ivry-sur-Seine (94) | Prix 89–129 € | RED-K MOTORS"
+description: "Vidange auto à Ivry, garage 94 : huile homologuée, filtre neuf, contrôle des niveaux. Fourchette indicative 89–129 € selon véhicule. Devis avant intervention — 06 48 74 56 68."
 pageKey: vidange
 hasHeroVideo: true
 permalink: /vidange/
@@ -48,7 +48,7 @@ faqSchema:
       name: "Quel est le prix d'une vidange à Ivry-sur-Seine ?"
       acceptedAnswer:
         "@type": "Answer"
-        text: "Le tarif dépend du type d'huile et du modèle de votre véhicule. Comptez à partir de 59 € pour une vidange simple. Devis gratuit et sans engagement chez RED-K MOTORS."
+        text: "En général entre 89 € et 129 € selon la quantité et la spécification d'huile (constructeur) et le filtre. Le prix exact est confirmé sur devis après identification du véhicule."
     - "@type": "Question"
       name: "Combien de temps dure une vidange ?"
       acceptedAnswer:
@@ -62,31 +62,30 @@ faqSchema:
 ---
 
 {% set heroActions %}
-<a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
-<a class="btn btn--secondary" href="#vidange">En savoir plus</a>
+<a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler maintenant</a>
+<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
 {% endset %}
 {% set heroClass = "hero--subpage" %}
 {% set heroAria = "vidange-hero-title" %}
-{% set heroTitle = "Vidange moteur rapide et soignée" %}
-{% set heroKicker = "Vidange auto Ivry-sur-Seine · Toutes marques" %}
-{% set heroDesc = "Huile constructeur, filtre à huile neuf et contrôle des niveaux : votre vidange est réalisée dans les règles pour protéger votre moteur et préserver votre garantie." %}
+{% set heroTitle = "Vidange à Ivry : huile adaptée, filtre neuf, prix annoncé" %}
+{% set heroKicker = "Garage Ivry (94) · Indicatif 89–129 € selon auto" %}
+{% set heroDesc = "On choisit la viscosité et la norme prévues pour votre moteur, on remplace le filtre à huile et on contrôle les niveaux. Rien n'est facturé sans validation du devis." %}
 {% set videoSrc = "entretien.mp4" %}
 {% include "hero-video.njk" %}
 
 <section id="vidange" class="service-focus" aria-labelledby="vidange-title" data-animate="slide-right">
   <div class="container service-focus__inner">
     <div>
-      <h2 id="vidange-title">Vidange moteur à Ivry-sur-Seine : le geste essentiel pour votre auto</h2>
+      <h2 id="vidange-title">Vidange moteur : protéger le moteur sans sur-facturer</h2>
       <p>
-        La vidange, c'est le premier réflexe pour garder un moteur en bonne santé. Chez RED-K MOTORS, on remplace
-        l'huile usagée par une huile homologuée constructeur, on change le filtre à huile et on vérifie l'ensemble
-        des niveaux — liquide de refroidissement, frein, direction assistée, lave-glace.
+        Huile et filtre conformes au carnet, contrôle rapide des niveaux et fuites visibles. Durée en général 30 min à 1 h selon véhicule — on vous dit le créneau et le montant avant de commencer.
       </p>
       <ul>
-        <li>Huile moteur certifiée constructeur (5W-30, 5W-40, 0W-20…)</li>
-        <li>Remplacement du filtre à huile et du joint de bouchon de vidange</li>
-        <li>Contrôle complet des niveaux et inspection visuelle du moteur</li>
+        <li>Huiles homologuées constructeur (viscosité adaptée)</li>
+        <li>Filtre à huile neuf, couple de serrage respecté</li>
+        <li>Points de contrôle liquides et alerte si anomalie</li>
       </ul>
+      <p class="service-focus__cta"><a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler</a> <a class="btn btn--secondary btn--dark" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a></p>
     </div>
   </div>
 </section>
@@ -209,7 +208,7 @@ faqSchema:
     <div class="appointment__actions">
       <a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler le {{ site.phoneDisplay }}</a>
       <a class="btn btn--secondary" href="mailto:{{ site.email }}">{{ site.email }}</a>
-      <a class="btn btn--whatsapp" href="https://wa.me/{{ site.phone }}" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn btn--whatsapp" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
     </div>
   </div>
 </section>

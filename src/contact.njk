@@ -1,7 +1,7 @@
 ---
 layout: base.njk
-title: "Contactez-nous — Devis gratuit à Ivry-sur-Seine (94) | RED-K MOTORS"
-description: "Une question, un devis ou un rendez-vous ? Notre équipe vous répond rapidement. Appelez, écrivez ou passez directement au 9 rue Michelet à Ivry-sur-Seine. On est là pour vous."
+title: "Coordonnées garage Ivry-sur-Seine (94) | Plan & téléphone | RED-K MOTORS"
+description: "RED-K MOTORS, garage à Ivry : 9 rue Michelet, 94200. Appelez le 06 48 74 56 68, consultez le plan Google Maps et les horaires. Référencement local — même équipe qu'à l'atelier."
 pageKey: contact
 hasHeroVideo: true
 scripts:
@@ -19,28 +19,35 @@ breadcrumb:
       item: "https://redk-motors.me/"
     - "@type": "ListItem"
       position: 2
-      name: "Contact"
+      name: "Coordonnées"
       item: "https://redk-motors.me/contact/"
 ---
 
 {% set heroActions %}
-<a class="btn btn--primary" href="tel:{{ site.phone }}">Nous appeler</a>
-<a class="btn btn--secondary" href="mailto:{{ site.email }}">Envoyer un email</a>
+<a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler maintenant</a>
+<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
 {% endset %}
 
 {% set heroAria = "contact-hero-title" %}
 {% set heroClass = "hero--subpage" %}
-{% set heroTitle = "Parlons de votre voiture — on est là pour vous" %}
-{% set heroKicker = "Contact et assistance" %}
-{% set heroDesc = "Un besoin immédiat ou une simple question ? Notre équipe vous répond rapidement et vous oriente vers la bonne expertise." %}
+{% set heroTitle = "Coordonnées du garage : appelez-nous, on vous guide" %}
+{% set heroKicker = "Ivry-sur-Seine (94) · Lun–sam 10h–20h · Devis gratuit au téléphone" %}
+{% set heroDesc = "Cette page sert surtout à vous montrer où nous trouver et comment joindre l'atelier. Pour un créneau ou un tarif, un appel reste le plus simple." %}
+{% set heroMeta = site.addressFull %}
 {% set videoSrc = "contact.mp4" %}
 {% include "hero-video.njk" %}
+
+<section class="contact-reassurance" aria-label="Délai de traitement des demandes">
+  <div class="container contact-reassurance__inner">
+    <p><strong>Visibilité &amp; accès :</strong> nos horaires, téléphone et adresse sont les mêmes que sur Google. <strong>Appelez en journée</strong> pour un devis ou un rendez-vous — c'est ce que nous traitons en priorité.</p>
+  </div>
+</section>
 
 <section id="appointment" class="appointment" aria-labelledby="appointment-title" data-animate="slide-right">
   <div class="container appointment__inner">
     <div>
-      <h2 id="appointment-title">Où nous trouver à Ivry-sur-Seine</h2>
-      <p>Choisissez votre mode de contact préféré, nous restons disponibles du lundi au samedi.</p>
+      <h2 id="appointment-title">Coordonnées du garage à Ivry-sur-Seine</h2>
+      <p>Devis gratuit, sans engagement. Choisissez le canal qui vous arrange — pour une réponse immédiate, privilégiez l'appel en heures d'ouverture.</p>
       <dl>
         <div>
           <dt>Téléphone</dt>
@@ -65,7 +72,7 @@ breadcrumb:
       <div class="form__alt-btns">
         <a href="tel:{{ site.phone }}" class="btn btn--primary" data-track="click_call" data-track-pos="contact">Appeler {{ site.phoneDisplay }}</a>
         <a href="mailto:{{ site.email }}" class="btn btn--secondary">Envoyer un email</a>
-        <a href="https://wa.me/33648745668?text=Bonjour%2C%20je%20souhaite%20un%20devis%20pour%20ma%20voiture." class="btn btn--secondary" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp" data-track-pos="contact">WhatsApp</a>
+        <a href="{{ site.whatsappUrl }}" class="btn btn--secondary" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp" data-track-pos="contact">WhatsApp</a>
       </div>
     </div>
   </div>
@@ -74,8 +81,8 @@ breadcrumb:
 <section class="featured-vehicles" aria-labelledby="contact-channels-title" data-animate="slide-left">
   <div class="container">
     <div class="section-header">
-      <h2 id="contact-channels-title">Écrivez-nous, on répond vite</h2>
-      <p>Choisissez le moyen qui vous convient, on s'adapte.</p>
+      <h2 id="contact-channels-title">Téléphone d'abord — puis email ou WhatsApp</h2>
+      <p>Pour être sûr d'avoir quelqu'un au bout du fil, appelez aux heures d'ouverture. Sinon laissez un message par email ou WhatsApp avec marque, modèle et symptôme.</p>
     </div>
     <div class="grid grid--three">
       <article class="card">
@@ -91,7 +98,7 @@ breadcrumb:
       <article class="card">
         <h3>Via WhatsApp</h3>
         <p>Envoyez-nous un message, une photo ou une vidéo pour un pré-diagnostic rapide.</p>
-        <a class="link" href="https://wa.me/33648745668" target="_blank" rel="noopener noreferrer">Ouvrir WhatsApp</a>
+        <a class="link" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">Ouvrir WhatsApp</a>
       </article>
     </div>
   </div>

@@ -52,12 +52,12 @@ faqSchema:
       name: "Comment obtenir un devis rapidement ?"
       acceptedAnswer:
         "@type": "Answer"
-        text: "Par téléphone au 06.48.74.56.68, par email ou via notre formulaire de contact. Nous vous répondons sous 24 heures en général."
+        text: "Par téléphone au 06 48 74 56 68, par email ou WhatsApp. Coordonnées et plan sur redk-motors.me/contact/."
 ---
 
 {% set heroActions %}
-<a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
-<a class="btn btn--secondary" href="tel:{{ site.phone }}">Nous appeler</a>
+<a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler le garage</a>
+<a class="btn btn--secondary" href="/contact/">Adresse &amp; horaires</a>
 {% endset %}
 {% set heroClass = "hero--subpage" %}
 {% set heroAria = "vitry-hero-title" %}
@@ -152,10 +152,10 @@ faqSchema:
   <div class="container">
     <h2 id="devis-vitry" class="promesse__title">Transparence & devis</h2>
     <p>
-      Chez RED-K MOTORS, pas de mauvaise surprise. Nous vous fournissons un devis écrit, détaillé et gratuit avant toute intervention. Vous validez, on intervient. Simple et transparent. Pour toute question ou pour demander un devis, contactez-nous par téléphone au <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a> ou via notre <a href="/contact/">formulaire de contact</a>. Notre équipe vous répond sous 24 heures.
+      Chez RED-K MOTORS, pas de mauvaise surprise. Nous vous fournissons un devis écrit, détaillé et gratuit avant toute intervention. Vous validez, on intervient. Pour toute question ou un devis, appelez le <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a> ou consultez <a href="/contact/">notre adresse à Ivry</a>.
     </p>
     <div style="margin-top: 1.5rem;">
-      <a class="btn btn--primary" href="/contact/">Demander un devis gratuit</a>
+      <a class="btn btn--primary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
     </div>
   </div>
 </section>
@@ -188,7 +188,7 @@ faqSchema:
       <article class="faq__item">
         <button class="faq__question" type="button" aria-expanded="false">Comment obtenir un devis rapidement ?</button>
         <div class="faq__answer" hidden>
-          <p>Par téléphone au <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a>, par email ou via notre formulaire de contact. Nous vous répondons sous 24 heures en général.</p>
+          <p>Par téléphone au <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a>, email ou WhatsApp. <a href="/contact/">Coordonnées et plan</a>.</p>
         </div>
       </article>
     </div>

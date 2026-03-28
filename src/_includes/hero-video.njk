@@ -21,8 +21,9 @@
   <div class="container hero__content">
     <div>
       {% if heroKicker %}<p class="hero__kicker">{{ heroKicker }}</p>{% endif %}
+      {% if heroMeta %}<p class="hero__meta">{{ heroMeta }}</p>{% endif %}
       <h1 {% if heroAria %}id="{{ heroAria }}"{% endif %}>{{ heroTitle }}</h1>
-      {% if heroDesc %}<p>{{ heroDesc }}</p>{% endif %}
+      {% if heroDesc %}<p class="hero__lede">{{ heroDesc }}</p>{% endif %}
       {% if heroActions %}
       <div class="hero__actions">
         {{ heroActions | safe }}

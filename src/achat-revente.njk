@@ -1,7 +1,7 @@
 ---
 layout: base.njk
-title: "Achat, reprise & vente de véhicules à Ivry-sur-Seine (94) | RED-K MOTORS"
-description: "Envie de changer de voiture ? Notre service d'achat et revente de véhicules arrive bientôt. Contactez-nous pour en savoir plus. RED-K MOTORS à Ivry-sur-Seine."
+title: "Achat & reprise véhicule Ivry-sur-Seine (94) | RED-K MOTORS"
+description: "Achat, reprise et vente auto : service en préparation au garage RED-K MOTORS à Ivry. Appelez le 06 48 74 56 68 ou écrivez sur WhatsApp."
 pageKey: achat-revente
 scripts:
   effects: false
@@ -20,21 +20,20 @@ breadcrumb:
 ---
 
 {% set heroActions %}
-<a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler pour une estimation</a>
-<a class="btn btn--secondary" href="https://wa.me/33648745668?text=Bonjour%2C%20je%20souhaite%20estimer%20mon%20v%C3%A9hicule%20gratuitement." target="_blank" rel="noopener noreferrer">Estimer via WhatsApp</a>
+<a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler maintenant</a>
+<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
 {% endset %}
-
 
 <section class="hero hero--subpage" aria-labelledby="achat-hero-title">
   <div class="hero__img-bg" aria-hidden="true">
-    <img src="/assets/img/achat-revente.jpg" alt="Service achat et revente de véhicules RED-K MOTORS" loading="eager" />
+    <img src="/assets/img/achat-revente.jpg" alt="Service achat et reprise véhicules au garage RED-K MOTORS à Ivry-sur-Seine" loading="eager" />
   </div>
   <div class="hero__overlay" aria-hidden="true"></div>
   <div class="container hero__content">
     <div>
-      <p class="hero__kicker">Expertise Transaction</p>
-      <h1 id="achat-hero-title">Changez de véhicule en toute confiance</h1>
-      <p>Profitez d'une estimation juste et rapide pour votre véhicule ou découvrez notre sélection rigoureuse de modèles contrôlés.</p>
+      <p class="hero__kicker">Garage Ivry-sur-Seine (94)</p>
+      <h1 id="achat-hero-title">Achat, reprise &amp; vente : service en cours de lancement</h1>
+      <p class="hero__lede">Nous préparons une offre claire (reprise, vente, accompagnement). En attendant l'ouverture complète du service, <strong>appelez ou écrivez-nous</strong> : on note votre projet et on vous recontacte.</p>
       <div class="hero__actions">
         {{ heroActions | safe }}
       </div>
@@ -42,13 +41,20 @@ breadcrumb:
   </div>
 </section>
 
-<section class="upcoming" style="min-height: 50vh; display: flex; align-items: center;" aria-labelledby="coming-soon-title">
-  <div class="container upcoming__inner" style="text-align: center;">
-    <p class="section-kicker">Bientôt disponible</p>
-    <h2 id="coming-soon-title" style="font-size: 2.5rem; margin-bottom: 1rem;">Coming soon</h2>
-    <p style="max-width: 540px; margin: 0 auto 2rem; opacity: 0.85;">
-      Notre service d'achat, reprise et vente de véhicules est en cours de préparation. Restez connecté, on vous tient au courant très vite.
+<section class="upcoming-pro" aria-labelledby="achat-bientot-title">
+  <div class="container upcoming-pro__inner">
+    <h2 id="achat-bientot-title">Ce qui arrive</h2>
+    <p class="upcoming-pro__text">
+      Estimation de votre véhicule, reprise sur achat, sélection de voitures contrôlées au garage. Pas de promesse floue : chaque transaction passera par un <strong>devis ou mandat écrit</strong> avant engagement.
     </p>
-    <a class="upcoming__cta" href="/contact/">Nous contacter</a>
+    <ul class="upcoming-pro__list">
+      <li>Reprise : photos + historique, contre-proposition chiffrée</li>
+      <li>Achat : véhicules préparés et documentés</li>
+      <li>Même adresse que l'atelier : {{ site.addressFull }}</li>
+    </ul>
+    <div class="upcoming-pro__actions">
+      <a class="btn btn--primary" href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a>
+      <a class="btn btn--secondary btn--dark" href="/contact/">Adresse du garage</a>
+    </div>
   </div>
 </section>

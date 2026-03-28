@@ -1,7 +1,7 @@
 ---
 layout: base.njk
-title: "Carrosserie & peinture automobile à Ivry-sur-Seine (94) | RED-K MOTORS"
-description: "Un accrochage, une rayure ou un choc ? Nos carrossiers redonnent à votre voiture son aspect d'origine. Débosselage soigné, peinture et devis offert à Ivry-sur-Seine."
+title: "Carrosserie & peinture auto Ivry-sur-Seine (94) | RED-K MOTORS"
+description: "Réparation carrosserie à Ivry, Val-de-Marne : débosselage, peinture, petits chocs. Devis détaillé avant travaux. Garage 94 — 06 48 74 56 68."
 pageKey: carrosserie
 hasHeroVideo: true
 breadcrumb:
@@ -53,30 +53,30 @@ faqSchema:
 ---
 
 {% set heroActions %}
-<a class="btn btn--primary" href="/contact/">Demander un devis</a>
-<a class="btn btn--secondary" href="#carrosserie">Nos expertises</a>
+<a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler maintenant</a>
+<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
 {% endset %}
 {% set heroClass = "hero--subpage" %}
 {% set heroAria = "carrosserie-hero-title" %}
-{% set heroTitle = "Votre carrosserie retrouve son éclat d'origine" %}
-{% set heroKicker = "Peinture auto 94 &amp; Débosselage" %}
-{% set heroDesc = "De la réparation structurelle aux finitions esthétiques, nos carrossiers redonnent à votre véhicule son éclat d'origine tout en respectant les standards constructeurs." %}
+{% set heroTitle = "Carrosserie à Ivry : devis photo, réparation, peinture" %}
+{% set heroKicker = "Garage Ivry-sur-Seine (94) · Sinistres &amp; esthétique" %}
+{% set heroDesc = "Choc, rayure, pare-chocs : on chiffre au besoin sur photos, puis on répare et peint selon références constructeur. Rien ne commence sans votre accord sur le devis." %}
 {% set videoSrc = "carrosserie.mp4" %}
 {% include "hero-video.njk" %}
 
 <section id="carrosserie" class="service-focus service-focus--alt" aria-labelledby="carrosserie-title" data-animate="slide-left">
   <div class="container service-focus__inner">
     <div>
-      <h2 id="carrosserie-title">Du choc à la finition, on s'occupe de tout</h2>
+      <h2 id="carrosserie-title">Réparation carrosserie : étape par étape, avec validation</h2>
       <p>
-        Redonnez de l'éclat à votre véhicule : nos carrossiers interviennent sur toutes tailles de chocs, avec une
-        finition peinture soignée et un soin esthétique poussé.
+        Débosselage sans peinture quand c'est possible ; sinon préparation, mise en peinture cabine et contrôle teinte. On documente l'intervention pour votre assurance si besoin.
       </p>
       <ul>
         <li>Redressage et remplacement d'éléments</li>
         <li>Peinture et retouches localisées</li>
         <li>Polissage, detailing et protection carrosserie</li>
       </ul>
+      <p class="service-focus__cta"><a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler</a> <a class="btn btn--secondary btn--dark" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a></p>
     </div>
   </div>
 </section>

@@ -52,12 +52,12 @@ faqSchema:
       name: "Peut-on prendre rendez-vous en ligne ?"
       acceptedAnswer:
         "@type": "Answer"
-        text: "Oui. Utilisez notre formulaire de contact en ligne ou appelez-nous directement. Nous confirmons votre créneau sous 24 heures."
+        text: "Oui. Appelez le 06 48 74 56 68 ou écrivez par email ou WhatsApp. Nous confirmons votre créneau sous 24 heures en général."
 ---
 
 {% set heroActions %}
-<a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
-<a class="btn btn--secondary" href="tel:{{ site.phone }}">Nous appeler</a>
+<a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler le garage</a>
+<a class="btn btn--secondary" href="/contact/">Adresse &amp; horaires</a>
 {% endset %}
 {% set heroClass = "hero--subpage" %}
 {% set heroAria = "maisonsAlfort-hero-title" %}
@@ -166,10 +166,10 @@ faqSchema:
   <div class="container">
     <h2 id="devis-maisonsAlfort" class="promesse__title">Transparence & devis</h2>
     <p>
-      Devis écrit, détaillé et gratuit avant toute intervention. Vous validez, nous intervenons. Pour toute demande, appelez-nous au <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a> ou utilisez notre <a href="/contact/">formulaire de contact</a>. Réponse sous 24 heures.
+      Devis écrit, détaillé et gratuit avant toute intervention. Vous validez, nous intervenons. Pour toute demande, appelez le <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a> ou consultez <a href="/contact/">adresse et horaires</a>.
     </p>
     <div style="margin-top: 1.5rem;">
-      <a class="btn btn--primary" href="/contact/">Demander un devis gratuit</a>
+      <a class="btn btn--primary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
     </div>
   </div>
 </section>
@@ -202,7 +202,7 @@ faqSchema:
       <article class="faq__item">
         <button class="faq__question" type="button" aria-expanded="false">Peut-on prendre rendez-vous en ligne ?</button>
         <div class="faq__answer" hidden>
-          <p>Oui. Utilisez notre <a href="/contact/">formulaire de contact</a> en ligne ou appelez-nous au <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a>. Nous confirmons votre créneau sous 24 heures.</p>
+          <p>Oui. Appelez le <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a> ou écrivez-nous (email / WhatsApp). <a href="/contact/">Coordonnées</a>.</p>
         </div>
       </article>
     </div>

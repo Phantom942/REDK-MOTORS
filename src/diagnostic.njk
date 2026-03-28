@@ -1,7 +1,7 @@
 ---
 layout: base.njk
-title: "Diagnostic auto à Ivry-sur-Seine (94) | Valise multimarques | RED-K MOTORS"
-description: "Voyant moteur allumé ? Diagnostic électronique par valise multimarques à Ivry-sur-Seine. Lecture des codes défaut, identification de la panne et devis gratuit. RED-K MOTORS, garage de confiance."
+title: "Diagnostic auto Ivry-sur-Seine (94) | Voyant moteur | Garage RED-K MOTORS"
+description: "Diagnostic voiture à Ivry, garage 94 : valise multimarques, tarif dès 49 €. Devis avant réparation. Appelez le 06 48 74 56 68 ou demandez un devis."
 pageKey: diagnostic
 hasHeroVideo: true
 permalink: /diagnostic/
@@ -53,7 +53,7 @@ faqSchema:
       name: "Combien coûte un diagnostic auto chez RED-K MOTORS ?"
       acceptedAnswer:
         "@type": "Answer"
-        text: "Le tarif d'un diagnostic dépend de la complexité du problème. Nous proposons un devis gratuit et vous expliquons clairement ce qui a été détecté avant toute intervention."
+        text: "Comptez à partir de 49 € pour un diagnostic standard par valise ; un diagnostic avancé peut aller de 79 € à 99 € selon le temps d'analyse et le véhicule. Le montant exact vous est confirmé avant intervention, avec devis si des travaux complémentaires sont nécessaires."
     - "@type": "Question"
       name: "Quelles marques de voitures prenez-vous en charge ?"
       acceptedAnswer:
@@ -62,30 +62,30 @@ faqSchema:
 ---
 
 {% set heroActions %}
-<a class="btn btn--primary" href="/contact/">Diagnostiquer mon véhicule</a>
-<a class="btn btn--secondary" href="#diagnostic">En savoir plus</a>
+<a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler maintenant</a>
+<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
 {% endset %}
 {% set heroClass = "hero--subpage" %}
 {% set heroAria = "diagnostic-hero-title" %}
-{% set heroTitle = "On trouve la panne, vous retrouvez la route" %}
-{% set heroKicker = "Diagnostic auto Ivry-sur-Seine · Valise multimarques" %}
-{% set heroDesc = "Voyant moteur allumé, comportement anormal ou panne intermittente ? Notre valise multimarques lit les codes défaut de votre véhicule et identifie le problème en moins d'une heure. Devis gratuit." %}
+{% set heroTitle = "Voyant moteur à Ivry ? Diagnostic dès 49 €, explication claire" %}
+{% set heroKicker = "Garage Ivry-sur-Seine (94) · Valise multimarques" %}
+{% set heroDesc = "Lecture OBD, interprétation des codes et proposition de réparation avec devis. Pas d'intervention facturée sans votre accord." %}
 {% set videoSrc = "mecanique.mp4" %}
 {% include "hero-video.njk" %}
 
 <section id="diagnostic" class="service-focus" aria-labelledby="diagnostic-title" data-animate="slide-right">
   <div class="container service-focus__inner">
     <div>
-      <h2 id="diagnostic-title">On branche la valise, on vous dit tout</h2>
+      <h2 id="diagnostic-title">Diagnostic voiture : codes défaut, causes possibles, suite à donner</h2>
       <p>
-        Un voyant s'allume sur votre tableau de bord ? Pas de panique. Notre diagnostic électronique par valise multimarques identifie précisément l'origine de la panne grâce à la lecture OBD des codes défaut. Pas de démontage inutile, pas de devinette : on vous explique clairement ce qui se passe sous le capot.
+        On lit les défauts enregistrés, on croise avec les symptômes et les essais si besoin. Vous repartez avec une explication compréhensible et un devis si une réparation est nécessaire — pas de remplacement « au hasard ».
       </p>
       <ul>
-        <li>Lecture des codes défaut via prise OBD</li>
-        <li>Diagnostic multimarques (européennes, asiatiques, américaines)</li>
-        <li>Analyse des systèmes électroniques et capteurs</li>
-        <li>Effacement des codes après réparation</li>
+        <li>Prise OBD et interprétation multimarques</li>
+        <li>Investigations complémentaires annoncées avant facturation</li>
+        <li>Effacement des codes après réparation validée</li>
       </ul>
+      <p class="service-focus__cta"><a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler</a> <a class="btn btn--secondary btn--dark" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a></p>
     </div>
   </div>
 </section>

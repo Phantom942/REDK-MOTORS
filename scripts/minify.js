@@ -9,7 +9,17 @@ const cssDir = path.join(siteDir, 'assets', 'css');
 fs.readdirSync(cssDir).filter(f => f.endsWith('.css')).forEach(file => {
   const filePath = path.join(cssDir, file);
   const input = fs.readFileSync(filePath, 'utf8');
-  const output = new CleanCSS({ level: 2 }).minify(input);
+  // Niveau 2 sans fusion agressive des @media (évite de casser le responsive après minify)
+  const output = new CleanCSS({
+    level: {
+      1: { all: true },
+      2: {
+        restructureRules: false,
+        mergeMedia: false,
+        mergeNonAdjacentRules: false,
+      },
+    },
+  }).minify(input);
   if (output.styles) {
     fs.writeFileSync(filePath, output.styles);
     const saved = ((1 - output.styles.length / input.length) * 100).toFixed(1);

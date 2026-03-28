@@ -1,7 +1,7 @@
 ---
 layout: base.njk
-title: "Diagnostic moteur & réparation mécanique à Ivry-sur-Seine (94) | RED-K MOTORS"
-description: "Votre moteur fait un bruit suspect ou un voyant s'allume ? Nos techniciens identifient le problème en moins d'une heure et vous proposent une solution claire, avec devis offert et pièces d'origine."
+title: "Réparation auto & mécanicien à Ivry-sur-Seine (94) | Garage RED-K MOTORS"
+description: "Garage 94 : diagnostic, distribution, embrayage, freinage. Devis avant intervention, toutes marques. Appelez le 06 48 74 56 68 ou demandez un devis à Ivry-sur-Seine."
 pageKey: mecanique
 hasHeroVideo: true
 breadcrumb:
@@ -53,29 +53,30 @@ faqSchema:
 ---
 
 {% set heroActions %}
-<a class="btn btn--primary" href="/contact/">Diagnostiquer mon véhicule</a>
-<a class="btn btn--secondary" href="#mecanique">Voir nos expertises</a>
+<a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler maintenant</a>
+<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
 {% endset %}
 {% set heroClass = "hero--subpage" %}
 {% set heroAria = "mecanique-hero-title" %}
-{% set heroTitle = "Un problème mécanique ? On trouve la solution." %}
-{% set heroKicker = "Diagnostic voyant moteur et réparation à Ivry-sur-Seine" %}
-{% set heroDesc = "Prolongez la durée de vie de votre moteur avec un diagnostic électronique précis et des réparations soignées. Devis gratuit et pièces d'origine." %}
+{% set heroTitle = "Réparation auto à Ivry : on diagnostique, on chiffre, on répare" %}
+{% set heroKicker = "Garage Ivry-sur-Seine (94) · Mécanique toutes marques" %}
+{% set heroDesc = "Voyant moteur, distribution, embrayage, suspension : valise diagnostic, devis écrit avant travaux, pièces adaptées à votre véhicule." %}
 {% set videoSrc = "mecanique.mp4" %}
 {% include "hero-video.njk" %}
 
 <section id="mecanique" class="service-focus" aria-labelledby="mecanique-title" data-animate="slide-right">
   <div class="container service-focus__inner">
     <div>
-      <h2 id="mecanique-title">On écoute votre moteur avant de toucher à quoi que ce soit</h2>
+      <h2 id="mecanique-title">Mécanique auto à Ivry : diagnostic clair, facture comprise</h2>
       <p>
-        Retrouvez la sérénité au volant : diagnostic électronique multimarque, réparation moteur et transmission par des techniciens certifiés. Interventions rapides et devis transparent à Ivry-sur-Seine.
+        On commence par identifier la panne (électronique + essais routiers si besoin), puis on vous envoie un devis détaillé. Vous validez, on intervient — pas de pièces changées « au feeling ».
       </p>
       <ul>
-        <li>Diagnostic électronique multimarques</li>
-        <li>Entretiens moteurs thermiques, hybrides et électriques</li>
-        <li>Préparation performance et optimisation</li>
+        <li>Diagnostic voyant moteur et recherche de panne</li>
+        <li>Distribution, embrayage, turbo, suspension</li>
+        <li>Thermique, hybride et électrique (hors haute tension spécialisée)</li>
       </ul>
+      <p class="service-focus__cta"><a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler</a> <a class="btn btn--secondary btn--dark" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a></p>
     </div>
   </div>
 </section>

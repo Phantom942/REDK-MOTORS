@@ -1,7 +1,7 @@
 ---
 layout: base.njk
-title: "Demande bien reçue — On revient vers vous rapidement | RED-K MOTORS"
-description: "Votre message a bien été envoyé. Notre équipe vous recontacte rapidement pendant nos horaires d'ouverture. En cas d'urgence, appelez-nous directement."
+title: "Merci | RED-K MOTORS Ivry-sur-Seine"
+description: "Pour un devis ou un rendez-vous au garage, appelez le 06 48 74 56 68. RED-K MOTORS, Ivry-sur-Seine (94)."
 pageKey: merci
 permalink: /merci/
 robots: noindex, follow
@@ -14,14 +14,24 @@ scripts:
 <section class="merci-page" aria-labelledby="merci-title">
   <div class="container">
     <div class="merci-page__box">
-      <h1 id="merci-title" class="merci-page__title">C'est noté, on s'en occupe !</h1>
+      <p class="merci-page__badge" aria-hidden="true">✓</p>
+      <h1 id="merci-title" class="merci-page__title">Merci</h1>
       <p class="merci-page__text">
-        Votre demande est entre de bonnes mains. Notre équipe vous recontacte rapidement pendant nos horaires d'ouverture (lun-sam, 10h-20h).
+        Pour <strong>un créneau, un tarif ou une urgence</strong>, le plus rapide reste un <strong>appel direct</strong> en heures d'ouverture (lun–sam, 10h–20h).
       </p>
       <p class="merci-page__sub">
-        En cas d'urgence, n'hésitez pas à nous appeler au <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a> ou à nous écrire sur <a href="https://wa.me/33648745668" target="_blank" rel="noopener noreferrer">WhatsApp</a>.
+        Vous pouvez aussi nous écrire sur <a href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a> (photos utiles pour la carrosserie ou un voyant).
       </p>
-      <a href="/" class="btn btn--primary merci-page__btn">Retour à l'accueil</a>
+      <p class="merci-page__hint">
+        Numéro du garage : <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a> — enregistrez-le pour nous retrouver facilement.
+      </p>
+      <div class="merci-page__actions">
+        <a href="tel:{{ site.phone }}" class="btn btn--primary merci-page__btn" data-track="click_call" data-track-pos="merci">Appeler maintenant</a>
+        <a href="{{ site.whatsappUrl }}" class="btn btn--secondary btn--dark merci-page__btn" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      </div>
+      <p class="merci-page__back">
+        <a href="/contact/">Adresse &amp; plan</a> · <a href="/">Accueil</a>
+      </p>
     </div>
   </div>
 </section>

@@ -48,7 +48,7 @@ faqSchema:
       name: "Comment obtenir un devis pour une réparation ?"
       acceptedAnswer:
         "@type": "Answer"
-        text: "Vous pouvez demander un devis gratuit par téléphone au 06.48.74.56.68, par email à contact@redk-motors.me ou via notre formulaire en ligne. Nous vous répondons sous 24 heures avec un devis détaillé."
+        text: "Appelez le 06 48 74 56 68 pour un devis gratuit au téléphone, ou écrivez à contact@redk-motors.me / WhatsApp. Adresse et plan sur redk-motors.me/contact/."
     - "@type": "Question"
       name: "Y a-t-il un parking pour déposer mon véhicule ?"
       acceptedAnswer:
@@ -62,8 +62,8 @@ faqSchema:
 ---
 
 {% set heroActions %}
-<a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
-<a class="btn btn--secondary" href="tel:{{ site.phone }}">Nous appeler</a>
+<a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler le garage</a>
+<a class="btn btn--secondary" href="/contact/">Adresse &amp; horaires</a>
 {% endset %}
 {% set heroClass = "hero--subpage" %}
 {% set heroAria = "garage-ivry-hero-title" %}
@@ -84,7 +84,7 @@ faqSchema:
         Installés à deux pas de la <strong>mairie d'Ivry</strong> et facilement accessibles depuis le métro ligne 7 (station Mairie d'Ivry), nous avons fait le choix d'un garage de quartier à taille humaine. Chaque client est accueilli individuellement, chaque véhicule fait l'objet d'un diagnostic rigoureux avant toute intervention. Nous travaillons sur <strong>toutes les marques</strong> — Renault, Peugeot, Citroën, Volkswagen, BMW, Mercedes, Audi, Toyota, Hyundai et bien d'autres — qu'il s'agisse de véhicules thermiques, hybrides ou électriques. Notre équipement est régulièrement mis à jour pour répondre aux exigences des constructeurs et garantir un travail précis.
       </p>
       <p>
-        Ce qui distingue notre <strong>garage automobile à Ivry-sur-Seine</strong>, c'est aussi nos horaires. Ouvert <strong>du lundi au samedi de 10h à 20h</strong>, nous nous adaptons à votre rythme de vie. Vous travaillez la journée ? Déposez votre véhicule le matin et récupérez-le en fin de journée, ou passez en fin d'après-midi pour un contrôle rapide. La prise de rendez-vous est simple : par téléphone au <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a>, par email à <a href="mailto:{{ site.email }}">{{ site.email }}</a> ou via notre <a href="/contact/">formulaire en ligne</a>.
+        Ce qui distingue notre <strong>garage automobile à Ivry-sur-Seine</strong>, c'est aussi nos horaires. Ouvert <strong>du lundi au samedi de 10h à 20h</strong>, nous nous adaptons à votre rythme de vie. Vous travaillez la journée ? Déposez votre véhicule le matin et récupérez-le en fin de journée, ou passez en fin d'après-midi pour un contrôle rapide. La prise de rendez-vous se fait surtout <strong>par téléphone</strong> au <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a> ; vous pouvez aussi écrire à <a href="mailto:{{ site.email }}">{{ site.email }}</a> ou consulter <a href="/contact/">notre adresse et le plan d'accès</a>.
       </p>
       <p>
         Notre philosophie est claire : offrir aux habitants d'Ivry-sur-Seine un service de réparation et d'entretien automobile qui rivalise avec les réseaux de concessionnaires, mais avec la souplesse et la relation humaine d'un <strong>mécanicien de quartier</strong>. Devis gratuit, pièces d'origine, explications détaillées à chaque étape, garantie sur les interventions — nous construisons une relation durable avec chacun de nos clients. Des centaines d'automobilistes ivryens nous font déjà confiance. Rejoignez-les.
@@ -275,7 +275,7 @@ faqSchema:
       <article class="faq__item">
         <button class="faq__question" type="button" aria-expanded="false">Comment obtenir un devis pour une réparation ?</button>
         <div class="faq__answer" hidden>
-          <p>Vous pouvez demander un devis gratuit par téléphone au <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a>, par email à <a href="mailto:{{ site.email }}">{{ site.email }}</a> ou via notre <a href="/contact/">formulaire en ligne</a>. Nous vous répondons sous 24 heures avec un devis détaillé et sans engagement.</p>
+          <p>Demandez un devis gratuit par téléphone au <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a> ou par email à <a href="mailto:{{ site.email }}">{{ site.email }}</a>. Coordonnées complètes et itinéraire : <a href="/contact/">page Coordonnées</a>.</p>
         </div>
       </article>
       <article class="faq__item">
@@ -306,7 +306,7 @@ faqSchema:
       <strong>Email :</strong> <a href="mailto:{{ site.email }}">{{ site.email }}</a>
     </p>
     <div style="margin-top: 1.5rem; display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
-      <a class="btn btn--primary" href="/contact/">Demander un devis gratuit</a>
+      <a class="btn btn--primary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
       <a class="btn btn--secondary" href="tel:{{ site.phone }}">Appeler maintenant</a>
     </div>
   </div>

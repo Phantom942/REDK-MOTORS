@@ -1,7 +1,7 @@
 ---
 layout: base.njk
-title: "Location de véhicules à Ivry-sur-Seine (94) | RED-K MOTORS"
-description: "Besoin d'un véhicule ? Notre service de location est en cours de mise en place. Contactez-nous pour en savoir plus. RED-K MOTORS, Ivry-sur-Seine."
+title: "Location véhicule Ivry-sur-Seine (94) | RED-K MOTORS"
+description: "Location auto en préparation chez RED-K MOTORS à Ivry. Appelez le 06 48 74 56 68 pour être informé ou anticiper un besoin."
 pageKey: location
 robots: noindex, follow
 sitemap:
@@ -24,24 +24,33 @@ breadcrumb:
 ---
 
 {% set heroActions %}
-<a class="btn btn--primary" href="/contact/">Réserver un véhicule</a>
+<a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler maintenant</a>
+<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
 {% endset %}
 
 {% set heroAria = "location-hero-title" %}
 {% set heroClass = "hero--subpage" %}
-{% set heroTitle = "Restez mobile, on s'occupe du reste" %}
-{% set heroKicker = "Mobilité Garantie" %}
-{% set heroDesc = "Notre service de location est en cours de préparation. Contactez-nous pour être informé dès le lancement." %}
+{% set heroTitle = "Location de véhicule : bientôt au même garage qu'à l'habitude" %}
+{% set heroKicker = "RED-K MOTORS · Ivry-sur-Seine (94)" %}
+{% set heroDesc = "Le service location est en montée. Besoin d'une voiture de remplacement pendant une réparation ou envie d'être alerté au lancement ? Contactez-nous : on enregistre votre demande." %}
+{% set heroMeta = site.addressFull %}
 {% set videoSrc = "location.mp4" %}
 {% include "hero-video.njk" %}
 
-<section class="upcoming" style="min-height: 50vh; display: flex; align-items: center;" aria-labelledby="coming-soon-title">
-  <div class="container upcoming__inner" style="text-align: center;">
-    <p class="section-kicker">Bientôt disponible</p>
-    <h2 id="coming-soon-title" style="font-size: 2.5rem; margin-bottom: 1rem;">Coming soon</h2>
-    <p style="max-width: 540px; margin: 0 auto 2rem; opacity: 0.85;">
-      Notre service de location est en cours de mise en place. On vous prévient dès que c'est prêt.
+<section class="upcoming-pro upcoming-pro--muted" aria-labelledby="location-bientot-title">
+  <div class="container upcoming-pro__inner">
+    <h2 id="location-bientot-title">Pourquoi nous écrire ou appeler maintenant</h2>
+    <p class="upcoming-pro__text">
+      Dès que la flotte et les assurances seront finalisées, les réservations s'ouvriront en priorité aux <strong>clients atelier</strong> et aux personnes déjà inscrites via le contact.
     </p>
-    <a class="upcoming__cta" href="/contact/">Nous contacter</a>
+    <ul class="upcoming-pro__list">
+      <li>Tarification et conditions affichées avant réservation</li>
+      <li>Même lieu que le garage : prise en main simple après réparation</li>
+      <li>Pas de paiement en ligne tant que le service n'est pas ouvert</li>
+    </ul>
+    <div class="upcoming-pro__actions">
+      <a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler le {{ site.phoneDisplay }}</a>
+      <a class="btn btn--secondary btn--dark" href="/contact/">Adresse &amp; plan</a>
+    </div>
   </div>
 </section>

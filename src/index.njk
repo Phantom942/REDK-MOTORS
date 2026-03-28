@@ -1,10 +1,9 @@
 ---
 layout: base.njk
-title: "Garage automobile à Ivry-sur-Seine (94) | Mécanique, carrosserie & entretien | RED-K MOTORS"
-description: "Votre garage de confiance à Ivry-sur-Seine (94). Nos mécaniciens prennent soin de votre voiture comme de la leur : diagnostic précis, réparation soignée et devis gratuit. Passez nous voir au 9 rue Michelet."
+title: "Garage Ivry-sur-Seine (94) | Mécanicien, entretien & réparation auto | RED-K MOTORS"
+description: "Garage Ivry-sur-Seine (94) : mécanique, entretien, pneus, freinage. Tarifs affichés. Appelez le 06 48 74 56 68 — devis gratuit au téléphone. 9 rue Michelet, visible sur Google Maps."
 pageKey: index
 hasHeroVideo: true
-showWhatsApp: true
 sitemap:
   priority: 1
   changefreq: weekly
@@ -21,194 +20,227 @@ faqSchema:
   "@type": "FAQPage"
   mainEntity:
     - "@type": "Question"
-      name: "Où se trouve votre garage mécanique en Île-de-France ?"
+      name: "Où se trouve RED-K MOTORS à Ivry-sur-Seine ?"
       acceptedAnswer:
         "@type": "Answer"
-        text: "Notre garage mécanique et carrosserie est situé à Ivry-sur-Seine, en Île-de-France, au 9 rue Michelet, 94200 Ivry-sur-Seine. Nous sommes facilement accessibles depuis Paris et toute l'Île-de-France."
+        text: "Au 9 rue Michelet, 94200 Ivry-sur-Seine. Garage facilement accessible depuis Paris et le 94."
     - "@type": "Question"
-      name: "Proposez-vous la réparation de toutes les marques de voitures ?"
+      name: "Quels sont vos tarifs indicatifs pour un diagnostic ou une vidange ?"
       acceptedAnswer:
         "@type": "Answer"
-        text: "Oui, nous intervenons sur toutes les marques de véhicules : Peugeot, Renault, Citroën, BMW, Mercedes, Audi, Volkswagen, Ford, et bien d'autres."
+        text: "Diagnostic à partir de 49 €, vidange entre 89 et 129 € selon véhicule et huile. Les montants varient selon le modèle et les pièces : nous validons toujours un devis écrit avant toute intervention."
     - "@type": "Question"
-      name: "Combien de temps faut-il pour réparer ma voiture ?"
+      name: "Intervenez-vous sur toutes les marques ?"
       acceptedAnswer:
         "@type": "Answer"
-        text: "Le temps de réparation dépend de la nature de l'intervention. Pour un diagnostic, comptez environ 1 heure. Pour une réparation mécanique standard, généralement 1 à 3 jours. Nous vous fournissons toujours un devis avec délai estimé avant intervention."
+        text: "Oui, toutes marques : véhicules thermiques, hybrides et électriques."
     - "@type": "Question"
-      name: "Acceptez-vous les véhicules électriques et hybrides ?"
+      name: "Proposez-vous un devis avant les réparations ?"
       acceptedAnswer:
         "@type": "Answer"
-        text: "Absolument. Notre garage mécanique en Île-de-France est équipé pour l'entretien et la réparation des véhicules électriques et hybrides. Nos mécaniciens sont formés aux nouvelles technologies automobiles."
+        text: "Oui. Devis détaillé et gratuit ; rien n'est engagé sans votre accord."
+    - "@type": "Question"
+      name: "Comment prendre rendez-vous ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Appelez le 06 48 74 56 68 (prioritaire), ou écrivez par email ou WhatsApp. Coordonnées complètes et plan sur redk-motors.me/contact/. Ouvert du lundi au samedi, 10h–20h."
 ---
 
 {% set heroActions %}
-<a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
-<a class="btn btn--secondary" href="#services">Découvrir nos services</a>
+<a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler maintenant</a>
+<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
 {% endset %}
 {% set heroClass = "hero--expanded" %}
-{% set heroTitle = "Votre garage de confiance à Ivry-sur-Seine" %}
-{% set heroKicker = "Service rapide sans RDV · Expertise multimarque immédiate" %}
-{% set heroDesc = "Mécanique, carrosserie, entretien et pneumatiques — on s'occupe de tout sous le même toit. Devis gratuit et pièces d'origine." %}
+{% set heroAria = "home-hero-title" %}
+{% set heroKicker = "Garage Ivry-sur-Seine (94) · Lun–Sam 10h–20h" %}
+{% set heroTitle = "Mécanicien à Ivry : entretien, réparation auto et pneus" %}
+{% set heroDesc = "Un seul garage pour l'entretien, le diagnostic et le freinage. Devis avant travaux, pièces d'origine ou équivalent constructeur, équipe à taille humaine." %}
+{% set heroMeta = "9 rue Michelet, 94200 Ivry-sur-Seine" %}
 {% set videoSrc = "hero.mp4" %}
 {% include "hero-video.njk" %}
 
-<section class="trust-bar" aria-label="Engagements RED-K MOTORS">
+<section class="hook-offers" aria-labelledby="hook-offers-title">
+  <div class="container">
+    <h2 id="hook-offers-title" class="sr-only">Offres et prix d'appel</h2>
+    <ul class="hook-offers__grid">
+      <li class="hook-offers__card">
+        <span class="hook-offers__label">Vidange</span>
+        <span class="hook-offers__price">89&nbsp;€ – 129&nbsp;€</span>
+        <span class="hook-offers__hint">Huile et filtre selon carnet constructeur</span>
+        <a class="hook-offers__link" href="/vidange/">Voir la vidange</a>
+      </li>
+      <li class="hook-offers__card">
+        <span class="hook-offers__label">Diagnostic</span>
+        <span class="hook-offers__price">49&nbsp;€</span>
+        <span class="hook-offers__hint">Valise multimarques, explication claire</span>
+        <a class="hook-offers__link" href="/diagnostic/">Le diagnostic</a>
+      </li>
+      <li class="hook-offers__card">
+        <span class="hook-offers__label">Plaquettes</span>
+        <span class="hook-offers__price">99&nbsp;€ – 179&nbsp;€</span>
+        <span class="hook-offers__hint">Pose et contrôle du freinage</span>
+        <a class="hook-offers__link" href="/freins/">Freinage</a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="trust-bar" aria-label="Points forts RED-K MOTORS">
   <div class="container trust-bar__inner">
     <div class="trust-bar__item">
       <span class="trust-bar__icon" aria-hidden="true">⭐</span>
       <strong>5/5 sur Google</strong>
-      <span>12 avis clients vérifiés</span>
+      <span>Avis clients vérifiables</span>
     </div>
     <div class="trust-bar__item">
-      <span class="trust-bar__icon" aria-hidden="true">⏱</span>
-      <strong>Réponse sous 1h</strong>
-      <span>Devis gratuit, zéro engagement</span>
+      <span class="trust-bar__icon" aria-hidden="true">📋</span>
+      <strong>Devis avant travaux</strong>
+      <span>Rien sans votre accord</span>
     </div>
     <div class="trust-bar__item">
       <span class="trust-bar__icon" aria-hidden="true">🔧</span>
-      <strong>Toutes Marques</strong>
-      <span>Thermique, hybride et électrique</span>
+      <strong>Toutes marques</strong>
+      <span>Thermique, hybride, électrique</span>
     </div>
     <div class="trust-bar__item">
-      <span class="trust-bar__icon" aria-hidden="true">✓</span>
-      <strong>Pièces d'Origine</strong>
-      <span>Garantie constructeur préservée</span>
+      <span class="trust-bar__icon" aria-hidden="true">⏱</span>
+      <strong>Réponse rapide</strong>
+      <span>En général sous 1&nbsp;h en journée</span>
     </div>
   </div>
 </section>
 
-<section class="promesse" aria-labelledby="promesse-title" data-animate="slide-up">
+<section id="services" class="services services--buckets" aria-labelledby="services-buckets-title" data-animate="slide-up">
   <div class="container">
-    <h2 id="promesse-title" class="promesse__title">Ce qu'on fait différemment pour vous</h2>
-    <div class="promesse__grid">
-      <div class="promesse__item">
-        <span class="promesse__icon" aria-hidden="true">✓</span>
-        <p>Mécaniciens qualifiés et formés aux dernières technologies.</p>
-      </div>
-      <div class="promesse__item">
-        <span class="promesse__icon" aria-hidden="true">✓</span>
-        <p>Équipement de diagnostic dernière génération.</p>
-      </div>
-      <div class="promesse__item">
-        <span class="promesse__icon" aria-hidden="true">✓</span>
-        <p>Transparence totale : Devis avant travaux, pièces d'origine.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="services" class="services" aria-labelledby="services-title" data-animate="slide-up">
-  <div class="container">
-    <h2 id="services-title">Tous les services auto, un seul garage près de chez vous</h2>
-    <div class="grid grid--four">
-      <article class="card">
-        <h3><a href="/diagnostic/">Diagnostic voyant moteur</a> et <a href="/mecanique/">réparation mécanique</a></h3>
-        <p>Prolongez la durée de vie de votre moteur avec un diagnostic électronique précis et des réparations soignées. Retrouvez la sérénité au volant.</p>
+    <h2 id="services-buckets-title">Réparation auto et entretien à Ivry : nos trois pôles</h2>
+    <p class="services__lead">Entretien courant, mécanique et pneus / freinage : tout est fait au même endroit, avec les mêmes exigences de transparence.</p>
+    <div class="grid grid--three services-buckets">
+      <article class="card card--bucket">
+        <h3>Entretien courant</h3>
+        <p>Vidange, révision, climatisation, pré-contrôle technique : on suit le carnet constructeur pour garder votre garantie.</p>
         <ul class="pill-list">
-          <li><a href="/diagnostic/">Diagnostic voiture</a></li>
-          <li>Réparation moteur</li>
-          <li>Entretien transmission</li>
-          <li>Véhicules électriques</li>
-        </ul>
-      </article>
-      <article class="card">
-        <h3><a href="/carrosserie/">Réparation carrosserie après accident</a></h3>
-        <p>Redonnez à votre voiture son éclat d'origine après un choc. Réparation carrosserie et peinture soignée pour préserver la valeur de votre véhicule.</p>
-        <ul class="pill-list">
-          <li>Réparation carrosserie</li>
-          <li>Peinture voiture</li>
-          <li>Débosselage</li>
-          <li>Finitions esthétiques</li>
-        </ul>
-      </article>
-      <article class="card">
-        <h3><a href="/entretien/">Révision constructeur</a> et <a href="/vidange/">vidange</a></h3>
-        <p>Prolongez la durée de vie de votre véhicule avec une révision complète. Vidange, climatisation et contrôle technique pour rouler l'esprit tranquille.</p>
-        <ul class="pill-list">
-          <li>Révision voiture</li>
+          <li><a href="/entretien/">Révision &amp; entretien</a></li>
           <li><a href="/vidange/">Vidange</a></li>
-          <li>Climatisation</li>
+          <li><a href="/diagnostic/">Diagnostic</a></li>
+        </ul>
+        <div class="card__cta-row">
+          <a class="btn btn--primary btn--sm" href="tel:{{ site.phone }}">Appeler</a>
+        </div>
+      </article>
+      <article class="card card--bucket">
+        <h3>Réparations &amp; diagnostic</h3>
+        <p>Voyant allumé, distribution, embrayage, amortisseurs : on identifie la panne, on chiffre, puis on répare.</p>
+        <ul class="pill-list">
+          <li><a href="/mecanique/">Mécanique générale</a></li>
+          <li><a href="/diagnostic/">Diagnostic électronique</a></li>
+          <li><a href="/carrosserie/">Carrosserie</a></li>
+        </ul>
+        <div class="card__cta-row">
+          <a class="btn btn--primary btn--sm" href="tel:{{ site.phone }}">Appeler</a>
+          <a class="btn btn--secondary btn--sm btn--dark" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        </div>
+      </article>
+      <article class="card card--bucket">
+        <h3>Pneus &amp; freinage</h3>
+        <p>Montage, équilibrage, géométrie, plaquettes et disques : sécurité et usure régulière.</p>
+        <ul class="pill-list">
+          <li><a href="/pneumatiques/">Pneumatiques</a></li>
           <li><a href="/freins/">Freins</a></li>
         </ul>
-      </article>
-      <article class="card">
-        <h3><a href="/pneumatiques/">Changement pneus et géométrie</a> à Ivry-sur-Seine</h3>
-        <p>Conduisez en toute sécurité avec des pneus adaptés. Changement, équilibrage et géométrie pour une tenue de route optimale, été comme hiver.</p>
-        <ul class="pill-list">
-          <li>Changement pneus</li>
-          <li>Équilibrage</li>
-          <li>Géométrie</li>
-          <li>Pneus hiver/été</li>
-        </ul>
+        <div class="card__cta-row">
+          <a class="btn btn--primary btn--sm" href="tel:{{ site.phone }}">Appeler</a>
+        </div>
       </article>
     </div>
   </div>
 </section>
 
-<section class="services-links" data-animate="slide-up">
-  <div class="container services-links__inner">
-    <p class="section-kicker">Rejoignez-nous</p>
-    <h2>Un garage à Ivry où l'on prend le temps de bien faire</h2>
-    <div class="services-links__grid">
-      <a class="services-links__card" href="/mecanique/">
-        <span class="services-links__icon" aria-hidden="true">🔧</span>
-        <strong>Mécanique</strong>
-        <span>Diagnostic, freins, distribution, embrayage.</span>
-      </a>
-      <a class="services-links__card" href="/carrosserie/">
-        <span class="services-links__icon" aria-hidden="true">🛠️</span>
-        <strong>Carrosserie</strong>
-        <span>Peinture, débosselage, sinistres.</span>
-      </a>
-      <a class="services-links__card" href="/entretien/">
-        <span class="services-links__icon" aria-hidden="true">🗓️</span>
-        <strong>Entretien</strong>
-        <span>Vidange, révision, clim, pré-CT.</span>
-      </a>
-      <a class="services-links__card" href="/pneumatiques/">
-        <span class="services-links__icon" aria-hidden="true">🚗</span>
-        <strong>Pneumatiques</strong>
-        <span>Montage, équilibrage, géométrie.</span>
-      </a>
-      <a class="services-links__card" href="/achat-revente/">
-        <span class="services-links__icon" aria-hidden="true">🤝</span>
-        <strong>Achat &amp; reprise</strong>
-        <span>Changer de véhicule en toute sérénité.</span>
-      </a>
-      <a class="services-links__card" href="/location/">
-        <span class="services-links__icon" aria-hidden="true">🚙</span>
-        <strong>Location</strong>
-        <span>Mobilité garantie pendant les réparations.</span>
-      </a>
+<section class="pricing-section" id="tarifs" aria-labelledby="tarifs-title" data-animate="slide-up">
+  <div class="container">
+    <h2 id="tarifs-title">Tarifs indicatifs garage Ivry-sur-Seine</h2>
+    <p class="pricing-section__intro">Fourchettes courantes au {{ site.city }} (94). <strong>Les tarifs varient selon véhicule et pièces. Devis avant intervention.</strong></p>
+    <div class="pricing-table-wrap">
+      <table class="pricing-table">
+        <caption class="sr-only">Grille de prix indicative RED-K MOTORS</caption>
+        <thead>
+          <tr>
+            <th scope="col">Prestation</th>
+            <th scope="col">À partir de / fourchette</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Diagnostic</th><td>49&nbsp;€</td></tr>
+          <tr><th scope="row">Diagnostic avancé</th><td>79&nbsp;€ – 99&nbsp;€</td></tr>
+          <tr><th scope="row">Vidange</th><td>89&nbsp;€ – 129&nbsp;€</td></tr>
+          <tr><th scope="row">Révision</th><td>149&nbsp;€ – 369&nbsp;€</td></tr>
+          <tr><th scope="row">Climatisation (contrôle / recharge)</th><td>79&nbsp;€ – 199&nbsp;€</td></tr>
+          <tr><th scope="row">Plaquettes</th><td>99&nbsp;€ – 179&nbsp;€</td></tr>
+          <tr><th scope="row">Disques + plaquettes</th><td>219&nbsp;€ – 449&nbsp;€</td></tr>
+          <tr><th scope="row">Géométrie</th><td>79&nbsp;€ – 109&nbsp;€</td></tr>
+          <tr><th scope="row">Amortisseurs</th><td>349&nbsp;€ – 699&nbsp;€</td></tr>
+          <tr><th scope="row">Distribution</th><td>549&nbsp;€ – 899&nbsp;€</td></tr>
+          <tr><th scope="row">Embrayage</th><td>799&nbsp;€ – 1&nbsp;299&nbsp;€</td></tr>
+          <tr><th scope="row">Pré-contrôle technique</th><td>39&nbsp;€</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="pricing-section__disclaimer">Montants TTC indicatifs. Prix final après inspection au garage.</p>
+    <div class="pricing-section__actions">
+      <a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler le {{ site.phoneDisplay }}</a>
+      <a class="btn btn--secondary btn--dark" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp (photos)</a>
+      <a class="btn btn--secondary btn--dark" href="/contact/">Adresse &amp; plan</a>
     </div>
   </div>
 </section>
 
 <section class="why-us" aria-labelledby="why-title" data-animate="slide-up">
   <div class="container why-us__inner">
-    <h2 id="why-title">Pourquoi nos clients nous font confiance</h2>
-    <div class="why-us__grid">
+    <h2 id="why-title">Pourquoi choisir notre garage à Ivry (et pas seulement pour le prix)</h2>
+    <div class="why-us__grid why-us__grid--six">
       <article>
-        <h3>Des mécaniciens passionnés</h3>
-        <p>Ici, pas de turnover : notre équipe est stable, formée et connaît ses clients. Chaque véhicule est traité avec la même rigueur, qu'il s'agisse d'une citadine ou d'un SUV haut de gamme.</p>
+        <h3>On vous dit ce qu'on fait — avant de facturer</h3>
+        <p>Devis détaillé, pièces et main d'œuvre séparées. Si le chantier évolue, on repasse par vous.</p>
       </article>
       <article>
-        <h3>Pas de surprise sur la facture</h3>
-        <p>On vous appelle avant d'intervenir. Le devis est détaillé, chaque pièce est justifiée. Si quelque chose change en cours de route, vous validez d'abord.</p>
+        <h3>Mécaniciens sur toutes marques</h3>
+        <p>Du citadin au SUV premium : même protocole, valise diagnostic multimarques, respect des préconisations constructeur.</p>
       </article>
       <article>
-        <h3>Des pièces d'origine, point final</h3>
-        <p>On n'installe que des pièces d'origine ou équivalent constructeur. Votre garantie est préservée, et la qualité de la réparation aussi.</p>
+        <h3>Pièces d’origine ou équivalent agréé</h3>
+        <p>Pas de bricolage sur les composants critiques. Garantie constructeur préservée quand c’est le cas.</p>
+      </article>
+      <article>
+        <h3>Un seul interlocuteur</h3>
+        <p>Garage indépendant à taille humaine : on reconnaît votre voiture et votre historique d’entretien.</p>
+      </article>
+      <article>
+        <h3>Délais annoncés clairement</h3>
+        <p>On vous donne un créneau réaliste et on prévient si ça bouge. Pas de « revenez dans une semaine » sans explication.</p>
+      </article>
+      <article>
+        <h3>À deux pas du centre, ouvert 6 jours / 7</h3>
+        <p>{{ site.address }}, {{ site.postalCode }} {{ site.city }} — {{ site.openingHours }}.</p>
       </article>
     </div>
   </div>
 </section>
 
-<section id="appointment" class="appointment" aria-labelledby="appointment-title" data-animate="slide-up">
+<section class="reassurance-strip" aria-labelledby="reassurance-title">
+  <div class="container">
+    <h2 id="reassurance-title" class="sr-only">Nos engagements</h2>
+    <ul class="reassurance-strip__list">
+      <li><strong>Transparence</strong> — Prix et devis expliqués, pas de lignes floues.</li>
+      <li><strong>Devis gratuit</strong> — Sans obligation, vous comparez tranquillement.</li>
+      <li><strong>Rapidité</strong> — Prise en charge et réponses dans les meilleurs délais.</li>
+      <li><strong>Sérieux</strong> — Outillage pro, traçabilité des interventions.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="rdv" class="appointment appointment--final" aria-labelledby="appointment-title" data-animate="slide-up">
   <div class="container appointment__centered">
-    <h2 id="appointment-title">Parlons de votre véhicule, c'est sans engagement</h2>
-    <p>Un voyant qui s'allume ou une révision qui approche ? Obtenez un devis gratuit et sans engagement. Diagnostic rapide et pièces d'origine.</p>
+    <h2 id="appointment-title">Une question sur votre voiture ? Appelez le garage</h2>
+    <p>Entretien, réparation ou pneus à Ivry : un appel, c'est le plus rapide pour un créneau ou une fourchette de prix. Vous pouvez aussi nous écrire sur WhatsApp (photos utiles). Devis gratuit au téléphone avant toute intervention.</p>
     <dl class="appointment__info">
       <div>
         <dt>Téléphone</dt>
@@ -223,61 +255,21 @@ faqSchema:
         <dd><a href="{{ site.wazeUrl }}" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">{{ site.addressFull }}</a></dd>
       </div>
     </dl>
-    <a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
-  </div>
-</section>
-
-<section id="apropos" class="about" aria-labelledby="about-title" data-animate="slide-right">
-  <div class="container about__inner">
-    <div>
-      <h2 id="about-title">Un garage indépendant, une vraie relation de confiance</h2>
-      <p>
-        RED-K MOTORS, c'est un garage indépendant à Ivry-sur-Seine. On fait de la mécanique, de la carrosserie, de l'entretien et du pneumatique — pour toutes les marques. Notre force, c'est la proximité : on connaît nos clients, on prend le temps d'expliquer, et on ne fait pas de travaux inutiles.
-      </p>
-      <p>
-        On est ouverts du lundi au samedi, de 10h à 20h. Le devis est toujours gratuit et on ne fait rien sans votre accord. Simple, direct, efficace.
-      </p>
-    </div>
-    <div class="about__highlights">
-      <article class="highlight-card">
-        <h3>Toutes marques, sans exception</h3>
-        <p>Renault, BMW, Toyota, Mercedes ou Dacia — on intervient sur tous les véhicules, thermiques, hybrides et électriques.</p>
-      </article>
-      <article class="highlight-card">
-        <h3>Réactifs quand ça compte</h3>
-        <p>Devis gratuit, intervention rapide, et on vous tient informé de l'avancement par téléphone ou WhatsApp.</p>
-      </article>
-      <article class="highlight-card">
-        <h3>La qualité avant tout</h3>
-        <p>Pièces d'origine, outils professionnels, et garantie constructeur préservée. Pas de raccourcis.</p>
-      </article>
+    <div class="appointment__actions">
+      <a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler maintenant</a>
+      <a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      <a class="btn btn--secondary" href="/contact/">Voir adresse &amp; horaires</a>
     </div>
   </div>
 </section>
 
-<section class="launch-offer" aria-labelledby="launch-offer-title" data-animate="slide-up">
-  <div class="container launch-offer__inner">
-    <h2 id="launch-offer-title" class="launch-offer__title">Offre de lancement — Nouveau client</h2>
-    <div class="launch-offer__cards">
-      <div class="launch-offer__card">
-        <span class="launch-offer__card-icon" aria-hidden="true">🔍</span>
-        <h3>Diagnostic gratuit</h3>
-        <p>Premier passage ? Le diagnostic est offert, sans engagement.</p>
-      </div>
-      <div class="launch-offer__card">
-        <span class="launch-offer__card-icon" aria-hidden="true">🎁</span>
-        <h3>Avantage nouveau client</h3>
-        <p>Bénéficiez d'un tarif préférentiel sur votre première intervention.</p>
-      </div>
-      <div class="launch-offer__card">
-        <span class="launch-offer__card-icon" aria-hidden="true">⏱</span>
-        <h3>Devis sous 24h</h3>
-        <p>Envoyez votre demande, on vous répond avec un devis détaillé sous 24 heures.</p>
-      </div>
-    </div>
-    <div class="launch-offer__actions">
-      <a href="/contact/" class="btn btn--primary launch-offer__btn">Demander un devis</a>
-      <a href="https://wa.me/33648745668?text=Bonjour%2C%20je%20souhaite%20un%20devis%20pour%20ma%20voiture." class="btn btn--secondary launch-offer__btn" target="_blank" rel="noopener noreferrer" aria-label="Contacter via WhatsApp">Ou via WhatsApp</a>
+<section class="services-links services-links--compact" data-animate="slide-up">
+  <div class="container services-links__inner">
+    <h2 class="services-links__heading">Autres services</h2>
+    <div class="services-links__grid services-links__grid--compact">
+      <a class="services-links__card" href="/achat-revente/"><strong>Achat &amp; reprise</strong><span>Vendre ou acheter un véhicule</span></a>
+      <a class="services-links__card" href="/location/"><strong>Véhicule de courtoisie</strong><span>Location pendant les réparations</span></a>
+      <a class="services-links__card" href="/blog/"><strong>Blog auto</strong><span>Conseils entretien &amp; CT</span></a>
     </div>
   </div>
 </section>
@@ -288,46 +280,46 @@ faqSchema:
 
 <section class="faq-section" aria-labelledby="faq-title" data-animate="slide-up">
   <div class="container">
-    <h2 id="faq-title">Questions fréquentes</h2>
+    <h2 id="faq-title">Questions fréquentes — garage {{ site.city }}</h2>
     <div data-accordion>
       <article class="faq__item">
         <button class="faq__question" aria-expanded="false" aria-controls="faq-1">
-          Combien coûte une réparation voiture ? Pas de mauvaise surprise ?
+          Vos tarifs sont-ils fermes ?
         </button>
         <div class="faq__answer" id="faq-1" hidden>
-          <p>Le devis est gratuit et détaillé. On vous explique chaque ligne avant de commencer quoi que ce soit. Pas de mauvaise surprise à la caisse.</p>
+          <p>Les montants affichés sont indicatifs. Le prix définitif est celui du devis validé après inspection au véhicule.</p>
         </div>
       </article>
       <article class="faq__item">
         <button class="faq__question" aria-expanded="false" aria-controls="faq-2">
-          Vous réparez vraiment toutes les marques ? Même les anciennes ?
+          C’est quoi la différence avec un concessionnaire ?
         </button>
         <div class="faq__answer" id="faq-2" hidden>
-          <p>Oui, toutes les marques sans exception : françaises, allemandes, japonaises, coréennes. On prend en charge les véhicules thermiques, hybrides et électriques.</p>
+          <p>Même exigence technique (carnet, pièces adaptées), avec plus de proximité et des délais souvent plus simples. Vous parlez directement au mécanicien.</p>
         </div>
       </article>
       <article class="faq__item">
         <button class="faq__question" aria-expanded="false" aria-controls="faq-3">
-          Combien de temps pour une révision ? Je peux attendre ?
+          Vous réparez les véhicules électriques ?
         </button>
         <div class="faq__answer" id="faq-3" hidden>
-          <p>Comptez 2 à 4 heures selon le modèle. On vous donne le délai exact à la prise de rendez-vous pour que vous puissiez vous organiser.</p>
+          <p>Oui, entretien et réparations sur l’habituel des véhicules électriques et hybrides ; on vous dit en amont ce qu’on peut prendre en charge.</p>
         </div>
       </article>
       <article class="faq__item">
         <button class="faq__question" aria-expanded="false" aria-controls="faq-4">
-          Vous avez des pneus en stock ? Même en hiver ?
+          Puis-je venir sans rendez-vous ?
         </button>
         <div class="faq__answer" id="faq-4" hidden>
-          <p>Oui, on a du stock été et hiver en permanence. Montage, équilibrage et géométrie disponibles avec ou sans rendez-vous selon la disponibilité.</p>
+          <p>Un appel avant de venir évite l'attente. Selon la journée, une petite intervention peut parfois se faire en drop-in — appelez pour confirmer.</p>
         </div>
       </article>
       <article class="faq__item">
         <button class="faq__question" aria-expanded="false" aria-controls="faq-5">
-          Comment vous contacter ? C'est facile de prendre rendez-vous ?
+          Comment vous joindre ?
         </button>
         <div class="faq__answer" id="faq-5" hidden>
-          <p>Par téléphone au <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a>, par email ou via WhatsApp. On répond généralement dans l'heure. Vous pouvez aussi passer directement au garage, on est ouverts du lundi au samedi de 10h à 20h.</p>
+          <p>En priorité au <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a>, ou <a href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>, ou <a href="mailto:{{ site.email }}">email</a>. Adresse et plan : <a href="/contact/">page Coordonnées</a>. {{ site.openingHours }}.</p>
         </div>
       </article>
     </div>
