@@ -3965,9 +3965,13 @@ img[loading="lazy"].loaded {
     left: 0;
     right: 0;
     z-index: 1050;
-    padding: 8px 16px;
-    background: var(--color-black);
-    box-shadow: 0 -2px 12px rgba(0,0,0,.3);
+    padding: 10px 14px max(10px, env(safe-area-inset-bottom, 0px));
+    background: rgba(22, 22, 24, 0.94);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 18px 18px 0 0;
+    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.25);
   }
 
   .cta-sticky__btn {
@@ -3976,27 +3980,34 @@ img[loading="lazy"].loaded {
     justify-content: center;
     gap: 8px;
     width: 100%;
-    padding: 14px;
+    padding: 14px 16px;
     background: var(--color-red);
     color: var(--color-white);
-    border-radius: 8px;
-    font-size: 16px;
+    border-radius: 12px;
+    font-size: 15px;
     font-weight: 700;
     text-decoration: none;
     text-align: center;
-    transition: background .2s;
+    transition: background 0.2s, transform 0.12s ease;
+    -webkit-tap-highlight-color: transparent;
   }
 
   .cta-sticky__btn:hover {
     background: #d41419;
   }
 
+  .cta-sticky__btn:active {
+    transform: scale(0.98);
+  }
+
   body {
-    padding-bottom: 72px;
+    padding-bottom: max(88px, calc(76px + env(safe-area-inset-bottom, 0px)));
+    background-color: #e8e8ed;
   }
 
   .whatsapp-float {
-    bottom: 80px;
+    bottom: max(92px, calc(84px + env(safe-area-inset-bottom, 0px)));
+    right: calc(14px + env(safe-area-inset-right, 0px));
   }
 }
 
@@ -5262,5 +5273,99 @@ img[loading="lazy"].loaded {
   max-width: 720px;
   margin: 0 auto 24px;
   color: rgba(255, 255, 255, 0.95);
+}
+
+/* ========== MOBILE APP-LIKE SHELL (≤768px) ==========
+   Fond gris, sections en cartes, footer arrondi, safe areas iPhone */
+
+@media (max-width: 768px) {
+  .main-header {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  #main > section:not(.hero) {
+    margin-left: 11px;
+    margin-right: 11px;
+    margin-bottom: 12px;
+    border-radius: 16px;
+    overflow: visible;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 22px rgba(0, 0, 0, 0.07);
+  }
+
+  #main > section.hero + section,
+  #main > section:first-child:not(.hero) {
+    margin-top: 12px;
+  }
+
+  #main > section.hero {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    overflow-x: clip;
+  }
+
+  .pricing-section {
+    background: #ffffff !important;
+  }
+
+  .appointment,
+  .appointment--final {
+    background: #ffffff;
+  }
+
+  .services.services--buckets {
+    background: #ffffff;
+  }
+
+  .services-links.services-links--compact {
+    background: #ffffff;
+  }
+
+  .reviews-section {
+    background: #ffffff;
+  }
+
+  .faq-section {
+    padding: 52px 0 64px;
+  }
+
+  .site-footer {
+    margin-left: 11px;
+    margin-right: 11px;
+    border-radius: 16px 16px 0 0;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.06);
+  }
+
+  a.btn,
+  button.btn {
+    border-radius: 12px;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  a.btn:active {
+    transform: scale(0.98);
+  }
+
+  .card,
+  .hook-offers__card {
+    border-radius: 14px;
+  }
+
+  .faq__question {
+    padding: 16px 18px;
+    font-size: 15px;
+  }
+
+  .cookie-banner {
+    z-index: 1060;
+    border-radius: 16px 16px 0 0;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
 }
 

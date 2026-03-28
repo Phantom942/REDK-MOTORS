@@ -4,7 +4,7 @@
   "description": "Garage automobile à Ivry-sur-Seine. Mécanique, carrosserie, entretien et pneumatiques.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
+  "background_color": "#e8e8ed",
   "theme_color": "#0b0b0f",
   "icons": [
     {
