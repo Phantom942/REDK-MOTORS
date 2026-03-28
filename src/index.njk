@@ -1,9 +1,9 @@
 ---
 layout: base.njk
 title: "Garage Ivry-sur-Seine (94) | Mécanicien, entretien & réparation auto | RED-K MOTORS"
-description: "Garage auto à Ivry-sur-Seine : vidange, freinage, diagnostic. Prix clairs, devis avant intervention. Appelez le 06 48 74 56 68."
+description: "Garage Ivry-sur-Seine (94) : mécanique, entretien, pneus, freinage. Tarifs affichés. Appelez le 06 48 74 56 68 — devis gratuit au téléphone. 9 rue Michelet, visible sur Google Maps."
 pageKey: index
-hasHeroVideo: false
+hasHeroVideo: true
 sitemap:
   priority: 1
   changefreq: weekly
@@ -47,55 +47,43 @@ faqSchema:
 ---
 
 {% set heroActions %}
-<a class="btn btn--primary" href="tel:{{ site.phone }}" data-track="click_call" data-track-pos="hero">Appeler maintenant</a>
-<a class="btn btn--secondary" href="https://wa.me/{{ site.phone | replace('+', '') }}?text=Bonjour%2C%20je%20souhaite%20un%20devis." target="_blank" rel="noopener noreferrer" data-track="click_whatsapp" data-track-pos="hero_devis">Demander un devis</a>
+<a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler maintenant</a>
+<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
 {% endset %}
-{% set heroClass = "hero--expanded hero--home-cta" %}
+{% set heroClass = "hero--expanded" %}
 {% set heroAria = "home-hero-title" %}
-{% set heroTitle = "Garage auto à Ivry-sur-Seine" %}
-{% set heroDisableVideo = true %}
-{% set heroHomeTuning = true %}
-{% set heroActionsStack = true %}
+{% set heroKicker = "Garage Ivry-sur-Seine (94) · Lun–Sam 10h–20h" %}
+{% set heroTitle = "Mécanicien à Ivry : entretien, réparation auto et pneus" %}
+{% set heroDesc = "Un seul garage pour l'entretien, le diagnostic et le freinage. Devis avant travaux, pièces d'origine ou équivalent constructeur, équipe à taille humaine." %}
+{% set heroMeta = "9 rue Michelet, 94200 Ivry-sur-Seine" %}
+{% set videoSrc = "hero.mp4" %}
 {% include "hero-video.njk" %}
 
-<section class="home-hero-offers" aria-label="Exemples de prix indicatifs">
-  <div class="container home-hero-offers__inner">
-    <ul class="home-hero-offers__row">
-      <li>Vidange <strong>dès 99&nbsp;€</strong></li>
-      <li>Diagnostic <strong>dès 49&nbsp;€</strong></li>
-      <li>Plaquettes <strong>dès 99&nbsp;€</strong></li>
+<section class="hook-offers" aria-labelledby="hook-offers-title">
+  <div class="container">
+    <h2 id="hook-offers-title" class="sr-only">Offres et prix d'appel</h2>
+    <ul class="hook-offers__grid">
+      <li class="hook-offers__card">
+        <span class="hook-offers__label">Vidange</span>
+        <span class="hook-offers__price">89&nbsp;€ – 129&nbsp;€</span>
+        <span class="hook-offers__hint">Huile et filtre selon carnet constructeur</span>
+        <a class="hook-offers__link" href="/vidange/">Voir la vidange</a>
+      </li>
+      <li class="hook-offers__card">
+        <span class="hook-offers__label">Diagnostic</span>
+        <span class="hook-offers__price">49&nbsp;€</span>
+        <span class="hook-offers__hint">Valise multimarques, explication claire</span>
+        <a class="hook-offers__link" href="/diagnostic/">Le diagnostic</a>
+      </li>
+      <li class="hook-offers__card">
+        <span class="hook-offers__label">Plaquettes</span>
+        <span class="hook-offers__price">99&nbsp;€ – 179&nbsp;€</span>
+        <span class="hook-offers__hint">Pose et contrôle du freinage</span>
+        <a class="hook-offers__link" href="/freins/">Freinage</a>
+      </li>
     </ul>
   </div>
 </section>
-<style>
-  .home-hero-offers {
-    background: #141414;
-    color: #fff;
-    padding: 18px 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
-  }
-  .home-hero-offers__inner {
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  .home-hero-offers__row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 14px 32px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    font-size: clamp(0.9rem, 2.8vw, 1rem);
-    line-height: 1.4;
-    text-align: center;
-  }
-  .home-hero-offers__row strong {
-    color: #fff;
-    font-weight: 700;
-  }
-</style>
 
 <section class="trust-bar" aria-label="Points forts RED-K MOTORS">
   <div class="container trust-bar__inner">

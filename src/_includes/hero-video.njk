@@ -1,24 +1,4 @@
 <section class="hero {{ heroClass }}" {% if heroAria %}aria-labelledby="{{ heroAria }}"{% endif %}>
-  {% if heroHeroWebp or heroHeroImage %}
-  <div class="hero__img-bg" aria-hidden="true">
-    <picture>
-      {% if heroHeroWebp %}
-      <source type="image/webp" srcset="{{ heroHeroWebp }}" />
-      {% endif %}
-      <img
-        class="hero__bg-img"
-        src="{{ heroHeroImage | default(heroHeroWebp) }}"
-        alt=""
-        width="1920"
-        height="1080"
-        fetchpriority="high"
-        decoding="async"
-      />
-    </picture>
-  </div>
-  {% elif heroDisableVideo %}
-  <div class="hero__img-bg" aria-hidden="true"></div>
-  {% else %}
   <div class="hero__video-bg" aria-hidden="true" data-nosnippet>
     <video
       class="hero__video-player"
@@ -37,7 +17,6 @@
       Votre navigateur ne supporte pas la lecture de vidéos.
     </video>
   </div>
-  {% endif %}
   <div class="hero__overlay" aria-hidden="true"></div>
   <div class="container hero__content">
     <div>
@@ -46,61 +25,10 @@
       <h1 {% if heroAria %}id="{{ heroAria }}"{% endif %}>{{ heroTitle }}</h1>
       {% if heroDesc %}<p class="hero__lede">{{ heroDesc }}</p>{% endif %}
       {% if heroActions %}
-      <div class="hero__actions{% if heroActionsStack %} hero__actions--stack{% endif %}">
+      <div class="hero__actions">
         {{ heroActions | safe }}
       </div>
       {% endif %}
     </div>
   </div>
 </section>
-{% if heroHomeTuning %}
-<style>
-  .hero--home-cta {
-    min-height: min(100dvh, 820px);
-  }
-  .hero--home-cta .hero__content {
-    padding-top: clamp(48px, 12vw, 72px);
-    padding-bottom: clamp(20px, 4vw, 40px);
-  }
-  .hero--home-cta .hero h1 {
-    font-size: clamp(1.65rem, 5.5vw, 2.75rem);
-    line-height: 1.15;
-    margin-bottom: clamp(20px, 4vw, 28px);
-  }
-  .hero--home-cta .hero__lede {
-    font-size: clamp(0.95rem, 3.2vw, 1.05rem);
-    line-height: 1.5;
-    max-width: 36em;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 22px;
-  }
-  .hero--home-cta .hero__actions--stack {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 12px;
-    max-width: 320px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .hero--home-cta .hero__actions--stack .btn {
-    width: 100%;
-    text-align: center;
-    padding: 14px 24px;
-    min-height: 48px;
-    box-sizing: border-box;
-  }
-  @media (min-width: 480px) {
-    .hero--home-cta .hero__actions--stack {
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
-      max-width: none;
-    }
-    .hero--home-cta .hero__actions--stack .btn {
-      width: auto;
-      min-width: 200px;
-    }
-  }
-</style>
-{% endif %}
