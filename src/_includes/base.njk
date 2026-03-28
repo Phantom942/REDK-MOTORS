@@ -12,7 +12,7 @@
     <meta property="og:url" content="{{ site.url }}{{ page.url | default('/') | replace('/index.html','/') }}" />
     <meta property="og:site_name" content="Garage Automobile {{ site.name }}" />
     <meta property="og:locale" content="{{ site.locale }}" />
-    <meta property="og:title" content="{{ ogTitle | default(title) | default(site.name) }}" />
+    <meta property="og:title" content="{{ ogTitle | default(title) | default(site.seoTitle) | default(site.name) }}" />
     <meta property="og:description" content="{{ ogDescription | default(description) | default(site.description) }}" />
     <meta property="og:image" content="{{ ogImage | default(site.ogImage) }}" />
     <meta property="og:image:width" content="1200" />
@@ -21,19 +21,20 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="{{ twitterTitle | default(ogTitle) | default(title) | default(site.name) }}" />
+    <meta name="twitter:title" content="{{ twitterTitle | default(ogTitle) | default(title) | default(site.seoTitle) | default(site.name) }}" />
     <meta name="twitter:description" content="{{ twitterDescription | default(ogDescription) | default(description) | default(site.description) }}" />
     <meta name="twitter:image" content="{{ ogImage | default(site.ogImage) }}" />
     <meta name="twitter:image:alt" content="{{ site.name }} - Garage mécanique et carrosserie Île-de-France" />
 
-    <!-- Favicon + PWA -->
-    <link rel="icon" href="/favicon.ico" />
+    <!-- Favicon + PWA (SVG = logo RED-K MOTORS, puis fallbacks classiques) -->
+    <link rel="icon" href="{{ '/favicon.svg' | cacheBust }}" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
-    <title>{{ title | default(site.name) }}</title>
+    <title>{{ title | default(site.seoTitle) | default(site.name) }}</title>
     <link rel="canonical" href="{{ site.url }}{{ page.url | default('/') | replace('/index.html','/') }}" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -62,7 +63,7 @@
         {
           "@type": "WebSite",
           "@id": "{{ site.url }}/#website",
-          "name": "{{ site.name }}",
+          "name": "{{ site.seoTitle | default(site.name) }}",
           "url": "{{ site.url }}",
           "description": "{{ site.description | default('Garage automobile à Ivry-sur-Seine') }}",
           "publisher": { "@id": "https://redk-motors.me/#business" },
@@ -80,7 +81,7 @@
           "@type": "WebPage",
           "@id": "{{ site.url }}{{ page.url | default('/') | replace('/index.html','/') }}#webpage",
           "url": "{{ site.url }}{{ page.url | default('/') | replace('/index.html','/') }}",
-          "name": "{{ title | default(site.name) }}",
+          "name": "{{ title | default(site.seoTitle) | default(site.name) }}",
           "description": "{{ description | default(site.description) }}",
           "isPartOf": { "@id": "{{ site.url }}/#website" },
           "about": { "@id": "https://redk-motors.me/#business" },

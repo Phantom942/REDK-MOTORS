@@ -1,12 +1,18 @@
 {
-  "name": "REDK MOTORS",
-  "short_name": "REDK MOTORS",
+  "name": "RED-K MOTORS, Garage automobile à Ivry-sur-Seine",
+  "short_name": "RED-K MOTORS",
   "description": "Garage automobile à Ivry-sur-Seine. Mécanique, carrosserie, entretien et pneumatiques.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#e8e8ed",
   "theme_color": "#0b0b0f",
   "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
     {
       "src": "/favicon-32x32.png",
       "sizes": "32x32",
