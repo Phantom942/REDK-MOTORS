@@ -56,37 +56,30 @@ faqSchema:
 ---
 
 {% set heroActions %}
-<a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler le garage</a>
-<a class="btn btn--secondary" href="/contact/">Adresse &amp; horaires</a>
+<a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
+<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">Message WhatsApp</a>
 {% endset %}
 {% set heroClass = "hero--subpage" %}
 {% set heroAria = "vitry-hero-title" %}
 {% set heroTitle = "Garage automobile proche de Vitry-sur-Seine" %}
 {% set heroKicker = "Zone desservie Val-de-Marne" %}
-{% set heroDesc = "À quelques minutes de Vitry, RED-K MOTORS vous accueille pour mécanique, carrosserie, entretien et pneumatiques. Devis gratuit, expertise multimarque." %}
+{% set heroDesc = "Ivry, à côté de Vitry. Mécanique, entretien, pneus. Devis gratuit." %}
 {% set videoSrc = "hero.mp4" %}
 {% include "hero-video.njk" %}
 
 <section class="service-focus" aria-labelledby="pourquoi-vitry" data-animate="slide-right">
   <div class="container service-focus__inner">
     <div>
-      <h2 id="pourquoi-vitry">Pourquoi choisir RED-K MOTORS depuis Vitry-sur-Seine ?</h2>
-      <p>
-        Vitry-sur-Seine et Ivry-sur-Seine sont des villes limitrophes. De nombreux Vitriots nous font confiance pour l'entretien et la réparation de leur véhicule. Notre atelier du 9 rue Michelet est facilement accessible depuis le centre de Vitry, que vous arriviez par la RD5 ou les axes secondaires. Nous offrons un cadre professionnel, une expertise reconnue et une relation client transparente.
-      </p>
-      <p>
-        Notre équipe connaît les habitudes de circulation des habitants du Val-de-Marne. Nous savons combien il est important de pouvoir compter sur un garage réactif et fiable, sans avoir à traverser tout Paris pour faire réviser sa voiture. C'est pour cela que nous nous engageons sur des délais clairs et une communication directe à chaque étape.
-      </p>
+      <h2 id="pourquoi-vitry">Depuis Vitry-sur-Seine</h2>
+      <p>Villes limitrophes : accès rapide (RD5 et axes locaux). 9 rue Michelet. <strong>Lun–sam 10h–20h.</strong></p>
     </div>
   </div>
 </section>
 
 <section class="promesse" aria-labelledby="services-vitry" data-animate="slide-up">
   <div class="container">
-    <h2 id="services-vitry" class="promesse__title">Nos services pour les conducteurs de Vitry-sur-Seine</h2>
-    <p style="margin-bottom: 1.5rem;">
-      Quels que soient les besoins de votre véhicule, nous proposons une offre complète adaptée aux automobilistes du sud parisien.
-    </p>
+    <h2 id="services-vitry" class="promesse__title">Services</h2>
+    <p style="margin-bottom: 1.5rem;">Mécanique, entretien, freins, pneus, carrosserie.</p>
     <div class="promesse__grid">
       <div class="promesse__item">
         <span class="promesse__icon" aria-hidden="true">✓</span>
@@ -154,8 +147,9 @@ faqSchema:
     <p>
       Chez RED-K MOTORS, pas de mauvaise surprise. Nous vous fournissons un devis écrit, détaillé et gratuit avant toute intervention. Vous validez, on intervient. Pour toute question ou un devis, appelez le <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a> ou consultez <a href="/contact/">notre adresse à Ivry</a>.
     </p>
-    <div style="margin-top: 1.5rem;">
-      <a class="btn btn--primary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    <div style="margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center;">
+      <a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
+      <a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">Message WhatsApp</a>
     </div>
   </div>
 </section>

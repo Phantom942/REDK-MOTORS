@@ -1,6 +1,6 @@
 ---
 layout: base.njk
-description: "Garage auto à Ivry-sur-Seine : diagnostic dès 49 €, vidange dès 89 €. Devis clair avant intervention. Appelez le 06 48 74 56 68."
+description: "Garage auto à Ivry-sur-Seine : diagnostic dès 49 €, vidange dès 69 €. Devis clair avant intervention. Appelez le 06 48 74 56 68."
 pageKey: index
 hasHeroVideo: true
 sitemap:
@@ -27,7 +27,7 @@ faqSchema:
       name: "Quels sont vos tarifs indicatifs pour un diagnostic ou une vidange ?"
       acceptedAnswer:
         "@type": "Answer"
-        text: "Diagnostic à partir de 49 €, vidange entre 89 et 129 € selon véhicule et huile. Les montants varient selon le modèle et les pièces : nous validons toujours un devis écrit avant toute intervention."
+        text: "Diagnostic à partir de 49 €, vidange entre 69 et 119 € selon véhicule et huile. Les montants varient selon le modèle et les pièces : nous validons toujours un devis écrit avant toute intervention."
     - "@type": "Question"
       name: "Intervenez-vous sur toutes les marques ?"
       acceptedAnswer:
@@ -46,13 +46,12 @@ faqSchema:
 ---
 
 {% set heroActions %}
-<a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler maintenant</a>
-<a class="btn btn--secondary" href="https://wa.me/{{ site.phone | replace('+', '') }}?text=Bonjour%2C%20je%20souhaite%20un%20devis." target="_blank" rel="noopener noreferrer">Obtenir un devis</a>
+<a class="btn btn--primary" href="#rdv">Prendre rendez-vous</a>
+<a class="btn btn--secondary" href="https://wa.me/{{ site.phone | replace('+', '') }}?text=Bonjour%2C%20je%20souhaite%20un%20devis." target="_blank" rel="noopener noreferrer">Message WhatsApp</a>
 {% endset %}
 {% set heroClass = "hero--expanded hero--home-cro" %}
 {% set heroAria = "home-hero-title" %}
-{% set heroTitle = "Garage auto à Ivry-sur-Seine" %}
-{% set heroDesc = "Diagnostic dès 49€. Vidange dès 89€. Devis clair. Intervention rapide." %}
+{% set heroTitle = "RED-K MOTORS" %}
 {% set heroActionsCro = true %}
 {% set videoSrc = "hero.mp4" %}
 {% include "hero-video.njk" %}
@@ -63,7 +62,7 @@ faqSchema:
     <ul class="hook-offers__grid">
       <li class="hook-offers__card">
         <span class="hook-offers__label">Vidange</span>
-        <span class="hook-offers__price">dès 89&nbsp;€</span>
+        <span class="hook-offers__price">dès 69&nbsp;€</span>
       </li>
       <li class="hook-offers__card">
         <span class="hook-offers__label">Diagnostic</span>
@@ -105,8 +104,8 @@ faqSchema:
 
 <section id="services" class="services services--buckets" aria-labelledby="services-buckets-title" data-animate="slide-up">
   <div class="container">
-    <h2 id="services-buckets-title">Entretien, mécanique, pneus — au même endroit</h2>
-    <p class="services__lead">Un seul atelier à Ivry pour l’entretien courant, les réparations et le freinage.</p>
+    <h2 id="services-buckets-title">Entretien, mécanique, pneus</h2>
+    <p class="services__lead">Un atelier à Ivry pour l’essentiel.</p>
     <div class="grid grid--three services-buckets">
       <article class="card card--bucket">
         <h3>Entretien courant</h3>
@@ -116,9 +115,6 @@ faqSchema:
           <li><a href="/vidange/">Vidange</a></li>
           <li><a href="/diagnostic/">Diagnostic</a></li>
         </ul>
-        <div class="card__cta-row">
-          <a class="btn btn--primary btn--sm" href="tel:{{ site.phone }}">Appeler maintenant</a>
-        </div>
       </article>
       <article class="card card--bucket">
         <h3>Réparations &amp; diagnostic</h3>
@@ -128,10 +124,6 @@ faqSchema:
           <li><a href="/diagnostic/">Diagnostic électronique</a></li>
           <li><a href="/carrosserie/">Carrosserie</a></li>
         </ul>
-        <div class="card__cta-row">
-          <a class="btn btn--primary btn--sm" href="tel:{{ site.phone }}">Appeler maintenant</a>
-          <a class="btn btn--secondary btn--sm btn--dark" href="https://wa.me/{{ site.phone | replace('+', '') }}?text=Bonjour%2C%20je%20souhaite%20un%20devis." target="_blank" rel="noopener noreferrer">Obtenir un devis</a>
-        </div>
       </article>
       <article class="card card--bucket">
         <h3>Pneus &amp; freinage</h3>
@@ -140,9 +132,6 @@ faqSchema:
           <li><a href="/pneumatiques/">Pneumatiques</a></li>
           <li><a href="/freins/">Freins</a></li>
         </ul>
-        <div class="card__cta-row">
-          <a class="btn btn--primary btn--sm" href="tel:{{ site.phone }}">Appeler maintenant</a>
-        </div>
       </article>
     </div>
   </div>
@@ -151,7 +140,7 @@ faqSchema:
 <section class="pricing-section pricing-section--readable" id="tarifs" aria-labelledby="tarifs-title" data-animate="slide-up">
   <div class="container">
     <h2 id="tarifs-title">Tarifs indicatifs</h2>
-    <p class="pricing-section__intro">À {{ site.city }} (94). <strong>Prix selon véhicule — appelez pour une fourchette ou un créneau.</strong></p>
+    <p class="pricing-section__intro">Indicatifs à {{ site.city }} (94). <strong>Fourchette et RDV au téléphone.</strong></p>
     <div class="pricing-table-wrap">
       <table class="pricing-table">
         <caption class="sr-only">Grille de prix indicative RED-K MOTORS</caption>
@@ -164,7 +153,7 @@ faqSchema:
         <tbody>
           <tr><th scope="row">Diagnostic</th><td>49&nbsp;€</td></tr>
           <tr><th scope="row">Diagnostic avancé</th><td>79&nbsp;€ – 99&nbsp;€</td></tr>
-          <tr><th scope="row">Vidange</th><td>89&nbsp;€ – 129&nbsp;€</td></tr>
+          <tr><th scope="row">Vidange</th><td>69&nbsp;€ – 119&nbsp;€</td></tr>
           <tr><th scope="row">Révision</th><td>149&nbsp;€ – 369&nbsp;€</td></tr>
           <tr><th scope="row">Climatisation (contrôle / recharge)</th><td>79&nbsp;€ – 199&nbsp;€</td></tr>
           <tr><th scope="row">Plaquettes</th><td>99&nbsp;€ – 179&nbsp;€</td></tr>
@@ -179,8 +168,6 @@ faqSchema:
     </div>
     <p class="pricing-section__disclaimer">Montants TTC indicatifs. Prix final après inspection au garage.</p>
     <div class="pricing-section__actions">
-      <a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler maintenant</a>
-      <a class="btn btn--secondary btn--dark" href="https://wa.me/{{ site.phone | replace('+', '') }}?text=Bonjour%2C%20je%20souhaite%20un%20devis." target="_blank" rel="noopener noreferrer">Obtenir un devis</a>
       <a class="btn btn--secondary btn--dark" href="/contact/">Adresse &amp; plan</a>
     </div>
   </div>
@@ -188,8 +175,8 @@ faqSchema:
 
 <section id="rdv" class="appointment appointment--final" aria-labelledby="appointment-title" data-animate="slide-up">
   <div class="container appointment__centered">
-    <h2 id="appointment-title">Rendez-vous et informations tarifaires</h2>
-    <p>Par téléphone, notre équipe vous oriente sur une fourchette de prix indicative et vous propose les créneaux disponibles à l'atelier. Pour un devis chiffré et détaillé, merci d'adresser votre demande par courriel ou par message WhatsApp.</p>
+    <h2 id="appointment-title">Rendez-vous et tarifs</h2>
+    <p>Téléphone : fourchette et créneaux. Devis écrit : courriel ou WhatsApp.</p>
     <dl class="appointment__info">
       <div>
         <dt>Téléphone</dt>
@@ -204,11 +191,7 @@ faqSchema:
         <dd><a href="{{ site.wazeUrl }}" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">{{ site.addressFull }}</a></dd>
       </div>
     </dl>
-    <div class="appointment__actions">
-      <a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler maintenant</a>
-      <a class="btn btn--secondary" href="https://wa.me/{{ site.phone | replace('+', '') }}?text=Bonjour%2C%20je%20souhaite%20un%20devis." target="_blank" rel="noopener noreferrer">Obtenir un devis</a>
-      <a class="btn btn--secondary" href="/contact/">Coordonnées</a>
-    </div>
+    <p class="appointment__hint"><a href="https://wa.me/{{ site.phone | replace('+', '') }}?text=Bonjour%2C%20je%20souhaite%20un%20devis." target="_blank" rel="noopener noreferrer">WhatsApp</a> pour un message écrit · <a href="/contact/">Toutes les coordonnées</a></p>
   </div>
 </section>
 
@@ -217,7 +200,6 @@ faqSchema:
     <h2 class="services-links__heading">Autres services</h2>
     <div class="services-links__grid services-links__grid--compact">
       <a class="services-links__card" href="/achat-revente/"><strong>Achat &amp; reprise</strong><span>Vendre ou acheter un véhicule</span></a>
-      <a class="services-links__card" href="/location/"><strong>Véhicule de courtoisie</strong><span>Location pendant les réparations</span></a>
       <a class="services-links__card" href="/blog/"><strong>Blog auto</strong><span>Conseils entretien &amp; CT</span></a>
     </div>
   </div>
@@ -229,7 +211,7 @@ faqSchema:
 
 <section class="faq-section" aria-labelledby="faq-title" data-animate="slide-up">
   <div class="container">
-    <h2 id="faq-title">Questions fréquentes</h2>
+    <h2 id="faq-title">FAQ</h2>
     <div data-accordion>
       <article class="faq__item">
         <button class="faq__question" aria-expanded="false" aria-controls="faq-1">

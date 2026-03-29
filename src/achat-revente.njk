@@ -20,8 +20,8 @@ breadcrumb:
 ---
 
 {% set heroActions %}
-<a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler maintenant</a>
-<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+<a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
+<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">Message WhatsApp</a>
 {% endset %}
 
 <section class="hero hero--subpage" aria-labelledby="achat-hero-title">
@@ -53,8 +53,8 @@ breadcrumb:
       <li>Même adresse que l'atelier : {{ site.addressFull }}</li>
     </ul>
     <div class="upcoming-pro__actions">
-      <a class="btn btn--primary" href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a>
-      <a class="btn btn--secondary btn--dark" href="/contact/">Adresse du garage</a>
+      <a class="btn btn--primary" href="/contact/">Coordonnées &amp; plan</a>
+      <a class="btn btn--secondary btn--dark" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">Message WhatsApp</a>
     </div>
   </div>
 </section>

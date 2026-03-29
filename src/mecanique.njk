@@ -53,57 +53,55 @@ faqSchema:
 ---
 
 {% set heroActions %}
-<a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler maintenant</a>
-<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+<a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
+<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">Message WhatsApp</a>
 {% endset %}
 {% set heroClass = "hero--subpage" %}
 {% set heroAria = "mecanique-hero-title" %}
-{% set heroTitle = "Réparation auto à Ivry : on diagnostique, on chiffre, on répare" %}
-{% set heroKicker = "Garage Ivry-sur-Seine (94) · Mécanique toutes marques" %}
-{% set heroDesc = "Voyant moteur, distribution, embrayage, suspension : valise diagnostic, devis écrit avant travaux, pièces adaptées à votre véhicule." %}
+{% set heroTitle = "Mécanique auto à Ivry" %}
+{% set heroKicker = "Toutes marques · Devis avant travaux" %}
+{% set heroDesc = "Diagnostic, distribution, embrayage, suspension. Devis écrit, pièces adaptées." %}
 {% set videoSrc = "mecanique.mp4" %}
 {% include "hero-video.njk" %}
 
 <section id="mecanique" class="service-focus" aria-labelledby="mecanique-title" data-animate="slide-right">
   <div class="container service-focus__inner">
     <div>
-      <h2 id="mecanique-title">Mécanique auto à Ivry : diagnostic clair, facture comprise</h2>
-      <p>
-        On commence par identifier la panne (électronique + essais routiers si besoin), puis on vous envoie un devis détaillé. Vous validez, on intervient — pas de pièces changées « au feeling ».
-      </p>
+      <h2 id="mecanique-title">Diagnostic, puis devis validé</h2>
+      <p>On identifie la panne, on vous envoie un devis ; vous validez avant toute intervention.</p>
       <ul>
         <li>Diagnostic voyant moteur et recherche de panne</li>
         <li>Distribution, embrayage, turbo, suspension</li>
         <li>Thermique, hybride et électrique (hors haute tension spécialisée)</li>
       </ul>
-      <p class="service-focus__cta"><a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler</a> <a class="btn btn--secondary btn--dark" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a></p>
+      <p class="service-focus__cta"><a class="link" href="/contact/">Coordonnées &amp; RDV</a> · <a class="link" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a></p>
     </div>
   </div>
 </section>
 
 <section class="promesse" aria-labelledby="pourquoi-mecanique" data-animate="slide-up">
   <div class="container">
-    <h2 id="pourquoi-mecanique" class="promesse__title">Ce qui fait la différence chez RED-K</h2>
+    <h2 id="pourquoi-mecanique" class="promesse__title">Notre façon de travailler</h2>
     <div class="promesse__grid">
       <div class="promesse__item">
         <span class="promesse__icon" aria-hidden="true">✓</span>
         <div>
-          <h3>Expertise multimarque</h3>
-          <p>Techniciens formés toutes marques, du véhicule thermique à l'électrique. Diagnostic et réparation moteur de qualité.</p>
+          <h3>Multimarque</h3>
+          <p>Thermique, hybride, électrique (hors haute tension spécialisée).</p>
         </div>
       </div>
       <div class="promesse__item">
         <span class="promesse__icon" aria-hidden="true">✓</span>
         <div>
-          <h3>Devis transparent</h3>
-          <p>Devis gratuit, détaillé et sans surprise. Vous validez avant toute intervention.</p>
+          <h3>Devis</h3>
+          <p>Gratuit, détaillé ; rien sans votre accord.</p>
         </div>
       </div>
       <div class="promesse__item">
         <span class="promesse__icon" aria-hidden="true">✓</span>
         <div>
-          <h3>Pièces certifiées</h3>
-          <p>Pièces d'origine ou équivalent qualité constructeur. Garantie constructeur préservée.</p>
+          <h3>Pièces</h3>
+          <p>Origine ou équivalent qualité constructeur.</p>
         </div>
       </div>
     </div>
@@ -115,12 +113,9 @@ faqSchema:
     <div class="section-header atelier-suite__header">
       <div>
         <p class="section-kicker">Compétences</p>
-        <h2 id="meca-tabs-title">Tout ce qu'on sait faire sous le capot</h2>
+        <h2 id="meca-tabs-title">Domaines d'intervention</h2>
       </div>
-      <p>
-        Thermique, hybride ou électrique : nos techniciens prennent en charge l'entretien courant comme les interventions
-        plus pointues.
-      </p>
+      <p>Entretien courant et réparations lourdes.</p>
     </div>
 
     <div class="tabs" role="tablist" aria-label="Domaines d'expertise mécanique" data-tabs="meca-tabs">
@@ -289,34 +284,32 @@ faqSchema:
   <div class="container workflow__inner">
     <div class="workflow__intro">
       <p class="section-kicker">Process atelier</p>
-      <h2 id="meca-workflow">Chaque étape documentée, zéro mauvaise surprise</h2>
-      <p>
-        Chaque intervention suit un protocole strict garantissant traçabilité, qualité et restitution dans les délais.
-      </p>
+      <h2 id="meca-workflow">Déroulement</h2>
+      <p>Diagnostic → devis validé → réparation → restitution.</p>
     </div>
     <ol class="workflow__steps">
       <li>
         <span class="workflow__step-number">01</span>
         <h3>Diagnostic</h3>
-        <p>Branchement de la valise, lecture des codes défaut, inspection visuelle complète.</p>
+        <p>Valise, codes défaut, contrôle visuel.</p>
         <span class="workflow__chip">~45 min</span>
       </li>
       <li>
         <span class="workflow__step-number">02</span>
         <h3>Devis</h3>
-        <p>On vous explique ce qu'on a trouvé, on chiffre les pièces et la main-d'œuvre, vous validez.</p>
+        <p>Explication, chiffrage, votre accord.</p>
         <span class="workflow__chip">Validation client</span>
       </li>
       <li>
         <span class="workflow__step-number">03</span>
         <h3>Réparation</h3>
-        <p>Nos mécaniciens interviennent avec des pièces d'origine. Chaque travail est vérifié avant restitution.</p>
+        <p>Intervention pièces d'origine, contrôle avant restitution.</p>
         <span class="workflow__chip">Pièces d'origine</span>
       </li>
       <li>
         <span class="workflow__step-number">04</span>
         <h3>Restitution</h3>
-        <p>Essai routier si nécessaire, nettoyage et restitution avec explication des travaux réalisés.</p>
+        <p>Essai si besoin, compte rendu des travaux.</p>
         <span class="workflow__chip">Travaux expliqués</span>
       </li>
     </ol>
@@ -327,8 +320,7 @@ faqSchema:
   <div class="container faq__inner">
     <div>
       <p class="section-kicker">FAQ mécanique</p>
-      <h2 id="meca-faq">Ce que nos clients nous demandent souvent</h2>
-      <p>Notre chef d'atelier vous répond et vous accompagne avant, pendant et après l'intervention.</p>
+      <h2 id="meca-faq">Questions fréquentes</h2>
     </div>
     <div class="faq__list" data-accordion>
       <article class="faq__item">
@@ -365,94 +357,29 @@ faqSchema:
   </div>
 </section>
 
-<section class="why-us" aria-labelledby="why-title" data-animate="zoom-in">
-  <div class="container">
-    <h2 id="why-title">Un garage de passionnés, pas une chaîne</h2>
-    <div class="grid grid--four">
-      <div class="pill">
-        <h3>Expertise</h3>
-        <p>Techniciens certifiés et formation continue sur les dernières motorisations.</p>
-      </div>
-      <div class="pill">
-        <h3>Équipement</h3>
-        <p>Bancs de diagnostic et outils constructeur dernière génération.</p>
-      </div>
-      <div class="pill">
-        <h3>Transparence</h3>
-        <p>Compte-rendu détaillé, devis approuvé avant toute intervention.</p>
-      </div>
-      <div class="pill">
-        <h3>Garantie</h3>
-        <p>Pièces d'origine et garantie constructeur préservée.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="appointment" aria-labelledby="appointment-title" data-animate="slide-left">
-  <div class="container appointment__inner">
-    <div>
-      <h2 id="appointment-title">Besoin d'un diagnostic ?</h2>
-      <p>Réservez un créneau en atelier, notre équipe vous recontacte sous 24 heures.</p>
-      <dl>
-        <div>
-          <dt>Téléphone</dt>
-          <dd><a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a></dd>
-        </div>
-        <div>
-          <dt>Email</dt>
-          <dd><a href="mailto:{{ site.email }}">{{ site.email }}</a></dd>
-        </div>
-        <div>
-          <dt>Adresse</dt>
-          <dd><a href="https://www.google.com/maps?q=9+rue+Michelet+94200+Ivry-sur-Seine" target="_blank" rel="noopener noreferrer">{{ site.addressFull }}</a></dd>
-        </div>
-      </dl>
-    </div>
-    <div class="form__alternatives" style="margin-top: 1.5rem;">
-      <p>Contactez-nous pour réserver un créneau :</p>
-      <div class="form__alt-btns" style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-        <a href="tel:{{ site.phone }}" class="btn btn--primary" data-track="click_call">Appeler {{ site.phoneDisplay }}</a>
-        <a href="mailto:{{ site.email }}" class="btn btn--secondary">Envoyer un email</a>
-        <a href="https://wa.me/33648745668?text=Bonjour%2C%20je%20souhaite%20prendre%20rendez-vous%20pour%20un%20diagnostic%20ou%20une%20r%C3%A9paration." class="btn btn--secondary" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+  <div class="container appointment__centered">
+    <h2 id="appointment-title">RED-K MOTORS</h2>
+    <dl>
+      <div>
+        <dt>Téléphone</dt>
+        <dd><a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a></dd>
       </div>
-    </div>
-  </div>
-</section>
-
-<section class="related-articles" aria-labelledby="articles-mecanique" data-animate="slide-up">
-  <div class="container">
-    <h2 id="articles-mecanique">Articles utiles sur la mécanique</h2>
-    <div class="grid grid--three">
-      <a class="card card--link" href="/blog/voyant-moteur-allume-que-faire/">
-        <h3>Voyant moteur allumé : que faire ?</h3>
-        <p>Découvrez ce que signifient les différents voyants et quand consulter un garage.</p>
-      </a>
-      <a class="card card--link" href="/blog/batterie-voiture-quand-changer/">
-        <h3>Batterie : quand la changer ?</h3>
-        <p>Signes d'usure, tests et bonnes pratiques pour éviter la panne au mauvais moment.</p>
-      </a>
-      <a class="card card--link" href="/blog/garage-independant-vs-concessionnaire/">
-        <h3>Garage indépendant ou concessionnaire ?</h3>
-        <p>Prix, garantie et qualité de service : les critères pour bien choisir.</p>
-      </a>
-    </div>
-  </div>
-</section>
-
-{% include "cta-contact.njk" %}
-
-<section class="promesse" aria-labelledby="zones-mecanique" data-animate="slide-up">
-  <div class="container">
-    <p id="zones-mecanique" class="promesse__title" style="font-size: 1.1rem; font-weight: 600;">
-      Vous venez de <a href="/vitry-sur-seine/">Vitry-sur-Seine</a>, <a href="/villejuif/">Villejuif</a>, <a href="/charenton-le-pont/">Charenton-le-Pont</a> ou <a href="/paris-13/">Paris 13</a> ? Notre garage à Ivry vous accueille à quelques minutes. Devis gratuit et prise de rendez-vous rapide.
-    </p>
+      <div>
+        <dt>Email</dt>
+        <dd><a href="mailto:{{ site.email }}">{{ site.email }}</a></dd>
+      </div>
+      <div>
+        <dt>Adresse</dt>
+        <dd><a href="https://www.google.com/maps?q=9+rue+Michelet+94200+Ivry-sur-Seine" target="_blank" rel="noopener noreferrer">{{ site.addressFull }}</a></dd>
+      </div>
+    </dl>
   </div>
 </section>
 
 <section class="guarantees-block" aria-labelledby="garanties-mecanique">
   <div class="container">
-    <h2 id="garanties-mecanique" class="guarantees-block__title">Notre engagement, noir sur blanc</h2>
+    <h2 id="garanties-mecanique" class="guarantees-block__title">Engagements</h2>
     <ul class="guarantees-block__list">
       <li>Pièces d'origine</li>
       <li>Garantie constructeur préservée</li>

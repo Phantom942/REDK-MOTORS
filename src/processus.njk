@@ -19,13 +19,14 @@ breadcrumb:
 ---
 
 {% set heroActions %}
-<a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler le garage</a>
+<a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
+<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">Message WhatsApp</a>
 {% endset %}
 {% set heroClass = "hero--subpage" %}
 {% set heroAria = "process-hero-title" %}
-{% set heroTitle = "Votre passage au garage, étape par étape" %}
-{% set heroKicker = "Votre parcours client maîtrisé" %}
-{% set heroDesc = "De la prise de contact à la restitution, découvrez comment nous structurons chaque étape pour garantir qualité, transparence et sérénité." %}
+{% set heroTitle = "Déroulement chez RED-K" %}
+{% set heroKicker = "Étapes simples" %}
+{% set heroDesc = "Contact → diagnostic → devis validé → réparation → restitution." %}
 {% set videoSrc = "hero.mp4" %}
 {% include "hero-video.njk" %}
 
@@ -44,34 +45,34 @@ breadcrumb:
 
 <section class="process-timeline" aria-labelledby="timeline-title" data-animate="slide-up">
   <div class="container">
-    <h2 id="timeline-title">Comment ça se passe concrètement</h2>
-    <p class="process-timeline__summary" style="text-align:center; margin-bottom:2rem; font-weight:600; color: var(--color-black);">Prise de RDV → Diagnostic → Réparation → Restitution</p>
+    <h2 id="timeline-title">Les étapes</h2>
+    <p class="process-timeline__summary" style="text-align:center; margin-bottom:2rem; font-weight:600; color: var(--color-black);">RDV → diagnostic → devis → travaux → reprise du véhicule</p>
     <div class="process-timeline__wrapper">
       <ol class="process-timeline__track">
         <li>
           <span class="process-step__badge">01</span>
           <h3>Prise de contact</h3>
-          <p>Vous nous appelez, envoyez un message WhatsApp ou passez directement. On écoute votre problème et on programme un rendez-vous.</p>
+          <p>Appel, WhatsApp ou passage. On fixe un RDV.</p>
         </li>
         <li>
           <span class="process-step__badge">02</span>
           <h3>Diagnostic</h3>
-          <p>On examine votre véhicule, on identifie le problème et on vous appelle pour vous expliquer ce qu'on a trouvé.</p>
+          <p>Examen du véhicule, explication par téléphone.</p>
         </li>
         <li>
           <span class="process-step__badge">03</span>
           <h3>Devis et validation</h3>
-          <p>On vous envoie un devis détaillé avec le prix des pièces et de la main-d'œuvre. Rien ne démarre sans votre accord.</p>
+          <p>Devis détaillé. Rien sans votre accord.</p>
         </li>
         <li>
           <span class="process-step__badge">04</span>
           <h3>Réparation</h3>
-          <p>Nos mécaniciens interviennent avec des pièces d'origine. On vous tient au courant de l'avancement.</p>
+          <p>Pièces d'origine ; point d'étape si besoin.</p>
         </li>
         <li>
           <span class="process-step__badge">05</span>
           <h3>Restitution</h3>
-          <p>On vous explique ce qu'on a fait, on nettoie votre véhicule et vous repartez tranquille.</p>
+          <p>Compte rendu des travaux, véhicule prêt.</p>
         </li>
       </ol>
     </div>
@@ -82,10 +83,8 @@ breadcrumb:
   <div class="container process-modules__grid">
     <div class="process-modules__intro">
       <p class="section-kicker">Notre façon de travailler</p>
-      <h2 id="modules-title">Suivez l'avancement de votre véhicule en temps réel</h2>
-      <p>
-        On mise sur la communication directe et la transparence pour que vous sachiez toujours où en est votre véhicule.
-      </p>
+      <h2 id="modules-title">Communication</h2>
+      <p>Appels et messages aux étapes importantes.</p>
     </div>
     <div class="process-modules__cards">
       <article class="process-card">
@@ -93,7 +92,7 @@ breadcrumb:
           <span class="process-card__icon" aria-hidden="true">🔧</span>
           <h3>Atelier organisé</h3>
         </header>
-        <p>Chaque véhicule a son planning, ses pièces commandées et son mécanicien attitré.</p>
+        <p>Planning et pièces anticipés.</p>
         <ul class="checklist">
           <li>Un interlocuteur dédié</li>
           <li>Pièces commandées à l'avance</li>
@@ -105,7 +104,7 @@ breadcrumb:
           <span class="process-card__icon" aria-hidden="true">📱</span>
           <h3>Vous êtes toujours informé</h3>
         </header>
-        <p>On vous appelle, on vous envoie des photos par WhatsApp, et rien ne se fait sans votre validation.</p>
+        <p>Appels, WhatsApp si utile — rien sans validation.</p>
         <ul class="checklist">
           <li>Appel à chaque étape clé</li>
           <li>Photos des travaux par WhatsApp</li>
@@ -117,7 +116,7 @@ breadcrumb:
           <span class="process-card__icon" aria-hidden="true">📋</span>
           <h3>Tout est tracé</h3>
         </header>
-        <p>Chaque intervention est consignée : pièces utilisées, travaux réalisés, prochaines échéances.</p>
+        <p>Facture détaillée, historique conservé.</p>
         <ul class="checklist">
           <li>Facture détaillée</li>
           <li>Pièces d'origine référencées</li>
@@ -132,10 +131,7 @@ breadcrumb:
   <div class="container process-matrix__inner">
     <div class="process-matrix__content">
       <p class="section-kicker">Notre méthode</p>
-      <h2 id="matrix-title">Ce que vous pouvez attendre de nous</h2>
-      <p>
-        À chaque intervention, le même niveau de soin et de transparence. Voici notre engagement concret.
-      </p>
+      <h2 id="matrix-title">Engagements</h2>
     </div>
     <div class="process-matrix__table" role="table" aria-label="Engagements RED-K MOTORS">
       <div class="process-matrix__row process-matrix__row--head" role="row">
@@ -166,11 +162,8 @@ breadcrumb:
   <div class="container process-cta__inner">
     <div>
       <p class="section-kicker">Prêt à démarrer ?</p>
-      <h2 id="process-cta-title">Prenez rendez-vous, on s'occupe du reste</h2>
-      <p>
-        Notre équipe vous recontacte sous 24 h pour valider l'analyse, confirmer le créneau atelier et réserver un
-        confirmer le créneau atelier.
-      </p>
+      <h2 id="process-cta-title">Prendre rendez-vous</h2>
+      <p>Appelez ou passez par la page contact.</p>
     </div>
     <div class="process-cta__actions">
       <a class="btn btn--primary" href="/contact/">Adresse &amp; horaires</a>

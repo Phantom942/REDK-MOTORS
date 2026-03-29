@@ -53,8 +53,8 @@ faqSchema:
 ---
 
 {% set heroActions %}
-<a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler maintenant</a>
-<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+<a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
+<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">Message WhatsApp</a>
 {% endset %}
 {% set heroClass = "hero--subpage" %}
 {% set heroAria = "carrosserie-hero-title" %}
@@ -76,14 +76,14 @@ faqSchema:
         <li>Peinture et retouches localisées</li>
         <li>Polissage, detailing et protection carrosserie</li>
       </ul>
-      <p class="service-focus__cta"><a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler</a> <a class="btn btn--secondary btn--dark" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a></p>
+      <p class="service-focus__cta"><a class="link" href="/contact/">Coordonnées &amp; RDV</a> · <a class="link" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a></p>
     </div>
   </div>
 </section>
 
 <section class="promesse" aria-labelledby="pourquoi-carrosserie" data-animate="slide-up">
   <div class="container">
-    <h2 id="pourquoi-carrosserie" class="promesse__title">Pourquoi nos clients reviennent après un sinistre</h2>
+    <h2 id="pourquoi-carrosserie" class="promesse__title">Carrosserie</h2>
     <div class="promesse__grid">
       <div class="promesse__item">
         <span class="promesse__icon" aria-hidden="true">✓</span>
@@ -377,16 +377,6 @@ faqSchema:
         <p>Préparez votre contrôle technique sereinement grâce à notre checklist.</p>
       </a>
     </div>
-  </div>
-</section>
-
-{% include "cta-contact.njk" %}
-
-<section class="promesse" aria-labelledby="zones-carrosserie" data-animate="slide-up">
-  <div class="container">
-    <p id="zones-carrosserie" class="promesse__title" style="font-size: 1.1rem; font-weight: 600;">
-      Vous venez de <a href="/vitry-sur-seine/">Vitry-sur-Seine</a>, <a href="/villejuif/">Villejuif</a>, <a href="/charenton-le-pont/">Charenton-le-Pont</a> ou <a href="/paris-13/">Paris 13</a> ? Notre garage à Ivry vous accueille à quelques minutes. Devis gratuit et prise de rendez-vous rapide.
-    </p>
   </div>
 </section>
 

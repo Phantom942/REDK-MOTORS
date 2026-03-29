@@ -56,37 +56,30 @@ faqSchema:
 ---
 
 {% set heroActions %}
-<a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler le garage</a>
-<a class="btn btn--secondary" href="/contact/">Adresse &amp; horaires</a>
+<a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
+<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">Message WhatsApp</a>
 {% endset %}
 {% set heroClass = "hero--subpage" %}
 {% set heroAria = "maisonsAlfort-hero-title" %}
 {% set heroTitle = "Garage proche Maisons-Alfort" %}
 {% set heroKicker = "Zone desservie Val-de-Marne" %}
-{% set heroDesc = "RED-K MOTORS à Ivry-sur-Seine, facilement accessible depuis Maisons-Alfort. Mécanique, carrosserie, entretien et pneumatiques. Devis gratuit et expertise multimarque." %}
+{% set heroDesc = "Ivry, accès rapide depuis Maisons-Alfort. Mécanique, entretien, pneus. Devis gratuit." %}
 {% set videoSrc = "hero.mp4" %}
 {% include "hero-video.njk" %}
 
 <section class="service-focus" aria-labelledby="pourquoi-maisonsAlfort" data-animate="slide-right">
   <div class="container service-focus__inner">
     <div>
-      <h2 id="pourquoi-maisonsAlfort">Pourquoi choisir RED-K MOTORS depuis Maisons-Alfort ?</h2>
-      <p>
-        Maisons-Alfort et Ivry-sur-Seine sont séparées par quelques kilomètres à peine. Plutôt que de traverser Paris ou de confier votre voiture à une grande enseigne impersonnelle, vous pouvez compter sur RED-K MOTORS : un garage indépendant, à taille humaine, où chaque véhicule est traité avec soin. Notre atelier du 9 rue Michelet vous accueille dans un cadre professionnel avec des tarifs transparents.
-      </p>
-      <p>
-        Nous recevons régulièrement des clients de Maisons-Alfort pour des vidanges, des remplacements de freins, des diagnostics électroniques ou des réparations de carrosserie. La D19 et l'A4 rendent le trajet simple et rapide, environ 15 minutes en voiture. L'atelier est ouvert du lundi au samedi de 10h à 20h, ce qui permet de déposer votre véhicule avant ou après le travail sans contrainte.
-      </p>
+      <h2 id="pourquoi-maisonsAlfort">Depuis Maisons-Alfort</h2>
+      <p>Quelques km : D19 / A4, ~15 min en voiture. 9 rue Michelet, Ivry. <strong>Lun–sam 10h–20h.</strong></p>
     </div>
   </div>
 </section>
 
 <section class="promesse" aria-labelledby="services-maisonsAlfort" data-animate="slide-up">
   <div class="container">
-    <h2 id="services-maisonsAlfort" class="promesse__title">Nos services pour les conducteurs de Maisons-Alfort</h2>
-    <p style="margin-bottom: 1.5rem;">
-      Mécanique, carrosserie, entretien, freins, vidange, diagnostic, pneumatiques et achat-revente : une offre complète pour répondre à tous les besoins des automobilistes de Maisons-Alfort.
-    </p>
+    <h2 id="services-maisonsAlfort" class="promesse__title">Services</h2>
+    <p style="margin-bottom: 1.5rem;">Mécanique, entretien, freins, pneus, carrosserie.</p>
     <div class="promesse__grid">
       <div class="promesse__item">
         <span class="promesse__icon" aria-hidden="true">✓</span>
@@ -168,8 +161,9 @@ faqSchema:
     <p>
       Devis écrit, détaillé et gratuit avant toute intervention. Vous validez, nous intervenons. Pour toute demande, appelez le <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a> ou consultez <a href="/contact/">adresse et horaires</a>.
     </p>
-    <div style="margin-top: 1.5rem;">
-      <a class="btn btn--primary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    <div style="margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center;">
+      <a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
+      <a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">Message WhatsApp</a>
     </div>
   </div>
 </section>

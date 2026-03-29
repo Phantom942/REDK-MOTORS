@@ -62,43 +62,31 @@ faqSchema:
 ---
 
 {% set heroActions %}
-<a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler le garage</a>
-<a class="btn btn--secondary" href="/contact/">Adresse &amp; horaires</a>
+<a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
+<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">Message WhatsApp</a>
 {% endset %}
 {% set heroClass = "hero--subpage" %}
 {% set heroAria = "garage-ivry-hero-title" %}
-{% set heroTitle = "Votre garage de quartier à Ivry-sur-Seine" %}
-{% set heroKicker = "Garage automobile 94 · Ouvert du lundi au samedi" %}
-{% set heroDesc = "RED-K MOTORS, garage automobile multimarque au cœur d'Ivry-sur-Seine. Mécanique, carrosserie, entretien, pneumatiques, diagnostic et achat-revente. Devis gratuit, pièces d'origine, équipe dédiée. Ouvert du lundi au samedi de 10h à 20h au 9 rue Michelet." %}
+{% set heroTitle = "Garage à Ivry-sur-Seine" %}
+{% set heroKicker = "9 rue Michelet · Lun–sam 10h–20h" %}
+{% set heroDesc = "Multimarque : mécanique, entretien, carrosserie, pneus. Devis gratuit." %}
 {% set videoSrc = "hero.mp4" %}
 {% include "hero-video.njk" %}
 
 <section class="service-focus" aria-labelledby="pourquoi-ivry" data-animate="slide-right">
   <div class="container service-focus__inner">
     <div>
-      <h2 id="pourquoi-ivry">Pourquoi choisir RED-K MOTORS à Ivry-sur-Seine ?</h2>
-      <p>
-        Vous cherchez un <strong>garage à Ivry-sur-Seine</strong> qui allie compétence, transparence et proximité ? RED-K MOTORS est implanté au <strong>9 rue Michelet, 94200 Ivry-sur-Seine</strong>, au cœur du quartier. Notre atelier accueille chaque jour des automobilistes ivryens qui veulent confier leur véhicule à un professionnel de confiance, sans surprise sur la facture et sans délai excessif. Ici, pas de chaîne industrielle ni d'intermédiaire : vous échangez directement avec les techniciens qui interviennent sur votre voiture.
-      </p>
-      <p>
-        Installés à deux pas de la <strong>mairie d'Ivry</strong> et facilement accessibles depuis le métro ligne 7 (station Mairie d'Ivry), nous avons fait le choix d'un garage de quartier à taille humaine. Chaque client est accueilli individuellement, chaque véhicule fait l'objet d'un diagnostic rigoureux avant toute intervention. Nous travaillons sur <strong>toutes les marques</strong> — Renault, Peugeot, Citroën, Volkswagen, BMW, Mercedes, Audi, Toyota, Hyundai et bien d'autres — qu'il s'agisse de véhicules thermiques, hybrides ou électriques. Notre équipement est régulièrement mis à jour pour répondre aux exigences des constructeurs et garantir un travail précis.
-      </p>
-      <p>
-        Ce qui distingue notre <strong>garage automobile à Ivry-sur-Seine</strong>, c'est aussi nos horaires. Ouvert <strong>du lundi au samedi de 10h à 20h</strong>, nous nous adaptons à votre rythme de vie. Vous travaillez la journée ? Déposez votre véhicule le matin et récupérez-le en fin de journée, ou passez en fin d'après-midi pour un contrôle rapide. La prise de rendez-vous se fait surtout <strong>par téléphone</strong> au <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a> ; vous pouvez aussi écrire à <a href="mailto:{{ site.email }}">{{ site.email }}</a> ou consulter <a href="/contact/">notre adresse et le plan d'accès</a>.
-      </p>
-      <p>
-        Notre philosophie est claire : offrir aux habitants d'Ivry-sur-Seine un service de réparation et d'entretien automobile qui rivalise avec les réseaux de concessionnaires, mais avec la souplesse et la relation humaine d'un <strong>mécanicien de quartier</strong>. Devis gratuit, pièces d'origine, explications détaillées à chaque étape, garantie sur les interventions — nous construisons une relation durable avec chacun de nos clients. Des centaines d'automobilistes ivryens nous font déjà confiance. Rejoignez-les.
-      </p>
+      <h2 id="pourquoi-ivry">RED-K MOTORS à Ivry</h2>
+      <p>Atelier au <strong>9 rue Michelet</strong>, près de la mairie (métro ligne 7). <strong>Toutes marques</strong>, thermique / hybride / électrique. Vous parlez aux techniciens qui travaillent sur l'auto — pas de chaîne.</p>
+      <p><strong>Lun–sam 10h–20h.</strong> RDV par <a href="tel:{{ site.phone }}">téléphone</a> en priorité, ou <a href="mailto:{{ site.email }}">email</a> / <a href="/contact/">plan</a>. Devis gratuit, pièces d'origine.</p>
     </div>
   </div>
 </section>
 
 <section class="promesse" aria-labelledby="services-ivry" data-animate="slide-up">
   <div class="container">
-    <h2 id="services-ivry" class="promesse__title">Tous nos services pour les automobilistes d'Ivry-sur-Seine</h2>
-    <p style="margin-bottom: 1.5rem;">
-      Notre garage à Ivry-sur-Seine couvre l'ensemble des besoins automobiles, de la révision courante à la réparation complexe. Chaque prestation est réalisée dans les règles de l'art, avec des pièces de qualité et un devis préalable systématique.
-    </p>
+    <h2 id="services-ivry" class="promesse__title">Services</h2>
+    <p style="margin-bottom: 1.5rem;">Révision, réparations, carrosserie — devis avant intervention.</p>
     <div class="promesse__grid">
       <div class="promesse__item">
         <span class="promesse__icon" aria-hidden="true">✓</span>
@@ -306,8 +294,8 @@ faqSchema:
       <strong>Email :</strong> <a href="mailto:{{ site.email }}">{{ site.email }}</a>
     </p>
     <div style="margin-top: 1.5rem; display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
-      <a class="btn btn--primary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-      <a class="btn btn--secondary" href="tel:{{ site.phone }}">Appeler maintenant</a>
+      <a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
+      <a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">Message WhatsApp</a>
     </div>
   </div>
 </section>

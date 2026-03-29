@@ -1,7 +1,7 @@
 ---
 layout: base.njk
 title: "Coordonnées garage Ivry-sur-Seine (94) | Plan & téléphone | RED-K MOTORS"
-description: "RED-K MOTORS, garage à Ivry : 9 rue Michelet, 94200. Appelez le 06 48 74 56 68, consultez le plan Google Maps et les horaires. Référencement local — même équipe qu'à l'atelier."
+description: "RED-K MOTORS, 9 rue Michelet, 94200 Ivry-sur-Seine. Téléphone, plan et horaires."
 pageKey: contact
 hasHeroVideo: true
 scripts:
@@ -24,83 +24,47 @@ breadcrumb:
 ---
 
 {% set heroActions %}
-<a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler maintenant</a>
-<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+<a class="btn btn--primary" href="#appointment">Coordonnées &amp; RDV</a>
+<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">Message WhatsApp</a>
 {% endset %}
 
 {% set heroAria = "contact-hero-title" %}
 {% set heroClass = "hero--subpage" %}
-{% set heroTitle = "Coordonnées du garage : appelez-nous, on vous guide" %}
-{% set heroKicker = "Ivry-sur-Seine (94) · Lun–sam 10h–20h · Devis gratuit au téléphone" %}
-{% set heroDesc = "Cette page sert surtout à vous montrer où nous trouver et comment joindre l'atelier. Pour un créneau ou un tarif, un appel reste le plus simple." %}
+{% set heroTitle = "Nous contacter" %}
+{% set heroKicker = "Ivry (94) · Lun–sam 10h–20h" %}
+{% set heroDesc = "Adresse, plan et téléphone. Pour un RDV ou un tarif, en journée (lun–sam 10h–20h)." %}
 {% set heroMeta = site.addressFull %}
 {% set videoSrc = "contact.mp4" %}
 {% include "hero-video.njk" %}
 
 <section class="contact-reassurance" aria-label="Délai de traitement des demandes">
   <div class="container contact-reassurance__inner">
-    <p><strong>Visibilité &amp; accès :</strong> nos horaires, téléphone et adresse sont les mêmes que sur Google. <strong>Appelez en journée</strong> pour un devis ou un rendez-vous — c'est ce que nous traitons en priorité.</p>
+    <p>Même horaires et coordonnées que sur Google. Réponse la plus rapide en journée par téléphone.</p>
   </div>
 </section>
 
 <section id="appointment" class="appointment" aria-labelledby="appointment-title" data-animate="slide-right">
-  <div class="container appointment__inner">
-    <div>
-      <h2 id="appointment-title">Coordonnées du garage à Ivry-sur-Seine</h2>
-      <p>Devis gratuit, sans engagement. Choisissez le canal qui vous arrange — pour une réponse immédiate, privilégiez l'appel en heures d'ouverture.</p>
-      <dl>
-        <div>
-          <dt>Téléphone</dt>
-          <dd><a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a></dd>
-        </div>
-        <div>
-          <dt>Email</dt>
-          <dd><a href="mailto:{{ site.email }}">{{ site.email }}</a></dd>
-        </div>
-        <div>
-          <dt>Adresse</dt>
-          <dd><a href="https://www.google.com/maps?cid=0xe6bcd3ccf746dd16" target="_blank" rel="noopener noreferrer">{{ site.addressFull }}</a></dd>
-        </div>
-        <div>
-          <dt>Horaires</dt>
-          <dd>{{ site.openingHours }}</dd>
-        </div>
-      </dl>
-    </div>
-    <div class="form__alternatives">
-      <p>Contactez-nous directement :</p>
-      <div class="form__alt-btns">
-        <a href="tel:{{ site.phone }}" class="btn btn--primary" data-track="click_call" data-track-pos="contact">Appeler {{ site.phoneDisplay }}</a>
-        <a href="mailto:{{ site.email }}" class="btn btn--secondary">Envoyer un email</a>
-        <a href="{{ site.whatsappUrl }}" class="btn btn--secondary" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp" data-track-pos="contact">WhatsApp</a>
+  <div class="container appointment__centered">
+    <h2 id="appointment-title">Coordonnées</h2>
+    <p>Devis gratuit. Téléphone, email ou message — comme vous préférez.</p>
+    <dl>
+      <div>
+        <dt>Téléphone</dt>
+        <dd><a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a></dd>
       </div>
-    </div>
-  </div>
-</section>
-
-<section class="featured-vehicles" aria-labelledby="contact-channels-title" data-animate="slide-left">
-  <div class="container">
-    <div class="section-header">
-      <h2 id="contact-channels-title">Téléphone d'abord — puis email ou WhatsApp</h2>
-      <p>Pour être sûr d'avoir quelqu'un au bout du fil, appelez aux heures d'ouverture. Sinon laissez un message par email ou WhatsApp avec marque, modèle et symptôme.</p>
-    </div>
-    <div class="grid grid--three">
-      <article class="card">
-        <h3>Par téléphone</h3>
-        <p>Appelez-nous directement pour un devis ou une prise de rendez-vous rapide.</p>
-        <a class="link" href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a>
-      </article>
-      <article class="card">
-        <h3>Par email</h3>
-        <p>Envoyez-nous votre demande avec des photos si besoin, on vous répond rapidement.</p>
-        <a class="link" href="mailto:{{ site.email }}">{{ site.email }}</a>
-      </article>
-      <article class="card">
-        <h3>Via WhatsApp</h3>
-        <p>Envoyez-nous un message, une photo ou une vidéo pour un pré-diagnostic rapide.</p>
-        <a class="link" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">Ouvrir WhatsApp</a>
-      </article>
-    </div>
+      <div>
+        <dt>Email</dt>
+        <dd><a href="mailto:{{ site.email }}">{{ site.email }}</a></dd>
+      </div>
+      <div>
+        <dt>Adresse</dt>
+        <dd><a href="https://www.google.com/maps?cid=0xe6bcd3ccf746dd16" target="_blank" rel="noopener noreferrer">{{ site.addressFull }}</a></dd>
+      </div>
+      <div>
+        <dt>Horaires</dt>
+        <dd>{{ site.openingHours }}</dd>
+      </div>
+    </dl>
   </div>
 </section>
 
@@ -118,10 +82,8 @@ breadcrumb:
     </div>
     <div class="tech-lab__content">
       <p class="section-kicker">Nous rendre visite</p>
-      <h2 id="contact-map-title">Facile d'accès depuis Paris et le Val-de-Marne</h2>
-      <p>
-        Le garage se trouve au 9 rue Michelet à Ivry-sur-Seine, à quelques minutes du périphérique et accessible en transports en commun.
-      </p>
+      <h2 id="contact-map-title">Accès</h2>
+      <p>9 rue Michelet, Ivry — périphérique et transports à proximité.</p>
       <ul class="pill-list">
         <li>Métro ligne 7 — Mairie d'Ivry</li>
         <li>Ouvert Lun-Sam 10h-20h</li>
@@ -136,8 +98,7 @@ breadcrumb:
   <div class="container faq__inner">
     <div>
       <p class="section-kicker">FAQ contact</p>
-      <h2 id="contact-faq">Ce qu'on nous demande souvent</h2>
-      <p>Nous clarifions les modalités d'accueil, de devis et de suivi pour simplifier vos démarches.</p>
+      <h2 id="contact-faq">Questions fréquentes</h2>
     </div>
     <div class="faq__list" data-accordion>
       <article class="faq__item">
@@ -153,9 +114,7 @@ breadcrumb:
           Puis-je envoyer des photos pour un premier avis ?
         </button>
         <div class="faq__answer" hidden>
-          <p>
-            Oui, envoyez-nous des photos ou une vidéo par WhatsApp ou email. On peut souvent vous donner un premier avis et préparer le devis avant votre venue.
-          </p>
+          <p>Oui, par WhatsApp ou email — utile pour préparer le devis.</p>
         </div>
       </article>
       <article class="faq__item">
@@ -163,36 +122,10 @@ breadcrumb:
           Comment je suis tenu au courant de l'avancement ?
         </button>
         <div class="faq__answer" hidden>
-          <p>
-            On vous appelle ou on vous envoie un message WhatsApp à chaque étape clé : validation du devis, début des travaux, véhicule prêt.
-          </p>
+          <p>Appel ou WhatsApp aux étapes clés : devis validé, début des travaux, véhicule prêt.</p>
         </div>
       </article>
     </div>
   </div>
 </section>
 
-<section class="about" aria-labelledby="map-title" data-animate="slide-left">
-  <div class="container about__inner">
-    <div>
-      <h2 id="map-title">Nous rendre visite</h2>
-      <p>
-        {{ site.address }}, {{ site.postalCode }} {{ site.city }}. Métro ligne 7, arrêt Mairie d'Ivry. N'hésitez pas à nous prévenir avant votre venue pour qu'on vous réserve un créneau.
-      </p>
-    </div>
-    <div class="about__highlights">
-      <div class="highlight">
-        <strong>Gratuit</strong>
-        <span>devis sans engagement</span>
-      </div>
-      <div class="highlight">
-        <strong>6j/7</strong>
-        <span>{{ site.openingHours }}</span>
-      </div>
-      <div class="highlight">
-        <strong>100%</strong>
-        <span>pièces d'origine</span>
-      </div>
-    </div>
-  </div>
-</section>

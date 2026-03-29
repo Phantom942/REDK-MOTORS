@@ -24,8 +24,8 @@ breadcrumb:
 ---
 
 {% set heroActions %}
-<a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler maintenant</a>
-<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+<a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
+<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">Message WhatsApp</a>
 {% endset %}
 
 {% set heroAria = "location-hero-title" %}
@@ -39,7 +39,7 @@ breadcrumb:
 
 <section class="upcoming-pro upcoming-pro--muted" aria-labelledby="location-bientot-title">
   <div class="container upcoming-pro__inner">
-    <h2 id="location-bientot-title">Pourquoi nous écrire ou appeler maintenant</h2>
+    <h2 id="location-bientot-title">Pourquoi nous contacter</h2>
     <p class="upcoming-pro__text">
       Dès que la flotte et les assurances seront finalisées, les réservations s'ouvriront en priorité aux <strong>clients atelier</strong> et aux personnes déjà inscrites via le contact.
     </p>
@@ -49,8 +49,8 @@ breadcrumb:
       <li>Pas de paiement en ligne tant que le service n'est pas ouvert</li>
     </ul>
     <div class="upcoming-pro__actions">
-      <a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler le {{ site.phoneDisplay }}</a>
-      <a class="btn btn--secondary btn--dark" href="/contact/">Adresse &amp; plan</a>
+      <a class="btn btn--primary" href="/contact/">Coordonnées &amp; plan</a>
+      <a class="btn btn--secondary btn--dark" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">Message WhatsApp</a>
     </div>
   </div>
 </section>

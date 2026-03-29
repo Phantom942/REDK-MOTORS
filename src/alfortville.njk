@@ -56,37 +56,30 @@ faqSchema:
 ---
 
 {% set heroActions %}
-<a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler le garage</a>
-<a class="btn btn--secondary" href="/contact/">Adresse &amp; horaires</a>
+<a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
+<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">Message WhatsApp</a>
 {% endset %}
 {% set heroClass = "hero--subpage" %}
 {% set heroAria = "alfortville-hero-title" %}
 {% set heroTitle = "Garage proche Alfortville" %}
 {% set heroKicker = "Zone desservie Val-de-Marne" %}
-{% set heroDesc = "RED-K MOTORS à Ivry-sur-Seine, à 10 minutes d'Alfortville via le pont d'Ivry. Mécanique, carrosserie, entretien et pneumatiques. Devis gratuit et expertise multimarque." %}
+{% set heroDesc = "Ivry, ~10 min d'Alfortville (pont d'Ivry). Mécanique, entretien, pneus. Devis gratuit." %}
 {% set videoSrc = "hero.mp4" %}
 {% include "hero-video.njk" %}
 
 <section class="service-focus" aria-labelledby="pourquoi-alfortville" data-animate="slide-right">
   <div class="container service-focus__inner">
     <div>
-      <h2 id="pourquoi-alfortville">Pourquoi choisir RED-K MOTORS depuis Alfortville ?</h2>
-      <p>
-        Alfortville et Ivry-sur-Seine sont deux communes voisines, séparées par la Seine. Le pont d'Ivry relie les deux rives en quelques minutes. Les Alfortvillais qui cherchent un garage sérieux, avec des tarifs clairs et un vrai suivi, nous rejoignent facilement. Notre atelier du 9 rue Michelet est un garage indépendant, à taille humaine : vous échangez directement avec les techniciens qui travaillent sur votre voiture.
-      </p>
-      <p>
-        Chaque semaine, nous accueillons des conducteurs d'Alfortville pour des révisions, des changements de plaquettes de frein, des diagnostics électroniques ou des réparations de carrosserie. Le trajet ne dépasse pas dix minutes en voiture. Nos horaires étendus (10h-20h, lundi au samedi) vous laissent toute la souplesse nécessaire pour déposer et récupérer votre véhicule sans bousculer votre emploi du temps.
-      </p>
+      <h2 id="pourquoi-alfortville">Depuis Alfortville</h2>
+      <p>Pont d'Ivry : ~10 minutes jusqu'au 9 rue Michelet. Garage indépendant, toutes marques. <strong>Lun–sam 10h–20h.</strong></p>
     </div>
   </div>
 </section>
 
 <section class="promesse" aria-labelledby="services-alfortville" data-animate="slide-up">
   <div class="container">
-    <h2 id="services-alfortville" class="promesse__title">Nos services pour les conducteurs d'Alfortville</h2>
-    <p style="margin-bottom: 1.5rem;">
-      Mécanique, carrosserie, entretien, vidange, freins, diagnostic, pneumatiques et achat-revente : tout ce qu'il faut pour entretenir et réparer votre véhicule, à deux pas d'Alfortville.
-    </p>
+    <h2 id="services-alfortville" class="promesse__title">Services</h2>
+    <p style="margin-bottom: 1.5rem;">Mécanique, entretien, freins, pneus, carrosserie.</p>
     <div class="promesse__grid">
       <div class="promesse__item">
         <span class="promesse__icon" aria-hidden="true">✓</span>
@@ -168,8 +161,9 @@ faqSchema:
     <p>
       Devis écrit, détaillé et gratuit avant toute intervention. Vous validez, nous intervenons. Pour toute demande, appelez le <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a> ou consultez <a href="/contact/">adresse et horaires</a>.
     </p>
-    <div style="margin-top: 1.5rem;">
-      <a class="btn btn--primary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    <div style="margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center;">
+      <a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
+      <a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">Message WhatsApp</a>
     </div>
   </div>
 </section>

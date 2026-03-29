@@ -1,7 +1,7 @@
 ---
 layout: base.njk
-title: "Vidange voiture Ivry-sur-Seine (94) | Prix 89–129 € | RED-K MOTORS"
-description: "Vidange auto à Ivry, garage 94 : huile homologuée, filtre neuf, contrôle des niveaux. Fourchette indicative 89–129 € selon véhicule. Devis avant intervention — 06 48 74 56 68."
+title: "Vidange voiture Ivry-sur-Seine (94) | Prix 69–119 € | RED-K MOTORS"
+description: "Vidange auto à Ivry, garage 94 : huile homologuée, filtre neuf, contrôle des niveaux. Fourchette indicative 69–119 € selon véhicule. Devis avant intervention — 06 48 74 56 68."
 pageKey: vidange
 hasHeroVideo: true
 permalink: /vidange/
@@ -48,7 +48,7 @@ faqSchema:
       name: "Quel est le prix d'une vidange à Ivry-sur-Seine ?"
       acceptedAnswer:
         "@type": "Answer"
-        text: "En général entre 89 € et 129 € selon la quantité et la spécification d'huile (constructeur) et le filtre. Le prix exact est confirmé sur devis après identification du véhicule."
+        text: "En général entre 69 € et 119 € selon la quantité et la spécification d'huile (constructeur) et le filtre. Le prix exact est confirmé sur devis après identification du véhicule."
     - "@type": "Question"
       name: "Combien de temps dure une vidange ?"
       acceptedAnswer:
@@ -62,13 +62,13 @@ faqSchema:
 ---
 
 {% set heroActions %}
-<a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler maintenant</a>
-<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+<a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
+<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">Message WhatsApp</a>
 {% endset %}
 {% set heroClass = "hero--subpage" %}
 {% set heroAria = "vidange-hero-title" %}
 {% set heroTitle = "Vidange à Ivry : huile adaptée, filtre neuf, prix annoncé" %}
-{% set heroKicker = "Garage Ivry (94) · Indicatif 89–129 € selon auto" %}
+{% set heroKicker = "Garage Ivry (94) · Indicatif 69–119 € selon auto" %}
 {% set heroDesc = "On choisit la viscosité et la norme prévues pour votre moteur, on remplace le filtre à huile et on contrôle les niveaux. Rien n'est facturé sans validation du devis." %}
 {% set videoSrc = "entretien.mp4" %}
 {% include "hero-video.njk" %}
@@ -85,14 +85,14 @@ faqSchema:
         <li>Filtre à huile neuf, couple de serrage respecté</li>
         <li>Points de contrôle liquides et alerte si anomalie</li>
       </ul>
-      <p class="service-focus__cta"><a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler</a> <a class="btn btn--secondary btn--dark" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a></p>
+      <p class="service-focus__cta"><a class="link" href="/contact/">Coordonnées &amp; RDV</a> · <a class="link" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a></p>
     </div>
   </div>
 </section>
 
 <section class="promesse" aria-labelledby="pourquoi-vidange" data-animate="slide-up">
   <div class="container">
-    <h2 id="pourquoi-vidange" class="promesse__title">Pourquoi faire votre vidange chez RED-K MOTORS</h2>
+    <h2 id="pourquoi-vidange" class="promesse__title">Vidange à l'atelier</h2>
     <div class="promesse__grid">
       <div class="promesse__item">
         <span class="promesse__icon" aria-hidden="true">✓</span>
@@ -178,7 +178,7 @@ faqSchema:
           Quel est le prix d'une vidange à Ivry-sur-Seine ?
         </button>
         <div class="faq__answer" hidden>
-          <p>Le tarif dépend du type d'huile et du modèle de votre véhicule. Comptez à partir de 59 € pour une vidange simple. Devis gratuit et sans engagement chez RED-K MOTORS.</p>
+          <p>Le tarif dépend du type d'huile et du modèle de votre véhicule. Comptez en général entre 69 € et 119 € selon le véhicule. Devis gratuit et sans engagement chez RED-K MOTORS.</p>
         </div>
       </article>
       <article class="faq__item">
@@ -202,14 +202,15 @@ faqSchema:
 </section>
 
 <section class="appointment" aria-labelledby="vidange-cta" data-animate="slide-up">
-  <div class="container">
-    <h2 id="vidange-cta">Besoin d'une vidange ? Prenez rendez-vous maintenant</h2>
-    <p>Devis gratuit, intervention rapide et sans surprise. Contactez-nous par le moyen qui vous arrange.</p>
-    <div class="appointment__actions">
-      <a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler le {{ site.phoneDisplay }}</a>
-      <a class="btn btn--secondary" href="mailto:{{ site.email }}">{{ site.email }}</a>
-      <a class="btn btn--whatsapp" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-    </div>
+  <div class="container appointment__centered">
+    <h2 id="vidange-cta">Besoin d'une vidange ?</h2>
+    <p>Devis gratuit, intervention rapide et sans surprise.</p>
+    <dl class="appointment__info">
+      <div>
+        <dt>Téléphone</dt>
+        <dd><a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a></dd>
+      </div>
+    </dl>
   </div>
 </section>
 
@@ -230,16 +231,6 @@ faqSchema:
         <p>Antigel, batterie, pneus : les gestes essentiels avant le froid.</p>
       </a>
     </div>
-  </div>
-</section>
-
-{% include "cta-contact.njk" %}
-
-<section class="promesse" aria-labelledby="zones-vidange" data-animate="slide-up">
-  <div class="container">
-    <p id="zones-vidange" class="promesse__title" style="font-size: 1.1rem; font-weight: 600;">
-      Vous venez de <a href="/vitry-sur-seine/">Vitry-sur-Seine</a>, <a href="/villejuif/">Villejuif</a>, <a href="/charenton-le-pont/">Charenton-le-Pont</a> ou <a href="/paris-13/">Paris 13</a> ? Notre garage à Ivry vous accueille à quelques minutes. Devis gratuit et prise de rendez-vous rapide.
-    </p>
   </div>
 </section>
 

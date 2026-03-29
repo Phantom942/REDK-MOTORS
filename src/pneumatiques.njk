@@ -53,8 +53,8 @@ faqSchema:
 ---
 
 {% set heroActions %}
-<a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler maintenant</a>
-<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+<a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
+<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">Message WhatsApp</a>
 {% endset %}
 {% set heroClass = "hero--subpage" %}
 {% set heroAria = "pneus-hero-title" %}
@@ -76,14 +76,14 @@ faqSchema:
         <li>Montage express, équilibrage, permutation</li>
         <li>Contrôle et réglage géométrie</li>
       </ul>
-      <p class="service-focus__cta"><a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler</a> <a class="btn btn--secondary btn--dark" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a></p>
+      <p class="service-focus__cta"><a class="link" href="/contact/">Coordonnées &amp; RDV</a> · <a class="link" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a></p>
     </div>
   </div>
 </section>
 
 <section class="promesse" aria-labelledby="pourquoi-pneumatiques" data-animate="slide-up">
   <div class="container">
-    <h2 id="pourquoi-pneumatiques" class="promesse__title">Un centre pneus à taille humaine, à Ivry</h2>
+    <h2 id="pourquoi-pneumatiques" class="promesse__title">Pneus à Ivry</h2>
     <div class="promesse__grid">
       <div class="promesse__item">
         <span class="promesse__icon" aria-hidden="true">✓</span>
@@ -378,33 +378,23 @@ faqSchema:
 </section>
 
 <section class="appointment" aria-labelledby="appointment-title" data-animate="slide-right">
-  <div class="container appointment__inner">
-    <div>
-      <h2 id="appointment-title">Un conseil personnalisé ?</h2>
-      <p>Indiquez votre modèle, nous recommandons la monte adaptée à votre usage.</p>
-      <dl>
-        <div>
-          <dt>Téléphone</dt>
-          <dd><a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a></dd>
-        </div>
-        <div>
-          <dt>Email</dt>
-          <dd><a href="mailto:{{ site.email }}">{{ site.email }}</a></dd>
-        </div>
-        <div>
-          <dt>Adresse</dt>
-          <dd><a href="https://www.google.com/maps?q=9+rue+Michelet+94200+Ivry-sur-Seine" target="_blank" rel="noopener noreferrer">{{ site.addressFull }}</a></dd>
-        </div>
-      </dl>
-    </div>
-    <div class="form__alternatives" style="margin-top: 1.5rem;">
-      <p>Contactez-nous pour un conseil ou un devis :</p>
-      <div class="form__alt-btns" style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-        <a href="tel:{{ site.phone }}" class="btn btn--primary" data-track="click_call">Appeler {{ site.phoneDisplay }}</a>
-        <a href="mailto:{{ site.email }}" class="btn btn--secondary">Envoyer un email</a>
-        <a href="https://wa.me/33648745668?text=Bonjour%2C%20je%20souhaite%20un%20conseil%20pneumatiques%20ou%20un%20devis." class="btn btn--secondary" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+  <div class="container appointment__centered">
+    <h2 id="appointment-title">Un conseil personnalisé ?</h2>
+    <p>Indiquez votre modèle, nous recommandons la monte adaptée à votre usage.</p>
+    <dl>
+      <div>
+        <dt>Téléphone</dt>
+        <dd><a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a></dd>
       </div>
-    </div>
+      <div>
+        <dt>Email</dt>
+        <dd><a href="mailto:{{ site.email }}">{{ site.email }}</a></dd>
+      </div>
+      <div>
+        <dt>Adresse</dt>
+        <dd><a href="https://www.google.com/maps?q=9+rue+Michelet+94200+Ivry-sur-Seine" target="_blank" rel="noopener noreferrer">{{ site.addressFull }}</a></dd>
+      </div>
+    </dl>
   </div>
 </section>
 
@@ -425,14 +415,6 @@ faqSchema:
         <p>Les pneumatiques font partie des points vérifiés au contrôle technique.</p>
       </a>
     </div>
-  </div>
-</section>
-
-<section class="promesse" aria-labelledby="zones-pneumatiques" data-animate="slide-up">
-  <div class="container">
-    <p id="zones-pneumatiques" class="promesse__title" style="font-size: 1.1rem; font-weight: 600;">
-      Vous venez de <a href="/vitry-sur-seine/">Vitry-sur-Seine</a>, <a href="/villejuif/">Villejuif</a>, <a href="/charenton-le-pont/">Charenton-le-Pont</a> ou <a href="/paris-13/">Paris 13</a> ? Notre garage à Ivry vous accueille à quelques minutes. Devis gratuit et prise de rendez-vous rapide.
-    </p>
   </div>
 </section>
 

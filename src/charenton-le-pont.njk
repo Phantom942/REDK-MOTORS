@@ -56,37 +56,30 @@ faqSchema:
 ---
 
 {% set heroActions %}
-<a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler le garage</a>
-<a class="btn btn--secondary" href="/contact/">Adresse &amp; horaires</a>
+<a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
+<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">Message WhatsApp</a>
 {% endset %}
 {% set heroClass = "hero--subpage" %}
 {% set heroAria = "charenton-hero-title" %}
 {% set heroTitle = "Garage auto proche de Charenton-le-Pont" %}
 {% set heroKicker = "Zone desservie Val-de-Marne" %}
-{% set heroDesc = "Depuis Charenton, rejoignez RED-K MOTORS à Ivry pour mécanique, carrosserie et entretien. Expertise multimarque, devis gratuit et relation de confiance." %}
+{% set heroDesc = "Ivry, proche Charenton. Mécanique, entretien, pneus. Devis gratuit." %}
 {% set videoSrc = "hero.mp4" %}
 {% include "hero-video.njk" %}
 
 <section class="service-focus" aria-labelledby="pourquoi-charenton" data-animate="slide-right">
   <div class="container service-focus__inner">
     <div>
-      <h2 id="pourquoi-charenton">Pourquoi choisir RED-K MOTORS depuis Charenton-le-Pont ?</h2>
-      <p>
-        Charenton-le-Pont et Ivry-sur-Seine sont deux communes du Val-de-Marne bien reliées par la route. Les Charentonnais qui souhaitent faire entretenir ou réparer leur véhicule trouvent chez RED-K MOTORS une proximité géographique réelle et une qualité de service constante. Nous proposons une alternative aux concessionnaires et aux chaînes de distribution, avec une approche plus personnalisée et des tarifs maîtrisés.
-      </p>
-      <p>
-        Notre équipe privilégie la transparence et la communication. Chaque intervention est précédée d'un diagnostic clair et d'un devis détaillé. Les pièces utilisées sont d'origine ou équivalent constructeur, et nous préservons la garantie constructeur lorsque celle-ci est encore en vigueur.
-      </p>
+      <h2 id="pourquoi-charenton">Depuis Charenton-le-Pont</h2>
+      <p>Val-de-Marne : liaison rapide vers Ivry, 9 rue Michelet. Devis avant travaux, pièces d'origine. <strong>Lun–sam 10h–20h.</strong></p>
     </div>
   </div>
 </section>
 
 <section class="promesse" aria-labelledby="services-charenton" data-animate="slide-up">
   <div class="container">
-    <h2 id="services-charenton" class="promesse__title">Nos services pour les conducteurs de Charenton-le-Pont</h2>
-    <p style="margin-bottom: 1.5rem;">
-      Notre gamme de prestations couvre les besoins courants des automobilistes, de l'entretien préventif aux réparations plus conséquentes.
-    </p>
+    <h2 id="services-charenton" class="promesse__title">Services</h2>
+    <p style="margin-bottom: 1.5rem;">Mécanique, entretien, freins, pneus, carrosserie.</p>
     <div class="promesse__grid">
       <div class="promesse__item">
         <span class="promesse__icon" aria-hidden="true">✓</span>
@@ -154,8 +147,9 @@ faqSchema:
     <p>
       Tous nos devis sont écrits, détaillés et gratuits. Aucune intervention sans votre accord préalable. Pour toute demande, appelez le <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a> ou consultez nos <a href="/contact/">coordonnées et le plan d'accès</a> à Ivry-sur-Seine.
     </p>
-    <div style="margin-top: 1.5rem;">
-      <a class="btn btn--primary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    <div style="margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center;">
+      <a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
+      <a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">Message WhatsApp</a>
     </div>
   </div>
 </section>

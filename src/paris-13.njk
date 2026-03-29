@@ -56,37 +56,30 @@ faqSchema:
 ---
 
 {% set heroActions %}
-<a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler le garage</a>
-<a class="btn btn--secondary" href="/contact/">Adresse &amp; horaires</a>
+<a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
+<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">Message WhatsApp</a>
 {% endset %}
 {% set heroClass = "hero--subpage" %}
 {% set heroAria = "paris13-hero-title" %}
 {% set heroTitle = "Garage proche Paris 13" %}
 {% set heroKicker = "Zone desservie Paris Sud" %}
-{% set heroDesc = "RED-K MOTORS à Ivry-sur-Seine, aux portes du 13e. Mécanique, carrosserie, entretien et pneumatiques. Devis gratuit et expertise multimarque pour les Parisiens." %}
+{% set heroDesc = "Ivry, limite Paris 13e. Mécanique, entretien, pneus. Devis gratuit." %}
 {% set videoSrc = "hero.mp4" %}
 {% include "hero-video.njk" %}
 
 <section class="service-focus" aria-labelledby="pourquoi-paris13" data-animate="slide-right">
   <div class="container service-focus__inner">
     <div>
-      <h2 id="pourquoi-paris13">Pourquoi choisir RED-K MOTORS depuis Paris 13 ?</h2>
-      <p>
-        Le 13e arrondissement et Ivry-sur-Seine sont limitrophes. Les habitants du sud de Paris qui cherchent un garage sérieux, sans les contraintes et les tarifs des ateliers intra-muros, nous rejoignent facilement. Notre atelier du 9 rue Michelet offre un cadre professionnel, des tarifs maîtrisés et une relation client directe. Pas d'intermédiaire, pas de chaîne : une équipe dédiée qui connaît votre véhicule.
-      </p>
-      <p>
-        Nous recevons chaque semaine des clients du 13e pour des révisions, des diagnostics moteur, des réparations carrosserie ou des montages de pneus. La proximité géographique, couplée à des horaires étendus (10h-20h, lun-sam), facilite l'organisation. Vous gardez la main sur votre planning et vous bénéficiez d'une expertise reconnue sans traverser tout Paris.
-      </p>
+      <h2 id="pourquoi-paris13">Depuis Paris 13e</h2>
+      <p>Limitrophe : trajet court vers Ivry. 9 rue Michelet. <strong>Lun–sam 10h–20h.</strong></p>
     </div>
   </div>
 </section>
 
 <section class="promesse" aria-labelledby="services-paris13" data-animate="slide-up">
   <div class="container">
-    <h2 id="services-paris13" class="promesse__title">Nos services pour les conducteurs de Paris 13</h2>
-    <p style="margin-bottom: 1.5rem;">
-      De la mécanique à l'entretien en passant par la carrosserie et les pneumatiques, nous proposons une offre complète adaptée aux besoins des Parisiens du sud.
-    </p>
+    <h2 id="services-paris13" class="promesse__title">Services</h2>
+    <p style="margin-bottom: 1.5rem;">Mécanique, entretien, freins, pneus, carrosserie.</p>
     <div class="promesse__grid">
       <div class="promesse__item">
         <span class="promesse__icon" aria-hidden="true">✓</span>
@@ -154,8 +147,9 @@ faqSchema:
     <p>
       Devis écrit, détaillé et gratuit avant toute intervention. Vous validez, nous intervenons. Pour toute demande, appelez le <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a> ou consultez <a href="/contact/">adresse et horaires</a> à Ivry-sur-Seine.
     </p>
-    <div style="margin-top: 1.5rem;">
-      <a class="btn btn--primary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    <div style="margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center;">
+      <a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
+      <a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">Message WhatsApp</a>
     </div>
   </div>
 </section>

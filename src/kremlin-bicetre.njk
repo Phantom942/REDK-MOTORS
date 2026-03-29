@@ -56,37 +56,30 @@ faqSchema:
 ---
 
 {% set heroActions %}
-<a class="btn btn--primary" href="tel:{{ site.phone }}">Appeler le garage</a>
-<a class="btn btn--secondary" href="/contact/">Adresse &amp; horaires</a>
+<a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
+<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">Message WhatsApp</a>
 {% endset %}
 {% set heroClass = "hero--subpage" %}
 {% set heroAria = "kremlinBicetre-hero-title" %}
 {% set heroTitle = "Garage proche Kremlin-Bicêtre" %}
 {% set heroKicker = "Zone desservie Val-de-Marne" %}
-{% set heroDesc = "RED-K MOTORS à Ivry-sur-Seine, à deux pas du Kremlin-Bicêtre. Mécanique, carrosserie, entretien et pneumatiques. Devis gratuit et expertise multimarque." %}
+{% set heroDesc = "Ivry, quelques minutes du Kremlin-Bicêtre. Mécanique, entretien, pneus. Devis gratuit." %}
 {% set videoSrc = "hero.mp4" %}
 {% include "hero-video.njk" %}
 
 <section class="service-focus" aria-labelledby="pourquoi-kremlinBicetre" data-animate="slide-right">
   <div class="container service-focus__inner">
     <div>
-      <h2 id="pourquoi-kremlinBicetre">Pourquoi choisir RED-K MOTORS depuis le Kremlin-Bicêtre ?</h2>
-      <p>
-        Le Kremlin-Bicêtre et Ivry-sur-Seine sont deux communes voisines du Val-de-Marne. Les habitants du Kremlin qui cherchent un garage fiable, à tarifs justes et sans intermédiaire, nous rejoignent en quelques minutes. Notre atelier du 9 rue Michelet offre un cadre professionnel, un accueil humain et des prestations complètes. Vous échangez directement avec l'équipe qui intervient sur votre véhicule, sans passer par une chaîne ou un call center.
-      </p>
-      <p>
-        Chaque semaine, nous accueillons des conducteurs du Kremlin-Bicêtre pour des vidanges, des diagnostics électroniques, des réparations de carrosserie ou des changements de pneus. La ligne 7 du métro relie directement la station Kremlin-Bicêtre à Mairie d'Ivry, et le trajet en voiture ne dépasse pas dix minutes. Des horaires étendus (10h-20h, lundi au samedi) vous permettent de venir après le travail ou le samedi matin sans stress.
-      </p>
+      <h2 id="pourquoi-kremlinBicetre">Depuis le Kremlin-Bicêtre</h2>
+      <p>Communes voisines : trajet court en voiture ou <strong>métro ligne 7</strong> jusqu'à Mairie d'Ivry. Atelier 9 rue Michelet. <strong>Lun–sam 10h–20h.</strong></p>
     </div>
   </div>
 </section>
 
 <section class="promesse" aria-labelledby="services-kremlinBicetre" data-animate="slide-up">
   <div class="container">
-    <h2 id="services-kremlinBicetre" class="promesse__title">Nos services pour les conducteurs du Kremlin-Bicêtre</h2>
-    <p style="margin-bottom: 1.5rem;">
-      De la mécanique générale au diagnostic en passant par la carrosserie, les freins et les pneumatiques, nous proposons une offre complète pour les automobilistes du Kremlin-Bicêtre et alentours.
-    </p>
+    <h2 id="services-kremlinBicetre" class="promesse__title">Services</h2>
+    <p style="margin-bottom: 1.5rem;">Mécanique, entretien, freins, pneus, carrosserie.</p>
     <div class="promesse__grid">
       <div class="promesse__item">
         <span class="promesse__icon" aria-hidden="true">✓</span>
@@ -168,8 +161,9 @@ faqSchema:
     <p>
       Devis écrit, détaillé et gratuit avant toute intervention. Vous validez, nous intervenons. Pour toute demande, appelez le <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a> ou consultez <a href="/contact/">adresse et horaires</a>.
     </p>
-    <div style="margin-top: 1.5rem;">
-      <a class="btn btn--primary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    <div style="margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center;">
+      <a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
+      <a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">Message WhatsApp</a>
     </div>
   </div>
 </section>
