@@ -53,3 +53,44 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  smoke-test:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    needs: deploy
+    steps:
+      - name: Smoke test URLs en production
+        run: |
+          set -e
+          sleep 30
+          URLS=(
+            "https://redk-motors.me/"
+            "https://redk-motors.me/mecanique/"
+            "https://redk-motors.me/carrosserie/"
+            "https://redk-motors.me/entretien/"
+            "https://redk-motors.me/pneumatiques/"
+            "https://redk-motors.me/achat-revente/"
+            "https://redk-motors.me/location/"
+            "https://redk-motors.me/contact/"
+            "https://redk-motors.me/blog/"
+          )
+          FAILED=0
+          for url in "${URLS[@]}"; do
+            response=$(curl -sSL --max-redirs 3 -w "\n%{http_code}" "$url")
+            body=$(echo "$response" | head -n -1)
+            code=$(echo "$response" | tail -n 1)
+            if [ "$code" != "200" ]; then
+              echo "❌ $url → HTTP $code"
+              FAILED=1
+            elif echo "$body" | grep -q "Cette page a été déplacée"; then
+              echo "❌ $url → contient le template de redirection (régression)"
+              FAILED=1
+            else
+              echo "✅ $url → 200 OK"
+            fi
+          done
+          if [ "$FAILED" -eq 1 ]; then
+            echo "::error::Smoke test failed"
+            exit 1
+          fi
+          echo "Tous les smoke tests sont passés ✅"
