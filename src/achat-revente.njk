@@ -3,6 +3,7 @@ layout: base.njk
 title: "Achat & reprise véhicule Ivry-sur-Seine (94) | RED-K MOTORS"
 description: "Achat, reprise et vente auto : service en préparation au garage RED-K MOTORS à Ivry. Appelez le 06 48 74 56 68 ou écrivez sur WhatsApp."
 pageKey: achat-revente
+robots: "noindex, follow"
 scripts:
   effects: false
 sitemap:
@@ -20,6 +21,16 @@ breadcrumb:
       name: "Achat & revente"
       item: "https://redk-motors.me/achat-revente/"
 ---
+
+<section class="contact-reassurance" role="status" aria-label="Disponibilité du service achat et reprise">
+  <div class="container contact-reassurance__inner">
+    <p>
+      <strong>Service bientôt disponible.</strong> Pour être informé du lancement ou nous présenter votre projet :
+      <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a> / <a href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      · lun–sam 10h–20h.
+    </p>
+  </div>
+</section>
 
 {% set heroActions %}
 <a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
