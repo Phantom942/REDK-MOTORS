@@ -72,6 +72,7 @@ jobs:
             "https://redk-motors.me/achat-revente/"
             "https://redk-motors.me/location/"
             "https://redk-motors.me/contact/"
+            "https://redk-motors.me/tarifs/"
             "https://redk-motors.me/blog/"
           )
           FAILED=0

@@ -1,0 +1,46 @@
+---
+layout: base.njk
+title: "Tarifs garage Ivry-sur-Seine (94) | Grille indicative complète | RED-K MOTORS"
+description: "Tarifs TTC indicatifs à Ivry (94) : diagnostic, vidange, freinage, distribution, pneus et plus. Montants indicatifs — devis fermé après inspection au véhicule."
+pageKey: tarifs
+permalink: /tarifs/
+sitemap:
+  changefreq: monthly
+  priority: 0.85
+breadcrumb:
+  "@context": "https://schema.org"
+  "@type": "BreadcrumbList"
+  itemListElement:
+    - "@type": "ListItem"
+      position: 1
+      name: "Accueil"
+      item: "https://redk-motors.me/"
+    - "@type": "ListItem"
+      position: 2
+      name: "Tarifs indicatifs"
+      item: "https://redk-motors.me/tarifs/"
+---
+
+{% set heroActions %}
+<a class="btn btn--primary" href="/contact/">Coordonnées &amp; devis</a>
+<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">Message WhatsApp</a>
+{% endset %}
+{% set heroAria = "tarifs-hero-title" %}
+{% set heroTitle = "Tarifs indicatifs" %}
+{% set heroKicker %}Garage à {{ site.city }} (94){% endset %}
+{% set heroDesc = "Montants TTC indicatifs pour véhicules particuliers courants. Le prix définitif figure sur le devis validé après passage au garage." %}
+{% include "hero-simple.njk" %}
+
+<section class="pricing-section pricing-section--readable" aria-labelledby="tarifs-grille-title" data-animate="slide-up">
+  <div class="container">
+    <h2 id="tarifs-grille-title" class="sr-only">Grille complète des prix</h2>
+    <p class="pricing-section__intro">Indicatifs TTC à {{ site.city }} (94), <strong>véhicules particuliers courants</strong>. <strong>Prix définitif sur devis</strong> après passage au garage.</p>
+    <p class="pricing-section__note" style="font-size: 0.9rem; color: var(--color-gray); margin-top: -0.25rem; margin-bottom: 1.25rem; line-height: 1.55;">Véhicule atypique ou pièces spécifiques : on chiffre au cas par cas si hors fourchette.</p>
+    {% include "pricing-table-full.njk" %}
+    <p class="pricing-section__disclaimer">Montants TTC indicatifs.</p>
+    <div class="pricing-section__actions">
+      <a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
+      <a class="btn btn--secondary btn--dark" href="/">Retour à l'accueil</a>
+    </div>
+  </div>
+</section>
