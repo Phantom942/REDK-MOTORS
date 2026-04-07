@@ -1,0 +1,82 @@
+{% set heroActions %}
+<a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
+<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">Message WhatsApp</a>
+{% endset %}
+{% set heroClass = "hero--subpage" %}
+{% set heroAria = pageKey ~ "-hero-title" %}
+{% set heroTitle = h1 %}
+{% set heroKicker = heroKickerText %}
+{% set heroDesc = heroDescription %}
+{% set videoSrc = "hero.mp4" %}
+{% include "hero-video.njk" %}
+
+<section class="service-focus" aria-labelledby="intro-{{ pageKey }}" data-animate="slide-right">
+  <div class="container service-focus__inner">
+    <div>
+      <h2 id="intro-{{ pageKey }}">{{ introHeading }}</h2>
+      <p>{{ introText }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="promesse" aria-labelledby="services-{{ pageKey }}" data-animate="slide-up">
+  <div class="container">
+    <h2 id="services-{{ pageKey }}" class="promesse__title">{{ servicesHeading }}</h2>
+    <p style="margin-bottom: 1.5rem;">{{ servicesIntro }}</p>
+    <div class="promesse__grid">
+      {% for service in services %}
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3>{{ service.title }}</h3>
+          <p>{{ service.description }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="service-focus service-focus--alt" aria-labelledby="zone-{{ pageKey }}" data-animate="slide-left">
+  <div class="container service-focus__inner">
+    <div>
+      <h2 id="zone-{{ pageKey }}">{{ zoneHeading }}</h2>
+      <p>{{ zoneTextOne }}</p>
+      <p>{{ zoneTextTwo }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="promesse" aria-labelledby="cta-{{ pageKey }}" data-animate="slide-up">
+  <div class="container">
+    <h2 id="cta-{{ pageKey }}" class="promesse__title">Devis rapide et transparent</h2>
+    <p>
+      Devis détaillé avant intervention, sans surprise. Appelez le
+      <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a>
+      ou passez par la page <a href="/contact/">contact</a> pour bloquer un créneau rapidement.
+    </p>
+    <div style="margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center;">
+      <a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
+      <a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">Message WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<section class="faq" aria-labelledby="faq-{{ pageKey }}" data-animate="slide-up">
+  <div class="container faq__inner">
+    <div>
+      <p class="section-kicker">FAQ</p>
+      <h2 id="faq-{{ pageKey }}">{{ faqHeading }}</h2>
+    </div>
+    <div class="faq__list" data-accordion>
+      {% for faq in faqs %}
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">{{ faq.question }}</button>
+        <div class="faq__answer" hidden>
+          <p>{{ faq.answer }}</p>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
