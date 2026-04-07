@@ -32,6 +32,22 @@ sitemap:
     var path = window.location.pathname || "/";
     if (!path || path === "/" || path.endsWith("/")) return;
 
+    var htmlLegacy = {
+      "/mecanique.html": "/mecanique/",
+      "/carrosserie.html": "/carrosserie/",
+      "/entretien.html": "/entretien/",
+      "/pneumatiques.html": "/pneumatiques/",
+      "/achat-revente.html": "/achat-revente/",
+      "/location.html": "/location/",
+      "/contact.html": "/contact/",
+      "/confidentialite.html": "/confidentialite/",
+      "/cookies.html": "/cookies/"
+    };
+    if (htmlLegacy[path]) {
+      window.location.replace(htmlLegacy[path]);
+      return;
+    }
+
     // Ne pas toucher aux fichiers (favicon, assets, etc.)
     if (path.includes(".") || path.startsWith("/assets/")) return;
 
