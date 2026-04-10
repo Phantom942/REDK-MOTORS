@@ -35,3 +35,12 @@ _site/
 .env
 .env.local
 
+# Hors site web (impression, prospection locale, exports bureau)
+/print/
+/prospection/
+/scripts/export-logo-desktop.cjs
+/assets/img/logo-basique-horizontal.png
+/assets/img/logo-profil-social.png
+/assets/img/redk-motors-logo-horizontal.png
+
+
