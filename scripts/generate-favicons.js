@@ -1,21 +1,21 @@
 #!/usr/bin/env node
 /**
  * Génère favicon.ico, favicon-16x16.png, favicon-32x32.png, apple-touch-icon.png
- * et assets/img/og-brand.png (1200×630, fond noir, logo à gauche)
- * depuis assets/img/logo-basique-horizontal.png. Exécuter : npm run favicon
+ * et assets/img/og-brand.png (1200×630, fond noir, logo centré)
+ * depuis assets/img/logo-basique-carre.png. Exécuter : npm run favicon
  */
 const fs = require('fs');
 const path = require('path');
 
 const root = path.join(__dirname, '..');
-const sourcePath = path.join(root, 'assets', 'img', 'logo-basique-horizontal.png');
+const sourcePath = path.join(root, 'assets', 'img', 'logo-basique-carre.png');
 const ogOutPath = path.join(root, 'assets', 'img', 'og-brand.png');
 
 const OG_W = 1200;
 const OG_H = 630;
 
 /**
- * Bannière large : carré côté gauche (hauteur) pour le favicon.
+ * Carré pour favicon : bannière large → extrait le carré à gauche ; image déjà carrée → inchangé.
  */
 async function toSquareSource(inputBuffer) {
   const sharp = require('sharp');
@@ -41,6 +41,7 @@ async function writeOgImage(inputBuffer) {
     .resize(OG_W, OG_H, { fit: 'inside' })
     .toBuffer();
   const { width, height } = await sharp(overlay).metadata();
+  const left = Math.max(0, Math.round((OG_W - (width || 0)) / 2));
   const top = Math.max(0, Math.round((OG_H - (height || 0)) / 2));
 
   await sharp({
@@ -51,7 +52,7 @@ async function writeOgImage(inputBuffer) {
       background: { r: 0, g: 0, b: 0 },
     },
   })
-    .composite([{ input: overlay, left: 0, top }])
+    .composite([{ input: overlay, left, top }])
     .png()
     .toFile(ogOutPath);
 }
