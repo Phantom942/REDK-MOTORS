@@ -17,7 +17,7 @@ module.exports = function () {
       city: schema.address.addressLocality,
       addressFull: `${schema.address.streetAddress}, ${schema.address.postalCode} ${schema.address.addressLocality}`,
       openingHours: "Lun-Sam 10h-20h",
-      ogImage: `${schema.url}/assets/img/og-default.png`,
+      ogImage: `${schema.url}/assets/img/og-brand.png`,
       gtmId: "GTM-NTC72X2G",
       nav: [
         { key: "index", title: "Accueil", url: "/" },
