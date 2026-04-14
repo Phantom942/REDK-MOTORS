@@ -49,6 +49,12 @@
   force = true
 
 [[redirects]]
+  from = "/processus.html"
+  to = "/processus/"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/confidentialite.html"
   to = "/confidentialite/"
   status = 301
@@ -63,6 +69,18 @@
 [[redirects]]
   from = "/mentions-legales.html"
   to = "/mentions-legales/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/5-points-controle-avant-ct-ivry.html"
+  to = "/blog/5-points-controle-avant-ct-ivry/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/tag/mecanique/confidentialite.html"
+  to = "/confidentialite/"
   status = 301
   force = true
 
@@ -106,6 +124,12 @@
 [[redirects]]
   from = "/contact"
   to = "/contact/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/processus"
+  to = "/processus/"
   status = 301
   force = true
 
