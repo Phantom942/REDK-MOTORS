@@ -60,6 +60,12 @@
   status = 301
   force = true
 
+[[redirects]]
+  from = "/mentions-legales.html"
+  to = "/mentions-legales/"
+  status = 301
+  force = true
+
 # Trailing slash : sans slash -> avec slash (version canonique)
 [[redirects]]
   from = "/mecanique"
@@ -112,5 +118,11 @@
 [[redirects]]
   from = "/cookies"
   to = "/cookies/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/mentions-legales"
+  to = "/mentions-legales/"
   status = 301
   force = true

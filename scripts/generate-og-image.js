@@ -3,12 +3,12 @@ const fs = require('fs');
 const path = require('path');
 
 const root = path.join(__dirname, '..');
-const svgPath = path.join(root, 'assets', 'img', 'og-default.svg');
-const outPath = path.join(root, 'assets', 'img', 'og-default.png');
+const sourcePath = path.join(root, 'assets', 'img', 'logo-redk-motors.png');
+const outPath = path.join(root, 'assets', 'img', 'og-brand.png');
 
 async function run() {
   const sharp = require('sharp');
-  await sharp(fs.readFileSync(svgPath))
+  await sharp(fs.readFileSync(sourcePath))
     .resize(1200, 630)
     .png({ quality: 90 })
     .toFile(outPath);
