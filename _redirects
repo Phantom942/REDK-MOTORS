@@ -1,5 +1,7 @@
-# Netlify - Redirections 301 (à la racine du publish = _site)
-# Legacy .html -> canonique
+# Netlify — fichier unique pour les redirections 301 (copié dans _site par Eleventy).
+# GitHub Pages ne lit pas ce fichier ; le site public utilise les URLs canoniques côté HTML.
+
+# Legacy .html → URL avec slash final
 /mecanique.html    /mecanique/    301
 /carrosserie.html  /carrosserie/  301
 /entretien.html    /entretien/    301
@@ -7,9 +9,15 @@
 /achat-revente.html /achat-revente/ 301
 /location.html     /location/     301
 /contact.html      /contact/      301
+/processus.html    /processus/    301
 /confidentialite.html /confidentialite/ 301
 /cookies.html      /cookies/      301
-# Trailing slash
+/mentions-legales.html /mentions-legales/ 301
+
+/blog/5-points-controle-avant-ct-ivry.html /blog/5-points-controle-avant-ct-ivry/ 301
+/blog/tag/mecanique/confidentialite.html /confidentialite/ 301
+
+# Sans slash final → avec slash
 /mecanique         /mecanique/    301
 /carrosserie       /carrosserie/  301
 /entretien         /entretien/    301
@@ -17,13 +25,14 @@
 /achat-revente     /achat-revente/ 301
 /location          /location/     301
 /contact           /contact/      301
+/processus         /processus/    301
 /confidentialite   /confidentialite/ 301
 /cookies           /cookies/      301
+/mentions-legales  /mentions-legales/ 301
 
-# Canonisation générique
-# /foo/index.html -> /foo/
+# /foo/index.html → /foo/
 /*/index.html      /:splat/       301
 
-# /blog et pagination -> trailing slash
+# Blog
 /blog              /blog/         301
 /blog/page/:num    /blog/page/:num/ 301
