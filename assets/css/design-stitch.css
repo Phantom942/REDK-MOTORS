@@ -1,0 +1,1658 @@
+/**
+ * Thème « Precision Atelier » (Stitch) — site entier (body.design-stitch).
+ * Surcharges visuelles uniquement ; contenu et médias inchangés dans les templates.
+ */
+
+html {
+  background-color: #131317;
+}
+
+body.design-stitch {
+  --stitch-bg: #131317;
+  --stitch-bg-low: #1b1b1f;
+  --stitch-surface: #1f1f23;
+  --stitch-surface-high: #2a292e;
+  --stitch-on-surface: #e4e1e7;
+  --stitch-on-variant: #c9b8b4;
+  --stitch-primary: #ffb4ab;
+  --stitch-primary-container: #821111;
+  --stitch-primary-container-2: #8b1917;
+  --stitch-outline: rgba(167, 138, 134, 0.15);
+  --stitch-ring: rgba(255, 180, 171, 0.14);
+  --stitch-ring-strong: rgba(255, 180, 171, 0.22);
+  --stitch-module-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.42),
+    0 0 0 1px var(--stitch-ring),
+    inset 0 1px 0 rgba(255, 255, 255, 0.045);
+  --font-stitch-head: "Space Grotesk", var(--font-primary), system-ui, sans-serif;
+  --font-stitch-body: "Manrope", var(--font-secondary), system-ui, sans-serif;
+  background-color: var(--stitch-bg);
+  color: var(--stitch-on-surface);
+  font-family: var(--font-stitch-body);
+}
+
+.design-stitch .scroll-progress {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.design-stitch .scroll-progress__indicator {
+  background: linear-gradient(90deg, var(--stitch-primary-container), var(--stitch-primary-container-2));
+}
+
+/* --- Barre du haut + header : verre, sans bandeau rouge --- */
+.design-stitch .top-bar {
+  background: rgba(10, 10, 12, 0.92);
+  border-bottom: 1px solid var(--stitch-outline);
+  color: var(--stitch-on-variant);
+}
+
+.design-stitch .top-bar__link:hover {
+  color: var(--stitch-primary);
+}
+
+.design-stitch .main-header {
+  background: rgba(9, 9, 11, 0.72);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--stitch-outline);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
+}
+
+.design-stitch .main-nav a {
+  color: #a1a1aa;
+  font-family: var(--font-stitch-head);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.design-stitch .main-nav a:hover,
+.design-stitch .main-nav a:focus-visible {
+  color: #f4f4f5;
+}
+
+.design-stitch .main-nav a[aria-current="page"] {
+  color: var(--stitch-primary);
+}
+
+.design-stitch .main-nav__toggle {
+  color: #f4f4f5;
+}
+
+/* --- Typo & alignements (#main centre tout par défaut) --- */
+.design-stitch #main section,
+.design-stitch #main .container {
+  text-align: left;
+}
+
+.design-stitch #main h1,
+.design-stitch #main h2,
+.design-stitch #main h3 {
+  font-family: var(--font-stitch-head);
+  letter-spacing: -0.03em;
+}
+
+.design-stitch #main h2 {
+  color: #f4f4f5;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.design-stitch .blog-article .article-body h2,
+.design-stitch #main .legal-content h2 {
+  text-transform: none;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #fafafa;
+  border-bottom-color: rgba(255, 180, 171, 0.25);
+}
+
+.design-stitch #main .services__lead,
+.design-stitch #main .pricing-section__intro {
+  text-align: left;
+  margin-left: 0;
+  margin-right: 0;
+  color: var(--stitch-on-variant);
+}
+
+.design-stitch #main .pricing-section__actions,
+.design-stitch #main .reviews-section__header,
+.design-stitch #main .reviews-section__cta,
+.design-stitch #main .appointment__centered,
+.design-stitch #main .trust-block--reviews-only__inner,
+.design-stitch #main .faq-section > .container,
+.design-stitch #main .launch-offer__inner,
+.design-stitch #main .service-focus__cta {
+  text-align: center;
+}
+
+.design-stitch #main .appointment__centered dl {
+  text-align: center;
+}
+
+.design-stitch #main .pricing-section__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Centrer les boutons dans les blocs CTA (surcharge #main .container { text-align: left }) */
+.design-stitch #main .trust-block--reviews-only__inner .btn,
+.design-stitch #main .service-focus__cta .btn,
+.design-stitch #main .launch-offer__actions .btn {
+  align-self: center;
+}
+
+.design-stitch #main .trust-block--reviews-only__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 32rem;
+}
+
+.design-stitch #main .service-focus__cta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem 1rem;
+}
+
+/* --- Hero : overlay + typo uniquement (vidéo inchangée dans le HTML) --- */
+.design-stitch .hero__video-bg {
+  background: #0a0a0a;
+}
+
+.design-stitch .hero__overlay {
+  background: linear-gradient(
+    to top,
+    var(--stitch-bg) 0%,
+    rgba(19, 19, 23, 0.45) 42%,
+    rgba(19, 19, 23, 0.25) 100%
+  );
+}
+
+.design-stitch .hero {
+  color: #f4f4f5;
+}
+
+.design-stitch .hero .container {
+  max-width: 96rem;
+}
+
+.design-stitch .hero__content {
+  text-align: left;
+  padding-top: clamp(5rem, 12vh, 7rem);
+  padding-bottom: clamp(2rem, 6vh, 4rem);
+}
+
+@media (min-width: 768px) {
+  .design-stitch .hero__content {
+    padding-left: clamp(1.25rem, 4vw, 2rem);
+    padding-right: clamp(1.25rem, 4vw, 2rem);
+  }
+}
+
+.design-stitch .hero--home-cro .hero h1 {
+  font-family: var(--font-stitch-head);
+  font-size: clamp(2.25rem, 7vw, 4.5rem);
+  font-weight: 900;
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: -0.04em;
+  color: #fafafa;
+  text-shadow: 0 2px 40px rgba(0, 0, 0, 0.55);
+  max-width: 18ch;
+}
+
+.design-stitch .hero--home-cro .hero h1 .hero__accent,
+.design-stitch .hero--home-cro .hero h1 span {
+  color: var(--stitch-primary-container);
+}
+
+.design-stitch .hero--home-cro .hero__actions--cro {
+  align-items: flex-start;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+@media (min-width: 480px) {
+  .design-stitch .hero--home-cro .hero__actions--cro {
+    justify-content: flex-start;
+  }
+}
+
+/* Boutons hero & globaux — angles serrés, CTA dégradé */
+.design-stitch .btn {
+  border-radius: 0.25rem;
+  font-family: var(--font-stitch-head);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-width: 1px;
+}
+
+.design-stitch .btn--primary {
+  background: linear-gradient(135deg, var(--stitch-primary-container) 0%, var(--stitch-primary-container-2) 100%);
+  border-color: transparent;
+  color: var(--stitch-on-surface);
+  box-shadow: 0 12px 40px rgba(130, 17, 17, 0.35);
+}
+
+.design-stitch .btn--primary:hover {
+  background: linear-gradient(135deg, #9a1a1a 0%, var(--stitch-primary-container) 100%);
+  color: #fff;
+  transform: scale(0.98);
+}
+
+.design-stitch .hero .btn--secondary {
+  background: rgba(42, 41, 46, 0.55);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-color: rgba(167, 138, 134, 0.35);
+  color: var(--stitch-on-surface);
+}
+
+.design-stitch .hero .btn--secondary:hover {
+  background: rgba(53, 52, 57, 0.85);
+  color: #fff;
+  transform: scale(0.98);
+}
+
+/* --- Prix d'appel (hook) : barre façon « stats » --- */
+.design-stitch .hook-offers {
+  position: relative;
+  z-index: 5;
+  margin-top: -4rem;
+  padding-top: 0;
+  padding-bottom: 3rem;
+  background: transparent;
+}
+
+.design-stitch .hook-offers__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  max-width: 96rem;
+  margin: 0 auto;
+  padding: 0;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  background: var(--stitch-bg-low);
+  border: 1px solid var(--stitch-ring-strong);
+  /* Une seule arête : pas de ring 0 0 0 1px ni inset (évite le « double contour ») */
+  box-shadow: 0 20px 56px rgba(0, 0, 0, 0.5);
+}
+
+@media (min-width: 768px) {
+  .design-stitch .hook-offers__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .design-stitch .hook-offers__card {
+    border-right: 1px solid var(--stitch-outline);
+    border-bottom: none;
+  }
+
+  .design-stitch .hook-offers__card:last-child {
+    border-right: none;
+  }
+}
+
+.design-stitch .hook-offers__card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.75rem 1.5rem;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  border-bottom: 1px solid var(--stitch-outline);
+}
+
+.design-stitch .hook-offers__card:last-child {
+  border-bottom: none;
+}
+
+.design-stitch .hook-offers__label {
+  font-family: var(--font-stitch-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--stitch-on-variant);
+}
+
+.design-stitch .hook-offers__price {
+  font-family: var(--font-stitch-head);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #fafafa;
+}
+
+/* --- Trust bar --- */
+.design-stitch .trust-bar {
+  background: var(--stitch-bg);
+  padding: 3rem 0;
+  border-top: none;
+  border-bottom: none;
+}
+
+.design-stitch .trust-bar__inner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  text-align: left;
+}
+
+.design-stitch .trust-bar__item {
+  text-align: left;
+  padding: 1.25rem 1.25rem;
+  background: var(--stitch-surface);
+  border-radius: 0.375rem;
+  border: 1px solid var(--stitch-ring-strong);
+  box-shadow: var(--stitch-module-shadow);
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.design-stitch .trust-bar__item:hover {
+  background: var(--stitch-surface-high);
+}
+
+.design-stitch .trust-bar__item strong {
+  color: #fafafa;
+  font-family: var(--font-stitch-head);
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+}
+
+.design-stitch .trust-bar__item span:last-child {
+  color: var(--stitch-on-variant);
+}
+
+/* --- Services (buckets) --- */
+.design-stitch .services--buckets {
+  padding: 5rem 0 4rem;
+  background: var(--stitch-bg);
+}
+
+.design-stitch .services--buckets h2 {
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  max-width: 20ch;
+  line-height: 1.05;
+}
+
+.design-stitch .services--buckets h2::after {
+  content: "";
+  display: block;
+  width: 3rem;
+  height: 3px;
+  margin-top: 1rem;
+  background: linear-gradient(90deg, var(--stitch-primary-container), transparent);
+}
+
+.design-stitch .services-buckets.grid--three {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.25rem;
+}
+
+@media (min-width: 1024px) {
+  .design-stitch .services-buckets.grid--three {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  .design-stitch .services-buckets .card--bucket:nth-child(1) {
+    grid-column: span 7;
+    min-height: 280px;
+  }
+
+  .design-stitch .services-buckets .card--bucket:nth-child(2) {
+    grid-column: span 5;
+    min-height: 280px;
+  }
+
+  .design-stitch .services-buckets .card--bucket:nth-child(3) {
+    grid-column: span 12;
+  }
+}
+
+.design-stitch .services .card {
+  background: var(--stitch-surface);
+  border: 1px solid var(--stitch-ring-strong);
+  border-radius: 0.5rem;
+  box-shadow: var(--stitch-module-shadow);
+  transform: none;
+  text-align: left;
+}
+
+.design-stitch .services .card:hover {
+  transform: none;
+  background: var(--stitch-surface-high);
+  box-shadow: 0 0 0 1px rgba(255, 180, 171, 0.12);
+}
+
+.design-stitch .services .card h3 {
+  color: #fafafa;
+  font-size: 1.35rem;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.design-stitch .services .card p {
+  color: var(--stitch-on-variant);
+}
+
+.design-stitch .pill-list li {
+  background: var(--stitch-bg-low);
+  color: var(--stitch-on-surface);
+  border-radius: 0.25rem;
+  border: 1px solid var(--stitch-outline);
+}
+
+.design-stitch .services .card h3 a,
+.design-stitch .services .card h3 a:visited {
+  color: var(--stitch-primary);
+}
+
+.design-stitch .services .card h3 a:hover {
+  color: #fff;
+}
+
+.design-stitch .services .card .pill-list a:hover {
+  color: var(--stitch-primary);
+}
+
+/* --- Tarifs (tableau) --- */
+.design-stitch .pricing-section--readable {
+  padding: 5rem 0;
+  background: var(--stitch-bg-low);
+}
+
+.design-stitch .pricing-section--readable h2 {
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+}
+
+.design-stitch .pricing-section--readable h2 span {
+  color: var(--stitch-primary-container);
+}
+
+.design-stitch .pricing-section__intro strong {
+  color: #fafafa;
+}
+
+.design-stitch .pricing-table-wrap {
+  border-radius: 0.5rem;
+  border: 1px solid var(--stitch-ring-strong);
+  overflow: hidden;
+  background: var(--stitch-surface);
+  box-shadow: var(--stitch-module-shadow);
+}
+
+.design-stitch .pricing-table {
+  background: transparent;
+}
+
+.design-stitch .pricing-section--readable .pricing-table thead th,
+.design-stitch .pricing-section--readable .pricing-table tbody th,
+.design-stitch .pricing-section--readable .pricing-table tbody td {
+  color: var(--stitch-on-surface);
+  border-color: var(--stitch-outline);
+}
+
+.design-stitch .pricing-section--readable .pricing-table tbody th {
+  color: #fafafa;
+  font-family: var(--font-stitch-head);
+}
+
+.design-stitch .pricing-section__disclaimer {
+  color: var(--stitch-on-variant);
+}
+
+.design-stitch .pricing-section__disclaimer a {
+  color: var(--stitch-primary);
+}
+
+.design-stitch .pricing-section__note {
+  color: var(--stitch-on-variant);
+  font-size: 0.9rem;
+  margin-top: -0.25rem;
+  margin-bottom: 1.25rem;
+  line-height: 1.55;
+}
+
+.design-stitch .btn--secondary.btn--dark {
+  border-color: rgba(255, 255, 255, 0.25);
+  color: var(--stitch-on-surface);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.design-stitch .btn--secondary.btn--dark:hover {
+  background: var(--stitch-surface-high);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+/* --- Rendez-vous --- */
+.design-stitch .appointment--final {
+  padding: 4.5rem 0;
+  background: var(--stitch-bg);
+}
+
+.design-stitch .appointment--final h2 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.design-stitch .appointment--final p,
+.design-stitch .appointment__info dd,
+.design-stitch .appointment__info dt {
+  color: var(--stitch-on-variant);
+}
+
+.design-stitch .appointment__info a {
+  color: #fafafa;
+}
+
+.design-stitch .appointment__hint a {
+  color: var(--stitch-primary);
+}
+
+.design-stitch .appointment .appointment__actions .btn--secondary,
+.design-stitch .appointment .appointment__actions .btn--whatsapp {
+  background: linear-gradient(135deg, var(--stitch-primary-container) 0%, var(--stitch-primary-container-2) 100%);
+  border-color: transparent;
+}
+
+/* --- Bloc avis Google (CTA) --- */
+.design-stitch .trust-block--reviews-only {
+  background: var(--stitch-bg-low);
+  border-top: 1px solid var(--stitch-outline);
+  border-bottom: 1px solid var(--stitch-outline);
+}
+
+.design-stitch .trust-block--reviews-only__text {
+  color: var(--stitch-on-variant);
+}
+
+/* --- Section avis --- */
+.design-stitch .reviews-section {
+  background: var(--stitch-bg);
+  color: var(--stitch-on-surface);
+  padding: 5rem 0;
+}
+
+.design-stitch .reviews-section__title {
+  color: #fafafa;
+  font-family: var(--font-stitch-head);
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.design-stitch .reviews-section__score {
+  color: #fafafa;
+}
+
+.design-stitch .reviews-section__badge-google {
+  background: var(--stitch-surface);
+  border: 1px solid var(--stitch-outline);
+  box-shadow: none;
+}
+
+.design-stitch .reviews-section__grid {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.design-stitch .review-card {
+  background: var(--stitch-surface);
+  border: 1px solid var(--stitch-ring-strong);
+  border-left: 4px solid var(--stitch-primary-container);
+  border-radius: 0.375rem;
+  box-shadow: var(--stitch-module-shadow);
+}
+
+.design-stitch .review-card:hover {
+  transform: none;
+  background: var(--stitch-surface-high);
+}
+
+.design-stitch .review-card__text {
+  color: var(--stitch-on-variant);
+  font-style: italic;
+}
+
+.design-stitch .review-card__name {
+  color: #fafafa;
+  font-family: var(--font-stitch-head);
+  font-weight: 700;
+}
+
+.design-stitch .reviews-section__link {
+  color: var(--stitch-primary);
+  font-family: var(--font-stitch-head);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.8rem;
+}
+
+/* --- FAQ (accueil & pages avec .faq-section) : carte sombre unifiée --- */
+.design-stitch .faq-section {
+  padding: 4rem 0 5rem;
+  background: var(--stitch-bg-low);
+}
+
+.design-stitch .faq-section h2 {
+  margin-bottom: 2.5rem;
+}
+
+/* Annule le fond gris clair du CSS de base sur le wrapper */
+.design-stitch .faq-section .faq__item {
+  margin-bottom: 0.85rem;
+  background: var(--stitch-surface);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border: 1px solid var(--stitch-ring-strong);
+  box-shadow: var(--stitch-module-shadow);
+  transition: border-color 0.2s ease, box-shadow 0.25s ease;
+}
+
+.design-stitch .faq-section .faq__item:hover {
+  border-color: rgba(255, 180, 171, 0.28);
+}
+
+.design-stitch .faq-section .faq__item:has(.faq__question[aria-expanded="true"]) {
+  border-color: rgba(130, 17, 17, 0.65);
+  box-shadow:
+    0 12px 40px rgba(130, 17, 17, 0.18),
+    0 0 0 1px rgba(255, 180, 171, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.design-stitch .faq-section .faq__question {
+  width: 100%;
+  padding: 1.15rem 1.35rem;
+  margin: 0;
+  text-align: left;
+  font-family: var(--font-stitch-head);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+  color: #fafafa;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  background: linear-gradient(180deg, rgba(47, 46, 52, 0.5) 0%, var(--stitch-surface) 100%);
+  border: none;
+  border-radius: 0;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.design-stitch .faq-section .faq__question:hover {
+  background: var(--stitch-surface-high);
+}
+
+.design-stitch .faq-section .faq__question[aria-expanded="true"] {
+  background: var(--stitch-surface-high);
+  border-bottom: 1px solid rgba(255, 180, 171, 0.12);
+}
+
+.design-stitch .faq-section .faq__question::after {
+  content: "+";
+  font-size: 1.35rem;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--stitch-primary);
+  flex-shrink: 0;
+}
+
+.design-stitch .faq-section .faq__question[aria-expanded="true"]::after {
+  content: "−";
+}
+
+.design-stitch .faq-section .faq__answer {
+  padding: 1.25rem 1.35rem 1.45rem;
+  margin: 0;
+  background: #0c0c10;
+  color: var(--stitch-on-surface);
+  line-height: 1.75;
+  text-align: left;
+  font-size: 0.98rem;
+  border-top: 1px solid rgba(255, 180, 171, 0.1);
+}
+
+.design-stitch .faq-section .faq__answer p {
+  margin: 0;
+  color: inherit;
+}
+
+.design-stitch .faq-section .faq__answer a {
+  color: var(--stitch-primary);
+  font-weight: 600;
+  text-underline-offset: 2px;
+}
+
+.design-stitch .faq-section .faq__answer a:hover {
+  color: #fff;
+}
+
+/* --- Footer --- */
+.design-stitch .site-footer {
+  background: #09090b;
+  color: var(--stitch-on-variant);
+  border-top: 1px solid var(--stitch-outline);
+}
+
+.design-stitch .site-footer h3 {
+  font-family: var(--font-stitch-head);
+  color: #fafafa;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+}
+
+.design-stitch .site-footer a {
+  color: var(--stitch-on-surface);
+}
+
+.design-stitch .site-footer a:hover {
+  color: var(--stitch-primary);
+}
+
+.design-stitch .site-footer__bottom {
+  border-color: var(--stitch-outline);
+}
+
+.design-stitch .site-footer__bottom a {
+  color: var(--stitch-on-variant);
+}
+
+/* --- Bulle WhatsApp + retour haut --- */
+.design-stitch .whatsapp-float {
+  background: linear-gradient(145deg, #128c7e, #075e54);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+}
+
+.design-stitch .back-to-top {
+  background: var(--stitch-surface-high);
+  color: var(--stitch-on-surface);
+  border: 1px solid var(--stitch-outline);
+}
+
+.design-stitch .back-to-top:hover {
+  background: var(--stitch-primary-container);
+  color: #fff;
+}
+
+/* ========== Hero pages intérieures (vidéo / image inchangées) ========== */
+.design-stitch section.hero.hero--subpage {
+  background: linear-gradient(165deg, #1f1214 0%, #131317 50%, #120808 100%);
+}
+
+.design-stitch .hero--subpage .hero__overlay {
+  background: linear-gradient(
+    160deg,
+    rgba(19, 19, 23, 0.92) 0%,
+    rgba(19, 19, 23, 0.55) 45%,
+    rgba(130, 17, 17, 0.35) 100%
+  );
+}
+
+.design-stitch .hero--subpage .hero__content {
+  text-align: center;
+}
+
+.design-stitch .hero--subpage .hero h1 {
+  font-family: var(--font-stitch-head);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: #fafafa;
+  max-width: 22ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.design-stitch .hero__kicker {
+  font-family: var(--font-stitch-head);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--stitch-primary);
+}
+
+.design-stitch .hero__meta {
+  color: var(--stitch-on-variant);
+}
+
+.design-stitch .hero .hero__lede {
+  color: rgba(228, 225, 231, 0.92);
+  font-family: var(--font-stitch-body);
+}
+
+.design-stitch .hero--subpage .hero__actions {
+  justify-content: center;
+}
+
+.design-stitch .hero--subpage .btn--secondary {
+  background: rgba(42, 41, 46, 0.55);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-color: rgba(167, 138, 134, 0.4);
+  color: var(--stitch-on-surface);
+}
+
+.design-stitch .hero--subpage .btn--secondary:hover {
+  background: rgba(53, 52, 57, 0.9);
+  color: #fff;
+}
+
+/* ========== Sections « service » (entretien, mécanique, etc.) ========== */
+.design-stitch .service-focus,
+.design-stitch .service-focus--alt {
+  background: var(--stitch-bg);
+  border-top: 1px solid var(--stitch-outline);
+  border-bottom: 1px solid var(--stitch-outline);
+}
+
+/* Tout le bloc centré (le #main .container imposait text-align:left sur .service-focus__inner) */
+.design-stitch #main .service-focus .service-focus__inner,
+.design-stitch #main .service-focus .service-focus__inner > div {
+  text-align: center;
+  align-items: center;
+}
+
+.design-stitch .service-focus h2 {
+  color: #fafafa;
+  text-align: center;
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.design-stitch .service-focus .service-focus__inner > div > p:not(.service-focus__cta) {
+  text-align: center;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--stitch-on-surface);
+}
+
+.design-stitch .service-focus .service-focus__inner > div > p:not(.service-focus__cta) strong {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.design-stitch .service-focus .service-focus__inner ul {
+  list-style: none;
+  margin: 1.25rem auto 0;
+  padding: 0;
+  width: 100%;
+  max-width: 40rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.design-stitch .service-focus .service-focus__inner ul li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.45rem 0.5rem;
+  padding: 0.45rem 0;
+  padding-left: 0;
+  color: var(--stitch-on-surface);
+  text-align: center;
+}
+
+.design-stitch .service-focus .service-focus__inner ul li::before {
+  content: "✓";
+  position: static;
+  flex-shrink: 0;
+  margin-top: 0.12em;
+  color: var(--stitch-primary-container);
+  font-weight: bold;
+}
+
+.design-stitch .service-focus__visual {
+  color: rgba(130, 17, 17, 0.25);
+}
+
+.design-stitch .promesse {
+  background: var(--stitch-bg-low);
+}
+
+.design-stitch .promesse__title {
+  color: #fafafa;
+}
+
+.design-stitch .promesse__item {
+  background: var(--stitch-surface);
+  border: 1px solid var(--stitch-outline);
+  border-radius: 0.375rem;
+}
+
+.design-stitch .promesse__item p {
+  color: var(--stitch-on-surface);
+}
+
+.design-stitch .promesse__item h3 {
+  color: #fafafa;
+}
+
+.design-stitch .promesse__icon {
+  color: var(--stitch-primary);
+}
+
+.design-stitch .atelier-suite {
+  background: var(--stitch-bg);
+}
+
+.design-stitch .section-kicker {
+  color: var(--stitch-primary);
+  font-family: var(--font-stitch-head);
+  letter-spacing: 0.14em;
+}
+
+.design-stitch .section-header h2 {
+  color: #fafafa;
+}
+
+.design-stitch .tabs {
+  border-bottom-color: var(--stitch-outline);
+  gap: 0.25rem;
+  flex-wrap: wrap;
+}
+
+.design-stitch .tabs__trigger {
+  color: var(--stitch-on-variant);
+  border-radius: 0.25rem 0.25rem 0 0;
+  font-family: var(--font-stitch-head);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.design-stitch .tabs__trigger:hover,
+.design-stitch .tabs__trigger.is-active,
+.design-stitch .tabs__trigger[aria-selected="true"] {
+  color: #fafafa;
+  background: var(--stitch-surface);
+  border-bottom-color: var(--stitch-primary-container);
+}
+
+.design-stitch .tabs__panel-inner {
+  background: var(--stitch-surface);
+  border: 1px solid var(--stitch-outline);
+  border-radius: 0 0.5rem 0.5rem 0.5rem;
+  color: var(--stitch-on-variant);
+}
+
+.design-stitch .tabs__panel h3 {
+  color: #fafafa;
+}
+
+.design-stitch #main .checklist li {
+  color: var(--stitch-on-surface);
+}
+
+.design-stitch .workflow {
+  background: var(--stitch-bg-low);
+}
+
+.design-stitch .workflow__intro h2 {
+  color: #fafafa;
+}
+
+.design-stitch .workflow__steps > li {
+  background: var(--stitch-surface);
+  border: 1px solid var(--stitch-outline);
+  border-radius: 0.5rem;
+}
+
+.design-stitch .workflow__steps > li h3 {
+  color: #fafafa;
+}
+
+.design-stitch .workflow__chip {
+  background: var(--stitch-primary-container);
+  border-radius: 0.25rem;
+  font-family: var(--font-stitch-head);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.design-stitch .workflow__step-number {
+  color: var(--stitch-primary);
+  font-family: var(--font-stitch-head);
+}
+
+/* FAQ pages services (même traitement que .faq-section) */
+.design-stitch .faq {
+  background: var(--stitch-bg);
+}
+
+.design-stitch .faq__inner {
+  color: var(--stitch-on-variant);
+}
+
+.design-stitch .faq .faq__item {
+  margin-bottom: 0.85rem;
+  background: var(--stitch-surface);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border: 1px solid var(--stitch-ring-strong);
+  box-shadow: var(--stitch-module-shadow);
+  transition: border-color 0.2s ease, box-shadow 0.25s ease;
+}
+
+.design-stitch .faq .faq__item:hover {
+  border-color: rgba(255, 180, 171, 0.28);
+}
+
+.design-stitch .faq .faq__item:has(.faq__question[aria-expanded="true"]) {
+  border-color: rgba(130, 17, 17, 0.65);
+  box-shadow:
+    0 12px 40px rgba(130, 17, 17, 0.18),
+    0 0 0 1px rgba(255, 180, 171, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.design-stitch .faq .faq__question {
+  width: 100%;
+  padding: 1.15rem 1.35rem;
+  margin: 0;
+  text-align: left;
+  font-family: var(--font-stitch-head);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+  color: #fafafa;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  background: linear-gradient(180deg, rgba(47, 46, 52, 0.5) 0%, var(--stitch-surface) 100%);
+  border: none;
+  border-radius: 0;
+  transition: background 0.2s ease;
+}
+
+.design-stitch .faq .faq__question:hover {
+  background: var(--stitch-surface-high);
+}
+
+.design-stitch .faq .faq__question[aria-expanded="true"] {
+  background: var(--stitch-surface-high);
+  border-bottom: 1px solid rgba(255, 180, 171, 0.12);
+}
+
+.design-stitch .faq .faq__question::after {
+  content: "+";
+  color: var(--stitch-primary);
+  font-size: 1.35rem;
+  font-weight: 400;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.design-stitch .faq .faq__question[aria-expanded="true"]::after {
+  content: "−";
+}
+
+.design-stitch .faq .faq__answer {
+  padding: 1.25rem 1.35rem 1.45rem;
+  margin: 0;
+  background: #0c0c10;
+  color: var(--stitch-on-surface);
+  line-height: 1.75;
+  text-align: left;
+  font-size: 0.98rem;
+  border-top: 1px solid rgba(255, 180, 171, 0.1);
+}
+
+.design-stitch .faq .faq__answer p {
+  margin: 0;
+  color: inherit;
+}
+
+.design-stitch .faq .faq__answer a {
+  color: var(--stitch-primary);
+  font-weight: 600;
+}
+
+.design-stitch .faq .faq__answer a:hover {
+  color: #fff;
+}
+
+.design-stitch .related-articles {
+  background: var(--stitch-bg-low);
+}
+
+.design-stitch .related-articles h2 {
+  color: #fafafa;
+}
+
+.design-stitch #main .card.card--link {
+  background: var(--stitch-surface);
+  border: 1px solid var(--stitch-outline);
+  border-left: 4px solid var(--stitch-primary-container);
+  box-shadow: none;
+  color: inherit;
+}
+
+.design-stitch #main .card.card--link:hover {
+  background: var(--stitch-surface-high);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+}
+
+.design-stitch #main .card.card--link h3 {
+  color: #fafafa;
+}
+
+.design-stitch #main .card.card--link:hover h3 {
+  color: var(--stitch-primary);
+}
+
+.design-stitch #main .card.card--link p {
+  color: var(--stitch-on-variant);
+}
+
+.design-stitch .guarantees-block {
+  background: var(--stitch-bg);
+  border-top: 1px solid var(--stitch-outline);
+}
+
+.design-stitch .guarantees-block__title {
+  color: #fafafa;
+  text-align: center;
+}
+
+.design-stitch .guarantees-block__list li {
+  color: var(--stitch-primary);
+}
+
+/* ========== Contact, tech-lab, cartes média ========== */
+.design-stitch .contact-reassurance {
+  background: var(--stitch-bg-low);
+  border-bottom: 1px solid var(--stitch-outline);
+}
+
+.design-stitch .contact-reassurance__inner p {
+  color: var(--stitch-on-variant);
+}
+
+.design-stitch .appointment:not(.appointment--final) {
+  background: var(--stitch-bg-low);
+}
+
+.design-stitch .appointment:not(.appointment--final) h2 {
+  color: #fafafa;
+}
+
+.design-stitch .appointment:not(.appointment--final) .appointment__centered > p {
+  color: var(--stitch-on-variant);
+}
+
+.design-stitch .appointment:not(.appointment--final) dt {
+  color: var(--stitch-primary);
+}
+
+.design-stitch .appointment:not(.appointment--final) dd,
+.design-stitch .appointment:not(.appointment--final) dd a {
+  color: var(--stitch-on-surface);
+}
+
+.design-stitch .tech-lab {
+  background: var(--stitch-bg);
+}
+
+.design-stitch .tech-lab__content h2 {
+  color: #fafafa;
+}
+
+.design-stitch .tech-lab__status {
+  background: var(--stitch-surface);
+  border: 1px solid var(--stitch-outline);
+  color: var(--stitch-on-variant);
+}
+
+.design-stitch .media-card {
+  background: var(--stitch-surface);
+  border: 1px solid var(--stitch-outline);
+  border-radius: 0.5rem;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+}
+
+.design-stitch .media-card__label {
+  background: linear-gradient(90deg, var(--stitch-primary-container), var(--stitch-primary-container-2));
+  font-family: var(--font-stitch-head);
+  letter-spacing: 0.12em;
+}
+
+.design-stitch .map-frame {
+  filter: grayscale(0.15) contrast(1.05);
+}
+
+/* ========== Processus, véhicules, offres ========== */
+.design-stitch .process-intro,
+.design-stitch .featured-vehicles,
+.design-stitch .upcoming-pro,
+.design-stitch .upcoming-pro--muted {
+  background: var(--stitch-bg);
+  color: var(--stitch-on-surface);
+}
+
+/* Location / achat-revente : le CSS de base impose #333 / #444 sur fond clair — illisible en thème sombre */
+.design-stitch .upcoming-pro__inner h2 {
+  color: #fafafa;
+}
+
+.design-stitch .upcoming-pro .upcoming-pro__text,
+.design-stitch .upcoming-pro--muted .upcoming-pro__text {
+  color: var(--stitch-on-surface);
+}
+
+.design-stitch .upcoming-pro .upcoming-pro__text strong,
+.design-stitch .upcoming-pro--muted .upcoming-pro__text strong {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.design-stitch .upcoming-pro .upcoming-pro__list li,
+.design-stitch .upcoming-pro--muted .upcoming-pro__list li {
+  color: var(--stitch-on-surface);
+  border-bottom-color: var(--stitch-outline);
+}
+
+.design-stitch .upcoming-pro .upcoming-pro__list li::before,
+.design-stitch .upcoming-pro--muted .upcoming-pro__list li::before {
+  color: var(--stitch-primary);
+}
+
+.design-stitch .process-hero__meta-card {
+  background: var(--stitch-surface);
+  border: 1px solid var(--stitch-outline);
+  color: var(--stitch-on-surface);
+}
+
+.design-stitch .process-timeline {
+  background: var(--stitch-bg-low);
+}
+
+.design-stitch .launch-offer {
+  background: var(--stitch-bg-low);
+  border-top: 1px solid var(--stitch-outline);
+  border-bottom: 1px solid var(--stitch-outline);
+}
+
+.design-stitch .launch-offer__title {
+  color: #fafafa;
+}
+
+.design-stitch .offer-banner {
+  background: var(--stitch-surface);
+  border: 1px solid var(--stitch-outline);
+  color: var(--stitch-on-surface);
+}
+
+.design-stitch .link {
+  color: var(--stitch-primary);
+}
+
+.design-stitch .link:hover {
+  color: #fff;
+}
+
+/* ========== Formulaires ========== */
+.design-stitch .form {
+  color: var(--stitch-on-surface);
+}
+
+.design-stitch .form label {
+  color: var(--stitch-on-variant);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.design-stitch .form input,
+.design-stitch .form select,
+.design-stitch .form textarea {
+  background: #0e0e12;
+  border: 1px solid var(--stitch-outline);
+  border-radius: 0.25rem;
+  color: var(--stitch-on-surface);
+}
+
+.design-stitch .form input:focus,
+.design-stitch .form select:focus,
+.design-stitch .form textarea:focus {
+  border-color: var(--stitch-primary-container);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(130, 17, 17, 0.35);
+}
+
+.design-stitch .form__chip {
+  background: var(--stitch-surface);
+  border: 1px solid var(--stitch-outline);
+  color: var(--stitch-on-surface);
+}
+
+.design-stitch .form__chip.is-active {
+  background: var(--stitch-primary-container);
+  border-color: transparent;
+  color: #fff;
+}
+
+/* ========== Blog liste & articles ========== */
+.design-stitch .blog-index {
+  background: var(--stitch-bg);
+}
+
+.design-stitch .blog-index__header {
+  border-bottom-color: var(--stitch-outline);
+}
+
+.design-stitch .blog-index__header h1 {
+  color: #fafafa;
+}
+
+.design-stitch .blog-index__header p {
+  color: var(--stitch-on-variant);
+}
+
+.design-stitch .blog-card {
+  background: var(--stitch-surface);
+  border: 1px solid var(--stitch-outline);
+  border-left: 4px solid var(--stitch-primary-container);
+  box-shadow: none;
+}
+
+.design-stitch .blog-card:hover {
+  background: var(--stitch-surface-high);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+}
+
+.design-stitch .blog-card__meta {
+  color: var(--stitch-on-variant);
+}
+
+.design-stitch .blog-card__category {
+  color: var(--stitch-primary);
+}
+
+.design-stitch .blog-card__title a {
+  color: #fafafa;
+}
+
+.design-stitch .blog-card__title a:hover {
+  color: var(--stitch-primary);
+}
+
+.design-stitch .blog-card__excerpt {
+  color: var(--stitch-on-variant);
+}
+
+.design-stitch .blog-card__link {
+  color: var(--stitch-primary);
+}
+
+.design-stitch .blog-index__back {
+  border-top-color: var(--stitch-outline);
+}
+
+.design-stitch .blog-pagination a {
+  color: var(--stitch-primary);
+}
+
+.design-stitch #main .breadcrumb {
+  color: var(--stitch-on-variant);
+}
+
+.design-stitch #main .breadcrumb a {
+  color: var(--stitch-on-surface);
+}
+
+.design-stitch #main .breadcrumb a:hover {
+  color: var(--stitch-primary);
+}
+
+.design-stitch .blog-article .article-header {
+  background: linear-gradient(180deg, var(--stitch-bg-low) 0%, var(--stitch-bg) 100%);
+  border-bottom: 1px solid var(--stitch-outline);
+}
+
+.design-stitch .blog-article .article-header h1 {
+  color: #fafafa;
+  font-family: var(--font-stitch-head);
+}
+
+.design-stitch .blog-article .article-meta,
+.design-stitch .blog-article .article-excerpt {
+  color: var(--stitch-on-variant);
+}
+
+.design-stitch .blog-article .article-category {
+  color: var(--stitch-primary);
+  background: rgba(130, 17, 17, 0.35);
+  border-radius: 0.25rem;
+}
+
+.design-stitch .blog-article .article-content {
+  background: var(--stitch-bg);
+}
+
+.design-stitch .blog-article .article-body {
+  color: var(--stitch-on-variant);
+}
+
+.design-stitch .blog-article .article-body h3 {
+  color: #fafafa;
+}
+
+.design-stitch .blog-article .article-body p,
+.design-stitch .blog-article .article-body li {
+  color: var(--stitch-on-variant);
+}
+
+.design-stitch .blog-article .article-body a {
+  color: var(--stitch-primary);
+}
+
+.design-stitch .blog-article .article-toc {
+  background: var(--stitch-surface);
+  border: 1px solid var(--stitch-outline);
+  border-radius: 0.5rem;
+}
+
+.design-stitch .blog-article .article-toc a {
+  color: var(--stitch-on-surface);
+}
+
+.design-stitch .blog-article .article-toc a:hover {
+  color: var(--stitch-primary);
+}
+
+/* ========== Pages légales ========== */
+.design-stitch #main .legal-content {
+  background: var(--stitch-bg);
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+}
+
+.design-stitch #main .legal-content .legal-content__inner {
+  background: var(--stitch-surface);
+  border: 1px solid var(--stitch-outline);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+  color: var(--stitch-on-variant);
+}
+
+.design-stitch #main .legal-content .legal-content__intro {
+  background: rgba(130, 17, 17, 0.2);
+  border-left-color: var(--stitch-primary-container);
+  color: var(--stitch-on-surface);
+}
+
+.design-stitch #main .legal-content .legal-content__intro strong {
+  color: #fafafa;
+}
+
+.design-stitch #main .legal-content p,
+.design-stitch #main .legal-content ul,
+.design-stitch #main .legal-content li {
+  color: var(--stitch-on-variant);
+}
+
+.design-stitch #main .legal-content h3 {
+  color: var(--stitch-primary);
+}
+
+.design-stitch #main .legal-content .legal-content__related-link {
+  background: var(--stitch-bg-low);
+  border-color: var(--stitch-outline);
+  color: var(--stitch-primary);
+}
+
+/* ========== Cookies ========== */
+.design-stitch .cookie-banner {
+  background: rgba(14, 14, 18, 0.96);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border-top: 1px solid var(--stitch-outline);
+  color: var(--stitch-on-surface);
+}
+
+.design-stitch .cookie-banner__text,
+.design-stitch .cookie-banner__text a {
+  color: var(--stitch-on-variant);
+}
+
+.design-stitch .cookie-customize-panel__inner {
+  background: var(--stitch-surface);
+  border: 1px solid var(--stitch-outline);
+  color: var(--stitch-on-surface);
+}
+
+.design-stitch .cookie-option__description {
+  color: var(--stitch-on-variant);
+}
+
+.design-stitch .cookie-notification {
+  background: var(--stitch-surface);
+  border: 1px solid var(--stitch-outline);
+  color: var(--stitch-on-surface);
+}
+
+/* ========== CTA sticky mobile ========== */
+.design-stitch .cta-sticky {
+  background: rgba(14, 14, 18, 0.92);
+  border-top: 1px solid var(--stitch-outline);
+}
+
+.design-stitch .cta-sticky__btn--devis {
+  background: var(--stitch-surface-high);
+  color: var(--stitch-on-surface);
+  border: 1px solid var(--stitch-outline);
+}
+
+/* ========== Boutons secondaires hors hero (lisibilité) ========== */
+.design-stitch .service-focus .btn--secondary,
+.design-stitch .tabs__panel .btn--secondary,
+.design-stitch .related-articles .btn--secondary,
+.design-stitch .guarantees-block .btn--secondary,
+.design-stitch .trust-block .btn--secondary,
+.design-stitch .blog-index .btn--secondary,
+.design-stitch .merci-page .btn--secondary {
+  background: transparent;
+  border-color: rgba(255, 180, 171, 0.45);
+  color: var(--stitch-primary);
+}
+
+.design-stitch .service-focus .btn--secondary:hover,
+.design-stitch .tabs__panel .btn--secondary:hover,
+.design-stitch .related-articles .btn--secondary:hover,
+.design-stitch .guarantees-block .btn--secondary:hover,
+.design-stitch .trust-block .btn--secondary:hover,
+.design-stitch .blog-index .btn--secondary:hover,
+.design-stitch .merci-page .btn--secondary:hover {
+  background: rgba(130, 17, 17, 0.35);
+  color: #fff;
+  border-color: var(--stitch-primary-container);
+}
+
+.design-stitch .btn--ghost {
+  border-color: var(--stitch-outline);
+  color: var(--stitch-on-surface);
+}
+
+.design-stitch .skip-link {
+  background: var(--stitch-primary-container);
+  color: #fff;
+}
+
+/* ========== Divers ========== */
+.design-stitch .reassurance-strip {
+  background: var(--stitch-bg-low);
+  border-top: 1px solid var(--stitch-outline);
+  border-bottom: 1px solid var(--stitch-outline);
+}
+
+.design-stitch .merci-page {
+  background: var(--stitch-bg);
+  color: var(--stitch-on-variant);
+}
+
+.design-stitch .services-links--compact {
+  background: var(--stitch-bg-low);
+}
+
+.design-stitch .services-links__heading {
+  color: #fafafa;
+}
+
+.design-stitch .why-us {
+  background: var(--stitch-bg-low);
+  color: var(--stitch-on-variant);
+}
+
+.design-stitch .why-us h2 {
+  color: #fafafa;
+}
+
+.design-stitch .why-us article {
+  background: var(--stitch-surface);
+  border: 1px solid var(--stitch-outline);
+  border-radius: 0.375rem;
+}
+
+.design-stitch .why-us article h3 {
+  color: var(--stitch-primary);
+}
+
+/* Menu mobile : même palette que la maquette */
+@media (max-width: 768px) {
+  .design-stitch .main-nav ul {
+    background: rgba(9, 9, 11, 0.97);
+    border-top: 1px solid var(--stitch-outline);
+  }
+
+  .design-stitch .main-nav ul a:hover,
+  .design-stitch .main-nav ul a[aria-current="page"] {
+    color: var(--stitch-primary);
+    background: rgba(130, 17, 17, 0.22);
+  }
+}

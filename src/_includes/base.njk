@@ -45,10 +45,12 @@
     <link rel="preload" href="{{ '/assets/css/styles.css' | cacheBust }}" as="style" fetchpriority="high" />
     <link rel="preload" href="/assets/js/main.js" as="script" />
     <link rel="stylesheet" href="{{ '/assets/css/styles.css' | cacheBust }}" />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ '/assets/css/design-stitch.css' | cacheBust }}" />
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="theme-color" content="#0b0b0f" />
-    <meta name="msapplication-TileColor" content="#0b0b0f" />
+    <meta name="theme-color" content="#131317" />
+    <meta name="msapplication-TileColor" content="#131317" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="mobile-web-app-capable" content="yes" />
@@ -124,7 +126,7 @@
     </script>
     {% endif %}
   </head>
-  <body data-page="{{ pageKey | default('index') }}" data-gtm-id="{{ site.gtmId }}">
+  <body class="design-stitch" data-page="{{ pageKey | default('index') }}" data-gtm-id="{{ site.gtmId }}">
     {% include "header.njk" %}
 
     <main id="main">
