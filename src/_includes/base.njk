@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
+    {% set defaultRobots = 'index, follow' %}
+    {% if page and page.url and '/garage-proche-' in page.url %}
+      {% set defaultRobots = 'noindex, follow' %}
+    {% endif %}
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" />
     <meta name="description" content="{{ description | default(site.description or 'Garage automobile RED-K MOTORS à Ivry-sur-Seine. Mécanique, carrosserie, entretien et pneumatiques.') }}" />
     <meta name="author" content="{{ site.name }}" />
-    <meta name="robots" content="{{ robots | default('index, follow') }}" />
+    <meta name="robots" content="{{ robots | default(defaultRobots) }}" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="{{ ogType | default('website') }}" />
@@ -78,6 +82,12 @@
             },
             "query-input": "required name=search_term_string"
           }
+        },
+        {
+          "@type": "ItemList",
+          "@id": "{{ site.url }}/#primary-navigation",
+          "name": "Pages principales",
+          "itemListElement": {{ site.sitelinksHints | json | safe }}
         },
         {
           "@type": "WebPage",
