@@ -19,6 +19,14 @@ module.exports = function () {
       openingHours: "Lun-Sam 10h-20h",
       ogImage: `${schema.url}/assets/img/og-brand.png`,
       gtmId: "GTM-NTC72X2G",
+      seoKeywords:
+        "garage ivry-sur-seine, garage 94, mecanique ivry, carrosserie ivry, diagnostic auto ivry, entretien auto ivry, pneus ivry, freins ivry, garage paris 13, garage vitry-sur-seine, garage villejuif, garage charenton-le-pont",
+      geo: {
+        region: "FR-94",
+        placename: "Ivry-sur-Seine",
+        position: "48.8105;2.3942",
+        icbm: "48.8105, 2.3942",
+      },
       nav: [
         { key: "index", title: "Accueil", url: "/" },
         { key: "tarifs", title: "Tarifs", url: "/tarifs/" },
