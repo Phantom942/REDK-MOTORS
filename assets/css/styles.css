@@ -4789,9 +4789,33 @@ img[loading="lazy"].loaded {
     padding: 3rem 0;
   }
 
+  .reviews-section__header {
+    gap: 0.9rem;
+  }
+
+  .reviews-section__rating {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7rem;
+    width: 100%;
+  }
+
+  .reviews-section__score {
+    font-size: 1.8rem;
+  }
+
   .reviews-section__grid {
     grid-template-columns: 1fr;
     gap: 1rem;
+  }
+
+  .review-card {
+    padding: 1.1rem;
+  }
+
+  .review-card__text {
+    font-size: 0.98rem;
+    line-height: 1.7;
   }
 
   .reviews-section__badge-google {
@@ -4799,6 +4823,7 @@ img[loading="lazy"].loaded {
     justify-content: center;
     border-radius: 12px;
     padding: 0.65rem 1rem;
+    width: 100%;
   }
 }
 
