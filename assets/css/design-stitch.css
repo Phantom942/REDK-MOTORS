@@ -1656,3 +1656,264 @@ body.design-stitch {
     background: rgba(130, 17, 17, 0.22);
   }
 }
+
+/* ========== Hub Prestations (inspiration comparateur) ========== */
+.design-stitch .presta-hub {
+  padding: clamp(2rem, 3.5vw, 3.25rem) 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+}
+
+.design-stitch .presta-hub__top {
+  display: grid;
+  gap: 1rem 1.5rem;
+  align-items: end;
+  margin-bottom: 1.35rem;
+}
+
+.design-stitch .presta-hub__intro h2 {
+  margin: 0 0 0.45rem;
+  color: #f8f8fa;
+}
+
+.design-stitch .presta-hub__intro p {
+  margin: 0;
+  color: var(--stitch-on-variant);
+}
+
+.design-stitch .presta-hub__form {
+  padding: 1rem;
+  border: 1px solid var(--stitch-outline);
+  border-radius: 0.75rem;
+  background: var(--stitch-surface);
+}
+
+.design-stitch .presta-hub__form label {
+  display: block;
+  margin-bottom: 0.55rem;
+  font-weight: 700;
+  color: #fafafa;
+}
+
+.design-stitch .presta-hub__form-row {
+  display: flex;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.design-stitch .presta-hub__form-row input {
+  flex: 1 1 14rem;
+  min-height: 48px;
+  padding: 0 0.9rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--stitch-outline);
+  background: rgba(255, 255, 255, 0.04);
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.design-stitch .presta-hub__form-row input:focus {
+  outline: 2px solid var(--stitch-primary);
+  outline-offset: 1px;
+}
+
+.design-stitch .presta-hub__form-row .btn {
+  min-height: 48px;
+}
+
+.design-stitch .presta-hub__content {
+  display: grid;
+  gap: 1rem;
+  align-items: start;
+}
+
+.design-stitch .presta-hub__grid {
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.design-stitch .presta-card {
+  border: 1px solid var(--stitch-outline);
+  border-radius: 0.75rem;
+  background: var(--stitch-surface);
+  padding: 0.9rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.design-stitch .presta-card h3 {
+  margin: 0 0 0.45rem;
+  color: var(--stitch-primary);
+  font-size: 1rem;
+  min-height: 2.5em;
+  display: flex;
+  align-items: flex-end;
+}
+
+.design-stitch .presta-card ul {
+  margin: 0;
+  padding-left: 1.05rem;
+  color: var(--stitch-on-variant);
+  display: grid;
+  gap: 0.25rem;
+}
+
+.design-stitch .presta-card ul a {
+  color: var(--stitch-on-variant);
+  text-decoration: none;
+}
+
+.design-stitch .presta-card ul a:hover {
+  color: var(--stitch-primary);
+  text-decoration: underline;
+}
+
+.design-stitch .presta-hub__cta {
+  border: 1px solid var(--stitch-outline);
+  border-radius: 0.75rem;
+  background: var(--stitch-surface);
+  padding: 1rem;
+}
+
+.design-stitch .presta-hub__cta h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: #f7f7f8;
+}
+
+.design-stitch .presta-hub__cta p {
+  margin-top: 0;
+  color: var(--stitch-on-variant);
+}
+
+.design-stitch .presta-hub__cta ul {
+  margin: 0 0 1rem;
+  padding-left: 1.05rem;
+  color: var(--stitch-on-variant);
+}
+
+.design-stitch .presta-hub__cta .btn {
+  width: 100%;
+  text-align: center;
+}
+
+@media (min-width: 860px) {
+  .design-stitch .presta-hub__top {
+    grid-template-columns: 1.2fr 1fr;
+  }
+
+  .design-stitch .presta-hub__content {
+    grid-template-columns: minmax(0, 1fr) 280px;
+  }
+}
+
+@media (min-width: 640px) {
+  .design-stitch .presta-hub__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ========== Listing + fiche prestation ========== */
+.design-stitch .presta-listing {
+  padding: clamp(2rem, 4vw, 3.5rem) 0;
+}
+
+.design-stitch .presta-listing h1 {
+  margin-top: 0;
+}
+
+.design-stitch .presta-listing p {
+  color: var(--stitch-on-variant);
+}
+
+.design-stitch .presta-listing__grid {
+  margin-top: 1.25rem;
+  display: grid;
+  gap: 0.9rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.design-stitch .presta-listing__card {
+  background: var(--stitch-surface);
+  border: 1px solid var(--stitch-outline);
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+
+.design-stitch .presta-listing__card h2 {
+  margin-top: 0;
+  font-size: 1.05rem;
+  color: var(--stitch-primary);
+}
+
+.design-stitch .presta-listing__card ul {
+  margin: 0;
+  padding-left: 1.05rem;
+}
+
+.design-stitch .presta-listing__card a {
+  color: var(--stitch-on-variant);
+  text-decoration: none;
+}
+
+.design-stitch .presta-listing__card a:hover {
+  color: var(--stitch-primary);
+  text-decoration: underline;
+}
+
+.design-stitch .presta-detail {
+  padding: clamp(2rem, 4vw, 3.25rem) 0;
+}
+
+.design-stitch .presta-detail__head {
+  display: grid;
+  gap: 1rem 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.design-stitch .presta-detail__head h1 {
+  margin: 0.25rem 0 0.5rem;
+}
+
+.design-stitch .presta-detail__head p {
+  margin: 0;
+  color: var(--stitch-on-variant);
+}
+
+.design-stitch .presta-detail__content {
+  display: grid;
+  gap: 1rem;
+  align-items: start;
+}
+
+.design-stitch .presta-detail__article {
+  background: var(--stitch-surface);
+  border: 1px solid var(--stitch-outline);
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+
+.design-stitch .presta-detail__article h2,
+.design-stitch .presta-detail__article h3 {
+  color: #fafafa;
+}
+
+.design-stitch .presta-detail__article p,
+.design-stitch .presta-detail__article li {
+  color: var(--stitch-on-variant);
+}
+
+.design-stitch .presta-detail__article ol {
+  padding-left: 1.15rem;
+}
+
+@media (min-width: 900px) {
+  .design-stitch .presta-detail__head {
+    grid-template-columns: 1.2fr 1fr;
+    align-items: end;
+  }
+
+  .design-stitch .presta-detail__content {
+    grid-template-columns: minmax(0, 1fr) 280px;
+  }
+}

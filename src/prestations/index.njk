@@ -1,0 +1,26 @@
+---
+layout: base.njk
+title: "Toutes les prestations atelier | RED-K MOTORS"
+description: "Consultez toutes les prestations atelier RED-K MOTORS et accedez a chaque fiche detaillee."
+pageKey: prestations
+---
+
+<section class="presta-listing" aria-labelledby="presta-listing-title">
+  <div class="container">
+    <h1 id="presta-listing-title">Toutes nos prestations atelier</h1>
+    <p>Choisissez une prestation pour voir le detail, les points controles et les questions frequentes.</p>
+
+    <div class="presta-listing__grid">
+      {% for category in prestations.categories %}
+      <article class="presta-listing__card">
+        <h2>{{ category.title }}</h2>
+        <ul>
+          {% for service in category.services %}
+          <li><a href="/prestations/{{ service.slug }}/">{{ service.name }}</a></li>
+          {% endfor %}
+        </ul>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

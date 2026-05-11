@@ -1,0 +1,85 @@
+---
+layout: base.njk
+pagination:
+  data: prestations.all
+  size: 1
+  alias: prestation
+permalink: "/prestations/{{ prestation.slug }}/index.html"
+pageKey: prestation
+eleventyComputed:
+  title: "{{ prestation.name }} a Ivry-sur-Seine (94) | RED-K MOTORS"
+  description: "{{ prestation.summary }}"
+---
+
+<section class="presta-detail" aria-labelledby="presta-detail-title">
+  <div class="container">
+    <header class="presta-detail__head">
+      <div>
+        <p class="section-kicker">Prestation atelier</p>
+        <h1 id="presta-detail-title">{{ prestation.name }}</h1>
+        <p>{{ prestation.summary }}</p>
+      </div>
+      <form class="presta-hub__form" action="/contact/" method="get">
+        <label for="plate-detail-{{ prestation.slug }}">Plaque d'immatriculation</label>
+        <div class="presta-hub__form-row">
+          <input id="plate-detail-{{ prestation.slug }}" name="plaque" type="text" inputmode="text" maxlength="10" placeholder="AB-123-CD" autocomplete="off" required />
+          <button class="btn btn--primary" type="submit">Rechercher</button>
+        </div>
+      </form>
+    </header>
+
+    <div class="presta-detail__content">
+      <article class="presta-detail__article">
+        <h2>Comment se passe {{ prestation.name | lower }} ?</h2>
+        <p>{{ prestation.lead }}</p>
+
+        <ul class="checklist">
+          {% for bullet in prestation.bullets %}
+          <li>{{ bullet }}</li>
+          {% endfor %}
+        </ul>
+
+        <h3>Deroulement de l'intervention</h3>
+        <ol>
+          {% for step in prestation.process %}
+          <li>{{ step }}</li>
+          {% endfor %}
+        </ol>
+
+        <a class="btn btn--primary" href="/contact/">Calculer le prix pour mon vehicule</a>
+      </article>
+
+      <aside class="presta-hub__cta" aria-label="Devis rapide">
+        <h3>Devis en quelques clics</h3>
+        <p>Obtenez une estimation personnalisee pour {{ prestation.name | lower }}.</p>
+        <ul>
+          <li>Reponse rapide</li>
+          <li>Devis gratuit</li>
+          <li>Validation avant travaux</li>
+        </ul>
+        <a class="btn btn--primary" href="/contact/">Obtenir un devis</a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="faq" aria-labelledby="faq-prestation" data-animate="slide-up">
+  <div class="container faq__inner">
+    <div>
+      <p class="section-kicker">FAQ</p>
+      <h2 id="faq-prestation">Questions frequentes</h2>
+    </div>
+    <div class="faq__list" data-accordion>
+      {% for item in prestation.faq %}
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">
+          {{ item.q }}
+        </button>
+        <div class="faq__answer" hidden>
+          <p>{{ item.a }}</p>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

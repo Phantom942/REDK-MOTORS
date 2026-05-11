@@ -1,0 +1,96 @@
+{% set prestationsHubTitle = prestationsHubTitle or "Nos prestations auto au juste prix" %}
+{% set prestationsHubSubtitle = prestationsHubSubtitle or "Entrez votre plaque pour accéder rapidement aux services adaptés à votre véhicule." %}
+{% set prestaHubCategories = prestaHubCategories or [] %}
+{% set prestaHubCategoryKeys = prestaHubCategoryKeys or [] %}
+{% set prestaHubServices = prestaHubServices or [] %}
+<section class="presta-hub" aria-labelledby="presta-hub-title" data-animate="slide-up">
+  <div class="container">
+    <div class="presta-hub__top">
+      <div class="presta-hub__intro">
+        <h2 id="presta-hub-title">{{ prestationsHubTitle }}</h2>
+        <p>{{ prestationsHubSubtitle }}</p>
+      </div>
+      <form class="presta-hub__form" action="/contact/" method="get">
+        <label for="plate-number">Plaque d'immatriculation</label>
+        <div class="presta-hub__form-row">
+          <input id="plate-number" name="plaque" type="text" inputmode="text" maxlength="10" placeholder="AB-123-CD" autocomplete="off" required />
+          <button class="btn btn--primary" type="submit">Rechercher</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="presta-hub__content">
+      <div class="presta-hub__grid" role="list" aria-label="Categories de prestations RED-K MOTORS">
+        {% if prestaHubCategoryKeys | length > 0 %}
+          {% for wantedCategoryKey in prestaHubCategoryKeys %}
+            {% for category in prestations.categories %}
+              {% if category.key == wantedCategoryKey %}
+              <article class="presta-card" role="listitem">
+                <h3>{{ category.title }}</h3>
+                <ul>
+                  {% for service in category.services %}
+                    {% if prestaHubServices | length == 0 %}
+                    <li><a href="/prestations/{{ service.slug }}/">{{ service.name }}</a></li>
+                    {% else %}
+                      {% for wantedService in prestaHubServices %}
+                        {% if service.slug == wantedService %}
+                    <li><a href="/prestations/{{ service.slug }}/">{{ service.name }}</a></li>
+                        {% endif %}
+                      {% endfor %}
+                    {% endif %}
+                  {% endfor %}
+                </ul>
+              </article>
+              {% endif %}
+            {% endfor %}
+          {% endfor %}
+        {% elif prestaHubCategories | length > 0 %}
+          {% for wantedCategory in prestaHubCategories %}
+            {% for category in prestations.categories %}
+              {% if category.title == wantedCategory %}
+              <article class="presta-card" role="listitem">
+                <h3>{{ category.title }}</h3>
+                <ul>
+                  {% for service in category.services %}
+                    {% if prestaHubServices | length == 0 %}
+                    <li><a href="/prestations/{{ service.slug }}/">{{ service.name }}</a></li>
+                    {% else %}
+                      {% for wantedService in prestaHubServices %}
+                        {% if service.slug == wantedService %}
+                    <li><a href="/prestations/{{ service.slug }}/">{{ service.name }}</a></li>
+                        {% endif %}
+                      {% endfor %}
+                    {% endif %}
+                  {% endfor %}
+                </ul>
+              </article>
+              {% endif %}
+            {% endfor %}
+          {% endfor %}
+        {% else %}
+          {% for category in prestations.categories %}
+          <article class="presta-card" role="listitem">
+            <h3>{{ category.title }}</h3>
+            <ul>
+              {% for service in category.services %}
+              <li><a href="/prestations/{{ service.slug }}/">{{ service.name }}</a></li>
+              {% endfor %}
+            </ul>
+          </article>
+          {% endfor %}
+        {% endif %}
+      </div>
+
+      <aside class="presta-hub__cta" aria-label="Devis rapide">
+        <h3>Devis en quelques clics</h3>
+        <p>Indiquez votre plaque et vos besoins : on vous rappelle avec une estimation claire.</p>
+        <ul>
+          <li>Réponse rapide</li>
+          <li>Devis gratuit</li>
+          <li>Validation avant travaux</li>
+        </ul>
+        <a class="btn btn--primary" href="/contact/">Obtenir un devis</a>
+      </aside>
+    </div>
+  </div>
+</section>

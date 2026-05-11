@@ -62,7 +62,11 @@ faqSchema:
 {% set heroKicker = "Toutes marques · Devis avant travaux" %}
 {% set heroDesc = "Diagnostic, distribution, embrayage, suspension. Devis écrit, pièces adaptées." %}
 {% set videoSrc = "mecanique.mp4" %}
+{% set prestationsHubTitle = "Prestations mecaniques" %}
+{% set prestationsHubSubtitle = "Retrouvez uniquement les prestations mecaniques de l'atelier, avec redirection vers leur fiche detaillee." %}
+{% set prestaHubCategoryKeys = ["moteur", "suspension", "batterie", "transmission"] %}
 {% include "hero-video.njk" %}
+{% include "prestations-hub.njk" %}
 
 <section id="mecanique" class="service-focus" aria-labelledby="mecanique-title" data-animate="slide-right">
   <div class="container service-focus__inner">
@@ -187,7 +191,7 @@ faqSchema:
         <div class="tabs__panel-inner">
           <div>
             <h3>Entretien moteur et diagnostics</h3>
-            <p>Vidanges, distribution, recherche de pannes : nous intervenons sur toutes les motorisations.</p>
+            <p>On traite les pannes moteur de manière méthodique, puis on vous propose une solution claire selon l'urgence et votre budget.</p>
             <ul class="checklist">
               <li>Recherche de fuite et tests de compression</li>
               <li>Distribution, injection, bougies, carburant</li>
@@ -206,7 +210,7 @@ faqSchema:
         <div class="tabs__panel-inner">
           <div>
             <h3>Transmission et liaisons au sol</h3>
-            <p>Boîtes automatiques, ponts, embrayages, trains roulants : on s'occupe du comportement routier.</p>
+            <p>Boîte, embrayage et trains roulants sont contrôlés en détail pour retrouver une conduite fluide et éviter l'usure prématurée.</p>
             <ul class="checklist">
               <li>Vidanges de boîtes auto et ponts</li>
               <li>Remplacement embrayage et volant moteur</li>
@@ -225,7 +229,7 @@ faqSchema:
         <div class="tabs__panel-inner">
           <div>
             <h3>Électronique et confort</h3>
-            <p>Diagnostic valise, climatisation, systèmes d'aide à la conduite : on vérifie que tout fonctionne.</p>
+            <p>Valise multimarque, clim et électronique embarquée : on identifie l'origine des défauts et on fiabilise les fonctions essentielles.</p>
             <ul class="checklist">
               <li>Lecture défauts et effacement</li>
               <li>Climatisation et recharge</li>
@@ -245,7 +249,7 @@ faqSchema:
         <div class="tabs__panel-inner">
           <div>
             <h3>Système de freinage</h3>
-            <p>Plaquettes, disques, liquide de frein, ABS : nous intervenons sur l'ensemble du système de freinage pour garantir votre sécurité.</p>
+            <p>On remet le freinage au bon niveau avec un contrôle complet du circuit pour retrouver mordant, stabilité et sécurité au quotidien.</p>
             <ul class="checklist">
               <li>Remplacement plaquettes et disques</li>
               <li>Purge et remplacement liquide de frein</li>
@@ -266,7 +270,7 @@ faqSchema:
         <div class="tabs__panel-inner">
           <div>
             <h3>Diagnostic électronique</h3>
-            <p>Valise multimarques, lecture des codes défaut, identification précise de la panne. On vous explique clairement avant d'intervenir.</p>
+            <p>Lecture des défauts, tests ciblés et confirmation de panne : vous recevez un diagnostic compréhensible avant toute réparation.</p>
             <ul class="checklist">
               <li>Lecture codes défaut OBD</li>
               <li>Diagnostic moteur, transmission, ABS</li>

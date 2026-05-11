@@ -62,7 +62,11 @@ faqSchema:
 {% set heroKicker = "Garage 94 · Carnet constructeur & pièces adaptées" %}
 {% set heroDesc = "Révision, vidange, filtres, clim : on suit votre carnet pour préserver la garantie quand c'est possible. Devis détaillé avant de lancer les travaux." %}
 {% set videoSrc = "entretien.mp4" %}
+{% set prestationsHubTitle = "Prestations entretien" %}
+{% set prestationsHubSubtitle = "Accedez aux prestations d'entretien de votre vehicule et consultez leur page dediee." %}
+{% set prestaHubCategoryKeys = ["frequentes", "freinage", "climatisation"] %}
 {% include "hero-video.njk" %}
+{% include "prestations-hub.njk" %}
 
 <section id="entretien" class="service-focus" aria-labelledby="entretien-title" data-animate="slide-right">
   <div class="container service-focus__inner">
@@ -191,7 +195,7 @@ faqSchema:
         <div class="tabs__panel-inner">
           <div>
             <h3>Révision constructeur certifiée</h3>
-            <p>Vidanges, filtres, contrôles sécurité : nous suivons le plan du constructeur pas à pas.</p>
+            <p>Révision conforme au carnet constructeur avec points de sécurité essentiels vérifiés. Vous gardez un historique d'entretien clair et une facture détaillée.</p>
             <ul class="checklist">
               <li>Pièces et lubrifiants adaptés</li>
               <li>Mise à jour du carnet d'entretien</li>
@@ -204,7 +208,7 @@ faqSchema:
         <div class="tabs__panel-inner">
           <div>
             <h3>Gestion de parc professionnelle</h3>
-            <p>Entretiens groupés, suivi des kilomètres, alertes conducteurs : on pilote votre flotte avec vous.</p>
+            <p>On organise l'entretien de vos véhicules pros pour limiter les immobilisations et garder votre activité fluide, avec un suivi simple à piloter.</p>
             <ul class="checklist">
               <li>Planification adaptée à vos contraintes</li>
               <li>Alertes pour chaque véhicule</li>
@@ -223,7 +227,7 @@ faqSchema:
         <div class="tabs__panel-inner">
           <div>
             <h3>Vidange moteur</h3>
-            <p>Huile constructeur, filtre à huile neuf et contrôle des niveaux. Intervention rapide, garantie préservée.</p>
+            <p>Vidange propre et rapide avec huile adaptée à votre moteur, filtre neuf et vérification des niveaux pour protéger la mécanique au quotidien.</p>
             <ul class="checklist">
               <li>Vidange huile moteur</li>
               <li>Remplacement filtre à huile</li>
@@ -243,7 +247,7 @@ faqSchema:
         <div class="tabs__panel-inner">
           <div>
             <h3>Climatisation et chauffage</h3>
-            <p>Recharge de gaz, désinfection du circuit et vérification du compresseur pour un habitacle sain toute l'année.</p>
+            <p>On restaure l'efficacité de votre clim avec recharge, désinfection et contrôle du circuit pour retrouver confort, air sain et bonne visibilité.</p>
             <ul class="checklist">
               <li>Recharge de gaz réfrigérant</li>
               <li>Désinfection du circuit</li>
@@ -262,7 +266,7 @@ faqSchema:
         <div class="tabs__panel-inner">
           <div>
             <h3>Préparation contrôle technique</h3>
-            <p>Passez votre CT sereinement. On vérifie les points critiques et on corrige ce qu'il faut avant le passage.</p>
+            <p>Avant le contrôle technique, on anticipe les défauts les plus fréquents pour maximiser vos chances de passer du premier coup.</p>
             <ul class="checklist">
               <li>Vérification des 133 points de contrôle</li>
               <li>Correction des défaillances majeures</li>
