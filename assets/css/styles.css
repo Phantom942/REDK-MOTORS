@@ -2659,6 +2659,27 @@ p, li, td, th, span, a, h1, h2, h3, h4 {
   color: var(--color-red);
 }
 
+.socials__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.socials__icon {
+  width: 18px;
+  height: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.socials__icon svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
 /* Link */
 .link {
   color: var(--color-red);
