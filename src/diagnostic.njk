@@ -27,9 +27,15 @@ localServiceSchema:
   provider:
     "@id": "https://redk-motors.me/#business"
   areaServed:
-    "@type": "City"
-    name: "Ivry-sur-Seine"
-  description: "Diagnostic électronique par valise multimarques à Ivry-sur-Seine. Lecture des codes défaut, identification de la panne et devis gratuit. Toutes marques."
+    - "@type": "City"
+      name: "Ivry-sur-Seine"
+    - "@type": "City"
+      name: "Vitry-sur-Seine"
+    - "@type": "City"
+      name: "Villejuif"
+    - "@type": "AdministrativeArea"
+      name: "Paris 13e arrondissement"
+  description: "Diagnostic électronique par valise multimarques à Ivry-sur-Seine et alentours. Lecture des codes défaut, identification de la panne et devis gratuit. Toutes marques."
   offers:
     "@type": "Offer"
     price: "0"
@@ -86,6 +92,20 @@ faqSchema:
         <li>Effacement des codes après réparation validée</li>
       </ul>
       <p class="service-focus__cta"><a class="link" href="/contact/">Coordonnées &amp; RDV</a> · <a class="link" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="service-focus service-focus--alt" aria-labelledby="diagnostic-local" data-animate="slide-left">
+  <div class="container service-focus__inner">
+    <div>
+      <h2 id="diagnostic-local">Diagnostic auto sur le secteur Ivry / Vitry / Villejuif</h2>
+      <p>
+        Voyant moteur, ABS ou batterie : nous traitons chaque semaine des pannes venant de
+        <a href="/vitry-sur-seine/">Vitry</a>, <a href="/villejuif/">Villejuif</a>,
+        <a href="/charenton-le-pont/">Charenton</a> et <a href="/paris-13/">Paris 13e</a>.
+        Pour accélérer, communiquez symptôme + immatriculation via <a href="/contact/">notre page contact</a>.
+      </p>
     </div>
   </div>
 </section>

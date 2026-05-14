@@ -3,7 +3,8 @@
   "version": "2.0.0",
   "description": "Site garage RED-K MOTORS - Ivry-sur-Seine",
   "scripts": {
-    "build": "node -e \"require('fs').rmSync('_site',{recursive:true,force:true});\" && eleventy && node scripts/minify.js",
+    "check:hours": "node scripts/check-hours.js",
+    "build": "npm run check:hours && node -e \"require('fs').rmSync('_site',{recursive:true,force:true});\" && eleventy && node scripts/minify.js",
     "serve": "eleventy --serve",
     "dev": "eleventy --serve",
     "favicon": "node scripts/generate-favicons.js",

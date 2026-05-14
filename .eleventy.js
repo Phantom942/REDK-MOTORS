@@ -55,6 +55,10 @@ module.exports = function (eleventyConfig) {
       if (item.data.sitemap && item.data.sitemap.ignore === true) return false;
       if (item.data.eleventyExcludeFromCollections) return false;
       if (!item.url || item.url === "") return false;
+      // Exclure les URLs explicitement noindex de la sitemap
+      if (typeof item.data.robots === "string" && item.data.robots.toLowerCase().includes("noindex")) return false;
+      // Cohérence avec base.njk : certaines pages locales sont noindex par défaut
+      if (item.url.includes("/garage-proche-")) return false;
       // Exclure 404
       if (item.url === "/404.html" || item.url.endsWith("/404.html")) return false;
       return true;

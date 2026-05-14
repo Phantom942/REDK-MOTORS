@@ -48,13 +48,13 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" as="style" fetchpriority="high" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" /></noscript>
+    {% set googleFontsUrl = "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" %}
+    <link rel="preload" href="{{ googleFontsUrl }}" as="style" />
+    <link rel="stylesheet" href="{{ googleFontsUrl }}" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="{{ googleFontsUrl }}" /></noscript>
     <link rel="preload" href="{{ '/assets/css/styles.css' | cacheBust }}" as="style" fetchpriority="high" />
     <link rel="preload" href="/assets/js/main.js" as="script" />
     <link rel="stylesheet" href="{{ '/assets/css/styles.css' | cacheBust }}" />
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="{{ '/assets/css/design-stitch.css' | cacheBust }}" />
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />

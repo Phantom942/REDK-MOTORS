@@ -28,4 +28,5 @@ Dossiers **ignorés par Git** (travail local, hors site web) : `print/`, `prospe
 
 - `npm install` — une fois
 - `npm run dev` — prévisualisation locale
+- `npm run check:hours` — vérifie qu'aucun ancien horaire (`10h-20h` / `20:00`) n'est présent
 - `npm run build` — production dans `_site/`

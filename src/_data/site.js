@@ -16,7 +16,7 @@ module.exports = function () {
       postalCode: schema.address.postalCode,
       city: schema.address.addressLocality,
       addressFull: `${schema.address.streetAddress}, ${schema.address.postalCode} ${schema.address.addressLocality}`,
-      openingHours: "Lun-Sam 10h-20h",
+      openingHours: "Lun-Sam 10h-18h",
       ogImage: `${schema.url}/assets/img/og-brand.png`,
       gtmId: "GTM-NTC72X2G",
       seoKeywords:
