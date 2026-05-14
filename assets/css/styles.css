@@ -3638,6 +3638,22 @@ img[loading="lazy"].loaded {
   padding-top: 0;
 }
 
+#main .blog-index .breadcrumb {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+#main .blog-index .breadcrumb li:not(:last-child)::after {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+#main .blog-index .breadcrumb a {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+#main .blog-index .breadcrumb [aria-current="page"] {
+  color: rgba(255, 255, 255, 0.78);
+}
+
 .blog-index__header {
   margin-bottom: 2.5rem;
   padding-bottom: 1.75rem;
@@ -3899,7 +3915,7 @@ img[loading="lazy"].loaded {
 }
 
 #main .breadcrumb [aria-current="page"] {
-  color: var(--color-black);
+  color: inherit;
   font-weight: 600;
   max-width: min(100%, 42rem);
 }
