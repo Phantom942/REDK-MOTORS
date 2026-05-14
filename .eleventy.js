@@ -51,14 +51,27 @@ module.exports = function (eleventyConfig) {
 
   // Collection sitemap : exclut 404, sitemap.xml, et pages avec sitemap.ignore
   eleventyConfig.addCollection("sitemap", function (collectionApi) {
+    const excludedPrefixes = [
+      "/garage-proche-",
+      "/garage-vtc-",
+      "/garage-taxi-",
+      "/garage-chauffeur-prive-",
+      "/garage-voiture-uber-",
+      "/mecanicien-rapide-",
+      "/mecanique-rapide-",
+      "/diagnostic-auto-",
+      "/revision-auto-",
+      "/blog/tag/",
+    ];
+
     return collectionApi.getAll().filter((item) => {
       if (item.data.sitemap && item.data.sitemap.ignore === true) return false;
       if (item.data.eleventyExcludeFromCollections) return false;
       if (!item.url || item.url === "") return false;
       // Exclure les URLs explicitement noindex de la sitemap
       if (typeof item.data.robots === "string" && item.data.robots.toLowerCase().includes("noindex")) return false;
-      // Cohérence avec base.njk : certaines pages locales sont noindex par défaut
-      if (item.url.includes("/garage-proche-")) return false;
+      // Cohérence avec base.njk : exclure les familles d'URLs noindex
+      if (excludedPrefixes.some((prefix) => item.url.includes(prefix))) return false;
       // Exclure 404
       if (item.url === "/404.html" || item.url.endsWith("/404.html")) return false;
       return true;

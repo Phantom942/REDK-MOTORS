@@ -28,3 +28,5 @@ User-agent: Bytespider
 Allow: /
 
 Sitemap: https://redk-motors.me/sitemap.xml
+# LLM context:
+# https://redk-motors.me/llms.txt

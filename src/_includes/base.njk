@@ -2,8 +2,13 @@
 <html lang="fr">
   <head>
     {% set defaultRobots = 'index, follow' %}
-    {% if page and page.url and '/garage-proche-' in page.url %}
-      {% set defaultRobots = 'noindex, follow' %}
+    {% if page and page.url %}
+      {% set lowValuePrefixes = ['/garage-proche-', '/garage-vtc-', '/garage-taxi-', '/garage-chauffeur-prive-', '/garage-voiture-uber-', '/mecanicien-rapide-', '/mecanique-rapide-', '/diagnostic-auto-', '/revision-auto-', '/blog/tag/'] %}
+      {% for prefix in lowValuePrefixes %}
+        {% if prefix in page.url %}
+          {% set defaultRobots = 'noindex, follow' %}
+        {% endif %}
+      {% endfor %}
     {% endif %}
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" />
@@ -148,6 +153,10 @@
     <main id="main">
       {{ content | safe }}
     </main>
+
+    {% if pageKey != 'contact' and pageKey != 'merci' %}
+      {% include "lead-strip.njk" %}
+    {% endif %}
 
     {% include "footer.njk" %}
     {% include "floating-whatsapp.njk" %}
