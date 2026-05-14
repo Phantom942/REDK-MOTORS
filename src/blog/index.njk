@@ -35,6 +35,35 @@ permalink: /blog/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber
       <p>Conseils entretien et mécanique.</p>
     </header>
 
+    {% set filterTags = indexableTags or collections.tagList %}
+    {% if filterTags and filterTags.length > 0 %}
+    <nav class="blog-filters" aria-label="Filtrer les articles par thème">
+      <p class="blog-filters__label">Navigation rapide :</p>
+      <ul class="blog-filters__list">
+        <li>
+          <a class="blog-filter-chip blog-filter-chip--all is-active" href="/blog/" aria-current="page">
+            Tous les articles
+            <span class="blog-filter-chip__count">{{ collections.blog | length }}</span>
+          </a>
+        </li>
+        {% for tag in filterTags %}
+        {% set tagCount = 0 %}
+        {% for post in collections.blog %}
+          {% if post.data.tags and (tag in post.data.tags) %}
+            {% set tagCount = tagCount + 1 %}
+          {% endif %}
+        {% endfor %}
+        <li>
+          <a class="blog-filter-chip" href="/blog/tag/{{ tag }}/">
+            {{ tagNames[tag] or tag }}
+            <span class="blog-filter-chip__count">{{ tagCount }}</span>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+    {% endif %}
+
     <ol class="blog-list">
       {% for post in pagination.items %}
       <li class="blog-list__item">
