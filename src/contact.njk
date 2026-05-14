@@ -37,6 +37,20 @@ breadcrumb:
 {% set videoSrc = "contact.mp4" %}
 {% include "hero-video.njk" %}
 
+<section class="service-focus service-focus--alt" aria-labelledby="contact-en-bref" data-animate="slide-left">
+  <div class="container service-focus__inner">
+    <div>
+      <h2 id="contact-en-bref">En bref</h2>
+      <ul>
+        <li>Garage: RED-K MOTORS, {{ site.addressFull }}</li>
+        <li>Telephone prioritaire: <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a></li>
+        <li>Prise de RDV: <a href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a> ou formulaire contact</li>
+        <li>Horaires: {{ site.openingHours }}</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 <section class="contact-reassurance" aria-label="Délai de traitement des demandes">
   <div class="container contact-reassurance__inner">
     <p>Même horaires et coordonnées que sur Google. Réponse la plus rapide en journée par téléphone.</p>
