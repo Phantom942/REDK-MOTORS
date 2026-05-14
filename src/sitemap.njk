@@ -6,15 +6,62 @@ eleventyExcludeFromCollections: true
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   {% for item in collections.sitemap %}
+  {% set normalizedUrl = item.url | replace('/index.html', '/') %}
+  {% set sitemapChangefreq = item.data.sitemap.changefreq | default('weekly') %}
+  {% set sitemapPriority = item.data.sitemap.priority | default('0.5') %}
+
+  {# Tier A: pages business critiques (intention RDV/devis forte) #}
+  {% set tierAExact = ['/', '/garage-ivry-sur-seine/', '/contact/', '/tarifs/', '/diagnostic/', '/mecanique/', '/carrosserie/'] %}
+  {% if normalizedUrl in tierAExact %}
+    {% set sitemapChangefreq = 'weekly' %}
+    {% if normalizedUrl == '/' %}
+      {% set sitemapPriority = '1.0' %}
+    {% else %}
+      {% set sitemapPriority = '0.95' %}
+    {% endif %}
+  {% endif %}
+
+  {# Tier B: pages locales/services secondaires mais conversionnantes #}
+  {% set tierBExact = [
+    '/entretien/',
+    '/freins/',
+    '/pneumatiques/',
+    '/vidange/',
+    '/vitry-sur-seine/',
+    '/villejuif/',
+    '/charenton-le-pont/',
+    '/paris-13/',
+    '/alfortville/',
+    '/maisons-alfort/',
+    '/kremlin-bicetre/',
+    '/revision-auto-val-de-marne/',
+    '/garage-ouvert-samedi-94/'
+  ] %}
+  {% if normalizedUrl in tierBExact %}
+    {% set sitemapChangefreq = 'weekly' %}
+    {% set sitemapPriority = '0.85' %}
+  {% endif %}
+
+  {# Tier C: contenu éditorial/longue traîne utile mais moins transactionnel #}
+  {% if '/blog/' in normalizedUrl or '/prestations/' in normalizedUrl %}
+    {% set sitemapChangefreq = 'monthly' %}
+    {% set sitemapPriority = '0.60' %}
+  {% endif %}
+
+  {% if normalizedUrl == '/confidentialite/' or normalizedUrl == '/cookies/' or normalizedUrl == '/mentions-legales/' %}
+    {% set sitemapChangefreq = 'yearly' %}
+    {% set sitemapPriority = '0.30' %}
+  {% endif %}
+
   <url>
-    <loc>{{ site.url }}{{ item.url | replace('/index.html', '/') }}</loc>
+    <loc>{{ site.url }}{{ normalizedUrl }}</loc>
     {% set lastmodVal = item.data.date or item.date %}
     {% set lastmodStr = lastmodVal | dateToIso %}
     {% if lastmodStr %}
     <lastmod>{{ lastmodStr }}</lastmod>
     {% endif %}
-    <changefreq>{{ item.data.sitemap.changefreq | default('weekly') }}</changefreq>
-    <priority>{{ item.data.sitemap.priority | default('0.5') }}</priority>
+    <changefreq>{{ sitemapChangefreq }}</changefreq>
+    <priority>{{ sitemapPriority }}</priority>
   </url>
   {% endfor %}
 </urlset>
