@@ -140,6 +140,10 @@
           "url": "{{ site.url }}{{ page.url | default('/') | replace('/index.html','/') }}",
           "name": "{{ title | default(site.seoTitle) | default(site.name) }}",
           "description": "{{ description | default(site.description) }}",
+          {% set freshnessDate = (lastReviewed or date) | dateToIso %}
+          {% if freshnessDate %}
+          "dateModified": "{{ freshnessDate }}",
+          {% endif %}
           "isPartOf": { "@id": "{{ site.url }}/#website" },
           "about": { "@id": "https://redk-motors.me/#business" },
           "inLanguage": "fr-FR",
