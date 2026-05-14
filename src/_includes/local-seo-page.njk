@@ -1,6 +1,6 @@
 {% set heroActions %}
-<a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
-<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">Message WhatsApp</a>
+<a class="btn btn--primary" href="/contact/" data-track="click_rdv" data-track-pos="hero_local">Prendre rendez-vous</a>
+<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp" data-track-pos="hero_local">Message WhatsApp</a>
 {% endset %}
 {% set heroClass = "hero--subpage" %}
 {% set heroAria = pageKey ~ "-hero-title" %}
@@ -52,12 +52,12 @@
     <h2 id="cta-{{ pageKey }}" class="promesse__title">Devis rapide et transparent</h2>
     <p>
       Devis détaillé avant intervention, sans surprise. Appelez le
-      <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a>
-      ou passez par la page <a href="/contact/">contact</a> pour bloquer un créneau rapidement.
+      <a href="tel:{{ site.phone }}" data-track="click_call" data-track-pos="cta_local">{{ site.phoneDisplay }}</a>
+      ou passez par la page <a href="/contact/" data-track="click_rdv" data-track-pos="cta_local">contact</a> pour bloquer un créneau rapidement.
     </p>
     <div style="margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center;">
-      <a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
-      <a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">Message WhatsApp</a>
+      <a class="btn btn--primary" href="/contact/" data-track="click_rdv" data-track-pos="cta_local">Prendre rendez-vous</a>
+      <a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp" data-track-pos="cta_local">Message WhatsApp</a>
     </div>
   </div>
 </section>

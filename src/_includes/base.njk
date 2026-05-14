@@ -3,7 +3,41 @@
   <head>
     {% set defaultRobots = 'index, follow' %}
     {% if page and page.url %}
-      {% set lowValuePrefixes = ['/garage-proche-', '/garage-vtc-', '/garage-taxi-', '/garage-chauffeur-prive-', '/garage-voiture-uber-', '/mecanicien-rapide-', '/mecanique-rapide-', '/diagnostic-auto-', '/revision-auto-', '/blog/tag/'] %}
+      {% set lowValuePrefixes = [
+        '/garage-proche-',
+        '/garage-vtc-',
+        '/garage-taxi-',
+        '/garage-chauffeur-prive-',
+        '/garage-voiture-uber-',
+        '/mecanicien-rapide-',
+        '/mecanique-rapide-',
+        '/diagnostic-auto-',
+        '/revision-auto-',
+        '/blog/tag/',
+        '/devis-garage-',
+        '/garage-urgence-',
+        '/garage-flotte-entreprise-',
+        '/garage-pneus-freins-',
+        '/garage-ouvert-samedi-',
+        '/entretien-vehicule-vtc-',
+        '/entretien-preventif-vtc-',
+        '/entretien-voiture-professionnelle-',
+        '/entretien-taxi-',
+        '/changement-batterie-',
+        '/changement-plaquettes-frein-',
+        '/perte-puissance-voiture-',
+        '/voiture-ne-demarre-plus-',
+        '/consommation-carburant-elevee-',
+        '/tremblement-volant-autoroute-',
+        '/bruit-frein-voiture-',
+        '/clim-voiture-ne-refroidit-plus-',
+        '/voyant-abs-allume-',
+        '/diagnostic-voyant-moteur-',
+        '/vidange-rapide-',
+        '/revision-rapide-',
+        '/reparation-auto-paris-sud/',
+        '/carrosserie-peinture-ivry/'
+      ] %}
       {% for prefix in lowValuePrefixes %}
         {% if prefix in page.url %}
           {% set defaultRobots = 'noindex, follow' %}
@@ -153,6 +187,40 @@
     <main id="main">
       {{ content | safe }}
     </main>
+
+    {% if page and page.url %}
+      {% set moneyPrefixes = [
+        '/',
+        '/garage-ivry-sur-seine/',
+        '/diagnostic/',
+        '/mecanique/',
+        '/carrosserie/',
+        '/entretien/',
+        '/freins/',
+        '/pneumatiques/',
+        '/vidange/',
+        '/tarifs/',
+        '/contact/',
+        '/vitry-sur-seine/',
+        '/villejuif/',
+        '/charenton-le-pont/',
+        '/paris-13/',
+        '/alfortville/',
+        '/maisons-alfort/',
+        '/kremlin-bicetre/',
+        '/revision-auto-val-de-marne/',
+        '/blog/'
+      ] %}
+      {% set showConversionHub = false %}
+      {% for prefix in moneyPrefixes %}
+        {% if prefix in page.url %}
+          {% set showConversionHub = true %}
+        {% endif %}
+      {% endfor %}
+      {% if showConversionHub and pageKey != 'contact' and pageKey != 'merci' %}
+        {% include "conversion-hub.njk" %}
+      {% endif %}
+    {% endif %}
 
     {% if pageKey != 'contact' and pageKey != 'merci' %}
       {% include "lead-strip.njk" %}
