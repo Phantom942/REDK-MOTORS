@@ -1772,8 +1772,12 @@ p, li, td, th, span, a, h1, h2, h3, h4 {
   }
 
   .faq__answer {
-    padding: 0 16px 14px;
+    padding: 0 16px;
     font-size: 14px;
+  }
+
+  .faq__answer.is-open {
+    padding: 0 16px 14px;
   }
 
   /* Highlight Cards */
@@ -2154,20 +2158,37 @@ p, li, td, th, span, a, h1, h2, h3, h4 {
 }
 
 .faq__question::after {
-  content: '+';
-  font-size: 24px;
-  color: var(--color-red);
-  font-weight: 300;
+  content: '';
+  width: 0.55rem;
+  height: 0.55rem;
+  border-right: 2px solid var(--color-red);
+  border-bottom: 2px solid var(--color-red);
+  transform: rotate(45deg);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  flex-shrink: 0;
 }
 
 .faq__question[aria-expanded="true"]::after {
-  content: '−';
+  transform: rotate(-135deg);
 }
 
 .faq__answer {
-  padding: 0 30px 20px;
+  display: grid;
+  grid-template-rows: 0fr;
+  padding: 0 30px;
   color: var(--color-gray);
   line-height: 1.8;
+  transition: grid-template-rows 0.35s cubic-bezier(0.22, 1, 0.36, 1), padding 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.faq__answer > * {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.faq__answer.is-open {
+  grid-template-rows: 1fr;
+  padding: 0 30px 20px;
 }
 
 /* Appointment Section */

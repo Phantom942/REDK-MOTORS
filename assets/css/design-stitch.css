@@ -703,20 +703,24 @@ body.design-stitch {
 }
 
 .design-stitch .faq-section .faq__question::after {
-  content: "+";
-  font-size: 1.35rem;
-  font-weight: 400;
-  line-height: 1;
-  color: var(--stitch-primary);
+  content: "";
+  width: 0.55rem;
+  height: 0.55rem;
+  border-right: 2px solid var(--stitch-primary);
+  border-bottom: 2px solid var(--stitch-primary);
+  transform: rotate(45deg);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
   flex-shrink: 0;
 }
 
 .design-stitch .faq-section .faq__question[aria-expanded="true"]::after {
-  content: "−";
+  transform: rotate(-135deg);
 }
 
 .design-stitch .faq-section .faq__answer {
-  padding: 1.25rem 1.35rem 1.45rem;
+  display: grid;
+  grid-template-rows: 0fr;
+  padding: 0 1.35rem;
   margin: 0;
   background: #0c0c10;
   color: var(--stitch-on-surface);
@@ -724,6 +728,17 @@ body.design-stitch {
   text-align: left;
   font-size: 0.98rem;
   border-top: 1px solid rgba(255, 180, 171, 0.1);
+  transition: grid-template-rows 0.35s cubic-bezier(0.22, 1, 0.36, 1), padding 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.design-stitch .faq-section .faq__answer > * {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.design-stitch .faq-section .faq__answer.is-open {
+  grid-template-rows: 1fr;
+  padding: 1.25rem 1.35rem 1.45rem;
 }
 
 .design-stitch .faq-section .faq__answer p {
@@ -1099,20 +1114,24 @@ body.design-stitch {
 }
 
 .design-stitch .faq .faq__question::after {
-  content: "+";
-  color: var(--stitch-primary);
-  font-size: 1.35rem;
-  font-weight: 400;
-  line-height: 1;
+  content: "";
+  width: 0.55rem;
+  height: 0.55rem;
+  border-right: 2px solid var(--stitch-primary);
+  border-bottom: 2px solid var(--stitch-primary);
+  transform: rotate(45deg);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
   flex-shrink: 0;
 }
 
 .design-stitch .faq .faq__question[aria-expanded="true"]::after {
-  content: "−";
+  transform: rotate(-135deg);
 }
 
 .design-stitch .faq .faq__answer {
-  padding: 1.25rem 1.35rem 1.45rem;
+  display: grid;
+  grid-template-rows: 0fr;
+  padding: 0 1.35rem;
   margin: 0;
   background: #0c0c10;
   color: var(--stitch-on-surface);
@@ -1120,6 +1139,17 @@ body.design-stitch {
   text-align: left;
   font-size: 0.98rem;
   border-top: 1px solid rgba(255, 180, 171, 0.1);
+  transition: grid-template-rows 0.35s cubic-bezier(0.22, 1, 0.36, 1), padding 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.design-stitch .faq .faq__answer > * {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.design-stitch .faq .faq__answer.is-open {
+  grid-template-rows: 1fr;
+  padding: 1.25rem 1.35rem 1.45rem;
 }
 
 .design-stitch .faq .faq__answer p {

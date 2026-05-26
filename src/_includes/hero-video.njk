@@ -1,5 +1,6 @@
 <section class="hero {{ heroClass }}" {% if heroAria %}aria-labelledby="{{ heroAria }}"{% endif %}>
   <div class="hero__video-bg" aria-hidden="true" data-nosnippet>
+    {# Remplacez hero-poster.jpg par une capture nette de votre atelier (1200×675 px recommandé, &lt; 150 Ko) #}
     <video
       class="hero__video-player"
       autoplay
@@ -7,8 +8,8 @@
       loop
       playsinline
       preload="metadata"
-      poster="/assets/posters/hero-placeholder.svg"
-      aria-label="Vidéo de présentation du garage"
+      poster="/assets/posters/hero-poster.jpg"
+      aria-label="Vidéo de présentation du garage RED-K MOTORS à Ivry-sur-Seine"
       disablePictureInPicture
       disableRemotePlayback
     >
