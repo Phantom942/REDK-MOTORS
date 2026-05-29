@@ -50,5 +50,17 @@
   ],
   "gtmId": "GTM-NTC72X2G",
   "ogImage": "https://redk-motors.me/assets/img/og-brand.png",
-  "description": "Garage automobile RED-K MOTORS à Ivry-sur-Seine (94). Mécanique, entretien, pneus, freinage. Devis gratuit. Lun–sam 10h–18h — téléphone, message ou rendez-vous via redk-motors.me/contact/. 9 rue Michelet."
+  "description": "Garage automobile RED-K MOTORS à Ivry-sur-Seine (94). Mécanique, entretien, pneus, freinage. Devis gratuit. Lun–sam 10h–18h — téléphone, message ou rendez-vous via redk-motors.me/contact/. 9 rue Michelet.",
+  "googleReviews": {
+    "shareUrl": "https://share.google/Gqy4uMiYFgsxEFCd5",
+    "knowledgeGraphId": "/g/11y__lnrkb",
+    "rating": 5,
+    "count": 27,
+    "apiKey": "",
+    "placeId": "",
+    "placeQuery": "RED-K MOTORS, 9 rue Michelet, 94200 Ivry-sur-Seine, France",
+    "maxReviews": 4,
+    "mapsPlaceUrl": "https://www.google.com/maps/place/Red-k+Motors/@48.8076408,2.3777448,17z/data=!4m8!3m7!1s0x47e67337fbef5277:0xe6bcd3ccf746dd16!8m2!3d48.8076408!4d2.3777448!16s%2Fg%2F11y__lnrkb",
+    "writeReviewUrl": "https://www.google.com/search?q=Red-k+Motors&ludocid=0xe6bcd3ccf746dd16#lrd=0xe6bcd3ccf746dd16,1,,,"
+  }
 }

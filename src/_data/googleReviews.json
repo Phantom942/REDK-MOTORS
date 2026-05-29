@@ -1,0 +1,26 @@
+{
+  "rating": 5,
+  "count": 27,
+  "reviews": [
+    {
+      "author": "Moove City",
+      "rating": 5,
+      "text": "Excellent garage, j'entretiens mes véhicule de livraisons chez ce prestataire, excellent rapport qualité prix sur les entretiens, les révisions et également sur d'autre services. Je recommande fortement."
+    },
+    {
+      "author": "Nawel Kamerji",
+      "rating": 5,
+      "text": "Problème mécanique réglé rapidement, je recommande les yeux fermés, merci RED-K MOTORS."
+    },
+    {
+      "author": "W F",
+      "rating": 5,
+      "text": "Je suis passé pour une vidange de mon camion. Garage pro avec mécanos compétent. Rapide et efficace."
+    },
+    {
+      "author": "Rania Khorchid",
+      "rating": 5,
+      "text": "Garage très professionnel, très bien accueilli et personnel agréable ! Je Recommande !!"
+    }
+  ]
+}

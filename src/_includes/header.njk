@@ -10,6 +10,10 @@
       <a class="top-bar__link" href="mailto:{{ site.email }}">{{ site.email }}</a>
       <a class="top-bar__link" href="https://www.google.com/maps?q=9+rue+Michelet+94200+Ivry-sur-Seine" target="_blank" rel="noopener noreferrer">{{ site.addressFull }}</a>
     </p>
+    <div class="top-bar__badge">
+      {% set badgeModifier = "google-pill--top-bar" %}
+      {% include "google-reviews-badge.njk" %}
+    </div>
     <div class="top-bar__actions">
       <a class="top-bar__link top-bar__link--phone" href="tel:{{ site.phone }}" data-track="click_call" data-track-pos="header_top">{{ site.phoneDisplay }}</a>
       <a class="top-bar__link" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp" data-track-pos="header_top">WhatsApp</a>
