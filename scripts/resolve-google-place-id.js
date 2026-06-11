@@ -83,7 +83,7 @@ async function main() {
       console.error('Échec :', err.message);
       console.error('');
       console.error('Clé restreinte par referrer (usage site web) :');
-      console.error('  • Ajoutez GOOGLE_PLACES_API_KEY dans les secrets GitHub → les avis se synchronisent sur redk-motors.me');
+      console.error('  • Ajoutez GOOGLE_PLACES_API_KEY dans les secrets GitHub → sync au build (npm run google:reviews)');
       console.error('  • Pour ce script CLI : créez une 2e clé sans restriction HTTP (API Places uniquement)');
       console.error('  • Ou récupérez le Place ID via le finder Google (navigateur) :');
       console.error('    https://developers.google.com/maps/documentation/javascript/examples/places-placeid-finder');

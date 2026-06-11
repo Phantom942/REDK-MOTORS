@@ -27,14 +27,7 @@
       </div>
     </header>
 
-    <div
-      class="reviews-section__grid"
-      id="google-reviews-grid"
-      data-api-key="{{ googlePlacesEnv.apiKey }}"
-      data-place-id="{{ googlePlacesEnv.placeId }}"
-      data-place-query="{{ site.googleReviews.placeQuery }}"
-      data-max-reviews="{{ site.googleReviews.maxReviews }}"
-    >
+    <div class="reviews-section__grid" id="google-reviews-grid">
       {% for review in googleReviews.reviews %}
       <article class="review-card">
         <div class="review-card__stars" aria-label="{{ review.rating }} sur 5 étoiles">
@@ -54,6 +47,3 @@
     </p>
   </div>
 </section>
-{% if googlePlacesEnv.apiKey %}
-<script src="{{ '/assets/js/google-reviews.js' | cacheBust }}" defer></script>
-{% endif %}
