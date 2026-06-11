@@ -17,15 +17,21 @@ const path = require('path');
 const SITE_JSON = path.join(__dirname, '..', 'src', '_data', 'site.json');
 const API_KEY = (process.env.GOOGLE_PLACES_API_KEY || '').trim();
 const PLACE_QUERY = 'RED-K MOTORS, 9 rue Michelet, 94200 Ivry-sur-Seine, France';
+const REFERER = (process.env.GOOGLE_PLACES_REFERER || 'https://redk-motors.me/').trim();
 
 async function searchPlaceId() {
+  const headers = {
+    'Content-Type': 'application/json',
+    'X-Goog-Api-Key': API_KEY,
+    'X-Goog-FieldMask': 'places.id,places.displayName,places.formattedAddress,places.googleMapsUri',
+  };
+  if (REFERER) {
+    headers.Referer = REFERER;
+  }
+
   const response = await fetch('https://places.googleapis.com/v1/places:searchText', {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'X-Goog-Api-Key': API_KEY,
-      'X-Goog-FieldMask': 'places.id,places.displayName,places.formattedAddress,places.googleMapsUri',
-    },
+    headers,
     body: JSON.stringify({
       textQuery: PLACE_QUERY,
       languageCode: 'fr',
@@ -59,18 +65,32 @@ async function main() {
     process.exit(1);
   }
 
-  const place = await searchPlaceId();
-  const placeId = place.id;
+  try {
+    const place = await searchPlaceId();
+    const placeId = place.id;
 
-  console.log('Lieu trouvé :', place.displayName && place.displayName.text, '-', place.formattedAddress);
-  console.log('Place ID    :', placeId);
-  if (place.googleMapsUri) {
-    console.log('Maps URI    :', place.googleMapsUri);
+    console.log('Lieu trouvé :', place.displayName && place.displayName.text, '-', place.formattedAddress);
+    console.log('Place ID    :', placeId);
+    if (place.googleMapsUri) {
+      console.log('Maps URI    :', place.googleMapsUri);
+    }
+
+    updateSiteJson(placeId);
+    console.log('\nOK — site.json mis à jour (googleReviews.placeId).');
+    console.log('Ajoutez aussi ce secret GitHub Actions : GOOGLE_PLACES_PLACE_ID=' + placeId);
+  } catch (err) {
+    if (String(err.message).includes('403') || String(err.message).includes('PERMISSION_DENIED')) {
+      console.error('Échec :', err.message);
+      console.error('');
+      console.error('Clé restreinte par referrer (usage site web) :');
+      console.error('  • Ajoutez GOOGLE_PLACES_API_KEY dans les secrets GitHub → les avis se synchronisent sur redk-motors.me');
+      console.error('  • Pour ce script CLI : créez une 2e clé sans restriction HTTP (API Places uniquement)');
+      console.error('  • Ou récupérez le Place ID via le finder Google (navigateur) :');
+      console.error('    https://developers.google.com/maps/documentation/javascript/examples/places-placeid-finder');
+      process.exit(1);
+    }
+    throw err;
   }
-
-  updateSiteJson(placeId);
-  console.log('\nOK — site.json mis à jour (googleReviews.placeId).');
-  console.log('Ajoutez aussi ce secret GitHub Actions : GOOGLE_PLACES_PLACE_ID=' + placeId);
 }
 
 main().catch(function(err) {
