@@ -1,0 +1,77 @@
+{
+  "brand": {
+    "name": "RED-K MOTORS",
+    "location": "Ivry-sur-Seine, Val-de-Marne (94)",
+    "colors": {
+      "background": "#131317",
+      "primaryRed": "#821111",
+      "accent": "#ffb4ab",
+      "text": "#fafafa"
+    },
+    "styleKeywords": [
+      "premium automotive garage",
+      "dark cinematic lighting",
+      "deep burgundy red accents",
+      "clean professional workshop",
+      "French suburban garage aesthetic",
+      "no cartoon",
+      "no watermark",
+      "photorealistic"
+    ]
+  },
+  "formats": {
+    "youtubeThumbnail": { "width": 1280, "height": 720, "ratio": "16:9" },
+    "youtubeBanner": { "width": 2560, "height": 1440, "safeTextZone": "1546×423 center" },
+    "youtubeShortsCover": { "width": 1080, "height": 1920, "ratio": "9:16" },
+    "instagramPost": { "width": 1080, "height": 1080, "ratio": "1:1" },
+    "instagramStory": { "width": 1080, "height": 1920, "ratio": "9:16" }
+  },
+  "prompts": {
+    "youtubeThumbnail_voyantMoteur": {
+      "use": "Miniature vidéo « Voyant moteur allumé »",
+      "tool": "Ideogram, Midjourney ou Canva (texte FR en overlay après génération)",
+      "prompt": "YouTube thumbnail, photorealistic car dashboard at night with orange check engine light illuminated, worried driver silhouette, modern French garage workshop blurred in background, dark moody cinematic lighting, deep burgundy red (#821111) accent stripe on left, high contrast, space on right for French text overlay, 16:9, professional automotive editorial style, sharp focus on warning light, no text, no logo",
+      "negativePrompt": "cartoon, illustration, blurry, watermark, misspelled text, neon cyberpunk, luxury supercar only",
+      "overlayTextFr": "VOYANT MOTEUR ?\nDiagnostic à Ivry (94)"
+    },
+    "youtubeThumbnail_freins": {
+      "use": "Miniature vidéo « Signes freins usés »",
+      "prompt": "YouTube thumbnail, close-up photorealistic worn brake disc and brake pad on lift in professional auto repair shop, mechanic gloved hands holding caliper, dark background #131317, burgundy red accent lighting, dramatic side light, high detail metal texture, space top-left for text, 16:9, automotive documentary style, no text, no logo",
+      "overlayTextFr": "FREINS À CHANGER ?\nGarage Ivry-sur-Seine"
+    },
+    "youtubeThumbnail_visiteAtelier": {
+      "use": "Miniature « Visite atelier RED-K MOTORS »",
+      "prompt": "Wide angle photorealistic independent car garage interior, clean organized workshop, car on hydraulic lift, tools on wall, warm industrial lighting mixed with burgundy accent lights, welcoming professional atmosphere, Ivry-sur-Seine suburban garage feel, 16:9 cinematic, empty space center-bottom for logo overlay, no people faces, no text",
+      "overlayTextFr": "VISITE DE L'ATELIER\nRED-K MOTORS · 94"
+    },
+    "youtubeBanner": {
+      "use": "Bannière chaîne YouTube (fond — logo ajouté après)",
+      "prompt": "YouTube channel banner background, ultra-wide panoramic view of modern automotive repair garage, dark charcoal and deep burgundy red color palette, subtle motion blur light streaks, professional clean workshop with lifts and tool cabinets, cinematic wide composition, empty center safe zone for logo and channel name, 2560x1440, photorealistic, no text, no logo",
+      "note": "Placer le logo RED-K MOTORS au centre ; zone sûre YouTube : rectangle central ~1546×423 px"
+    },
+    "shortsBackground_diagnostic": {
+      "use": "Fond vertical Shorts / Reels (texte animé par-dessus)",
+      "prompt": "Vertical 9:16 mobile video background, OBD diagnostic scanner connected to car in garage, soft bokeh workshop lights, dark premium automotive aesthetic, burgundy red glow accents, minimal composition with negative space top third for hook text, photorealistic, no text",
+      "overlayTextFr": "Voyant allumé ?\nOn diagnostique à Ivry"
+    },
+    "instagramPost_conseil": {
+      "use": "Post carré conseil auto",
+      "prompt": "Square 1:1 social media image, top-down view car engine bay slightly open hood, clean maintenance scene, professional garage floor, dark moody lighting with warm burgundy accent, minimalist automotive editorial, space bottom 30% for French quote overlay, photorealistic, no text",
+      "overlayTextFr": "Entretien = sécurité\nDevis gratuit · Ivry (94)"
+    }
+  },
+  "workflow": [
+    "1. Générer le fond avec l'IA (sans texte — l'IA gère mal le français).",
+    "2. Ajouter texte + logo dans Canva, Figma ou Photopea (police : Arial Bold / Montserrat).",
+    "3. Couleurs texte : blanc #fafafa, accent #ffb4ab, fond bandeau #821111.",
+    "4. Pour l'authenticité E-E-A-T : mélanger 1 photo réelle atelier + fond IA (Canva superposition).",
+    "5. Exporter PNG/JPG ; miniatures YouTube < 2 Mo."
+  ],
+  "tools": {
+    "imagesWithText": ["Canva (Magic Media)", "Ideogram", "Adobe Firefly"],
+    "photorealism": ["Midjourney", "Leonardo.ai", "ChatGPT Images", "Gemini"],
+    "freeQuick": ["Bing Image Creator", "Canva free tier"],
+    "videoFromImage": ["Runway Gen-3", "Pika", "CapCut AI video"],
+    "compose": ["Canva", "Figma", "Photopea (gratuit)"]
+  }
+}
