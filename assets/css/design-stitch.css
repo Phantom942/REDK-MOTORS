@@ -2071,6 +2071,28 @@ body.design-stitch {
   }
 }
 
+.design-stitch .article-related {
+  margin-top: 2rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--stitch-bg-low);
+  border: 1px solid var(--stitch-outline);
+  border-radius: 12px;
+}
+
+.design-stitch .article-related h2 {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+.design-stitch .article-related ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.design-stitch .article-related a {
+  color: var(--stitch-primary);
+}
+
 /* Perf mobile : blur coûteux sur GPU bas de gamme */
 @media (max-width: 768px) {
   .design-stitch .main-header,

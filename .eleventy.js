@@ -28,16 +28,27 @@ module.exports = function (eleventyConfig) {
     return isNaN(d.getTime()) ? "" : d.toISOString().slice(0, 10);
   });
 
-  // Collection blog triée par date décroissante
+  // Collection blog triée par date décroissante (hors brouillons)
   eleventyConfig.addCollection("blog", function (collectionApi) {
     return collectionApi
-      .getFilteredByGlob("src/blog/articles/*.njk")
+      .getFilteredByGlob(["src/blog/articles/*.njk", "src/blog/drafts/*.njk"])
+      .filter((item) => !item.data.draft)
       .sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
+  });
+
+  // Brouillons : pas de page générée
+  eleventyConfig.addGlobalData("eleventyComputed", {
+    permalink: (data) => {
+      if (data.draft) return false;
+      return data.permalink;
+    },
   });
 
   // Liste des tags uniques pour les pages par tag
   eleventyConfig.addCollection("tagList", function (collectionApi) {
-    const blogs = collectionApi.getFilteredByGlob("src/blog/articles/*.njk");
+    const blogs = collectionApi
+      .getFilteredByGlob(["src/blog/articles/*.njk", "src/blog/drafts/*.njk"])
+      .filter((item) => !item.data.draft);
     const tags = new Set();
     for (const post of blogs) {
       if (post.data.tags) {

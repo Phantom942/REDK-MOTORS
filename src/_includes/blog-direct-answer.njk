@@ -1,0 +1,21 @@
+{% if directAnswer %}
+<section class="direct-answer service-focus service-focus--compact" aria-labelledby="blog-direct-answer" data-animate="slide-up">
+  <div class="container service-focus__inner direct-answer__inner">
+    <div>
+      <p class="section-kicker">Réponse directe</p>
+      <h2 id="blog-direct-answer">{{ directAnswer.question }}</h2>
+      <p class="direct-answer__lead">{{ directAnswer.answer }}</p>
+      {% if directAnswer.facts %}
+      <dl class="direct-answer__facts">
+        {% for fact in directAnswer.facts %}
+        <div class="direct-answer__fact">
+          <dt>{{ fact.label }}</dt>
+          <dd>{{ fact.value }}</dd>
+        </div>
+        {% endfor %}
+      </dl>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endif %}

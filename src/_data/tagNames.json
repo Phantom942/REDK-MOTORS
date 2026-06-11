@@ -10,5 +10,8 @@
   "diagnostic": "Diagnostic",
   "carrosserie": "Carrosserie",
   "reparation": "Réparation",
-  "hiver": "Hiver"
+  "hiver": "Hiver",
+  "freins": "Freinage",
+  "revision": "Révision",
+  "diesel": "Diesel"
 }

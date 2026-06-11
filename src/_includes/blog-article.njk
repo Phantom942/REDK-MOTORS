@@ -22,11 +22,14 @@
     </div>
   </header>
 
+  {% include "blog-direct-answer.njk" %}
+
   <div class="article-content">
     <div class="container">
       <div class="article-body">
         {{ content | safe }}
       </div>
+      {% include "blog-related-links.njk" %}
     </div>
   </div>
 
