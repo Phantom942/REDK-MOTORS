@@ -25,8 +25,8 @@
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": 48.8105,
-      "longitude": 2.3942
+      "latitude": 48.8076408,
+      "longitude": 2.3777448
     },
     "hasMap": "https://www.google.com/maps?cid=0xe6bcd3ccf746dd16",
     "openingHoursSpecification": [
@@ -78,8 +78,8 @@
         "@type": "GeoCircle",
         "geoMidpoint": {
           "@type": "GeoCoordinates",
-          "latitude": 48.8105,
-          "longitude": 2.3942
+          "latitude": 48.8076408,
+          "longitude": 2.3777448
         },
         "geoRadius": "15000"
       }

@@ -21,12 +21,12 @@
   },
   "seoKeywords": "garage ivry-sur-seine, garage 94, mecanique ivry, carrosserie ivry, diagnostic auto ivry, entretien auto ivry, pneus ivry, freins ivry, garage paris 13, garage vitry-sur-seine, garage villejuif, garage charenton-le-pont",
   "geo": {
-    "latitude": 48.8105,
-    "longitude": 2.3942,
+    "latitude": 48.8076408,
+    "longitude": 2.3777448,
     "region": "FR-94",
     "placename": "Ivry-sur-Seine",
-    "position": "48.8105;2.3942",
-    "icbm": "48.8105, 2.3942"
+    "position": "48.8076408;2.3777448",
+    "icbm": "48.8076408, 2.3777448"
   },
   "nav": [
     { "title": "Accueil", "url": "/", "key": "index" },
