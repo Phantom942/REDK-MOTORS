@@ -1,18 +1,53 @@
 /**
- * RED-K MOTORS - Lazy loading des vidéos hero
- * Charge la vidéo uniquement quand le hero entre dans le viewport.
- * Gère le déblocage audio iOS (premier tap).
+ * RED-K MOTORS - Chargement différé des vidéos hero
+ * Une seule source (mobile ou desktop), après idle/viewport, sans autoplay HTML.
  */
 (function() {
   'use strict';
 
   var hasUnlocked = false;
+  var mobileQuery = window.matchMedia('(max-width: 768px)');
+
+  function getConnection() {
+    return navigator.connection || navigator.mozConnection || navigator.webkitConnection || null;
+  }
+
+  function shouldSkipVideo() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return true;
+    }
+    var conn = getConnection();
+    if (!conn) {
+      return false;
+    }
+    if (conn.saveData) {
+      return true;
+    }
+    return /(^2g$|^slow-2g$|2g|slow)/.test(conn.effectiveType || '');
+  }
+
+  function pickVideoSrc(video) {
+    var desktop = video.getAttribute('data-video-desktop');
+    var mobile = video.getAttribute('data-video-mobile');
+    if (mobileQuery.matches && mobile) {
+      return mobile;
+    }
+    return desktop;
+  }
+
+  function markSkipped(video) {
+    video.classList.add('is-video-skipped');
+    video.removeAttribute('data-video-desktop');
+    video.removeAttribute('data-video-mobile');
+  }
 
   function unlockVideos() {
-    if (hasUnlocked) return;
+    if (hasUnlocked) {
+      return;
+    }
     hasUnlocked = true;
-    document.querySelectorAll('.hero__video-player').forEach(function(video) {
-      if (video.paused) {
+    document.querySelectorAll('.hero__video-player:not(.is-video-skipped)').forEach(function(video) {
+      if (video.paused && video.readyState >= 2) {
         video.play().catch(function() {});
       }
     });
@@ -22,33 +57,64 @@
   document.addEventListener('touchstart', unlockVideos, { once: true, passive: true });
 
   function loadAndPlayHeroVideo(video) {
-    var sources = video.querySelectorAll('source[data-src]');
-    sources.forEach(function(source) {
-      var src = source.getAttribute('data-src');
-      if (src) {
-        source.setAttribute('src', src);
-        source.removeAttribute('data-src');
-      }
-    });
+    if (video.dataset.loaded === 'true' || video.classList.contains('is-video-skipped')) {
+      return;
+    }
+
+    var src = pickVideoSrc(video);
+    if (!src) {
+      markSkipped(video);
+      return;
+    }
+
+    var source = document.createElement('source');
+    source.src = src;
+    source.type = 'video/mp4';
+    video.appendChild(source);
+    video.dataset.loaded = 'true';
     video.load();
     video.play().catch(function() {});
   }
 
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        var video = entry.target;
-        loadAndPlayHeroVideo(video);
-        observer.unobserve(video);
-      }
-    });
-  }, { rootMargin: '50px', threshold: 0.1 });
+  function observeHeroVideo(video) {
+    if (!('IntersectionObserver' in window)) {
+      loadAndPlayHeroVideo(video);
+      return;
+    }
 
-  document.addEventListener('DOMContentLoaded', function() {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          loadAndPlayHeroVideo(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '120px 0px', threshold: 0.01 });
+
+    observer.observe(video);
+  }
+
+  function initHeroVideos() {
     document.querySelectorAll('.hero__video-player').forEach(function(video) {
-      if (video.querySelector('source[data-src]')) {
-        observer.observe(video);
+      if (shouldSkipVideo()) {
+        markSkipped(video);
+        return;
       }
+      observeHeroVideo(video);
     });
-  });
+  }
+
+  function scheduleInit() {
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(initHeroVideos, { timeout: 1500 });
+    } else {
+      setTimeout(initHeroVideos, 150);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', scheduleInit);
+  } else {
+    scheduleInit();
+  }
 })();

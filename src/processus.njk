@@ -3,6 +3,8 @@ layout: base.njk
 title: "Processus client Ivry-sur-Seine (94) | Proche Vitry et Paris 13 | RED-K MOTORS"
 description: "Processus client RED-K MOTORS : de la prise de contact à la restitution du véhicule étape par étape."
 pageKey: processus
+date: 2026-06-11
+lastReviewed: 2026-06-11
 hasHeroVideo: true
 breadcrumb:
   "@context": "https://schema.org"
@@ -16,6 +18,51 @@ breadcrumb:
       position: 2
       name: "Processus"
       item: "https://redk-motors.me/processus/"
+howToSchema:
+  "@context": "https://schema.org"
+  "@type": "HowTo"
+  name: "Processus client RED-K MOTORS"
+  description: "Étapes de prise en charge d'un véhicule au garage RED-K MOTORS à Ivry-sur-Seine."
+  step:
+    - "@type": "HowToStep"
+      position: 1
+      name: "Prise de contact"
+      text: "Appel, WhatsApp ou passage. Fixation d'un rendez-vous."
+    - "@type": "HowToStep"
+      position: 2
+      name: "Diagnostic"
+      text: "Examen du véhicule et explication des constats."
+    - "@type": "HowToStep"
+      position: 3
+      name: "Devis et validation"
+      text: "Devis détaillé écrit. Rien sans accord client."
+    - "@type": "HowToStep"
+      position: 4
+      name: "Réparation"
+      text: "Intervention en atelier avec pièces adaptées."
+    - "@type": "HowToStep"
+      position: 5
+      name: "Restitution"
+      text: "Compte rendu des travaux et restitution du véhicule."
+faqSchema:
+  "@context": "https://schema.org"
+  "@type": "FAQPage"
+  mainEntity:
+    - "@type": "Question"
+      name: "Combien de temps pour obtenir un devis ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Après diagnostic au véhicule, le devis est communiqué rapidement par téléphone ou WhatsApp, généralement le jour même pour les cas courants."
+    - "@type": "Question"
+      name: "Puis-je refuser un devis sans frais ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Oui. Le diagnostic peut être facturé selon la prestation, mais aucune réparation n'est lancée sans validation écrite ou orale du devis."
+    - "@type": "Question"
+      name: "Comment suis-je informé pendant les travaux ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Par appel ou WhatsApp aux étapes clés : validation du devis, début des travaux, véhicule prêt."
 ---
 
 {% set heroActions %}
@@ -168,6 +215,35 @@ breadcrumb:
     <div class="process-cta__actions">
       <a class="btn btn--primary" href="/contact/">Adresse &amp; horaires</a>
       <a class="btn btn--secondary" href="/#appointment">Formulaire express</a>
+    </div>
+  </div>
+</section>
+
+<section class="faq" aria-labelledby="processus-faq" data-animate="slide-up">
+  <div class="container faq__inner">
+    <div>
+      <p class="section-kicker">FAQ processus</p>
+      <h2 id="processus-faq">Questions fréquentes</h2>
+    </div>
+    <div class="faq__list" data-accordion>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">Combien de temps pour obtenir un devis ?</button>
+        <div class="faq__answer" hidden>
+          <p>Après diagnostic, le devis est communiqué rapidement — souvent le jour même pour les cas courants.</p>
+        </div>
+      </article>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">Puis-je refuser un devis sans frais ?</button>
+        <div class="faq__answer" hidden>
+          <p>Oui. Aucune réparation sans validation du devis. Le diagnostic peut être facturé selon la prestation.</p>
+        </div>
+      </article>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">Comment suis-je informé pendant les travaux ?</button>
+        <div class="faq__answer" hidden>
+          <p>Appel ou WhatsApp aux étapes clés : devis validé, début des travaux, véhicule prêt.</p>
+        </div>
+      </article>
     </div>
   </div>
 </section>

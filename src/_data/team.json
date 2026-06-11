@@ -1,0 +1,21 @@
+{
+  "author": {
+    "id": "redk-workshop-team",
+    "name": "Équipe atelier RED-K MOTORS",
+    "jobTitle": "Mécaniciens et carrossiers multimarques",
+    "description": "Équipe technique basée à Ivry-sur-Seine, spécialisée en mécanique générale, diagnostic électronique, entretien courant et carrosserie pour véhicules particuliers.",
+    "experienceSummary": "Plus de 10 ans d'expérience cumulée en atelier indépendant sur le Val-de-Marne sud.",
+    "specialties": [
+      "Diagnostic électronique (valise multimarque)",
+      "Entretien et révision constructeur",
+      "Freinage et pneumatiques",
+      "Carrosserie et peinture localisée",
+      "Distribution, embrayage et climatisation"
+    ],
+    "credentials": [
+      "Interventions multimarques essence et diesel",
+      "Devis écrit avant travaux",
+      "Pièces d'origine ou qualité équivalente certifiée"
+    ]
+  }
+}

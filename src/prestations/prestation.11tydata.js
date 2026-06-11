@@ -78,6 +78,7 @@ function buildServiceSchema(data) {
 
 module.exports = {
   eleventyComputed: {
+    lastReviewed: () => "2026-06-11",
     breadcrumb: (data) => buildBreadcrumb(data),
     faqSchema: (data) => buildFaqSchema(data),
     localServiceSchema: (data) => buildServiceSchema(data),

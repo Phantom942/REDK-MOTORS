@@ -28,7 +28,8 @@
       "latitude": 48.8076408,
       "longitude": 2.3777448
     },
-    "hasMap": "https://www.google.com/maps?cid=0xe6bcd3ccf746dd16",
+    "hasMap": "https://www.google.com/maps/place/Red-k+Motors/@48.8076408,2.3777448,17z/data=!4m8!3m7!1s0x47e67337fbef5277:0xe6bcd3ccf746dd16!8m2!3d48.8076408!4d2.3777448!16s%2Fg%2F11y__lnrkb",
+    "foundingDate": "2026-04-13",
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
@@ -85,9 +86,11 @@
       }
     ],
     "sameAs": [
+      "https://www.google.com/maps/place/Red-k+Motors/@48.8076408,2.3777448,17z/data=!4m8!3m7!1s0x47e67337fbef5277:0xe6bcd3ccf746dd16!8m2!3d48.8076408!4d2.3777448!16s%2Fg%2F11y__lnrkb",
       "https://www.facebook.com/RedKMotors/",
       "https://www.instagram.com/redkmotors/",
-      "https://www.snapchat.com/@redkmotors"
+      "https://www.snapchat.com/@redkmotors",
+      "https://www.tiktok.com/@redkmotors"
     ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",

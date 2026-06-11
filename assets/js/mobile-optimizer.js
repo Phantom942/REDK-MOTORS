@@ -10,10 +10,7 @@
 
   function init() {
     if (navigator.connection && /2g|slow/.test(navigator.connection.effectiveType || '')) {
-      document.querySelectorAll('.hero__video-player').forEach(function(v) {
-        v.pause();
-        v.style.display = 'none';
-      });
+      document.body.classList.add('is-slow-connection');
     }
     if (isSmall) {
       document.querySelectorAll('[data-animate]').forEach(function(el) {
@@ -26,6 +23,7 @@
         var y = window.pageYOffset;
         if (nav && nav.classList.contains('is-open') && Math.abs(y - lastScroll) > 50) {
           nav.classList.remove('is-open');
+          document.body.classList.remove('is-nav-open');
           if (toggle) toggle.setAttribute('aria-expanded', 'false');
         }
         lastScroll = y;

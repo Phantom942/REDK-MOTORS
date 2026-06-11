@@ -1,0 +1,161 @@
+---
+layout: base.njk
+title: "Notre atelier et équipe | Garage RED-K MOTORS à Ivry-sur-Seine (94)"
+description: "Découvrez l'équipe RED-K MOTORS : mécaniciens multimarques à Ivry-sur-Seine, diagnostic, entretien et carrosserie. Devis gratuit, SIRET 103 462 537 00012."
+pageKey: equipe
+date: 2026-06-11
+lastReviewed: 2026-06-11
+hasHeroVideo: true
+sitemap:
+  changefreq: monthly
+  priority: 0.75
+breadcrumb:
+  "@context": "https://schema.org"
+  "@type": "BreadcrumbList"
+  itemListElement:
+    - "@type": "ListItem"
+      position: 1
+      name: "Accueil"
+      item: "https://redk-motors.me/"
+    - "@type": "ListItem"
+      position: 2
+      name: "Notre équipe"
+      item: "https://redk-motors.me/equipe/"
+personSchema:
+  "@context": "https://schema.org"
+  "@type": "Person"
+  "@id": "https://redk-motors.me/#redk-workshop-team"
+  name: "Équipe atelier RED-K MOTORS"
+  jobTitle: "Mécaniciens et carrossiers multimarques"
+  url: "https://redk-motors.me/equipe/"
+  worksFor:
+    "@id": "https://redk-motors.me/#business"
+  knowsAbout:
+    - "Diagnostic automobile"
+    - "Entretien véhicule"
+    - "Freinage"
+    - "Carrosserie"
+faqSchema:
+  "@context": "https://schema.org"
+  "@type": "FAQPage"
+  mainEntity:
+    - "@type": "Question"
+      name: "Qui intervient sur mon véhicule chez RED-K MOTORS ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Des mécaniciens et carrossiers expérimentés, basés à l'atelier du 9 rue Michelet à Ivry-sur-Seine. Vous échangez directement avec l'équipe qui réalise les travaux."
+    - "@type": "Question"
+      name: "Travaillez-vous sur toutes les marques ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Oui, toutes marques thermiques (essence et diesel) : entretien courant, diagnostic électronique, freinage, distribution, carrosserie et pneumatiques."
+    - "@type": "Question"
+      name: "Comment garantissez-vous la transparence des interventions ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Devis écrit et gratuit avant travaux, explication des constats, pièces d'origine ou équivalent certifié, compte-rendu à la restitution du véhicule."
+---
+
+{% set heroActions %}
+<a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
+<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">Message WhatsApp</a>
+{% endset %}
+{% set heroClass = "hero--subpage" %}
+{% set heroAria = "equipe-hero-title" %}
+{% set heroTitle = "Notre atelier à Ivry-sur-Seine" %}
+{% set heroKicker = "Équipe sur place · Multimarque" %}
+{% set heroDesc = "Mécanique, diagnostic, entretien et carrosserie — vous parlez directement aux techniciens." %}
+{% set videoSrc = "mecanique.mp4" %}
+{% include "hero-video.njk" %}
+
+<section class="service-focus" aria-labelledby="equipe-intro" data-animate="slide-right">
+  <div class="container service-focus__inner">
+    <div>
+      <h2 id="equipe-intro">{{ team.author.name }}</h2>
+      <p>{{ team.author.description }}</p>
+      <p><strong>Expérience :</strong> {{ team.author.experienceSummary }}</p>
+      <p><strong>SIRET :</strong> 103 462 537 00012 · <strong>NAF :</strong> 4520A (entretien et réparation automobile)</p>
+    </div>
+  </div>
+</section>
+
+<section class="service-focus service-focus--alt" aria-labelledby="equipe-specialites" data-animate="slide-left">
+  <div class="container service-focus__inner">
+    <div>
+      <h2 id="equipe-specialites">Spécialités atelier</h2>
+      <ul class="checklist">
+        {% for specialty in team.author.specialties %}
+        <li>{{ specialty }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div>
+      <h2>Engagements qualité</h2>
+      <ul class="checklist">
+        {% for credential in team.author.credentials %}
+        <li>{{ credential }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="promesse" aria-labelledby="equipe-eeat" data-animate="slide-up">
+  <div class="container">
+    <h2 id="equipe-eeat" class="promesse__title">Une équipe locale, des réponses concrètes</h2>
+    <div class="promesse__grid">
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3>Diagnostic expliqué</h3>
+          <p>Codes défauts, mesures et recommandations communiqués avant validation du devis.</p>
+        </div>
+      </div>
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3>Suivi personnalisé</h3>
+          <p>Appel ou WhatsApp aux étapes clés : devis, début des travaux, véhicule prêt.</p>
+        </div>
+      </div>
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3>Contenus d'expertise</h3>
+          <p>Guides pratiques sur le <a href="/blog/">blog</a> rédigés par l'équipe atelier (voyants, freins, entretien, tarifs 94).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include "reviews-block.njk" %}
+
+<section class="faq" aria-labelledby="equipe-faq" data-animate="slide-up">
+  <div class="container faq__inner">
+    <div>
+      <p class="section-kicker">FAQ</p>
+      <h2 id="equipe-faq">Questions fréquentes</h2>
+    </div>
+    <div class="faq__list" data-accordion>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">Qui intervient sur mon véhicule chez RED-K MOTORS ?</button>
+        <div class="faq__answer" hidden>
+          <p>Des mécaniciens et carrossiers expérimentés, basés à l'atelier du 9 rue Michelet à Ivry-sur-Seine. Vous échangez directement avec l'équipe qui réalise les travaux.</p>
+        </div>
+      </article>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">Travaillez-vous sur toutes les marques ?</button>
+        <div class="faq__answer" hidden>
+          <p>Oui, toutes marques thermiques (essence et diesel) : entretien courant, diagnostic électronique, freinage, distribution, carrosserie et pneumatiques.</p>
+        </div>
+      </article>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">Comment garantissez-vous la transparence des interventions ?</button>
+        <div class="faq__answer" hidden>
+          <p>Devis écrit et gratuit avant travaux, explication des constats, pièces d'origine ou équivalent certifié, compte-rendu à la restitution du véhicule.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

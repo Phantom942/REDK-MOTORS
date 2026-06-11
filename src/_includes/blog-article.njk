@@ -17,6 +17,7 @@
         {% if readingTime %}<span class="article-reading-time">{{ readingTime }}</span>{% endif %}
       </div>
       <h1>{{ title | replace(" | Blog RED-K MOTORS", "") }}</h1>
+      <p class="article-byline">Par <a href="/equipe/">{{ team.author.name }}</a> · {{ team.author.jobTitle }}</p>
       <p class="article-excerpt">{{ excerpt }}</p>
     </div>
   </header>

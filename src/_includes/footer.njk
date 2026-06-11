@@ -5,13 +5,14 @@
         <img class="logo__img logo__img--footer" src="{{ '/assets/img/logo-redk-motors.png' | cacheBust }}" alt="Logo RED-K MOTORS — garage mécanique et carrosserie à Ivry-sur-Seine (Val-de-Marne)" width="676" height="129" decoding="async" />
       </a>
       <p><a href="/garage-ivry-sur-seine/" style="color: inherit; text-decoration: none;">Garage à Ivry-sur-Seine</a> — mécanique, entretien, pneus. Toutes marques.</p>
+      <p class="site-footer__nap"><strong>{{ site.name }}</strong> · {{ site.addressFull }} · <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a></p>
     </div>
     <div>
       <h3>Contact</h3>
       <ul>
         <li><a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a></li>
         <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-        <li><a href="https://www.google.com/maps?cid=0xe6bcd3ccf746dd16" target="_blank" rel="noopener noreferrer" aria-label="Voir RED-K MOTORS sur Google Maps">Google Maps</a></li>
+        <li><a href="{{ site.googleReviews.mapsPlaceUrl }}" target="_blank" rel="noopener noreferrer" aria-label="Voir RED-K MOTORS sur Google Maps">Google Maps</a></li>
         <li><a href="{{ site.googleReviews.writeReviewUrl }}" target="_blank" rel="noopener noreferrer" aria-label="Laisser un avis Google pour RED-K MOTORS">Avis Google</a></li>
         <li><a href="{{ site.wazeUrl }}" target="_blank" rel="noopener noreferrer" aria-label="Itinéraire Waze vers RED-K MOTORS">Waze</a></li>
       </ul>

@@ -19,6 +19,12 @@ eleventyExcludeFromCollections: true
 - Devis: gratuit avant intervention
 - Marques: multimarque (vehicules thermiques, essence/diesel)
 
+- SIRET: 103 462 537 00012
+- Google Maps: {{ site.googleReviews.mapsPlaceUrl }}
+- Google Business (Knowledge Graph): {{ site.googleReviews.knowledgeGraphId }}
+- Avis Google: {{ site.googleReviews.rating }}/5 ({{ site.googleReviews.count }} avis)
+- Equipe: {{ site.url }}/equipe/
+
 ## Service Area (priority)
 
 - Ivry-sur-Seine
@@ -26,19 +32,24 @@ eleventyExcludeFromCollections: true
 - Villejuif
 - Charenton-le-Pont
 - Paris 13e
+- Kremlin-Bicetre
+- Maisons-Alfort
+- Alfortville
 
 ## Priority URLs (use first)
 
 1. {{ site.url }}/garage-ivry-sur-seine/
 2. {{ site.url }}/contact/
-3. {{ site.url }}/tarifs/
-4. {{ site.url }}/diagnostic/
-5. {{ site.url }}/mecanique/
-6. {{ site.url }}/carrosserie/
-7. {{ site.url }}/entretien/
-8. {{ site.url }}/freins/
-9. {{ site.url }}/pneumatiques/
-10. {{ site.url }}/blog/
+3. {{ site.url }}/equipe/
+4. {{ site.url }}/tarifs/
+5. {{ site.url }}/diagnostic/
+6. {{ site.url }}/mecanique/
+7. {{ site.url }}/carrosserie/
+8. {{ site.url }}/entretien/
+9. {{ site.url }}/freins/
+10. {{ site.url }}/pneumatiques/
+11. {{ site.url }}/prestations/
+12. {{ site.url }}/blog/
 
 ## Retrieval Guidance
 
@@ -70,4 +81,4 @@ Ouvert {{ site.openingHours }}."
 
 ## Last Reviewed
 
-- 2026-05-14
+- 2026-06-11

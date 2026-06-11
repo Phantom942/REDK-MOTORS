@@ -184,6 +184,30 @@
     {{ localServiceSchema | json | safe }}
     </script>
     {% endif %}
+
+    {% if howToSchema %}
+    <script type="application/ld+json">
+    {{ howToSchema | json | safe }}
+    </script>
+    {% endif %}
+
+    {% if offerCatalogSchema %}
+    <script type="application/ld+json">
+    {{ offerCatalogSchema | json | safe }}
+    </script>
+    {% endif %}
+
+    {% if contactPageSchema %}
+    <script type="application/ld+json">
+    {{ contactPageSchema | json | safe }}
+    </script>
+    {% endif %}
+
+    {% if personSchema %}
+    <script type="application/ld+json">
+    {{ personSchema | json | safe }}
+    </script>
+    {% endif %}
   </head>
   <body class="design-stitch" data-page="{{ pageKey | default('index') }}" data-gtm-id="{{ site.gtmId }}">
     {% include "header.njk" %}
@@ -191,6 +215,20 @@
     <main id="main">
       {{ content | safe }}
     </main>
+
+    {% set showServiceAreas = true %}
+    {% if pageKey in ['merci', 'mentions-legales', 'confidentialite', 'cookies', '404'] %}
+      {% set showServiceAreas = false %}
+    {% endif %}
+    {% if page and page.url and '/blog/' in page.url %}
+      {% set showServiceAreas = false %}
+    {% endif %}
+    {% if hideServiceAreas %}
+      {% set showServiceAreas = false %}
+    {% endif %}
+    {% if showServiceAreas %}
+      {% include "service-areas-block.njk" %}
+    {% endif %}
 
     {% if page and page.url %}
       {% set moneyPrefixes = [
@@ -213,6 +251,8 @@
         '/maisons-alfort/',
         '/kremlin-bicetre/',
         '/revision-auto-val-de-marne/',
+        '/equipe/',
+        '/processus/',
         '/blog/'
       ] %}
       {% set showConversionHub = false %}
@@ -238,7 +278,7 @@
     <script src="/assets/js/mobile-optimizer.js" defer></script>
     {% endif %}
     <script src="/assets/js/cookies.js" defer></script>
-    {% if hasHeroVideo or not (scripts and scripts.video == false) %}
+    {% if hasHeroVideo %}
     <script src="/assets/js/video-lazy.js" defer></script>
     {% endif %}
     {% if scripts and scripts.effects == true %}

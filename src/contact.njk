@@ -3,8 +3,8 @@ layout: base.njk
 title: "Contact — Garage RED-K MOTORS à Ivry-sur-Seine (94) | Téléphone, WhatsApp, plan"
 description: "RED-K MOTORS, 9 rue Michelet, 94200 Ivry-sur-Seine. Téléphone, plan et horaires."
 pageKey: contact
-date: 2026-05-14
-lastReviewed: 2026-05-14
+date: 2026-06-11
+lastReviewed: 2026-06-11
 hasHeroVideo: true
 scripts:
   effects: false
@@ -23,6 +23,34 @@ breadcrumb:
       position: 2
       name: "Coordonnées"
       item: "https://redk-motors.me/contact/"
+contactPageSchema:
+  "@context": "https://schema.org"
+  "@type": "ContactPage"
+  "@id": "https://redk-motors.me/contact/#contactpage"
+  url: "https://redk-motors.me/contact/"
+  name: "Contact — Garage RED-K MOTORS à Ivry-sur-Seine"
+  description: "Coordonnées, plan et horaires du garage RED-K MOTORS à Ivry-sur-Seine (94)."
+  mainEntity:
+    "@id": "https://redk-motors.me/#business"
+faqSchema:
+  "@context": "https://schema.org"
+  "@type": "FAQPage"
+  mainEntity:
+    - "@type": "Question"
+      name: "Dois-je prendre rendez-vous pour un diagnostic ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Oui, pour garantir la disponibilité d'un technicien et réduire votre temps d'attente sur place."
+    - "@type": "Question"
+      name: "Puis-je envoyer des photos pour un premier avis ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Oui, par WhatsApp ou email — utile pour préparer le devis."
+    - "@type": "Question"
+      name: "Comment je suis tenu au courant de l'avancement ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Appel ou WhatsApp aux étapes clés : devis validé, début des travaux, véhicule prêt."
 ---
 
 {% set heroActions %}
@@ -91,7 +119,11 @@ breadcrumb:
       </div>
       <div>
         <dt>Adresse</dt>
-        <dd><a href="https://www.google.com/maps?cid=0xe6bcd3ccf746dd16" target="_blank" rel="noopener noreferrer">{{ site.addressFull }}</a></dd>
+        <dd><a href="{{ site.googleReviews.mapsPlaceUrl }}" target="_blank" rel="noopener noreferrer">{{ site.addressFull }}</a></dd>
+      </div>
+      <div>
+        <dt>SIRET</dt>
+        <dd>103 462 537 00012</dd>
       </div>
       <div>
         <dt>Horaires</dt>
@@ -126,6 +158,8 @@ breadcrumb:
     </div>
   </div>
 </section>
+
+{% include "reviews-block.njk" %}
 
 <section class="faq" aria-labelledby="contact-faq" data-animate="slide-up">
   <div class="container faq__inner">

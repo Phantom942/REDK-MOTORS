@@ -3,8 +3,8 @@ layout: base.njk
 title: "Tarifs garage Ivry-sur-Seine (94) | Grille indicative complète | RED-K MOTORS"
 description: "Tarifs TTC indicatifs à Ivry (94) : diagnostic, vidange, freinage, distribution, pneus et plus. Montants indicatifs — devis fermé après inspection au véhicule."
 pageKey: tarifs
-date: 2026-05-14
-lastReviewed: 2026-05-14
+date: 2026-06-11
+lastReviewed: 2026-06-11
 permalink: /tarifs/
 sitemap:
   changefreq: monthly
@@ -21,6 +21,50 @@ breadcrumb:
       position: 2
       name: "Tarifs indicatifs"
       item: "https://redk-motors.me/tarifs/"
+offerCatalogSchema:
+  "@context": "https://schema.org"
+  "@type": "OfferCatalog"
+  name: "Tarifs indicatifs RED-K MOTORS"
+  url: "https://redk-motors.me/tarifs/"
+  itemListElement:
+    - "@type": "Offer"
+      itemOffered: { "@type": "Service", "name": "Diagnostic avancé (approfondi)" }
+      priceSpecification: { "@type": "PriceSpecification", "minPrice": "50", "maxPrice": "100", "priceCurrency": "EUR" }
+    - "@type": "Offer"
+      itemOffered: { "@type": "Service", "name": "Vidange (huile + filtre)" }
+      priceSpecification: { "@type": "PriceSpecification", "minPrice": "70", "maxPrice": "150", "priceCurrency": "EUR" }
+    - "@type": "Offer"
+      itemOffered: { "@type": "Service", "name": "Révision" }
+      priceSpecification: { "@type": "PriceSpecification", "minPrice": "130", "maxPrice": "400", "priceCurrency": "EUR" }
+    - "@type": "Offer"
+      itemOffered: { "@type": "Service", "name": "Plaquettes de frein" }
+      priceSpecification: { "@type": "PriceSpecification", "minPrice": "100", "maxPrice": "190", "priceCurrency": "EUR" }
+    - "@type": "Offer"
+      itemOffered: { "@type": "Service", "name": "Kit distribution (courroie + pose)" }
+      priceSpecification: { "@type": "PriceSpecification", "minPrice": "450", "maxPrice": "990", "priceCurrency": "EUR" }
+    - "@type": "Offer"
+      itemOffered: { "@type": "Service", "name": "Pré-contrôle technique" }
+      price: "40"
+      priceCurrency: "EUR"
+faqSchema:
+  "@context": "https://schema.org"
+  "@type": "FAQPage"
+  mainEntity:
+    - "@type": "Question"
+      name: "Les tarifs affichés sont-ils définitifs ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Non. Les montants sont indicatifs TTC pour véhicules particuliers courants à Ivry-sur-Seine. Le prix définitif figure sur le devis validé après inspection au véhicule."
+    - "@type": "Question"
+      name: "Proposez-vous un devis gratuit ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Oui. Devis écrit et gratuit avant toute intervention. Rien n'est engagé sans votre accord."
+    - "@type": "Question"
+      name: "Pourquoi une fourchette de prix plutôt qu'un montant fixe ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Le tarif dépend du modèle, des pièces nécessaires et du temps d'intervention. La fourchette permet d'anticiper ; le devis au garage confirme le montant exact."
 ---
 
 {% set heroActions %}
@@ -43,6 +87,35 @@ breadcrumb:
     <div class="pricing-section__actions">
       <a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
       <a class="btn btn--secondary btn--dark" href="/">Retour à l'accueil</a>
+    </div>
+  </div>
+</section>
+
+<section class="faq" aria-labelledby="tarifs-faq" data-animate="slide-up">
+  <div class="container faq__inner">
+    <div>
+      <p class="section-kicker">FAQ tarifs</p>
+      <h2 id="tarifs-faq">Questions fréquentes</h2>
+    </div>
+    <div class="faq__list" data-accordion>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">Les tarifs affichés sont-ils définitifs ?</button>
+        <div class="faq__answer" hidden>
+          <p>Non. Montants indicatifs TTC à {{ site.city }} — le devis validé après inspection au véhicule fait foi.</p>
+        </div>
+      </article>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">Proposez-vous un devis gratuit ?</button>
+        <div class="faq__answer" hidden>
+          <p>Oui. Devis écrit et gratuit ; aucune intervention sans votre accord.</p>
+        </div>
+      </article>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">Pourquoi une fourchette de prix ?</button>
+        <div class="faq__answer" hidden>
+          <p>Le tarif dépend du modèle, des pièces et du temps d'intervention. La fourchette aide à anticiper ; le devis confirme le montant exact.</p>
+        </div>
+      </article>
     </div>
   </div>
 </section>

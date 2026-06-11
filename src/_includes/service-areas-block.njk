@@ -1,0 +1,13 @@
+<section class="service-focus service-focus--alt service-focus--compact" aria-labelledby="{{ serviceAreasId | default('zones-site') }}" data-animate="slide-left">
+  <div class="container service-focus__inner">
+    <div>
+      <h2 id="{{ serviceAreasId | default('zones-site') }}">{{ serviceAreasTitle | default("Garage à Ivry et communes voisines") }}</h2>
+      {% if serviceAreasIntro %}
+      <p>{{ serviceAreasIntro | safe }}</p>
+      {% else %}
+      <p>Ivry-sur-Seine et sud parisien — <a href="/garage-ivry-sur-seine/">page garage</a> · <a href="/equipe/">équipe</a></p>
+      {% endif %}
+      {% include "service-areas.njk" %}
+    </div>
+  </div>
+</section>

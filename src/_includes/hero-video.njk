@@ -1,22 +1,18 @@
 <section class="hero {{ heroClass }}" {% if heroAria %}aria-labelledby="{{ heroAria }}"{% endif %}>
   <div class="hero__video-bg" aria-hidden="true" data-nosnippet>
-    {# Remplacez hero-poster.jpg par une capture nette de votre atelier (1200×675 px recommandé, &lt; 150 Ko) #}
     <video
       class="hero__video-player"
-      autoplay
       muted
       loop
       playsinline
-      preload="metadata"
-      poster="/assets/posters/hero-poster.jpg"
+      preload="none"
+      poster="{{ videoPoster | default('/assets/posters/hero-placeholder.svg') }}"
+      data-video-desktop="/assets/video/{{ videoSrc }}"
+      data-video-mobile="/assets/video/{{ videoSrc | replace('.mp4', '-mobile.mp4') }}"
       aria-label="Vidéo de présentation du garage RED-K MOTORS à Ivry-sur-Seine"
       disablePictureInPicture
       disableRemotePlayback
-    >
-      <source data-src="/assets/video/{{ videoSrc | replace('.mp4', '-mobile.mp4') }}" type="video/mp4" media="(max-width: 768px)" />
-      <source data-src="/assets/video/{{ videoSrc }}" type="video/mp4" />
-      Votre navigateur ne supporte pas la lecture de vidéos.
-    </video>
+    ></video>
   </div>
   <div class="hero__overlay" aria-hidden="true"></div>
   <div class="container hero__content">

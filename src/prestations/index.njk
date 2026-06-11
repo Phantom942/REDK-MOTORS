@@ -1,14 +1,50 @@
 ---
 layout: base.njk
-title: "Toutes les prestations atelier | RED-K MOTORS"
-description: "Consultez toutes les prestations atelier RED-K MOTORS et accedez a chaque fiche detaillee."
+title: "Toutes les prestations atelier | RED-K MOTORS Ivry-sur-Seine (94)"
+description: "28 prestations atelier RED-K MOTORS à Ivry-sur-Seine : entretien, freinage, moteur, pneus, climatisation et carrosserie. Devis gratuit."
 pageKey: prestations
+date: 2026-06-11
+lastReviewed: 2026-06-11
+sitemap:
+  changefreq: weekly
+  priority: 0.7
+breadcrumb:
+  "@context": "https://schema.org"
+  "@type": "BreadcrumbList"
+  itemListElement:
+    - "@type": "ListItem"
+      position: 1
+      name: "Accueil"
+      item: "https://redk-motors.me/"
+    - "@type": "ListItem"
+      position: 2
+      name: "Prestations"
+      item: "https://redk-motors.me/prestations/"
+faqSchema:
+  "@context": "https://schema.org"
+  "@type": "FAQPage"
+  mainEntity:
+    - "@type": "Question"
+      name: "Comment choisir la bonne prestation ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Sélectionnez la prestation la plus proche de votre besoin dans la liste, ou contactez-nous par téléphone pour être orienté vers le bon service atelier."
+    - "@type": "Question"
+      name: "Chaque prestation inclut-elle un devis ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Oui. Chaque fiche prestation mène à un devis personnalisé après diagnostic ou inspection du véhicule."
+    - "@type": "Question"
+      name: "Les prestations sont-elles disponibles pour toutes les marques ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Oui, véhicules thermiques essence et diesel, toutes marques courantes."
 ---
 
 <section class="presta-listing" aria-labelledby="presta-listing-title">
   <div class="container">
     <h1 id="presta-listing-title">Toutes nos prestations atelier</h1>
-    <p>Choisissez une prestation pour voir le detail, les points controles et les questions frequentes.</p>
+    <p>Choisissez une prestation pour voir le détail, les points contrôlés et les questions fréquentes. Atelier à Ivry-sur-Seine — <a href="/equipe/">équipe multimarque</a>.</p>
 
     <div class="presta-listing__grid">
       {% for category in prestations.categories %}
@@ -21,6 +57,35 @@ pageKey: prestations
         </ul>
       </article>
       {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="faq" aria-labelledby="presta-hub-faq" data-animate="slide-up">
+  <div class="container faq__inner">
+    <div>
+      <p class="section-kicker">FAQ</p>
+      <h2 id="presta-hub-faq">Questions fréquentes</h2>
+    </div>
+    <div class="faq__list" data-accordion>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">Comment choisir la bonne prestation ?</button>
+        <div class="faq__answer" hidden>
+          <p>Sélectionnez la prestation la plus proche de votre besoin, ou appelez le <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a> pour être orienté.</p>
+        </div>
+      </article>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">Chaque prestation inclut-elle un devis ?</button>
+        <div class="faq__answer" hidden>
+          <p>Oui. Devis personnalisé après diagnostic ou inspection — gratuit et sans engagement.</p>
+        </div>
+      </article>
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">Toutes marques ?</button>
+        <div class="faq__answer" hidden>
+          <p>Oui, essence et diesel, toutes marques courantes.</p>
+        </div>
+      </article>
     </div>
   </div>
 </section>

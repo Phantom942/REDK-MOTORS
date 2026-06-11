@@ -30,34 +30,100 @@ document.addEventListener('DOMContentLoaded', function() {
   // Mobile Menu Toggle
   const navToggle = document.querySelector('.main-nav__toggle');
   const navMenu = document.querySelector('#primary-menu');
-  
+  const navSubTriggers = document.querySelectorAll('.main-nav__trigger');
+  const MOBILE_NAV_MQ = window.matchMedia('(max-width: 768px)');
+
+  function isMobileNav() {
+    return MOBILE_NAV_MQ.matches;
+  }
+
+  function closeNavSubmenus() {
+    if (!navMenu) return;
+    navMenu.querySelectorAll('.main-nav__item--has-sub.is-open').forEach(function(item) {
+      item.classList.remove('is-open');
+      var trigger = item.querySelector('.main-nav__trigger');
+      if (trigger) trigger.setAttribute('aria-expanded', 'false');
+    });
+  }
+
+  function openActiveNavSubmenus() {
+    if (!navMenu || !isMobileNav()) return;
+    navMenu.querySelectorAll('.main-nav__item--has-sub.is-active').forEach(function(item) {
+      item.classList.add('is-open');
+      var trigger = item.querySelector('.main-nav__trigger');
+      if (trigger) trigger.setAttribute('aria-expanded', 'true');
+    });
+  }
+
+  function setNavMenuOpen(open) {
+    if (!navToggle || !navMenu) return;
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    navMenu.classList.toggle('is-open', open);
+    document.body.classList.toggle('is-nav-open', open);
+    navToggle.querySelector('.sr-only').textContent = open ? 'Fermer le menu' : 'Ouvrir le menu';
+    if (open) {
+      openActiveNavSubmenus();
+    } else {
+      closeNavSubmenus();
+    }
+  }
+
   if (navToggle && navMenu) {
-    navToggle.addEventListener('click', function() {
-      const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
-      navToggle.setAttribute('aria-expanded', !isExpanded);
-      navMenu.classList.toggle('is-open');
-      
-      // Close menu when clicking outside
+    navToggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+      setNavMenuOpen(!isExpanded);
+
       if (!isExpanded) {
         document.addEventListener('click', function closeMenu(e) {
           if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
-            navMenu.classList.remove('is-open');
-            navToggle.setAttribute('aria-expanded', 'false');
+            setNavMenuOpen(false);
             document.removeEventListener('click', closeMenu);
           }
         });
       }
     });
 
-    // Close menu when clicking on a link
-    const navLinks = navMenu.querySelectorAll('a');
-    navLinks.forEach(link => {
+    navMenu.querySelectorAll('a').forEach(function(link) {
       link.addEventListener('click', function() {
-        navMenu.classList.remove('is-open');
-        navToggle.setAttribute('aria-expanded', 'false');
+        if (!isMobileNav()) return;
+        setNavMenuOpen(false);
       });
     });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && navMenu.classList.contains('is-open')) {
+        setNavMenuOpen(false);
+      }
+    });
+
+    MOBILE_NAV_MQ.addEventListener('change', function(e) {
+      if (!e.matches) setNavMenuOpen(false);
+    });
   }
+
+  navSubTriggers.forEach(function(trigger) {
+    trigger.addEventListener('click', function(e) {
+      if (!isMobileNav()) return;
+
+      e.preventDefault();
+      e.stopPropagation();
+      var parent = trigger.closest('.main-nav__item--has-sub');
+      if (!parent) return;
+
+      var isOpen = parent.classList.contains('is-open');
+      navSubTriggers.forEach(function(other) {
+        var otherParent = other.closest('.main-nav__item--has-sub');
+        if (otherParent && otherParent !== parent) {
+          otherParent.classList.remove('is-open');
+          other.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      parent.classList.toggle('is-open', !isOpen);
+      trigger.setAttribute('aria-expanded', String(!isOpen));
+    });
+  });
 
   // Scroll Animations
   const animateElements = document.querySelectorAll('[data-animate]');

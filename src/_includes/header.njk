@@ -3,24 +3,6 @@
 </div>
 <a class="skip-link" href="#main">Aller au contenu principal</a>
 
-<div class="top-bar">
-  <div class="container top-bar__inner">
-    <p class="top-bar__meta">
-      <span class="top-bar__hours">{{ site.openingHours }}</span>
-      <a class="top-bar__link" href="mailto:{{ site.email }}">{{ site.email }}</a>
-      <a class="top-bar__link" href="https://www.google.com/maps?q=9+rue+Michelet+94200+Ivry-sur-Seine" target="_blank" rel="noopener noreferrer">{{ site.addressFull }}</a>
-    </p>
-    <div class="top-bar__badge">
-      {% set badgeModifier = "google-pill--top-bar" %}
-      {% include "google-reviews-badge.njk" %}
-    </div>
-    <div class="top-bar__actions">
-      <a class="top-bar__link top-bar__link--phone" href="tel:{{ site.phone }}" data-track="click_call" data-track-pos="header_top">{{ site.phoneDisplay }}</a>
-      <a class="top-bar__link" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp" data-track-pos="header_top">WhatsApp</a>
-    </div>
-  </div>
-</div>
-
 <header class="main-header" role="banner">
   <div class="container main-header__inner">
     <a class="logo" href="/" aria-label="Accueil {{ site.name }}">
@@ -32,14 +14,61 @@
         ☰
       </button>
       <ul id="primary-menu">
-        {% for item in site.nav %}
-        <li>
-          <a href="{{ item.url }}" {% if pageKey == item.key %}aria-current="page"{% endif %} aria-label="{{ item.title }}">
-            {{ item.title }}
-          </a>
+        {% if site.navCta %}
+        <li class="main-nav__item main-nav__item--cta">
+          <a
+            class="main-nav__cta btn btn--primary"
+            href="{{ site.navCta.url }}"
+            {% if pageKey == site.navCta.key %}aria-current="page"{% endif %}
+            data-track="click_contact_nav"
+            data-track-pos="header_nav"
+          >{{ site.navCta.title }}</a>
         </li>
+        {% endif %}
+        {% for item in site.nav %}
+          {% if item.children %}
+            <li class="main-nav__item main-nav__item--has-sub{% for child in item.children %}{% if pageKey == child.key %} is-active{% endif %}{% endfor %}{% if item.activeKeys %}{% for activeKey in item.activeKeys %}{% if pageKey == activeKey %} is-active{% endif %}{% endfor %}{% endif %}">
+              <button
+                type="button"
+                class="main-nav__trigger"
+                aria-expanded="false"
+                aria-haspopup="true"
+                aria-controls="nav-sub-{{ item.key }}"
+              >
+                <span>{{ item.title }}</span>
+                <span class="main-nav__caret" aria-hidden="true">▾</span>
+              </button>
+              <ul id="nav-sub-{{ item.key }}" class="main-nav__sub" role="menu">
+                {% if item.hub %}
+                <li role="none">
+                  <a href="{{ item.hub.url }}" role="menuitem" {% if pageKey == item.hub.key %}aria-current="page"{% endif %}>{{ item.hub.title }}</a>
+                </li>
+                {% endif %}
+                {% for child in item.children %}
+                <li role="none">
+                  <a href="{{ child.url }}" role="menuitem" {% if pageKey == child.key %}aria-current="page"{% endif %}>{{ child.title }}</a>
+                </li>
+                {% endfor %}
+              </ul>
+            </li>
+          {% else %}
+            <li class="main-nav__item">
+              <a href="{{ item.url }}" {% if pageKey == item.key %}aria-current="page"{% endif %}>
+                {{ item.title }}
+              </a>
+            </li>
+          {% endif %}
         {% endfor %}
       </ul>
+      {% if site.navCta %}
+      <a
+        class="main-nav__cta main-nav__cta--desktop btn btn--primary"
+        href="{{ site.navCta.url }}"
+        {% if pageKey == site.navCta.key %}aria-current="page"{% endif %}
+        data-track="click_contact_nav"
+        data-track-pos="header_nav"
+      >{{ site.navCta.title }}</a>
+      {% endif %}
     </nav>
   </div>
 </header>

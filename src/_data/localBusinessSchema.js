@@ -1,5 +1,9 @@
 const localBusiness = require("./localBusiness.json");
+const googleReviews = require("./googleReviews.json");
 const site = require("./site.json");
+const team = require("./team.json");
+
+const SITE_URL = "https://redk-motors.me";
 
 /** Schema LocalBusiness enrichi (GPS Google Maps + avis depuis site.json). */
 module.exports = function localBusinessSchema() {
@@ -19,13 +23,49 @@ module.exports = function localBusinessSchema() {
     geoCircle.geoMidpoint.longitude = longitude;
   }
 
+  schema.employee = {
+    "@type": "Person",
+    "@id": `${SITE_URL}/#${team.author.id}`,
+    name: team.author.name,
+    jobTitle: team.author.jobTitle,
+    url: `${SITE_URL}/equipe/`,
+  };
+
   schema.aggregateRating = {
     "@type": "AggregateRating",
     ratingValue: String(rating),
     reviewCount: String(count),
     bestRating: "5",
     worstRating: "1",
+    itemReviewed: { "@id": `${SITE_URL}/#business` },
   };
+
+  schema.review = googleReviews.reviews.slice(0, 4).map((entry) => ({
+    "@type": "Review",
+    author: { "@type": "Person", name: entry.author },
+    reviewRating: {
+      "@type": "Rating",
+      ratingValue: String(entry.rating),
+      bestRating: "5",
+      worstRating: "1",
+    },
+    reviewBody: entry.text,
+    itemReviewed: { "@id": `${SITE_URL}/#business` },
+  }));
+
+  const placeId = (process.env.GOOGLE_PLACES_PLACE_ID || site.googleReviews.placeId || "").trim();
+  if (placeId) {
+    schema.additionalProperty = [
+      {
+        "@type": "PropertyValue",
+        name: "Google Place ID",
+        value: placeId,
+      },
+    ];
+    if (!schema.sameAs.includes(`https://www.google.com/maps/search/?api=1&query_place_id=${encodeURIComponent(placeId)}`)) {
+      schema.sameAs.push(`https://www.google.com/maps/search/?api=1&query_place_id=${encodeURIComponent(placeId)}`);
+    }
+  }
 
   return schema;
 };
