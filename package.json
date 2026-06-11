@@ -9,7 +9,6 @@
     "dev": "eleventy --serve",
     "favicon": "node scripts/generate-favicons.js",
     "og-image": "node scripts/generate-og-image.js",
-    "ads:generate": "node scripts/generate-ad-videos.js",
     "google:place-id": "node scripts/resolve-google-place-id.js"
   },
   "keywords": [
