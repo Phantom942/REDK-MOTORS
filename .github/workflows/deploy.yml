@@ -82,6 +82,25 @@ jobs:
             "https://redk-motors.me/blog/"
           )
           FAILED=0
+
+          check_seo_asset() {
+            local url="$1"
+            local pattern="$2"
+            local label="$3"
+            response=$(curl -sSL --max-redirs 3 -w "\n%{http_code}" "$url")
+            body=$(echo "$response" | head -n -1)
+            code=$(echo "$response" | tail -n 1)
+            if [ "$code" != "200" ]; then
+              echo "❌ $label → HTTP $code"
+              FAILED=1
+            elif ! echo "$body" | grep -q "$pattern"; then
+              echo "❌ $label → contenu invalide (attendu: $pattern)"
+              FAILED=1
+            else
+              echo "✅ $label → 200 OK"
+            fi
+          }
+
           for url in "${URLS[@]}"; do
             response=$(curl -sSL --max-redirs 3 -w "\n%{http_code}" "$url")
             body=$(echo "$response" | head -n -1)
@@ -96,6 +115,14 @@ jobs:
               echo "✅ $url → 200 OK"
             fi
           done
+
+          check_seo_asset "https://redk-motors.me/sitemap.xml" "<urlset" "sitemap.xml"
+          check_seo_asset "https://redk-motors.me/sitemap.xml" "redk-motors.me/blog/" "sitemap.xml (articles blog)"
+          check_seo_asset "https://redk-motors.me/robots.txt" "Sitemap: https://redk-motors.me/sitemap.xml" "robots.txt (sitemap)"
+          check_seo_asset "https://redk-motors.me/robots.txt" "GPTBot" "robots.txt (crawlers IA)"
+          check_seo_asset "https://redk-motors.me/llms.txt" "RED-K MOTORS" "llms.txt"
+          check_seo_asset "https://redk-motors.me/llms.txt" "SIRET:" "llms.txt (SIRET)"
+
           if [ "$FAILED" -eq 1 ]; then
             echo "::error::Smoke test failed"
             exit 1
