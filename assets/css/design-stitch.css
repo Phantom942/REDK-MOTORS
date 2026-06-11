@@ -2070,3 +2070,15 @@ body.design-stitch {
     grid-template-columns: minmax(0, 1fr) 280px;
   }
 }
+
+/* Perf mobile : blur coûteux sur GPU bas de gamme */
+@media (max-width: 768px) {
+  .design-stitch .main-header,
+  .design-stitch .cookie-banner,
+  .design-stitch .hero__overlay,
+  .design-stitch .card--glass,
+  .design-stitch .conversion-hub__panel {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}

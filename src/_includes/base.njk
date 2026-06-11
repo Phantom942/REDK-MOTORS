@@ -85,14 +85,13 @@
     <title>{{ title | default(site.seoTitle) | default(site.name) }}</title>
     <link rel="canonical" href="{{ site.url }}{{ page.url | default('/') | replace('/index.html','/') }}" />
 
+    {% set googleFontsUrl = "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" %}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    {% set googleFontsUrl = "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" %}
     <link rel="preload" href="{{ googleFontsUrl }}" as="style" />
     <link rel="stylesheet" href="{{ googleFontsUrl }}" media="print" onload="this.media='all'" />
     <noscript><link rel="stylesheet" href="{{ googleFontsUrl }}" /></noscript>
     <link rel="preload" href="{{ '/assets/css/styles.css' | cacheBust }}" as="style" fetchpriority="high" />
-    <link rel="preload" href="/assets/js/main.js" as="script" />
     <link rel="stylesheet" href="{{ '/assets/css/styles.css' | cacheBust }}" />
     <link rel="stylesheet" href="{{ '/assets/css/design-stitch.css' | cacheBust }}" />
 
@@ -273,13 +272,13 @@
     {% include "footer.njk" %}
     {% include "floating-whatsapp.njk" %}
 
-    <script src="/assets/js/main.js" defer></script>
+    <script src="{{ '/assets/js/main.js' | cacheBust }}" defer></script>
     {% if scripts and scripts.mobileOptimizer == false %}{% else %}
-    <script src="/assets/js/mobile-optimizer.js" defer></script>
+    <script src="{{ '/assets/js/mobile-optimizer.js' | cacheBust }}" defer></script>
     {% endif %}
-    <script src="/assets/js/cookies.js" defer></script>
+    <script src="{{ '/assets/js/cookies.js' | cacheBust }}" defer></script>
     {% if hasHeroVideo %}
-    <script src="/assets/js/video-lazy.js" defer></script>
+    <script src="{{ '/assets/js/video-lazy.js' | cacheBust }}" defer></script>
     {% endif %}
     {% if scripts and scripts.effects == true %}
     <script>

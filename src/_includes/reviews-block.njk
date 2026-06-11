@@ -54,4 +54,6 @@
     </p>
   </div>
 </section>
-<script src="/assets/js/google-reviews.js" defer></script>
+{% if googlePlacesEnv.apiKey %}
+<script src="{{ '/assets/js/google-reviews.js' | cacheBust }}" defer></script>
+{% endif %}
