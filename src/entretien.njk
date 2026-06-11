@@ -68,6 +68,10 @@ faqSchema:
 {% set prestationsHubSubtitle = "Accedez aux prestations d'entretien de votre vehicule et consultez leur page dediee." %}
 {% set prestaHubCategoryKeys = ["frequentes", "freinage", "climatisation"] %}
 {% include "hero-video.njk" %}
+
+{% set directAnswerKey = "entretien" %}
+{% include "direct-answer.njk" %}
+
 {% include "prestations-hub.njk" %}
 
 <section id="entretien" class="service-focus" aria-labelledby="entretien-title" data-animate="slide-right">

@@ -3,8 +3,8 @@ layout: base.njk
 title: "Carrosserie auto à Ivry-sur-Seine (94) — Devis photo, réparation, peinture | RED-K MOTORS"
 description: "Réparation carrosserie à Ivry, Val-de-Marne : débosselage, peinture, petits chocs. Devis détaillé avant travaux. Garage 94 — 06 48 74 56 68."
 pageKey: carrosserie
-date: 2026-05-14
-lastReviewed: 2026-05-14
+date: 2026-06-11
+lastReviewed: 2026-06-11
 hasHeroVideo: true
 sitemap:
   changefreq: weekly
@@ -77,21 +77,11 @@ faqSchema:
 {% set prestationsHubSubtitle = "Selectionnez la prestation carrosserie adaptee a votre besoin et obtenez votre devis rapidement." %}
 {% set prestaHubCategoryKeys = ["carrosserie"] %}
 {% include "hero-video.njk" %}
-{% include "prestations-hub.njk" %}
 
-<section class="service-focus service-focus--alt" aria-labelledby="carrosserie-en-bref" data-animate="slide-left">
-  <div class="container service-focus__inner">
-    <div>
-      <h2 id="carrosserie-en-bref">En bref</h2>
-      <ul>
-        <li>Service: Carrosserie et peinture (debosselage, pare-chocs, retouches)</li>
-        <li>Zone: Ivry-sur-Seine et communes proches (Vitry, Villejuif, Charenton, Paris 13e)</li>
-        <li>Contact rapide: <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a> ou <a href="/contact/">prise de RDV</a></li>
-        <li>Horaires: {{ site.openingHours }}</li>
-      </ul>
-    </div>
-  </div>
-</section>
+{% set directAnswerKey = "carrosserie" %}
+{% include "direct-answer.njk" %}
+
+{% include "prestations-hub.njk" %}
 
 <section id="carrosserie" class="service-focus service-focus--alt" aria-labelledby="carrosserie-title" data-animate="slide-left">
   <div class="container service-focus__inner">

@@ -1,0 +1,36 @@
+{% set da = serviceDirectAnswers[directAnswerKey] %}
+{% if da %}
+<section class="direct-answer service-focus service-focus--compact" aria-labelledby="direct-answer-{{ directAnswerKey }}" data-animate="slide-up">
+  <div class="container service-focus__inner direct-answer__inner">
+    <div>
+      <p class="section-kicker">Réponse directe</p>
+      <h2 id="direct-answer-{{ directAnswerKey }}">{{ da.question }}</h2>
+      <p class="direct-answer__lead">{{ da.answer }}</p>
+      <dl class="direct-answer__facts">
+        <div class="direct-answer__fact">
+          <dt>Prix indicatif</dt>
+          <dd>{{ da.price }}</dd>
+        </div>
+        <div class="direct-answer__fact">
+          <dt>Durée</dt>
+          <dd>{{ da.duration }}</dd>
+        </div>
+        <div class="direct-answer__fact">
+          <dt>Disponibilité</dt>
+          <dd>{{ da.booking }}</dd>
+        </div>
+        <div class="direct-answer__fact">
+          <dt>Adresse</dt>
+          <dd>{{ site.addressFull }}</dd>
+        </div>
+      </dl>
+      <p class="direct-answer__contact">
+        <strong>Tél :</strong> <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a>
+        · <strong>Horaires :</strong> {{ site.openingHours }}
+        · <a href="/contact/">RDV en ligne</a>
+        · <a href="/tarifs/">Grille tarifaire</a>
+      </p>
+    </div>
+  </div>
+</section>
+{% endif %}
