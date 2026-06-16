@@ -58,7 +58,7 @@ for (const file of files) {
 }
 
 if (issues.length > 0) {
-  console.error("Erreur: anciens horaires détectés (attendu: 10h-18h).");
+  console.error("Erreur: anciens horaires détectés (attendu: 9h-19h).");
   for (const issue of issues) {
     console.error(`- ${issue.file}:${issue.line} -> ${issue.text}`);
   }

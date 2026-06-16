@@ -53,7 +53,7 @@ module.exports = {
         "Pour une citadine ou berline courante, comptez environ 80 à 180 € (huile adaptée + filtre + main-d'œuvre). Le devis exact dépend du moteur, du volume d'huile et de la norme constructeur.",
       facts: [
         { label: "Fourchette indicative", value: "80–180 €" },
-        { label: "Chez RED-K MOTORS", value: "Devis gratuit · lun–sam 10h–18h" },
+        { label: "Chez RED-K MOTORS", value: "Devis gratuit · lun–sam 9h–19h" },
       ],
     },
     relatedLinks: [
@@ -308,7 +308,7 @@ module.exports = {
       answer:
         "Respectez vidanges, filtres, courroie de distribution, batterie et freinage selon le carnet. Un entretien préventif coûte toujours moins qu'une casse moteur ou boîte.",
       facts: [
-        { label: "Horaires", value: "Lun–sam 10h–18h" },
+        { label: "Horaires", value: "Lun–sam 9h–19h" },
         { label: "Adresse", value: "9 rue Michelet, Ivry-sur-Seine" },
       ],
     },
@@ -767,7 +767,7 @@ module.exports = {
         "Vidange, filtres (huile, air, habitacle, carburant), contrôle freins, courroie distribution ou chaîne selon plan, liquides (frein, refroidissement) et points de sécurité. Le détail exact est dans le carnet constructeur.",
       facts: [
         { label: "Palier", value: "60 000 km — révision majeure fréquente" },
-        { label: "Devis", value: "Gratuit · lun–sam 10h–18h" },
+        { label: "Devis", value: "Gratuit · lun–sam 9h–19h" },
       ],
     },
     relatedLinks: [
