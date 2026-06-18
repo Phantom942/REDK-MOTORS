@@ -124,7 +124,7 @@ jobs:
           check_seo_asset "https://redk-motors.me/robots.txt" "LLMs-Txt:" "robots.txt (GEO llms)"
           check_seo_asset "https://redk-motors.me/robots.txt" "Bingbot" "robots.txt (Bing/Copilot)"
           check_seo_asset "https://redk-motors.me/llms.txt" "RED-K MOTORS" "llms.txt"
-          check_seo_asset "https://redk-motors.me/llms.txt" "SIRET:" "llms.txt (SIRET)"
+          check_seo_asset "https://redk-motors.me/llms.txt" "SIRET" "llms.txt (SIRET)"
           check_seo_asset "https://redk-motors.me/llms-full.txt" "RED-K MOTORS" "llms-full.txt"
           check_seo_asset "https://redk-motors.me/ai.txt" "Llms-Txt:" "ai.txt"
 
