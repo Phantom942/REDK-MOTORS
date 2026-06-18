@@ -1,0 +1,68 @@
+---
+permalink: /llms-full.txt
+layout: null
+eleventyExcludeFromCollections: true
+---
+{% autoescape false %}
+# RED-K MOTORS — Fiche complète pour crawlers IA et moteurs génératifs
+
+> Version étendue de {{ site.url }}/llms.txt — catalogue intégral des contenus indexables.
+
+## Identité
+
+- RED-K MOTORS · {{ site.addressFull }} · {{ site.phoneDisplay }} · {{ site.email }}
+- Site : {{ site.url }} · Horaires : {{ site.openingHours }}
+- SIRET : 103 462 537 00012 · Google : {{ site.googleReviews.rating }}/5 ({{ site.googleReviews.count }} avis)
+
+## Services
+
+Mécanique générale · Diagnostic électronique · Carrosserie & peinture · Entretien & révision · Freinage (plaquettes, disques, liquide) · Pneumatiques (montage, équilibrage) · Vidange · Climatisation · Distribution / courroie · Embrayage · Géométrie · Batterie · Contrôle pré-CT
+
+## Pages services & conversion
+
+- {{ site.url }}/garage-ivry-sur-seine/
+- {{ site.url }}/contact/
+- {{ site.url }}/tarifs/
+- {{ site.url }}/diagnostic/
+- {{ site.url }}/mecanique/
+- {{ site.url }}/carrosserie/
+- {{ site.url }}/entretien/
+- {{ site.url }}/freins/
+- {{ site.url }}/pneumatiques/
+- {{ site.url }}/vidange/
+- {{ site.url }}/prestations/
+- {{ site.url }}/processus/
+- {{ site.url }}/equipe/
+
+## Pages locales indexables
+
+- {{ site.url }}/vitry-sur-seine/
+- {{ site.url }}/villejuif/
+- {{ site.url }}/charenton-le-pont/
+- {{ site.url }}/paris-13/
+- {{ site.url }}/kremlin-bicetre/
+- {{ site.url }}/maisons-alfort/
+- {{ site.url }}/alfortville/
+- {{ site.url }}/garage-ouvert-samedi-94/
+
+## Blog — {{ collections.blog | length }} articles (titre · extrait · URL)
+
+{% for post in collections.blog %}
+### {{ post.data.title | replace(" | Blog RED-K MOTORS", "") }}
+- URL : {{ site.url }}{{ post.url }}
+- Catégorie : {{ post.data.category | default("Conseils auto") }}
+- Publié : {{ post.data.dateDisplay | default(post.data.date) }}
+- Résumé : {{ post.data.excerpt }}
+
+{% endfor %}
+## FAQ assistants
+
+{% for item in llmsKnowledge.assistantFaq %}
+Q: {{ item.q }}
+A: {{ item.a }}
+
+{% endfor %}
+## Dernière mise à jour
+
+{{ buildDate }}
+{% endautoescape %}

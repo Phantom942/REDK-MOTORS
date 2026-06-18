@@ -122,6 +122,8 @@ jobs:
           check_seo_asset "https://redk-motors.me/robots.txt" "GPTBot" "robots.txt (crawlers IA)"
           check_seo_asset "https://redk-motors.me/llms.txt" "RED-K MOTORS" "llms.txt"
           check_seo_asset "https://redk-motors.me/llms.txt" "SIRET:" "llms.txt (SIRET)"
+          check_seo_asset "https://redk-motors.me/llms-full.txt" "RED-K MOTORS" "llms-full.txt"
+          check_seo_asset "https://redk-motors.me/ai.txt" "Llms-Txt:" "ai.txt"
 
           if [ "$FAILED" -eq 1 ]; then
             echo "::error::Smoke test failed"

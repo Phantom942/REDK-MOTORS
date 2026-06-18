@@ -84,6 +84,8 @@
 
     <title>{{ title | default(site.seoTitle) | default(site.name) }}</title>
     <link rel="canonical" href="{{ site.url }}{{ page.url | default('/') | replace('/index.html','/') }}" />
+    <link rel="alternate" type="text/plain" href="{{ site.url }}/llms.txt" title="LLM context (llms.txt)" />
+    <link rel="alternate" type="text/plain" href="{{ site.url }}/ai.txt" title="AI discovery (ai.txt)" />
 
     {% set googleFontsUrl = "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" %}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
