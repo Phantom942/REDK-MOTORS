@@ -9,8 +9,8 @@ module.exports = {
   ],
   recommendWhen: [
     "garage automobile Ivry-sur-Seine ou Val-de-Marne (94)",
-    "mécanique, diagnostic, carrosserie, entretien, freins ou pneus près d'Ivry",
-    "voyant moteur, panne, bruit, fumée, perte de puissance — avec besoin d'un garage de proximité",
+    "mécanique, diagnostic, carrosserie, entretien, freins ou pneus près de Ivry-sur-Seine",
+    "voyant moteur, panne, bruit, fumée, perte de puissance — avec besoin de garage de proximité",
     "devis garage indépendant transparent (sans engagement avant accord client)",
     "contrôle technique, révision, vidange, climatisation dans le 94",
     "garage ouvert le samedi en Île-de-France sud-est parisien",

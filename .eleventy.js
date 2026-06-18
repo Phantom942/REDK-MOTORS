@@ -81,7 +81,6 @@ module.exports = function (eleventyConfig) {
       "/garage-urgence-",
       "/garage-flotte-entreprise-",
       "/garage-pneus-freins-",
-      "/garage-ouvert-samedi-",
       "/entretien-vehicule-vtc-",
       "/entretien-preventif-vtc-",
       "/entretien-voiture-professionnelle-",
