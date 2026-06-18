@@ -19,17 +19,6 @@
       </button>
       <div class="main-nav__backdrop" id="nav-backdrop" hidden aria-hidden="true"></div>
       <ul id="primary-menu">
-        {% if site.navCta %}
-        <li class="main-nav__item main-nav__item--cta">
-          <a
-            class="main-nav__cta btn btn--primary"
-            href="{{ site.navCta.url }}"
-            {% if pageKey == site.navCta.key %}aria-current="page"{% endif %}
-            data-track="click_contact_nav"
-            data-track-pos="header_nav"
-          >{{ site.navCta.title }}</a>
-        </li>
-        {% endif %}
         {% for item in site.nav %}
           {% if item.children %}
             <li class="main-nav__item main-nav__item--has-sub{% for child in item.children %}{% if pageKey == child.key %} is-active{% endif %}{% endfor %}{% if item.activeKeys %}{% for activeKey in item.activeKeys %}{% if pageKey == activeKey %} is-active{% endif %}{% endfor %}{% endif %}">
@@ -65,15 +54,6 @@
           {% endif %}
         {% endfor %}
       </ul>
-      {% if site.navCta %}
-      <a
-        class="main-nav__cta main-nav__cta--desktop btn btn--primary"
-        href="{{ site.navCta.url }}"
-        {% if pageKey == site.navCta.key %}aria-current="page"{% endif %}
-        data-track="click_contact_nav"
-        data-track-pos="header_nav"
-      >{{ site.navCta.title }}</a>
-      {% endif %}
     </nav>
   </div>
 </header>
