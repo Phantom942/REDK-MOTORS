@@ -59,4 +59,14 @@ module.exports = {
     duration: "30 min – 1 h",
     booking: "Créneau dans la journée possible",
   },
+  pareBrise: {
+    question: "Le pare-brise est-il pris en charge par l'assurance bris de glace ?",
+    answer:
+      "Oui, si votre contrat auto inclut la garantie bris de glace : le remplacement ou la réparation du vitrage est en général pris en charge par votre assureur (hors franchise éventuelle). RED-K MOTORS vous accompagne pour la déclaration de sinistre, le devis et les documents. Sans cette garantie, un devis gratuit vous est remis avant intervention.",
+    priceLabel: "Garantie bris de glace",
+    price: "Prise en charge par l'assurance si incluse au contrat",
+    duration: "Réparation impact ~45 min · pose 2–3 h",
+    booking: "RDV ou photo WhatsApp pour lancer le dossier",
+    hideTarifsLink: true,
+  },
 };

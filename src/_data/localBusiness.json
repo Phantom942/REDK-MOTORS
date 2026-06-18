@@ -113,7 +113,8 @@
           "itemListElement": [
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Réparation carrosserie" } },
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Peinture automobile" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Débosselage" } }
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Débosselage" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Remplacement pare-brise" } }
           ]
         },
         {

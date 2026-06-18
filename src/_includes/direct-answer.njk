@@ -8,7 +8,7 @@
       <p class="direct-answer__lead">{{ da.answer }}</p>
       <dl class="direct-answer__facts">
         <div class="direct-answer__fact">
-          <dt>Prix indicatif</dt>
+          <dt>{{ da.priceLabel | default("Prix indicatif") }}</dt>
           <dd>{{ da.price }}</dd>
         </div>
         <div class="direct-answer__fact">
@@ -28,7 +28,9 @@
         <strong>Tél :</strong> <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a>
         · <strong>Horaires :</strong> {{ site.openingHours }}
         · <a href="/contact/">RDV en ligne</a>
+        {% if not da.hideTarifsLink %}
         · <a href="/tarifs/">Grille tarifaire</a>
+        {% endif %}
       </p>
     </div>
   </div>

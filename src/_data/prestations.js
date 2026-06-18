@@ -78,6 +78,7 @@ const categories = [
     services: [
       { slug: "debosselage", name: "Debosselage" },
       { slug: "peinture-localisee", name: "Peinture localisee" },
+      { slug: "pare-brise-vitrage", name: "Pare-brise et vitrage" },
       { slug: "retouches-finitions", name: "Retouches et finitions" }
     ]
   }

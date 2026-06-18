@@ -19,7 +19,7 @@
     "opens": "9:00",
     "closes": "19:00"
   },
-  "seoKeywords": "garage ivry-sur-seine, garage 94, mecanique ivry, carrosserie ivry, diagnostic auto ivry, entretien auto ivry, pneus ivry, freins ivry, garage paris 13, garage vitry-sur-seine, garage villejuif, garage charenton-le-pont",
+  "seoKeywords": "garage ivry-sur-seine, garage 94, mecanique ivry, carrosserie ivry, pare-brise ivry, remplacement pare-brise 94, navette vehicule ivry, bris de glace, diagnostic auto ivry, entretien auto ivry, pneus ivry, freins ivry, garage paris 13, garage vitry-sur-seine, garage villejuif, garage charenton-le-pont",
   "geo": {
     "latitude": 48.8076408,
     "longitude": 2.3777448,
@@ -32,7 +32,7 @@
     {
       "title": "Nos services",
       "key": "nav-services",
-      "activeKeys": ["prestations", "mecanique", "carrosserie", "entretien", "diagnostic", "pneumatiques", "freins", "vidange"],
+      "activeKeys": ["prestations", "mecanique", "carrosserie", "pare-brise", "entretien", "diagnostic", "pneumatiques", "freins", "vidange"],
       "hub": {
         "title": "Toutes nos prestations",
         "url": "/prestations/",
@@ -41,6 +41,7 @@
       "children": [
         { "title": "Mécanique & réparations", "url": "/mecanique/", "key": "mecanique" },
         { "title": "Carrosserie & peinture", "url": "/carrosserie/", "key": "carrosserie" },
+        { "title": "Pare-brise & vitrage", "url": "/pare-brise/", "key": "pare-brise" },
         { "title": "Entretien & révision", "url": "/entretien/", "key": "entretien" },
         { "title": "Diagnostic auto", "url": "/diagnostic/", "key": "diagnostic" },
         { "title": "Pneus & freins", "url": "/pneumatiques/", "key": "pneumatiques" }
