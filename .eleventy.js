@@ -2,6 +2,10 @@ const crypto = require("crypto");
 const fs = require("fs");
 const path = require("path");
 
+const indexableTags = JSON.parse(
+  fs.readFileSync(path.join(__dirname, "src/_data/indexableTags.json"), "utf8")
+);
+
 module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("cacheBust", (filePath) => {
     if (!filePath || typeof filePath !== "string") return filePath;
@@ -105,7 +109,14 @@ module.exports = function (eleventyConfig) {
       // Exclure les URLs explicitement noindex de la sitemap
       if (typeof item.data.robots === "string" && item.data.robots.toLowerCase().includes("noindex")) return false;
       // Cohérence avec base.njk : exclure les familles d'URLs noindex
-      if (excludedPrefixes.some((prefix) => item.url.includes(prefix))) return false;
+      if (excludedPrefixes.some((prefix) => item.url.includes(prefix))) {
+        // Pages tag indexables : garder dans la sitemap
+        if (item.url.startsWith("/blog/tag/")) {
+          const tagSlug = item.url.replace(/^\/blog\/tag\//, "").replace(/\/$/, "");
+          if (indexableTags.includes(tagSlug)) return true;
+        }
+        return false;
+      }
       // Exclure 404
       if (item.url === "/404.html" || item.url.endsWith("/404.html")) return false;
       return true;

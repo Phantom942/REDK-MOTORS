@@ -4,7 +4,7 @@
   "description": "Site garage RED-K MOTORS - Ivry-sur-Seine",
   "scripts": {
     "check:hours": "node scripts/check-hours.js",
-    "build": "npm run check:hours && node scripts/sync-google-reviews.js && node -e \"require('fs').rmSync('_site',{recursive:true,force:true});\" && eleventy && node scripts/minify.js",
+    "build": "npm run check:hours && node scripts/sync-google-reviews.js && node -e \"require('fs').rmSync('_site',{recursive:true,force:true});\" && eleventy && node scripts/generate-legacy-redirects.js && node scripts/minify.js",
     "google:reviews": "node scripts/sync-google-reviews.js",
     "serve": "eleventy --serve",
     "dev": "eleventy --serve",
