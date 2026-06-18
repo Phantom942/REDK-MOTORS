@@ -13,5 +13,15 @@
   "hiver": "Hiver",
   "freins": "Freinage",
   "revision": "Révision",
-  "diesel": "Diesel"
+  "diesel": "Diesel",
+  "moteur": "Moteur",
+  "allumage": "Allumage",
+  "turbo": "Turbo",
+  "batterie": "Batterie",
+  "courroie": "Courroie",
+  "refroidissement": "Refroidissement",
+  "boite-automatique": "Boîte automatique",
+  "pneus": "Pneus",
+  "pollution": "Pollution",
+  "electricite": "Électricité"
 }

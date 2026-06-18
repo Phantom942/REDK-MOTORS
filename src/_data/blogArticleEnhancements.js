@@ -850,4 +850,384 @@ module.exports = {
       ],
     },
   },
+  "bougies-allumage-quand-changer": {
+    directAnswer: {
+      question: "À quelle fréquence changer les bougies d'allumage ?",
+      answer:
+        "En général entre 30 000 et 60 000 km selon le moteur (essence, GPL). Des ratés au ralenti, une surconsommation ou un voyant moteur sont des signes d'usure : faites contrôler avant que le catalyseur ne souffre.",
+      facts: [
+        { label: "Intervalle courant", value: "30 000–60 000 km" },
+        { label: "Atelier", value: "RED-K MOTORS · Ivry-sur-Seine (94)" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/mecanique/", label: "Mécanique & réparations" },
+      { url: "/blog/voyant-moteur-allume-que-faire/", label: "Voyant moteur" },
+      { url: "/entretien/", label: "Entretien véhicule" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Peut-on rouler avec des bougies usées ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Sur de courtes distances oui, mais l'allumage dégradé augmente la consommation, les ratés et peut endommager le catalyseur. Un remplacement préventif coûte moins qu'une réparation moteur.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Combien coûte le remplacement des bougies ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Comptez environ 80 à 250 € selon le nombre de cylindres et l'accessibilité du moteur (4 cylindres en ligne vs V6). Devis gratuit chez RED-K MOTORS avant intervention.",
+          },
+        },
+      ],
+    },
+  },
+  "courroie-accessoires-symptomes-usure": {
+    directAnswer: {
+      question: "Quels sont les symptômes d'une courroie d'accessoires usée ?",
+      answer:
+        "Grincement au démarrage ou à froid, courroie visible fissurée ou brillante, voyant batterie ou surchauffe : la courroie d'accessoires entraîne alternateur, pompe à eau et parfois la direction assistée.",
+      facts: [
+        { label: "Contrôle", value: "Visuel à chaque vidange" },
+        { label: "Risque", value: "Rupture = surchauffe + batterie à plat" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/mecanique/", label: "Mécanique" },
+      { url: "/blog/courroie-distribution-quand-changer-94/", label: "Courroie de distribution" },
+      { url: "/entretien/", label: "Entretien" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Courroie d'accessoires ou courroie de distribution : quelle différence ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "La courroie d'accessoires entraîne l'alternateur et la pompe à eau (extérieur moteur). La courroie de distribution synchronise le moteur (intérieur) — sa rupture peut être catastrophique.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Peut-on rouler avec une courroie qui grince ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Un grincement signale une usure ou un mauvais tendeur. La courroie peut casser sans préavis : faites contrôler rapidement pour éviter une panne sur la route.",
+          },
+        },
+      ],
+    },
+  },
+  "liquide-refroidissement-quand-verifier": {
+    directAnswer: {
+      question: "À quelle fréquence vérifier le liquide de refroidissement ?",
+      answer:
+        "Contrôle visuel du niveau au moins une fois par an et avant un long trajet. Remplacement du liquide en général tous les 2 à 5 ans selon le constructeur, ou si la couleur ou la concentration est anormale.",
+      facts: [
+        { label: "Contrôle niveau", value: "1×/an minimum" },
+        { label: "Remplacement", value: "2–5 ans selon carnet" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/entretien/", label: "Entretien" },
+      { url: "/mecanique/", label: "Mécanique" },
+      { url: "/blog/fumee-blanche-echappement-que-faire/", label: "Fumée blanche échappement" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Peut-on compléter avec de l'eau du robinet ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "En urgence et temporairement oui, mais le liquide de refroidissement contient des antigels et anticorrosion. Un mélange inadapté peut corroder le circuit — complétez avec le produit préconisé dès que possible.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Niveau bas de liquide de refroidissement : que faire ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Complétez à froid moteur, puis faites rechercher une fuite (durite, radiateur, pompe à eau). Une consommation régulière indique une fuite à corriger avant surchauffe.",
+          },
+        },
+      ],
+    },
+  },
+  "vanne-egr-encrassee-symptomes": {
+    directAnswer: {
+      question: "Quels symptômes indiquent une vanne EGR encrassée ?",
+      answer:
+        "Perte de puissance, ralenti instable, voyant moteur, fumée noire ou consommation accrue : la vanne EGR encrassée perturbe le mélange air-carburant, surtout en diesel et en usage urbain.",
+      facts: [
+        { label: "Usage à risque", value: "Trajets courts, ville" },
+        { label: "Solution", value: "Nettoyage ou remplacement + diagnostic" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/diagnostic/", label: "Diagnostic auto" },
+      { url: "/blog/fap-dpf-encrasse-trajets-ville/", label: "FAP encrassé" },
+      { url: "/blog/voyant-moteur-allume-que-faire/", label: "Voyant moteur" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Peut-on nettoyer une vanne EGR soi-même ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Un nettoyage mécanique est possible sur certains modèles, mais le démontage peut être complexe et un mauvais remontage déclenche le voyant moteur. Un atelier dispose des outils et du recalibrage nécessaires.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Vanne EGR : nettoyage ou remplacement ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Si l'encrassement est modéré, un nettoyage suffit souvent. Si la vanne est bloquée ou le moteur-stepper HS, le remplacement est préférable — le diagnostic valise la bonne décision.",
+          },
+        },
+      ],
+    },
+  },
+  "disques-frein-voiles-usure-signes": {
+    directAnswer: {
+      question: "Comment reconnaître des disques de frein voilés ou usés ?",
+      answer:
+        "Volant ou pédale qui vibre au freinage, bruit métallique, traces bleues ou rainures profondes : les disques voilés ou sous l'épaisseur minimale doivent être remplacés, souvent avec les plaquettes.",
+      facts: [
+        { label: "Signe fréquent", value: "Vibration au freinage" },
+        { label: "Sécurité", value: "Contrôle freinage avant long trajet" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/freins/", label: "Freinage" },
+      { url: "/blog/plaquettes-frein-usure-signaux-a-ne-pas-ignorer/", label: "Plaquettes usées" },
+      { url: "/blog/freinage-mou-pedale-spongieuse/", label: "Pédale spongieuse" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Peut-on rectifier des disques voilés ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Le rectifiage est possible si l'épaisseur reste au-dessus du minimum constructeur. Au-delà, ou si les disques sont trop usés, le remplacement est obligatoire pour garantir l'efficacité du freinage.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Faut-il changer les disques et les plaquettes en même temps ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Lors d'un remplacement de disques, des plaquettes neuves sont recommandées pour un contact uniforme. À l'inverse, des plaquettes neuves sur disques très usés accélèrent l'usure.",
+          },
+        },
+      ],
+    },
+  },
+  "batterie-start-stop-usure-prematuree": {
+    directAnswer: {
+      question: "Pourquoi la batterie s'use plus vite avec le Start-Stop ?",
+      answer:
+        "Le système Start-Stop sollicite fortement la batterie (AGM ou EFB). Trajets courts, climatisation au ralenti et charge insuffisante accélèrent l'usure : comptez souvent 3 à 5 ans au lieu de 5 à 7.",
+      facts: [
+        { label: "Type batterie", value: "AGM ou EFB obligatoire" },
+        { label: "Durée indicative", value: "3–5 ans en usage urbain" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/mecanique/", label: "Mécanique" },
+      { url: "/blog/batterie-voiture-quand-changer/", label: "Batterie voiture" },
+      { url: "/entretien/", label: "Entretien" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Peut-on mettre une batterie classique sur une voiture Start-Stop ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Non recommandé : une batterie standard ne supporte pas les cycles de charge/décharge répétés. Le système Start-Stop peut se désactiver ou la batterie s'use en quelques mois.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Start-Stop désactivé : batterie en cause ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Souvent oui. Le calculateur coupe le Start-Stop si la batterie est faible ou mal codée. Un test batterie/alternateur et parfois un codage après remplacement résolvent le problème.",
+          },
+        },
+      ],
+    },
+  },
+  "pneus-ete-quand-passer-hiver-ile-de-france": {
+    directAnswer: {
+      question: "Quand passer aux pneus hiver en Île-de-France ?",
+      answer:
+        "Dès que les températures descendent régulièrement sous 7 °C, généralement entre novembre et mars. La loi Montagne ne s'applique pas au 94, mais les pneus hiver ou 4 saisons améliorent l'adhérence par temps froid et humide.",
+      facts: [
+        { label: "Seuil adhérence", value: "Sous 7 °C" },
+        { label: "Période IDF", value: "Nov.–mars (selon météo)" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/blog/quand-changer-pneus-usure-securite/", label: "Usure pneus" },
+      { url: "/blog/preparer-voiture-hiver-conseils/", label: "Préparer sa voiture pour l'hiver" },
+      { url: "/entretien/", label: "Entretien" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Pneus 4 saisons ou pneus hiver en région parisienne ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Les 4 saisons conviennent à un usage urbain modéré en IDF. Pour des trajets fréquents par temps froid ou sur routes humides, des pneus hiver restent plus performants sous 7 °C.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Peut-on garder des pneus été en hiver à Ivry-sur-Seine ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "C'est légal en plaine, mais l'adhérence baisse fortement par temps froid. En cas de gel ou de neige rare mais possible, le risque de perte de contrôle augmente.",
+          },
+        },
+      ],
+    },
+  },
+  "catalyseur-bouche-symptomes-causes": {
+    directAnswer: {
+      question: "Quels signes indiquent un catalyseur bouché ?",
+      answer:
+        "Perte de puissance, surconsommation, odeur d'œuf pourri, voyant moteur et bruit d'échappement étouffé : un catalyseur colmaté limite le débit des gaz et peut surchauffer le moteur.",
+      facts: [
+        { label: "Cause fréquente", value: "Mélange pauvre/riche, huile ou FAP amont" },
+        { label: "Diagnostic", value: "Contre-pression échappement · valise" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/diagnostic/", label: "Diagnostic" },
+      { url: "/blog/voyant-moteur-allume-que-faire/", label: "Voyant moteur" },
+      { url: "/blog/bougies-allumage-quand-changer/", label: "Bougies d'allumage" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Peut-on rouler avec un catalyseur bouché ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Sur de courtes distances peut-être, mais la perte de puissance et la surchauffe peuvent endommager le moteur. Un catalyseur très colmaté peut aussi se déliter et bloquer complètement l'échappement.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Combien coûte le remplacement d'un catalyseur ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "De 300 à plus de 1 500 € selon le véhicule (origine ou compatible). Un diagnostic préalable évite de remplacer un catalyseur encore sain — devis chez RED-K MOTORS à Ivry.",
+          },
+        },
+      ],
+    },
+  },
+  "vidange-boite-automatique-quand-faire": {
+    directAnswer: {
+      question: "Faut-il vidanger une boîte automatique et à quelle fréquence ?",
+      answer:
+        "Selon le constructeur : certains préconisent « sealed for life », d'autres une vidange tous les 60 000 à 100 000 km. Huile foncée, à-coups ou patinage sont des signes qu'un contrôle s'impose.",
+      facts: [
+        { label: "Intervalle fréquent", value: "60 000–100 000 km (si prévu)" },
+        { label: "Conseil", value: "Vérifier le carnet d'entretien" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/entretien/", label: "Entretien" },
+      { url: "/mecanique/", label: "Mécanique" },
+      { url: "/blog/combien-coute-vidange-voiture/", label: "Vidange moteur" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Vidange partielle ou vidange complète de boîte auto ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "La vidange partielle (bouchon de vidange) remplace 40 à 60 % de l'huile. La vidange complète avec machine change davantage de fluide mais coûte plus cher — le constructeur indique la méthode adaptée.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Boîte automatique qui patine : vidange suffisante ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Si l'huile est usée ou brûlée, une vidange peut améiorer le comportement. Si le patinage persiste, l'usure interne (embrayages, convertisseur) nécessite un diagnostic approfondi.",
+          },
+        },
+      ],
+    },
+  },
+  "turbo-compresseur-symptomes-panne": {
+    directAnswer: {
+      question: "Quels symptômes indiquent une panne de turbo ?",
+      answer:
+        "Perte de puissance, fumée bleue ou noire, sifflement anormal, consommation d'huile accrue ou voyant moteur : le turbo compresse les gaz d'échappement — une fuite d'huile ou de suralimentation doit être traitée vite.",
+      facts: [
+        { label: "Signe classique", value: "Sifflement + perte de puissance" },
+        { label: "Prévention", value: "Laisser refroidir 1–2 min après conduite sportive" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/diagnostic/", label: "Diagnostic" },
+      { url: "/mecanique/", label: "Mécanique" },
+      { url: "/blog/voyant-moteur-allume-que-faire/", label: "Voyant moteur" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Peut-on rouler avec un turbo en panne ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Le véhicule peut rouler en mode dégradé si le turbo ne fragmente pas. En cas de bruit de ferraille, fumée importante ou perte totale de puissance, arrêtez-vous pour éviter des dégâts moteur majeurs.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Combien coûte le remplacement d'un turbo ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "De 800 à 2 500 € et plus selon le modèle (turbo neuf, reconditionné, main-d'œuvre). Un diagnostic confirme si le turbo ou une durite/alimentation en huile est en cause.",
+          },
+        },
+      ],
+    },
+  },
 };
