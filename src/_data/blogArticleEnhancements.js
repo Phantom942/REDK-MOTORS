@@ -1230,4 +1230,42 @@ module.exports = {
       ],
     },
   },
+  "suppression-fap-controle-technique-2026": {
+    directAnswer: {
+      question: "Peut-on passer le contrôle technique avec un FAP supprimé en 2026 ?",
+      answer:
+        "Non : un FAP retiré ou débridé entraîne en principe un refus au CT 2026 (opacimètre, OBD, contrôle visuel). Seules des solutions conformes — nettoyage, remplacement ou remise en état — permettent de repasser.",
+      facts: [
+        { label: "CT 2026", value: "OBD systématique + opacité renforcée diesel" },
+        { label: "Atelier diesel", value: "RED-K MOTORS · Ivry-sur-Seine (94)" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/blog/controle-technique-2026-nouveautes/", label: "Contrôle technique 2026" },
+      { url: "/blog/fap-dpf-encrasse-trajets-ville/", label: "FAP encrassé" },
+      { url: "/diagnostic/", label: "Diagnostic diesel" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "La suppression de FAP est-elle légale ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Non. Modifier ou retirer le filtre à particules est une infraction : amende possible, refus au contrôle technique et véhicule non conforme.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Comment préparer un diesel au CT si le FAP est encrassé ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Faites diagnostiquer le taux de colmatage : nettoyage, régénération forcée ou remplacement du FAP selon l'état. Un pré-contrôle en garage évite la contre-visite.",
+          },
+        },
+      ],
+    },
+  },
 };

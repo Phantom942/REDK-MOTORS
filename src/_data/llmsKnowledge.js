@@ -38,6 +38,9 @@ module.exports = {
     },
   ],
   topBlogSlugs: [
+    "suppression-fap-controle-technique-2026",
+    "controle-technique-2026-nouveautes",
+    "5-points-controle-avant-ct-ivry",
     "voyant-moteur-allume-que-faire",
     "combien-coute-vidange-voiture",
     "prix-diagnostic-auto-94",
