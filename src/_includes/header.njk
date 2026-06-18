@@ -11,8 +11,13 @@
     <nav class="main-nav" aria-label="Navigation principale">
       <button class="main-nav__toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
         <span class="sr-only">Ouvrir le menu</span>
-        ☰
+        <span class="main-nav__bars" aria-hidden="true">
+          <span class="main-nav__bar"></span>
+          <span class="main-nav__bar"></span>
+          <span class="main-nav__bar"></span>
+        </span>
       </button>
+      <div class="main-nav__backdrop" id="nav-backdrop" hidden aria-hidden="true"></div>
       <ul id="primary-menu">
         {% if site.navCta %}
         <li class="main-nav__item main-nav__item--cta">

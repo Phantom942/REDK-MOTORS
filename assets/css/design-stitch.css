@@ -1782,14 +1782,14 @@ body.design-stitch {
 }
 
 /* Menu mobile : même palette que la maquette */
-@media (max-width: 768px) {
-  .design-stitch .main-nav ul {
+@media (max-width: 1024px) {
+  .design-stitch .main-nav #primary-menu {
     background: rgba(9, 9, 11, 0.98);
-    border: 1px solid var(--stitch-outline);
-    border-radius: 14px;
+    border-left: 1px solid var(--stitch-outline);
+    border-radius: 0;
   }
 
-  .design-stitch .main-nav ul a,
+  .design-stitch .main-nav #primary-menu a,
   .design-stitch .main-nav__trigger {
     font-size: 0.92rem;
     letter-spacing: 0.04em;
@@ -1801,12 +1801,16 @@ body.design-stitch {
     letter-spacing: 0.01em;
   }
 
-  .design-stitch .main-nav ul a:hover,
-  .design-stitch .main-nav ul a[aria-current="page"],
+  .design-stitch .main-nav #primary-menu a:hover,
+  .design-stitch .main-nav #primary-menu a[aria-current="page"],
   .design-stitch .main-nav__trigger[aria-expanded="true"],
   .design-stitch .main-nav__item.is-active > .main-nav__trigger {
     color: var(--stitch-primary);
     background: rgba(130, 17, 17, 0.22);
+  }
+
+  .design-stitch .main-nav__bar {
+    background: #f4f4f5;
   }
 }
 

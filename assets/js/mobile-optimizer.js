@@ -3,7 +3,7 @@
   'use strict';
   var ua = navigator.userAgent;
   var isMobile = /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(ua);
-  var isSmall = window.matchMedia('(max-width: 768px)').matches;
+  var isSmall = window.matchMedia('(max-width: 1024px)').matches;
 
   if (isMobile) document.body.classList.add('is-mobile');
   if (isSmall) document.body.classList.add('is-small-screen');
@@ -18,6 +18,7 @@
       });
       var nav = document.querySelector('#primary-menu');
       var toggle = document.querySelector('.main-nav__toggle');
+      var backdrop = document.querySelector('#nav-backdrop');
       var lastScroll = 0;
       window.addEventListener('scroll', function() {
         var y = window.pageYOffset;
@@ -25,6 +26,11 @@
           nav.classList.remove('is-open');
           document.body.classList.remove('is-nav-open');
           if (toggle) toggle.setAttribute('aria-expanded', 'false');
+          if (backdrop) {
+            backdrop.hidden = true;
+            backdrop.classList.remove('is-visible');
+            backdrop.setAttribute('aria-hidden', 'true');
+          }
         }
         lastScroll = y;
       }, { passive: true });
