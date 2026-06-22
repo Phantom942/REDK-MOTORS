@@ -33,11 +33,10 @@ module.exports = function localBusinessSchema() {
 
   schema.aggregateRating = {
     "@type": "AggregateRating",
-    ratingValue: String(rating),
-    reviewCount: String(count),
-    bestRating: "5",
-    worstRating: "1",
-    itemReviewed: { "@id": `${SITE_URL}/#business` },
+    ratingValue: rating,
+    reviewCount: count,
+    bestRating: 5,
+    worstRating: 1,
   };
 
   schema.review = googleReviews.reviews.slice(0, 4).map((entry) => ({
@@ -45,12 +44,12 @@ module.exports = function localBusinessSchema() {
     author: { "@type": "Person", name: entry.author },
     reviewRating: {
       "@type": "Rating",
-      ratingValue: String(entry.rating),
-      bestRating: "5",
-      worstRating: "1",
+      ratingValue: entry.rating,
+      bestRating: 5,
+      worstRating: 1,
     },
     reviewBody: entry.text,
-    itemReviewed: { "@id": `${SITE_URL}/#business` },
+    datePublished: entry.date || undefined,
   }));
 
   const placeId = (process.env.GOOGLE_PLACES_PLACE_ID || site.googleReviews.placeId || "").trim();
@@ -66,6 +65,8 @@ module.exports = function localBusinessSchema() {
       schema.sameAs.push(`https://www.google.com/maps/search/?api=1&query_place_id=${encodeURIComponent(placeId)}`);
     }
   }
+
+  delete schema["@context"];
 
   return schema;
 };

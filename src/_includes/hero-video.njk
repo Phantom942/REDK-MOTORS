@@ -19,7 +19,10 @@
     <div>
       {% if heroKicker %}<p class="hero__kicker">{{ heroKicker }}</p>{% endif %}
       {% if heroMeta %}<p class="hero__meta">{{ heroMeta }}</p>{% endif %}
-      <h1 {% if heroAria %}id="{{ heroAria }}"{% endif %}>{{ heroTitle }}</h1>
+      <h1 {% if heroAria %}id="{{ heroAria }}"{% endif %}>
+        <span class="hero__title-main">{{ heroTitle }}</span>
+        {% if heroSubtitle %}<span class="hero__title-sub">{{ heroSubtitle }}</span>{% endif %}
+      </h1>
       {% if heroDesc %}<p class="hero__lede">{{ heroDesc }}</p>{% endif %}
       {% if heroActions %}
       <div class="hero__actions{% if heroActionsCro %} hero__actions--cro{% endif %}">

@@ -1,6 +1,6 @@
 {
   "name": "RED-K MOTORS",
-  "seoTitle": "RED-K MOTORS, Garage automobile à Ivry-sur-Seine",
+  "seoTitle": "RED-K MOTORS | Garage à Ivry-sur-Seine",
   "url": "https://redk-motors.me",
   "locale": "fr_FR",
   "phone": "+33648745668",
@@ -75,7 +75,8 @@
     { "@type": "ListItem", "position": 2, "name": "Tarifs", "url": "https://redk-motors.me/tarifs/" },
     { "@type": "ListItem", "position": 3, "name": "Diagnostic", "url": "https://redk-motors.me/diagnostic/" },
     { "@type": "ListItem", "position": 4, "name": "Mécanique", "url": "https://redk-motors.me/mecanique/" },
-    { "@type": "ListItem", "position": 5, "name": "Carrosserie", "url": "https://redk-motors.me/carrosserie/" }
+    { "@type": "ListItem", "position": 5, "name": "Carrosserie", "url": "https://redk-motors.me/carrosserie/" },
+    { "@type": "ListItem", "position": 6, "name": "Pare-brise", "url": "https://redk-motors.me/pare-brise/" }
   ],
   "gtmId": "GTM-NTC72X2G",
   "ogImage": "https://redk-motors.me/assets/img/og-brand.png",

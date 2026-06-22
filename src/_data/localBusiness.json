@@ -5,7 +5,7 @@
     "@id": "https://redk-motors.me/#business",
     "name": "RED-K MOTORS",
     "legalName": "RED-KMOTORS",
-    "identifier": "SIRET: 103 462 537 00012",
+    "taxID": "10346253700012",
     "description": "Garage automobile à Ivry-sur-Seine spécialisé en mécanique, carrosserie et entretien multimarque. Devis gratuit et pièces d'origine. Ouvert du lundi au samedi de 9h à 19h.",
     "image": "https://redk-motors.me/assets/img/og-brand.png",
     "logo": "https://redk-motors.me/assets/img/logo-redk-motors.png",
@@ -82,7 +82,7 @@
           "latitude": 48.8076408,
           "longitude": 2.3777448
         },
-        "geoRadius": "15000"
+        "geoRadius": 15000
       }
     ],
     "sameAs": [
