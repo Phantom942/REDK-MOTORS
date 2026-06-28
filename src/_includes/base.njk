@@ -149,7 +149,7 @@
           "inLanguage": "fr-FR",
           "speakable": {
             "@type": "SpeakableSpecification",
-            "cssSelector": ["h1", "h2", ".hero__desc", ".direct-answer__lead", ".promesse__title", "meta[name='description']"]
+            "cssSelector": ["h1", "h2", ".hero__lede", ".hero__desc", ".direct-answer__lead", ".promesse__title", "meta[name='description']"]
           }
         },
         {{ (localBusinessSchema or localBusiness.schema) | json | safe }}
@@ -182,6 +182,12 @@
     <!-- JSON-LD Service (zone desservie) -->
     <script type="application/ld+json">
     {{ localServiceSchema | json | safe }}
+    </script>
+    {% endif %}
+
+    {% if itemListSchema %}
+    <script type="application/ld+json">
+    {{ itemListSchema | json | safe }}
     </script>
     {% endif %}
 

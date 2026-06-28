@@ -1,0 +1,151 @@
+{% set waUrl = "https://wa.me/" ~ (site.phone | replace("+", "")) ~ "?text=" ~ (profil.whatsappText | urlencode) %}
+{% set heroActions %}
+<a class="btn btn--primary" href="tel:{{ site.phone }}" data-track="click_call" data-track-pos="hero_pro">Appeler pour un devis Pro</a>
+<a class="btn btn--secondary" href="{{ waUrl }}" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp" data-track-pos="hero_pro">WhatsApp Pro</a>
+{% endset %}
+{% set heroClass = "hero--subpage hero--pro" %}
+{% set heroAria = profil.key ~ "-hero-title" %}
+{% set heroTitle = profil.h1 %}
+{% set heroKicker = profil.heroKicker %}
+{% set heroDesc = profil.heroDesc %}
+{% set videoSrc = "hero.mp4" %}
+{% include "hero-video.njk" %}
+
+{% include "pro-breadcrumb.njk" %}
+{% include "pro-stats.njk" %}
+
+<section class="service-focus service-focus--pro" aria-labelledby="intro-{{ profil.key }}" data-animate="slide-right">
+  <div class="container service-focus__inner service-focus__inner--split">
+    <div>
+      <p class="section-kicker">Espace Pro · {{ profil.navTitle }}</p>
+      <h2 id="intro-{{ profil.key }}">{{ profil.introHeading }}</h2>
+      <p>{{ profil.introText }}</p>
+    </div>
+    <aside class="pro-callout" aria-label="Contact rapide">
+      <p class="pro-callout__label">Réponse rapide</p>
+      <a class="pro-callout__phone" href="tel:{{ site.phone }}" data-track="click_call" data-track-pos="callout_pro">{{ site.phoneDisplay }}</a>
+      <p class="pro-callout__hours">Lun–sam · 9h–19h · Ivry-sur-Seine</p>
+      <a class="btn btn--primary pro-callout__btn" href="{{ waUrl }}" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp" data-track-pos="callout_pro">WhatsApp Pro</a>
+    </aside>
+  </div>
+</section>
+
+<section class="promesse pro-pillars" aria-labelledby="pillars-{{ profil.key }}" data-animate="slide-up">
+  <div class="container">
+    <h2 id="pillars-{{ profil.key }}" class="promesse__title">Vos avantages partenaire</h2>
+    <div class="promesse__grid pro-pillars__grid">
+      {% for benefit in profil.benefits %}
+      <article class="pro-pillar-card">
+        <span class="pro-pillar-card__icon" aria-hidden="true">✓</span>
+        <h3>{{ benefit.title }}</h3>
+        <p>{{ benefit.description }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="service-focus service-focus--alt service-focus--pro" aria-labelledby="services-{{ profil.key }}" data-animate="slide-up">
+  <div class="container">
+    <h2 id="services-{{ profil.key }}" class="promesse__title">Prestations adaptées</h2>
+    <div class="promesse__grid">
+      {% for service in profil.services %}
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3>{{ service.title }}</h3>
+          <p>{{ service.description }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% if profil.testimonial.verified %}
+<section class="pro-testimonial" aria-labelledby="testimonial-{{ profil.key }}" data-animate="slide-up">
+  <div class="container">
+    <h2 id="testimonial-{{ profil.key }}" class="pro-testimonial__heading">Avis client professionnel</h2>
+    <blockquote class="pro-testimonial__card">
+      <div class="pro-testimonial__stars" aria-hidden="true">★★★★★</div>
+      <p class="pro-testimonial__quote">« {{ profil.testimonial.quote }} »</p>
+      <footer class="pro-testimonial__footer">
+        <cite class="pro-testimonial__author">{{ profil.testimonial.author }}</cite>
+        <span class="pro-testimonial__role">{{ profil.testimonial.role }}</span>
+      </footer>
+    </blockquote>
+  </div>
+</section>
+{% else %}
+<section class="pro-highlights" aria-labelledby="highlights-{{ profil.key }}" data-animate="slide-up">
+  <div class="container">
+    <h2 id="highlights-{{ profil.key }}" class="pro-testimonial__heading">Pourquoi choisir RED-K MOTORS</h2>
+    <ul class="pro-highlights__list checklist">
+      {% for point in profil.highlights %}
+      <li>{{ point }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endif %}
+
+<section class="workflow workflow--pro" aria-labelledby="process-{{ profil.key }}" data-animate="slide-up">
+  <div class="container">
+    <h2 id="process-{{ profil.key }}" class="workflow__title">Comment devenir partenaire ?</h2>
+    <ol class="workflow__steps">
+      <li class="workflow__step">
+        <span class="workflow__step-number">1</span>
+        <div>
+          <strong>Appelez-nous</strong>
+          <p>Décrivez votre activité, votre véhicule et votre urgence — réponse rapide.</p>
+        </div>
+      </li>
+      <li class="workflow__step">
+        <span class="workflow__step-number">2</span>
+        <div>
+          <strong>Devis pro transparent</strong>
+          <p>Estimation détaillée avant intervention, tarifs adaptés aux professionnels.</p>
+        </div>
+      </li>
+      <li class="workflow__step">
+        <span class="workflow__step-number">3</span>
+        <div>
+          <strong>Intervention prioritaire</strong>
+          <p>Remise en service dans les meilleurs délais pour limiter la perte d'activité.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="faq" aria-labelledby="faq-{{ profil.key }}" data-animate="slide-up">
+  <div class="container faq__inner">
+    <div>
+      <p class="section-kicker">FAQ</p>
+      <h2 id="faq-{{ profil.key }}">Questions fréquentes — {{ profil.navTitle }}</h2>
+    </div>
+    <div class="faq__list" data-accordion>
+      {% for faq in profil.faqs %}
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">{{ faq.question }}</button>
+        <div class="faq__answer" hidden>
+          <p>{{ faq.answer }}</p>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% include "pro-related.njk" %}
+
+<section class="cta-block cta-block--pro" aria-labelledby="cta-pro-{{ profil.key }}" data-animate="slide-up">
+  <div class="container cta-block__inner">
+    <h2 id="cta-pro-{{ profil.key }}" class="cta-block__title">Devenir partenaire RED-K MOTORS</h2>
+    <p class="cta-block__sub">Lun–sam 9h–19h — réponse rapide par téléphone ou WhatsApp.</p>
+    <div class="cta-block__buttons">
+      <a href="tel:{{ site.phone }}" class="btn btn--primary cta-block__btn" data-track="click_call" data-track-pos="cta_pro">Appeler {{ site.phoneDisplay }}</a>
+      <a href="{{ waUrl }}" class="btn btn--secondary cta-block__btn" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp" data-track-pos="cta_pro">WhatsApp Pro</a>
+    </div>
+  </div>
+</section>

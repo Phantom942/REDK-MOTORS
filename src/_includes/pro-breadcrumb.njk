@@ -1,0 +1,13 @@
+<nav class="pro-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol class="pro-breadcrumb__list">
+      <li><a href="/">Accueil</a></li>
+      <li><a href="/professionnels/">Espace Pro</a></li>
+      {% if profil %}
+      <li aria-current="page">{{ profil.navTitle }}</li>
+      {% else %}
+      <li aria-current="page">Espace Pro</li>
+      {% endif %}
+    </ol>
+  </div>
+</nav>

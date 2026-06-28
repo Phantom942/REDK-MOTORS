@@ -25,6 +25,8 @@ module.exports = function (eleventyConfig) {
   // Filtre JSON pour JSON-LD
   eleventyConfig.addFilter("json", (obj) => JSON.stringify(obj));
 
+  eleventyConfig.addFilter("urlencode", (value) => encodeURIComponent(String(value ?? "")));
+
   // Filtre date pour sitemap (ISO YYYY-MM-DD) — pas de fallback, retourne vide si invalide
   eleventyConfig.addFilter("dateToIso", (date) => {
     if (!date) return "";
@@ -45,6 +47,94 @@ module.exports = function (eleventyConfig) {
     permalink: (data) => {
       if (data.draft) return false;
       return data.permalink;
+    },
+    faqSchema: (data) => {
+      if (data.faqSchema) return data.faqSchema;
+      if (!data.profil?.faqs) return undefined;
+      return {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: data.profil.faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      };
+    },
+    keywords: (data) => {
+      if (data.profil?.keywords) return data.profil.keywords;
+      return data.keywords;
+    },
+    itemListSchema: (data) => {
+      if (data.pageKey !== "professionnels") return data.itemListSchema;
+      const profiles = data.professionnels?.profiles || [];
+      const base = data.site?.url || "https://redk-motors.me";
+      return {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        name: "Espace Pro RED-K MOTORS — profils professionnels",
+        itemListElement: profiles.map((p, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: p.navTitle,
+          url: `${base}/professionnels/${p.slug}/`,
+        })),
+      };
+    },
+    localServiceSchema: (data) => {
+      const base = data.site?.url || "https://redk-motors.me";
+      const areaServed = [
+        { "@type": "City", name: "Ivry-sur-Seine" },
+        { "@type": "City", name: "Vitry-sur-Seine" },
+        { "@type": "City", name: "Villejuif" },
+        { "@type": "AdministrativeArea", name: "Paris 13e arrondissement" },
+        { "@type": "AdministrativeArea", name: "Val-de-Marne" },
+      ];
+
+      if (data.profil) {
+        const p = data.profil;
+        return {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "@id": `${base}/professionnels/${p.slug}/#service`,
+          name: p.navTitle,
+          serviceType: p.serviceType,
+          url: `${base}/professionnels/${p.slug}/`,
+          description: p.description,
+          provider: { "@id": `${base}/#business` },
+          areaServed,
+          audience: {
+            "@type": "BusinessAudience",
+            audienceType: p.audienceType || "Professionnels du transport et des services",
+          },
+          offers: {
+            "@type": "Offer",
+            price: "0",
+            priceCurrency: "EUR",
+            description: "Devis pro gratuit — tarifs préférentiels sur demande",
+            url: `${base}/contact/`,
+          },
+        };
+      }
+
+      if (data.pageKey === "professionnels" && data.localServiceSchema) {
+        return {
+          ...data.localServiceSchema,
+          "@id": `${base}/professionnels/#service`,
+          name: "Espace Pro — entretien véhicules professionnels",
+          url: `${base}/professionnels/`,
+          areaServed,
+          audience: {
+            "@type": "BusinessAudience",
+            audienceType: "Taxis, VTC, livreurs, flottes, auto-écoles et professionnels routiers",
+          },
+        };
+      }
+
+      return data.localServiceSchema;
     },
   });
 

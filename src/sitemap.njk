@@ -11,7 +11,7 @@ eleventyExcludeFromCollections: true
   {% set sitemapPriority = item.data.sitemap.priority | default('0.5') %}
 
   {# Tier A: pages business critiques (intention RDV/devis forte) #}
-  {% set tierAExact = ['/', '/garage-ivry-sur-seine/', '/contact/', '/tarifs/', '/diagnostic/', '/mecanique/', '/carrosserie/'] %}
+  {% set tierAExact = ['/', '/garage-ivry-sur-seine/', '/contact/', '/tarifs/', '/diagnostic/', '/mecanique/', '/carrosserie/', '/professionnels/'] %}
   {% if normalizedUrl in tierAExact %}
     {% set sitemapChangefreq = 'weekly' %}
     {% if normalizedUrl == '/' %}
@@ -36,7 +36,12 @@ eleventyExcludeFromCollections: true
     '/kremlin-bicetre/',
     '/revision-auto-val-de-marne/',
     '/garage-ouvert-samedi-94/',
-    '/pare-brise/'
+    '/pare-brise/',
+    '/professionnels/taxis-vtc/',
+    '/professionnels/chauffeurs-livreurs/',
+    '/professionnels/artisans-flottes/',
+    '/professionnels/auto-ecoles/',
+    '/professionnels/autres-professionnels/'
   ] %}
   {% if normalizedUrl in tierBExact %}
     {% set sitemapChangefreq = 'weekly' %}

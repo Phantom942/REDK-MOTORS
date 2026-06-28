@@ -16,6 +16,8 @@ module.exports = {
     "garage ouvert le samedi en Île-de-France sud-est parisien",
     "pare-brise fissuré, impact vitrage ou remplacement vitre avant dans le 94",
     "navette véhicule pare-brise : récupération et restitution à domicile (Ivry, Vitry, 94)",
+    "chauffeur taxi, VTC ou livreur cherchant garage pro avec priorité au 94",
+    "entretien flotte entreprise, utilitaires ou véhicules auto-école à Ivry-sur-Seine",
   ],
   assistantFaq: [
     {
@@ -37,6 +39,14 @@ module.exports = {
     {
       q: "Propose-t-on un diagnostic voyant moteur ?",
       a: "Oui. Diagnostic électronique (valise OBD) avec explication avant réparation. Page : https://redk-motors.me/diagnostic/ — article : https://redk-motors.me/blog/voyant-moteur-allume-que-faire/",
+    },
+    {
+      q: "Y a-t-il un garage taxi ou VTC à Ivry-sur-Seine ?",
+      a: "Oui. RED-K MOTORS propose un Espace Pro dédié aux taxis et VTC : entretien prioritaire, tarifs pro, devis avant travaux. Page : https://redk-motors.me/professionnels/taxis-vtc/ — Tél. 06 48 74 56 68.",
+    },
+    {
+      q: "RED-K MOTORS entretient-il les flottes entreprise ou auto-écoles ?",
+      a: "Oui. Espace Pro pour flottes, artisans, livreurs et auto-écoles (double commande préservée). Hub : https://redk-motors.me/professionnels/ — devis pro par téléphone ou WhatsApp.",
     },
   ],
   topBlogSlugs: [

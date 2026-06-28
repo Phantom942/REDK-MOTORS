@@ -21,10 +21,10 @@
       <ul id="primary-menu">
         {% for item in site.nav %}
           {% if item.children %}
-            <li class="main-nav__item main-nav__item--has-sub{% for child in item.children %}{% if pageKey == child.key %} is-active{% endif %}{% endfor %}{% if item.activeKeys %}{% for activeKey in item.activeKeys %}{% if pageKey == activeKey %} is-active{% endif %}{% endfor %}{% endif %}">
+            <li class="main-nav__item main-nav__item--has-sub{% if item.highlight %} main-nav__item--pro{% endif %}{% for child in item.children %}{% if pageKey == child.key %} is-active{% endif %}{% endfor %}{% if item.activeKeys %}{% for activeKey in item.activeKeys %}{% if pageKey == activeKey %} is-active{% endif %}{% endfor %}{% endif %}">
               <button
                 type="button"
-                class="main-nav__trigger"
+                class="main-nav__trigger{% if item.highlight %} main-nav__trigger--pro{% endif %}"
                 aria-expanded="false"
                 aria-haspopup="true"
                 aria-controls="nav-sub-{{ item.key }}"

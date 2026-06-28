@@ -19,7 +19,7 @@
     "opens": "9:00",
     "closes": "19:00"
   },
-  "seoKeywords": "garage ivry-sur-seine, garage 94, mecanique ivry, carrosserie ivry, pare-brise ivry, remplacement pare-brise 94, navette vehicule ivry, bris de glace, diagnostic auto ivry, entretien auto ivry, pneus ivry, freins ivry, garage paris 13, garage vitry-sur-seine, garage villejuif, garage charenton-le-pont",
+  "seoKeywords": "garage ivry-sur-seine, garage 94, mecanique ivry, carrosserie ivry, pare-brise ivry, remplacement pare-brise 94, navette vehicule ivry, bris de glace, diagnostic auto ivry, entretien auto ivry, pneus ivry, freins ivry, garage paris 13, garage vitry-sur-seine, garage villejuif, garage charenton-le-pont, garage taxi ivry, garage vtc 94, entretien flotte entreprise, garage auto ecole ivry, espace pro garage val-de-marne",
   "geo": {
     "latitude": 48.8076408,
     "longitude": 2.3777448,
@@ -67,6 +67,24 @@
         { "title": "Location", "url": "/location/", "key": "location" }
       ]
     },
+    {
+      "title": "Espace Pro",
+      "key": "nav-pro",
+      "highlight": true,
+      "activeKeys": ["professionnels", "pro-taxis-vtc", "pro-chauffeurs", "pro-flottes", "pro-auto-ecoles", "pro-autres"],
+      "hub": {
+        "title": "Vue d'ensemble",
+        "url": "/professionnels/",
+        "key": "professionnels"
+      },
+      "children": [
+        { "title": "Taxis & VTC", "url": "/professionnels/taxis-vtc/", "key": "pro-taxis-vtc" },
+        { "title": "Chauffeurs & livreurs", "url": "/professionnels/chauffeurs-livreurs/", "key": "pro-chauffeurs" },
+        { "title": "Artisans & flottes", "url": "/professionnels/artisans-flottes/", "key": "pro-flottes" },
+        { "title": "Auto-écoles", "url": "/professionnels/auto-ecoles/", "key": "pro-auto-ecoles" },
+        { "title": "Autres professionnels", "url": "/professionnels/autres-professionnels/", "key": "pro-autres" }
+      ]
+    },
     { "title": "Conseils auto", "url": "/blog/", "key": "blog" },
     { "title": "Contact", "url": "/contact/", "key": "contact" }
   ],
@@ -76,7 +94,8 @@
     { "@type": "ListItem", "position": 3, "name": "Diagnostic", "url": "https://redk-motors.me/diagnostic/" },
     { "@type": "ListItem", "position": 4, "name": "Mécanique", "url": "https://redk-motors.me/mecanique/" },
     { "@type": "ListItem", "position": 5, "name": "Carrosserie", "url": "https://redk-motors.me/carrosserie/" },
-    { "@type": "ListItem", "position": 6, "name": "Pare-brise", "url": "https://redk-motors.me/pare-brise/" }
+    { "@type": "ListItem", "position": 6, "name": "Pare-brise", "url": "https://redk-motors.me/pare-brise/" },
+    { "@type": "ListItem", "position": 7, "name": "Espace Pro", "url": "https://redk-motors.me/professionnels/" }
   ],
   "gtmId": "GTM-NTC72X2G",
   "ogImage": "https://redk-motors.me/assets/img/og-brand.png",

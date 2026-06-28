@@ -1,0 +1,17 @@
+<section class="services-links pro-related" aria-labelledby="pro-related-title" data-animate="slide-up">
+  <div class="container services-links__inner">
+    <h2 id="pro-related-title" class="services-links__heading">Autres profils professionnels</h2>
+    <div class="services-links__grid pro-hub__grid pro-hub__grid--compact">
+      {% for item in professionnels.profiles %}
+        {% if item.slug != profil.slug %}
+        <a class="services-links__card pro-hub__card" href="/professionnels/{{ item.slug }}/">
+          <span class="services-links__icon pro-hub__icon" aria-hidden="true">{{ item.icon }}</span>
+        <strong>{{ item.navTitle }}</strong>
+        <span class="pro-hub__teaser">{{ item.cardTeaser }}</span>
+        <span class="pro-hub__link">Découvrir →</span>
+        </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
