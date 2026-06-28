@@ -501,11 +501,14 @@ p, li, td, th, span, a, h1, h2, h3, h4 {
 
 .hero--home-cro .hero .hero__lede {
   font-size: clamp(0.92rem, 3.1vw, 1.08rem);
-  line-height: 1.45;
+  line-height: 1.55;
   max-width: 26rem;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
+  color: rgba(255, 255, 255, 0.96);
+  font-weight: 500;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.85);
 }
 
 .hero--home-cro .hero__actions--cro {
