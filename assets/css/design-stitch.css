@@ -198,33 +198,6 @@ body.design-stitch {
   );
 }
 
-.design-stitch .hero--home-cro .hero__overlay {
-  background: linear-gradient(
-    155deg,
-    rgba(19, 19, 23, 0.72) 0%,
-    rgba(19, 19, 23, 0.38) 48%,
-    rgba(130, 17, 17, 0.32) 100%
-  );
-}
-
-.design-stitch .hero--home-cro .hero__glow {
-  position: absolute;
-  inset: auto auto 8% -8%;
-  width: min(28rem, 62vw);
-  height: min(28rem, 62vw);
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(255, 180, 171, 0.22) 0%,
-    rgba(130, 17, 17, 0.28) 28%,
-    rgba(130, 17, 17, 0.08) 52%,
-    transparent 72%
-  );
-  pointer-events: none;
-  z-index: 2;
-  filter: blur(2px);
-}
-
 .design-stitch .hero {
   color: #f4f4f5;
 }
@@ -258,29 +231,9 @@ body.design-stitch {
   max-width: 18ch;
 }
 
-.design-stitch .hero--home-cro .hero h1 .hero__title-main,
-.design-stitch .hero--home-cro .hero h1 .hero__title-sub {
-  color: #fafafa;
-}
-
-.design-stitch .hero--home-cro .hero h1 .hero__accent {
-  color: var(--stitch-primary);
-  text-shadow:
-    0 0 20px rgba(255, 180, 171, 0.65),
-    0 0 44px rgba(130, 17, 17, 0.45);
-}
-
-.design-stitch .hero--home-cro .hero__kicker::before {
-  content: "";
-  display: inline-block;
-  width: 0.55rem;
-  height: 0.55rem;
-  margin-right: 0.55rem;
-  border-radius: 50%;
-  background: var(--stitch-primary);
-  box-shadow: 0 0 14px rgba(255, 180, 171, 0.85);
-  vertical-align: middle;
-  transform: translateY(-1px);
+.design-stitch .hero--home-cro .hero h1 .hero__accent,
+.design-stitch .hero--home-cro .hero h1 span {
+  color: var(--stitch-primary-container);
 }
 
 .design-stitch .hero--home-cro .hero__actions--cro {
@@ -2351,11 +2304,6 @@ body.design-stitch {
 
 .design-stitch .contact-form__alt {
   color: var(--stitch-on-variant);
-}
-
-.design-stitch .hero__trust .google-pill {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: var(--stitch-outline);
 }
 
 /* Perf mobile : blur coûteux sur GPU bas de gamme */

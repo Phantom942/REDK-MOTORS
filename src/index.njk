@@ -49,20 +49,14 @@ faqSchema:
 ---
 
 {% set heroActions %}
-<a class="btn btn--primary" href="tel:{{ site.phone }}" data-track="click_call" data-track-pos="hero_home">Appeler {{ site.phoneDisplay }}</a>
-<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp" data-track-pos="hero_home">WhatsApp</a>
-<a class="btn btn--secondary btn--dark" href="/contact/#contact-form-title">Formulaire RDV</a>
+<a class="btn btn--primary" href="#rdv">Prendre rendez-vous</a>
+<a class="btn btn--secondary" href="https://wa.me/{{ site.phone | replace('+', '') }}?text=Bonjour%2C%20je%20souhaite%20un%20devis." target="_blank" rel="noopener noreferrer">Message WhatsApp</a>
 {% endset %}
 {% set heroClass = "hero--expanded hero--home-cro" %}
 {% set heroAria = "home-hero-title" %}
-{% set heroTitle = "Garage multimarque" %}
-{% set heroAccent = "Ivry-sur-Seine" %}
-{% set heroSubtitle = "Devis gratuit · Rien sans votre accord" %}
-{% set heroKicker = "RED-K MOTORS · Mécanique · Diagnostic · Lun–sam 9h–19h" %}
-{% set heroDesc = "Voyant moteur, entretien ou réparation : devis expliqué avant travaux, atelier local au 9 rue Michelet (94)." %}
+{% set heroTitle = "RED-K MOTORS" %}
+{% set heroSubtitle = "Garage à Ivry-sur-Seine" %}
 {% set heroActionsCro = true %}
-{% set heroBadge = true %}
-{% set heroGlow = true %}
 {% set videoSrc = "hero.mp4" %}
 {% include "hero-video.njk" %}
 
