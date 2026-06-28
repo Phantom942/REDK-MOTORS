@@ -1,0 +1,62 @@
+<section class="contact-form-section" aria-labelledby="contact-form-title" data-animate="slide-up">
+  <div class="container contact-form-section__inner">
+    <div class="contact-form-section__intro">
+      <p class="section-kicker">Formulaire</p>
+      <h2 id="contact-form-title">Demande de RDV ou devis</h2>
+      <p>Réponse en journée (lun–sam, 9h–19h). Pour une urgence, <a href="tel:{{ site.phone }}">appelez directement le {{ site.phoneDisplay }}</a>.</p>
+    </div>
+    <form
+      class="contact-form"
+      action="https://formsubmit.co/{{ site.email }}"
+      method="POST"
+      data-contact-form
+    >
+      <input type="hidden" name="_subject" value="Demande RDV — RED-K MOTORS" />
+      <input type="hidden" name="_next" value="{{ site.url }}/merci/?source=form" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="text" name="_honey" class="contact-form__honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+      <div class="contact-form__grid">
+        <div class="contact-form__field">
+          <label for="contact-name">Nom <span aria-hidden="true">*</span></label>
+          <input id="contact-name" name="nom" type="text" autocomplete="name" required />
+        </div>
+        <div class="contact-form__field">
+          <label for="contact-phone">Téléphone <span aria-hidden="true">*</span></label>
+          <input id="contact-phone" name="telephone" type="tel" inputmode="tel" autocomplete="tel" required />
+        </div>
+        <div class="contact-form__field contact-form__field--full">
+          <label for="contact-email">Email</label>
+          <input id="contact-email" name="email" type="email" autocomplete="email" />
+        </div>
+        <div class="contact-form__field contact-form__field--full">
+          <label for="contact-need">Votre besoin</label>
+          <select id="contact-need" name="besoin">
+            <option value="Diagnostic / voyant moteur">Diagnostic / voyant moteur</option>
+            <option value="Entretien / révision">Entretien / révision</option>
+            <option value="Mécanique / réparation">Mécanique / réparation</option>
+            <option value="Carrosserie / peinture">Carrosserie / peinture</option>
+            <option value="Pare-brise / vitrage">Pare-brise / vitrage</option>
+            <option value="Pneus / freins">Pneus / freins</option>
+            <option value="Espace Pro (taxi, VTC, flotte)">Espace Pro (taxi, VTC, flotte)</option>
+            <option value="Autre">Autre</option>
+          </select>
+        </div>
+        <div class="contact-form__field contact-form__field--full">
+          <label for="contact-plate">Plaque d'immatriculation</label>
+          <input id="contact-plate" name="plaque" type="text" inputmode="text" maxlength="10" placeholder="AB-123-CD" autocomplete="off" data-contact-plate />
+        </div>
+        <div class="contact-form__field contact-form__field--full">
+          <label for="contact-message">Message</label>
+          <textarea id="contact-message" name="message" rows="4" placeholder="Décrivez votre besoin, vos disponibilités…"></textarea>
+        </div>
+      </div>
+
+      <div class="contact-form__actions">
+        <button type="submit" class="btn btn--primary contact-form__submit" data-track="submit_contact_form" data-track-pos="contact_form">Envoyer ma demande</button>
+        <p class="contact-form__alt">Ou écrivez-nous sur <a href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp" data-track-pos="contact_form">WhatsApp</a>.</p>
+      </div>
+    </form>
+  </div>
+</section>

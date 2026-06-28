@@ -2275,6 +2275,42 @@ body.design-stitch {
   border-top: 1px solid var(--stitch-outline);
 }
 
+.design-stitch .contact-form-section {
+  background: var(--stitch-bg-low);
+}
+
+.design-stitch .contact-form-section__intro h2,
+.design-stitch .contact-form-section__intro p {
+  color: var(--stitch-on-surface);
+}
+
+.design-stitch .contact-form {
+  background: var(--stitch-surface);
+  border: 1px solid var(--stitch-outline);
+  box-shadow: var(--stitch-module-shadow);
+}
+
+.design-stitch .contact-form__field label {
+  color: #fafafa;
+}
+
+.design-stitch .contact-form__field input,
+.design-stitch .contact-form__field select,
+.design-stitch .contact-form__field textarea {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: var(--stitch-outline);
+  color: #fff;
+}
+
+.design-stitch .contact-form__alt {
+  color: var(--stitch-on-variant);
+}
+
+.design-stitch .hero__trust .google-pill {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--stitch-outline);
+}
+
 /* Perf mobile : blur coûteux sur GPU bas de gamme */
 @media (max-width: 768px) {
   .design-stitch .main-header,

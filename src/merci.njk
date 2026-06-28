@@ -16,7 +16,10 @@ scripts:
     <div class="merci-page__box">
       <p class="merci-page__badge" aria-hidden="true">✓</p>
       <h1 id="merci-title" class="merci-page__title">Merci</h1>
-      <p class="merci-page__text">
+      <p class="merci-page__text merci-page__text--form sr-only" id="merci-form-msg">
+        Votre demande a bien été envoyée. Nous revenons vers vous en journée (lun–sam, 9h–19h).
+      </p>
+      <p class="merci-page__text" id="merci-default-msg">
         Pour <strong>un créneau, un tarif ou une urgence</strong>, en heures d'ouverture (lun–sam, 9h–19h), le téléphone reste souvent le plus direct — numéro ci-dessous.
       </p>
       <p class="merci-page__sub">
@@ -26,8 +29,8 @@ scripts:
         Numéro du garage : <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a> — enregistrez-le pour nous retrouver facilement.
       </p>
       <div class="merci-page__actions">
-        <a href="/contact/" class="btn btn--primary merci-page__btn">Coordonnées &amp; RDV</a>
-        <a href="{{ site.whatsappUrl }}" class="btn btn--secondary btn--dark merci-page__btn" target="_blank" rel="noopener noreferrer">Message WhatsApp</a>
+        <a href="tel:{{ site.phone }}" class="btn btn--primary merci-page__btn" data-track="click_call" data-track-pos="merci">Appeler {{ site.phoneDisplay }}</a>
+        <a href="{{ site.whatsappUrl }}" class="btn btn--secondary btn--dark merci-page__btn" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp" data-track-pos="merci">Message WhatsApp</a>
       </div>
       <p class="merci-page__back">
         <a href="/contact/">Adresse &amp; plan</a> · <a href="/">Accueil</a>
@@ -35,3 +38,13 @@ scripts:
     </div>
   </div>
 </section>
+
+<script>
+(function () {
+  if (new URLSearchParams(window.location.search).get("source") !== "form") return;
+  var formMsg = document.getElementById("merci-form-msg");
+  var defaultMsg = document.getElementById("merci-default-msg");
+  if (formMsg) formMsg.classList.remove("sr-only");
+  if (defaultMsg) defaultMsg.hidden = true;
+})();
+</script>

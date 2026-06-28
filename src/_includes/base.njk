@@ -278,6 +278,9 @@
 
     {% include "footer.njk" %}
     {% include "floating-whatsapp.njk" %}
+    {% if pageKey not in ['404', 'mentions-legales', 'confidentialite', 'cookies'] %}
+      {% include "cta-sticky-call.njk" %}
+    {% endif %}
 
     <script src="{{ '/assets/js/main.js' | cacheBust }}" defer></script>
     {% if scripts and scripts.mobileOptimizer == false %}{% else %}

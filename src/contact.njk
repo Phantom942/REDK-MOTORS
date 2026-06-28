@@ -54,8 +54,9 @@ faqSchema:
 ---
 
 {% set heroActions %}
-<a class="btn btn--primary" href="#appointment">Coordonnées &amp; RDV</a>
-<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">Message WhatsApp</a>
+<a class="btn btn--primary" href="/contact/#contact-form-title">Demande de RDV</a>
+<a class="btn btn--secondary" href="tel:{{ site.phone }}" data-track="click_call" data-track-pos="contact_hero">Appeler {{ site.phoneDisplay }}</a>
+<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp" data-track-pos="contact_hero">WhatsApp</a>
 {% endset %}
 
 {% set heroAria = "contact-hero-title" %}
@@ -74,7 +75,7 @@ faqSchema:
       <ul>
         <li>Garage: RED-K MOTORS, {{ site.addressFull }}</li>
         <li>Telephone prioritaire: <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a></li>
-        <li>Prise de RDV: <a href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a> ou formulaire contact</li>
+        <li>Prise de RDV: <a href="/contact/#contact-form-title">formulaire</a>, <a href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a> ou <a href="tel:{{ site.phone }}">téléphone</a></li>
         <li>Horaires: {{ site.openingHours }}</li>
       </ul>
     </div>
@@ -103,6 +104,8 @@ faqSchema:
     </div>
   </div>
 </section>
+
+{% include "contact-form.njk" %}
 
 <section id="appointment" class="appointment" aria-labelledby="appointment-title" data-animate="slide-right">
   <div class="container appointment__centered">

@@ -53,7 +53,11 @@
             </li>
           {% endif %}
         {% endfor %}
+        <li class="main-nav__item main-nav__item--cta">
+          <a href="tel:{{ site.phone }}" class="btn btn--primary main-nav__cta" data-track="click_call" data-track-pos="header_mobile">Appeler {{ site.phoneDisplay }}</a>
+        </li>
       </ul>
+      <a href="tel:{{ site.phone }}" class="btn btn--primary main-nav__cta main-nav__cta--desktop" data-track="click_call" data-track-pos="header">{{ site.phoneDisplay }}</a>
     </nav>
   </div>
 </header>

@@ -45,18 +45,22 @@ faqSchema:
       name: "Comment prendre rendez-vous ?"
       acceptedAnswer:
         "@type": "Answer"
-        text: "Par la page Coordonnées (redk-motors.me/contact/) : téléphone en journée, email ou WhatsApp. Lun–sam 9h–19h. Réponse la plus rapide en général par téléphone aux heures d'ouverture."
+        text: "Par la page Coordonnées (redk-motors.me/contact/) : téléphone en journée, formulaire, email ou WhatsApp. Lun–sam 9h–19h. Réponse la plus rapide en général par téléphone aux heures d'ouverture."
 ---
 
 {% set heroActions %}
-<a class="btn btn--primary" href="#rdv">Prendre rendez-vous</a>
-<a class="btn btn--secondary" href="https://wa.me/{{ site.phone | replace('+', '') }}?text=Bonjour%2C%20je%20souhaite%20un%20devis." target="_blank" rel="noopener noreferrer">Message WhatsApp</a>
+<a class="btn btn--primary" href="tel:{{ site.phone }}" data-track="click_call" data-track-pos="hero_home">Appeler {{ site.phoneDisplay }}</a>
+<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp" data-track-pos="hero_home">WhatsApp</a>
+<a class="btn btn--secondary btn--dark" href="/contact/#contact-form-title">Formulaire RDV</a>
 {% endset %}
 {% set heroClass = "hero--expanded hero--home-cro" %}
 {% set heroAria = "home-hero-title" %}
-{% set heroTitle = "RED-K MOTORS" %}
-{% set heroSubtitle = "Garage à Ivry-sur-Seine" %}
+{% set heroTitle = "Garage multimarque à Ivry-sur-Seine" %}
+{% set heroSubtitle = "Devis gratuit · Rien sans votre accord" %}
+{% set heroKicker = "Mécanique · Diagnostic · Carrosserie · Lun–sam 9h–19h" %}
+{% set heroDesc = "Voyant moteur, entretien ou réparation : devis expliqué avant travaux, atelier local au 9 rue Michelet (94)." %}
 {% set heroActionsCro = true %}
+{% set heroBadge = true %}
 {% set videoSrc = "hero.mp4" %}
 {% include "hero-video.njk" %}
 
@@ -174,7 +178,10 @@ faqSchema:
 <section id="rdv" class="appointment appointment--final" aria-labelledby="appointment-title" data-animate="slide-up">
   <div class="container appointment__centered">
     <h2 id="appointment-title">Rendez-vous et tarifs</h2>
-    <p>Téléphone : fourchette et créneaux. Devis écrit : courriel ou WhatsApp.</p>
+    <p>Le plus rapide : un appel en journée. Devis écrit : formulaire, email ou WhatsApp.</p>
+    <p class="appointment__callout">
+      <a href="tel:{{ site.phone }}" class="btn btn--primary" data-track="click_call" data-track-pos="home_rdv">{{ site.phoneDisplay }}</a>
+    </p>
     <dl class="appointment__info">
       <div>
         <dt>Téléphone</dt>
@@ -189,7 +196,7 @@ faqSchema:
         <dd><a href="{{ site.wazeUrl }}" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">{{ site.addressFull }}</a></dd>
       </div>
     </dl>
-    <p class="appointment__hint"><a href="https://wa.me/{{ site.phone | replace('+', '') }}?text=Bonjour%2C%20je%20souhaite%20un%20devis." target="_blank" rel="noopener noreferrer">WhatsApp</a> pour un message écrit · <a href="/contact/">Toutes les coordonnées</a></p>
+    <p class="appointment__hint"><a href="/contact/#contact-form-title">Formulaire de contact</a> · <a href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp" data-track-pos="home_rdv">WhatsApp</a> · <a href="/contact/">Toutes les coordonnées</a></p>
   </div>
 </section>
 
@@ -238,7 +245,7 @@ faqSchema:
           Comment prendre rendez-vous ?
         </button>
         <div class="faq__answer" id="faq-5" hidden>
-          <p>Par la page <a href="/contact/">Coordonnées</a> : téléphone {{ site.phoneDisplay }}, email ou WhatsApp. Lun–sam 9h–19h. Réponse la plus rapide en général par téléphone aux heures d'ouverture.</p>
+          <p>Par la page <a href="/contact/#contact-form-title">Coordonnées</a> : téléphone {{ site.phoneDisplay }}, formulaire, email ou WhatsApp. Lun–sam 9h–19h. Réponse la plus rapide en général par téléphone aux heures d'ouverture.</p>
         </div>
       </article>
     </div>

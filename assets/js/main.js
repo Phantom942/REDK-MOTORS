@@ -294,6 +294,19 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
+
+  var plateInput = document.querySelector('[data-contact-plate]');
+  var contactMessage = document.getElementById('contact-message');
+  if (plateInput) {
+    var plaqueParam = new URLSearchParams(window.location.search).get('plaque');
+    if (plaqueParam) {
+      var normalizedPlate = plaqueParam.trim().toUpperCase();
+      plateInput.value = normalizedPlate;
+      if (contactMessage && !contactMessage.value.trim()) {
+        contactMessage.value = 'Plaque : ' + normalizedPlate + '. ';
+      }
+    }
+  }
 });
 
 

@@ -24,6 +24,11 @@
         {% if heroSubtitle %}<span class="hero__title-sub">{{ heroSubtitle }}</span>{% endif %}
       </h1>
       {% if heroDesc %}<p class="hero__lede">{{ heroDesc }}</p>{% endif %}
+      {% if heroBadge %}
+      <div class="hero__trust">
+        {% include "google-reviews-badge.njk" %}
+      </div>
+      {% endif %}
       {% if heroActions %}
       <div class="hero__actions{% if heroActionsCro %} hero__actions--cro{% endif %}">
         {{ heroActions | safe }}
