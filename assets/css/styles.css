@@ -6435,7 +6435,13 @@ a.review-card__name:hover {
 }
 
 .pro-hub__grid--compact {
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.pro-hub__grid--compact .pro-hub__card {
+  grid-column: auto;
 }
 
 .pro-hub__card {
@@ -6456,11 +6462,11 @@ a.review-card__name:hover {
   line-height: 1.3;
 }
 
-.pro-hub__card:nth-child(4) {
+.pro-hub__grid:not(.pro-hub__grid--compact) .pro-hub__card:nth-child(4) {
   grid-column: 2 / span 2;
 }
 
-.pro-hub__card:nth-child(5) {
+.pro-hub__grid:not(.pro-hub__grid--compact) .pro-hub__card:nth-child(5) {
   grid-column: 4 / span 2;
 }
 
