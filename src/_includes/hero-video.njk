@@ -15,12 +15,13 @@
     ></video>
   </div>
   <div class="hero__overlay" aria-hidden="true"></div>
+  {% if heroGlow %}<div class="hero__glow" aria-hidden="true"></div>{% endif %}
   <div class="container hero__content">
     <div>
       {% if heroKicker %}<p class="hero__kicker">{{ heroKicker }}</p>{% endif %}
       {% if heroMeta %}<p class="hero__meta">{{ heroMeta }}</p>{% endif %}
       <h1 {% if heroAria %}id="{{ heroAria }}"{% endif %}>
-        <span class="hero__title-main">{{ heroTitle }}</span>
+        <span class="hero__title-main">{{ heroTitle }}{% if heroAccent %} <span class="hero__accent">{{ heroAccent }}</span>{% endif %}</span>
         {% if heroSubtitle %}<span class="hero__title-sub">{{ heroSubtitle }}</span>{% endif %}
       </h1>
       {% if heroDesc %}<p class="hero__lede">{{ heroDesc }}</p>{% endif %}
