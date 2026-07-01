@@ -16,25 +16,27 @@
       document.querySelectorAll('[data-animate]').forEach(function(el) {
         el.style.transitionDuration = '0.3s';
       });
-      var nav = document.querySelector('#primary-menu');
-      var toggle = document.querySelector('.main-nav__toggle');
-      var backdrop = document.querySelector('#nav-backdrop');
-      var lastScroll = 0;
-      window.addEventListener('scroll', function() {
-        var y = window.pageYOffset;
-        if (nav && nav.classList.contains('is-open') && Math.abs(y - lastScroll) > 50) {
-          nav.classList.remove('is-open');
-          document.body.classList.remove('is-nav-open');
-          if (toggle) toggle.setAttribute('aria-expanded', 'false');
-          if (backdrop) {
-            backdrop.hidden = true;
-            backdrop.classList.remove('is-visible');
-            backdrop.setAttribute('aria-hidden', 'true');
-          }
-        }
-        lastScroll = y;
-      }, { passive: true });
     }
+
+    var nav = document.querySelector('#primary-menu');
+    var toggle = document.querySelector('.main-nav__toggle');
+    var backdrop = document.querySelector('#nav-backdrop');
+    var lastScroll = 0;
+    window.addEventListener('scroll', function() {
+      var y = window.pageYOffset;
+      if (nav && nav.classList.contains('is-open') && Math.abs(y - lastScroll) > 50) {
+        nav.classList.remove('is-open');
+        document.body.classList.remove('is-nav-open');
+        if (toggle) toggle.setAttribute('aria-expanded', 'false');
+        if (backdrop) {
+          backdrop.hidden = true;
+          backdrop.classList.remove('is-visible');
+          backdrop.setAttribute('aria-hidden', 'true');
+        }
+      }
+      lastScroll = y;
+    }, { passive: true });
+
     document.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], textarea').forEach(function(input) {
       if (window.innerWidth < 768 && parseInt(window.getComputedStyle(input).fontSize, 10) < 16) {
         input.style.fontSize = '16px';

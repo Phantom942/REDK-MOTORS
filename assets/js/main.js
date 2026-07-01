@@ -27,16 +27,11 @@ document.addEventListener('DOMContentLoaded', function() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  // Mobile Menu Toggle
+  // Menu latéral (toutes tailles d'écran)
   const navToggle = document.querySelector('.main-nav__toggle');
   const navMenu = document.querySelector('#primary-menu');
   const navBackdrop = document.querySelector('#nav-backdrop');
   const navSubTriggers = document.querySelectorAll('.main-nav__trigger');
-  const MOBILE_NAV_MQ = window.matchMedia('(max-width: 1024px)');
-
-  function isMobileNav() {
-    return MOBILE_NAV_MQ.matches;
-  }
 
   function closeNavSubmenus() {
     if (!navMenu) return;
@@ -48,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function openActiveNavSubmenus() {
-    if (!navMenu || !isMobileNav()) return;
+    if (!navMenu) return;
     navMenu.querySelectorAll('.main-nav__item--has-sub.is-active').forEach(function(item) {
       item.classList.add('is-open');
       var trigger = item.querySelector('.main-nav__trigger');
@@ -98,7 +93,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     navMenu.querySelectorAll('a').forEach(function(link) {
       link.addEventListener('click', function() {
-        if (!isMobileNav()) return;
         setNavMenuOpen(false);
       });
     });
@@ -108,16 +102,10 @@ document.addEventListener('DOMContentLoaded', function() {
         setNavMenuOpen(false);
       }
     });
-
-    MOBILE_NAV_MQ.addEventListener('change', function(e) {
-      if (!e.matches) setNavMenuOpen(false);
-    });
   }
 
   navSubTriggers.forEach(function(trigger) {
     trigger.addEventListener('click', function(e) {
-      if (!isMobileNav()) return;
-
       e.preventDefault();
       e.stopPropagation();
       var parent = trigger.closest('.main-nav__item--has-sub');
@@ -293,6 +281,17 @@ document.addEventListener('DOMContentLoaded', function() {
         msgField.focus();
       }
     });
+  });
+
+  document.querySelectorAll('img[loading="lazy"]').forEach(function(img) {
+    function markLoaded() {
+      img.classList.add('loaded');
+    }
+    if (img.complete) markLoaded();
+    else {
+      img.addEventListener('load', markLoaded, { once: true });
+      img.addEventListener('error', markLoaded, { once: true });
+    }
   });
 
   var plateInput = document.querySelector('[data-contact-plate]');

@@ -9,8 +9,25 @@
       <img class="logo__img" src="{{ '/assets/img/logo-redk-motors.png' | cacheBust }}" alt="Logo garage automobile RED-K MOTORS à Ivry-sur-Seine (94)" width="676" height="129" decoding="async" fetchpriority="high" />
     </a>
     <nav class="main-nav" aria-label="Navigation principale">
-      <button class="main-nav__toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
+      {% include "nav-google-rating.njk" %}
+      <ul class="main-nav__bar-links">
+        {% for item in site.nav %}
+          {% if item.navbar and item.hub %}
+            <li>
+              <a
+                href="{{ item.hub.url }}"
+                class="btn btn--primary main-nav__bar-link"
+                {% if pageKey == item.hub.key %}aria-current="page"{% endif %}
+                {% if item.activeKeys %}{% for activeKey in item.activeKeys %}{% if pageKey == activeKey %}aria-current="page"{% endif %}{% endfor %}{% endif %}
+              >{{ item.title }}</a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+      <a href="tel:{{ site.phone }}" class="btn btn--primary main-nav__phone" data-track="click_call" data-track-pos="header">{{ site.phoneDisplayCompact | default(site.phoneDisplay) }}</a>
+      <button class="btn btn--primary main-nav__toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
         <span class="sr-only">Ouvrir le menu</span>
+        <span class="main-nav__toggle-label" aria-hidden="true">Menu</span>
         <span class="main-nav__bars" aria-hidden="true">
           <span class="main-nav__bar"></span>
           <span class="main-nav__bar"></span>
@@ -20,44 +37,36 @@
       <div class="main-nav__backdrop" id="nav-backdrop" hidden aria-hidden="true"></div>
       <ul id="primary-menu">
         {% for item in site.nav %}
-          {% if item.children %}
-            <li class="main-nav__item main-nav__item--has-sub{% if item.highlight %} main-nav__item--pro{% endif %}{% for child in item.children %}{% if pageKey == child.key %} is-active{% endif %}{% endfor %}{% if item.activeKeys %}{% for activeKey in item.activeKeys %}{% if pageKey == activeKey %} is-active{% endif %}{% endfor %}{% endif %}">
-              <button
-                type="button"
-                class="main-nav__trigger{% if item.highlight %} main-nav__trigger--pro{% endif %}"
-                aria-expanded="false"
-                aria-haspopup="true"
-                aria-controls="nav-sub-{{ item.key }}"
-              >
-                <span>{{ item.title }}</span>
-                <span class="main-nav__caret" aria-hidden="true">▾</span>
-              </button>
-              <ul id="nav-sub-{{ item.key }}" class="main-nav__sub" role="menu">
-                {% if item.hub %}
-                <li role="none">
-                  <a href="{{ item.hub.url }}" role="menuitem" {% if pageKey == item.hub.key %}aria-current="page"{% endif %}>{{ item.hub.title }}</a>
-                </li>
-                {% endif %}
-                {% for child in item.children %}
-                <li role="none">
-                  <a href="{{ child.url }}" role="menuitem" {% if pageKey == child.key %}aria-current="page"{% endif %}>{{ child.title }}</a>
-                </li>
-                {% endfor %}
-              </ul>
+            <li class="main-nav__item{% if item.navbar %} main-nav__item--bar-fallback{% endif %}{% if item.children %} main-nav__item--has-sub{% if item.highlight %} main-nav__item--pro{% endif %}{% for child in item.children %}{% if pageKey == child.key %} is-active{% endif %}{% endfor %}{% if item.activeKeys %}{% for activeKey in item.activeKeys %}{% if pageKey == activeKey %} is-active{% endif %}{% endfor %}{% endif %}{% endif %}">
+              {% if item.children %}
+                <button
+                  type="button"
+                  class="main-nav__trigger{% if item.highlight %} main-nav__trigger--pro{% endif %}"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  aria-controls="nav-sub-{{ item.key }}"
+                >
+                  <span>{{ item.title }}</span>
+                  <span class="main-nav__caret" aria-hidden="true">▾</span>
+                </button>
+                <ul id="nav-sub-{{ item.key }}" class="main-nav__sub" role="menu">
+                  {% if item.hub %}
+                  <li role="none">
+                    <a href="{{ item.hub.url }}" role="menuitem" {% if pageKey == item.hub.key %}aria-current="page"{% endif %}>{{ item.hub.title }}</a>
+                  </li>
+                  {% endif %}
+                  {% for child in item.children %}
+                  <li role="none">
+                    <a href="{{ child.url }}" role="menuitem" {% if pageKey == child.key %}aria-current="page"{% endif %}>{{ child.title }}</a>
+                  </li>
+                  {% endfor %}
+                </ul>
+              {% else %}
+                <a href="{{ item.url }}" {% if pageKey == item.key %}aria-current="page"{% endif %}>{{ item.title }}</a>
+              {% endif %}
             </li>
-          {% else %}
-            <li class="main-nav__item">
-              <a href="{{ item.url }}" {% if pageKey == item.key %}aria-current="page"{% endif %}>
-                {{ item.title }}
-              </a>
-            </li>
-          {% endif %}
         {% endfor %}
-        <li class="main-nav__item main-nav__item--cta">
-          <a href="tel:{{ site.phone }}" class="btn btn--primary main-nav__cta" data-track="click_call" data-track-pos="header_mobile">Appeler {{ site.phoneDisplay }}</a>
-        </li>
       </ul>
-      <a href="tel:{{ site.phone }}" class="btn btn--primary main-nav__cta main-nav__cta--desktop" data-track="click_call" data-track-pos="header">{{ site.phoneDisplay }}</a>
     </nav>
   </div>
 </header>

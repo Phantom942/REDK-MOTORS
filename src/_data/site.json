@@ -5,6 +5,7 @@
   "locale": "fr_FR",
   "phone": "+33648745668",
   "phoneDisplay": "06.48.74.56.68",
+  "phoneDisplayCompact": "06 48 74 56 68",
   "whatsappUrl": "https://wa.me/33648745668?text=Bonjour%2C%20je%20contacte%20RED-K%20MOTORS%20pour%20mon%20v%C3%A9hicule.",
   "email": "contact@redk-motors.me",
   "address": "9 rue Michelet",
@@ -32,6 +33,7 @@
     {
       "title": "Nos services",
       "key": "nav-services",
+      "navbar": true,
       "activeKeys": ["prestations", "mecanique", "carrosserie", "pare-brise", "entretien", "diagnostic", "pneumatiques", "freins", "vidange"],
       "hub": {
         "title": "Toutes nos prestations",
@@ -70,6 +72,7 @@
     {
       "title": "Espace Pro",
       "key": "nav-pro",
+      "navbar": true,
       "highlight": true,
       "activeKeys": ["professionnels", "pro-taxis-vtc", "pro-chauffeurs", "pro-flottes", "pro-auto-ecoles", "pro-autres"],
       "hub": {

@@ -1,0 +1,12 @@
+<a
+  href="{{ site.googleReviews.mapsPlaceUrl }}"
+  class="main-nav__google-rating"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Note Google : {{ site.googleReviews.rating }} sur 5, {{ site.googleReviews.count }} avis — voir sur Google Maps"
+>
+  <span class="main-nav__google-mark" aria-hidden="true">G</span>
+  <span class="main-nav__google-stars" aria-hidden="true">{% for i in range(0, site.googleReviews.rating) %}★{% endfor %}</span>
+  <span class="main-nav__google-score">{{ site.googleReviews.rating }},0</span>
+  <span class="main-nav__google-count">({{ site.googleReviews.count }} avis)</span>
+</a>
