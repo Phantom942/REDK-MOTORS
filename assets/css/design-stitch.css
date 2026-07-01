@@ -2831,4 +2831,118 @@ body.conversion-page .promesse__item p {
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
   }
+
+  /* Sections fond clair sur mobile : texte sombre lisible */
+  .design-stitch .pricing-section,
+  .design-stitch .pricing-section--readable,
+  .design-stitch .reviews-section,
+  .design-stitch .appointment,
+  .design-stitch .appointment--final,
+  .design-stitch .services,
+  .design-stitch .services-links {
+    color: #1f1f1f;
+  }
+
+  .design-stitch .pricing-section h2,
+  .design-stitch .pricing-section--readable h2,
+  .design-stitch .pricing-section h2 span {
+    color: #1f1f1f !important;
+  }
+
+  .design-stitch #main .pricing-section__intro,
+  .design-stitch .pricing-section__intro,
+  .design-stitch.conversion-page #main .pricing-section__intro {
+    color: #444 !important;
+    text-align: center;
+  }
+
+  .design-stitch .pricing-section__intro strong,
+  .design-stitch.conversion-page #main .pricing-section__intro strong {
+    color: #1f1f1f !important;
+  }
+
+  .design-stitch .pricing-section__disclaimer,
+  .design-stitch .pricing-section__note {
+    color: #555 !important;
+  }
+
+  .design-stitch .pricing-table-wrap {
+    background: #ffffff;
+    border-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  }
+
+  .design-stitch .pricing-section--readable .pricing-table thead th {
+    background: #1f1f1f;
+    color: #ffffff;
+  }
+
+  .design-stitch .pricing-section--readable .pricing-table tbody th {
+    color: #1f1f1f !important;
+    background: #ffffff;
+  }
+
+  .design-stitch .pricing-section--readable .pricing-table tbody td {
+    color: var(--color-red, #b31217) !important;
+    background: #ffffff;
+  }
+
+  .design-stitch .reviews-section {
+    color: #1f1f1f;
+  }
+
+  .design-stitch .reviews-section__title,
+  .design-stitch .reviews-section__score {
+    color: #1f1f1f !important;
+  }
+
+  .design-stitch .reviews-section__badge-google {
+    background: rgba(0, 0, 0, 0.04);
+    border-color: rgba(0, 0, 0, 0.12);
+  }
+
+  .design-stitch .reviews-section__badge-text,
+  .design-stitch .reviews-section__badge-count {
+    color: #444;
+  }
+
+  .design-stitch .review-card {
+    background: #f7f7f7;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-left: 4px solid var(--color-red, #b31217);
+  }
+
+  .design-stitch .review-card__text {
+    color: #444 !important;
+  }
+
+  .design-stitch .review-card__name,
+  .design-stitch .review-card__source {
+    color: #1f1f1f !important;
+  }
+
+  .design-stitch .appointment--final h2 {
+    color: #1f1f1f !important;
+  }
+
+  .design-stitch .appointment--final p,
+  .design-stitch .appointment__info dt,
+  .design-stitch .appointment__info dd {
+    color: #444 !important;
+  }
+
+  .design-stitch .appointment__info a {
+    color: #1f1f1f !important;
+  }
+
+  .design-stitch .btn--secondary.btn--dark {
+    border-color: #1f1f1f;
+    color: #1f1f1f !important;
+    background: transparent;
+  }
+
+  .design-stitch .btn--secondary.btn--dark:hover {
+    background: #1f1f1f;
+    color: #ffffff !important;
+  }
 }

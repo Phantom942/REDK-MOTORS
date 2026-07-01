@@ -6618,6 +6618,41 @@ a.review-card__name:hover {
     background: #ffffff;
   }
 
+  .pricing-section__intro,
+  .pricing-section__disclaimer {
+    color: #333 !important;
+  }
+
+  .pricing-section__intro strong {
+    color: #1f1f1f !important;
+  }
+
+  .reviews-section__title,
+  .reviews-section__score {
+    color: #1f1f1f !important;
+  }
+
+  .review-card {
+    background: #f7f7f7;
+    border-color: rgba(0, 0, 0, 0.08);
+  }
+
+  .review-card__text {
+    color: #444 !important;
+  }
+
+  .review-card__name {
+    color: #1f1f1f !important;
+  }
+
+  .pricing-table-wrap {
+    margin-bottom: 0.5rem;
+  }
+
+  .back-to-top {
+    display: none !important;
+  }
+
   .faq-section {
     padding: 52px 0 64px;
   }
