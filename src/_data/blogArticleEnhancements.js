@@ -1268,4 +1268,52 @@ module.exports = {
       ],
     },
   },
+  "prix-changement-plaquettes-frein-94": {
+    directAnswer: {
+      question: "Combien coûte un changement de plaquettes de frein ?",
+      answer:
+        "Comptez en général 100 à 190 € pour plaquettes seules (un essieu), et 240 à 590 € si les disques doivent aussi être remplacés. Devis fermé après contrôle au véhicule.",
+      facts: [
+        { label: "Fourchette plaquettes", value: "100–190 €" },
+        { label: "Garage", value: "RED-K MOTORS · Ivry (94)" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/freins/", label: "Changement plaquettes frein" },
+      { url: "/tarifs/", label: "Grille tarifaire" },
+      { url: "/contact/", label: "Prendre rendez-vous" },
+    ],
+  },
+  "prix-recharge-climatisation-94": {
+    directAnswer: {
+      question: "Combien coûte une recharge climatisation voiture ?",
+      answer:
+        "Une recharge clim en atelier coûte en général 80 à 200 € selon le véhicule et le type de gaz. Diagnostic recommandé avant recharge si la clim ne refroidit plus.",
+      facts: [
+        { label: "Fourchette recharge", value: "80–200 €" },
+        { label: "Garage", value: "RED-K MOTORS · Ivry (94)" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/prestations/recharge-clim/", label: "Réparation climatisation" },
+      { url: "/tarifs/", label: "Grille tarifaire" },
+      { url: "/contact/", label: "Prendre rendez-vous" },
+    ],
+  },
+  "prix-changement-pneus-94": {
+    directAnswer: {
+      question: "Combien coûte un changement de pneus ?",
+      answer:
+        "Montage et équilibrage de 4 pneus : 60 à 150 € en main-d'œuvre, hors prix des pneus (variable selon dimension et marque). Parallélisme : 80 à 160 € si nécessaire.",
+      facts: [
+        { label: "Montage 4 pneus", value: "60–150 €" },
+        { label: "Garage", value: "RED-K MOTORS · Ivry (94)" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/pneumatiques/", label: "Changement pneus" },
+      { url: "/tarifs/", label: "Grille tarifaire" },
+      { url: "/contact/", label: "Prendre rendez-vous" },
+    ],
+  },
 };

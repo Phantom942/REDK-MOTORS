@@ -1,7 +1,7 @@
 ---
 layout: base.njk
-title: "Tarifs garage Ivry (94) — Vidange, freins, diagnostic | RED-K MOTORS"
-description: "Grille tarifaire indicative à Ivry : vidange, freins, diagnostic, distribution… Devis fermé après inspection. ☎ 06 48 74 56 68 · lun–sam 9h–19h."
+title: "Prix garage Ivry (94) — Vidange, freins, pneus, clim | RED-K MOTORS"
+description: "Prix vidange, changement plaquettes frein, pneus et recharge clim à Ivry. Fourchettes indicatives — devis fermé après inspection. ☎ 06 48 74 56 68."
 pageKey: tarifs
 date: 2026-06-11
 lastReviewed: 2026-07-01
@@ -38,8 +38,17 @@ offerCatalogSchema:
       itemOffered: { "@type": "Service", "name": "Révision" }
       priceSpecification: { "@type": "PriceSpecification", "minPrice": "130", "maxPrice": "400", "priceCurrency": "EUR" }
     - "@type": "Offer"
-      itemOffered: { "@type": "Service", "name": "Plaquettes de frein" }
+      itemOffered: { "@type": "Service", "name": "Changement plaquettes de frein" }
       priceSpecification: { "@type": "PriceSpecification", "minPrice": "100", "maxPrice": "190", "priceCurrency": "EUR" }
+    - "@type": "Offer"
+      itemOffered: { "@type": "Service", "name": "Changement pneus (montage 4 + équilibrage)" }
+      priceSpecification: { "@type": "PriceSpecification", "minPrice": "60", "maxPrice": "150", "priceCurrency": "EUR" }
+    - "@type": "Offer"
+      itemOffered: { "@type": "Service", "name": "Réparation climatisation / recharge clim" }
+      priceSpecification: { "@type": "PriceSpecification", "minPrice": "80", "maxPrice": "200", "priceCurrency": "EUR" }
+    - "@type": "Offer"
+      itemOffered: { "@type": "Service", "name": "Changement batterie voiture" }
+      priceSpecification: { "@type": "PriceSpecification", "minPrice": "120", "maxPrice": "250", "priceCurrency": "EUR" }
     - "@type": "Offer"
       itemOffered: { "@type": "Service", "name": "Kit distribution (courroie + pose)" }
       priceSpecification: { "@type": "PriceSpecification", "minPrice": "450", "maxPrice": "990", "priceCurrency": "EUR" }
@@ -74,9 +83,9 @@ faqSchema:
 {% endset %}
 {% set heroAria = "tarifs-hero-title" %}
 {% set heroClass = "hero--subpage hero--conversion" %}
-{% set heroTitle = "Tarifs indicatifs" %}
-{% set heroKicker %}Garage à {{ site.city }} (94){% endset %}
-{% set heroDesc = "Fourchettes TTC indicatives — devis définitif gratuit après inspection." %}
+{% set heroTitle = "Prix vidange, freins, pneus & clim" %}
+{% set heroKicker %}Tarifs garage · {{ site.city }} (94){% endset %}
+{% set heroDesc = "Fourchettes TTC indicatives — appelez pour un devis fermé gratuit après inspection." %}
 {% include "hero-simple.njk" %}
 
 {% include "conversion-contact.njk" %}
