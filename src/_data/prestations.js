@@ -24,7 +24,7 @@ const CATEGORY_HUB = {
 /** Accroches optimisées Google Ads (slug → champs hero) */
 const AD_OVERRIDES = {
   "plaquettes-disques": {
-    heroTitle: "Changement Plaquettes de Frein à Ivry — Devis Gratuit",
+    heroTitle: "Plaquettes & Disques de Frein à Ivry — Devis Gratuit",
     heroKicker: "Freinage · Sécurité · 94",
     heroDesc:
       "Grincement, pédale molle ou voyant ABS ? Contrôle usure et devis ferme avant toute intervention.",
@@ -52,12 +52,12 @@ const AD_OVERRIDES = {
     prestaHubSubtitle: "Indiquez plaque et symptômes — rappel en journée.",
   },
   "revision-entretien": {
-    heroTitle: "Révision Voiture à Ivry — Carnet Constructeur",
+    heroTitle: "Révision & Entretien à Ivry — Carnet Constructeur",
     heroKicker: "Entretien · Garantie préservée",
     heroDesc: "Révision selon préconisations constructeur. Pièces adaptées et devis gratuit.",
   },
   "vidange-moteur": {
-    heroTitle: "Vidange Voiture à Ivry — Rapide & Constructeur",
+    heroTitle: "Vidange Moteur à Ivry — Rapide & Constructeur",
     heroKicker: "Huile homologuée · Filtre neuf",
     heroDesc: "Vidange avec huile adaptée à votre carnet. Contrôle des niveaux inclus.",
   },
@@ -74,24 +74,24 @@ const AD_OVERRIDES = {
     whatsappCtaText: "Photo de la zone à peindre → estimation WhatsApp en quelques minutes.",
   },
   "pare-brise-vitrage": {
-    heroTitle: "Remplacement Pare-Brise à Ivry — Bris de Glace",
+    heroTitle: "Pare-Brise & Vitrage à Ivry — Bris de Glace",
     heroKicker: "Assurance · Navette possible",
     heroDesc: "Impact ou vitrage cassé ? Dossier assurance accompagné, intervention rapide.",
   },
   "recharge-clim": {
-    heroTitle: "Réparation Climatisation à Ivry — Recharge & Diagnostic",
-    heroKicker: "Réparation clim · Ivry (94)",
-    heroDesc: "Clim qui ne refroidit plus, air tiède ou odeur ? Diagnostic, recharge gaz et réparation du circuit clim.",
+    heroTitle: "Recharge Climatisation à Ivry",
+    heroKicker: "Clim · Confort été",
+    heroDesc: "Air tiède ou odeur ? Recharge gaz, contrôle étanchéité, devis avant travaux.",
   },
   geometrie: {
-    heroTitle: "Parallélisme & Géométrie à Ivry",
-    heroKicker: "Parallélisme · Tenue de route",
-    heroDesc: "Volant qui tire ou usure irrégulière des pneus ? Réglage parallélisme et géométrie précis sur RDV.",
+    heroTitle: "Géométrie & Parallélisme à Ivry",
+    heroKicker: "Pneus · Tenue de route",
+    heroDesc: "Volant qui tire ou usure irrégulière ? Réglage géométrie précis sur RDV.",
   },
   "montage-equilibrage": {
-    heroTitle: "Changement de Pneus à Ivry — Montage & Équilibrage",
-    heroKicker: "Changement pneus · Ivry (94)",
-    heroDesc: "Changement pneus été/hiver, montage, équilibrage et contrôle pression. Stock ou montage de vos pneus.",
+    heroTitle: "Montage & Équilibrage Pneus à Ivry",
+    heroKicker: "Pneus · Rapide sur RDV",
+    heroDesc: "Montage, équilibrage et contrôle pression. Stock été/hiver selon arrivages.",
   },
   embrayage: {
     heroTitle: "Embrayage à Ivry — Diagnostic & Remplacement",
@@ -99,9 +99,9 @@ const AD_OVERRIDES = {
     heroDesc: "Pédale haute, patinage ou bruit ? Diagnostic puis devis avant remplacement.",
   },
   "distribution-injection": {
-    heroTitle: "Changement Courroie de Distribution à Ivry",
-    heroKicker: "Distribution · Prévention panne",
-    heroDesc: "Changement courroie distribution, kit distribution ou injecteurs : diagnostic, devis ferme, pièces adaptées.",
+    heroTitle: "Kit Distribution à Ivry — Courroie & Injection",
+    heroKicker: "Moteur · Prévention panne",
+    heroDesc: "Distribution, courroie ou injecteurs : diagnostic, devis ferme, pièces adaptées au véhicule.",
   },
   "decalaminage-moteur": {
     heroTitle: "Décalaminage Moteur à Ivry",
@@ -114,9 +114,9 @@ const AD_OVERRIDES = {
     heroDesc: "Sauts, bruits ou tenue de route dégradée ? Contrôle suspension et devis avant remplacement.",
   },
   "pre-controle-technique": {
-    heroTitle: "Préparation Contrôle Technique à Ivry",
-    heroKicker: "Contre-visite · Mise en conformité",
-    heroDesc: "Préparation contrôle technique et contre-visite : points de contrôle et devis pour corriger avant le CT.",
+    heroTitle: "Pré-Contrôle Technique à Ivry",
+    heroKicker: "CT · Mise en conformité",
+    heroDesc: "Anticipez le contrôle technique : points de contrôle et devis pour corriger avant le CT.",
   },
   "purge-liquide-frein": {
     heroTitle: "Purge Liquide de Frein à Ivry",
@@ -129,7 +129,7 @@ const AD_OVERRIDES = {
     heroDesc: "Voyant ABS ou ESP : lecture des codes, identification de la cause, devis avant réparation.",
   },
   "remplacement-batterie": {
-    heroTitle: "Changement Batterie Voiture à Ivry — Test & Remplacement",
+    heroTitle: "Batterie Auto à Ivry — Test & Remplacement",
     heroKicker: "Démarrage · Rapide",
     heroDesc: "Voiture qui ne démarre plus ? Test batterie et alternateur, remplacement sur place si besoin.",
   },
@@ -242,8 +242,66 @@ const categories = [
   },
 ];
 
+/** Texte SEO discret par prestation (corps de page, pas les titres). */
+const SEO_CONTENT = {
+  "plaquettes-disques": {
+    seoTitle: "Plaquettes et disques de frein",
+    seoParagraphs: [
+      "Changement de plaquettes de frein et disques sur devis ferme, après mesure d'usure à l'atelier — sans remplacement abusif.",
+      "Grincement, pédale molle ou voyant ABS : contrôle gratuit avant intervention.",
+    ],
+    seoFooter: "Freinage à Ivry-sur-Seine (94) — lun–sam 9h–19h.",
+  },
+  "recharge-clim": {
+    seoTitle: "Climatisation auto",
+    seoParagraphs: [
+      "Recharge climatisation après contrôle d'étanchéité. Clim qui ne refroidit plus, air tiède ou odeur : diagnostic avant recharge.",
+      "Réparation climatisation (fuite, compresseur) chiffrée au devis après inspection du circuit.",
+    ],
+    seoFooter: "Pensez à la clim avant l'été — créneau sur rendez-vous.",
+  },
+  "montage-equilibrage": {
+    seoTitle: "Montage et changement de pneus",
+    seoParagraphs: [
+      "Changement de pneus été ou hiver, montage et équilibrage. Apportez vos pneus ou choisissez dans notre stock selon arrivages.",
+      "Contrôle pression et usure inclus — parallélisme disponible si le volant tire.",
+    ],
+    seoFooter: "Appelez avec la dimension de vos pneus pour réserver un créneau.",
+  },
+  "vidange-moteur": {
+    seoTitle: "Vidange moteur",
+    seoParagraphs: [
+      "Vidange voiture avec huile homologuée constructeur et filtre neuf. Contrôle des niveaux inclus.",
+    ],
+    seoFooter: "Souvent réalisée le jour même sur rendez-vous.",
+  },
+  "remplacement-batterie": {
+    seoTitle: "Batterie auto",
+    seoParagraphs: [
+      "Test batterie et alternateur, changement batterie voiture sur place si nécessaire. Voiture qui ne démarre plus : passez à l'atelier.",
+    ],
+  },
+  "distribution-injection": {
+    seoTitle: "Courroie de distribution",
+    seoParagraphs: [
+      "Kit distribution, courroie et injecteurs : diagnostic et devis ferme avant changement courroie de distribution.",
+    ],
+  },
+  geometrie: {
+    seoTitle: "Parallélisme et géométrie",
+    seoParagraphs: [
+      "Réglage parallélisme et géométrie des roues. Usure irrégulière des pneus ou volant qui tire : contrôle recommandé.",
+    ],
+  },
+};
+
 function buildLp(service, category) {
   const ad = AD_OVERRIDES[service.slug] || {};
+  const seo = SEO_CONTENT[service.slug] || {
+    seoParagraphs: [
+      `${service.name} à Ivry-sur-Seine (94) : inspection au véhicule, devis écrit et intervention uniquement après votre accord.`,
+    ],
+  };
   const hubUrl = CATEGORY_HUB[category] || "/prestations/";
   const videoSrc = category === "Carrosserie" ? "carrosserie.mp4" : "mecanique.mp4";
 
@@ -291,6 +349,7 @@ function buildLp(service, category) {
         answer: "06 48 74 56 68, WhatsApp ou formulaire contact. Réponse en journée lun–sam 9h–19h.",
       },
     ],
+    ...seo,
   };
 }
 

@@ -24,6 +24,8 @@
 {% set contactLead = lp.contactLead | default("Appelez maintenant — on vous répond en journée. WhatsApp accepté pour photos et devis.") %}
 {% include "conversion-contact.njk" %}
 
+{% include "lp-seo-intro.njk" %}
+
 {% set pageReviewCount = lp.reviewCount | default(2) %}
 {% set pageReviews = lpId | resolvePageReviews(googleReviews, pageReviewCount) %}
 {% if lp.showReviews != false %}
@@ -133,6 +135,8 @@
 {% endif %}
 
 {% include "conversion-services-nav.njk" %}
+
+{% include "lp-seo-footer.njk" %}
 
 {% if lp.faqs and lp.faqs.length %}
 <section class="faq conversion-faq" aria-labelledby="lp-faq-title">

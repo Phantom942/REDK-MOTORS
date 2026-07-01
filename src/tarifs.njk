@@ -1,7 +1,7 @@
 ---
 layout: base.njk
-title: "Prix garage Ivry (94) — Vidange, freins, pneus, clim | RED-K MOTORS"
-description: "Prix vidange, changement plaquettes frein, pneus et recharge clim à Ivry. Fourchettes indicatives — devis fermé après inspection. ☎ 06 48 74 56 68."
+title: "Tarifs garage Ivry (94) — Vidange, freins, diagnostic | RED-K MOTORS"
+description: "Grille tarifaire indicative à Ivry : vidange, freins, diagnostic, distribution… Devis fermé après inspection. ☎ 06 48 74 56 68 · lun–sam 9h–19h."
 pageKey: tarifs
 date: 2026-06-11
 lastReviewed: 2026-07-01
@@ -83,10 +83,18 @@ faqSchema:
 {% endset %}
 {% set heroAria = "tarifs-hero-title" %}
 {% set heroClass = "hero--subpage hero--conversion" %}
-{% set heroTitle = "Prix vidange, freins, pneus & clim" %}
-{% set heroKicker %}Tarifs garage · {{ site.city }} (94){% endset %}
-{% set heroDesc = "Fourchettes TTC indicatives — appelez pour un devis fermé gratuit après inspection." %}
+{% set heroTitle = "Tarifs indicatifs" %}
+{% set heroKicker %}Garage à {{ site.city }} (94){% endset %}
+{% set heroDesc = "Fourchettes TTC indicatives — devis définitif gratuit après inspection." %}
 {% include "hero-simple.njk" %}
+
+<section class="service-focus service-focus--compact" aria-labelledby="tarifs-seo-intro">
+  <div class="container service-focus__inner">
+    <div>
+      <p id="tarifs-seo-intro">Fourchettes indicatives pour vidange, freinage, changement de pneus, recharge climatisation, diagnostic et distribution. Le montant définitif figure sur le devis validé après inspection de votre véhicule à Ivry-sur-Seine.</p>
+    </div>
+  </div>
+</section>
 
 {% include "conversion-contact.njk" %}
 

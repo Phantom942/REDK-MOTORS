@@ -1,6 +1,6 @@
 {
   "name": "RED-K MOTORS",
-  "seoTitle": "Garage auto Ivry-sur-Seine (94) | RED-K MOTORS",
+  "seoTitle": "RED-K MOTORS | Garage à Ivry-sur-Seine",
   "url": "https://redk-motors.me",
   "locale": "fr_FR",
   "phone": "+33648745668",
@@ -41,12 +41,12 @@
         "key": "prestations"
       },
       "children": [
-        { "title": "Réparation auto", "url": "/mecanique/", "key": "mecanique" },
-        { "title": "Réparation carrosserie", "url": "/carrosserie/", "key": "carrosserie" },
-        { "title": "Remplacement pare-brise", "url": "/pare-brise/", "key": "pare-brise" },
-        { "title": "Révision voiture", "url": "/entretien/", "key": "entretien" },
+        { "title": "Mécanique & réparations", "url": "/mecanique/", "key": "mecanique" },
+        { "title": "Carrosserie & peinture", "url": "/carrosserie/", "key": "carrosserie" },
+        { "title": "Pare-brise & vitrage", "url": "/pare-brise/", "key": "pare-brise" },
+        { "title": "Entretien & révision", "url": "/entretien/", "key": "entretien" },
         { "title": "Diagnostic auto", "url": "/diagnostic/", "key": "diagnostic" },
-        { "title": "Changement pneus & freins", "url": "/pneumatiques/", "key": "pneumatiques" }
+        { "title": "Pneus & freins", "url": "/pneumatiques/", "key": "pneumatiques" }
       ]
     },
     { "title": "Tarifs", "url": "/tarifs/", "key": "tarifs" },
@@ -106,7 +106,7 @@
     "youtubeUrl": "https://www.youtube.com/@REDKMOTORS",
     "youtubeChannelId": "UCaOY34TzoCzsBq4UrO8Db9A"
   },
-  "description": "Garage auto RED-K MOTORS à Ivry-sur-Seine (94). Changement pneus, réparation clim, vidange, freins, diagnostic. Devis gratuit · lun–sam 9h–19h · 9 rue Michelet.",
+  "description": "Garage automobile RED-K MOTORS à Ivry-sur-Seine (94). Mécanique, entretien, pneus, freinage. Devis gratuit. Lun–sam 9h–19h — téléphone, message ou rendez-vous via redk-motors.me/contact/. 9 rue Michelet.",
   "googleReviews": {
     "shareUrl": "https://share.google/Gqy4uMiYFgsxEFCd5",
     "knowledgeGraphId": "/g/11y__lnrkb",

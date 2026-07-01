@@ -1,0 +1,14 @@
+{% if lp.seoParagraphs and lp.seoParagraphs.length %}
+<section class="service-focus service-focus--compact" aria-labelledby="{{ lpId }}-seo-text">
+  <div class="container service-focus__inner">
+    <div>
+      {% if lp.seoTitle %}
+      <h2 id="{{ lpId }}-seo-text">{{ lp.seoTitle }}</h2>
+      {% endif %}
+      {% for paragraph in lp.seoParagraphs %}
+      <p>{{ paragraph }}</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
