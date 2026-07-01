@@ -12,11 +12,17 @@
 {% endif %}
 {% if not services %}
   {% set services = [
-    { title: "Mécanique & diagnostic" },
-    { title: "Entretien & vidange" },
-    { title: "Freins & pneus" },
-    { title: "Carrosserie & pare-brise" }
+    { title: "Mécanique & diagnostic", url: "/mecanique/" },
+    { title: "Entretien & vidange", url: "/entretien/" },
+    { title: "Freins & pneus", url: "/freins/" },
+    { title: "Carrosserie & pare-brise", url: "/carrosserie/" }
   ] %}
+{% endif %}
+
+{% set citySeo = pageKey | citySeoContent %}
+{% if citySeo %}
+  {% set lp = citySeo %}
+  {% set lpId = pageKey %}
 {% endif %}
 
 {% include "local-seo-page.njk" %}

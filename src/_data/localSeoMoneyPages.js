@@ -25,7 +25,7 @@ const BY_PAGE_KEY = {
   demarrage94Seo: ["diagnostic", "mecanique", "contact"],
   tremblementVolant94Seo: ["pneumatiques", "freins", "mecanique"],
   revisionRapide94Seo: ["entretien", "vidange", "tarifs"],
-  revisionIvrySeo: ["entretien", "vidange", "tarifs"],
+  revision94Seo: ["entretien", "vidange", "diagnostic", "tarifs", "contact", "ivry"],
   pertePuissance94Seo: ["diagnostic", "mecanique", "entretien"],
   urgence94Seo: ["diagnostic", "contact", "mecanique"],
   pneusFreins94Seo: ["freins", "pneumatiques", "tarifs"],

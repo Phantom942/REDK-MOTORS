@@ -20,6 +20,7 @@ Mécanique générale · Diagnostic électronique · Carrosserie & peinture · P
 ## Pages services & conversion
 
 - {{ site.url }}/garage-ivry-sur-seine/
+- {{ site.url }}/revision-auto-val-de-marne/
 - {{ site.url }}/contact/
 - {{ site.url }}/tarifs/
 - {{ site.url }}/diagnostic/
@@ -33,6 +34,15 @@ Mécanique générale · Diagnostic électronique · Carrosserie & peinture · P
 - {{ site.url }}/prestations/
 - {{ site.url }}/processus/
 - {{ site.url }}/equipe/
+
+## Prestations atelier (29 fiches indexables)
+
+{% for category in prestations.categories %}
+### {{ category.title }}
+{% for service in category.services %}
+- {{ service.name }} : {{ site.url }}/prestations/{{ service.slug }}/
+{% endfor %}
+{% endfor %}
 
 ## Pages locales indexables
 

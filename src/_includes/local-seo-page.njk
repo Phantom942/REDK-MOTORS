@@ -14,6 +14,10 @@
 {% set contactLead = introText | default("Garage à Ivry-sur-Seine — devis gratuit, intervention après validation.") %}
 {% include "conversion-contact.njk" %}
 
+{% if lp %}
+  {% include "lp-seo-intro.njk" %}
+{% endif %}
+
 {% if services and services.length %}
 <section class="conversion-services" aria-labelledby="local-services-{{ pageKey }}">
   <div class="container">
@@ -54,6 +58,13 @@
 {% endif %}
 
 {% include "conversion-services-nav.njk" %}
+
+{% set lpId = lpId | default(pageKey) %}
+{% include "lp-related-services.njk" %}
+
+{% if lp %}
+  {% include "lp-seo-footer.njk" %}
+{% endif %}
 
 {% set pageFaqItems = faqs | pageFaqs(faqSchema) %}
 {% if pageFaqItems.length %}

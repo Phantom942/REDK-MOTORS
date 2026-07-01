@@ -2,8 +2,20 @@ const localBusiness = require("./localBusiness.json");
 const googleReviews = require("./googleReviews.json");
 const site = require("./site.json");
 const team = require("./team.json");
+const { all: prestationCatalog } = require("./prestations.js");
 
 const SITE_URL = "https://redk-motors.me";
+
+const CORE_KNOWS_ABOUT = [
+  "Diagnostic automobile",
+  "Entretien et révision véhicule",
+  "Freinage et plaquettes de frein",
+  "Changement de pneus et géométrie",
+  "Recharge et réparation climatisation",
+  "Carrosserie et pare-brise",
+  "Mécanique générale multimarque",
+  "Garage Val-de-Marne (94)",
+];
 
 /** Schema LocalBusiness enrichi (GPS Google Maps + avis depuis site.json). */
 module.exports = function localBusinessSchema() {
@@ -30,6 +42,11 @@ module.exports = function localBusinessSchema() {
     jobTitle: team.author.jobTitle,
     url: `${SITE_URL}/equipe/`,
   };
+
+  schema.knowsAbout = [
+    ...CORE_KNOWS_ABOUT,
+    ...prestationCatalog.map((entry) => entry.name),
+  ];
 
   schema.aggregateRating = {
     "@type": "AggregateRating",

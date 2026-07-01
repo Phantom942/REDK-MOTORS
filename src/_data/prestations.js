@@ -244,6 +244,158 @@ const categories = [
 
 /** Texte SEO discret par prestation (corps de page, pas les titres). */
 const SEO_CONTENT = {
+  "revision-entretien": {
+    seoTitle: "Révision et entretien auto",
+    seoParagraphs: [
+      "Révision voiture selon le carnet constructeur : filtres, niveaux, points de sécurité et contrôles d'usure.",
+      "Entretien périodique à Ivry (94) — devis écrit avant travaux, carnet tamponné quand c'est possible.",
+    ],
+    seoFooter: "Planifiez votre révision par téléphone ou WhatsApp.",
+  },
+  "pre-controle-technique": {
+    seoTitle: "Pré-contrôle technique",
+    seoParagraphs: [
+      "Avant le contrôle technique : vérification freins, éclairage, pneus, niveaux et points de rejet fréquents.",
+      "Corrections chiffrées au devis pour passer le CT sereinement.",
+    ],
+  },
+  "recherche-de-panne": {
+    seoTitle: "Recherche de panne",
+    seoParagraphs: [
+      "Voiture en panne ou comportement anormal : diagnostic en atelier pour identifier la cause réelle.",
+      "Devis clair avant réparation — pas de remplacement inutile.",
+    ],
+    seoFooter: "Décrivez vos symptômes par téléphone pour orienter le premier contrôle.",
+  },
+  "diagnostic-voyant-moteur": {
+    seoTitle: "Voyant moteur allumé",
+    seoParagraphs: [
+      "Lecture des codes défaut, explication en langage clair et devis avant intervention.",
+      "Voyant orange ou rouge : ne roulez pas en doute — passez à l'atelier.",
+    ],
+  },
+  "decalaminage-moteur": {
+    seoTitle: "Décalaminage moteur",
+    seoParagraphs: [
+      "Perte de puissance, fumée ou surconsommation : décalaminage pour retrouver des performances.",
+      "Intervention après diagnostic moteur et validation du devis.",
+    ],
+  },
+  amortisseurs: {
+    seoTitle: "Amortisseurs et suspension",
+    seoParagraphs: [
+      "Sauts, bruits de suspension ou tenue de route dégradée : contrôle amortisseurs et silent-blocs.",
+      "Remplacement sur devis ferme après inspection.",
+    ],
+  },
+  "coupelles-triangles": {
+    seoTitle: "Coupelles et triangles",
+    seoParagraphs: [
+      "Claquements en négociant un dos-d'âne ou usure des coupelles : contrôle train avant et arrière.",
+      "Pièces adaptées au véhicule, devis avant travaux.",
+    ],
+  },
+  "permutation-pneus": {
+    seoTitle: "Permutation des pneus",
+    seoParagraphs: [
+      "Rotation été/hiver ou avant/arrière pour uniformiser l'usure et prolonger la durée de vie des pneus.",
+      "Contrôle pression et état de la bande de roulement inclus.",
+    ],
+  },
+  "reparation-crevaison": {
+    seoTitle: "Réparation de crevaison",
+    seoParagraphs: [
+      "Objet dans le pneu ou crevaison lente : réparation si le pneu le permet, sinon remplacement.",
+      "Intervention rapide sur rendez-vous à Ivry-sur-Seine.",
+    ],
+  },
+  "test-batterie": {
+    seoTitle: "Test batterie et démarrage",
+    seoParagraphs: [
+      "Contrôle batterie, démarreur et alternateur. Voiture qui ne démarre plus : diagnostic sur place.",
+    ],
+    seoFooter: "Remplacement batterie possible le jour même selon stock.",
+  },
+  "controle-alternateur": {
+    seoTitle: "Contrôle alternateur",
+    seoParagraphs: [
+      "Batterie qui se décharge, voyant batterie ou éclairage faible : test alternateur et circuit de charge.",
+      "Devis avant remplacement.",
+    ],
+  },
+  "purge-liquide-frein": {
+    seoTitle: "Purge liquide de frein",
+    seoParagraphs: [
+      "Liquide de frein usé ou pédale spongieuse : purge complète du circuit pour retrouver une freinage efficace.",
+      "Recommandé selon préconisations constructeur.",
+    ],
+  },
+  "diagnostic-abs": {
+    seoTitle: "Voyant ABS ou ESP",
+    seoParagraphs: [
+      "Voyant ABS allumé : lecture des codes, contrôle capteurs et circuit de freinage.",
+      "Devis avant remplacement de pièce.",
+    ],
+  },
+  embrayage: {
+    seoTitle: "Embrayage",
+    seoParagraphs: [
+      "Pédale haute, patinage ou bruit à l'embrayage : diagnostic puis devis pour kit embrayage si nécessaire.",
+    ],
+  },
+  cardans: {
+    seoTitle: "Cardans et transmission",
+    seoParagraphs: [
+      "Claquement en braquant ou vibration à l'accélération : contrôle cardans et soufflets.",
+    ],
+  },
+  "vidange-boite": {
+    seoTitle: "Vidange boîte de vitesses",
+    seoParagraphs: [
+      "Vidange boîte manuelle ou automatique selon préconisations — huile adaptée au véhicule.",
+      "Entretien préventif pour préserver la transmission.",
+    ],
+  },
+  "desinfection-circuit-clim": {
+    seoTitle: "Désinfection climatisation",
+    seoParagraphs: [
+      "Odeur dans l'habitacle ou air vicié : désinfection du circuit clim pour un air sain.",
+      "Complément utile après recharge climatisation.",
+    ],
+  },
+  "controle-compresseur": {
+    seoTitle: "Contrôle compresseur clim",
+    seoParagraphs: [
+      "Clim qui ne refroidit plus : contrôle compresseur, pression et étanchéité avant recharge ou réparation.",
+    ],
+  },
+  debosselage: {
+    seoTitle: "Débosselage sans peinture",
+    seoParagraphs: [
+      "Enfoncement ou impact léger : débosselage pour restaurer la carrosserie sans repeindre toute la zone.",
+      "Devis sur photo WhatsApp possible.",
+    ],
+  },
+  "peinture-localisee": {
+    seoTitle: "Peinture localisée",
+    seoParagraphs: [
+      "Rayure, éclat ou retouche : peinture à la teinte constructeur pour un rendu discret.",
+    ],
+    seoFooter: "Envoyez une photo de la zone pour une première estimation.",
+  },
+  "pare-brise-vitrage": {
+    seoTitle: "Pare-brise et vitrage",
+    seoParagraphs: [
+      "Impact, fissure ou bris de glace : remplacement pare-brise avec accompagnement assurance si applicable.",
+      "Navette possible selon disponibilité.",
+    ],
+  },
+  "retouches-finitions": {
+    seoTitle: "Retouches carrosserie",
+    seoParagraphs: [
+      "Micro-rayures, finitions et polissage pour redonner un aspect propre à la carrosserie.",
+    ],
+  },
   "plaquettes-disques": {
     seoTitle: "Plaquettes et disques de frein",
     seoParagraphs: [

@@ -4,7 +4,7 @@
 {% if not lp %}
   <p>Configuration landing page manquante.</p>
 {% else %}
-{% set lpId = lpPageId | default(lpKey | default("page")) %}
+{% set lpId = lpPageId | default(lpKey | default(pageKey | default("page"))) %}
 
 {% set heroActions %}
 <a class="btn btn--primary" href="tel:{{ site.phone }}" data-track="click_call" data-track-pos="lp_hero">{{ lp.heroCtaLabel | default("Appeler " ~ site.phoneDisplay) }}</a>
@@ -165,5 +165,7 @@
 {% include "conversion-contact.njk" %}
 
 {% include "lp-local-seo-link.njk" %}
+
+{% include "lp-related-services.njk" %}
 
 {% endif %}

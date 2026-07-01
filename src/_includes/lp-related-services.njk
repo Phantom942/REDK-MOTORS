@@ -1,0 +1,16 @@
+{% set relatedLinks = lpId | relatedServices %}
+{% if relatedLinks.length %}
+<section class="conversion-services conversion-services--related" aria-labelledby="related-{{ lpId }}">
+  <div class="container">
+    {% set sectionKicker = "À voir aussi" %}
+    {% set sectionTitle = "Pages associées" %}
+    {% set sectionHeadId = "related-" ~ lpId %}
+    {% include "conversion-section-head.njk" %}
+    <ul class="conversion-services__list">
+      {% for link in relatedLinks %}
+      <li><a href="{{ link.url }}" class="conversion-services__link">{{ link.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endif %}

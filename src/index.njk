@@ -25,6 +25,12 @@ faqs:
     answer: "Oui — devis écrit gratuit, rien sans votre accord."
   - question: "Comment vous contacter ?"
     answer: "06 48 74 56 68, WhatsApp ou formulaire contact. Réponse rapide en journée."
+  - question: "Faites-vous le changement de pneus et la recharge climatisation ?"
+    answer: "Oui — montage, équilibrage, parallélisme et recharge clim après contrôle d'étanchéité. Devis après inspection au véhicule."
+  - question: "Intervenez-vous sur Vitry, Villejuif et Paris 13 ?"
+    answer: "Oui. Atelier à Ivry-sur-Seine, accessible en quelques minutes depuis le Val-de-Marne et le sud de Paris."
+  - question: "Proposez-vous un devis pour freins, vidange ou révision ?"
+    answer: "Devis écrit gratuit pour plaquettes, disques, vidange moteur et révision — rien sans votre accord."
 ---
 
 {% set heroActions %}
@@ -60,6 +66,9 @@ faqs:
 {% include "conversion-tarifs-teaser.njk" %}
 
 {% include "conversion-services-nav.njk" %}
+
+{% set lpId = pageKey %}
+{% include "lp-related-services.njk" %}
 
 {% set pageReviews = "index" | resolvePageReviews(googleReviews, 3) %}
 {% set reviewsSectionTitle = "Ils nous font confiance" %}

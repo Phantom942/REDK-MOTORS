@@ -44,7 +44,8 @@ faqSchema:
 <section class="presta-listing" aria-labelledby="presta-listing-title">
   <div class="container">
     <h1 id="presta-listing-title">Toutes nos prestations atelier</h1>
-    <p>Choisissez une prestation pour voir le détail, les points contrôlés et les questions fréquentes. Atelier à Ivry-sur-Seine — <a href="/equipe/">équipe multimarque</a>.</p>
+    <p>29 prestations détaillées : entretien, freinage, moteur, pneus, climatisation, carrosserie et pare-brise. Chaque fiche explique quand la demander, ce qui est contrôlé et comment obtenir un devis à Ivry-sur-Seine (94).</p>
+    <p>Atelier multimarque — <a href="/equipe/">notre équipe</a> · <a href="/tarifs/">tarifs indicatifs</a> · <a href="/contact/">contact</a>.</p>
 
     <div class="presta-listing__grid">
       {% for category in prestations.categories %}
@@ -60,6 +61,9 @@ faqSchema:
     </div>
   </div>
 </section>
+
+{% set lpId = pageKey %}
+{% include "lp-related-services.njk" %}
 
 <section class="faq" aria-labelledby="presta-hub-faq" data-animate="slide-up">
   <div class="container faq__inner">

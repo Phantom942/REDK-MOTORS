@@ -49,6 +49,14 @@ module.exports = function (eleventyConfig) {
   const { resolveMoneyPages } = require("./src/_data/localSeoMoneyPages.js");
   eleventyConfig.addFilter("localSeoMoneyPages", (pageKey) => resolveMoneyPages(pageKey));
 
+  const { resolveRelated } = require("./src/_data/relatedServices.js");
+  eleventyConfig.addFilter("relatedServices", (pageId) => resolveRelated(pageId));
+
+  const citySeoContent = require("./src/_data/citySeoContent.js");
+  eleventyConfig.addFilter("citySeoContent", (pageKey) => citySeoContent[pageKey] || null);
+
+  const seoNoindex = require("./src/_data/seoNoindex.js");
+
   // Filtre date pour sitemap (ISO YYYY-MM-DD) — pas de fallback, retourne vide si invalide
   eleventyConfig.addFilter("dateToIso", (date) => {
     if (!date) return "";
@@ -91,9 +99,49 @@ module.exports = function (eleventyConfig) {
       return data.keywords;
     },
     itemListSchema: (data) => {
+      if (data.itemListSchema) return data.itemListSchema;
+      const base = data.site?.url || "https://redk-motors.me";
+      if (data.pageKey === "index") {
+        const items = [
+          { name: "Diagnostic auto", url: "/diagnostic/" },
+          { name: "Mécanique générale", url: "/mecanique/" },
+          { name: "Entretien & révision", url: "/entretien/" },
+          { name: "Freinage", url: "/freins/" },
+          { name: "Pneus & géométrie", url: "/pneumatiques/" },
+          { name: "Vidange", url: "/vidange/" },
+          { name: "Carrosserie", url: "/carrosserie/" },
+          { name: "Pare-brise", url: "/pare-brise/" },
+          { name: "Tarifs", url: "/tarifs/" },
+          { name: "Contact", url: "/contact/" },
+        ];
+        return {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "Services garage RED-K MOTORS Ivry-sur-Seine",
+          itemListElement: items.map((item, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            name: item.name,
+            url: `${base}${item.url}`,
+          })),
+        };
+      }
+      if (data.pageKey === "prestations" && data.prestations?.categories) {
+        const services = data.prestations.categories.flatMap((c) => c.services);
+        return {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "Prestations atelier RED-K MOTORS",
+          itemListElement: services.map((s, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            name: s.name,
+            url: `${base}/prestations/${s.slug}/`,
+          })),
+        };
+      }
       if (data.pageKey !== "professionnels") return data.itemListSchema;
       const profiles = data.professionnels?.profiles || [];
-      const base = data.site?.url || "https://redk-motors.me";
       return {
         "@context": "https://schema.org",
         "@type": "ItemList",
@@ -178,58 +226,22 @@ module.exports = function (eleventyConfig) {
 
   // Collection sitemap : exclut 404, sitemap.xml, et pages avec sitemap.ignore
   eleventyConfig.addCollection("sitemap", function (collectionApi) {
-    const excludedPrefixes = [
-      "/garage-proche-",
-      "/garage-vtc-",
-      "/garage-taxi-",
-      "/garage-chauffeur-prive-",
-      "/garage-voiture-uber-",
-      "/mecanicien-rapide-",
-      "/mecanique-rapide-",
-      "/diagnostic-auto-",
-      "/revision-auto-",
-      "/blog/tag/",
-      "/devis-garage-",
-      "/garage-urgence-",
-      "/garage-flotte-entreprise-",
-      "/garage-pneus-freins-",
-      "/entretien-vehicule-vtc-",
-      "/entretien-preventif-vtc-",
-      "/entretien-voiture-professionnelle-",
-      "/entretien-taxi-",
-      "/changement-batterie-",
-      "/changement-plaquettes-frein-",
-      "/perte-puissance-voiture-",
-      "/voiture-ne-demarre-plus-",
-      "/consommation-carburant-elevee-",
-      "/tremblement-volant-autoroute-",
-      "/bruit-frein-voiture-",
-      "/clim-voiture-ne-refroidit-plus-",
-      "/voyant-abs-allume-",
-      "/diagnostic-voyant-moteur-",
-      "/vidange-rapide-",
-      "/revision-rapide-",
-      "/reparation-auto-paris-sud/",
-      "/carrosserie-peinture-ivry/",
-      "/lp-",
-    ];
+    const excludedPrefixes = seoNoindex.prefixes;
+    const indexablePaths = new Set(seoNoindex.indexablePaths);
 
     return collectionApi.getAll().filter((item) => {
       if (item.data.sitemap && item.data.sitemap.ignore === true) return false;
       if (item.data.eleventyExcludeFromCollections) return false;
       if (!item.url || item.url === "") return false;
-      // Exclure les URLs explicitement noindex de la sitemap
       if (typeof item.data.robots === "string" && item.data.robots.toLowerCase().includes("noindex")) return false;
-      // Cohérence avec base.njk : exclure les familles d'URLs noindex
+      if (indexablePaths.has(item.url)) return true;
       if (excludedPrefixes.some((prefix) => item.url.includes(prefix))) {
-        // Pages tag indexables : garder dans la sitemap
         if (item.url.startsWith("/blog/tag/")) {
           const tagSlug = item.url.replace(/^\/blog\/tag\//, "").replace(/\/$/, "");
           if (indexableTags.includes(tagSlug)) return true;
         }
         return false;
       }
-      // Exclure 404
       if (item.url === "/404.html" || item.url.endsWith("/404.html")) return false;
       return true;
     });
@@ -250,6 +262,7 @@ module.exports = function (eleventyConfig) {
   // Données globales accessibles partout
   eleventyConfig.addGlobalData("layout", "base.njk");
   eleventyConfig.addGlobalData("buildDate", () => new Date().toISOString().slice(0, 10));
+  eleventyConfig.addGlobalData("seoNoindex", seoNoindex);
 
   return {
     dir: {

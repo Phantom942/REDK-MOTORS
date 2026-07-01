@@ -3,49 +3,20 @@
   <head>
     {% set defaultRobots = 'index, follow' %}
     {% if page and page.url %}
-      {% set lowValuePrefixes = [
-        '/garage-proche-',
-        '/garage-vtc-',
-        '/garage-taxi-',
-        '/garage-chauffeur-prive-',
-        '/garage-voiture-uber-',
-        '/mecanicien-rapide-',
-        '/mecanique-rapide-',
-        '/diagnostic-auto-',
-        '/revision-auto-',
-        '/blog/tag/',
-        '/devis-garage-',
-        '/garage-urgence-',
-        '/garage-flotte-entreprise-',
-        '/garage-pneus-freins-',
-        '/entretien-vehicule-vtc-',
-        '/entretien-preventif-vtc-',
-        '/entretien-voiture-professionnelle-',
-        '/entretien-taxi-',
-        '/changement-batterie-',
-        '/changement-plaquettes-frein-',
-        '/perte-puissance-voiture-',
-        '/voiture-ne-demarre-plus-',
-        '/consommation-carburant-elevee-',
-        '/tremblement-volant-autoroute-',
-        '/bruit-frein-voiture-',
-        '/clim-voiture-ne-refroidit-plus-',
-        '/reparation-climatisation-',
-        '/changement-pneus-',
-        '/revision-voiture-',
-        '/voyant-abs-allume-',
-        '/diagnostic-voyant-moteur-',
-        '/vidange-rapide-',
-        '/revision-rapide-',
-        '/reparation-auto-paris-sud/',
-        '/carrosserie-peinture-ivry/',
-        '/lp-'
-      ] %}
-      {% for prefix in lowValuePrefixes %}
-        {% if prefix in page.url %}
-          {% set defaultRobots = 'noindex, follow' %}
+      {% set noindexRules = seoNoindex %}
+      {% set forceIndex = false %}
+      {% for allowedPath in noindexRules.indexablePaths %}
+        {% if page.url == allowedPath %}
+          {% set forceIndex = true %}
         {% endif %}
       {% endfor %}
+      {% if not forceIndex %}
+        {% for prefix in noindexRules.prefixes %}
+          {% if prefix in page.url %}
+            {% set defaultRobots = 'noindex, follow' %}
+          {% endif %}
+        {% endfor %}
+      {% endif %}
     {% endif %}
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" />
