@@ -18,31 +18,39 @@
       });
     }
 
-    var nav = document.querySelector('#primary-menu');
-    var toggle = document.querySelector('.main-nav__toggle');
-    var backdrop = document.querySelector('#nav-backdrop');
     var lastScroll = 0;
     window.addEventListener('scroll', function() {
       var y = window.pageYOffset;
-      if (nav && nav.classList.contains('is-open') && Math.abs(y - lastScroll) > 50) {
-        nav.classList.remove('is-open');
-        document.body.classList.remove('is-nav-open');
-        if (toggle) toggle.setAttribute('aria-expanded', 'false');
-        if (backdrop) {
-          backdrop.hidden = true;
-          backdrop.classList.remove('is-visible');
-          backdrop.setAttribute('aria-hidden', 'true');
+      if (Math.abs(y - lastScroll) > 50) {
+        if (window.REDKMotorsNav && window.REDKMotorsNav.isOpen && window.REDKMotorsNav.isOpen()) {
+          window.REDKMotorsNav.setOpen(false);
         }
       }
       lastScroll = y;
     }, { passive: true });
 
-    document.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], textarea').forEach(function(input) {
-      if (window.innerWidth < 768 && parseInt(window.getComputedStyle(input).fontSize, 10) < 16) {
-        input.style.fontSize = '16px';
-      }
-    });
+    function fixInputFontSize(root) {
+      (root || document).querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], input[type="number"], input[type="search"], input[type="password"], textarea, select').forEach(function(input) {
+        if (window.innerWidth < 768 && parseInt(window.getComputedStyle(input).fontSize, 10) < 16) {
+          input.style.fontSize = '16px';
+        }
+      });
+    }
+
+    fixInputFontSize();
+
+    if (window.MutationObserver && document.body) {
+      var inputObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          mutation.addedNodes.forEach(function(node) {
+            if (node.nodeType === 1) fixInputFontSize(node);
+          });
+        });
+      });
+      inputObserver.observe(document.body, { childList: true, subtree: true });
+    }
   }
+
   document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', init) : init();
   window.REDKMotorsMobile = { isMobile: isMobile, isSmallScreen: isSmall };
 })();
