@@ -4,8 +4,9 @@ title: "Contact RED-K MOTORS — RDV & devis · Ivry-sur-Seine (94)"
 description: "Prenez RDV chez RED-K MOTORS : 9 rue Michelet, 94200 Ivry. ☎ 06 48 74 56 68 · WhatsApp · lun–sam 9h–19h. Devis gratuit avant intervention."
 pageKey: contact
 date: 2026-06-11
-lastReviewed: 2026-06-11
+lastReviewed: 2026-07-01
 hasHeroVideo: true
+hideServiceAreas: true
 scripts:
   effects: false
 sitemap:
@@ -32,170 +33,70 @@ contactPageSchema:
   description: "Coordonnées, plan et horaires du garage RED-K MOTORS à Ivry-sur-Seine (94)."
   mainEntity:
     "@id": "https://redk-motors.me/#business"
-faqSchema:
-  "@context": "https://schema.org"
-  "@type": "FAQPage"
-  mainEntity:
-    - "@type": "Question"
-      name: "Dois-je prendre rendez-vous pour un diagnostic ?"
-      acceptedAnswer:
-        "@type": "Answer"
-        text: "Oui, pour garantir la disponibilité d'un technicien et réduire votre temps d'attente sur place."
-    - "@type": "Question"
-      name: "Puis-je envoyer des photos pour un premier avis ?"
-      acceptedAnswer:
-        "@type": "Answer"
-        text: "Oui, par WhatsApp ou email — utile pour préparer le devis."
-    - "@type": "Question"
-      name: "Comment je suis tenu au courant de l'avancement ?"
-      acceptedAnswer:
-        "@type": "Answer"
-        text: "Appel ou WhatsApp aux étapes clés : devis validé, début des travaux, véhicule prêt."
+faqs:
+  - question: "Dois-je prendre rendez-vous pour un diagnostic ?"
+    answer: "Oui, pour garantir la disponibilité d'un technicien et réduire votre temps d'attente sur place."
+  - question: "Puis-je envoyer des photos pour un premier avis ?"
+    answer: "Oui, par WhatsApp ou email — utile pour préparer le devis."
+  - question: "Comment je suis tenu au courant de l'avancement ?"
+    answer: "Appel ou WhatsApp aux étapes clés : devis validé, début des travaux, véhicule prêt."
 ---
 
 {% set heroActions %}
-<a class="btn btn--primary" href="/contact/#contact-form-title">Demande de RDV</a>
-<a class="btn btn--secondary" href="tel:{{ site.phone }}" data-track="click_call" data-track-pos="contact_hero">Appeler {{ site.phoneDisplay }}</a>
+<a class="btn btn--primary" href="tel:{{ site.phone }}" data-track="click_call" data-track-pos="contact_hero">Appeler {{ site.phoneDisplayCompact | default(site.phoneDisplay) }}</a>
 <a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp" data-track-pos="contact_hero">WhatsApp</a>
+<a class="btn btn--secondary" href="#contact-form-title">Formulaire</a>
 {% endset %}
-
 {% set heroAria = "contact-hero-title" %}
-{% set heroClass = "hero--subpage" %}
-{% set heroTitle = "Contacter RED-K MOTORS — Garage à Ivry-sur-Seine" %}
+{% set heroClass = "hero--subpage hero--conversion" %}
+{% set heroTitle = "Contacter RED-K MOTORS" %}
 {% set heroKicker = "Ivry (94) · Lun–sam 9h–19h" %}
-{% set heroDesc = "Adresse, plan et téléphone. Pour un RDV ou un tarif, en journée (lun–sam 9h–19h)." %}
-{% set heroMeta = site.addressFull %}
+{% set heroDesc = "9 rue Michelet — téléphone, WhatsApp ou formulaire ci-dessous." %}
 {% set videoSrc = "contact.mp4" %}
 {% include "hero-video.njk" %}
 
-<section class="service-focus service-focus--alt" aria-labelledby="contact-en-bref" data-animate="slide-left">
-  <div class="container service-focus__inner">
-    <div>
-      <h2 id="contact-en-bref">En bref</h2>
-      <ul>
-        <li>Garage: RED-K MOTORS, {{ site.addressFull }}</li>
-        <li>Telephone prioritaire: <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a></li>
-        <li>Prise de RDV: <a href="/contact/#contact-form-title">formulaire</a>, <a href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a> ou <a href="tel:{{ site.phone }}">téléphone</a></li>
-        <li>Horaires: {{ site.openingHours }}</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section class="contact-reassurance" aria-label="Délai de traitement des demandes">
-  <div class="container contact-reassurance__inner">
-    <p>Même horaires et coordonnées que sur Google. Réponse la plus rapide en journée par téléphone.</p>
-  </div>
-</section>
-
-<section class="service-focus service-focus--alt" aria-labelledby="contact-services" data-animate="slide-left">
-  <div class="container service-focus__inner">
-    <div>
-      <h2 id="contact-services">Demande rapide par type de besoin</h2>
-      <p>
-        Pour gagner du temps, indiquez directement votre besoin :
-        <a href="/diagnostic/">diagnostic voyant</a>,
-        <a href="/mecanique/">mécanique</a>,
-        <a href="/carrosserie/">carrosserie</a>,
-        <a href="/entretien/">révision/entretien</a> ou
-        <a href="/pneumatiques/">pneumatiques</a>.
-        Cela nous permet de préparer le bon créneau atelier dès le premier échange.
-      </p>
-    </div>
-  </div>
-</section>
-
 {% include "contact-form.njk" %}
 
-<section id="appointment" class="appointment" aria-labelledby="appointment-title" data-animate="slide-right">
-  <div class="container appointment__centered">
-    <h2 id="appointment-title">Coordonnées</h2>
-    <p>Devis gratuit. Téléphone, email ou message — comme vous préférez.</p>
-    <dl>
-      <div>
-        <dt>Téléphone</dt>
-        <dd><a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a></dd>
-      </div>
-      <div>
-        <dt>Email</dt>
-        <dd><a href="mailto:{{ site.email }}">{{ site.email }}</a></dd>
-      </div>
-      <div>
-        <dt>Adresse</dt>
-        <dd><a href="{{ site.googleReviews.mapsPlaceUrl }}" target="_blank" rel="noopener noreferrer">{{ site.addressFull }}</a></dd>
-      </div>
-      <div>
-        <dt>SIRET</dt>
-        <dd>103 462 537 00012</dd>
-      </div>
-      <div>
-        <dt>Horaires</dt>
-        <dd>{{ site.openingHours }}</dd>
-      </div>
-    </dl>
+<section class="conversion-map" aria-labelledby="contact-map-title">
+  <div class="container conversion-map__inner">
+    {% set sectionKicker = "Adresse" %}
+    {% set sectionTitle = "Nous trouver" %}
+    {% set sectionHeadId = "contact-map-title" %}
+    {% set sectionLead = site.addressFull ~ " · Métro ligne 7 Mairie d'Ivry" %}
+    {% include "conversion-section-head.njk" %}
+    <iframe
+      class="conversion-map__frame"
+      src="https://maps.google.com/maps?q=9+rue+Michelet+94200+Ivry-sur-Seine&t=&z=16&ie=UTF8&iwloc=&output=embed"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Plan d'accès RED-K MOTORS"
+    ></iframe>
   </div>
 </section>
 
-<section class="tech-lab" aria-labelledby="contact-map-title" data-animate="slide-right">
-  <div class="container tech-lab__inner">
-    <div class="media-card">
-      <div class="media-card__label">Localisation</div>
-      <iframe
-        class="map-frame"
-        src="https://maps.google.com/maps?q=9+rue+Michelet+94200+Ivry-sur-Seine&t=&z=16&ie=UTF8&iwloc=&output=embed"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-      ></iframe>
-    </div>
-    <div class="tech-lab__content">
-      <p class="section-kicker">Nous rendre visite</p>
-      <h2 id="contact-map-title">Accès</h2>
-      <p>9 rue Michelet, Ivry — périphérique et transports à proximité.</p>
-      <ul class="pill-list">
-        <li>Métro ligne 7 — Mairie d'Ivry</li>
-        <li>Ouvert Lun-Sam 9h-19h</li>
-        <li>Stationnement à proximité</li>
-        <li>Accès facile depuis le périphérique</li>
-      </ul>
-    </div>
-  </div>
-</section>
+{% include "conversion-services-nav.njk" %}
 
-{% include "reviews-block.njk" %}
-
-<section class="faq" aria-labelledby="contact-faq" data-animate="slide-up">
-  <div class="container faq__inner">
-    <div>
-      <p class="section-kicker">FAQ contact</p>
-      <h2 id="contact-faq">Questions fréquentes</h2>
-    </div>
+<section class="faq conversion-faq" aria-labelledby="contact-faq">
+  <div class="container faq__inner faq__inner--compact">
+    {% set sectionKicker = "FAQ" %}
+    {% set sectionTitle = "Questions fréquentes" %}
+    {% set sectionHeadId = "contact-faq" %}
+    {% include "conversion-section-head.njk" %}
     <div class="faq__list" data-accordion>
+      {% for faq in faqs | pageFaqs(faqSchema) %}
       <article class="faq__item">
-        <button class="faq__question" type="button" aria-expanded="false">
-          Dois-je prendre rendez-vous pour un diagnostic ?
-        </button>
+        <button class="faq__question" type="button" aria-expanded="false">{{ faq.question }}</button>
         <div class="faq__answer" hidden>
-          <p>Oui, pour garantir la disponibilité d'un technicien et réduire votre temps d'attente sur place.</p>
+          <p>{{ faq.answer }}</p>
         </div>
       </article>
-      <article class="faq__item">
-        <button class="faq__question" type="button" aria-expanded="false">
-          Puis-je envoyer des photos pour un premier avis ?
-        </button>
-        <div class="faq__answer" hidden>
-          <p>Oui, par WhatsApp ou email — utile pour préparer le devis.</p>
-        </div>
-      </article>
-      <article class="faq__item">
-        <button class="faq__question" type="button" aria-expanded="false">
-          Comment je suis tenu au courant de l'avancement ?
-        </button>
-        <div class="faq__answer" hidden>
-          <p>Appel ou WhatsApp aux étapes clés : devis validé, début des travaux, véhicule prêt.</p>
-        </div>
-      </article>
+      {% endfor %}
     </div>
   </div>
 </section>
 
+{% set contactVariant = 'footer' %}
+{% set contactTitle = "Besoin d'un RDV ?" %}
+{% set contactLead = "Appelez en journée — c'est le plus rapide." %}
+{% include "conversion-contact.njk" %}

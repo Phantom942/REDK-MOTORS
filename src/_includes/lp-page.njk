@@ -1,0 +1,163 @@
+{% if lpKey and not lp %}
+  {% set lp = landingPages[lpKey] %}
+{% endif %}
+{% if not lp %}
+  <p>Configuration landing page manquante.</p>
+{% else %}
+{% set lpId = lpPageId | default(lpKey | default("page")) %}
+
+{% set heroActions %}
+<a class="btn btn--primary" href="tel:{{ site.phone }}" data-track="click_call" data-track-pos="lp_hero">{{ lp.heroCtaLabel | default("Appeler " ~ site.phoneDisplay) }}</a>
+<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp" data-track-pos="lp_hero">WhatsApp</a>
+{% endset %}
+{% set heroClass = "hero--subpage hero--conversion" %}
+{% set heroAria = lpId ~ "-hero-title" %}
+{% set heroTitle = lp.heroTitle %}
+{% set heroKicker = lp.heroKicker %}
+{% set heroDesc = lp.heroDesc %}
+{% set videoSrc = lp.videoSrc %}
+{% include "hero-video.njk" %}
+
+{% include "lp-trust-bar.njk" %}
+
+{% set contactTitle = lp.contactTitle | default("Un devis ? Un RDV ?") %}
+{% set contactLead = lp.contactLead | default("Appelez maintenant — on vous répond en journée. WhatsApp accepté pour photos et devis.") %}
+{% include "conversion-contact.njk" %}
+
+{% set pageReviewCount = lp.reviewCount | default(2) %}
+{% set pageReviews = lpId | resolvePageReviews(googleReviews, pageReviewCount) %}
+{% if lp.showReviews != false %}
+  {% include "reviews-page-block.njk" %}
+{% endif %}
+
+{% if lp.symptoms and lp.symptoms.length %}
+<section class="promesse" aria-labelledby="lp-symptoms-title">
+  <div class="container">
+    {% set sectionKicker = "Signes d'alerte" %}
+    {% set sectionTitle = "Symptômes fréquents" %}
+    {% set sectionHeadId = "lp-symptoms-title" %}
+    {% include "conversion-section-head.njk" %}
+    <div class="promesse__grid">
+      {% for symptom in lp.symptoms %}
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">{{ loop.index }}</span>
+        <div>
+          <h3>{{ symptom }}</h3>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if lp.highlights and lp.highlights.length %}
+<section class="promesse promesse--highlights" aria-labelledby="lp-highlights-title">
+  <div class="container">
+    {% set sectionKicker = "Notre méthode" %}
+    {% set sectionTitle = lp.highlightsTitle | default("Pourquoi passer par RED-K MOTORS") %}
+    {% set sectionHeadId = "lp-highlights-title" %}
+    {% include "conversion-section-head.njk" %}
+    <div class="promesse__grid">
+      {% for highlight in lp.highlights %}
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3>{{ highlight }}</h3>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if lp.trustNote %}
+<section class="service-focus service-focus--alt" aria-labelledby="lp-trust-title">
+  <div class="container service-focus__inner">
+    <div>
+      <h2 id="lp-trust-title">Notre engagement</h2>
+      <p><strong>{{ lp.trustNote }}</strong></p>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if lp.whatsappCtaText %}
+<section class="service-focus" aria-labelledby="lp-whatsapp-title">
+  <div class="container service-focus__inner">
+    <div>
+      <h2 id="lp-whatsapp-title">Devis photo rapide</h2>
+      <p>{{ lp.whatsappCtaText }}</p>
+      <p class="service-focus__cta">
+        <a class="btn btn--primary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp" data-track-pos="lp_whatsapp_block">💬 Envoyer mes photos sur WhatsApp</a>
+      </p>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if lp.prestaHubTitle %}
+  {% set prestationsHubTitle = lp.prestaHubTitle %}
+  {% set prestationsHubSubtitle = lp.prestaHubSubtitle %}
+  {% set prestationsHubFormOnly = true %}
+  {% include "prestations-hub.njk" %}
+{% endif %}
+
+{% if lp.processSteps and lp.processSteps.length %}
+  {% include "lp-process.njk" %}
+{% endif %}
+
+{% if lp.tarifsTeaserLead %}
+  {% set tarifsTeaserLead = lp.tarifsTeaserLead %}
+{% endif %}
+{% set tarifsTeaserTrack = lpId ~ "_tarifs" %}
+{% include "conversion-tarifs-teaser.njk" %}
+
+{% if lp.services and lp.services.length %}
+<section class="conversion-services" aria-labelledby="lp-services-title">
+  <div class="container">
+    {% set sectionKicker = "Prestations" %}
+    {% set sectionTitle = lp.servicesTitle | default("Ce qu'on fait ici") %}
+    {% set sectionHeadId = "lp-services-title" %}
+    {% include "conversion-section-head.njk" %}
+    <ul class="conversion-services__list">
+      {% for service in lp.services %}
+      <li>
+        <a href="{{ service.url }}" class="conversion-services__link">{{ service.title }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endif %}
+
+{% include "conversion-services-nav.njk" %}
+
+{% if lp.faqs and lp.faqs.length %}
+<section class="faq conversion-faq" aria-labelledby="lp-faq-title">
+  <div class="container faq__inner faq__inner--compact">
+    {% set sectionKicker = "FAQ" %}
+    {% set sectionTitle = "Questions fréquentes" %}
+    {% set sectionHeadId = "lp-faq-title" %}
+    {% include "conversion-section-head.njk" %}
+    <div class="faq__list" data-accordion>
+      {% for faq in lp.faqs %}
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">{{ faq.question }}</button>
+        <div class="faq__answer" hidden>
+          <p>{{ faq.answer }}</p>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% set contactVariant = 'footer' %}
+{% set contactTitle = 'Prêt à passer à l\'action ?' %}
+{% set contactLead = 'Appelez le ' ~ site.phoneDisplayCompact ~ ' ou écrivez-nous — réponse en journée, lun–sam 9h–19h.' %}
+{% include "conversion-contact.njk" %}
+
+{% endif %}

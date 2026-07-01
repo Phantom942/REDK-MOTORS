@@ -20,6 +20,7 @@
 
     var lastScroll = 0;
     window.addEventListener('scroll', function() {
+      if (document.body.classList.contains('is-nav-open')) return;
       var y = window.pageYOffset;
       if (Math.abs(y - lastScroll) > 50) {
         if (window.REDKMotorsNav && window.REDKMotorsNav.isOpen && window.REDKMotorsNav.isOpen()) {

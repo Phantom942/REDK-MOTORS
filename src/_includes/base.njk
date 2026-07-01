@@ -35,7 +35,8 @@
         '/vidange-rapide-',
         '/revision-rapide-',
         '/reparation-auto-paris-sud/',
-        '/carrosserie-peinture-ivry/'
+        '/carrosserie-peinture-ivry/',
+        '/lp-'
       ] %}
       {% for prefix in lowValuePrefixes %}
         {% if prefix in page.url %}
@@ -215,7 +216,7 @@
     </script>
     {% endif %}
   </head>
-  <body class="design-stitch" data-page="{{ pageKey | default('index') }}" data-gtm-id="{{ site.gtmId }}">
+  <body class="design-stitch{% if lpKey or lp or hideServiceAreas %} conversion-page{% endif %}" data-page="{{ pageKey | default('index') }}" data-gtm-id="{{ site.gtmId }}">
     {% include "header.njk" %}
 
     <main id="main">
@@ -243,6 +244,7 @@
         '/diagnostic/',
         '/mecanique/',
         '/carrosserie/',
+        '/pare-brise/',
         '/entretien/',
         '/freins/',
         '/pneumatiques/',
@@ -267,12 +269,12 @@
           {% set showConversionHub = true %}
         {% endif %}
       {% endfor %}
-      {% if showConversionHub and pageKey != 'contact' and pageKey != 'merci' %}
+      {% if showConversionHub and pageKey != 'contact' and pageKey != 'merci' and not lpKey and not lp and not hideServiceAreas %}
         {% include "conversion-hub.njk" %}
       {% endif %}
     {% endif %}
 
-    {% if pageKey != 'contact' and pageKey != 'merci' %}
+    {% if pageKey != 'contact' and pageKey != 'merci' and not lpKey and not lp and not hideServiceAreas %}
       {% include "lead-strip.njk" %}
     {% endif %}
 

@@ -1,0 +1,18 @@
+<section class="conversion-tarifs-teaser" aria-labelledby="tarifs-teaser-title">
+  <div class="container conversion-tarifs-teaser__inner">
+    <header class="conversion-section-head conversion-section-head--light">
+      <p class="section-kicker">{{ tarifsTeaserKicker | default("Tarifs") }}</p>
+      <h2 class="conversion-section-head__title" id="tarifs-teaser-title">{{ tarifsTeaserTitle | default("Extraits de prix indicatifs") }}</h2>
+    </header>
+    <a
+      href="/tarifs/"
+      class="tarifs-teaser__card"
+      data-track="click_tarifs"
+      data-track-pos="{{ tarifsTeaserTrack | default('tarifs_teaser') }}"
+    >
+      <span class="tarifs-teaser__label">{{ tarifsTeaserCardLabel | default("Grille complète TTC") }}</span>
+      <span class="tarifs-teaser__cta">{{ tarifsTeaserCardCta | default("Voir les tarifs →") }}</span>
+      <p class="tarifs-teaser__hint">{{ tarifsTeaserLead | default("Vidange, freins, diagnostic, révision, distribution… Montants indicatifs — devis définitif gratuit après inspection.") }}</p>
+    </a>
+  </div>
+</section>

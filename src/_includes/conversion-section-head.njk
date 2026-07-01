@@ -1,0 +1,9 @@
+<header class="conversion-section-head">
+  {% if sectionKicker %}
+  <p class="section-kicker">{{ sectionKicker }}</p>
+  {% endif %}
+  <h2 class="conversion-section-head__title"{% if sectionHeadId %} id="{{ sectionHeadId }}"{% endif %}>{{ sectionTitle }}</h2>
+  {% if sectionLead %}
+  <p class="conversion-section-head__lead">{{ sectionLead }}</p>
+  {% endif %}
+</header>

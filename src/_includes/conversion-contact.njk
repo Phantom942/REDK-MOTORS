@@ -1,0 +1,25 @@
+<section class="conversion-band conversion-band--{{ contactVariant | default('primary') }}" aria-labelledby="conversion-contact-title">
+  <div class="container">
+    <div class="conversion-band__inner">
+      <header class="conversion-band__header">
+        {% if contactVariant != 'footer' %}
+        <p class="section-kicker">Contact</p>
+        {% endif %}
+        <h2 id="conversion-contact-title" class="conversion-band__title">{{ contactTitle | default("Contactez le garage") }}</h2>
+        <p class="conversion-band__lead">{{ contactLead | default("Le plus rapide : un appel en journée. WhatsApp accepté pour photos et devis.") }}</p>
+      </header>
+      <div class="conversion-band__actions">
+        <a class="btn btn--primary conversion-band__phone" href="tel:{{ site.phone }}" data-track="click_call" data-track-pos="conversion_contact">{{ site.phoneDisplay }}</a>
+        <div class="conversion-band__secondary">
+          <a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp" data-track-pos="conversion_contact">WhatsApp</a>
+          <a class="btn btn--secondary" href="/contact/#contact-form-title" data-track="click_rdv" data-track-pos="conversion_contact">Formulaire</a>
+        </div>
+      </div>
+      <p class="conversion-band__meta">
+        <a href="{{ site.wazeUrl }}" target="_blank" rel="noopener noreferrer">{{ site.addressFull }}</a>
+        <span class="conversion-band__meta-sep" aria-hidden="true">·</span>
+        <span>{{ site.openingHours }}</span>
+      </p>
+    </div>
+  </div>
+</section>

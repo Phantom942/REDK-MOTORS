@@ -5,8 +5,9 @@ description: "Garage partenaire B2B à Ivry-sur-Seine : taxis, VTC, livreurs, fl
 keywords: "garage professionnel ivry-sur-seine, espace pro garage 94, entretien flotte val-de-marne, garage taxi vtc ivry, garage auto école 94, devis garage pro"
 pageKey: professionnels
 date: 2026-06-28
-lastReviewed: 2026-06-28
+lastReviewed: 2026-07-01
 hasHeroVideo: true
+hideServiceAreas: true
 permalink: /professionnels/index.html
 sitemap:
   changefreq: weekly
@@ -70,7 +71,7 @@ faqSchema:
 <a class="btn btn--primary" href="tel:{{ site.phone }}" data-track="click_call" data-track-pos="hero_pro_hub">Appeler pour un devis Pro</a>
 <a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp" data-track-pos="hero_pro_hub">WhatsApp Pro</a>
 {% endset %}
-{% set heroClass = "hero--subpage hero--pro" %}
+{% set heroClass = "hero--subpage hero--pro hero--conversion" %}
 {% set heroAria = "professionnels-hero-title" %}
 {% set heroTitle = "Espace Pro" %}
 {% set heroSubtitle = "Véhicule immobilisé = chiffre perdu" %}
@@ -79,114 +80,46 @@ faqSchema:
 {% set videoSrc = "hero.mp4" %}
 {% include "hero-video.njk" %}
 
-{% include "pro-breadcrumb.njk" %}
-{% include "pro-stats.njk" %}
+{% set contactTitle = "Devis Pro immédiat" %}
+{% set contactLead = "Véhicule immobilisé = chiffre perdu — on priorise les pros." %}
+{% include "conversion-contact.njk" %}
 
-<section class="service-focus service-focus--pro" aria-labelledby="pro-intro-title" data-animate="slide-right">
-  <div class="container service-focus__inner service-focus__inner--split">
-    <div>
-      <p class="section-kicker">Pourquoi RED-K MOTORS ?</p>
-      <h2 id="pro-intro-title">Un garage pensé pour les pros du Val-de-Marne</h2>
-      <p>Nous accompagnons les professionnels d'Ivry-sur-Seine et des communes limitrophes avec une prise en charge prioritaire, des tarifs transparents et un interlocuteur atelier dédié.</p>
-      <p>Que vous soyez chauffeur VTC, livreur, artisan ou auto-école : votre véhicule doit repartir vite. C'est notre priorité.</p>
-    </div>
-    <aside class="pro-callout" aria-label="Contact rapide">
-      <p class="pro-callout__label">Devis Pro immédiat</p>
-      <a class="pro-callout__phone" href="tel:{{ site.phone }}" data-track="click_call" data-track-pos="callout_pro_hub">{{ site.phoneDisplay }}</a>
-      <p class="pro-callout__hours">Lun–sam · 9h–19h · 9 rue Michelet, Ivry</p>
-      <a class="btn btn--primary pro-callout__btn" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp" data-track-pos="callout_pro_hub">WhatsApp Pro</a>
-    </aside>
-  </div>
-</section>
-
-<section class="promesse pro-pillars" aria-labelledby="pro-pillars-title" data-animate="slide-up">
+<section class="conversion-services" aria-labelledby="pro-profiles-title">
   <div class="container">
-    <h2 id="pro-pillars-title" class="promesse__title">Nos 3 engagements Pro</h2>
-    <div class="promesse__grid pro-pillars__grid">
-      {% for pillar in professionnels.pillars %}
-      <article class="pro-pillar-card">
-        <span class="pro-pillar-card__emoji" aria-hidden="true">{{ pillar.icon }}</span>
-        <h3>{{ pillar.title }}</h3>
-        <p>{{ pillar.description }}</p>
-      </article>
-      {% endfor %}
-    </div>
-  </div>
-</section>
-
-<section class="services-links pro-hub" aria-labelledby="pro-profiles-title" data-animate="slide-up">
-  <div class="container services-links__inner">
-    <h2 id="pro-profiles-title" class="services-links__heading">Choisissez votre profil</h2>
-    <p class="pro-hub__lead">Pages dédiées avec avantages, prestations et FAQ adaptés à votre activité.</p>
-    <div class="services-links__grid pro-hub__grid">
+    {% set sectionKicker = "Espace Pro" %}
+    {% set sectionTitle = "Votre profil" %}
+    {% set sectionHeadId = "pro-profiles-title" %}
+    {% include "conversion-section-head.njk" %}
+    <ul class="conversion-services__list">
       {% for profil in professionnels.profiles %}
-      <a class="services-links__card pro-hub__card" href="/professionnels/{{ profil.slug }}/">
-        <span class="services-links__icon pro-hub__icon" aria-hidden="true">{{ profil.icon }}</span>
-        <strong>{{ profil.navTitle }}</strong>
-        <span class="pro-hub__teaser">{{ profil.cardTeaser }}</span>
-        <span class="pro-hub__link">Découvrir →</span>
-      </a>
+      <li><a href="/professionnels/{{ profil.slug }}/" class="conversion-services__link">{{ profil.navTitle }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+{% include "reviews-block.njk" %}
+
+<section class="faq conversion-faq" aria-labelledby="pro-faq-title">
+  <div class="container faq__inner faq__inner--compact">
+    {% set sectionKicker = "FAQ" %}
+    {% set sectionTitle = "Questions fréquentes" %}
+    {% set sectionHeadId = "pro-faq-title" %}
+    {% include "conversion-section-head.njk" %}
+    <div class="faq__list" data-accordion>
+      {% for faq in faqs | pageFaqs(faqSchema, 3) %}
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">{{ faq.question }}</button>
+        <div class="faq__answer" hidden>
+          <p>{{ faq.answer }}</p>
+        </div>
+      </article>
       {% endfor %}
     </div>
   </div>
 </section>
 
-<section class="pro-testimonial" aria-labelledby="pro-social-proof" data-animate="slide-up">
-  <div class="container">
-    <h2 id="pro-social-proof" class="pro-testimonial__heading">Avis client professionnel</h2>
-    <blockquote class="pro-testimonial__card">
-      <div class="pro-testimonial__stars" aria-hidden="true">★★★★★</div>
-      <p class="pro-testimonial__quote">« Excellent garage, j'entretiens mes véhicules de livraisons chez ce prestataire. Excellent rapport qualité-prix sur les entretiens et les révisions. Je recommande fortement. »</p>
-      <footer class="pro-testimonial__footer">
-        <cite class="pro-testimonial__author">Moove City</cite>
-        <span class="pro-testimonial__role">Flotte livraison · Avis Google vérifié</span>
-      </footer>
-    </blockquote>
-  </div>
-</section>
-
-<section class="faq" aria-labelledby="pro-faq-title" data-animate="slide-up">
-  <div class="container faq__inner">
-    <div>
-      <p class="section-kicker">FAQ</p>
-      <h2 id="pro-faq-title">Questions fréquentes — Espace Pro</h2>
-    </div>
-    <div class="faq__list" data-accordion>
-      <article class="faq__item">
-        <button class="faq__question" type="button" aria-expanded="false">Proposez-vous des tarifs préférentiels pour les professionnels ?</button>
-        <div class="faq__answer" hidden>
-          <p>Oui, des conditions adaptées sont possibles selon votre activité et le volume d'entretien.</p>
-        </div>
-      </article>
-      <article class="faq__item">
-        <button class="faq__question" type="button" aria-expanded="false">Quels types de professionnels accompagnez-vous ?</button>
-        <div class="faq__answer" hidden>
-          <p>Taxis, VTC, chauffeurs-livreurs, artisans, flottes entreprise, auto-écoles et tous véhicules professionnels.</p>
-        </div>
-      </article>
-      <article class="faq__item">
-        <button class="faq__question" type="button" aria-expanded="false">Comment obtenir un devis pro ?</button>
-        <div class="faq__answer" hidden>
-          <p>Par téléphone au <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a>, WhatsApp ou via la <a href="/contact/">page contact</a>. Réponse rapide.</p>
-        </div>
-      </article>
-      <article class="faq__item">
-        <button class="faq__question" type="button" aria-expanded="false">Intervenez-vous en priorité pour les véhicules pro ?</button>
-        <div class="faq__answer" hidden>
-          <p>Oui, nous adaptons la planification pour limiter l'immobilisation de votre véhicule.</p>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="cta-block cta-block--pro" aria-labelledby="pro-cta-title" data-animate="slide-up">
-  <div class="container cta-block__inner">
-    <h2 id="pro-cta-title" class="cta-block__title">Devenir partenaire RED-K MOTORS</h2>
-    <p class="cta-block__sub">Lun–sam 9h–19h — appelez-nous ou envoyez un message WhatsApp.</p>
-    <div class="cta-block__buttons">
-      <a href="tel:{{ site.phone }}" class="btn btn--primary cta-block__btn" data-track="click_call" data-track-pos="cta_pro_hub">Appeler {{ site.phoneDisplay }}</a>
-      <a href="{{ site.whatsappUrl }}" class="btn btn--secondary cta-block__btn" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp" data-track-pos="cta_pro_hub">WhatsApp Pro</a>
-    </div>
-  </div>
-</section>
+{% set contactVariant = 'footer' %}
+{% set contactTitle = "Devis Pro" %}
+{% set contactLead = "Taxi, VTC, livreur, flotte — créneau prioritaire." %}
+{% include "conversion-contact.njk" %}

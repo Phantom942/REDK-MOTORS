@@ -1,6 +1,16 @@
 # Netlify — fichier unique pour les redirections 301 (copié dans _site par Eleventy).
 # GitHub Pages ne lit pas ce fichier ; le site public utilise les URLs canoniques côté HTML.
 
+# Anciennes landing pages Ads → URLs canoniques du site
+/lp-diagnostic/     /diagnostic/     301
+/lp-diagnostic      /diagnostic/     301
+/lp-freinage/       /freins/         301
+/lp-freinage        /freins/         301
+/lp-revision/       /entretien/      301
+/lp-revision        /entretien/      301
+/lp-carrosserie/    /carrosserie/    301
+/lp-carrosserie     /carrosserie/    301
+
 # Legacy .html → URL avec slash final
 /mecanique.html    /mecanique/    301
 /carrosserie.html  /carrosserie/  301

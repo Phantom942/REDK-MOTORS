@@ -4,7 +4,8 @@ title: "Tarifs garage Ivry (94) — Vidange, freins, diagnostic | RED-K MOTORS"
 description: "Grille tarifaire indicative à Ivry : vidange, freins, diagnostic, distribution… Devis fermé après inspection. ☎ 06 48 74 56 68 · lun–sam 9h–19h."
 pageKey: tarifs
 date: 2026-06-11
-lastReviewed: 2026-06-11
+lastReviewed: 2026-07-01
+hideServiceAreas: true
 permalink: /tarifs/
 sitemap:
   changefreq: monthly
@@ -68,54 +69,48 @@ faqSchema:
 ---
 
 {% set heroActions %}
-<a class="btn btn--primary" href="/contact/">Coordonnées &amp; devis</a>
-<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">Message WhatsApp</a>
+<a class="btn btn--primary" href="tel:{{ site.phone }}" data-track="click_call" data-track-pos="hero">Appeler pour un devis</a>
+<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp" data-track-pos="hero">WhatsApp</a>
 {% endset %}
 {% set heroAria = "tarifs-hero-title" %}
+{% set heroClass = "hero--subpage hero--conversion" %}
 {% set heroTitle = "Tarifs indicatifs" %}
 {% set heroKicker %}Garage à {{ site.city }} (94){% endset %}
-{% set heroDesc = "Montants TTC indicatifs pour véhicules particuliers courants. Le prix définitif figure sur le devis validé après passage au garage." %}
+{% set heroDesc = "Fourchettes TTC indicatives — devis définitif gratuit après inspection." %}
 {% include "hero-simple.njk" %}
 
-<section class="pricing-section pricing-section--readable" aria-labelledby="tarifs-grille-title" data-animate="slide-up">
+{% include "conversion-contact.njk" %}
+
+<section class="pricing-section pricing-section--readable" aria-labelledby="tarifs-grille-title">
   <div class="container">
-    <h2 id="tarifs-grille-title" class="sr-only">Grille complète des prix</h2>
-    <p class="pricing-section__intro">Indicatifs TTC à {{ site.city }} (94), <strong>véhicules particuliers courants</strong>. <strong>Prix définitif sur devis</strong> après passage au garage.</p>
-    <p class="pricing-section__note">Véhicule atypique ou pièces spécifiques : on chiffre au cas par cas si hors fourchette.</p>
+    <h2 id="tarifs-grille-title" class="sr-only">Grille des prix</h2>
+    <p class="pricing-section__intro"><strong>Prix définitif sur devis</strong> après passage au garage.</p>
     {% include "pricing-table-full.njk" %}
-    <p class="pricing-section__disclaimer">Montants TTC indicatifs.</p>
-    <div class="pricing-section__actions">
-      <a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
-      <a class="btn btn--secondary btn--dark" href="/">Retour à l'accueil</a>
+  </div>
+</section>
+
+{% include "conversion-services-nav.njk" %}
+
+<section class="faq conversion-faq" aria-labelledby="tarifs-faq">
+  <div class="container faq__inner faq__inner--compact">
+    {% set sectionKicker = "FAQ" %}
+    {% set sectionTitle = "Questions fréquentes" %}
+    {% set sectionHeadId = "tarifs-faq" %}
+    {% include "conversion-section-head.njk" %}
+    <div class="faq__list" data-accordion>
+      {% for faq in faqs | pageFaqs(faqSchema) %}
+      <article class="faq__item">
+        <button class="faq__question" type="button" aria-expanded="false">{{ faq.question }}</button>
+        <div class="faq__answer" hidden>
+          <p>{{ faq.answer }}</p>
+        </div>
+      </article>
+      {% endfor %}
     </div>
   </div>
 </section>
 
-<section class="faq" aria-labelledby="tarifs-faq" data-animate="slide-up">
-  <div class="container faq__inner">
-    <div>
-      <p class="section-kicker">FAQ tarifs</p>
-      <h2 id="tarifs-faq">Questions fréquentes</h2>
-    </div>
-    <div class="faq__list" data-accordion>
-      <article class="faq__item">
-        <button class="faq__question" type="button" aria-expanded="false">Les tarifs affichés sont-ils définitifs ?</button>
-        <div class="faq__answer" hidden>
-          <p>Non. Montants indicatifs TTC à {{ site.city }} — le devis validé après inspection au véhicule fait foi.</p>
-        </div>
-      </article>
-      <article class="faq__item">
-        <button class="faq__question" type="button" aria-expanded="false">Proposez-vous un devis gratuit ?</button>
-        <div class="faq__answer" hidden>
-          <p>Oui. Devis écrit et gratuit ; aucune intervention sans votre accord.</p>
-        </div>
-      </article>
-      <article class="faq__item">
-        <button class="faq__question" type="button" aria-expanded="false">Pourquoi une fourchette de prix ?</button>
-        <div class="faq__answer" hidden>
-          <p>Le tarif dépend du modèle, des pièces et du temps d'intervention. La fourchette aide à anticiper ; le devis confirme le montant exact.</p>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
+{% set contactVariant = 'footer' %}
+{% set contactTitle = 'Un devis personnalisé ?' %}
+{% set contactLead = 'On chiffre après inspection — gratuit et sans engagement.' %}
+{% include "conversion-contact.njk" %}

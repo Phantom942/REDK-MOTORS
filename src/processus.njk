@@ -4,8 +4,9 @@ title: "Processus client Ivry-sur-Seine (94) | Proche Vitry et Paris 13 | RED-K 
 description: "Processus client RED-K MOTORS : de la prise de contact à la restitution du véhicule étape par étape."
 pageKey: processus
 date: 2026-06-11
-lastReviewed: 2026-06-11
+lastReviewed: 2026-07-01
 hasHeroVideo: true
+hideServiceAreas: true
 breadcrumb:
   "@context": "https://schema.org"
   "@type": "BreadcrumbList"
@@ -66,10 +67,10 @@ faqSchema:
 ---
 
 {% set heroActions %}
-<a class="btn btn--primary" href="/contact/">Prendre rendez-vous</a>
-<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">Message WhatsApp</a>
+<a class="btn btn--primary" href="tel:{{ site.phone }}" data-track="click_call" data-track-pos="hero">Appeler {{ site.phoneDisplayCompact | default(site.phoneDisplay) }}</a>
+<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp" data-track-pos="hero">WhatsApp</a>
 {% endset %}
-{% set heroClass = "hero--subpage" %}
+{% set heroClass = "hero--subpage hero--conversion" %}
 {% set heroAria = "process-hero-title" %}
 {% set heroTitle = "Déroulement chez RED-K" %}
 {% set heroKicker = "Étapes simples" %}
@@ -77,173 +78,46 @@ faqSchema:
 {% set videoSrc = "hero.mp4" %}
 {% include "hero-video.njk" %}
 
-<section class="process-intro" aria-labelledby="process-intro-title" data-animate="slide-up">
-  <div class="container process-hero__meta">
-    <div class="process-hero__meta-card">
-      <span class="status-dot status-dot--online"></span>
-      <span>Suivi en ligne</span>
-    </div>
-    <div class="process-hero__meta-card">
-      <span class="status-dot status-dot--online"></span>
-      <span>Equipe dédiée</span>
-    </div>
-  </div>
-</section>
+{% include "conversion-contact.njk" %}
 
-<section class="process-timeline" aria-labelledby="timeline-title" data-animate="slide-up">
+<section class="conversion-services" aria-labelledby="timeline-title">
   <div class="container">
-    <h2 id="timeline-title">Les étapes</h2>
-    <p class="process-timeline__summary" style="text-align:center; margin-bottom:2rem; font-weight:600; color: var(--color-black);">RDV → diagnostic → devis → travaux → reprise du véhicule</p>
-    <div class="process-timeline__wrapper">
-      <ol class="process-timeline__track">
-        <li>
-          <span class="process-step__badge">01</span>
-          <h3>Prise de contact</h3>
-          <p>Appel, WhatsApp ou passage. On fixe un RDV.</p>
-        </li>
-        <li>
-          <span class="process-step__badge">02</span>
-          <h3>Diagnostic</h3>
-          <p>Examen du véhicule, explication par téléphone.</p>
-        </li>
-        <li>
-          <span class="process-step__badge">03</span>
-          <h3>Devis et validation</h3>
-          <p>Devis détaillé. Rien sans votre accord.</p>
-        </li>
-        <li>
-          <span class="process-step__badge">04</span>
-          <h3>Réparation</h3>
-          <p>Pièces d'origine ; point d'étape si besoin.</p>
-        </li>
-        <li>
-          <span class="process-step__badge">05</span>
-          <h3>Restitution</h3>
-          <p>Compte rendu des travaux, véhicule prêt.</p>
-        </li>
-      </ol>
-    </div>
+    {% set sectionKicker = "Processus" %}
+    {% set sectionTitle = "Les 5 étapes" %}
+    {% set sectionHeadId = "timeline-title" %}
+    {% include "conversion-section-head.njk" %}
+    <ul class="conversion-services__list conversion-services__list--stacked">
+      <li><span class="conversion-services__link conversion-services__link--text">1. Prise de contact — appel, WhatsApp ou RDV</span></li>
+      <li><span class="conversion-services__link conversion-services__link--text">2. Diagnostic — examen et explication</span></li>
+      <li><span class="conversion-services__link conversion-services__link--text">3. Devis — écrit, gratuit, rien sans votre accord</span></li>
+      <li><span class="conversion-services__link conversion-services__link--text">4. Réparation — pièces adaptées, suivi par téléphone</span></li>
+      <li><span class="conversion-services__link conversion-services__link--text">5. Restitution — compte rendu, véhicule prêt</span></li>
+    </ul>
   </div>
 </section>
 
-<section class="process-modules" aria-labelledby="modules-title" data-animate="slide-right">
-  <div class="container process-modules__grid">
-    <div class="process-modules__intro">
-      <p class="section-kicker">Notre façon de travailler</p>
-      <h2 id="modules-title">Communication</h2>
-      <p>Appels et messages aux étapes importantes.</p>
-    </div>
-    <div class="process-modules__cards">
-      <article class="process-card">
-        <header>
-          <span class="process-card__icon" aria-hidden="true">🔧</span>
-          <h3>Atelier organisé</h3>
-        </header>
-        <p>Planning et pièces anticipés.</p>
-        <ul class="checklist">
-          <li>Un interlocuteur dédié</li>
-          <li>Pièces commandées à l'avance</li>
-          <li>Délais respectés</li>
-        </ul>
-      </article>
-      <article class="process-card">
-        <header>
-          <span class="process-card__icon" aria-hidden="true">📱</span>
-          <h3>Vous êtes toujours informé</h3>
-        </header>
-        <p>Appels, WhatsApp si utile — rien sans validation.</p>
-        <ul class="checklist">
-          <li>Appel à chaque étape clé</li>
-          <li>Photos des travaux par WhatsApp</li>
-          <li>Devis validé avant intervention</li>
-        </ul>
-      </article>
-      <article class="process-card">
-        <header>
-          <span class="process-card__icon" aria-hidden="true">📋</span>
-          <h3>Tout est tracé</h3>
-        </header>
-        <p>Facture détaillée, historique conservé.</p>
-        <ul class="checklist">
-          <li>Facture détaillée</li>
-          <li>Pièces d'origine référencées</li>
-          <li>Historique conservé</li>
-        </ul>
-      </article>
-    </div>
-  </div>
-</section>
+{% include "conversion-services-nav.njk" %}
 
-<section class="process-matrix" aria-labelledby="matrix-title" data-animate="slide-left">
-  <div class="container process-matrix__inner">
-    <div class="process-matrix__content">
-      <p class="section-kicker">Notre méthode</p>
-      <h2 id="matrix-title">Engagements</h2>
-    </div>
-    <div class="process-matrix__table" role="table" aria-label="Engagements RED-K MOTORS">
-      <div class="process-matrix__row process-matrix__row--head" role="row">
-        <span role="columnheader">Étape</span>
-        <span role="columnheader">Notre engagement</span>
-      </div>
-      <div class="process-matrix__row" role="row">
-        <span role="cell">Diagnostic & devis</span>
-        <span role="cell">Devis écrit, détaillé et gratuit</span>
-      </div>
-      <div class="process-matrix__row" role="row">
-        <span role="cell">Suivi intervention</span>
-        <span role="cell">Appel ou WhatsApp à chaque étape clé</span>
-      </div>
-      <div class="process-matrix__row" role="row">
-        <span role="cell">Restitution</span>
-        <span role="cell">Explication détaillée des travaux réalisés</span>
-      </div>
-      <div class="process-matrix__row" role="row">
-        <span role="cell">Après l'atelier</span>
-        <span role="cell">Rappel prochain entretien</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="process-cta" aria-labelledby="process-cta-title" data-animate="slide-up">
-  <div class="container process-cta__inner">
-    <div>
-      <p class="section-kicker">Prêt à démarrer ?</p>
-      <h2 id="process-cta-title">Prendre rendez-vous</h2>
-      <p>Appelez ou passez par la page contact.</p>
-    </div>
-    <div class="process-cta__actions">
-      <a class="btn btn--primary" href="/contact/">Adresse &amp; horaires</a>
-      <a class="btn btn--secondary" href="/#appointment">Formulaire express</a>
-    </div>
-  </div>
-</section>
-
-<section class="faq" aria-labelledby="processus-faq" data-animate="slide-up">
-  <div class="container faq__inner">
-    <div>
-      <p class="section-kicker">FAQ processus</p>
-      <h2 id="processus-faq">Questions fréquentes</h2>
-    </div>
+<section class="faq conversion-faq" aria-labelledby="processus-faq">
+  <div class="container faq__inner faq__inner--compact">
+    {% set sectionKicker = "FAQ" %}
+    {% set sectionTitle = "Questions fréquentes" %}
+    {% set sectionHeadId = "processus-faq" %}
+    {% include "conversion-section-head.njk" %}
     <div class="faq__list" data-accordion>
+      {% for faq in faqs | pageFaqs(faqSchema) %}
       <article class="faq__item">
-        <button class="faq__question" type="button" aria-expanded="false">Combien de temps pour obtenir un devis ?</button>
+        <button class="faq__question" type="button" aria-expanded="false">{{ faq.question }}</button>
         <div class="faq__answer" hidden>
-          <p>Après diagnostic, le devis est communiqué rapidement — souvent le jour même pour les cas courants.</p>
+          <p>{{ faq.answer }}</p>
         </div>
       </article>
-      <article class="faq__item">
-        <button class="faq__question" type="button" aria-expanded="false">Puis-je refuser un devis sans frais ?</button>
-        <div class="faq__answer" hidden>
-          <p>Oui. Aucune réparation sans validation du devis. Le diagnostic peut être facturé selon la prestation.</p>
-        </div>
-      </article>
-      <article class="faq__item">
-        <button class="faq__question" type="button" aria-expanded="false">Comment suis-je informé pendant les travaux ?</button>
-        <div class="faq__answer" hidden>
-          <p>Appel ou WhatsApp aux étapes clés : devis validé, début des travaux, véhicule prêt.</p>
-        </div>
-      </article>
+      {% endfor %}
     </div>
   </div>
 </section>
+
+{% set contactVariant = 'footer' %}
+{% set contactTitle = 'On démarre quand vous voulez' %}
+{% set contactLead = 'Appelez ou WhatsApp pour fixer un créneau.' %}
+{% include "conversion-contact.njk" %}

@@ -25,7 +25,26 @@ module.exports = function (eleventyConfig) {
   // Filtre JSON pour JSON-LD
   eleventyConfig.addFilter("json", (obj) => JSON.stringify(obj));
 
+  eleventyConfig.addFilter("pageFaqs", (faqs, faqSchema, limit = 3) => {
+    if (Array.isArray(faqs) && faqs.length) {
+      return faqs.slice(0, limit);
+    }
+    const entities = faqSchema?.mainEntity;
+    if (!Array.isArray(entities) || !entities.length) {
+      return [];
+    }
+    return entities.slice(0, limit).map((item) => ({
+      question: item.name,
+      answer: item.acceptedAnswer?.text || "",
+    }));
+  });
+
   eleventyConfig.addFilter("urlencode", (value) => encodeURIComponent(String(value ?? "")));
+
+  const { resolvePageReviews } = require("./src/_data/reviewResolver.js");
+  eleventyConfig.addFilter("resolvePageReviews", (pageId, googleReviews, count, overrideAuthors) => {
+    return resolvePageReviews(pageId, googleReviews, count || 2, overrideAuthors);
+  });
 
   // Filtre date pour sitemap (ISO YYYY-MM-DD) — pas de fallback, retourne vide si invalide
   eleventyConfig.addFilter("dateToIso", (date) => {
@@ -189,6 +208,7 @@ module.exports = function (eleventyConfig) {
       "/revision-rapide-",
       "/reparation-auto-paris-sud/",
       "/carrosserie-peinture-ivry/",
+      "/lp-",
     ];
 
     return collectionApi.getAll().filter((item) => {

@@ -1,0 +1,61 @@
+{% if pageReviews and pageReviews.length %}
+<section class="reviews-section{% if pageReviews.length == 1 %} reviews-section--featured{% else %} reviews-section--compact{% endif %}" aria-labelledby="reviews-page-title">
+  <div class="container">
+    <header class="reviews-section__header">
+      <h2 id="reviews-page-title" class="reviews-section__title">{{ reviewsSectionTitle | default("Avis Google") }}</h2>
+      <div
+        class="reviews-section__rating"
+        role="group"
+        aria-label="Note Google : {{ site.googleReviews.rating }} sur 5, {{ site.googleReviews.count }} avis"
+      >
+        <div class="reviews-section__score-wrap">
+          <span class="reviews-section__score" aria-hidden="true">{{ site.googleReviews.rating }}.0</span>
+          <div class="reviews-section__stars-main" aria-hidden="true">
+            {% for i in range(0, site.googleReviews.rating) %}<span class="reviews-section__star">★</span>{% endfor %}
+          </div>
+        </div>
+        <div class="reviews-section__badge-google">
+          <span class="reviews-section__google-mark">G</span>
+          <span class="reviews-section__badge-text">
+            <span class="reviews-section__badge-score">{{ site.googleReviews.rating }}.0</span>
+            <span class="reviews-section__badge-sep">/</span>
+            <span class="reviews-section__badge-count">{{ site.googleReviews.count }} avis</span>
+          </span>
+        </div>
+      </div>
+    </header>
+
+    {% if pageReviews.length == 1 %}
+    <article class="review-card review-card--featured">
+      <div class="review-card__stars" aria-label="{{ pageReviews[0].rating }} sur 5 étoiles">
+        <span aria-hidden="true">{% for i in range(0, pageReviews[0].rating) %}★{% endfor %}</span>
+      </div>
+      <p class="review-card__text">« {{ pageReviews[0].text }} »</p>
+      <footer class="review-card__footer">
+        <span class="review-card__name">{{ pageReviews[0].author }}</span>
+        <span class="review-card__source">Avis Google vérifié</span>
+      </footer>
+    </article>
+    {% else %}
+    <div class="reviews-section__grid reviews-section__grid--compact">
+      {% for review in pageReviews %}
+      <article class="review-card">
+        <div class="review-card__stars" aria-label="{{ review.rating }} sur 5 étoiles">
+          <span aria-hidden="true">{% for i in range(0, review.rating) %}★{% endfor %}</span>
+        </div>
+        <p class="review-card__text">« {{ review.text }} »</p>
+        <footer class="review-card__footer">
+          <span class="review-card__name">{{ review.author }}</span>
+          <span class="review-card__source">Avis Google</span>
+        </footer>
+      </article>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <p class="reviews-section__cta">
+      <a href="{{ site.googleReviews.shareUrl }}" class="reviews-section__link" target="_blank" rel="noopener noreferrer">Voir tous les avis sur Google</a>
+    </p>
+  </div>
+</section>
+{% endif %}

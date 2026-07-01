@@ -1,8 +1,8 @@
 {% set heroActions %}
-<a class="btn btn--primary" href="/contact/" data-track="click_rdv" data-track-pos="hero_local">Prendre rendez-vous</a>
-<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp" data-track-pos="hero_local">Message WhatsApp</a>
+<a class="btn btn--primary" href="tel:{{ site.phone }}" data-track="click_call" data-track-pos="hero_local">Appeler {{ site.phoneDisplayCompact | default(site.phoneDisplay) }}</a>
+<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp" data-track-pos="hero_local">WhatsApp</a>
 {% endset %}
-{% set heroClass = "hero--subpage" %}
+{% set heroClass = "hero--subpage hero--conversion" %}
 {% set heroAria = pageKey ~ "-hero-title" %}
 {% set heroTitle = h1 %}
 {% set heroKicker = heroKickerText %}
@@ -10,56 +10,38 @@
 {% set videoSrc = "hero.mp4" %}
 {% include "hero-video.njk" %}
 
-<section class="service-focus" aria-labelledby="intro-{{ pageKey }}" data-animate="slide-right">
-  <div class="container service-focus__inner">
-    <div>
-      <h2 id="intro-{{ pageKey }}">{{ introHeading }}</h2>
-      <p>{{ introText }}</p>
-    </div>
-  </div>
-</section>
+{% set contactTitle = "Contactez-nous" %}
+{% set contactLead = introText | default("Garage à Ivry-sur-Seine — devis gratuit, intervention après validation.") %}
+{% include "conversion-contact.njk" %}
 
-<section class="promesse" aria-labelledby="services-{{ pageKey }}" data-animate="slide-up">
+{% if services and services.length %}
+<section class="conversion-services" aria-labelledby="local-services-{{ pageKey }}">
   <div class="container">
-    <h2 id="services-{{ pageKey }}" class="promesse__title">{{ servicesHeading }}</h2>
-    <p style="margin-bottom: 1.5rem;">{{ servicesIntro }}</p>
-    <div class="promesse__grid">
+    {% set sectionKicker = "Prestations" %}
+    {% set sectionTitle = servicesHeading | default("Nos prestations") %}
+    {% set sectionHeadId = "local-services-" ~ pageKey %}
+    {% include "conversion-section-head.njk" %}
+    <ul class="conversion-services__list">
       {% for service in services %}
-      <div class="promesse__item">
-        <span class="promesse__icon" aria-hidden="true">✓</span>
-        <div>
-          <h3>{{ service.title }}</h3>
-          <p>{{ service.description }}</p>
-        </div>
-      </div>
+      <li><span class="conversion-services__link conversion-services__link--text">{{ service.title }}</span></li>
       {% endfor %}
-    </div>
+    </ul>
   </div>
 </section>
+{% endif %}
 
-<section class="promesse" aria-labelledby="cta-{{ pageKey }}" data-animate="slide-up">
-  <div class="container">
-    <h2 id="cta-{{ pageKey }}" class="promesse__title">Devis rapide et transparent</h2>
-    <p>
-      Devis détaillé avant intervention, sans surprise. Appelez le
-      <a href="tel:{{ site.phone }}" data-track="click_call" data-track-pos="cta_local">{{ site.phoneDisplay }}</a>
-      ou passez par la page <a href="/contact/" data-track="click_rdv" data-track-pos="cta_local">contact</a> pour bloquer un créneau rapidement.
-    </p>
-    <div style="margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center;">
-      <a class="btn btn--primary" href="/contact/" data-track="click_rdv" data-track-pos="cta_local">Prendre rendez-vous</a>
-      <a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp" data-track-pos="cta_local">Message WhatsApp</a>
-    </div>
-  </div>
-</section>
+{% include "conversion-services-nav.njk" %}
 
-<section class="faq" aria-labelledby="faq-{{ pageKey }}" data-animate="slide-up">
-  <div class="container faq__inner">
-    <div>
-      <p class="section-kicker">FAQ</p>
-      <h2 id="faq-{{ pageKey }}">{{ faqHeading }}</h2>
-    </div>
+{% set pageFaqItems = faqs | pageFaqs(faqSchema) %}
+{% if pageFaqItems.length %}
+<section class="faq conversion-faq" aria-labelledby="faq-{{ pageKey }}">
+  <div class="container faq__inner faq__inner--compact">
+    {% set sectionKicker = "FAQ" %}
+    {% set sectionTitle = faqHeading | default("Questions fréquentes") %}
+    {% set sectionHeadId = "faq-" ~ pageKey %}
+    {% include "conversion-section-head.njk" %}
     <div class="faq__list" data-accordion>
-      {% for faq in faqs %}
+      {% for faq in pageFaqItems %}
       <article class="faq__item">
         <button class="faq__question" type="button" aria-expanded="false">{{ faq.question }}</button>
         <div class="faq__answer" hidden>
@@ -70,3 +52,9 @@
     </div>
   </div>
 </section>
+{% endif %}
+
+{% set contactVariant = 'footer' %}
+{% set contactTitle = 'Un devis ? Un RDV ?' %}
+{% set contactLead = 'On vous répond rapidement en journée.' %}
+{% include "conversion-contact.njk" %}

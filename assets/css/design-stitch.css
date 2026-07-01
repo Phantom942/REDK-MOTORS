@@ -26,6 +26,18 @@ body.design-stitch {
     inset 0 1px 0 rgba(255, 255, 255, 0.045);
   --font-stitch-head: "Space Grotesk", var(--font-primary), system-ui, sans-serif;
   --font-stitch-body: "Manrope", var(--font-secondary), system-ui, sans-serif;
+  /* Pages conversion — alignées sur le thème sombre */
+  --conv-bg: var(--stitch-bg);
+  --conv-bg-alt: var(--stitch-bg-low);
+  --conv-card: var(--stitch-surface);
+  --conv-card-hover: var(--stitch-surface-high);
+  --conv-text: #fafafa;
+  --conv-text-muted: var(--stitch-on-variant);
+  --conv-border: var(--stitch-ring-strong);
+  --conv-band-bg: var(--stitch-bg-low);
+  --conv-band-footer: #0a0a0c;
+  --conv-band-card: var(--stitch-surface);
+  --conv-band-footer-card: rgba(31, 31, 35, 0.92);
   background-color: var(--stitch-bg);
   color: var(--stitch-on-surface);
   font-family: var(--font-stitch-body);
@@ -377,6 +389,16 @@ body.design-stitch {
   }
 }
 
+.design-stitch .hero--home-cro .hero__content {
+  text-align: center;
+}
+
+.design-stitch .hero--home-cro .hero__content > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .design-stitch .hero--home-cro .hero h1 {
   font-family: var(--font-stitch-head);
   font-size: clamp(2.25rem, 7vw, 4.5rem);
@@ -387,6 +409,9 @@ body.design-stitch {
   color: #fafafa;
   text-shadow: 0 2px 40px rgba(0, 0, 0, 0.55);
   max-width: 18ch;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 .design-stitch .hero--home-cro .hero h1 .hero__accent,
@@ -394,15 +419,20 @@ body.design-stitch {
   color: var(--stitch-primary-container);
 }
 
+.design-stitch .hero--home-cro .hero .hero__lede {
+  text-align: center;
+}
+
 .design-stitch .hero--home-cro .hero__actions--cro {
-  align-items: flex-start;
-  margin-left: 0;
-  margin-right: 0;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media (min-width: 480px) {
   .design-stitch .hero--home-cro .hero__actions--cro {
-    justify-content: flex-start;
+    justify-content: center;
   }
 }
 
@@ -443,14 +473,18 @@ body.design-stitch {
   transform: scale(0.98);
 }
 
-/* --- Prix d'appel (hook) : barre façon « stats » --- */
-.design-stitch .hook-offers {
+/* --- Prix d'appel (hook) : barre façon « stats » — accueil uniquement --- */
+.design-stitch .hook-offers:has(.hook-offers__grid) {
   position: relative;
   z-index: 5;
   margin-top: -4rem;
   padding-top: 0;
   padding-bottom: 3rem;
   background: transparent;
+}
+
+.design-stitch .hook-offers:not(:has(.hook-offers__grid)) {
+  margin-top: 0;
 }
 
 .design-stitch .hook-offers__grid {
@@ -1888,8 +1922,20 @@ body.design-stitch {
 
 .design-stitch .cta-sticky__btn--devis {
   background: var(--stitch-surface-high);
+  border-color: var(--stitch-outline);
   color: var(--stitch-on-surface);
-  border: 1px solid var(--stitch-outline);
+}
+
+.design-stitch .cta-sticky__btn--whatsapp {
+  background: #25d366;
+  border-color: #25d366;
+  color: #fff;
+}
+
+.design-stitch .cta-sticky__btn--whatsapp:hover {
+  background: #1fb855;
+  border-color: #1fb855;
+  color: #fff;
 }
 
 /* ========== Boutons secondaires hors hero (lisibilité) ========== */
@@ -2456,6 +2502,323 @@ body.design-stitch {
 
 .design-stitch .contact-form__alt {
   color: var(--stitch-on-variant);
+}
+
+/* ========== Pages conversion (thème sombre unifié) ========== */
+
+.design-stitch.conversion-page #main,
+.design-stitch #main .conversion-band,
+.design-stitch #main .conversion-services,
+.design-stitch #main .conversion-nav,
+.design-stitch #main .conversion-faq,
+.design-stitch #main .conversion-map {
+  color: var(--stitch-on-surface);
+}
+
+.design-stitch #main .conversion-section-head,
+.design-stitch #main .conversion-band__inner,
+.design-stitch #main .conversion-band__header,
+.design-stitch #main .conversion-band__actions,
+.design-stitch #main .conversion-band__secondary,
+.design-stitch #main .conversion-map__inner {
+  text-align: center;
+}
+
+.design-stitch #main .conversion-band__secondary {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.design-stitch #main .conversion-section-head__title {
+  color: #fafafa;
+  font-family: var(--font-stitch-head);
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.design-stitch #main .conversion-section-head__lead {
+  color: var(--stitch-on-variant);
+}
+
+.design-stitch #main .conversion-section-head--light .section-kicker {
+  color: var(--stitch-primary);
+}
+
+.design-stitch #main .conversion-section-head--light .conversion-section-head__title {
+  color: #fafafa;
+}
+
+/* Bandeaux contact */
+.design-stitch .conversion-band--primary {
+  background: var(--stitch-bg-low);
+  border-top: 1px solid var(--stitch-outline);
+  border-bottom: 1px solid var(--stitch-outline);
+}
+
+.design-stitch .conversion-band--footer {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(130, 17, 17, 0.35) 0%, transparent 70%),
+    var(--stitch-bg);
+  border-top: 1px solid rgba(255, 180, 171, 0.12);
+}
+
+.design-stitch .conversion-band__inner {
+  background: var(--stitch-surface);
+  border: 1px solid var(--stitch-ring-strong);
+  box-shadow: var(--stitch-module-shadow);
+}
+
+.design-stitch .conversion-band--footer .conversion-band__inner {
+  background: linear-gradient(165deg, rgba(47, 46, 52, 0.95) 0%, var(--stitch-surface) 100%);
+  border-color: rgba(255, 180, 171, 0.22);
+  box-shadow:
+    0 16px 48px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(130, 17, 17, 0.35);
+}
+
+.design-stitch .conversion-band__title {
+  color: #fafafa;
+  font-family: var(--font-stitch-head);
+  font-weight: 800;
+}
+
+.design-stitch .conversion-band__lead {
+  color: var(--stitch-on-variant);
+}
+
+.design-stitch .conversion-band--footer .conversion-band__lead {
+  color: #e8e0de;
+}
+
+.design-stitch .conversion-band__meta {
+  color: var(--stitch-on-variant);
+}
+
+.design-stitch .conversion-band__meta a {
+  color: var(--stitch-primary);
+}
+
+.design-stitch .conversion-band--footer .conversion-band__meta a {
+  color: var(--stitch-primary);
+}
+
+.design-stitch .conversion-band--primary .conversion-band__secondary .btn--secondary,
+.design-stitch .conversion-band--footer .conversion-band__secondary .btn--secondary {
+  background: linear-gradient(135deg, var(--stitch-primary-container) 0%, var(--stitch-primary-container-2) 100%);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(130, 17, 17, 0.35);
+}
+
+.design-stitch .conversion-band--primary .conversion-band__secondary .btn--secondary:hover,
+.design-stitch .conversion-band--footer .conversion-band__secondary .btn--secondary:hover,
+.design-stitch .conversion-band--primary .conversion-band__secondary .btn--secondary:focus-visible,
+.design-stitch .conversion-band--footer .conversion-band__secondary .btn--secondary:focus-visible {
+  background: linear-gradient(135deg, #9a1515 0%, var(--stitch-primary-container-2) 100%);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.design-stitch .conversion-band--footer .conversion-band__secondary .btn--secondary {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow: none;
+}
+
+.design-stitch .conversion-band--footer .conversion-band__secondary .btn--secondary:hover,
+.design-stitch .conversion-band--footer .conversion-band__secondary .btn--secondary:focus-visible {
+  background: #fafafa;
+  border-color: #fafafa;
+  color: var(--stitch-bg);
+}
+
+.design-stitch .conversion-band__phone.btn--primary {
+  box-shadow: 0 10px 32px rgba(130, 17, 17, 0.45);
+}
+
+/* Prestations & navigation */
+.design-stitch .conversion-services {
+  background: var(--stitch-bg);
+}
+
+.design-stitch .conversion-services__link {
+  background: var(--stitch-surface);
+  border-color: var(--stitch-ring-strong);
+  color: #fafafa;
+  font-family: var(--font-stitch-head);
+  font-weight: 700;
+  box-shadow: var(--stitch-module-shadow);
+}
+
+.design-stitch a.conversion-services__link::after {
+  color: var(--stitch-primary);
+}
+
+.design-stitch a.conversion-services__link:hover,
+.design-stitch a.conversion-services__link:focus-visible {
+  background: var(--stitch-surface-high);
+  border-color: rgba(255, 180, 171, 0.35);
+  box-shadow:
+    0 12px 36px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 180, 171, 0.18);
+}
+
+.design-stitch .conversion-services__link--text {
+  background: var(--stitch-surface);
+  color: var(--stitch-on-surface);
+}
+
+.design-stitch .conversion-nav {
+  background: var(--stitch-bg-low);
+  border-top: 1px solid var(--stitch-outline);
+  border-bottom: 1px solid var(--stitch-outline);
+}
+
+.design-stitch .conversion-nav__grid a {
+  background: var(--stitch-surface);
+  border-color: var(--stitch-ring-strong);
+  color: #f4f4f5;
+  font-family: var(--font-stitch-head);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  box-shadow: var(--stitch-module-shadow);
+}
+
+.design-stitch .conversion-nav__grid a:hover,
+.design-stitch .conversion-nav__grid a:focus-visible {
+  background: linear-gradient(135deg, var(--stitch-primary-container) 0%, var(--stitch-primary-container-2) 100%);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(130, 17, 17, 0.4);
+}
+
+/* FAQ conversion */
+.design-stitch .conversion-faq {
+  background: var(--stitch-bg);
+}
+
+.design-stitch .conversion-faq.faq {
+  background: var(--stitch-bg);
+}
+
+/* Tarifs flash (accueil / services) */
+.design-stitch .conversion-offers.hook-offers {
+  background: transparent;
+}
+
+.design-stitch .conversion-offers .conversion-section-head {
+  margin-bottom: 1.25rem;
+}
+
+.design-stitch .conversion-tarifs-teaser {
+  background: var(--stitch-bg);
+  border-top: 1px solid var(--stitch-outline);
+  border-bottom: 1px solid var(--stitch-outline);
+}
+
+.design-stitch .conversion-tarifs-teaser .conversion-section-head__title {
+  color: #fafafa;
+}
+
+.design-stitch .tarifs-teaser__card {
+  background: var(--stitch-surface);
+  border: 1px solid var(--stitch-ring-strong);
+  box-shadow: var(--stitch-module-shadow);
+  border-radius: 0.75rem;
+}
+
+.design-stitch .tarifs-teaser__card:hover {
+  background: var(--stitch-surface-high);
+  border-color: rgba(255, 180, 171, 0.35);
+}
+
+.design-stitch .tarifs-teaser__label {
+  font-family: var(--font-stitch-head);
+  color: var(--stitch-on-variant);
+}
+
+.design-stitch .tarifs-teaser__cta {
+  font-family: var(--font-stitch-head);
+  color: var(--stitch-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.design-stitch .tarifs-teaser__hint {
+  color: var(--stitch-on-variant);
+}
+
+.design-stitch .conversion-home__tarifs a {
+  color: var(--stitch-primary);
+  font-family: var(--font-stitch-head);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+.design-stitch .conversion-home__tarifs a:hover {
+  color: #ffd5d0;
+}
+
+/* Carte & tarifs page */
+.design-stitch .conversion-map {
+  background: var(--stitch-bg-low);
+  border-top: 1px solid var(--stitch-outline);
+}
+
+.design-stitch .conversion-map__frame {
+  border: 1px solid var(--stitch-ring-strong);
+  box-shadow: var(--stitch-module-shadow);
+}
+
+.design-stitch.conversion-page .pricing-section,
+.design-stitch.conversion-page .reviews-section {
+  background: var(--stitch-bg-low);
+}
+
+.design-stitch.conversion-page #main .pricing-section__intro {
+  color: var(--stitch-on-variant);
+  text-align: center;
+}
+
+.design-stitch.conversion-page #main .pricing-section__intro strong {
+  color: #fafafa;
+}
+
+body.conversion-page .reviews-section--compact {
+  padding: clamp(2.5rem, 5vw, 3.5rem) 0;
+  background: var(--conv-bg);
+}
+
+body.conversion-page .promesse__item p {
+  color: var(--conv-text-muted);
+}
+
+.design-stitch .lp-trust-bar.trust-bar {
+  background: var(--stitch-bg-low);
+  border-bottom: 1px solid var(--stitch-outline);
+}
+
+.design-stitch .lp-process.promesse {
+  background: var(--stitch-bg);
+}
+
+.design-stitch .reviews-section--compact {
+  background: var(--stitch-bg);
+  border-top: 1px solid var(--stitch-outline);
+}
+
+.design-stitch .reviews-section--compact .review-card {
+  background: var(--stitch-surface);
+  border: 1px solid var(--stitch-outline);
 }
 
 /* Perf mobile : blur coûteux sur GPU bas de gamme */

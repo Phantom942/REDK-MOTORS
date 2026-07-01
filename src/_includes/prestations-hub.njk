@@ -19,6 +19,7 @@
       </form>
     </div>
 
+    {% if not prestationsHubFormOnly %}
     <div class="presta-hub__content">
       <div class="presta-hub__grid" role="list" aria-label="Categories de prestations RED-K MOTORS">
         {% if prestaHubCategoryKeys | length > 0 %}
@@ -92,5 +93,6 @@
         <a class="btn btn--primary" href="/contact/">Obtenir un devis</a>
       </aside>
     </div>
+    {% endif %}
   </div>
 </section>

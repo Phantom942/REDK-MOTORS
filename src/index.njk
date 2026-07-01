@@ -1,11 +1,12 @@
 ---
 layout: base.njk
-title: "RED-K MOTORS | Garage à Ivry-sur-Seine"
-description: "Garage RED-K MOTORS à Ivry (94) : mécanique, carrosserie, pare-brise, diagnostic. Devis gratuit · 06 48 74 56 68 · lun–sam 9h–19h."
+title: "Garage Ivry-sur-Seine (94) | Mécanique, Carrosserie | RED-K MOTORS"
+description: "RED-K MOTORS à Ivry (94) : diagnostic, freins, entretien, carrosserie. Devis gratuit · ☎ 06 48 74 56 68 · lun–sam 9h–19h."
 pageKey: index
 date: 2026-06-11
-lastReviewed: 2026-06-11
+lastReviewed: 2026-07-01
 hasHeroVideo: true
+hideServiceAreas: true
 sitemap:
   priority: 1
   changefreq: weekly
@@ -17,235 +18,63 @@ breadcrumb:
       position: 1
       name: "Accueil"
       item: "https://redk-motors.me/"
-faqSchema:
-  "@context": "https://schema.org"
-  "@type": "FAQPage"
-  mainEntity:
-    - "@type": "Question"
-      name: "Où se trouve RED-K MOTORS à Ivry-sur-Seine ?"
-      acceptedAnswer:
-        "@type": "Answer"
-        text: "Au 9 rue Michelet, 94200 Ivry-sur-Seine. Garage facilement accessible depuis Paris et le 94."
-    - "@type": "Question"
-      name: "Quels sont vos tarifs indicatifs pour un diagnostic ou une vidange ?"
-      acceptedAnswer:
-        "@type": "Answer"
-        text: "Diagnostic avancé (approfondi) entre 50 et 100 € selon véhicule et temps d'analyse ; vidange entre 70 et 150 € selon véhicule, huile et filtre (fourchettes indicatives, marché français 2025-2026, Île-de-France). Les montants varient selon le modèle et les pièces : nous validons toujours un devis écrit avant toute intervention."
-    - "@type": "Question"
-      name: "Intervenez-vous sur toutes les marques ?"
-      acceptedAnswer:
-        "@type": "Answer"
-        text: "Oui, toutes marques : véhicules thermiques (essence et diesel)."
-    - "@type": "Question"
-      name: "Proposez-vous un devis avant les réparations ?"
-      acceptedAnswer:
-        "@type": "Answer"
-        text: "Oui. Devis détaillé et gratuit ; rien n'est engagé sans votre accord."
-    - "@type": "Question"
-      name: "Comment prendre rendez-vous ?"
-      acceptedAnswer:
-        "@type": "Answer"
-        text: "Par la page Coordonnées (redk-motors.me/contact/) : téléphone en journée, formulaire, email ou WhatsApp. Lun–sam 9h–19h. Réponse la plus rapide en général par téléphone aux heures d'ouverture."
+faqs:
+  - question: "Où se trouve le garage ?"
+    answer: "9 rue Michelet, 94200 Ivry-sur-Seine. Lun–sam 9h–19h."
+  - question: "Proposez-vous un devis avant travaux ?"
+    answer: "Oui — devis écrit gratuit, rien sans votre accord."
+  - question: "Comment vous contacter ?"
+    answer: "06 48 74 56 68, WhatsApp ou formulaire contact. Réponse rapide en journée."
 ---
 
 {% set heroActions %}
-<a class="btn btn--primary" href="#rdv">Prendre rendez-vous</a>
-<a class="btn btn--secondary" href="https://wa.me/{{ site.phone | replace('+', '') }}?text=Bonjour%2C%20je%20souhaite%20un%20devis." target="_blank" rel="noopener noreferrer">Message WhatsApp</a>
+<a class="btn btn--primary" href="tel:{{ site.phone }}" data-track="click_call" data-track-pos="hero">Appeler {{ site.phoneDisplayCompact | default(site.phoneDisplay) }}</a>
+<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp" data-track-pos="hero">WhatsApp</a>
 {% endset %}
-{% set heroClass = "hero--expanded hero--home-cro" %}
+{% set heroClass = "hero--expanded hero--home-cro hero--conversion" %}
 {% set heroAria = "home-hero-title" %}
-{% set heroTitle = "RED-K MOTORS" %}
-{% set heroSubtitle = "Garage à Ivry-sur-Seine" %}
+{% set heroTitle = "Garage Auto à Ivry-sur-Seine" %}
+{% set heroSubtitle = "RED-K MOTORS · Val-de-Marne (94)" %}
+{% set heroDesc = "Diagnostic, freins, entretien, carrosserie et pare-brise. Devis gratuit — on intervient après votre accord." %}
 {% set heroActionsCro = true %}
 {% set videoSrc = "hero.mp4" %}
 {% include "hero-video.njk" %}
 
-<section class="hook-offers hook-offers--prominent" aria-labelledby="hook-offers-title">
-  <div class="container">
-    <h2 id="hook-offers-title" class="sr-only">Fourchettes indicatives atelier</h2>
-    <ul class="hook-offers__grid">
-      <li class="hook-offers__card">
-        <span class="hook-offers__label">Vidange</span>
-        <span class="hook-offers__price">dès 70&nbsp;€</span>
-      </li>
-      <li class="hook-offers__card">
-        <span class="hook-offers__label">Diagnostic avancé</span>
-        <span class="hook-offers__price">50–100&nbsp;€</span>
-      </li>
-      <li class="hook-offers__card">
-        <span class="hook-offers__label">Plaquettes</span>
-        <span class="hook-offers__price">dès 100&nbsp;€</span>
-      </li>
-    </ul>
-  </div>
-</section>
+{% include "lp-trust-bar.njk" %}
 
-<section class="trust-bar" aria-labelledby="trust-bar-home-title">
-  <div class="container trust-bar__inner">
-    <h2 id="trust-bar-home-title" class="sr-only">Pourquoi nous faire confiance</h2>
-    <div class="trust-bar__item">
-      <span class="trust-bar__icon" aria-hidden="true">📋</span>
-      <strong>Devis clair</strong>
-      <span>Expliqué avant travaux, rien sans votre accord.</span>
-    </div>
-    <div class="trust-bar__item">
-      <span class="trust-bar__icon" aria-hidden="true">🔧</span>
-      <strong>Toutes marques</strong>
-      <span>Essence et diesel.</span>
-    </div>
-    <div class="trust-bar__item">
-      <span class="trust-bar__icon" aria-hidden="true">⏱</span>
-      <strong>Délais annoncés</strong>
-      <span>Créneau réaliste ; on prévient si ça change.</span>
-    </div>
-    <div class="trust-bar__item">
-      <span class="trust-bar__icon" aria-hidden="true">📍</span>
-      <strong>Garage local fiable</strong>
-      <span>{{ site.city }} (94), équipe sur place.</span>
-    </div>
-  </div>
-</section>
+{% set contactTitle = "Un devis ? Un RDV ?" %}
+{% set contactLead = "Appelez maintenant — réponse en journée. WhatsApp accepté pour photos et devis." %}
+{% include "conversion-contact.njk" %}
 
-<section id="services" class="services services--buckets" aria-labelledby="services-buckets-title" data-animate="slide-up">
-  <div class="container">
-    <h2 id="services-buckets-title">Entretien, mécanique, pneus</h2>
-    <p class="services__lead">Un atelier à Ivry pour l'essentiel. <a href="/professionnels/">Espace Pro</a> : taxis, VTC, flottes et auto-écoles.</p>
-    <div class="grid grid--three services-buckets">
-      <article class="card card--bucket">
-        <h3>Entretien courant</h3>
-        <p>Vidange, révision, clim, pré-contrôle : selon carnet constructeur.</p>
-        <ul class="pill-list">
-          <li><a href="/entretien/">Révision &amp; entretien</a></li>
-          <li><a href="/vidange/">Vidange</a></li>
-          <li><a href="/diagnostic/">Diagnostic</a></li>
-        </ul>
-      </article>
-      <article class="card card--bucket">
-        <h3>Réparations &amp; diagnostic</h3>
-        <p>Voyant moteur, distribution, embrayage : on chiffre avant de lancer.</p>
-        <ul class="pill-list">
-          <li><a href="/mecanique/">Mécanique générale</a></li>
-          <li><a href="/diagnostic/">Diagnostic avancé</a></li>
-          <li><a href="/carrosserie/">Carrosserie</a></li>
-          <li><a href="/pare-brise/">Pare-brise</a></li>
-        </ul>
-      </article>
-      <article class="card card--bucket">
-        <h3>Pneus &amp; freinage</h3>
-        <p>Montage, géométrie, plaquettes et disques.</p>
-        <ul class="pill-list">
-          <li><a href="/pneumatiques/">Pneumatiques</a></li>
-          <li><a href="/freins/">Freins</a></li>
-        </ul>
-      </article>
-    </div>
-  </div>
-</section>
+{% set tarifsTeaserTrack = "home_tarifs" %}
+{% include "conversion-tarifs-teaser.njk" %}
 
-<section class="pricing-section pricing-section--readable" id="tarifs" aria-labelledby="tarifs-title" data-animate="slide-up">
-  <div class="container">
-    <h2 id="tarifs-title">Tarifs indicatifs</h2>
-    <p class="pricing-section__intro">Indicatifs TTC à {{ site.city }} (94), <strong>véhicules particuliers courants</strong>. <strong>Prix définitif sur devis</strong> après passage au garage.</p>
-    <div class="pricing-table-wrap">
-      <table class="pricing-table">
-        <caption class="sr-only">Extraits de prix indicatifs RED-K MOTORS</caption>
-        <thead>
-          <tr>
-            <th scope="col">Prestation</th>
-            <th scope="col">À partir de / fourchette</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><th scope="row">Diagnostic avancé (approfondi)</th><td>50&nbsp;€ – 100&nbsp;€</td></tr>
-          <tr><th scope="row">Vidange (huile + filtre)</th><td>70&nbsp;€ – 150&nbsp;€</td></tr>
-          <tr><th scope="row">Plaquettes</th><td>100&nbsp;€ – 190&nbsp;€</td></tr>
-          <tr><th scope="row">Révision</th><td>130&nbsp;€ – 400&nbsp;€</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="pricing-section__disclaimer">Montants TTC indicatifs. <a href="/tarifs/">Grille complète avec tous les tarifs</a>.</p>
-    <div class="pricing-section__actions">
-      <a class="btn btn--primary" href="/tarifs/">Voir tous les tarifs</a>
-      <a class="btn btn--secondary btn--dark" href="/contact/">Adresse &amp; plan</a>
-    </div>
-  </div>
-</section>
+{% include "conversion-services-nav.njk" %}
 
-<section id="rdv" class="appointment appointment--final" aria-labelledby="appointment-title" data-animate="slide-up">
-  <div class="container appointment__centered">
-    <h2 id="appointment-title">Rendez-vous et tarifs</h2>
-    <p>Le plus rapide : un appel en journée. Devis écrit : formulaire, email ou WhatsApp.</p>
-    <p class="appointment__callout">
-      <a href="tel:{{ site.phone }}" class="btn btn--primary" data-track="click_call" data-track-pos="home_rdv">{{ site.phoneDisplay }}</a>
-    </p>
-    <dl class="appointment__info">
-      <div>
-        <dt>Téléphone</dt>
-        <dd><a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a></dd>
-      </div>
-      <div>
-        <dt>Email</dt>
-        <dd><a href="mailto:{{ site.email }}">{{ site.email }}</a></dd>
-      </div>
-      <div>
-        <dt>Adresse</dt>
-        <dd><a href="{{ site.wazeUrl }}" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">{{ site.addressFull }}</a></dd>
-      </div>
-    </dl>
-    <p class="appointment__hint"><a href="/contact/#contact-form-title">Formulaire de contact</a> · <a href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp" data-track-pos="home_rdv">WhatsApp</a> · <a href="/contact/">Toutes les coordonnées</a></p>
-  </div>
-</section>
+{% set pageReviews = "index" | resolvePageReviews(googleReviews, 3) %}
+{% set reviewsSectionTitle = "Ils nous font confiance" %}
+{% include "reviews-page-block.njk" %}
 
-{% include "trust-block.njk" %}
-
-{% include "reviews-block.njk" %}
-
-<section class="faq-section" aria-labelledby="faq-title" data-animate="slide-up">
-  <div class="container">
-    <h2 id="faq-title">FAQ</h2>
-    <div data-accordion>
+<section class="faq conversion-faq" aria-labelledby="faq-title">
+  <div class="container faq__inner faq__inner--compact">
+    {% set sectionKicker = "FAQ" %}
+    {% set sectionTitle = "Questions fréquentes" %}
+    {% set sectionHeadId = "faq-title" %}
+    {% include "conversion-section-head.njk" %}
+    <div class="faq__list" data-accordion>
+      {% for faq in faqs %}
       <article class="faq__item">
-        <button class="faq__question" type="button" aria-expanded="false" aria-controls="faq-1">
-          Où se trouve RED-K MOTORS à Ivry-sur-Seine ?
-        </button>
-        <div class="faq__answer" id="faq-1" hidden>
-          <p>Au 9 rue Michelet, 94200 Ivry-sur-Seine. Garage facilement accessible depuis Paris et le 94. Plan et horaires : <a href="/contact/">page Coordonnées</a>.</p>
+        <button class="faq__question" type="button" aria-expanded="false">{{ faq.question }}</button>
+        <div class="faq__answer" hidden>
+          <p>{{ faq.answer }}</p>
         </div>
       </article>
-      <article class="faq__item">
-        <button class="faq__question" type="button" aria-expanded="false" aria-controls="faq-2">
-          Quels sont vos tarifs indicatifs pour un diagnostic ou une vidange ?
-        </button>
-        <div class="faq__answer" id="faq-2" hidden>
-          <p>Diagnostic avancé entre 50 et 100 € selon véhicule ; vidange entre 70 et 150 € selon huile et filtre (fourchettes indicatives TTC, Île-de-France 2025-2026). Devis écrit validé avant intervention. <a href="/tarifs/">Grille complète</a>.</p>
-        </div>
-      </article>
-      <article class="faq__item">
-        <button class="faq__question" type="button" aria-expanded="false" aria-controls="faq-3">
-          Intervenez-vous sur toutes les marques ?
-        </button>
-        <div class="faq__answer" id="faq-3" hidden>
-          <p>Oui, toutes marques : véhicules thermiques (essence et diesel).</p>
-        </div>
-      </article>
-      <article class="faq__item">
-        <button class="faq__question" type="button" aria-expanded="false" aria-controls="faq-4">
-          Proposez-vous un devis avant les réparations ?
-        </button>
-        <div class="faq__answer" id="faq-4" hidden>
-          <p>Oui. Devis détaillé et gratuit ; rien n'est engagé sans votre accord.</p>
-        </div>
-      </article>
-      <article class="faq__item">
-        <button class="faq__question" type="button" aria-expanded="false" aria-controls="faq-5">
-          Comment prendre rendez-vous ?
-        </button>
-        <div class="faq__answer" id="faq-5" hidden>
-          <p>Par la page <a href="/contact/#contact-form-title">Coordonnées</a> : téléphone {{ site.phoneDisplay }}, formulaire, email ou WhatsApp. Lun–sam 9h–19h. Réponse la plus rapide en général par téléphone aux heures d'ouverture.</p>
-        </div>
-      </article>
+      {% endfor %}
     </div>
   </div>
 </section>
 
-
+{% set contactVariant = 'footer' %}
+{% set contactTitle = 'On s\'occupe de votre véhicule' %}
+{% set contactLead = 'Appelez le ' ~ site.phoneDisplayCompact ~ ' ou écrivez — devis gratuit avant intervention.' %}
+{% include "conversion-contact.njk" %}

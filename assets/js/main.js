@@ -160,12 +160,15 @@ document.addEventListener('DOMContentLoaded', function() {
       setNavMenuOpen(!isExpanded);
 
       if (!isExpanded) {
-        document.addEventListener('click', function closeMenu(e) {
-          if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
-            setNavMenuOpen(false);
-            document.removeEventListener('click', closeMenu);
+        window.setTimeout(function() {
+          function closeMenu(e) {
+            if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+              setNavMenuOpen(false);
+              document.removeEventListener('click', closeMenu);
+            }
           }
-        });
+          document.addEventListener('click', closeMenu);
+        }, 0);
       }
     });
 

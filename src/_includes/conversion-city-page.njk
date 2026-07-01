@@ -1,0 +1,22 @@
+{% if not h1 and heroTitle %}
+  {% set h1 = heroTitle %}
+{% endif %}
+{% if not heroKickerText and heroKicker %}
+  {% set heroKickerText = heroKicker %}
+{% endif %}
+{% if not heroDescription and heroDesc %}
+  {% set heroDescription = heroDesc %}
+{% endif %}
+{% if not introText %}
+  {% set introText = heroDescription | default("Garage à Ivry-sur-Seine — devis gratuit.") %}
+{% endif %}
+{% if not services %}
+  {% set services = [
+    { title: "Mécanique & diagnostic" },
+    { title: "Entretien & vidange" },
+    { title: "Freins & pneus" },
+    { title: "Carrosserie & pare-brise" }
+  ] %}
+{% endif %}
+
+{% include "local-seo-page.njk" %}

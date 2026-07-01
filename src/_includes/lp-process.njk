@@ -1,0 +1,19 @@
+<section class="promesse lp-process" aria-labelledby="lp-process-title">
+  <div class="container">
+    {% set sectionKicker = "Simple" %}
+    {% set sectionTitle = "Comment ça se passe ?" %}
+    {% set sectionHeadId = "lp-process-title" %}
+    {% include "conversion-section-head.njk" %}
+    <div class="promesse__grid">
+      {% for step in lp.processSteps %}
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">{{ loop.index }}</span>
+        <div>
+          <h3>{{ step.title }}</h3>
+          {% if step.desc %}<p>{{ step.desc }}</p>{% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

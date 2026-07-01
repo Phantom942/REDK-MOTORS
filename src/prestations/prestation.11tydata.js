@@ -32,18 +32,18 @@ function buildBreadcrumb(data) {
 }
 
 function buildFaqSchema(data) {
-  const faq = data.prestation?.faq;
-  if (!faq?.length) return undefined;
+  const faqs = data.prestation?.lp?.faqs;
+  if (!faqs?.length) return undefined;
 
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: faq.map((item) => ({
+    mainEntity: faqs.map((item) => ({
       "@type": "Question",
-      name: item.q,
+      name: item.question,
       acceptedAnswer: {
         "@type": "Answer",
-        text: item.a,
+        text: item.answer,
       },
     })),
   };
@@ -65,7 +65,7 @@ function buildServiceSchema(data) {
       { "@type": "City", name: "Villejuif" },
       { "@type": "AdministrativeArea", name: "Paris 13e arrondissement" },
     ],
-    description: prestation.summary,
+    description: prestation.lp?.heroDesc || prestation.summary,
     url: `${SITE_URL}/prestations/${prestation.slug}/`,
     offers: {
       "@type": "Offer",
@@ -78,9 +78,13 @@ function buildServiceSchema(data) {
 
 module.exports = {
   eleventyComputed: {
-    lastReviewed: () => "2026-06-11",
+    lastReviewed: () => "2026-07-01",
     breadcrumb: (data) => buildBreadcrumb(data),
     faqSchema: (data) => buildFaqSchema(data),
     localServiceSchema: (data) => buildServiceSchema(data),
+    lp: (data) => data.prestation?.lp,
+    lpPageId: (data) => (data.prestation ? `prestation-${data.prestation.slug}` : undefined),
+    hideServiceAreas: () => true,
+    hasHeroVideo: () => true,
   },
 };
