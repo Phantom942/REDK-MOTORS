@@ -187,7 +187,6 @@ p, li, td, th, span, a, h1, h2, h3, h4 {
   flex: 1 1 auto;
   min-width: 0;
   margin-right: 0;
-  flex-shrink: 0;
 }
 
 .logo__img {
@@ -363,6 +362,73 @@ p, li, td, th, span, a, h1, h2, h3, h4 {
 @media (min-width: 1100px) {
   .main-nav__google-rating {
     display: inline-flex;
+  }
+
+  .main-nav__bar-links {
+    display: flex;
+  }
+
+  .main-nav #primary-menu > .main-nav__item--bar-fallback {
+    display: none;
+  }
+
+  .main-nav__toggle {
+    display: none;
+  }
+}
+
+@media (max-width: 1099px) {
+  .main-nav__bar-links {
+    display: none !important;
+  }
+
+  .main-nav__phone {
+    display: none !important;
+  }
+
+  .main-nav__toggle {
+    display: inline-flex !important;
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .main-nav__google-rating {
+    display: none;
+  }
+
+  .main-header__inner {
+    gap: 10px;
+  }
+
+  .main-header .logo {
+    flex: 1 1 0;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .main-nav {
+    flex: 0 0 auto;
+    margin-left: auto;
+    gap: 8px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1099px) {
+  .main-nav__google-rating {
+    display: inline-flex;
+    padding: 6px 10px;
+    gap: 5px;
+    font-size: 0.7rem;
+  }
+
+  .main-nav__google-count {
+    display: none;
+  }
+
+  .main-header .logo {
+    flex: 1 1 0;
+    max-width: calc(100% - 9.5rem);
   }
 }
 
@@ -560,26 +626,6 @@ p, li, td, th, span, a, h1, h2, h3, h4 {
 .main-nav__bar-sub a[aria-current="page"]::after {
   opacity: 1;
   transform: translateX(0);
-}
-
-@media (min-width: 768px) {
-  .main-nav__bar-links {
-    display: flex;
-  }
-
-  .main-nav #primary-menu > .main-nav__item--bar-fallback {
-    display: none;
-  }
-}
-
-@media (max-width: 767px) {
-  .main-nav__bar-links {
-    display: none;
-  }
-
-  .main-nav__phone {
-    display: none;
-  }
 }
 
 .main-nav__cta {
@@ -1098,7 +1144,11 @@ body.is-nav-open .main-nav #primary-menu.is-open {
 
 @media (max-width: 420px) {
   .main-nav .main-nav__toggle.btn {
-    padding: 10px 16px 10px 14px;
+    padding: 10px 12px;
+  }
+
+  .main-nav__toggle-label {
+    display: none;
   }
 }
 
@@ -1874,7 +1924,7 @@ body.is-nav-open .main-nav #primary-menu.is-open {
 
   .logo__img {
     height: 44px;
-    max-width: min(calc(100dvw - 108px), 320px);
+    max-width: 100%;
   }
 
   .logo__img--footer {
@@ -5269,11 +5319,22 @@ img[loading="lazy"].loaded {
   box-shadow: 0 6px 20px rgba(179, 18, 23, 0.35);
 }
 
-/* =====================================================
-   MOBILE OVERRIDES (fin de fichier — priorité cascade)
-   Les grids 2 colonnes sont définies après les premiers
-   media queries, ce bloc les corrige définitivement.
-   ===================================================== */
+/* Navbar mobile / tablette : hamburger toujours visible */
+@media (max-width: 1099px) {
+  .main-header {
+    overflow: visible;
+  }
+
+  .main-header__inner {
+    overflow: visible;
+  }
+
+  .main-nav__toggle {
+    position: relative;
+    z-index: 1004;
+  }
+}
+
 
 @media (max-width: 1024px) {
   .about__inner,
