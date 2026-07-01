@@ -61,11 +61,17 @@ async function main() {
   try {
     const place = await fetchPlaceReviews(placeId);
     const maxReviews = site.googleReviews.maxReviews || 4;
-    const reviews = (place.reviews || []).slice(0, maxReviews).map((review) => ({
-      author: (review.authorAttribution && review.authorAttribution.displayName) || 'Client Google',
-      rating: review.rating || 5,
-      text: reviewText(review),
-    }));
+    const reviews = (place.reviews || []).slice(0, maxReviews).map((review) => {
+      const entry = {
+        author: (review.authorAttribution && review.authorAttribution.displayName) || "Client Google",
+        rating: review.rating || 5,
+        text: reviewText(review),
+      };
+      if (review.publishTime) {
+        entry.date = review.publishTime.slice(0, 10);
+      }
+      return entry;
+    });
 
     if (!reviews.length) {
       console.warn('sync-google-reviews: aucun avis retourné par l’API — fichiers conservés.');

@@ -94,7 +94,10 @@ document.addEventListener('DOMContentLoaded', function() {
       navBackdrop.setAttribute('aria-hidden', open ? 'false' : 'true');
     }
 
-    navToggle.querySelector('.sr-only').textContent = open ? 'Fermer le menu' : 'Ouvrir le menu';
+    var srLabel = navToggle.querySelector('.sr-only');
+    if (srLabel) {
+      srLabel.textContent = open ? 'Fermer le menu' : 'Ouvrir le menu';
+    }
 
     if (mainEl) {
       if (open) mainEl.setAttribute('aria-hidden', 'true');

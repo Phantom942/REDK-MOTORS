@@ -2793,6 +2793,21 @@ body.design-stitch {
   color: #fafafa;
 }
 
+.design-stitch .conversion-local-link {
+  background: var(--stitch-bg-low);
+  border-top: 1px solid var(--stitch-outline);
+}
+
+.design-stitch .conversion-local-link__inner p {
+  color: var(--stitch-on-variant);
+}
+
+.design-stitch .conversion-local-link a {
+  color: var(--stitch-primary);
+  font-family: var(--font-stitch-head);
+  font-weight: 700;
+}
+
 body.conversion-page .reviews-section--compact {
   padding: clamp(2.5rem, 5vw, 3.5rem) 0;
   background: var(--conv-bg);

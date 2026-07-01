@@ -46,6 +46,9 @@ module.exports = function (eleventyConfig) {
     return resolvePageReviews(pageId, googleReviews, count || 2, overrideAuthors);
   });
 
+  const { resolveMoneyPages } = require("./src/_data/localSeoMoneyPages.js");
+  eleventyConfig.addFilter("localSeoMoneyPages", (pageKey) => resolveMoneyPages(pageKey));
+
   // Filtre date pour sitemap (ISO YYYY-MM-DD) — pas de fallback, retourne vide si invalide
   eleventyConfig.addFilter("dateToIso", (date) => {
     if (!date) return "";

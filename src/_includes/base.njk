@@ -47,7 +47,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" />
     <meta name="description" content="{{ description | default(site.description or 'Garage automobile RED-K MOTORS à Ivry-sur-Seine. Mécanique, carrosserie, entretien et pneumatiques.') }}" />
-    <meta name="keywords" content="{{ keywords | default(site.seoKeywords) }}" />
     <meta name="author" content="{{ site.name }}" />
     <meta name="robots" content="{{ robots | default(defaultRobots) }}" />
     <meta name="geo.region" content="{{ site.geo.region }}" />
@@ -117,7 +116,6 @@
           "name": "{{ site.seoTitle | default(site.name) }}",
           "url": "{{ site.url }}",
           "description": "{{ site.description | default('Garage automobile à Ivry-sur-Seine') }}",
-          "keywords": "{{ keywords | default(site.seoKeywords) }}",
           "publisher": { "@id": "https://redk-motors.me/#business" },
           "inLanguage": "fr-FR",
           "potentialAction": {

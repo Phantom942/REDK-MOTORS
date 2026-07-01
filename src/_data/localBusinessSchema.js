@@ -39,18 +39,23 @@ module.exports = function localBusinessSchema() {
     worstRating: 1,
   };
 
-  schema.review = googleReviews.reviews.slice(0, 4).map((entry) => ({
-    "@type": "Review",
-    author: { "@type": "Person", name: entry.author },
-    reviewRating: {
-      "@type": "Rating",
-      ratingValue: entry.rating,
-      bestRating: 5,
-      worstRating: 1,
-    },
-    reviewBody: entry.text,
-    datePublished: entry.date || undefined,
-  }));
+  schema.review = googleReviews.reviews.slice(0, 4).map((entry) => {
+    const review = {
+      "@type": "Review",
+      author: { "@type": "Person", name: entry.author },
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: entry.rating,
+        bestRating: 5,
+        worstRating: 1,
+      },
+      reviewBody: entry.text,
+    };
+    if (entry.date) {
+      review.datePublished = entry.date;
+    }
+    return review;
+  });
 
   const placeId = (process.env.GOOGLE_PLACES_PLACE_ID || site.googleReviews.placeId || "").trim();
   if (placeId) {

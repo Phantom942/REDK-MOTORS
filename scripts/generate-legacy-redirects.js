@@ -6,6 +6,8 @@
 const fs = require("fs");
 const path = require("path");
 
+const adLandingUrls = require("../src/_data/adLandingUrls.js");
+
 const SITE_URL = "https://redk-motors.me";
 const OUT_DIR = path.join(__dirname, "..", "_site");
 const ARTICLES_DIR = path.join(__dirname, "..", "src", "blog", "articles");
@@ -45,8 +47,32 @@ function redirectHtml(target) {
 </html>`;
 }
 
+function toOutputRelativePath(fromPath) {
+  const relative = fromPath.replace(/^\//, "");
+  if (fromPath.endsWith("/")) {
+    return path.join(relative, "index.html");
+  }
+  if (!relative.endsWith(".html")) {
+    return `${relative}.html`;
+  }
+  return relative;
+}
+
+function collectLpRedirects() {
+  const redirects = [];
+  for (const [from, to] of Object.entries(adLandingUrls.legacyRedirects || {})) {
+    redirects.push([from, to]);
+    if (from.endsWith("/")) {
+      redirects.push([from.slice(0, -1), to]);
+    } else {
+      redirects.push([`${from}/`, to]);
+    }
+  }
+  return redirects;
+}
+
 function writeRedirect(fromPath, toPath) {
-  const filePath = path.join(OUT_DIR, fromPath.replace(/^\//, ""));
+  const filePath = path.join(OUT_DIR, toOutputRelativePath(fromPath));
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
   fs.writeFileSync(filePath, redirectHtml(toPath), "utf8");
 }
@@ -73,7 +99,8 @@ function main() {
   }
 
   const blogRedirects = collectBlogArticleRedirects();
-  const all = [...STATIC_REDIRECTS, ...blogRedirects];
+  const lpRedirects = collectLpRedirects();
+  const all = [...STATIC_REDIRECTS, ...lpRedirects, ...blogRedirects];
   const seen = new Set();
 
   for (const [from, to] of all) {
@@ -82,7 +109,9 @@ function main() {
     writeRedirect(from, to);
   }
 
-  console.log(`generate-legacy-redirects: ${seen.size} fichiers créés (${blogRedirects.length} articles blog).`);
+  console.log(
+    `generate-legacy-redirects: ${seen.size} fichiers créés (${blogRedirects.length} articles blog, ${lpRedirects.length} lp-*).`,
+  );
 }
 
 main();

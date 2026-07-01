@@ -23,7 +23,30 @@
     {% include "conversion-section-head.njk" %}
     <ul class="conversion-services__list">
       {% for service in services %}
-      <li><span class="conversion-services__link conversion-services__link--text">{{ service.title }}</span></li>
+      <li>
+        {% if service.url %}
+        <a href="{{ service.url }}" class="conversion-services__link">{{ service.title }}</a>
+        {% else %}
+        <span class="conversion-services__link conversion-services__link--text">{{ service.title }}</span>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endif %}
+
+{% set moneyPages = pageKey | localSeoMoneyPages %}
+{% if moneyPages.length %}
+<section class="conversion-services conversion-services--money" aria-labelledby="local-money-{{ pageKey }}">
+  <div class="container">
+    {% set sectionKicker = "Pages utiles" %}
+    {% set sectionTitle = "Prestations principales" %}
+    {% set sectionHeadId = "local-money-" ~ pageKey %}
+    {% include "conversion-section-head.njk" %}
+    <ul class="conversion-services__list">
+      {% for page in moneyPages %}
+      <li><a href="{{ page.url }}" class="conversion-services__link">{{ page.title }}</a></li>
       {% endfor %}
     </ul>
   </div>
