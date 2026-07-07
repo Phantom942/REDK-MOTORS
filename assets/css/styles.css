@@ -5249,6 +5249,22 @@ img[loading="lazy"].loaded {
   margin: 0;
 }
 
+.exemple-prix-generic-link {
+  margin: 0 0 1.25rem;
+  font-size: 0.92rem;
+}
+
+.exemple-prix-generic-link a {
+  color: #e85d75;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.exemple-prix-generic-link a:hover,
+.exemple-prix-generic-link a:focus-visible {
+  text-decoration: underline;
+}
+
 .exemple-prix-related {
   padding-top: 1.5rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);

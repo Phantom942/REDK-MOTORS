@@ -27,14 +27,16 @@ function buildBreadcrumb(data) {
 function buildFaqSchema(data) {
   const ex = data.exemple;
   if (!ex) return undefined;
-  const modelLabel = `${ex.brand} ${ex.model}`;
+  const questionLabel = ex.isGeneric
+    ? `Combien coûte un ${ex.serviceLabel} ?`
+    : `Combien coûte un ${ex.serviceLabel} sur ${ex.brand} ${ex.model} ?`;
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: [
       {
         "@type": "Question",
-        name: `Combien coûte un ${ex.serviceLabel} sur ${modelLabel} ?`,
+        name: questionLabel,
         acceptedAnswer: {
           "@type": "Answer",
           text: `En réseau : ${ex.networkPrice} (${ex.networkNote}). Chez RED-K MOTORS à Ivry : ${ex.redkPrice}. ${ex.redkNote}`,
@@ -85,23 +87,41 @@ module.exports = {
     directAnswer: (data) => {
       const ex = data.exemple;
       if (!ex) return undefined;
-      const modelLabel = `${ex.brand} ${ex.model}`;
+      const questionLabel = ex.isGeneric
+        ? `Combien coûte un ${ex.serviceLabel} ?`
+        : `Combien coûte un ${ex.serviceLabel} sur ${ex.brand} ${ex.model} ?`;
+      const facts = [
+        { label: "Réseau", value: ex.networkPrice },
+        { label: "RED-K MOTORS", value: ex.redkPrice },
+      ];
+      if (ex.isGeneric) {
+        facts.push({ label: "Véhicules", value: "Citadine à SUV" });
+      } else {
+        facts.push({ label: "Génération", value: ex.yearRange });
+      }
       return {
-        question: `Combien coûte un ${ex.serviceLabel} sur ${modelLabel} ?`,
+        question: questionLabel,
         answer: `Fourchette réseau : ${ex.networkPrice}. Chez RED-K MOTORS à Ivry-sur-Seine : ${ex.redkPrice} — ${ex.redkHighlight}.`,
-        facts: [
-          { label: "Réseau", value: ex.networkPrice },
-          { label: "RED-K MOTORS", value: ex.redkPrice },
-          { label: "Génération", value: ex.yearRange },
-        ],
+        facts,
       };
+    },
+    genericExemple: (data) => {
+      const ex = data.exemple;
+      if (!ex || ex.isGeneric) return undefined;
+      const { all } = require("../_data/priceExamples.js");
+      return all.find((item) => item.isGeneric && item.serviceKey === ex.serviceKey);
     },
     relatedExemples: (data) => {
       const ex = data.exemple;
       if (!ex) return [];
       const { all } = require("../_data/priceExamples.js");
+      if (ex.isGeneric) {
+        return all
+          .filter((item) => !item.isGeneric && item.serviceKey === ex.serviceKey)
+          .slice(0, 6);
+      }
       return all
-        .filter((item) => item.slug !== ex.slug && item.serviceKey === ex.serviceKey)
+        .filter((item) => !item.isGeneric && item.slug !== ex.slug && item.serviceKey === ex.serviceKey)
         .slice(0, 3);
     },
   },

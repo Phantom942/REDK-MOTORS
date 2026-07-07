@@ -1,6 +1,7 @@
 /**
  * Pages SEO « exemple concret » — /exemples/prix-…/
- * Générées modèle × prestation. Hors navigation site, indexées via sitemap.xml.
+ * 8 pages génériques (par prestation) + générées modèle × prestation.
+ * Hors navigation site, indexées via sitemap.xml.
  * published: false sur une entrée manuelle = pas de page.
  */
 const DATE = "2026-07-07";
@@ -45,6 +46,36 @@ const MODELS = [
   { slug: "audi-a3", brand: "Audi", model: "A3", yearRange: "2012–2020", segment: "premium", tireSize: "205/55 R16" },
   { slug: "peugeot-partner", brand: "Peugeot", model: "Partner", yearRange: "2018+", segment: "utilitaire", tireSize: "215/65 R16" },
   { slug: "renault-kangoo", brand: "Renault", model: "Kangoo", yearRange: "2008–2021", segment: "utilitaire", tireSize: "195/65 R15" },
+  { slug: "renault-twingo-3", brand: "Renault", model: "Twingo 3", yearRange: "2014–2024", segment: "citadine", tireSize: "185/55 R15" },
+  { slug: "renault-zoe", brand: "Renault", model: "Zoé", yearRange: "2012–2024", segment: "citadine", tireSize: "185/65 R15" },
+  { slug: "renault-megane-3", brand: "Renault", model: "Mégane 3", yearRange: "2008–2016", segment: "compacte", tireSize: "205/55 R16" },
+  { slug: "renault-arkana", brand: "Renault", model: "Arkana", yearRange: "2021+", segment: "suv", tireSize: "215/60 R17" },
+  { slug: "peugeot-207", brand: "Peugeot", model: "207", yearRange: "2006–2014", segment: "citadine", tireSize: "185/65 R15" },
+  { slug: "peugeot-307", brand: "Peugeot", model: "307", yearRange: "2008–2014", segment: "compacte", tireSize: "195/65 R15" },
+  { slug: "peugeot-508", brand: "Peugeot", model: "508", yearRange: "2018+", segment: "compacte", tireSize: "215/55 R17" },
+  { slug: "peugeot-108", brand: "Peugeot", model: "108", yearRange: "2014–2021", segment: "citadine", tireSize: "165/65 R14" },
+  { slug: "peugeot-rifter", brand: "Peugeot", model: "Rifter", yearRange: "2018+", segment: "monospace", tireSize: "215/60 R16" },
+  { slug: "citroen-c5-aircross", brand: "Citroën", model: "C5 Aircross", yearRange: "2017+", segment: "suv", tireSize: "225/60 R17" },
+  { slug: "citroen-berlingo", brand: "Citroën", model: "Berlingo", yearRange: "2018+", segment: "monospace", tireSize: "215/60 R16" },
+  { slug: "citroen-c1", brand: "Citroën", model: "C1", yearRange: "2014–2021", segment: "citadine", tireSize: "165/65 R14" },
+  { slug: "volkswagen-passat", brand: "Volkswagen", model: "Passat", yearRange: "2015–2023", segment: "compacte", tireSize: "215/55 R17" },
+  { slug: "volkswagen-t-roc", brand: "Volkswagen", model: "T-Roc", yearRange: "2017+", segment: "suv", tireSize: "215/60 R17" },
+  { slug: "volkswagen-touran", brand: "Volkswagen", model: "Touran", yearRange: "2015–2022", segment: "monospace", tireSize: "215/60 R16" },
+  { slug: "dacia-logan", brand: "Dacia", model: "Logan", yearRange: "2012+", segment: "citadine", tireSize: "185/65 R15" },
+  { slug: "fiat-500", brand: "Fiat", model: "500", yearRange: "2007–2023", segment: "citadine", tireSize: "175/65 R14" },
+  { slug: "hyundai-i20", brand: "Hyundai", model: "i20", yearRange: "2014+", segment: "citadine", tireSize: "185/60 R15" },
+  { slug: "hyundai-tucson", brand: "Hyundai", model: "Tucson", yearRange: "2015+", segment: "suv", tireSize: "225/60 R17" },
+  { slug: "ford-focus", brand: "Ford", model: "Focus", yearRange: "2011–2018", segment: "compacte", tireSize: "205/55 R16" },
+  { slug: "ford-puma", brand: "Ford", model: "Puma", yearRange: "2019+", segment: "suv", tireSize: "215/60 R17" },
+  { slug: "nissan-juke", brand: "Nissan", model: "Juke", yearRange: "2019+", segment: "suv", tireSize: "215/60 R17" },
+  { slug: "nissan-micra", brand: "Nissan", model: "Micra", yearRange: "2017–2023", segment: "citadine", tireSize: "185/60 R15" },
+  { slug: "toyota-c-hr", brand: "Toyota", model: "C-HR", yearRange: "2016+", segment: "suv", tireSize: "215/60 R17" },
+  { slug: "toyota-rav4", brand: "Toyota", model: "RAV4", yearRange: "2019+", segment: "suv", tireSize: "225/65 R17" },
+  { slug: "bmw-serie-3", brand: "BMW", model: "Série 3", yearRange: "2019+", segment: "premium", tireSize: "225/45 R18" },
+  { slug: "mercedes-classe-c", brand: "Mercedes", model: "Classe C", yearRange: "2014–2021", segment: "premium", tireSize: "225/50 R17" },
+  { slug: "seat-ibiza", brand: "Seat", model: "Ibiza", yearRange: "2017+", segment: "citadine", tireSize: "195/55 R16" },
+  { slug: "skoda-octavia", brand: "Skoda", model: "Octavia", yearRange: "2013–2020", segment: "compacte", tireSize: "205/55 R16" },
+  { slug: "kia-sportage", brand: "Kia", model: "Sportage", yearRange: "2016+", segment: "suv", tireSize: "225/60 R17" },
 ];
 
 const SERVICES = {
@@ -204,6 +235,45 @@ function buildSlug(service, model) {
   return `prix-${service.slugPart}-${model.slug}`;
 }
 
+function buildGenericExample(serviceKey) {
+  const service = SERVICES[serviceKey];
+  const [netMin, netMax] = service.network;
+  const slug = `prix-${service.slugPart}`;
+
+  const specifics = service.specifics.map((point) =>
+    point.includes("ce modèle") || point.includes("Dimension fréquente")
+      ? point
+          .replace("Dimension fréquente sur ce modèle : voir fiche ou plaquette portière.", "Dimension des pneus : voir plaquette portière ou carte grise.")
+          .replace(/sur ce modèle/i, "selon le véhicule")
+      : point
+  );
+  if (serviceKey === "pare-brise") {
+    specifics.push("Citadine, compacte ou SUV : le coût pièce et la main-d'œuvre varient fortement.");
+  }
+  if (serviceKey === "distribution") {
+    specifics.push("Essence, diesel ou hybride : intervalle et type de courroie à vérifier au carnet.");
+  }
+
+  return {
+    slug,
+    isGeneric: true,
+    serviceKey: service.serviceKey,
+    serviceLabel: service.serviceLabel,
+    serviceUrl: service.serviceUrl,
+    brand: "Tous véhicules",
+    model: "citadine à SUV",
+    yearRange: "essence, diesel et hybride",
+    networkPrice: formatRange(netMin * 0.9, netMax * 1.35),
+    networkNote: `${service.networkNote} — fourchette selon segment (citadine, compacte, SUV, premium)`,
+    redkPrice: service.redkPrice,
+    redkHighlight: service.redkHighlight,
+    redkNote: service.redkNote,
+    specifics,
+    published: true,
+    date: DATE,
+  };
+}
+
 function buildExample(model, serviceKey) {
   const service = SERVICES[serviceKey];
   const mult = SEGMENT_MULT[model.segment] || 1;
@@ -226,6 +296,7 @@ function buildExample(model, serviceKey) {
 
   const base = {
     slug,
+    isGeneric: false,
     serviceKey: service.serviceKey,
     serviceLabel: service.serviceLabel,
     serviceUrl: service.serviceUrl,
@@ -247,19 +318,32 @@ function buildExample(model, serviceKey) {
 }
 
 function buildTitle(ex) {
+  if (ex.isGeneric) {
+    return `Prix ${ex.serviceLabel} · fourchette 2026`;
+  }
   return `Prix ${ex.serviceLabel} ${ex.brand} ${ex.model} · fourchette 2026`;
 }
 
 function buildDescription(ex) {
+  if (ex.isGeneric) {
+    return `Combien coûte un ${ex.serviceLabel} ? Exemple concret citadine, compacte ou SUV — fourchette réseau vs RED-K MOTORS à Ivry (94). Devis gratuit · 06 48 74 56 68.`;
+  }
   return `Combien coûte un ${ex.serviceLabel} sur ${ex.brand} ${ex.model} ? Exemple concret, fourchette réseau vs RED-K MOTORS à Ivry (94). Devis gratuit · 06 48 74 56 68.`;
 }
 
 function buildQuery(ex) {
+  if (ex.isGeneric) {
+    return `Prix ${ex.serviceLabel}`;
+  }
   return `Prix ${ex.serviceLabel} ${ex.brand} ${ex.model}`;
 }
 
 const serviceKeys = Object.keys(SERVICES);
 const EXAMPLES = [];
+
+for (const serviceKey of serviceKeys) {
+  EXAMPLES.push(buildGenericExample(serviceKey));
+}
 
 for (const model of MODELS) {
   for (const serviceKey of serviceKeys) {
