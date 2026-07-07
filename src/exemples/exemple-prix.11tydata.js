@@ -34,8 +34,8 @@ function buildFaqSchema(data) {
     ex.isGeneric && ex.searchQuery ? `Combien coûte ${ex.searchQuery.toLowerCase()} ?` : questionLabel;
 
   const priceAnswer = ex.isGeneric
-    ? `En réseau : ${ex.networkPrice} (${ex.networkNote}). Chez RED-K MOTORS à Ivry : ${ex.redkPrice}. ${ex.redkHighlight}. ${ex.redkNote}`
-    : `En réseau : ${ex.networkPrice} (${ex.networkNote}). Chez RED-K MOTORS à Ivry : ${ex.redkPrice}. ${ex.redkHighlight}. ${ex.redkNote}`;
+    ? `Exemple à Ivry : ${ex.redkPrice}. ${ex.redkHighlight}. ${ex.redkNote} Ailleurs, en moyenne : ${ex.networkPrice} (${ex.networkNote}).`
+    : `Exemple à Ivry pour ce modèle : ${ex.redkPrice}. ${ex.redkHighlight}. ${ex.redkNote} Ailleurs, en moyenne : ${ex.networkPrice} (${ex.networkNote}).`;
 
   return {
     "@context": "https://schema.org",
@@ -109,8 +109,8 @@ module.exports = {
             ? `Combien coûte un ${ex.serviceLabel} ?`
             : `Combien coûte un ${ex.serviceLabel} sur ${ex.brand} ${ex.model} ?`;
       const facts = [
-        { label: "Réseau", value: ex.networkPrice },
-        { label: "RED-K MOTORS", value: ex.redkPrice },
+        { label: "Exemple à Ivry", value: ex.redkPrice },
+        { label: "Ailleurs (indicatif)", value: ex.networkPrice },
         { label: "Diagnostic", value: "Offert à chaque intervention" },
       ];
       if (ex.isGeneric) {
@@ -120,7 +120,7 @@ module.exports = {
       }
       return {
         question: questionLabel,
-        answer: `Fourchette réseau : ${ex.networkPrice}. Chez RED-K MOTORS à Ivry-sur-Seine : ${ex.redkPrice} — ${ex.redkHighlight}.`,
+        answer: `Exemple à Ivry : ${ex.redkPrice} — ${ex.redkHighlight}. Ailleurs, en moyenne : ${ex.networkPrice}.`,
         facts,
       };
     },

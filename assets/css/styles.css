@@ -8164,6 +8164,50 @@ a.review-card__name:hover {
   color: rgba(255, 255, 255, 0.88);
 }
 
+.price-examples-hub__feature-price {
+  padding: 1rem 1.1rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(196, 30, 58, 0.35);
+}
+
+.price-examples-hub__feature-label,
+.price-examples-hub__card-price-label {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.52);
+  margin-bottom: 0.35rem;
+}
+
+.price-examples-hub__feature-value,
+.price-examples-hub__card-price-value {
+  display: block;
+  font-size: clamp(1.35rem, 4vw, 1.75rem);
+  font-weight: 800;
+  color: #f4b4c0;
+  line-height: 1.2;
+}
+
+.price-examples-hub__feature-elsewhere,
+.price-examples-hub__elsewhere {
+  display: block;
+  margin-top: 0.45rem;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.price-examples-hub__card-price {
+  padding: 0.75rem 0.85rem;
+  border-radius: 8px;
+  background: rgba(196, 30, 58, 0.1);
+  border: 1px solid rgba(196, 30, 58, 0.28);
+}
+
 .price-examples-hub__feature-compare {
   display: grid;
   gap: 0.75rem;
@@ -8292,7 +8336,15 @@ a.review-card__name:hover {
 }
 
 .price-examples-hub__row-pill--redk {
+  font-size: 0.95rem;
+  font-weight: 700;
   color: #f4b4c0;
+}
+
+.price-examples-hub__row-pill--muted {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .price-examples-hub__row-arrow {

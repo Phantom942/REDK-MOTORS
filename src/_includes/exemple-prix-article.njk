@@ -4,8 +4,8 @@
   {% set kicker = "Guide prix · Tous modèles · Ivry (94)" %}
   {% set heroTitle = exemple.heroTitle | default("Prix " ~ exemple.serviceLabel ~ " · tous modèles") %}
   {% set heroLead = exemple.problemLead | default(description) %}
-  {% set compareIntro = "Vous comparez les prix avant de vous engager ? Voici une fourchette indicative <strong>grand réseau vs RED-K MOTORS</strong> — citadine, compacte ou SUV (" ~ exemple.yearRange ~ ")." %}
-  {% set specificsTitle = "Points de vigilance avant devis" %}
+  {% set compareIntro = "Exemple de prix indicatif à Ivry — citadine, compacte ou SUV (" ~ exemple.yearRange ~ "). Le montant exact dépend du véhicule après inspection." %}
+  {% set specificsTitle = "Points de vigilance avant intervention" %}
   {% set relatedTitle = "Exemples par modèle" %}
 {% else %}
   {% set modelLabel = exemple.brand ~ " " ~ exemple.model %}
@@ -13,7 +13,7 @@
   {% set kicker = "Guide prix · " ~ exemple.brand %}
   {% set heroTitle = "Prix " ~ exemple.serviceLabel ~ " " ~ modelLabel %}
   {% set heroLead = description %}
-  {% set compareIntro = "Comparaison indicative pour une <strong>" ~ modelLabel ~ "</strong> (" ~ exemple.yearRange ~ ")." %}
+  {% set compareIntro = "Exemple de prix indicatif pour une <strong>" ~ modelLabel ~ "</strong> (" ~ exemple.yearRange ~ ")." %}
   {% set specificsTitle = "À savoir sur " ~ modelLabel %}
   {% set relatedTitle = "Même prestation, autre modèle" %}
 {% endif %}
@@ -36,7 +36,6 @@
         <span class="exemple-prix-chip">{{ exemple.yearRange }}</span>
         <span class="exemple-prix-chip">Ivry-sur-Seine (94)</span>
         <span class="exemple-prix-chip">Diagnostic offert</span>
-        <span class="exemple-prix-chip">Devis gratuit</span>
       </div>
       <p class="exemple-prix-hero__lead">{{ heroLead }}</p>
     </div>
@@ -72,21 +71,15 @@
       {% endif %}
 
       <section class="exemple-compare" aria-labelledby="exemple-compare-title">
-        <p class="section-kicker">Exemple concret</p>
+        <p class="section-kicker">Exemple de prix</p>
         <h2 id="exemple-compare-title">{{ exemple.searchQuery }} : combien ça coûte ?</h2>
         <p class="exemple-compare__intro">
           {{ compareIntro | safe }}
         </p>
 
         <div class="exemple-compare__grid">
-          <article class="exemple-compare__card exemple-compare__card--network">
-            <span class="exemple-compare__label">Grand réseau</span>
-            <p class="exemple-compare__price">{{ exemple.networkPrice }}</p>
-            <p class="exemple-compare__note">{{ exemple.networkNote }}</p>
-          </article>
-
           <article class="exemple-compare__card exemple-compare__card--redk">
-            <span class="exemple-compare__badge">RED-K MOTORS · Ivry</span>
+            <span class="exemple-compare__badge">Exemple chez nous · Ivry</span>
             <p class="exemple-compare__price">{{ exemple.redkPrice }}</p>
             {% if exemple.redkHighlight %}
             <p class="exemple-compare__highlight">{{ exemple.redkHighlight }}</p>
@@ -94,10 +87,16 @@
             <p class="exemple-compare__note">{{ exemple.redkNote }}</p>
             <a href="{{ exemple.serviceUrl }}" class="btn btn--primary exemple-compare__cta">Voir la prestation</a>
           </article>
+
+          <article class="exemple-compare__card exemple-compare__card--network">
+            <span class="exemple-compare__label">Ailleurs, en moyenne</span>
+            <p class="exemple-compare__price">{{ exemple.networkPrice }}</p>
+            <p class="exemple-compare__note">{{ exemple.networkNote }}</p>
+          </article>
         </div>
 
         <p class="exemple-compare__disclaimer">
-          Montants indicatifs à titre d'exemple — le devis au véhicule, après inspection, est la seule référence fiable.
+          Montants indicatifs à titre d'exemple — le prix exact dépend du véhicule après inspection à l'atelier.
         </p>
       </section>
 

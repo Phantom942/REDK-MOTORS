@@ -6,7 +6,7 @@
 >
   <div class="container">
     <header class="conversion-section-head conversion-section-head--light">
-      <p class="section-kicker">{{ hubKicker | default("Exemples concrets") }}</p>
+      <p class="section-kicker">{{ hubKicker | default("Exemples de prix") }}</p>
       <h2 class="conversion-section-head__title" id="price-examples-hub-title">
         {{ hubTitle | default("Combien ça coûte ?") }}
       </h2>
@@ -35,8 +35,10 @@
                   <span class="price-examples-hub__hook">{{ guide.hook }}</span>
                 </span>
                 <span class="price-examples-hub__row-prices">
-                  <span class="price-examples-hub__row-pill price-examples-hub__row-pill--network">{{ guide.networkPrice }}</span>
-                  <span class="price-examples-hub__row-pill price-examples-hub__row-pill--redk">{{ guide.usp }}</span>
+                  <span class="price-examples-hub__row-pill price-examples-hub__row-pill--redk">{{ guide.redkExample }}</span>
+                  {% if guide.elsewhereExample %}
+                  <span class="price-examples-hub__row-pill price-examples-hub__row-pill--muted">Ailleurs {{ guide.elsewhereExample }}</span>
+                  {% endif %}
                 </span>
                 <span class="price-examples-hub__row-arrow" aria-hidden="true">→</span>
               </a>
@@ -47,7 +49,7 @@
         {% endfor %}
       </div>
       <p class="price-examples-hub__footer">
-        Modèle précis (Clio, 208, Golf…) : chaque guide renvoie vers des exemples par véhicule.
+        Montants indicatifs TTC — devis ferme au véhicule. Modèle précis (Clio, 208, Golf…) dans chaque guide.
       </p>
 
     {% elif hubLayout == "feature" and hubGuides.length == 1 %}
@@ -60,16 +62,12 @@
         data-track-label="{{ guide.slug }}"
       >
         <p class="price-examples-hub__feature-hook">{{ guide.hook }}</p>
-        <div class="price-examples-hub__feature-compare">
-          <div class="price-examples-hub__feature-col">
-            <span class="price-examples-hub__feature-label">Grand réseau</span>
-            <span class="price-examples-hub__feature-value">{{ guide.networkPrice }}</span>
-          </div>
-          <div class="price-examples-hub__feature-col price-examples-hub__feature-col--redk">
-            <span class="price-examples-hub__feature-label">RED-K MOTORS</span>
-            <span class="price-examples-hub__feature-value">{{ guide.hubRedkLine }}</span>
-            <span class="price-examples-hub__feature-usp">{{ guide.usp }}</span>
-          </div>
+        <div class="price-examples-hub__feature-price">
+          <span class="price-examples-hub__feature-label">Exemple de prix à Ivry</span>
+          <span class="price-examples-hub__feature-value">{{ guide.redkExample }}</span>
+          {% if guide.elsewhereExample %}
+          <span class="price-examples-hub__feature-elsewhere">Ailleurs, en moyenne : {{ guide.elsewhereExample }}</span>
+          {% endif %}
         </div>
         <span class="price-examples-hub__feature-cta">{{ guide.cta }} →</span>
       </a>
@@ -87,17 +85,13 @@
           >
             <span class="price-examples-hub__label">{{ guide.hubLabel }}</span>
             <p class="price-examples-hub__hook">{{ guide.hook }}</p>
-            <div class="price-examples-hub__card-prices">
-              <span class="price-examples-hub__mini">
-                <span class="price-examples-hub__mini-label">Réseau</span>
-                <span class="price-examples-hub__mini-value">{{ guide.networkPrice }}</span>
-              </span>
-              <span class="price-examples-hub__mini price-examples-hub__mini--redk">
-                <span class="price-examples-hub__mini-label">RED-K</span>
-                <span class="price-examples-hub__mini-value">{{ guide.hubRedkLine }}</span>
-              </span>
+            <div class="price-examples-hub__card-price">
+              <span class="price-examples-hub__card-price-label">Exemple à Ivry</span>
+              <span class="price-examples-hub__card-price-value">{{ guide.redkExample }}</span>
             </div>
-            <span class="price-examples-hub__usp">{{ guide.usp }}</span>
+            {% if guide.elsewhereExample %}
+            <span class="price-examples-hub__elsewhere">Ailleurs : {{ guide.elsewhereExample }}</span>
+            {% endif %}
             <span class="price-examples-hub__cta">{{ guide.cta }} →</span>
           </a>
         </li>
