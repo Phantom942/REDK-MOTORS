@@ -44,8 +44,8 @@ offerCatalogSchema:
       itemOffered: { "@type": "Service", "name": "Changement pneus (montage 4 + équilibrage)" }
       priceSpecification: { "@type": "PriceSpecification", "minPrice": "60", "maxPrice": "150", "priceCurrency": "EUR" }
     - "@type": "Offer"
-      itemOffered: { "@type": "Service", "name": "Réparation climatisation / recharge clim" }
-      priceSpecification: { "@type": "PriceSpecification", "minPrice": "80", "maxPrice": "200", "priceCurrency": "EUR" }
+      itemOffered: { "@type": "Service", "name": "Recharge climatisation" }
+      priceSpecification: { "@type": "PriceSpecification", "price": "40", "priceCurrency": "EUR" }
     - "@type": "Offer"
       itemOffered: { "@type": "Service", "name": "Changement batterie voiture" }
       priceSpecification: { "@type": "PriceSpecification", "minPrice": "120", "maxPrice": "250", "priceCurrency": "EUR" }
@@ -105,6 +105,14 @@ faqSchema:
     {% include "pricing-table-full.njk" %}
   </div>
 </section>
+
+{% set hubGuides = priceExamplesHub.allGuides() %}
+{% set hubMode = "catalog" %}
+{% set hubKicker = "Guides prix détaillés" %}
+{% set hubTitle = "Exemples concrets par prestation" %}
+{% set hubLead = "Chaque guide compare grand réseau et RED-K MOTORS — avec symptômes, fourchettes et diagnostic offert. Complément de la grille ci-dessus." %}
+{% set hubTrack = "tarifs_price_examples" %}
+{% include "price-examples-hub.njk" %}
 
 {% include "conversion-services-nav.njk" %}
 

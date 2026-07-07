@@ -37,6 +37,13 @@
 
 {% include "lp-seo-intro.njk" %}
 
+{% set hubGuides = priceExamplesHub.forPage(pageKey, lpKey) %}
+{% if hubGuides.length %}
+  {% set hubMode = "focus" %}
+  {% set hubTrack = lpId ~ "_price_example" %}
+  {% include "price-examples-hub.njk" %}
+{% endif %}
+
 {% set pageReviewCount = lp.reviewCount | default(2) %}
 {% set pageReviews = lpId | resolvePageReviews(googleReviews, pageReviewCount) %}
 {% if lp.showReviews != false %}

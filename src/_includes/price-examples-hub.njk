@@ -1,0 +1,55 @@
+{# hubGuides: tableau depuis priceExamplesHub.forPage() ou allGuides() #}
+{# hubMode: "catalog" (tarifs, grille complète) | "focus" (1–3 guides page prestation) #}
+{% if hubGuides and hubGuides.length %}
+<section
+  class="price-examples-hub{% if hubMode == 'catalog' %} price-examples-hub--catalog{% else %} price-examples-hub--focus{% endif %}"
+  aria-labelledby="price-examples-hub-title"
+>
+  <div class="container">
+    <header class="conversion-section-head conversion-section-head--light">
+      <p class="section-kicker">{{ hubKicker | default("Exemples concrets") }}</p>
+      <h2 class="conversion-section-head__title" id="price-examples-hub-title">
+        {{ hubTitle | default("Combien ça coûte ? Comparez avant de vous déplacer") }}
+      </h2>
+      {% if hubLead %}
+      <p class="price-examples-hub__lead">{{ hubLead }}</p>
+      {% elif hubMode == "catalog" %}
+      <p class="price-examples-hub__lead">
+        Fourchettes réseau vs RED-K MOTORS à Ivry — diagnostic offert à chaque intervention. Montants indicatifs ; devis ferme au véhicule.
+      </p>
+      {% else %}
+      <p class="price-examples-hub__lead">
+        Guide détaillé avec fourchette grand réseau, prix RED-K MOTORS et points de vigilance — diagnostic offert.
+      </p>
+      {% endif %}
+    </header>
+
+    <ul class="price-examples-hub__grid">
+      {% for guide in hubGuides %}
+      <li>
+        <a
+          class="price-examples-hub__card"
+          href="{{ guide.url }}"
+          data-track="click_price_example"
+          data-track-pos="{{ hubTrack | default('price_examples_hub') }}"
+          data-track-label="{{ guide.slug }}"
+        >
+          <span class="price-examples-hub__label">{{ guide.label }}</span>
+          <span class="price-examples-hub__price">{{ guide.redkPrice }}</span>
+          {% if guide.highlight %}
+          <span class="price-examples-hub__highlight">{{ guide.highlight }}</span>
+          {% endif %}
+          <span class="price-examples-hub__cta">Voir l'exemple détaillé →</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+
+    {% if hubMode == "catalog" %}
+    <p class="price-examples-hub__footer">
+      Vous cherchez un modèle précis (Clio, 208, Golf…) ? Chaque guide renvoie vers des exemples par véhicule.
+    </p>
+    {% endif %}
+  </div>
+</section>
+{% endif %}

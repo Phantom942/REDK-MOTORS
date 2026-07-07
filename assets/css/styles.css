@@ -8025,6 +8025,102 @@ a.review-card__name:hover {
   max-width: 22rem;
 }
 
+/* Hub maillage → guides prix /exemples/ */
+.price-examples-hub {
+  padding: clamp(2rem, 4vw, 3rem) 0;
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.price-examples-hub .conversion-section-head {
+  max-width: 40rem;
+  margin-bottom: 1.25rem;
+}
+
+.price-examples-hub__lead {
+  margin: 0.75rem 0 0;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.75);
+  text-wrap: pretty;
+}
+
+.price-examples-hub__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+}
+
+.price-examples-hub--focus .price-examples-hub__grid {
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+}
+
+.price-examples-hub--catalog .price-examples-hub__grid {
+  grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
+}
+
+.price-examples-hub__card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  height: 100%;
+  padding: 1rem 1.1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s, background 0.2s, transform 0.12s ease;
+}
+
+.price-examples-hub__card:hover,
+.price-examples-hub__card:focus-visible {
+  border-color: rgba(196, 30, 58, 0.45);
+  background: rgba(196, 30, 58, 0.1);
+  transform: translateY(-1px);
+}
+
+.price-examples-hub__label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.58);
+  line-height: 1.35;
+}
+
+.price-examples-hub__price {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fafafa;
+  line-height: 1.25;
+}
+
+.price-examples-hub__highlight {
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: #e8a0ad;
+  font-weight: 500;
+}
+
+.price-examples-hub__cta {
+  margin-top: auto;
+  padding-top: 0.35rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.price-examples-hub__footer {
+  margin: 1.15rem 0 0;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.6);
+}
+
 .promesse__item h3 {
   margin: 0 0 0.35rem;
   font-size: 1rem;
