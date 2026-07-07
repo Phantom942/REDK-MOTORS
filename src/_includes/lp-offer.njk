@@ -1,0 +1,39 @@
+{% if lp.offer %}
+<section class="lp-offer" aria-labelledby="lp-offer-title">
+  <div class="container">
+    <div class="lp-offer__card">
+      {% if lp.offer.badge %}
+      <p class="lp-offer__badge">{{ lp.offer.badge }}</p>
+      {% endif %}
+      <h2 id="lp-offer-title" class="lp-offer__title">{{ lp.offer.title }}</h2>
+      {% if lp.offer.amount %}
+      <p class="lp-offer__amount" aria-label="{{ lp.offer.amountLabel | default(lp.offer.amount) }}">
+        {{ lp.offer.amount }}
+        {% if lp.offer.amountSub %}<span class="lp-offer__amount-sub">{{ lp.offer.amountSub }}</span>{% endif %}
+      </p>
+      {% endif %}
+      {% if lp.offer.lead %}
+      <p class="lp-offer__lead">{{ lp.offer.lead }}</p>
+      {% endif %}
+      {% if lp.offer.points and lp.offer.points.length %}
+      <ul class="lp-offer__points">
+        {% for point in lp.offer.points %}
+        <li>{{ point }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+      {% if lp.offer.disclaimer %}
+      <p class="lp-offer__disclaimer">{{ lp.offer.disclaimer }}</p>
+      {% endif %}
+      {% if lp.offer.ctaLabel %}
+      <p class="lp-offer__cta">
+        <a class="btn btn--primary" href="tel:{{ site.phone }}" data-track="click_call" data-track-pos="lp_offer">{{ lp.offer.ctaLabel }}</a>
+        {% if lp.offer.ctaSecondaryLabel %}
+        <a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp" data-track-pos="lp_offer">{{ lp.offer.ctaSecondaryLabel }}</a>
+        {% endif %}
+      </p>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endif %}

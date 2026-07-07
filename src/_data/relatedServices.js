@@ -28,6 +28,8 @@ const PAGES = {
   embrayage: { title: "Embrayage", url: "/prestations/embrayage/" },
   batterie: { title: "Batterie auto", url: "/prestations/remplacement-batterie/" },
   pareBrisePresta: { title: "Pare-brise & vitrage", url: "/prestations/pare-brise-vitrage/" },
+  debosselage: { title: "Débosselage sans peinture", url: "/prestations/debosselage/" },
+  peintureLocalisee: { title: "Peinture localisée", url: "/prestations/peinture-localisee/" },
   vitry: { title: "Garage proche Vitry", url: "/vitry-sur-seine/" },
   villejuif: { title: "Garage proche Villejuif", url: "/villejuif/" },
   paris13: { title: "Garage proche Paris 13", url: "/paris-13/" },
@@ -39,9 +41,9 @@ const BY_PAGE = {
   diagnostic: ["mecanique", "voyantMoteur", "entretien", "tarifs", "contact", "vitry"],
   freinage: ["plaquettes", "pneumatiques", "diagnostic", "tarifs", "contact"],
   revision: ["vidange", "vidangePresta", "rechargeClim", "revisionPresta", "tarifs", "contact"],
-  carrosserie: ["pareBrise", "pareBrisePresta", "tarifs", "contact", "ivry"],
+  carrosserie: ["pareBrise", "debosselage", "tarifs", "contact", "ivry"],
   mecanique: ["diagnostic", "distribution", "embrayage", "freins", "tarifs", "contact"],
-  "pare-brise": ["pareBrisePresta", "carrosserie", "tarifs", "contact", "ivry"],
+  "pare-brise": ["debosselage", "carrosserie", "tarifs", "contact", "ivry"],
   pneumatiques: ["montagePneus", "geometrie", "freins", "tarifs", "contact"],
   vidange: ["vidangePresta", "entretien", "revisionPresta", "tarifs", "contact"],
   prestations: ["diagnostic", "entretien", "freins", "pneumatiques", "tarifs", "contact"],
@@ -83,6 +85,32 @@ const PRESTATION_BY_SLUG = {
 
 const CITY_PAGES = ["vitry", "villejuif", "paris13", "alfortville", "maisonsAlfort", "kremlin", "charenton", "garageIvry"];
 
+/** Pages pare-brise traitées comme équivalentes pour le maillage (évite les boucles). */
+const RELATED_CLUSTERS = [["/pare-brise/", "/prestations/pare-brise-vitrage/"]];
+
+function normalizePath(url) {
+  if (!url) return "";
+  let path = String(url).trim().split("?")[0].split("#")[0];
+  if (!path.startsWith("/")) path = `/${path}`;
+  path = path.replace(/index\.html$/, "");
+  if (!path.endsWith("/")) path += "/";
+  return path;
+}
+
+function clusterOf(path) {
+  const normalized = normalizePath(path);
+  return RELATED_CLUSTERS.find((cluster) => cluster.some((entry) => normalizePath(entry) === normalized));
+}
+
+function isSameOrSiblingPage(currentUrl, targetUrl) {
+  const current = normalizePath(currentUrl);
+  const target = normalizePath(targetUrl);
+  if (!current || !target) return false;
+  if (current === target) return true;
+  const cluster = clusterOf(current);
+  return Boolean(cluster && cluster.some((entry) => normalizePath(entry) === target));
+}
+
 function resolveKeys(pageId) {
   if (!pageId) return BY_PAGE.index;
   if (BY_PAGE[pageId]) return BY_PAGE[pageId];
@@ -97,21 +125,22 @@ function resolveKeys(pageId) {
   return BY_PAGE.index;
 }
 
-function resolveRelated(pageId) {
+function resolveRelated(pageId, currentUrl) {
   const keys = resolveKeys(pageId);
   const seen = new Set();
   const result = [];
   for (const key of keys) {
     const page = PAGES[key];
-    if (page && !seen.has(page.url)) {
-      seen.add(page.url);
-      result.push(page);
-    }
+    if (!page || seen.has(page.url)) continue;
+    if (isSameOrSiblingPage(currentUrl, page.url)) continue;
+    seen.add(page.url);
+    result.push(page);
   }
   return result;
 }
 
 module.exports = {
   PAGES,
+  isSameOrSiblingPage,
   resolveRelated,
 };

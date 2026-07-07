@@ -1,4 +1,4 @@
-{% set relatedLinks = lpId | relatedServices %}
+{% set relatedLinks = lpId | relatedServices(page.url) %}
 {% if relatedLinks.length %}
 <section class="conversion-services conversion-services--related" aria-labelledby="related-{{ lpId }}">
   <div class="container">

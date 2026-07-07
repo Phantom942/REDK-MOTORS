@@ -62,9 +62,9 @@ module.exports = {
   pareBrise: {
     question: "Le pare-brise est-il pris en charge par l'assurance bris de glace à Ivry ?",
     answer:
-      "Oui, si votre contrat auto inclut la garantie bris de glace : remplacement ou réparation du vitrage pris en charge par votre assureur (hors franchise). RED-K MOTORS vous accompagne pour la déclaration, le devis et les documents. Navette possible : récupération à domicile sur Ivry, Vitry, Villejuif et alentours. Sans garantie, devis gratuit avant intervention.",
-    priceLabel: "Garantie bris de glace",
-    price: "Prise en charge assurance si incluse au contrat",
+      "Oui, si votre contrat auto inclut la garantie bris de glace : remplacement pris en charge par votre assureur. RED-K MOTORS vous offre en plus jusqu'à 150 € + votre franchise sur chaque remplacement de pare-brise. Accompagnement déclaration, devis et documents. Navette possible sur Ivry, Vitry, Villejuif et alentours. Sans garantie, devis gratuit avant intervention.",
+    priceLabel: "Offre atelier",
+    price: "Jusqu'à 150 € + franchise offerte",
     duration: "Impact ~45 min · pose 2–3 h",
     booking: "Appel ou photo WhatsApp pour lancer le dossier",
     hideTarifsLink: true,

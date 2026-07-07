@@ -20,6 +20,8 @@
 
 {% include "lp-trust-bar.njk" %}
 
+{% include "lp-offer.njk" %}
+
 {% set contactTitle = lp.contactTitle | default("Un devis ? Un RDV ?") %}
 {% set contactLead = lp.contactLead | default("Appelez maintenant — on vous répond en journée. WhatsApp accepté pour photos et devis.") %}
 {% include "conversion-contact.njk" %}
@@ -125,9 +127,11 @@
     {% include "conversion-section-head.njk" %}
     <ul class="conversion-services__list">
       {% for service in lp.services %}
+      {% if not (service.url | isSelfPageLink(page.url)) %}
       <li>
         <a href="{{ service.url }}" class="conversion-services__link">{{ service.title }}</a>
       </li>
+      {% endif %}
       {% endfor %}
     </ul>
   </div>
@@ -163,8 +167,6 @@
 {% set contactTitle = 'Prêt à passer à l\'action ?' %}
 {% set contactLead = 'Appelez le ' ~ site.phoneDisplayCompact ~ ' ou écrivez-nous — réponse en journée, lun–sam 9h–19h.' %}
 {% include "conversion-contact.njk" %}
-
-{% include "lp-local-seo-link.njk" %}
 
 {% include "lp-related-services.njk" %}
 

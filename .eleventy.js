@@ -49,8 +49,11 @@ module.exports = function (eleventyConfig) {
   const { resolveMoneyPages } = require("./src/_data/localSeoMoneyPages.js");
   eleventyConfig.addFilter("localSeoMoneyPages", (pageKey) => resolveMoneyPages(pageKey));
 
-  const { resolveRelated } = require("./src/_data/relatedServices.js");
-  eleventyConfig.addFilter("relatedServices", (pageId) => resolveRelated(pageId));
+  const { resolveRelated, isSameOrSiblingPage } = require("./src/_data/relatedServices.js");
+  eleventyConfig.addFilter("relatedServices", (pageId, currentUrl) => resolveRelated(pageId, currentUrl));
+  eleventyConfig.addFilter("isSelfPageLink", (targetUrl, currentUrl) =>
+    isSameOrSiblingPage(currentUrl, targetUrl)
+  );
 
   const citySeoContent = require("./src/_data/citySeoContent.js");
   eleventyConfig.addFilter("citySeoContent", (pageKey) => citySeoContent[pageKey] || null);

@@ -7639,6 +7639,125 @@ a.review-card__name:hover {
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+.lp-offer {
+  padding: clamp(2rem, 5vw, 3rem) 0;
+  background: linear-gradient(180deg, rgba(196, 30, 58, 0.14) 0%, var(--conv-bg, #161618) 100%);
+}
+
+.lp-offer__card {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: clamp(1.5rem, 4vw, 2rem);
+  text-align: center;
+  background: var(--conv-card, rgba(255, 255, 255, 0.04));
+  border: 1px solid rgba(196, 30, 58, 0.45);
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.22);
+}
+
+.lp-offer__badge {
+  display: inline-block;
+  margin: 0 0 0.75rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  background: var(--color-red);
+  color: var(--color-white);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.lp-offer__title {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-primary);
+  font-size: clamp(1.35rem, 4vw, 1.85rem);
+  line-height: 1.2;
+  color: var(--conv-text, #fff);
+}
+
+.lp-offer__amount {
+  margin: 0 0 1rem;
+  font-family: var(--font-primary);
+  font-size: clamp(2rem, 7vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--color-red);
+}
+
+.lp-offer__amount-sub {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.58em;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--conv-text, #fff);
+}
+
+.lp-offer__lead {
+  margin: 0 0 1.15rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--conv-text-muted, rgba(255, 255, 255, 0.82));
+}
+
+.lp-offer__points {
+  list-style: none;
+  margin: 0 0 1.15rem;
+  padding: 0;
+  text-align: left;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.lp-offer__points li {
+  position: relative;
+  padding-left: 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--conv-text, #fff);
+}
+
+.lp-offer__points li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--color-red);
+  font-weight: 700;
+}
+
+.lp-offer__disclaimer {
+  margin: 0 0 1.25rem;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--conv-text-muted, rgba(255, 255, 255, 0.55));
+}
+
+.lp-offer__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin: 0;
+}
+
+.lp-offer__cta .btn {
+  min-width: 11rem;
+}
+
+@media (max-width: 640px) {
+  .lp-offer__cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .lp-offer__cta .btn {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
 .reviews-section--compact {
   padding: clamp(2.5rem, 5vw, 3.5rem) 0;
 }
