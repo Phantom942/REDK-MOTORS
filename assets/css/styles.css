@@ -4999,6 +4999,317 @@ img[loading="lazy"].loaded {
   border-color: var(--color-red);
 }
 
+/* Pages /exemples/ — SEO Google, hors menu site */
+.exemple-prix-article {
+  color: var(--stitch-on-surface, #fafafa);
+}
+
+.exemple-prix-hero {
+  padding: clamp(2rem, 5vw, 3rem) 0 1.5rem;
+  background: linear-gradient(180deg, rgba(196, 30, 58, 0.12) 0%, var(--stitch-bg-low, #161618) 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.exemple-prix-hero__inner {
+  max-width: 48rem;
+}
+
+.exemple-prix-hero h1 {
+  margin: 0 0 1rem;
+  font-family: var(--font-stitch-head, var(--font-primary));
+  font-size: clamp(1.65rem, 5vw, 2.35rem);
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.exemple-prix-hero__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.exemple-prix-chip {
+  display: inline-block;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.exemple-prix-hero__lead {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.55;
+  color: var(--stitch-on-variant, rgba(255, 255, 255, 0.72));
+}
+
+.exemple-prix-body {
+  padding: clamp(1.5rem, 4vw, 2.5rem) 0 3rem;
+}
+
+.exemple-prix-body .container {
+  max-width: 52rem;
+}
+
+.exemple-compare {
+  margin-bottom: 2.25rem;
+}
+
+.exemple-compare h2 {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-stitch-head, var(--font-primary));
+  font-size: clamp(1.2rem, 3.5vw, 1.55rem);
+  line-height: 1.25;
+  text-wrap: balance;
+}
+
+.exemple-compare__intro {
+  margin: 0 0 1.25rem;
+  color: var(--stitch-on-variant, rgba(255, 255, 255, 0.72));
+  line-height: 1.5;
+}
+
+.exemple-compare__grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 720px) {
+  .exemple-compare__grid {
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+  }
+}
+
+.exemple-compare__card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: clamp(1.1rem, 3vw, 1.5rem);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: var(--stitch-surface, rgba(255, 255, 255, 0.04));
+}
+
+.exemple-compare__card--network {
+  opacity: 0.92;
+}
+
+.exemple-compare__card--redk {
+  border-color: rgba(196, 30, 58, 0.55);
+  background: linear-gradient(165deg, rgba(196, 30, 58, 0.16) 0%, var(--stitch-surface, rgba(255, 255, 255, 0.05)) 100%);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.28);
+}
+
+.exemple-compare__label,
+.exemple-compare__badge {
+  display: inline-block;
+  width: fit-content;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.exemple-compare__label {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.exemple-compare__badge {
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  background: var(--color-red);
+  color: #fff;
+}
+
+.exemple-compare__price {
+  margin: 0;
+  font-family: var(--font-stitch-head, var(--font-primary));
+  font-size: clamp(1.35rem, 4vw, 1.75rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: #fafafa;
+}
+
+.exemple-compare__card--redk .exemple-compare__price {
+  color: var(--color-red);
+}
+
+.exemple-compare__highlight {
+  margin: 0;
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #fafafa;
+}
+
+.exemple-compare__note {
+  margin: 0;
+  flex: 1;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: var(--stitch-on-variant, rgba(255, 255, 255, 0.72));
+}
+
+.exemple-compare__cta {
+  margin-top: 0.5rem;
+  width: 100%;
+  text-align: center;
+}
+
+.exemple-compare__disclaimer {
+  margin: 1rem 0 0;
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.exemple-specifics {
+  margin-bottom: 2rem;
+}
+
+.exemple-specifics h2 {
+  margin: 0 0 1rem;
+  font-size: 1.15rem;
+}
+
+.exemple-specifics__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .exemple-specifics__list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.exemple-specifics__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.exemple-specifics__icon {
+  flex-shrink: 0;
+  color: var(--color-red);
+  font-weight: 700;
+}
+
+.exemple-atelier {
+  margin-bottom: 2rem;
+}
+
+.exemple-atelier__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border-radius: 14px;
+  background: var(--stitch-surface, rgba(255, 255, 255, 0.04));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (min-width: 640px) {
+  .exemple-atelier__inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.exemple-atelier h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.15rem;
+}
+
+.exemple-atelier p {
+  margin: 0;
+  line-height: 1.5;
+  color: var(--stitch-on-variant, rgba(255, 255, 255, 0.75));
+}
+
+.exemple-atelier__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin: 0;
+}
+
+.exemple-prix-related {
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.exemple-prix-related h2 {
+  margin: 0 0 1rem;
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.exemple-prix-related__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.65rem;
+  grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+}
+
+.exemple-prix-related__link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s, transform 0.12s ease;
+}
+
+.exemple-prix-related__link:hover,
+.exemple-prix-related__link:focus-visible {
+  border-color: rgba(196, 30, 58, 0.45);
+  background: rgba(196, 30, 58, 0.1);
+  transform: translateY(-1px);
+}
+
+.exemple-prix-related__brand {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.exemple-prix-related__model {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fafafa;
+}
+
+.conversion-page .exemple-prix-body .direct-answer {
+  margin-bottom: 0;
+}
+
+.breadcrumb--compact {
+  padding-top: 0.75rem;
+}
+
 /* ========== OFFER BANNER ========== */
 
 .offer-banner {

@@ -1,0 +1,13 @@
+---
+layout: layout-exemple-prix.njk
+pagination:
+  data: priceExamples.all
+  size: 1
+  alias: exemple
+permalink: "/exemples/{{ exemple.slug }}/index.html"
+eleventyComputed:
+  ogType: "article"
+sitemap:
+  changefreq: monthly
+  priority: 0.55
+---

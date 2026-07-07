@@ -7,6 +7,7 @@ eleventyExcludeFromCollections: true
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   {% for item in collections.sitemap %}
   {% set normalizedUrl = item.url | replace('/index.html', '/') %}
+  {% if '/exemples/' not in normalizedUrl %}
   {% set sitemapChangefreq = item.data.sitemap.changefreq | default('weekly') %}
   {% set sitemapPriority = item.data.sitemap.priority | default('0.5') %}
 
@@ -54,6 +55,12 @@ eleventyExcludeFromCollections: true
     {% set sitemapPriority = '0.60' %}
   {% endif %}
 
+  {# Tier D: pages SEO exemples (hors navigation, indexées pour Google) #}
+  {% if '/exemples/' in normalizedUrl %}
+    {% set sitemapChangefreq = 'monthly' %}
+    {% set sitemapPriority = '0.55' %}
+  {% endif %}
+
   {% if normalizedUrl == '/confidentialite/' or normalizedUrl == '/cookies/' or normalizedUrl == '/mentions-legales/' %}
     {% set sitemapChangefreq = 'yearly' %}
     {% set sitemapPriority = '0.30' %}
@@ -68,6 +75,19 @@ eleventyExcludeFromCollections: true
     {% endif %}
     <changefreq>{{ sitemapChangefreq }}</changefreq>
     <priority>{{ sitemapPriority }}</priority>
+  </url>
+  {% endif %}
+  {% endfor %}
+
+  {# Pages /exemples/ (pagination Eleventy — injection explicite pour Google) #}
+  {% for ex in priceExamples.all %}
+  <url>
+    <loc>{{ site.url }}/exemples/{{ ex.slug }}/</loc>
+    {% if ex.date %}
+    <lastmod>{{ ex.date | dateToIso }}</lastmod>
+    {% endif %}
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
   </url>
   {% endfor %}
 </urlset>

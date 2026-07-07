@@ -1,0 +1,107 @@
+{% set modelLabel = exemple.brand ~ " " ~ exemple.model %}
+
+<nav class="breadcrumb breadcrumb--compact" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li aria-current="page">{{ modelLabel }}</li>
+    </ol>
+  </div>
+</nav>
+
+<article class="exemple-prix-article">
+  <header class="exemple-prix-hero">
+    <div class="container exemple-prix-hero__inner">
+      <p class="section-kicker">Guide prix · {{ exemple.brand }}</p>
+      <h1>Prix {{ exemple.serviceLabel }} {{ modelLabel }}</h1>
+      <div class="exemple-prix-hero__chips" aria-label="Informations véhicule">
+        <span class="exemple-prix-chip">{{ exemple.yearRange }}</span>
+        <span class="exemple-prix-chip">Ivry-sur-Seine (94)</span>
+        <span class="exemple-prix-chip">Devis gratuit</span>
+      </div>
+      <p class="exemple-prix-hero__lead">{{ description }}</p>
+    </div>
+  </header>
+
+  {% include "blog-direct-answer.njk" %}
+
+  <div class="exemple-prix-body">
+    <div class="container">
+      <section class="exemple-compare" aria-labelledby="exemple-compare-title">
+        <p class="section-kicker">Exemple concret</p>
+        <h2 id="exemple-compare-title">{{ exemple.searchQuery }} : combien ça coûte ?</h2>
+        <p class="exemple-compare__intro">
+          Comparaison indicative pour une <strong>{{ modelLabel }}</strong> ({{ exemple.yearRange }}).
+        </p>
+
+        <div class="exemple-compare__grid">
+          <article class="exemple-compare__card exemple-compare__card--network">
+            <span class="exemple-compare__label">Grand réseau</span>
+            <p class="exemple-compare__price">{{ exemple.networkPrice }}</p>
+            <p class="exemple-compare__note">{{ exemple.networkNote }}</p>
+          </article>
+
+          <article class="exemple-compare__card exemple-compare__card--redk">
+            <span class="exemple-compare__badge">RED-K MOTORS · Ivry</span>
+            <p class="exemple-compare__price">{{ exemple.redkPrice }}</p>
+            {% if exemple.redkHighlight %}
+            <p class="exemple-compare__highlight">{{ exemple.redkHighlight }}</p>
+            {% endif %}
+            <p class="exemple-compare__note">{{ exemple.redkNote }}</p>
+            <a href="{{ exemple.serviceUrl }}" class="btn btn--primary exemple-compare__cta">Voir la prestation</a>
+          </article>
+        </div>
+
+        <p class="exemple-compare__disclaimer">
+          Montants indicatifs à titre d'exemple — le devis au véhicule, après inspection, est la seule référence fiable.
+        </p>
+      </section>
+
+      {% if exemple.specifics and exemple.specifics.length %}
+      <section class="exemple-specifics" aria-labelledby="exemple-specifics-title">
+        <h2 id="exemple-specifics-title">À savoir sur {{ modelLabel }}</h2>
+        <ul class="exemple-specifics__list">
+          {% for point in exemple.specifics %}
+          <li class="exemple-specifics__item">
+            <span class="exemple-specifics__icon" aria-hidden="true">✓</span>
+            <span>{{ point }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+      </section>
+      {% endif %}
+
+      <section class="exemple-atelier" aria-labelledby="exemple-atelier-title">
+        <div class="exemple-atelier__inner">
+          <div>
+            <h2 id="exemple-atelier-title">{{ exemple.serviceLabel | capitalize }} à Ivry-sur-Seine</h2>
+            <p>
+              RED-K MOTORS, 9 rue Michelet, 94200 Ivry-sur-Seine — accessible depuis Vitry, Villejuif, Paris 13 et le Val-de-Marne.
+              Lun–sam 9h–19h.
+            </p>
+          </div>
+          <p class="exemple-atelier__actions">
+            <a href="tel:{{ site.phone }}" class="btn btn--primary" data-track="click_call" data-track-pos="exemple_prix">Appeler le {{ site.phoneDisplayCompact }}</a>
+            <a href="{{ site.whatsappUrl }}" class="btn btn--secondary" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp" data-track-pos="exemple_prix">WhatsApp</a>
+          </p>
+        </div>
+      </section>
+
+      {% if relatedExemples and relatedExemples.length %}
+      <section class="exemple-prix-related" aria-labelledby="exemple-related-title">
+        <h2 id="exemple-related-title">Même prestation, autre modèle</h2>
+        <ul class="exemple-prix-related__grid">
+          {% for item in relatedExemples %}
+          <li>
+            <a class="exemple-prix-related__link" href="/exemples/{{ item.slug }}/">
+              <span class="exemple-prix-related__brand">{{ item.brand }}</span>
+              <span class="exemple-prix-related__model">{{ item.model }}</span>
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </section>
+      {% endif %}
+    </div>
+  </div>
+</article>
