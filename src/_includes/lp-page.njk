@@ -37,9 +37,13 @@
 
 {% include "lp-seo-intro.njk" %}
 
-{% set hubGuides = priceExamplesHub.forPage(pageKey, lpKey) %}
-{% if hubGuides.length %}
-  {% set hubMode = "focus" %}
+{% set hubMeta = priceExamplesHub.forPageWithMeta(pageKey, lpKey) %}
+{% if hubMeta.guides.length %}
+  {% set hubGuides = hubMeta.guides %}
+  {% set hubLayout = hubMeta.layout %}
+  {% set hubKicker = hubMeta.kicker %}
+  {% set hubTitle = hubMeta.title %}
+  {% set hubLead = hubMeta.lead %}
   {% set hubTrack = lpId ~ "_price_example" %}
   {% include "price-examples-hub.njk" %}
 {% endif %}

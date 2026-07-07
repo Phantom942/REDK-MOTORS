@@ -106,11 +106,11 @@ faqSchema:
   </div>
 </section>
 
-{% set hubGuides = priceExamplesHub.allGuides() %}
-{% set hubMode = "catalog" %}
-{% set hubKicker = "Guides prix détaillés" %}
-{% set hubTitle = "Exemples concrets par prestation" %}
-{% set hubLead = "Chaque guide compare grand réseau et RED-K MOTORS — avec symptômes, fourchettes et diagnostic offert. Complément de la grille ci-dessus." %}
+{% set hubCatalogGroups = priceExamplesHub.catalogGroups() %}
+{% set hubLayout = "catalog" %}
+{% set hubKicker = priceExamplesHub.TARIFS_HUB.kicker | default("Guides détaillés") %}
+{% set hubTitle = priceExamplesHub.TARIFS_HUB.title | default("Exemples concrets par prestation") %}
+{% set hubLead = priceExamplesHub.TARIFS_HUB.lead %}
 {% set hubTrack = "tarifs_price_examples" %}
 {% include "price-examples-hub.njk" %}
 
