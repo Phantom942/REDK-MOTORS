@@ -31,17 +31,40 @@ const ALL_SLUGS = [
   "prix-batterie",
 ];
 
+const HUB_LABELS = {
+  "remplacement de pare-brise": "Pare-brise",
+  "changement de courroie de distribution": "Courroie de distribution",
+  "changement de plaquettes de frein": "Plaquettes de frein",
+  "vidange moteur": "Vidange moteur",
+  "montage et équilibrage de pneus": "Montage pneus",
+  "recharge de climatisation": "Recharge clim",
+  "remplacement d'embrayage": "Embrayage",
+  "changement de batterie": "Batterie",
+};
+
+function hubLabelFromService(serviceLabel) {
+  return (
+    HUB_LABELS[serviceLabel] ||
+    serviceLabel.charAt(0).toUpperCase() + serviceLabel.slice(1)
+  );
+}
+
+/** Affichage carte : prix chiffré si dispo, sinon message court */
+function hubRedkLine(redkPrice) {
+  if (/^devis/i.test(redkPrice)) return "Devis gratuit";
+  return redkPrice;
+}
+
 function toGuide(slug) {
   const item = GENERIC_BY_SLUG[slug];
   if (!item) return null;
   return {
     slug,
     url: `/exemples/${slug}/`,
-    label: item.searchQuery,
-    title: item.heroTitle || item.title.replace(" · fourchette 2026", "").replace(/ · Ivry.*/, ""),
-    redkPrice: item.redkPrice,
-    highlight: item.redkHighlight,
+    hubLabel: hubLabelFromService(item.serviceLabel),
+    hubRedkLine: hubRedkLine(item.redkPrice),
     networkPrice: item.networkPrice,
+    hubBadge: "Diagnostic offert",
   };
 }
 

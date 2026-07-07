@@ -19,7 +19,7 @@
       </p>
       {% else %}
       <p class="price-examples-hub__lead">
-        Guide détaillé avec fourchette grand réseau, prix RED-K MOTORS et points de vigilance — diagnostic offert.
+        Comparez le grand réseau et RED-K MOTORS avant de vous déplacer — guide détaillé avec points de vigilance.
       </p>
       {% endif %}
     </header>
@@ -34,12 +34,19 @@
           data-track-pos="{{ hubTrack | default('price_examples_hub') }}"
           data-track-label="{{ guide.slug }}"
         >
-          <span class="price-examples-hub__label">{{ guide.label }}</span>
-          <span class="price-examples-hub__price">{{ guide.redkPrice }}</span>
-          {% if guide.highlight %}
-          <span class="price-examples-hub__highlight">{{ guide.highlight }}</span>
+          <span class="price-examples-hub__label">{{ guide.hubLabel }}</span>
+          <span class="price-examples-hub__row">
+            <span class="price-examples-hub__row-label">Réseau</span>
+            <span class="price-examples-hub__row-value">{{ guide.networkPrice }}</span>
+          </span>
+          <span class="price-examples-hub__row price-examples-hub__row--redk">
+            <span class="price-examples-hub__row-label">RED-K</span>
+            <span class="price-examples-hub__row-value">{{ guide.hubRedkLine }}</span>
+          </span>
+          {% if guide.hubBadge %}
+          <span class="price-examples-hub__badge">{{ guide.hubBadge }}</span>
           {% endif %}
-          <span class="price-examples-hub__cta">Voir l'exemple détaillé →</span>
+          <span class="price-examples-hub__cta">Voir le comparatif détaillé →</span>
         </a>
       </li>
       {% endfor %}
