@@ -92,6 +92,40 @@ function collectBlogArticleRedirects() {
   return redirects;
 }
 
+/** Dossiers _site avec index.html → stub sans slash (ex. /entretien → /entretien/). */
+function collectDirectoryRedirects() {
+  const redirects = [];
+  const skip = new Set(["assets"]);
+
+  function walk(absDir, urlPrefix) {
+    let hasIndex = false;
+    try {
+      hasIndex = fs.existsSync(path.join(absDir, "index.html"));
+    } catch {
+      return;
+    }
+
+    if (hasIndex && urlPrefix) {
+      redirects.push([urlPrefix, `${urlPrefix}/`]);
+    }
+
+    let entries;
+    try {
+      entries = fs.readdirSync(absDir, { withFileTypes: true });
+    } catch {
+      return;
+    }
+
+    for (const entry of entries) {
+      if (!entry.isDirectory() || skip.has(entry.name) || entry.name.startsWith(".")) continue;
+      walk(path.join(absDir, entry.name), `${urlPrefix}/${entry.name}`);
+    }
+  }
+
+  walk(OUT_DIR, "");
+  return redirects;
+}
+
 function main() {
   if (!fs.existsSync(OUT_DIR)) {
     console.error("generate-legacy-redirects: _site/ introuvable — lancer eleventy d'abord.");
@@ -100,17 +134,30 @@ function main() {
 
   const blogRedirects = collectBlogArticleRedirects();
   const lpRedirects = collectLpRedirects();
-  const all = [...STATIC_REDIRECTS, ...lpRedirects, ...blogRedirects];
+  const directoryRedirects = collectDirectoryRedirects();
+  const all = [...STATIC_REDIRECTS, ...lpRedirects, ...blogRedirects, ...directoryRedirects];
   const seen = new Set();
+  let written = 0;
 
   for (const [from, to] of all) {
     if (seen.has(from)) continue;
     seen.add(from);
+
+    const outRel = toOutputRelativePath(from);
+    if (outRel === "index.html") continue;
+
+    const outAbs = path.join(OUT_DIR, outRel);
+    if (fs.existsSync(outAbs)) {
+      const stat = fs.statSync(outAbs);
+      if (stat.size > 2048) continue;
+    }
+
     writeRedirect(from, to);
+    written += 1;
   }
 
   console.log(
-    `generate-legacy-redirects: ${seen.size} fichiers créés (${blogRedirects.length} articles blog, ${lpRedirects.length} lp-*).`,
+    `generate-legacy-redirects: ${written} fichiers créés (${blogRedirects.length} articles blog, ${lpRedirects.length} lp-*, ${directoryRedirects.length} dossiers).`,
   );
 }
 

@@ -47,3 +47,7 @@ _site/
 # Exports design (Stitch, etc.)
 _stitch_extract/
 _stitch_extract2/
+
+# Exports Google Search Console (analyse locale, pas versionnés)
+.tmp-gsc-export/
+.tmp-gsc-export-*/
