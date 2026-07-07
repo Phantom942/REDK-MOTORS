@@ -30,16 +30,31 @@ function buildFaqSchema(data) {
   const questionLabel = ex.isGeneric
     ? `Combien coûte un ${ex.serviceLabel} ?`
     : `Combien coûte un ${ex.serviceLabel} sur ${ex.brand} ${ex.model} ?`;
+  const faqQuestion =
+    ex.isGeneric && ex.searchQuery ? `Combien coûte ${ex.searchQuery.toLowerCase()} ?` : questionLabel;
+
+  const priceAnswer = ex.isGeneric
+    ? `En réseau : ${ex.networkPrice} (${ex.networkNote}). Chez RED-K MOTORS à Ivry : ${ex.redkPrice}. ${ex.redkHighlight}. ${ex.redkNote}`
+    : `En réseau : ${ex.networkPrice} (${ex.networkNote}). Chez RED-K MOTORS à Ivry : ${ex.redkPrice}. ${ex.redkHighlight}. ${ex.redkNote}`;
+
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: [
       {
         "@type": "Question",
-        name: questionLabel,
+        name: faqQuestion,
         acceptedAnswer: {
           "@type": "Answer",
-          text: `En réseau : ${ex.networkPrice} (${ex.networkNote}). Chez RED-K MOTORS à Ivry : ${ex.redkPrice}. ${ex.redkNote}`,
+          text: priceAnswer,
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Le diagnostic est-il offert ?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Oui. À chaque intervention à l'atelier, RED-K MOTORS réalise un diagnostic sans frais supplémentaires : contrôle du véhicule, lecture des codes si besoin et explication avant validation du devis.",
         },
       },
       {
@@ -87,12 +102,16 @@ module.exports = {
     directAnswer: (data) => {
       const ex = data.exemple;
       if (!ex) return undefined;
-      const questionLabel = ex.isGeneric
-        ? `Combien coûte un ${ex.serviceLabel} ?`
-        : `Combien coûte un ${ex.serviceLabel} sur ${ex.brand} ${ex.model} ?`;
+      const questionLabel =
+        ex.isGeneric && ex.searchQuery
+          ? `Combien coûte ${ex.searchQuery.toLowerCase()} ?`
+          : ex.isGeneric
+            ? `Combien coûte un ${ex.serviceLabel} ?`
+            : `Combien coûte un ${ex.serviceLabel} sur ${ex.brand} ${ex.model} ?`;
       const facts = [
         { label: "Réseau", value: ex.networkPrice },
         { label: "RED-K MOTORS", value: ex.redkPrice },
+        { label: "Diagnostic", value: "Offert à chaque intervention" },
       ];
       if (ex.isGeneric) {
         facts.push({ label: "Véhicules", value: "Citadine à SUV" });

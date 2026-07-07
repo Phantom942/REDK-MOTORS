@@ -1,16 +1,18 @@
 {% if exemple.isGeneric %}
   {% set modelLabel = "votre véhicule" %}
-  {% set breadcrumbLabel = exemple.serviceLabel %}
-  {% set kicker = "Guide prix · Tous modèles" %}
-  {% set heroTitle = "Prix " ~ exemple.serviceLabel ~ " · tous modèles" %}
-  {% set compareIntro = "Comparaison indicative pour une citadine, compacte ou SUV (" ~ exemple.yearRange ~ ")." %}
-  {% set specificsTitle = "À savoir pour cette prestation" %}
+  {% set breadcrumbLabel = exemple.searchQuery | default(exemple.serviceLabel) %}
+  {% set kicker = "Guide prix · Tous modèles · Ivry (94)" %}
+  {% set heroTitle = exemple.heroTitle | default("Prix " ~ exemple.serviceLabel ~ " · tous modèles") %}
+  {% set heroLead = exemple.problemLead | default(description) %}
+  {% set compareIntro = "Vous comparez les prix avant de vous engager ? Voici une fourchette indicative <strong>grand réseau vs RED-K MOTORS</strong> — citadine, compacte ou SUV (" ~ exemple.yearRange ~ ")." %}
+  {% set specificsTitle = "Points de vigilance avant devis" %}
   {% set relatedTitle = "Exemples par modèle" %}
 {% else %}
   {% set modelLabel = exemple.brand ~ " " ~ exemple.model %}
   {% set breadcrumbLabel = modelLabel %}
   {% set kicker = "Guide prix · " ~ exemple.brand %}
   {% set heroTitle = "Prix " ~ exemple.serviceLabel ~ " " ~ modelLabel %}
+  {% set heroLead = description %}
   {% set compareIntro = "Comparaison indicative pour une <strong>" ~ modelLabel ~ "</strong> (" ~ exemple.yearRange ~ ")." %}
   {% set specificsTitle = "À savoir sur " ~ modelLabel %}
   {% set relatedTitle = "Même prestation, autre modèle" %}
@@ -33,9 +35,10 @@
       <div class="exemple-prix-hero__chips" aria-label="Informations véhicule">
         <span class="exemple-prix-chip">{{ exemple.yearRange }}</span>
         <span class="exemple-prix-chip">Ivry-sur-Seine (94)</span>
+        <span class="exemple-prix-chip">Diagnostic offert</span>
         <span class="exemple-prix-chip">Devis gratuit</span>
       </div>
-      <p class="exemple-prix-hero__lead">{{ description }}</p>
+      <p class="exemple-prix-hero__lead">{{ heroLead }}</p>
     </div>
   </header>
 
@@ -43,6 +46,31 @@
 
   <div class="exemple-prix-body">
     <div class="container">
+      {% if exemple.isGeneric and exemple.painPoints and exemple.painPoints.length %}
+      <section class="exemple-pain" aria-labelledby="exemple-pain-title">
+        <p class="section-kicker">Le problème</p>
+        <h2 id="exemple-pain-title">{{ exemple.problemTitle }}</h2>
+        <ul class="exemple-pain__list">
+          {% for point in exemple.painPoints %}
+          <li class="exemple-pain__item">
+            <span class="exemple-pain__icon" aria-hidden="true">!</span>
+            <span>{{ point }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+      </section>
+
+      <section class="exemple-solution" aria-labelledby="exemple-solution-title">
+        <p class="section-kicker">La solution</p>
+        <h2 id="exemple-solution-title">{{ exemple.solutionTitle }}</h2>
+        <p class="exemple-solution__lead">{{ exemple.solutionLead }}</p>
+        <p class="exemple-solution__cta">
+          <a href="tel:{{ site.phone }}" class="btn btn--primary" data-track="click_call" data-track-pos="exemple_prix_solution">Appeler · {{ site.phoneDisplayCompact }}</a>
+          <a href="{{ site.whatsappUrl }}" class="btn btn--secondary" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp" data-track-pos="exemple_prix_solution">WhatsApp</a>
+        </p>
+      </section>
+      {% endif %}
+
       <section class="exemple-compare" aria-labelledby="exemple-compare-title">
         <p class="section-kicker">Exemple concret</p>
         <h2 id="exemple-compare-title">{{ exemple.searchQuery }} : combien ça coûte ?</h2>
@@ -93,7 +121,7 @@
             <h2 id="exemple-atelier-title">{{ exemple.serviceLabel | capitalize }} à Ivry-sur-Seine</h2>
             <p>
               RED-K MOTORS, 9 rue Michelet, 94200 Ivry-sur-Seine — accessible depuis Vitry, Villejuif, Paris 13 et le Val-de-Marne.
-              Lun–sam 9h–19h.
+              Lun–sam 9h–19h. <strong>Diagnostic offert à chaque intervention.</strong>
             </p>
           </div>
           <p class="exemple-atelier__actions">

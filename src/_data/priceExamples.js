@@ -6,6 +6,164 @@
  */
 const DATE = "2026-07-07";
 
+const DIAGNOSTIC_OFFERT = "diagnostic offert à chaque intervention";
+
+/** Copy SEO + psycho émotionnel — pages génériques uniquement */
+const GENERIC_SEO = {
+  "pare-brise": {
+    title: "Prix pare-brise voiture 2026 · fourchette & devis Ivry (94)",
+    metaDescription:
+      "Prix pare-brise voiture : impact, fissure ou remplacement complet ? Fourchette réseau vs RED-K MOTORS à Ivry — diagnostic offert, franchise offerte, jusqu'à 150 €. Devis gratuit · 06 48 74 56 68.",
+    searchQuery: "Prix pare-brise voiture",
+    heroTitle: "Prix pare-brise voiture : combien ça coûte vraiment ?",
+    problemTitle: "Impact, éclat ou fissure : la mauvaise surprise arrive souvent au devis",
+    problemLead:
+      "Un pare-brise abîmé, c'est une contrainte immédiate : contrôle technique refusé, visibilité réduite, propagation de la fissure sous les nids-de-poule. Et la facture grimpe vite dès qu'il y a capteur de pluie, caméra ou vitrage athermique.",
+    painPoints: [
+      "Peur d'une facture à 500 € ou plus sans solution claire",
+      "Doute : réparer l'impact ou tout remplacer ?",
+      "Stress assurance : franchise, dossier, immobilisation du véhicule",
+      "Peur d'attendre des semaines sans vitre de rechange",
+    ],
+    solutionTitle: "Chez RED-K MOTORS : on clarifie avant de facturer",
+    solutionLead:
+      "Photo WhatsApp pour un premier avis, inspection sur place et devis ferme. Sur remplacement : franchise bris de glace offerte + jusqu'à 150 € par l'atelier, avec accompagnement dossier assurance. Diagnostic offert à chaque passage.",
+  },
+  distribution: {
+    title: "Prix courroie de distribution 2026 · fourchette Ivry-sur-Seine (94)",
+    metaDescription:
+      "Prix courroie de distribution : retarder, c'est risquer la casse moteur. Fourchette réseau vs RED-K MOTORS à Ivry — diagnostic offert, devis ferme avant travaux. 06 48 74 56 68.",
+    searchQuery: "Prix courroie de distribution",
+    heroTitle: "Prix courroie de distribution : le coût de l'attente est bien plus élevé",
+    problemTitle: "Courroie en retard : une réparation qui peut tout faire basculer",
+    problemLead:
+      "La distribution, c'est la réparation qu'on repousse… jusqu'au jour où le moteur lâche. Bruit métallique, voyant, perte de puissance : chaque kilomètre en plus peut transformer un entretien planifié en facture catastrophe.",
+    painPoints: [
+      "Angoisse d'une casse moteur et d'une immobilisation longue",
+      "Devis flous : courroie seule, kit complet, pompe à eau en option ?",
+      "Peur de payer trop chez le concessionnaire",
+      "Incertitude sur l'intervalle réel (km, années, type de courroie)",
+    ],
+    solutionTitle: "Anticipez : diagnostic offert, devis détaillé, zéro surprise",
+    solutionLead:
+      "On vérifie l'état réel, on explique ce qui doit partir (courroie, galets, pompe à eau) et on chiffre avant validation. Diagnostic offert à chaque intervention — vous décidez en connaissance de cause.",
+  },
+  freinage: {
+    title: "Prix plaquettes de frein 2026 · fourchette Ivry (94)",
+    metaDescription:
+      "Prix plaquettes de frein : grincement, pédale molle ou distance de freinage allongée ? Fourchette réseau vs RED-K MOTORS — diagnostic offert, devis avant travaux. Ivry (94) · 06 48 74 56 68.",
+    searchQuery: "Prix plaquettes de frein",
+    heroTitle: "Prix plaquettes de frein : votre sécurité ne devrait pas attendre le CT",
+    problemTitle: "Freins qui grincent ou qui tirent : le risque est réel, pas théorique",
+    problemLead:
+      "Des plaquettes usées, ce n'est pas qu'un bruit gênant — c'est une distance de freinage qui s'allonge, des disques à abîmer et parfois un refus au contrôle technique. Reporter, c'est jouer avec la sécurité de votre famille.",
+    painPoints: [
+      "Grincement, vibration ou voyant frein qui inquiète",
+      "Peur de la facture disques + plaquettes sans explication",
+      "Doute : avant, arrière, ou les deux ?",
+      "Stress avant un long trajet ou le contrôle technique",
+    ],
+    solutionTitle: "Contrôle rapide, diagnostic offert, devis clair",
+    solutionLead:
+      "On mesure l'usure, on vous montre ce qui est urgent et ce qui peut attendre. Diagnostic offert à chaque intervention — vous repartez avec un devis ferme, sans travaux cachés.",
+  },
+  vidange: {
+    title: "Prix vidange moteur 2026 · fourchette Ivry-sur-Seine (94)",
+    metaDescription:
+      "Prix vidange moteur : huile usée = moteur qui vieillit plus vite. Fourchette réseau vs RED-K MOTORS à Ivry — huile homologuée constructeur, diagnostic offert. Devis gratuit · 06 48 74 56 68.",
+    searchQuery: "Prix vidange moteur",
+    heroTitle: "Prix vidange moteur : l'entretien qu'on oublie… jusqu'à la panne",
+    problemTitle: "Vidange repoussée : votre moteur encaisse en silence",
+    problemLead:
+      "Huile noire, niveau bas, voyant qui clignote : une vidange ratée ou tardive use le moteur de l'intérieur. Ce n'est pas spectaculaire aujourd'hui — c'est coûteux demain.",
+    painPoints: [
+      "Voyant huile ou odeur de brûlé qui stresse",
+      "Peur de mettre la mauvaise huile ou de « surpayer pour rien »",
+      "Doute sur l'intervalle (10 000 km ? 15 000 ? 1 an ?)",
+      "Manque de temps pour trouver un garage de confiance",
+    ],
+    solutionTitle: "Vidange le jour même possible — diagnostic offert inclus",
+    solutionLead:
+      "Huile et filtre adaptés au carnet constructeur, contrôle des niveaux inclus. Diagnostic offert à chaque intervention : on repère les petits problèmes avant qu'ils deviennent gros.",
+  },
+  pneus: {
+    title: "Prix montage pneus 2026 · équilibrage Ivry (94)",
+    metaDescription:
+      "Prix montage et équilibrage pneus : usure irrégulière, volant qui tire, crevaison ? Fourchette réseau vs RED-K MOTORS à Ivry — diagnostic offert. Devis au modèle · 06 48 74 56 68.",
+    searchQuery: "Prix montage pneus",
+    heroTitle: "Prix montage pneus : rouler sur du doute, c'est rouler en danger",
+    problemTitle: "Pneus usés ou mal montés : l'accrochage ne pardonne pas",
+    problemLead:
+      "Usure irrégulière, aquaplaning, crevaison sur autoroute : des pneus en mauvais état ou mal équilibrés, c'est la sécurité de toute la famille qui baisse — surtout sous la pluie ou à haute vitesse.",
+    painPoints: [
+      "Volant qui tire ou vibrations à 110 km/h",
+      "Usure rapide d'un seul côté — parallélisme ?",
+      "Hésitation entre racheter 2 ou 4 pneus",
+      "Peur du mauvais montage ou de pneus inadaptés",
+    ],
+    solutionTitle: "Montage propre, équilibrage précis, diagnostic offert",
+    solutionLead:
+      "On vérifie l'usure et la dimension, on monte et équilibre correctement. Diagnostic offert à chaque intervention — parallélisme recommandé si besoin, expliqué avant devis.",
+  },
+  clim: {
+    title: "Prix recharge clim voiture · 40 € · Ivry-sur-Seine (94)",
+    metaDescription:
+      "Prix recharge climatisation voiture : air tiède, mauvaise odeur, clim morte avant l'été ? RED-K MOTORS à Ivry : recharge 40 €, diagnostic offert, contrôle d'étanchéité avant intervention. 06 48 74 56 68.",
+    searchQuery: "Prix recharge climatisation voiture",
+    heroTitle: "Prix recharge clim voiture : 40 € — avant que la chaleur vous rattrape",
+    problemTitle: "Clim tiède en été : inconfort, fatigue au volant, trajets subis",
+    problemLead:
+      "Air tiède, odeur de moisi, buée qui revient : une climatisation défaillante transforme chaque trajet en corvée. Et une recharge « au hasard » sans contrôle peut masquer une fuite — pour repayer dans 3 mois.",
+    painPoints: [
+      "Confort zéro dès les premières grosses chaleurs",
+      "Odeur désagréable à chaque démarrage",
+      "Peur de payer une recharge inutile si le gaz fuit",
+      "Attente interminable en pleine canicule",
+    ],
+    solutionTitle: "Recharge clim 40 € — après contrôle, diagnostic offert",
+    solutionLead:
+      "Contrôle du circuit avant recharge. Si tout est OK : 40 €. Fuite ou compresseur : on vous l'explique clairement avant tout travaux supplémentaire. Diagnostic offert à chaque intervention.",
+  },
+  embrayage: {
+    title: "Prix embrayage voiture 2026 · fourchette Ivry (94)",
+    metaDescription:
+      "Prix embrayage : patinage, odeur de brûlé, pédale haute ? Fourchette réseau vs RED-K MOTORS à Ivry — diagnostic offert, devis ferme avant démontage. 06 48 74 56 68.",
+    searchQuery: "Prix embrayage voiture",
+    heroTitle: "Prix embrayage : patinage aujourd'hui, immobilisation demain",
+    problemTitle: "Embrayage qui patine : la panne arrive toujours au pire moment",
+    problemLead:
+      "Pédale haute, odeur de brûlé, patinage en côte : l'embrayage lâche souvent sans prévenir. Continuer à rouler, c'est risquer de rester sur le bas-côté — ou d'abîmer le volant moteur bi-masse.",
+    painPoints: [
+      "Peur de caler en circulation ou sur un rond-point",
+      "Facture floue : kit embrayage, volant moteur, main-d'œuvre ?",
+      "Stress pour les pros (taxi, VTC) : chaque heure d'arrêt coûte",
+      "Incertitude : réparer maintenant ou attendre ?",
+    ],
+    solutionTitle: "Diagnostic offert, devis détaillé avant le démontage",
+    solutionLead:
+      "On confirme l'usure, on chiffre kit + main-d'œuvre (volant bi-masse si nécessaire) et on valide avec vous avant d'ouvrir la boîte. Diagnostic offert à chaque intervention.",
+  },
+  batterie: {
+    title: "Prix batterie voiture 2026 · fourchette Ivry-sur-Seine (94)",
+    metaDescription:
+      "Prix batterie voiture : démarrage lent, voyant, panne un matin de froid ? Fourchette réseau vs RED-K MOTORS — test batterie/alternateur, diagnostic offert. Ivry (94) · 06 48 74 56 68.",
+    searchQuery: "Prix batterie voiture",
+    heroTitle: "Prix batterie voiture : le matin où elle ne démarre plus, c'est trop tard",
+    problemTitle: "Démarrage lent ou voyant batterie : la panne totale approche",
+    problemLead:
+      "Un matin de grand froid, un voyant qui s'allume, un démarreur qui peine : la batterie lâche rarement « au bon moment ». Start & Stop mal dimensionné = panne en chaîne.",
+    painPoints: [
+      "Peur de rester bloqué au parking ou devant le travail",
+      "Doute batterie vs alternateur vs démarreur",
+      "Start & Stop : quelle batterie AGM ou EFB choisir ?",
+      "Peur de payer une batterie inutile si c'est l'alternateur",
+    ],
+    solutionTitle: "Test sur place, diagnostic offert, pose adaptée",
+    solutionLead:
+      "On teste charge et démarrage avant de remplacer quoi que ce soit. Batterie adaptée au véhicule (AGM/EFB si Start & Stop). Diagnostic offert à chaque intervention.",
+  },
+};
+
 const SEGMENT_MULT = {
   citadine: 1,
   compacte: 1.1,
@@ -86,7 +244,7 @@ const SERVICES = {
     serviceUrl: "/pare-brise/",
     network: [470, 620],
     redkPrice: "devis après inspection à Ivry",
-    redkHighlight: "jusqu'à 150 € + franchise offerte par RED-K MOTORS",
+    redkHighlight: `${DIAGNOSTIC_OFFERT} · jusqu'à 150 € + franchise offerte`,
     redkNote:
       "Sur remplacement pare-brise : franchise bris de glace offerte + jusqu'à 150 € par l'atelier, avec accompagnement dossier assurance.",
     networkNote: "grand réseau ou constructeur, franchise souvent incluse au contrat",
@@ -103,7 +261,7 @@ const SERVICES = {
     serviceUrl: "/mecanique/",
     network: [490, 780],
     redkPrice: "devis ferme après inspection",
-    redkHighlight: "diagnostic offert à chaque intervention",
+    redkHighlight: DIAGNOSTIC_OFFERT,
     redkNote: "Le montant dépend du moteur, du kit (courroie, galets, pompe à eau) et du temps atelier.",
     networkNote: "kit distribution + main-d'œuvre, pompe à eau souvent en option",
     specifics: [
@@ -119,7 +277,7 @@ const SERVICES = {
     serviceUrl: "/freins/",
     network: [135, 235],
     redkPrice: "100 à 190 € en général",
-    redkHighlight: "contrôle usure gratuit avant devis",
+    redkHighlight: DIAGNOSTIC_OFFERT,
     redkNote: "Disques usés ou voilés : le devis inclut leur remplacement si nécessaire.",
     networkNote: "plaquettes avant, pièces milieu de gamme, un essieu",
     specifics: [
@@ -134,7 +292,7 @@ const SERVICES = {
     serviceUrl: "/vidange/",
     network: [85, 145],
     redkPrice: "devis selon huile homologuée constructeur",
-    redkHighlight: "diagnostic offert à chaque intervention",
+    redkHighlight: DIAGNOSTIC_OFFERT,
     redkNote: "Huile + filtre adaptés au carnet. Souvent réalisée le jour même sur rendez-vous.",
     networkNote: "huile constructeur + filtre, réseaux rapides",
     specifics: [
@@ -149,7 +307,7 @@ const SERVICES = {
     serviceUrl: "/pneumatiques/",
     network: [70, 125],
     redkPrice: "60 à 150 € en général",
-    redkHighlight: "devis au modèle et à la dimension",
+    redkHighlight: DIAGNOSTIC_OFFERT,
     redkNote: "Apportez vos pneus ou choisissez dans notre stock selon arrivages.",
     networkNote: "montage 4 pneus + équilibrage, hors coût des pneus",
     specifics: [
@@ -163,9 +321,10 @@ const SERVICES = {
     serviceLabel: "recharge de climatisation",
     serviceUrl: "/entretien/",
     network: [75, 160],
-    redkPrice: "devis après contrôle d'étanchéité",
-    redkHighlight: "diagnostic offert à chaque intervention",
-    redkNote: "Recharge seulement après contrôle — fuite ou compresseur à chiffrer séparément si besoin.",
+    redkPrice: "40 €",
+    redkHighlight: DIAGNOSTIC_OFFERT,
+    redkNote:
+      "Recharge 40 € après contrôle d'étanchéité. Fuite ou compresseur : chiffré séparément, expliqué avant validation.",
     networkNote: "recharge gaz + contrôle basique, sans réparation fuite",
     specifics: [
       "Clim tiède, odeur ou bruit : diagnostic circuit avant recharge.",
@@ -179,7 +338,7 @@ const SERVICES = {
     serviceUrl: "/mecanique/",
     network: [620, 1150],
     redkPrice: "devis ferme après inspection",
-    redkHighlight: "diagnostic offert à chaque intervention",
+    redkHighlight: DIAGNOSTIC_OFFERT,
     redkNote: "Kit embrayage + volant moteur bi-masse sur certains modèles : devis détaillé avant validation.",
     networkNote: "kit embrayage + main-d'œuvre importante",
     specifics: [
@@ -194,7 +353,7 @@ const SERVICES = {
     serviceUrl: "/mecanique/",
     network: [115, 230],
     redkPrice: "devis après test batterie / alternateur",
-    redkHighlight: "diagnostic offert à chaque intervention",
+    redkHighlight: DIAGNOSTIC_OFFERT,
     redkNote: "Test charge et démarrage sur place — pose batterie adaptée au véhicule (Start & Stop si équipé).",
     networkNote: "batterie milieu de gamme + pose",
     specifics: [
@@ -254,6 +413,8 @@ function buildGenericExample(serviceKey) {
     specifics.push("Essence, diesel ou hybride : intervalle et type de courroie à vérifier au carnet.");
   }
 
+  const seo = GENERIC_SEO[serviceKey];
+
   return {
     slug,
     isGeneric: true,
@@ -271,6 +432,7 @@ function buildGenericExample(serviceKey) {
     specifics,
     published: true,
     date: DATE,
+    ...seo,
   };
 }
 
@@ -318,6 +480,9 @@ function buildExample(model, serviceKey) {
 }
 
 function buildTitle(ex) {
+  if (ex.isGeneric && ex.title) {
+    return ex.title;
+  }
   if (ex.isGeneric) {
     return `Prix ${ex.serviceLabel} · fourchette 2026`;
   }
@@ -325,6 +490,9 @@ function buildTitle(ex) {
 }
 
 function buildDescription(ex) {
+  if (ex.isGeneric && ex.metaDescription) {
+    return ex.metaDescription;
+  }
   if (ex.isGeneric) {
     return `Combien coûte un ${ex.serviceLabel} ? Exemple concret citadine, compacte ou SUV — fourchette réseau vs RED-K MOTORS à Ivry (94). Devis gratuit · 06 48 74 56 68.`;
   }
@@ -332,6 +500,9 @@ function buildDescription(ex) {
 }
 
 function buildQuery(ex) {
+  if (ex.isGeneric && ex.searchQuery) {
+    return ex.searchQuery;
+  }
   if (ex.isGeneric) {
     return `Prix ${ex.serviceLabel}`;
   }

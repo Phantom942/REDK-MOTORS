@@ -5054,7 +5054,83 @@ img[loading="lazy"].loaded {
   max-width: 52rem;
 }
 
+.exemple-pain {
+  margin-bottom: 1.75rem;
+  padding: 1.35rem 1.25rem;
+  border-radius: 12px;
+  border: 1px solid rgba(232, 93, 117, 0.28);
+  background: rgba(232, 93, 117, 0.07);
+}
+
+.exemple-pain h2 {
+  margin: 0 0 1rem;
+  font-size: 1.15rem;
+  color: #fafafa;
+  line-height: 1.35;
+}
+
+.exemple-pain__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.exemple-pain__item {
+  display: flex;
+  gap: 0.65rem;
+  align-items: flex-start;
+  font-size: 0.94rem;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.45;
+}
+
+.exemple-pain__icon {
+  flex-shrink: 0;
+  width: 1.35rem;
+  height: 1.35rem;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: #fff;
+  background: rgba(232, 93, 117, 0.85);
+}
+
+.exemple-solution {
+  margin-bottom: 2rem;
+  padding: 1.35rem 1.25rem;
+  border-radius: 12px;
+  border: 1px solid rgba(76, 175, 80, 0.35);
+  background: rgba(76, 175, 80, 0.08);
+}
+
+.exemple-solution h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.15rem;
+  color: #fafafa;
+  line-height: 1.35;
+}
+
+.exemple-solution__lead {
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.exemple-solution__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin: 0;
+}
+
 .exemple-compare {
+  padding-top: 1.5rem;
   margin-bottom: 2.25rem;
 }
 
