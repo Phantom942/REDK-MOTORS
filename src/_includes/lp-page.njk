@@ -22,6 +22,15 @@
 
 {% include "lp-offer.njk" %}
 
+{% set showDiagnosticInterventionOffer = lp.showDiagnosticInterventionOffer | default(lpKey != "diagnostic") %}
+{% if showDiagnosticInterventionOffer %}
+  {% set offer = interventionDiagnosticOffer %}
+  {% set offerSectionId = "diagnostic" %}
+  {% include "lp-offer.njk" %}
+  {% set offer = undefined %}
+  {% set offerSectionId = undefined %}
+{% endif %}
+
 {% set contactTitle = lp.contactTitle | default("Un devis ? Un RDV ?") %}
 {% set contactLead = lp.contactLead | default("Appelez maintenant — on vous répond en journée. WhatsApp accepté pour photos et devis.") %}
 {% include "conversion-contact.njk" %}

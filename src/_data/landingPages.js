@@ -15,6 +15,7 @@ const CTA = "Appeler le 06.48.74.56.68";
 
 module.exports = {
   diagnostic: {
+    showDiagnosticInterventionOffer: false,
     videoSrc: "mecanique.mp4",
     heroKicker: "Urgence · Ivry-sur-Seine (94)",
     heroTitle: "Voyant Allumé ou Voiture en Panne à Ivry ? Diagnostic Rapide",

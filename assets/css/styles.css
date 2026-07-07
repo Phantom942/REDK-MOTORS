@@ -7635,6 +7635,38 @@ a.review-card__name:hover {
   color: var(--conv-text-muted, rgba(255, 255, 255, 0.72));
 }
 
+/* Highlights LP : lignes incomplètes centrées (ex. 4+1 cartes) */
+body.conversion-page .promesse--highlights .promesse__grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(0.85rem, 2vw, 1.25rem);
+}
+
+body.conversion-page .promesse--highlights .promesse__item {
+  flex: 1 1 220px;
+  max-width: min(100%, 17.5rem);
+  align-items: flex-start;
+}
+
+body.conversion-page .promesse--highlights .promesse__item h3 {
+  text-wrap: balance;
+}
+
+@media (min-width: 900px) {
+  body.conversion-page .promesse--highlights .promesse__item {
+    flex: 0 1 calc(25% - 1rem);
+    max-width: calc(25% - 1rem);
+  }
+}
+
+@media (max-width: 640px) {
+  body.conversion-page .promesse--highlights .promesse__item {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
 .lp-trust-bar {
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
@@ -7642,6 +7674,15 @@ a.review-card__name:hover {
 .lp-offer {
   padding: clamp(2rem, 5vw, 3rem) 0;
   background: linear-gradient(180deg, rgba(196, 30, 58, 0.14) 0%, var(--conv-bg, #161618) 100%);
+}
+
+.lp-offer + .lp-offer--intervention {
+  padding-top: 0;
+  background: var(--conv-bg, #161618);
+}
+
+.lp-offer--intervention .lp-offer__card {
+  border-color: rgba(255, 255, 255, 0.14);
 }
 
 .lp-offer__card {

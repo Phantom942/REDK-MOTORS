@@ -9,6 +9,12 @@ const PROCESS_STEPS = [
   { title: "Intervention validée", desc: "On intervient uniquement après votre accord." },
 ];
 
+const DIAGNOSTIC_ONLY_SLUGS = new Set([
+  "diagnostic-voyant-moteur",
+  "recherche-de-panne",
+  "diagnostic-abs",
+]);
+
 const CATEGORY_HUB = {
   "Prestations fréquentes": "/entretien/",
   Moteur: "/mecanique/",
@@ -480,6 +486,7 @@ function buildLp(service, category) {
     processSteps: PROCESS_STEPS,
     showReviews: Boolean(reviewPages[`prestation-${service.slug}`]),
     reviewCount: reviewPages[`prestation-${service.slug}`]?.length || 0,
+    showDiagnosticInterventionOffer: !DIAGNOSTIC_ONLY_SLUGS.has(service.slug),
     servicesTitle: "Pages associées",
     services: [
       { title: "Service principal", url: hubUrl },
