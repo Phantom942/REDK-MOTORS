@@ -103,7 +103,7 @@ module.exports = function (eleventyConfig) {
     },
     itemListSchema: (data) => {
       if (data.itemListSchema) return data.itemListSchema;
-      const base = data.site?.url || "https://redk-motors.me";
+      const base = data.site?.url || "https://redkmotors.fr";
       if (data.pageKey === "index") {
         const items = [
           { name: "Diagnostic auto", url: "/diagnostic/" },
@@ -158,7 +158,7 @@ module.exports = function (eleventyConfig) {
       };
     },
     localServiceSchema: (data) => {
-      const base = data.site?.url || "https://redk-motors.me";
+      const base = data.site?.url || "https://redkmotors.fr";
       const areaServed = [
         { "@type": "City", name: "Ivry-sur-Seine" },
         { "@type": "City", name: "Vitry-sur-Seine" },

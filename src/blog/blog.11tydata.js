@@ -1,7 +1,7 @@
 const team = require("../_data/team.json");
 const enhancements = require("../_data/blogArticleEnhancements.js");
 
-const SITE_URL = "https://redk-motors.me";
+const SITE_URL = "https://redkmotors.fr";
 const LOGO_URL = `${SITE_URL}/assets/img/logo-redk-motors.png`;
 const OG_DEFAULT = `${SITE_URL}/assets/img/og-brand.png`;
 

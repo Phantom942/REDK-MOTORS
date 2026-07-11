@@ -1,7 +1,7 @@
 const reviewPages = require("./reviewPages.js");
 
 const TARIFS_FAQ =
-  "Consultez notre grille tarifaire sur redk-motors.me/tarifs/ — devis fermé après inspection.";
+  "Consultez notre grille tarifaire sur redkmotors.fr/tarifs/ — devis fermé après inspection.";
 
 const PROCESS_STEPS = [
   { title: "Contactez-nous", desc: "Téléphone, WhatsApp ou formulaire — réponse en journée." },

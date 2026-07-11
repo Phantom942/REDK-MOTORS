@@ -1,4 +1,4 @@
-const SITE_URL = "https://redk-motors.me";
+const SITE_URL = "https://redkmotors.fr";
 
 function buildBreadcrumb(data) {
   const ex = data.exemple;

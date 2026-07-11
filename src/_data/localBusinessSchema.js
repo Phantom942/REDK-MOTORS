@@ -4,7 +4,7 @@ const site = require("./site.json");
 const team = require("./team.json");
 const { all: prestationCatalog } = require("./prestations.js");
 
-const SITE_URL = "https://redk-motors.me";
+const SITE_URL = "https://redkmotors.fr";
 
 const CORE_KNOWS_ABOUT = [
   "Diagnostic automobile",

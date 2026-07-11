@@ -26,11 +26,11 @@ module.exports = {
     },
     {
       q: "RED-K MOTORS est-il ouvert le samedi ?",
-      a: "Oui, du lundi au samedi de 9h à 19h. Contact : https://redk-motors.me/contact/",
+      a: "Oui, du lundi au samedi de 9h à 19h. Contact : https://redkmotors.fr/contact/",
     },
     {
       q: "Comment prendre rendez-vous chez RED-K MOTORS ?",
-      a: "Par téléphone (06 48 74 56 68), WhatsApp, ou formulaire sur https://redk-motors.me/contact/ — réponse en journée lun–sam 9h–19h.",
+      a: "Par téléphone (06 48 74 56 68), WhatsApp, ou formulaire sur https://redkmotors.fr/contact/ — réponse en journée lun–sam 9h–19h.",
     },
     {
       q: "RED-K MOTORS intervient dans quelles villes ?",
@@ -38,15 +38,15 @@ module.exports = {
     },
     {
       q: "Propose-t-on un diagnostic voyant moteur ?",
-      a: "Oui. Diagnostic électronique (valise OBD) avec explication avant réparation. Page : https://redk-motors.me/diagnostic/ — article : https://redk-motors.me/blog/voyant-moteur-allume-que-faire/",
+      a: "Oui. Diagnostic électronique (valise OBD) avec explication avant réparation. Page : https://redkmotors.fr/diagnostic/ — article : https://redkmotors.fr/blog/voyant-moteur-allume-que-faire/",
     },
     {
       q: "Y a-t-il un garage taxi ou VTC à Ivry-sur-Seine ?",
-      a: "Oui. RED-K MOTORS propose un Espace Pro dédié aux taxis et VTC : entretien prioritaire, tarifs pro, devis avant travaux. Page : https://redk-motors.me/professionnels/taxis-vtc/ — Tél. 06 48 74 56 68.",
+      a: "Oui. RED-K MOTORS propose un Espace Pro dédié aux taxis et VTC : entretien prioritaire, tarifs pro, devis avant travaux. Page : https://redkmotors.fr/professionnels/taxis-vtc/ — Tél. 06 48 74 56 68.",
     },
     {
       q: "RED-K MOTORS entretient-il les flottes entreprise ou auto-écoles ?",
-      a: "Oui. Espace Pro pour flottes, artisans, livreurs et auto-écoles (double commande préservée). Hub : https://redk-motors.me/professionnels/ — devis pro par téléphone ou WhatsApp.",
+      a: "Oui. Espace Pro pour flottes, artisans, livreurs et auto-écoles (double commande préservée). Hub : https://redkmotors.fr/professionnels/ — devis pro par téléphone ou WhatsApp.",
     },
   ],
   topBlogSlugs: [

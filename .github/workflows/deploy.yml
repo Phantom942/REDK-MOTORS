@@ -70,16 +70,16 @@ jobs:
           set -e
           sleep 30
           URLS=(
-            "https://redk-motors.me/"
-            "https://redk-motors.me/mecanique/"
-            "https://redk-motors.me/carrosserie/"
-            "https://redk-motors.me/entretien/"
-            "https://redk-motors.me/pneumatiques/"
-            "https://redk-motors.me/achat-revente/"
-            "https://redk-motors.me/location/"
-            "https://redk-motors.me/contact/"
-            "https://redk-motors.me/tarifs/"
-            "https://redk-motors.me/blog/"
+            "https://redkmotors.fr/"
+            "https://redkmotors.fr/mecanique/"
+            "https://redkmotors.fr/carrosserie/"
+            "https://redkmotors.fr/entretien/"
+            "https://redkmotors.fr/pneumatiques/"
+            "https://redkmotors.fr/achat-revente/"
+            "https://redkmotors.fr/location/"
+            "https://redkmotors.fr/contact/"
+            "https://redkmotors.fr/tarifs/"
+            "https://redkmotors.fr/blog/"
           )
           FAILED=0
 
@@ -116,17 +116,17 @@ jobs:
             fi
           done
 
-          check_seo_asset "https://redk-motors.me/sitemap.xml" "<urlset" "sitemap.xml"
-          check_seo_asset "https://redk-motors.me/sitemap.xml" "redk-motors.me/blog/" "sitemap.xml (articles blog)"
-          check_seo_asset "https://redk-motors.me/robots.txt" "Sitemap: https://redk-motors.me/sitemap.xml" "robots.txt (sitemap)"
-          check_seo_asset "https://redk-motors.me/robots.txt" "GPTBot" "robots.txt (crawlers IA)"
-          check_seo_asset "https://redk-motors.me/robots.txt" "User-agent: *" "robots.txt (syntaxe EN)"
-          check_seo_asset "https://redk-motors.me/robots.txt" "LLMs-Txt:" "robots.txt (GEO llms)"
-          check_seo_asset "https://redk-motors.me/robots.txt" "Bingbot" "robots.txt (Bing/Copilot)"
-          check_seo_asset "https://redk-motors.me/llms.txt" "RED-K MOTORS" "llms.txt"
-          check_seo_asset "https://redk-motors.me/llms.txt" "SIRET" "llms.txt (SIRET)"
-          check_seo_asset "https://redk-motors.me/llms-full.txt" "RED-K MOTORS" "llms-full.txt"
-          check_seo_asset "https://redk-motors.me/ai.txt" "Llms-Txt:" "ai.txt"
+          check_seo_asset "https://redkmotors.fr/sitemap.xml" "<urlset" "sitemap.xml"
+          check_seo_asset "https://redkmotors.fr/sitemap.xml" "redkmotors.fr/blog/" "sitemap.xml (articles blog)"
+          check_seo_asset "https://redkmotors.fr/robots.txt" "Sitemap: https://redkmotors.fr/sitemap.xml" "robots.txt (sitemap)"
+          check_seo_asset "https://redkmotors.fr/robots.txt" "GPTBot" "robots.txt (crawlers IA)"
+          check_seo_asset "https://redkmotors.fr/robots.txt" "User-agent: *" "robots.txt (syntaxe EN)"
+          check_seo_asset "https://redkmotors.fr/robots.txt" "LLMs-Txt:" "robots.txt (GEO llms)"
+          check_seo_asset "https://redkmotors.fr/robots.txt" "Bingbot" "robots.txt (Bing/Copilot)"
+          check_seo_asset "https://redkmotors.fr/llms.txt" "RED-K MOTORS" "llms.txt"
+          check_seo_asset "https://redkmotors.fr/llms.txt" "SIRET" "llms.txt (SIRET)"
+          check_seo_asset "https://redkmotors.fr/llms-full.txt" "RED-K MOTORS" "llms-full.txt"
+          check_seo_asset "https://redkmotors.fr/ai.txt" "Llms-Txt:" "ai.txt"
 
           if [ "$FAILED" -eq 1 ]; then
             echo "::error::Smoke test failed"

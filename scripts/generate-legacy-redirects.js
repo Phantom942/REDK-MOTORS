@@ -8,7 +8,7 @@ const path = require("path");
 
 const adLandingUrls = require("../src/_data/adLandingUrls.js");
 
-const SITE_URL = "https://redk-motors.me";
+const SITE_URL = "https://redkmotors.fr";
 const OUT_DIR = path.join(__dirname, "..", "_site");
 const ARTICLES_DIR = path.join(__dirname, "..", "src", "blog", "articles");
 

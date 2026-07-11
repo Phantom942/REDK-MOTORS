@@ -7,57 +7,57 @@ module.exports = {
     {
       campaign: "Diagnostic auto / voyant moteur / panne",
       url: "/diagnostic/",
-      absolute: "https://redk-motors.me/diagnostic/",
+      absolute: "https://redkmotors.fr/diagnostic/",
     },
     {
       campaign: "Changement plaquettes frein / freinage",
       url: "/freins/",
-      absolute: "https://redk-motors.me/freins/",
+      absolute: "https://redkmotors.fr/freins/",
     },
     {
       campaign: "Révision voiture / vidange / entretien",
       url: "/entretien/",
-      absolute: "https://redk-motors.me/entretien/",
+      absolute: "https://redkmotors.fr/entretien/",
     },
     {
       campaign: "Réparation carrosserie",
       url: "/carrosserie/",
-      absolute: "https://redk-motors.me/carrosserie/",
+      absolute: "https://redkmotors.fr/carrosserie/",
     },
     {
       campaign: "Remplacement pare-brise / bris de glace",
       url: "/pare-brise/",
-      absolute: "https://redk-motors.me/pare-brise/",
+      absolute: "https://redkmotors.fr/pare-brise/",
     },
     {
       campaign: "Réparation auto / mécanique",
       url: "/mecanique/",
-      absolute: "https://redk-motors.me/mecanique/",
+      absolute: "https://redkmotors.fr/mecanique/",
     },
     {
       campaign: "Changement pneus / montage / parallélisme",
       url: "/pneumatiques/",
-      absolute: "https://redk-motors.me/pneumatiques/",
+      absolute: "https://redkmotors.fr/pneumatiques/",
     },
     {
       campaign: "Vidange voiture",
       url: "/vidange/",
-      absolute: "https://redk-motors.me/vidange/",
+      absolute: "https://redkmotors.fr/vidange/",
     },
     {
       campaign: "Garage Ivry (générique)",
       url: "/",
-      absolute: "https://redk-motors.me/",
+      absolute: "https://redkmotors.fr/",
     },
     {
       campaign: "Tarifs / prix garage",
       url: "/tarifs/",
-      absolute: "https://redk-motors.me/tarifs/",
+      absolute: "https://redkmotors.fr/tarifs/",
     },
     {
       campaign: "Contact / devis",
       url: "/contact/",
-      absolute: "https://redk-motors.me/contact/",
+      absolute: "https://redkmotors.fr/contact/",
     },
   ],
   longTailAds: [

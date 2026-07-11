@@ -91,13 +91,13 @@
           "name": "{{ site.seoTitle | default(site.name) }}",
           "url": "{{ site.url }}",
           "description": "{{ site.description | default('Garage automobile à Ivry-sur-Seine') }}",
-          "publisher": { "@id": "https://redk-motors.me/#business" },
+          "publisher": { "@id": "https://redkmotors.fr/#business" },
           "inLanguage": "fr-FR",
           "potentialAction": {
             "@type": "SearchAction",
             "target": {
               "@type": "EntryPoint",
-              "urlTemplate": "https://www.google.com/search?q=site:redk-motors.me+{search_term_string}"
+              "urlTemplate": "https://www.google.com/search?q=site:redkmotors.fr+{search_term_string}"
             },
             "query-input": "required name=search_term_string"
           }
@@ -119,7 +119,7 @@
           "dateModified": "{{ freshnessDate }}",
           {% endif %}
           "isPartOf": { "@id": "{{ site.url }}/#website" },
-          "about": { "@id": "https://redk-motors.me/#business" },
+          "about": { "@id": "https://redkmotors.fr/#business" },
           "inLanguage": "fr-FR",
           "speakable": {
             "@type": "SpeakableSpecification",

@@ -17,7 +17,7 @@ const path = require('path');
 const SITE_JSON = path.join(__dirname, '..', 'src', '_data', 'site.json');
 const API_KEY = (process.env.GOOGLE_PLACES_API_KEY || '').trim();
 const PLACE_QUERY = 'RED-K MOTORS, 9 rue Michelet, 94200 Ivry-sur-Seine, France';
-const REFERER = (process.env.GOOGLE_PLACES_REFERER || 'https://redk-motors.me/').trim();
+const REFERER = (process.env.GOOGLE_PLACES_REFERER || 'https://redkmotors.fr/').trim();
 
 async function searchPlaceId() {
   const headers = {

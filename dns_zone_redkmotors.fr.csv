@@ -1,0 +1,19 @@
+autoconfig.redkmotors.fr.	900	IN	CNAME	tb-fr.securemail.pro.
+ftp.redkmotors.fr.	900	IN	CNAME	redkmotors.fr.
+mail.redkmotors.fr.	900	IN	CNAME	mail-fr.securemail.pro.
+pim.redkmotors.fr.	900	IN	CNAME	pim-fr.webapps.net.
+redkmotors.fr.	900	IN	A	185.199.108.153
+redkmotors.fr.	900	IN	A	185.199.109.153
+redkmotors.fr.	900	IN	A	185.199.110.153
+redkmotors.fr.	900	IN	A	185.199.111.153
+redkmotors.fr.	900	IN	MX	10 mail-fr.securemail.pro.
+redkmotors.fr.	900	IN	NS	ns1.amenworld.com.
+redkmotors.fr.	900	IN	NS	ns2.amenworld.com.
+redkmotors.fr.	900	IN	SOA	ns1.amenworld.com. root.amen.fr. 2026071001 86400 7200 2592000 300
+redkmotors.fr.	900	IN	TXT	"v=spf1 include:spf.webapps.net ~all"
+redkmotors.fr.	900	IN	TXT	"apple-domain-verification=GWVEwuXbO8Ocntq0"
+_dmarc.redkmotors.fr.	900	IN	TXT	"v=DMARC1;p=reject;pct=100;"
+smtp.redkmotors.fr.	900	IN	CNAME	smtp-fr.securemail.pro.
+webmail.redkmotors.fr.	900	IN	CNAME	webmail-fr.setupdns.net.
+www.redkmotors.fr.	900	IN	CNAME	phantom942.github.io.
+_autodiscover._tcp.redkmotors.fr.	900	IN	SRV	10 10 443 ms-fr.securemail.pro.

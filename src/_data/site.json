@@ -1,13 +1,13 @@
 {
   "name": "RED-K MOTORS",
   "seoTitle": "RED-K MOTORS | Garage à Ivry-sur-Seine",
-  "url": "https://redk-motors.me",
+  "url": "https://redkmotors.fr",
   "locale": "fr_FR",
   "phone": "+33648745668",
   "phoneDisplay": "06.48.74.56.68",
   "phoneDisplayCompact": "06 48 74 56 68",
   "whatsappUrl": "https://wa.me/33648745668?text=Bonjour%2C%20je%20contacte%20RED-K%20MOTORS%20pour%20mon%20v%C3%A9hicule.",
-  "email": "contact@redk-motors.me",
+  "email": "contact@redkmotors.fr",
   "address": "9 rue Michelet",
   "city": "Ivry-sur-Seine",
   "postalCode": "94200",
@@ -92,21 +92,21 @@
     { "title": "Contact", "url": "/contact/", "key": "contact" }
   ],
   "sitelinksHints": [
-    { "@type": "ListItem", "position": 1, "name": "Contact", "url": "https://redk-motors.me/contact/" },
-    { "@type": "ListItem", "position": 2, "name": "Tarifs", "url": "https://redk-motors.me/tarifs/" },
-    { "@type": "ListItem", "position": 3, "name": "Diagnostic", "url": "https://redk-motors.me/diagnostic/" },
-    { "@type": "ListItem", "position": 4, "name": "Mécanique", "url": "https://redk-motors.me/mecanique/" },
-    { "@type": "ListItem", "position": 5, "name": "Carrosserie", "url": "https://redk-motors.me/carrosserie/" },
-    { "@type": "ListItem", "position": 6, "name": "Pare-brise", "url": "https://redk-motors.me/pare-brise/" },
-    { "@type": "ListItem", "position": 7, "name": "Espace Pro", "url": "https://redk-motors.me/professionnels/" }
+    { "@type": "ListItem", "position": 1, "name": "Contact", "url": "https://redkmotors.fr/contact/" },
+    { "@type": "ListItem", "position": 2, "name": "Tarifs", "url": "https://redkmotors.fr/tarifs/" },
+    { "@type": "ListItem", "position": 3, "name": "Diagnostic", "url": "https://redkmotors.fr/diagnostic/" },
+    { "@type": "ListItem", "position": 4, "name": "Mécanique", "url": "https://redkmotors.fr/mecanique/" },
+    { "@type": "ListItem", "position": 5, "name": "Carrosserie", "url": "https://redkmotors.fr/carrosserie/" },
+    { "@type": "ListItem", "position": 6, "name": "Pare-brise", "url": "https://redkmotors.fr/pare-brise/" },
+    { "@type": "ListItem", "position": 7, "name": "Espace Pro", "url": "https://redkmotors.fr/professionnels/" }
   ],
   "gtmId": "GTM-NTC72X2G",
-  "ogImage": "https://redk-motors.me/assets/img/og-brand.png",
+  "ogImage": "https://redkmotors.fr/assets/img/og-brand.png",
   "social": {
     "youtubeUrl": "https://www.youtube.com/@REDKMOTORS",
     "youtubeChannelId": "UCaOY34TzoCzsBq4UrO8Db9A"
   },
-  "description": "Garage automobile RED-K MOTORS à Ivry-sur-Seine (94). Mécanique, entretien, pneus, freinage. Devis gratuit. Lun–sam 9h–19h — téléphone, message ou rendez-vous via redk-motors.me/contact/. 9 rue Michelet.",
+  "description": "Garage automobile RED-K MOTORS à Ivry-sur-Seine (94). Mécanique, entretien, pneus, freinage. Devis gratuit. Lun–sam 9h–19h — téléphone, message ou rendez-vous via redkmotors.fr/contact/. 9 rue Michelet.",
   "googleReviews": {
     "shareUrl": "https://share.google/Gqy4uMiYFgsxEFCd5",
     "knowledgeGraphId": "/g/11y__lnrkb",

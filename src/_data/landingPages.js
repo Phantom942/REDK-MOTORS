@@ -3,7 +3,7 @@
  * URLs campagnes : adLandingUrls.js
  */
 const TARIFS_FAQ =
-  "Consultez notre grille tarifaire sur redk-motors.me/tarifs/ — devis fermé après inspection au véhicule.";
+  "Consultez notre grille tarifaire sur redkmotors.fr/tarifs/ — devis fermé après inspection au véhicule.";
 
 const PROCESS_STEPS = [
   { title: "Contactez-nous", desc: "Téléphone, WhatsApp ou formulaire — réponse en journée lun–sam 9h–19h." },
@@ -310,6 +310,6 @@ module.exports = {
       "Vidange avec huile homologuée constructeur, filtre à huile neuf et contrôle des niveaux — souvent réalisée le jour même sur rendez-vous.",
       "Entretien courant pour préserver moteur et garantie : complément idéal d'une révision ou d'un passage au contrôle technique.",
     ],
-    seoFooter: "Fourchettes tarifaires sur redk-motors.me/tarifs/ — devis fermé après inspection au véhicule.",
+    seoFooter: "Fourchettes tarifaires sur redkmotors.fr/tarifs/ — devis fermé après inspection au véhicule.",
   },
 };

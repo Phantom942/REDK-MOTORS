@@ -1,15 +1,15 @@
 # =============================================================================
 # RED-K MOTORS — robots.txt
-# https://redk-motors.me | Garage automobile · Ivry-sur-Seine (94) · France
+# https://redkmotors.fr | Garage automobile · Ivry-sur-Seine (94) · France
 #
 # IMPORTANT — Keep this file in ENGLISH only.
 # Crawlers understand: User-agent, Allow, Disallow, Sitemap (not translated labels).
 # If your browser shows "Agent utilisateur / Permettre", disable page translation.
 #
 # LLM / AI context (GEO):
-#   https://redk-motors.me/llms.txt
-#   https://redk-motors.me/llms-full.txt
-#   https://redk-motors.me/ai.txt
+#   https://redkmotors.fr/llms.txt
+#   https://redkmotors.fr/llms-full.txt
+#   https://redkmotors.fr/ai.txt
 # =============================================================================
 
 # --- Default (all crawlers) ---------------------------------------------------
@@ -173,8 +173,8 @@ User-agent: cohere-training-data-crawler
 Allow: /
 
 # --- Discovery ----------------------------------------------------------------
-Sitemap: https://redk-motors.me/sitemap.xml
+Sitemap: https://redkmotors.fr/sitemap.xml
 
-# LLMs-Txt: https://redk-motors.me/llms.txt
-# LLMs-Full-Txt: https://redk-motors.me/llms-full.txt
-# AI-Txt: https://redk-motors.me/ai.txt
+# LLMs-Txt: https://redkmotors.fr/llms.txt
+# LLMs-Full-Txt: https://redkmotors.fr/llms-full.txt
+# AI-Txt: https://redkmotors.fr/ai.txt
