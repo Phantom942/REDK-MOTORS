@@ -1,0 +1,17 @@
+---
+permalink: /sitemap-exemples.xml
+layout: null
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {% for ex in priceExamples.all %}
+  <url>
+    <loc>{{ site.url }}/exemples/{{ ex.slug }}/</loc>
+    {% set lastmodStr = ex.date | dateToIso %}
+    <lastmod>{{ lastmodStr | default(buildDate) }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>{% if ex.isGeneric %}0.65{% else %}0.55{% endif %}</priority>
+  </url>
+  {% endfor %}
+</urlset>

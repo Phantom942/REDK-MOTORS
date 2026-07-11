@@ -57,6 +57,7 @@
 
     <title>{{ title | default(site.seoTitle) | default(site.name) }}</title>
     <link rel="canonical" href="{{ site.url }}{{ page.url | default('/') | replace('/index.html','/') }}" />
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="{{ site.url }}/sitemap.xml" />
     <script src="{{ '/assets/js/canonical-url.js' | cacheBust }}"></script>
     <link rel="alternate" type="text/plain" href="{{ site.url }}/llms.txt" title="LLM context (llms.txt)" />
     <link rel="alternate" type="text/plain" href="{{ site.url }}/ai.txt" title="AI discovery (ai.txt)" />

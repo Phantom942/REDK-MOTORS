@@ -1,0 +1,21 @@
+---
+permalink: /sitemap-pages.xml
+layout: null
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- for item in collections.sitemap %}
+{%- set normalizedUrl = item.url | replace('/index.html', '/') %}
+{%- if '/exemples/' not in normalizedUrl and '/blog/' not in normalizedUrl %}
+{%- set meta = normalizedUrl | sitemapMeta %}
+{%- set lastmodStr = (item.data.date or item.date) | dateToIso %}
+  <url>
+    <loc>{{ site.url }}{{ normalizedUrl }}</loc>
+    <lastmod>{{ lastmodStr | default(buildDate) }}</lastmod>
+    <changefreq>{{ meta.changefreq }}</changefreq>
+    <priority>{{ meta.priority }}</priority>
+  </url>
+{%- endif %}
+{%- endfor %}
+</urlset>

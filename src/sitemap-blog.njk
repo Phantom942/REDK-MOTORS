@@ -1,0 +1,25 @@
+---
+permalink: /sitemap-blog.xml
+layout: null
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>{{ site.url }}/blog/</loc>
+    <lastmod>{{ buildDate }}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+{%- for post in collections.blog %}
+{%- set normalizedUrl = post.url | replace('/index.html', '/') %}
+{%- set meta = normalizedUrl | sitemapMeta %}
+{%- set lastmodStr = post.data.date | dateToIso %}
+  <url>
+    <loc>{{ site.url }}{{ normalizedUrl }}</loc>
+    <lastmod>{{ lastmodStr | default(buildDate) }}</lastmod>
+    <changefreq>{{ meta.changefreq }}</changefreq>
+    <priority>{{ meta.priority }}</priority>
+  </url>
+{%- endfor %}
+</urlset>

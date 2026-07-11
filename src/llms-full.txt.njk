@@ -65,6 +65,19 @@ Mécanique générale · Diagnostic électronique · Carrosserie & peinture · P
 - Résumé : {{ post.data.excerpt }}
 
 {% endfor %}
+## Exemples de prix ({{ priceExamples.all.length }} pages SEO)
+
+- Index sitemap : {{ site.url }}/sitemap-exemples.xml
+- Guides génériques : {{ site.url }}/exemples/prix-vidange-moteur/ · {{ site.url }}/exemples/prix-plaquettes-frein/ · {{ site.url }}/exemples/prix-recharge-climatisation/
+- Grille atelier : {{ site.url }}/tarifs/
+
+## Sitemaps
+
+- {{ site.url }}/sitemap.xml (index)
+- {{ site.url }}/sitemap-pages.xml
+- {{ site.url }}/sitemap-blog.xml
+- {{ site.url }}/sitemap-exemples.xml
+
 ## FAQ assistants
 
 {% for item in llmsKnowledge.assistantFaq %}

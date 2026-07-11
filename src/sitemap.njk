@@ -4,90 +4,17 @@ layout: null
 eleventyExcludeFromCollections: true
 ---
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  {% for item in collections.sitemap %}
-  {% set normalizedUrl = item.url | replace('/index.html', '/') %}
-  {% if '/exemples/' not in normalizedUrl %}
-  {% set sitemapChangefreq = item.data.sitemap.changefreq | default('weekly') %}
-  {% set sitemapPriority = item.data.sitemap.priority | default('0.5') %}
-
-  {# Tier A: pages business critiques (intention RDV/devis forte) #}
-  {% set tierAExact = ['/', '/garage-ivry-sur-seine/', '/contact/', '/tarifs/', '/diagnostic/', '/mecanique/', '/carrosserie/', '/professionnels/'] %}
-  {% if normalizedUrl in tierAExact %}
-    {% set sitemapChangefreq = 'weekly' %}
-    {% if normalizedUrl == '/' %}
-      {% set sitemapPriority = '1.0' %}
-    {% else %}
-      {% set sitemapPriority = '0.95' %}
-    {% endif %}
-  {% endif %}
-
-  {# Tier B: pages locales/services secondaires mais conversionnantes #}
-  {% set tierBExact = [
-    '/entretien/',
-    '/freins/',
-    '/pneumatiques/',
-    '/vidange/',
-    '/vitry-sur-seine/',
-    '/villejuif/',
-    '/charenton-le-pont/',
-    '/paris-13/',
-    '/alfortville/',
-    '/maisons-alfort/',
-    '/kremlin-bicetre/',
-    '/revision-auto-val-de-marne/',
-    '/garage-ouvert-samedi-94/',
-    '/pare-brise/',
-    '/professionnels/taxis-vtc/',
-    '/professionnels/chauffeurs-livreurs/',
-    '/professionnels/artisans-flottes/',
-    '/professionnels/auto-ecoles/',
-    '/professionnels/autres-professionnels/'
-  ] %}
-  {% if normalizedUrl in tierBExact %}
-    {% set sitemapChangefreq = 'weekly' %}
-    {% set sitemapPriority = '0.85' %}
-  {% endif %}
-
-  {# Tier C: contenu éditorial/longue traîne utile mais moins transactionnel #}
-  {% if '/blog/' in normalizedUrl or '/prestations/' in normalizedUrl %}
-    {% set sitemapChangefreq = 'monthly' %}
-    {% set sitemapPriority = '0.60' %}
-  {% endif %}
-
-  {# Tier D: pages SEO exemples (hors navigation, indexées pour Google) #}
-  {% if '/exemples/' in normalizedUrl %}
-    {% set sitemapChangefreq = 'monthly' %}
-    {% set sitemapPriority = '0.55' %}
-  {% endif %}
-
-  {% if normalizedUrl == '/confidentialite/' or normalizedUrl == '/cookies/' or normalizedUrl == '/mentions-legales/' %}
-    {% set sitemapChangefreq = 'yearly' %}
-    {% set sitemapPriority = '0.30' %}
-  {% endif %}
-
-  <url>
-    <loc>{{ site.url }}{{ normalizedUrl }}</loc>
-    {% set lastmodVal = item.data.date or item.date %}
-    {% set lastmodStr = lastmodVal | dateToIso %}
-    {% if lastmodStr %}
-    <lastmod>{{ lastmodStr }}</lastmod>
-    {% endif %}
-    <changefreq>{{ sitemapChangefreq }}</changefreq>
-    <priority>{{ sitemapPriority }}</priority>
-  </url>
-  {% endif %}
-  {% endfor %}
-
-  {# Pages /exemples/ (pagination Eleventy — injection explicite pour Google) #}
-  {% for ex in priceExamples.all %}
-  <url>
-    <loc>{{ site.url }}/exemples/{{ ex.slug }}/</loc>
-    {% if ex.date %}
-    <lastmod>{{ ex.date | dateToIso }}</lastmod>
-    {% endif %}
-    <changefreq>monthly</changefreq>
-    <priority>0.55</priority>
-  </url>
-  {% endfor %}
-</urlset>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>{{ site.url }}/sitemap-pages.xml</loc>
+    <lastmod>{{ buildDate }}</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>{{ site.url }}/sitemap-blog.xml</loc>
+    <lastmod>{{ buildDate }}</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>{{ site.url }}/sitemap-exemples.xml</loc>
+    <lastmod>{{ buildDate }}</lastmod>
+  </sitemap>
+</sitemapindex>

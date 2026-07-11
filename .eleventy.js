@@ -67,6 +67,64 @@ module.exports = function (eleventyConfig) {
     return isNaN(d.getTime()) ? "" : d.toISOString().slice(0, 10);
   });
 
+  eleventyConfig.addFilter("sitemapMeta", (url) => {
+    const normalized = String(url || "").replace(/\/index\.html\/?$/, "/");
+    let changefreq = "weekly";
+    let priority = "0.5";
+
+    const tierA = [
+      "/",
+      "/garage-ivry-sur-seine/",
+      "/contact/",
+      "/tarifs/",
+      "/diagnostic/",
+      "/mecanique/",
+      "/carrosserie/",
+      "/professionnels/",
+    ];
+    const tierB = [
+      "/entretien/",
+      "/freins/",
+      "/pneumatiques/",
+      "/vidange/",
+      "/vitry-sur-seine/",
+      "/villejuif/",
+      "/charenton-le-pont/",
+      "/paris-13/",
+      "/alfortville/",
+      "/maisons-alfort/",
+      "/kremlin-bicetre/",
+      "/revision-auto-val-de-marne/",
+      "/garage-ouvert-samedi-94/",
+      "/pare-brise/",
+      "/professionnels/taxis-vtc/",
+      "/professionnels/chauffeurs-livreurs/",
+      "/professionnels/artisans-flottes/",
+      "/professionnels/auto-ecoles/",
+      "/professionnels/autres-professionnels/",
+    ];
+
+    if (tierA.includes(normalized)) {
+      changefreq = "weekly";
+      priority = normalized === "/" ? "1.0" : "0.95";
+    } else if (tierB.includes(normalized)) {
+      changefreq = "weekly";
+      priority = "0.85";
+    } else if (normalized.includes("/blog/") || normalized.includes("/prestations/")) {
+      changefreq = "monthly";
+      priority = "0.60";
+    } else if (
+      normalized === "/confidentialite/" ||
+      normalized === "/cookies/" ||
+      normalized === "/mentions-legales/"
+    ) {
+      changefreq = "yearly";
+      priority = "0.30";
+    }
+
+    return { changefreq, priority };
+  });
+
   // Collection blog triée par date décroissante (hors brouillons)
   eleventyConfig.addCollection("blog", function (collectionApi) {
     return collectionApi

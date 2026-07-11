@@ -175,6 +175,11 @@ Allow: /
 # --- Discovery ----------------------------------------------------------------
 Sitemap: https://redkmotors.fr/sitemap.xml
 
+# Sub-sitemaps (via index):
+#   https://redkmotors.fr/sitemap-pages.xml
+#   https://redkmotors.fr/sitemap-blog.xml
+#   https://redkmotors.fr/sitemap-exemples.xml
+
 # LLMs-Txt: https://redkmotors.fr/llms.txt
 # LLMs-Full-Txt: https://redkmotors.fr/llms-full.txt
 # AI-Txt: https://redkmotors.fr/ai.txt

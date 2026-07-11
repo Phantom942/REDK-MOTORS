@@ -116,8 +116,11 @@ jobs:
             fi
           done
 
-          check_seo_asset "https://redkmotors.fr/sitemap.xml" "<urlset" "sitemap.xml"
-          check_seo_asset "https://redkmotors.fr/sitemap.xml" "redkmotors.fr/blog/" "sitemap.xml (articles blog)"
+          check_seo_asset "https://redkmotors.fr/sitemap.xml" "<sitemapindex" "sitemap.xml (index)"
+          check_seo_asset "https://redkmotors.fr/sitemap-pages.xml" "<urlset" "sitemap-pages.xml"
+          check_seo_asset "https://redkmotors.fr/sitemap-blog.xml" "<urlset" "sitemap-blog.xml"
+          check_seo_asset "https://redkmotors.fr/sitemap-exemples.xml" "<urlset" "sitemap-exemples.xml"
+          check_seo_asset "https://redkmotors.fr/sitemap-pages.xml" "redkmotors.fr/contact/" "sitemap-pages (contact)"
           check_seo_asset "https://redkmotors.fr/robots.txt" "Sitemap: https://redkmotors.fr/sitemap.xml" "robots.txt (sitemap)"
           check_seo_asset "https://redkmotors.fr/robots.txt" "GPTBot" "robots.txt (crawlers IA)"
           check_seo_asset "https://redkmotors.fr/robots.txt" "User-agent: *" "robots.txt (syntaxe EN)"
