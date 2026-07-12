@@ -8,6 +8,20 @@
       {% for paragraph in lp.seoParagraphs %}
       <p>{{ paragraph }}</p>
       {% endfor %}
+      {% if lp.seoProblems and lp.seoProblems.length %}
+      <h3 class="service-focus__subhead">Problèmes fréquents traités en atelier</h3>
+      <ul class="conversion-services__list service-focus__problem-list">
+        {% for problem in lp.seoProblems %}
+        <li>
+          {% if problem.url %}
+          <a href="{{ problem.url }}" class="conversion-services__link">{{ problem.text }}</a>
+          {% else %}
+          {{ problem.text }}
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
     </div>
   </div>
 </section>

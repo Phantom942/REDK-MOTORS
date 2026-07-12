@@ -12,8 +12,9 @@ const PROCESS_STEPS = [
 ];
 
 const CTA = "Appeler le 06.48.74.56.68";
+const seoEnhance = require("./prestationSeoEnhancements.js");
 
-module.exports = {
+const landingPages = {
   diagnostic: {
     showDiagnosticInterventionOffer: false,
     videoSrc: "mecanique.mp4",
@@ -166,9 +167,9 @@ module.exports = {
   mecanique: {
     videoSrc: "mecanique.mp4",
     heroKicker: "Toutes marques · Devis avant travaux",
-    heroTitle: "Garage Mécanique à Ivry — Panne, Distribution, Embrayage",
+    heroTitle: "Garage Mécanique à Ivry — Turbo, EGR, Distribution, Embrayage",
     heroDesc:
-      "Panne, bruit moteur ou perte de puissance ? On identifie la cause, on chiffre, on répare. Essence et diesel, particuliers et pros.",
+      "Turbo, vanne EGR, FAP, distribution, embrayage ou perte de puissance ? Diagnostic en atelier, devis écrit avant réparation. Essence et diesel.",
     heroCtaLabel: CTA,
     highlights: [
       "Diagnostic puis devis écrit",
@@ -313,3 +314,20 @@ module.exports = {
     seoFooter: "Fourchettes tarifaires sur redkmotors.fr/tarifs/ — devis fermé après inspection au véhicule.",
   },
 };
+
+for (const [key, hub] of Object.entries(seoEnhance.hubs)) {
+  const page = landingPages[key];
+  if (!page) continue;
+  if (hub.symptoms && !page.symptoms) page.symptoms = hub.symptoms;
+  if (hub.seoProblems?.length) {
+    page.seoProblems = [...(page.seoProblems || []), ...hub.seoProblems];
+  }
+  if (hub.extraSeoParagraphs?.length) {
+    page.seoParagraphs = [...(page.seoParagraphs || []), ...hub.extraSeoParagraphs];
+  }
+  if (hub.extraFaqs?.length) {
+    page.faqs = [...(page.faqs || []), ...hub.extraFaqs];
+  }
+}
+
+module.exports = landingPages;

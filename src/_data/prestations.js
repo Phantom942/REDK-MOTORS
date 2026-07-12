@@ -1,4 +1,5 @@
 const reviewPages = require("./reviewPages.js");
+const seoEnhance = require("./prestationSeoEnhancements.js");
 
 const TARIFS_FAQ =
   "Consultez notre grille tarifaire sur redkmotors.fr/tarifs/ — devis fermé après inspection.";
@@ -460,6 +461,8 @@ function buildLp(service, category) {
       `${service.name} à Ivry-sur-Seine (94) : inspection au véhicule, devis écrit et intervention uniquement après votre accord.`,
     ],
   };
+  const extraParagraphs = seoEnhance.extraSeoParagraphs[service.slug] || [];
+  const extraFaqs = seoEnhance.extraFaqs[service.slug] || [];
   const hubUrl = CATEGORY_HUB[category] || "/prestations/";
   const videoSrc = category === "Carrosserie" ? "carrosserie.mp4" : "mecanique.mp4";
 
@@ -471,7 +474,7 @@ function buildLp(service, category) {
       `${service.name} à Ivry : diagnostic, devis clair et intervention validée avant travaux.`,
     heroCtaLabel: "Appeler le 06.48.74.56.68",
     videoSrc,
-    symptoms: ad.symptoms,
+    symptoms: ad.symptoms || seoEnhance.symptoms[service.slug],
     trustNote: ad.trustNote,
     whatsappCtaText: ad.whatsappCtaText,
     prestaHubTitle: ad.prestaHubTitle,
@@ -507,8 +510,12 @@ function buildLp(service, category) {
         question: "Comment prendre rendez-vous ?",
         answer: "06 48 74 56 68, WhatsApp ou formulaire contact. Réponse en journée lun–sam 9h–19h.",
       },
+      ...extraFaqs,
     ],
-    ...seo,
+    seoProblems: seo.seoProblems || seoEnhance.seoProblems[service.slug],
+    seoParagraphs: [...(seo.seoParagraphs || []), ...extraParagraphs],
+    seoTitle: seo.seoTitle,
+    seoFooter: seo.seoFooter,
   };
 }
 

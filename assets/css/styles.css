@@ -3133,6 +3133,15 @@ body.is-nav-open .main-nav #primary-menu.is-open {
   font-size: 0.95rem;
 }
 
+.service-focus__subhead {
+  font-size: 1.05rem;
+  margin: 1.25rem 0 0.65rem;
+}
+
+.service-focus__problem-list {
+  margin-top: 0.35rem;
+}
+
 /* Direct answer — citabilité GEO (réponse extractible IA) */
 .direct-answer {
   border-top: 3px solid var(--color-primary, #c41e1e);
