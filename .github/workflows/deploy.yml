@@ -136,3 +136,21 @@ jobs:
             exit 1
           fi
           echo "Tous les smoke tests sont passés ✅"
+
+  indexnow:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    needs: smoke-test
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: IndexNow — signaler le sitemap à Bing et autres moteurs
+        env:
+          SITE_URL: https://redkmotors.fr
+          INDEXNOW_KEY: 315a9d29deec456a9cd2ae11fe67e677
+        run: node scripts/indexnow-ping.js

@@ -318,6 +318,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("site.webmanifest");
   eleventyConfig.addPassthroughCopy("robots.txt");
   eleventyConfig.addPassthroughCopy("googlef98189b7303b92a0.html");
+  eleventyConfig.addPassthroughCopy("315a9d29deec456a9cd2ae11fe67e677.txt");
   eleventyConfig.addPassthroughCopy(".nojekyll");
   eleventyConfig.addPassthroughCopy("_redirects");
 

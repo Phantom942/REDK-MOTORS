@@ -11,7 +11,8 @@
     "favicon": "node scripts/generate-favicons.js",
     "og-image": "node scripts/generate-og-image.js",
     "google:place-id": "node scripts/resolve-google-place-id.js",
-    "videos:optimize": "node scripts/optimize-videos.js"
+    "videos:optimize": "node scripts/optimize-videos.js",
+    "indexnow:ping": "node scripts/indexnow-ping.js"
   },
   "keywords": [
     "eleventy",
