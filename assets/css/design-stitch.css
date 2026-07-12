@@ -38,6 +38,8 @@ body.design-stitch {
   --conv-band-footer: #0a0a0c;
   --conv-band-card: var(--stitch-surface);
   --conv-band-footer-card: rgba(31, 31, 35, 0.92);
+  --color-link: var(--color-red-light, #d41e24);
+  --color-link-hover: var(--stitch-primary, #ffb4ab);
   background-color: var(--stitch-bg);
   color: var(--stitch-on-surface);
   font-family: var(--font-stitch-body);
@@ -1263,6 +1265,21 @@ body.design-stitch {
   margin-bottom: 0;
 }
 
+/* Liens inline contenu — rouge charte RED-K (jamais bleu/violet navigateur) */
+.design-stitch #main :is(p, li, dd, .faq__answer, .service-focus, .service-focus__inner, .direct-answer, .presta-listing__intro, .pricing-section__intro, .blog-index__header, .breadcrumb) a:not(.btn):not([class*="btn--"]):not(.conversion-services__link):not(.blog-filter-chip):not(.tarifs-teaser__card):not(.reviews-section__link):not(.blog-card__link):not(.price-examples-hub__cta):link,
+.design-stitch #main :is(p, li, dd, .faq__answer, .service-focus, .service-focus__inner, .direct-answer, .presta-listing__intro, .pricing-section__intro, .blog-index__header, .breadcrumb) a:not(.btn):not([class*="btn--"]):not(.conversion-services__link):not(.blog-filter-chip):not(.tarifs-teaser__card):not(.reviews-section__link):not(.blog-card__link):not(.price-examples-hub__cta):visited {
+  color: var(--color-link);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  text-decoration-color: rgba(212, 30, 36, 0.42);
+}
+
+.design-stitch #main :is(p, li, dd, .faq__answer, .service-focus, .service-focus__inner, .direct-answer, .presta-listing__intro, .pricing-section__intro, .blog-index__header, .breadcrumb) a:not(.btn):not([class*="btn--"]):not(.conversion-services__link):not(.blog-filter-chip):not(.tarifs-teaser__card):not(.reviews-section__link):not(.blog-card__link):not(.price-examples-hub__cta):hover,
+.design-stitch #main :is(p, li, dd, .faq__answer, .service-focus, .service-focus__inner, .direct-answer, .presta-listing__intro, .pricing-section__intro, .blog-index__header, .breadcrumb) a:not(.btn):not([class*="btn--"]):not(.conversion-services__link):not(.blog-filter-chip):not(.tarifs-teaser__card):not(.reviews-section__link):not(.blog-card__link):not(.price-examples-hub__cta):focus-visible {
+  color: var(--color-link-hover);
+  text-decoration-color: var(--color-link-hover);
+}
+
 .design-stitch .service-focus__visual {
   color: rgba(130, 17, 17, 0.25);
 }
@@ -1780,12 +1797,14 @@ body.design-stitch {
   color: var(--stitch-on-variant);
 }
 
-.design-stitch #main .breadcrumb a {
-  color: var(--stitch-on-surface);
+.design-stitch #main .breadcrumb a:link,
+.design-stitch #main .breadcrumb a:visited {
+  color: var(--color-link);
 }
 
-.design-stitch #main .breadcrumb a:hover {
-  color: var(--stitch-primary);
+.design-stitch #main .breadcrumb a:hover,
+.design-stitch #main .breadcrumb a:focus-visible {
+  color: var(--color-link-hover);
 }
 
 .design-stitch .blog-article .article-header {
@@ -1826,8 +1845,18 @@ body.design-stitch {
   color: var(--stitch-on-variant);
 }
 
-.design-stitch .blog-article .article-body a {
-  color: var(--stitch-primary);
+.design-stitch .blog-article .article-body a:link,
+.design-stitch .blog-article .article-body a:visited {
+  color: var(--color-link, var(--stitch-primary));
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  text-decoration-color: rgba(212, 30, 36, 0.42);
+}
+
+.design-stitch .blog-article .article-body a:hover,
+.design-stitch .blog-article .article-body a:focus-visible {
+  color: var(--color-link-hover, var(--stitch-primary));
+  text-decoration-color: var(--color-link-hover, var(--stitch-primary));
 }
 
 .design-stitch .blog-article .article-toc {
