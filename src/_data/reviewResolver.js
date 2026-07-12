@@ -3,6 +3,7 @@
  * Pas de fallback : seuls les auteurs listés dans reviewPages.js sont affichés.
  */
 const reviewPages = require("./reviewPages.js");
+const { resolveReviewKey } = require("./localSeoEnhancements.js");
 
 function findByAuthor(pool, author) {
   return pool.find((r) => r.author === author);
@@ -28,7 +29,13 @@ function resolvePageReviews(pageId, googleReviewsData, count = 2, overrideAuthor
   const pool = googleReviewsData?.reviews || [];
   if (!pool.length || !pageId) return [];
 
-  const authors = overrideAuthors?.length ? overrideAuthors : reviewPages[pageId];
+  let authors = overrideAuthors?.length ? overrideAuthors : reviewPages[pageId];
+  if (!authors?.length) {
+    const fallbackKey = resolveReviewKey(pageId);
+    if (fallbackKey && fallbackKey !== pageId) {
+      authors = reviewPages[fallbackKey];
+    }
+  }
   if (!authors?.length) return [];
 
   const limit = Math.min(count || authors.length, authors.length);

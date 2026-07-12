@@ -1,0 +1,20 @@
+{% if symptoms and symptoms.length %}
+<section class="promesse" aria-labelledby="{{ symptomsSectionId | default('lp-symptoms-title') }}">
+  <div class="container">
+    {% set sectionKicker = symptomsKicker | default("Signes d'alerte") %}
+    {% set sectionTitle = symptomsTitle | default("Symptômes fréquents") %}
+    {% set sectionHeadId = symptomsSectionId | default("lp-symptoms-title") %}
+    {% include "conversion-section-head.njk" %}
+    <div class="promesse__grid">
+      {% for symptom in symptoms %}
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">{{ loop.index }}</span>
+        <div>
+          <h3>{{ symptom }}</h3>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}

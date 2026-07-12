@@ -19,7 +19,7 @@
   ] %}
 {% endif %}
 
-{% set citySeo = pageKey | citySeoContent %}
+{% set citySeo = pageKey | localSeoEnhancements %}
 {% if citySeo %}
   {% set lp = citySeo %}
   {% set lpId = pageKey %}

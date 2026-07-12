@@ -58,6 +58,10 @@ module.exports = function (eleventyConfig) {
   const citySeoContent = require("./src/_data/citySeoContent.js");
   eleventyConfig.addFilter("citySeoContent", (pageKey) => citySeoContent[pageKey] || null);
 
+  const { resolve: resolveLocalSeo, resolveReviewKey } = require("./src/_data/localSeoEnhancements.js");
+  eleventyConfig.addFilter("localSeoEnhancements", (pageKey) => resolveLocalSeo(pageKey));
+  eleventyConfig.addFilter("localSeoReviewKey", (pageKey) => resolveReviewKey(pageKey));
+
   const seoNoindex = require("./src/_data/seoNoindex.js");
 
   // Filtre date pour sitemap (ISO YYYY-MM-DD) — pas de fallback, retourne vide si invalide

@@ -3,6 +3,7 @@ layout: base.njk
 title: "Toutes les prestations atelier | RED-K MOTORS Ivry-sur-Seine (94)"
 description: "29 prestations atelier RED-K MOTORS à Ivry-sur-Seine : entretien, freinage, moteur, pneus, climatisation, carrosserie et pare-brise. Devis gratuit."
 pageKey: prestations
+hasHeroVideo: true
 date: 2026-06-11
 lastReviewed: 2026-06-11
 sitemap:
@@ -41,11 +42,24 @@ faqSchema:
         text: "Oui, véhicules thermiques essence et diesel, toutes marques courantes."
 ---
 
+{% set heroActions %}
+<a class="btn btn--primary" href="tel:{{ site.phone }}" data-track="click_call" data-track-pos="prestations_hero">Appeler pour un devis</a>
+<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp" data-track-pos="prestations_hero">WhatsApp</a>
+{% endset %}
+{% set heroClass = "hero--subpage hero--conversion" %}
+{% set heroAria = "prestations-hero-title" %}
+{% set heroTitle = "Toutes nos prestations atelier" %}
+{% set heroKicker = "Garage à Ivry-sur-Seine (94)" %}
+{% set heroDesc = "29 prestations détaillées : entretien, freinage, moteur, pneus, climatisation, carrosserie et pare-brise." %}
+{% set videoSrc = "hero.mp4" %}
+{% include "hero-video.njk" %}
+
+{% include "lp-trust-bar.njk" %}
+
 <section class="presta-listing" aria-labelledby="presta-listing-title">
   <div class="container">
-    <h1 id="presta-listing-title">Toutes nos prestations atelier</h1>
-    <p>29 prestations détaillées : entretien, freinage, moteur, pneus, climatisation, carrosserie et pare-brise. Chaque fiche explique quand la demander, ce qui est contrôlé et comment obtenir un devis à Ivry-sur-Seine (94).</p>
-    <p>Atelier multimarque — <a href="/equipe/">notre équipe</a> · <a href="/tarifs/">tarifs indicatifs</a> · <a href="/contact/">contact</a>.</p>
+    <h2 id="presta-listing-title" class="sr-only">Liste des prestations</h2>
+    <p class="presta-listing__intro">Chaque fiche explique quand la demander, ce qui est contrôlé et comment obtenir un devis à Ivry-sur-Seine (94). Atelier multimarque — <a href="/equipe/">notre équipe</a> · <a href="/tarifs/">tarifs indicatifs</a> · <a href="/contact/">contact</a>.</p>
 
     <div class="presta-listing__grid">
       {% for category in prestations.categories %}
@@ -61,6 +75,11 @@ faqSchema:
     </div>
   </div>
 </section>
+
+{% set pageReviews = "mecanique" | resolvePageReviews(googleReviews, 2) %}
+{% if pageReviews and pageReviews.length %}
+  {% include "reviews-page-block.njk" %}
+{% endif %}
 
 {% set lpId = pageKey %}
 {% include "lp-related-services.njk" %}

@@ -1,0 +1,30 @@
+{% if services and services.length %}
+<section class="promesse promesse--services" aria-labelledby="local-services-{{ pageKey }}">
+  <div class="container">
+    {% set sectionKicker = "Prestations" %}
+    {% set sectionTitle = servicesHeading | default("Nos prestations") %}
+    {% set sectionHeadId = "local-services-" ~ pageKey %}
+    {% include "conversion-section-head.njk" %}
+    {% if servicesIntro %}
+    <p class="promesse__lead">{{ servicesIntro }}</p>
+    {% endif %}
+    <div class="promesse__grid">
+      {% for service in services %}
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">{{ loop.index }}</span>
+        <div>
+          {% if service.url %}
+          <h3><a href="{{ service.url }}">{{ service.title }}</a></h3>
+          {% else %}
+          <h3>{{ service.title }}</h3>
+          {% endif %}
+          {% if service.description %}
+          <p>{{ service.description }}</p>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}

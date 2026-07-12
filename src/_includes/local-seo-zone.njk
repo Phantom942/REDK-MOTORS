@@ -1,0 +1,12 @@
+{% if zoneHeading %}
+<section class="service-focus service-focus--alt" aria-labelledby="local-zone-{{ pageKey }}">
+  <div class="container service-focus__inner">
+    <div>
+      <p class="section-kicker">Zone desservie</p>
+      <h2 id="local-zone-{{ pageKey }}">{{ zoneHeading }}</h2>
+      {% if zoneTextOne %}<p>{{ zoneTextOne }}</p>{% endif %}
+      {% if zoneTextTwo %}<p>{{ zoneTextTwo }}</p>{% endif %}
+    </div>
+  </div>
+</section>
+{% endif %}

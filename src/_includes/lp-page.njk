@@ -55,24 +55,8 @@
 {% endif %}
 
 {% if lp.symptoms and lp.symptoms.length %}
-<section class="promesse" aria-labelledby="lp-symptoms-title">
-  <div class="container">
-    {% set sectionKicker = "Signes d'alerte" %}
-    {% set sectionTitle = "Symptômes fréquents" %}
-    {% set sectionHeadId = "lp-symptoms-title" %}
-    {% include "conversion-section-head.njk" %}
-    <div class="promesse__grid">
-      {% for symptom in lp.symptoms %}
-      <div class="promesse__item">
-        <span class="promesse__icon" aria-hidden="true">{{ loop.index }}</span>
-        <div>
-          <h3>{{ symptom }}</h3>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-  </div>
-</section>
+  {% set symptoms = lp.symptoms %}
+  {% include "lp-symptoms.njk" %}
 {% endif %}
 
 {% if lp.highlights and lp.highlights.length %}

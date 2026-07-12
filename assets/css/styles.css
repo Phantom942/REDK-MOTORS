@@ -3142,6 +3142,27 @@ body.is-nav-open .main-nav #primary-menu.is-open {
   margin-top: 0.35rem;
 }
 
+.promesse--services .promesse__lead {
+  margin: 0 0 1.25rem;
+  max-width: 42rem;
+  color: var(--color-text-muted, #5c5c66);
+}
+
+.promesse--services .promesse__item h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.promesse--services .promesse__item h3 a:hover,
+.promesse--services .promesse__item h3 a:focus-visible {
+  color: var(--color-accent, #e10600);
+}
+
+body.conversion-page .presta-listing__intro {
+  margin-bottom: 1.5rem;
+  max-width: 42rem;
+}
+
 /* Direct answer — citabilité GEO (réponse extractible IA) */
 .direct-answer {
   border-top: 3px solid var(--color-primary, #c41e1e);

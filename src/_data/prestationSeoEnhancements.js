@@ -360,6 +360,13 @@ module.exports = {
       ],
     },
     revision: {
+      symptoms: [
+        "Vidange ou révision à échéance",
+        "Voyant entretien ou huile",
+        "Climatisation faible",
+        "Filtres à remplacer",
+        "Préparation contrôle technique",
+      ],
       seoProblems: [
         { text: "Révision 60 000 km", url: "/blog/revision-60000-km-checklist/" },
         { text: "Vidange moteur", url: "/blog/combien-coute-vidange-voiture/" },
@@ -369,10 +376,47 @@ module.exports = {
       ],
     },
     pneumatiques: {
+      symptoms: [
+        "Usure irrégulière des pneus",
+        "Volant qui tire",
+        "Vibrations à haute vitesse",
+        "Pneus été / hiver à monter",
+      ],
       seoProblems: [
         { text: "Usure pneus anormale", url: "/blog/quand-changer-pneus-usure-securite/" },
         { text: "Géométrie / parallélisme", url: "/blog/geometrie-roues-signes-mauvais-alignement/" },
         { text: "Pneus été / hiver", url: "/blog/pneus-ete-quand-passer-hiver-ile-de-france/" },
+      ],
+    },
+    carrosserie: {
+      symptoms: [
+        "Rayure ou enfoncement",
+        "Peinture écaillée",
+        "Impact pare-brise",
+        "Dégâts après accrochage",
+      ],
+      seoProblems: [
+        { text: "Rayure carrosserie", url: "/blog/rayure-carrosserie-quand-reparer/" },
+        { text: "Après un accident", url: "/blog/que-faire-apres-accident-carrosserie/" },
+      ],
+    },
+    vidange: {
+      symptoms: [
+        "Vidange prévue au carnet",
+        "Huile sombre ou consommation",
+        "Voyant entretien",
+        "Moteur bruyant au démarrage",
+      ],
+      seoProblems: [
+        { text: "Combien coûte une vidange", url: "/blog/combien-coute-vidange-voiture/" },
+      ],
+    },
+    "pare-brise": {
+      symptoms: [
+        "Impact ou éclat sur le pare-brise",
+        "Fissure qui progresse",
+        "Vitre latérale cassée",
+        "Buée ou infiltration d'eau",
       ],
     },
   },

@@ -10,35 +10,63 @@
 {% set videoSrc = "hero.mp4" %}
 {% include "hero-video.njk" %}
 
+{% include "lp-trust-bar.njk" %}
+
+{% if introHeading or introText %}
+<section class="service-focus service-focus--compact" aria-labelledby="local-intro-{{ pageKey }}">
+  <div class="container service-focus__inner">
+    <div>
+      {% if introHeading %}<h2 id="local-intro-{{ pageKey }}">{{ introHeading }}</h2>{% endif %}
+      {% if introText %}<p>{{ introText }}</p>{% endif %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if not lp %}
+  {% set lp = pageKey | localSeoEnhancements %}
+{% endif %}
+{% set lpId = lpId | default(pageKey) %}
+
 {% set contactTitle = "Contactez-nous" %}
 {% set contactLead = introText | default("Garage à Ivry-sur-Seine — devis gratuit, intervention après validation.") %}
 {% include "conversion-contact.njk" %}
 
-{% if lp %}
+{% if lp and lp.seoParagraphs and lp.seoParagraphs.length %}
   {% include "lp-seo-intro.njk" %}
 {% endif %}
 
-{% if services and services.length %}
-<section class="conversion-services" aria-labelledby="local-services-{{ pageKey }}">
+{% set pageSymptoms = symptoms | default(lp.symptoms) %}
+{% if pageSymptoms and pageSymptoms.length %}
+  {% set symptoms = pageSymptoms %}
+  {% set symptomsSectionId = "local-symptoms-" ~ pageKey %}
+  {% include "lp-symptoms.njk" %}
+{% endif %}
+
+{% if lp and lp.highlights and lp.highlights.length %}
+<section class="promesse promesse--highlights" aria-labelledby="local-highlights-{{ pageKey }}">
   <div class="container">
-    {% set sectionKicker = "Prestations" %}
-    {% set sectionTitle = servicesHeading | default("Nos prestations") %}
-    {% set sectionHeadId = "local-services-" ~ pageKey %}
+    {% set sectionKicker = "Notre méthode" %}
+    {% set sectionTitle = "Pourquoi passer par RED-K MOTORS" %}
+    {% set sectionHeadId = "local-highlights-" ~ pageKey %}
     {% include "conversion-section-head.njk" %}
-    <ul class="conversion-services__list">
-      {% for service in services %}
-      <li>
-        {% if service.url %}
-        <a href="{{ service.url }}" class="conversion-services__link">{{ service.title }}</a>
-        {% else %}
-        <span class="conversion-services__link conversion-services__link--text">{{ service.title }}</span>
-        {% endif %}
-      </li>
+    <div class="promesse__grid">
+      {% for highlight in lp.highlights %}
+      <div class="promesse__item">
+        <span class="promesse__icon" aria-hidden="true">✓</span>
+        <div>
+          <h3>{{ highlight }}</h3>
+        </div>
+      </div>
       {% endfor %}
-    </ul>
+    </div>
   </div>
 </section>
 {% endif %}
+
+{% include "local-seo-services.njk" %}
+
+{% include "local-seo-zone.njk" %}
 
 {% set moneyPages = pageKey | localSeoMoneyPages %}
 {% if moneyPages.length %}
@@ -57,12 +85,21 @@
 </section>
 {% endif %}
 
+{% set tarifsTeaserTrack = pageKey ~ "_tarifs" %}
+{% include "conversion-tarifs-teaser.njk" %}
+
+{% set reviewKey = pageKey | localSeoReviewKey %}
+{% set pageReviews = reviewKey | resolvePageReviews(googleReviews, 2) %}
+{% if pageReviews and pageReviews.length %}
+  {% include "reviews-page-block.njk" %}
+{% endif %}
+
 {% include "conversion-services-nav.njk" %}
 
 {% set lpId = lpId | default(pageKey) %}
 {% include "lp-related-services.njk" %}
 
-{% if lp %}
+{% if lp and lp.seoFooter %}
   {% include "lp-seo-footer.njk" %}
 {% endif %}
 
