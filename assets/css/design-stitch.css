@@ -47,7 +47,7 @@ body.design-stitch {
 
 /* Liens inline dans le texte uniquement — rouge charte (pas footer, nav, listes UI) */
 body.design-stitch :is(
-  p,
+  #main p,
   .faq__answer,
   .article-body,
   .article-excerpt,
@@ -68,7 +68,7 @@ body.design-stitch :is(
 }
 
 body.design-stitch :is(
-  p,
+  #main p,
   .faq__answer,
   .article-body,
   .article-excerpt,
@@ -1065,11 +1065,12 @@ body.design-stitch a[class*="btn--"] {
   max-width: 28rem;
 }
 
-.design-stitch .site-footer__bio a {
-  color: var(--stitch-on-surface);
+.design-stitch .site-footer__bio a:is(:link, :visited) {
+  color: rgba(255, 255, 255, 0.88);
+  text-decoration: none;
 }
 
-.design-stitch .site-footer__bio a:hover {
+.design-stitch .site-footer__bio a:is(:hover, :focus-visible) {
   color: var(--stitch-primary);
   text-decoration: underline;
 }

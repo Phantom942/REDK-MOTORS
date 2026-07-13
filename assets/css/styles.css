@@ -53,7 +53,7 @@ body {
 
 /* Liens inline dans le texte uniquement */
 body :is(
-  p,
+  #main p,
   .faq__answer,
   .article-body,
   .article-excerpt,
@@ -71,7 +71,7 @@ body :is(
 }
 
 body :is(
-  p,
+  #main p,
   .faq__answer,
   .article-body,
   .article-excerpt,
@@ -276,14 +276,14 @@ p, li, td, th, span, a, h1, h2, h3, h4 {
   max-width: 28rem;
 }
 
-.site-footer__bio a {
+.site-footer__bio a:is(:link, :visited) {
   color: rgba(255, 255, 255, 0.92);
   text-decoration: none;
   text-underline-offset: 2px;
 }
 
-.site-footer__bio a:hover {
-  color: var(--color-red);
+.site-footer__bio a:is(:hover, :focus-visible) {
+  color: var(--color-red-light);
   text-decoration: underline;
 }
 
