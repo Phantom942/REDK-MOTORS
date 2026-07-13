@@ -1087,19 +1087,19 @@ body.design-stitch a[class*="btn--"] {
 }
 
 .design-stitch .site-footer__bio {
-  color: var(--stitch-on-variant);
+  color: rgba(255, 255, 255, 0.92);
   font-size: 1rem;
   line-height: 1.6;
   max-width: 28rem;
 }
 
 .design-stitch .site-footer__bio a:is(:link, :visited) {
-  color: rgba(255, 255, 255, 0.88);
+  color: inherit;
   text-decoration: none;
 }
 
 .design-stitch .site-footer__bio a:is(:hover, :focus-visible) {
-  color: var(--stitch-primary);
+  color: #fff;
   text-decoration: underline;
 }
 
