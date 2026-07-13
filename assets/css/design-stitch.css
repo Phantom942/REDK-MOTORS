@@ -38,7 +38,7 @@ body.design-stitch {
   --conv-band-footer: #0a0a0c;
   --conv-band-card: var(--stitch-surface);
   --conv-band-footer-card: rgba(31, 31, 35, 0.92);
-  --color-link: var(--color-red-light, #d41e24);
+  --color-link: #ff4d52;
   --color-link-hover: var(--stitch-primary, #ffb4ab);
   background-color: var(--stitch-bg);
   color: var(--stitch-on-surface);

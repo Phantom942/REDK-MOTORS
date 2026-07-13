@@ -3,7 +3,7 @@
   class="main-nav__google-rating"
   target="_blank"
   rel="noopener noreferrer"
-  aria-label="Note Google : {{ site.googleReviews.rating }} sur 5, {{ site.googleReviews.count }} avis — voir sur Google Maps"
+  aria-label="{{ site.googleReviews.rating }},0 ({{ site.googleReviews.count }} avis) — Google Maps"
 >
   <span class="main-nav__google-mark" aria-hidden="true">G</span>
   <span class="main-nav__google-stars" aria-hidden="true">{% for i in range(0, site.googleReviews.rating) %}★{% endfor %}</span>

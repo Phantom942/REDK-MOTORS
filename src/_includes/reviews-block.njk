@@ -30,7 +30,7 @@
     <div class="reviews-section__grid" id="google-reviews-grid">
       {% for review in googleReviews.reviews %}
       <article class="review-card">
-        <div class="review-card__stars" aria-label="{{ review.rating }} sur 5 étoiles">
+        <div class="review-card__stars" role="img" aria-label="{{ review.rating }} sur 5 étoiles">
           <span aria-hidden="true">{% for i in range(0, review.rating) %}★{% endfor %}</span>
         </div>
         <p class="review-card__text">{{ review.text }}</p>

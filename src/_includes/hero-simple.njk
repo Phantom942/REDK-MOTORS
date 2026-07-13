@@ -1,4 +1,4 @@
-<section class="hero hero--subpage" {% if heroAria %}aria-labelledby="{{ heroAria }}"{% endif %}>
+<section class="hero {{ heroClass | default('hero--subpage') }}" {% if heroAria %}aria-labelledby="{{ heroAria }}"{% endif %}>
   <div class="hero__overlay" aria-hidden="true"></div>
   <div class="container hero__content">
     <h1 {% if heroAria %}id="{{ heroAria }}"{% endif %}>{{ heroTitle }}</h1>

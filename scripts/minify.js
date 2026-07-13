@@ -33,7 +33,6 @@ fs.readdirSync(jsDir).filter(f => f.endsWith('.js')).forEach(file => {
   const input = fs.readFileSync(filePath, 'utf8');
   const output = input
     .replace(/\/\*[\s\S]*?\*\//g, '')
-    .replace(/\/\/.*$/gm, '')
     .replace(/\n\s*\n/g, '\n')
     .trim();
   fs.writeFileSync(filePath, output);

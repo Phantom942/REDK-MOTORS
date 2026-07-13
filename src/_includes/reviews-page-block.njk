@@ -27,7 +27,7 @@
 
     {% if pageReviews.length == 1 %}
     <article class="review-card review-card--featured">
-      <div class="review-card__stars" aria-label="{{ pageReviews[0].rating }} sur 5 étoiles">
+      <div class="review-card__stars" role="img" aria-label="{{ pageReviews[0].rating }} sur 5 étoiles">
         <span aria-hidden="true">{% for i in range(0, pageReviews[0].rating) %}★{% endfor %}</span>
       </div>
       <p class="review-card__text">« {{ pageReviews[0].text }} »</p>
@@ -40,7 +40,7 @@
     <div class="reviews-section__grid reviews-section__grid--compact">
       {% for review in pageReviews %}
       <article class="review-card">
-        <div class="review-card__stars" aria-label="{{ review.rating }} sur 5 étoiles">
+        <div class="review-card__stars" role="img" aria-label="{{ review.rating }} sur 5 étoiles">
           <span aria-hidden="true">{% for i in range(0, review.rating) %}★{% endfor %}</span>
         </div>
         <p class="review-card__text">« {{ review.text }} »</p>

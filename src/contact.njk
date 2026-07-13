@@ -5,7 +5,7 @@ description: "Prenez RDV chez RED-K MOTORS : 9 rue Michelet, 94200 Ivry. ☎ 06 
 pageKey: contact
 date: 2026-06-11
 lastReviewed: 2026-07-01
-hasHeroVideo: true
+hasHeroVideo: false
 hideServiceAreas: true
 scripts:
   effects: false
@@ -52,8 +52,7 @@ faqs:
 {% set heroTitle = "Contacter RED-K MOTORS" %}
 {% set heroKicker = "Ivry (94) · Lun–sam 9h–19h" %}
 {% set heroDesc = "9 rue Michelet — téléphone, WhatsApp ou formulaire ci-dessous." %}
-{% set videoSrc = "contact.mp4" %}
-{% include "hero-video.njk" %}
+{% include "hero-simple.njk" %}
 
 {% include "lp-trust-bar.njk" %}
 
@@ -66,14 +65,23 @@ faqs:
     {% set sectionHeadId = "contact-map-title" %}
     {% set sectionLead = site.addressFull ~ " · Métro ligne 7 Mairie d'Ivry" %}
     {% include "conversion-section-head.njk" %}
-    <iframe
-      class="conversion-map__frame"
-      src="https://maps.google.com/maps?q=9+rue+Michelet+94200+Ivry-sur-Seine&t=&z=16&ie=UTF8&iwloc=&output=embed"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-      title="Plan d'accès RED-K MOTORS"
-    ></iframe>
+    <a
+      href="{{ site.googleReviews.mapsPlaceUrl }}"
+      class="conversion-map__open"
+      target="_blank"
+      rel="noopener noreferrer"
+      data-track="click_maps"
+      data-track-pos="contact_map"
+    >
+      <span class="conversion-map__pin" aria-hidden="true">📍</span>
+      <span class="conversion-map__address">{{ site.addressFull }}</span>
+      <span class="conversion-map__cta">Ouvrir le plan dans Google Maps →</span>
+    </a>
+    <p class="conversion-map__routes">
+      <a href="{{ site.wazeUrl }}" target="_blank" rel="noopener noreferrer" data-track="click_waze" data-track-pos="contact_map">Itinéraire Waze</a>
+      ·
+      <a href="{{ site.googleReviews.mapsPlaceUrl }}" target="_blank" rel="noopener noreferrer">Google Maps</a>
+    </p>
   </div>
 </section>
 
