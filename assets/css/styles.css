@@ -51,6 +51,14 @@ body {
   overflow-x: clip;
 }
 
+body a:is(:link, :visited) {
+  color: var(--color-link);
+}
+
+body a:is(:hover, :focus-visible) {
+  color: var(--color-link-hover);
+}
+
 #main {
   width: 100%;
   max-width: 100%;
@@ -7223,8 +7231,9 @@ a.review-card__name:hover {
   line-height: 1.5;
 }
 
-.lead-strip__text a {
-  color: #fff;
+.lead-strip__text a:is(:link, :visited) {
+  color: var(--color-link, #d41e24);
+  font-weight: 600;
   text-decoration: underline;
   text-underline-offset: 2px;
 }
