@@ -270,8 +270,8 @@ p, li, td, th, span, a, h1, h2, h3, h4 {
 
 .site-footer__bio {
   margin: 0;
-  font-size: inherit;
-  line-height: inherit;
+  font-size: 1rem;
+  line-height: 1.6;
   color: rgba(255, 255, 255, 0.78);
   max-width: 28rem;
 }
@@ -1372,8 +1372,6 @@ body.is-nav-open .main-nav #primary-menu.is-open {
   background: var(--color-black);
   color: var(--color-white);
   padding: 60px 0 20px;
-  font-size: 0.875rem;
-  line-height: 1.5;
 }
 
 .site-footer__grid {

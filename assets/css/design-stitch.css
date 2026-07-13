@@ -1079,8 +1079,6 @@ body.design-stitch a[class*="btn--"] {
   background: #09090b;
   color: var(--stitch-on-variant);
   border-top: 1px solid var(--stitch-outline);
-  font-size: 0.875rem;
-  line-height: 1.5;
 }
 
 .design-stitch .site-footer__brand .logo__img--footer {
@@ -1090,8 +1088,8 @@ body.design-stitch a[class*="btn--"] {
 
 .design-stitch .site-footer__bio {
   color: var(--stitch-on-variant);
-  font-size: inherit;
-  line-height: inherit;
+  font-size: 1rem;
+  line-height: 1.6;
   max-width: 28rem;
 }
 
