@@ -60,7 +60,7 @@ body.design-stitch :is(
   .conversion-contact p,
   .lead-strip__text,
   .service-focus__problem-list
-) a:is(:link, :visited):not(.btn):not([class*="btn--"]):not(.conversion-services__link):not(.blog-filter-chip):not(.tarifs-teaser__card):not(.reviews-section__link):not(.blog-card__link):not(.price-examples-hub__cta) {
+) a:is(:link, :visited):not(.btn):not([class*="btn--"]):not(.conversion-services__link):not(.blog-filter-chip):not(.tarifs-teaser__card):not(.reviews-section__link):not(.blog-card__link):not(.price-examples-hub__cta):not(.site-footer a) {
   color: var(--color-link);
   text-decoration: underline;
   text-underline-offset: 0.18em;
@@ -81,7 +81,7 @@ body.design-stitch :is(
   .conversion-contact p,
   .lead-strip__text,
   .service-focus__problem-list
-) a:is(:hover, :focus-visible):not(.btn):not([class*="btn--"]):not(.conversion-services__link):not(.blog-filter-chip):not(.tarifs-teaser__card):not(.reviews-section__link):not(.blog-card__link):not(.price-examples-hub__cta) {
+) a:is(:hover, :focus-visible):not(.btn):not([class*="btn--"]):not(.conversion-services__link):not(.blog-filter-chip):not(.tarifs-teaser__card):not(.reviews-section__link):not(.blog-card__link):not(.price-examples-hub__cta):not(.site-footer a) {
   color: var(--color-link-hover);
   text-decoration-color: var(--color-link-hover);
 }
@@ -1096,13 +1096,16 @@ body.design-stitch a[class*="btn--"] {
   border-color: var(--stitch-outline);
 }
 
-.design-stitch .site-footer__bottom a:is(:link, :visited) {
-  color: rgba(255, 255, 255, 0.72);
+.design-stitch .site-footer__bottom a:is(:link, :visited),
+.design-stitch .site-footer__bottom p a:is(:link, :visited) {
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
 }
 
-.design-stitch .site-footer__bottom a:is(:hover, :focus-visible) {
+.design-stitch .site-footer__bottom a:is(:hover, :focus-visible),
+.design-stitch .site-footer__bottom p a:is(:hover, :focus-visible) {
   color: var(--stitch-primary);
+  text-decoration: underline;
 }
 
 .design-stitch .socials a:is(:link, :visited) {

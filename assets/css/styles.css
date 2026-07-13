@@ -66,7 +66,7 @@ body :is(
   .conversion-contact p,
   .lead-strip__text,
   .service-focus__problem-list
-) a:is(:link, :visited):not(.btn):not([class*="btn--"]) {
+) a:is(:link, :visited):not(.btn):not([class*="btn--"]):not(.site-footer a) {
   color: var(--color-link);
 }
 
@@ -84,7 +84,7 @@ body :is(
   .conversion-contact p,
   .lead-strip__text,
   .service-focus__problem-list
-) a:is(:hover, :focus-visible):not(.btn):not([class*="btn--"]) {
+) a:is(:hover, :focus-visible):not(.btn):not([class*="btn--"]):not(.site-footer a) {
   color: var(--color-link-hover);
 }
 
@@ -1444,14 +1444,17 @@ body.is-nav-open .main-nav #primary-menu.is-open {
   letter-spacing: 0.5px;
 }
 
-.site-footer__bottom p:nth-child(2) a:is(:link, :visited) {
-  color: rgba(255, 255, 255, 0.72);
+.site-footer__bottom p:nth-child(2) a:is(:link, :visited),
+.site-footer__bottom a:is(:link, :visited) {
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
-.site-footer__bottom p:nth-child(2) a:is(:hover, :focus-visible) {
+.site-footer__bottom p:nth-child(2) a:is(:hover, :focus-visible),
+.site-footer__bottom a:is(:hover, :focus-visible) {
   color: var(--color-red-light);
+  text-decoration: underline;
 }
 
 /* --------------------------------------------------------------------------
