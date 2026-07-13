@@ -51,11 +51,40 @@ body {
   overflow-x: clip;
 }
 
-body a:is(:link, :visited):not(.btn):not([class*="btn--"]) {
+/* Liens inline dans le texte uniquement */
+body :is(
+  p,
+  .faq__answer,
+  .article-body,
+  .article-excerpt,
+  .article-byline,
+  .legal-content,
+  .direct-answer,
+  .presta-listing__intro,
+  .pricing-section__intro,
+  .service-focus__inner > div > p,
+  .conversion-contact p,
+  .lead-strip__text,
+  .service-focus__problem-list
+) a:is(:link, :visited):not(.btn):not([class*="btn--"]) {
   color: var(--color-link);
 }
 
-body a:is(:hover, :focus-visible):not(.btn):not([class*="btn--"]) {
+body :is(
+  p,
+  .faq__answer,
+  .article-body,
+  .article-excerpt,
+  .article-byline,
+  .legal-content,
+  .direct-answer,
+  .presta-listing__intro,
+  .pricing-section__intro,
+  .service-focus__inner > div > p,
+  .conversion-contact p,
+  .lead-strip__text,
+  .service-focus__problem-list
+) a:is(:hover, :focus-visible):not(.btn):not([class*="btn--"]) {
   color: var(--color-link-hover);
 }
 
@@ -1368,14 +1397,14 @@ body.is-nav-open .main-nav #primary-menu.is-open {
   margin-bottom: 10px;
 }
 
-.site-footer a {
-  color: rgba(255, 255, 255, 0.8);
+.site-footer a:is(:link, :visited) {
+  color: rgba(255, 255, 255, 0.88);
   text-decoration: none;
   transition: color 0.3s;
 }
 
-.site-footer a:hover {
-  color: var(--color-red);
+.site-footer a:is(:hover, :focus-visible) {
+  color: var(--color-red-light);
 }
 
 .site-footer__nap {
@@ -1415,14 +1444,14 @@ body.is-nav-open .main-nav #primary-menu.is-open {
   letter-spacing: 0.5px;
 }
 
-.site-footer__bottom p:nth-child(2) a {
-  color: rgba(255, 255, 255, 0.8);
+.site-footer__bottom p:nth-child(2) a:is(:link, :visited) {
+  color: rgba(255, 255, 255, 0.72);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
-.site-footer__bottom p:nth-child(2) a:hover {
-  color: var(--color-red);
+.site-footer__bottom p:nth-child(2) a:is(:hover, :focus-visible) {
+  color: var(--color-red-light);
 }
 
 /* --------------------------------------------------------------------------
@@ -3595,14 +3624,14 @@ body.conversion-page .presta-listing__intro {
   list-style: none;
 }
 
-.socials a {
-  color: rgba(255, 255, 255, 0.8);
+.socials a:is(:link, :visited) {
+  color: rgba(255, 255, 255, 0.88);
   text-decoration: none;
   transition: color 0.3s;
 }
 
-.socials a:hover {
-  color: var(--color-red);
+.socials a:is(:hover, :focus-visible) {
+  color: var(--color-red-light);
 }
 
 .socials__link {
@@ -4503,14 +4532,12 @@ img[loading="lazy"].loaded {
   color: rgba(255, 255, 255, 0.55);
 }
 
-#main .blog-index .breadcrumb a:link,
-#main .blog-index .breadcrumb a:visited {
-  color: var(--color-link, var(--color-red-light, #d41e24));
+#main .blog-index .breadcrumb a:is(:link, :visited) {
+  color: rgba(255, 255, 255, 0.85);
 }
 
-#main .blog-index .breadcrumb a:hover,
-#main .blog-index .breadcrumb a:focus-visible {
-  color: var(--color-link-hover, #ffb4ab);
+#main .blog-index .breadcrumb a:is(:hover, :focus-visible) {
+  color: var(--color-red-light);
 }
 
 #main .blog-index .breadcrumb [aria-current="page"] {
@@ -4767,16 +4794,14 @@ img[loading="lazy"].loaded {
   pointer-events: none;
 }
 
-#main .breadcrumb a:link,
-#main .breadcrumb a:visited {
-  color: var(--color-link, var(--color-red-light, #d41e24));
+#main .breadcrumb a:is(:link, :visited) {
+  color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
   font-weight: 600;
 }
 
-#main .breadcrumb a:hover,
-#main .breadcrumb a:focus-visible {
-  color: var(--color-link-hover, var(--color-red, #b31217));
+#main .breadcrumb a:is(:hover, :focus-visible) {
+  color: var(--color-red-light);
   text-decoration: underline;
 }
 

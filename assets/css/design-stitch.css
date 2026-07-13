@@ -45,13 +45,45 @@ body.design-stitch {
   font-family: var(--font-stitch-body);
 }
 
-/* Liens site entier — rouge charte (écrase bleu/violet navigateur, hors boutons) */
-body.design-stitch a:is(:link, :visited):not(.btn):not([class*="btn--"]) {
+/* Liens inline dans le texte uniquement — rouge charte (pas footer, nav, listes UI) */
+body.design-stitch :is(
+  p,
+  .faq__answer,
+  .article-body,
+  .article-excerpt,
+  .article-byline,
+  .legal-content,
+  .direct-answer,
+  .presta-listing__intro,
+  .pricing-section__intro,
+  .service-focus__inner > div > p,
+  .conversion-contact p,
+  .lead-strip__text,
+  .service-focus__problem-list
+) a:is(:link, :visited):not(.btn):not([class*="btn--"]):not(.conversion-services__link):not(.blog-filter-chip):not(.tarifs-teaser__card):not(.reviews-section__link):not(.blog-card__link):not(.price-examples-hub__cta) {
   color: var(--color-link);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  text-decoration-color: rgba(212, 30, 36, 0.42);
 }
 
-body.design-stitch a:is(:hover, :focus-visible):not(.btn):not([class*="btn--"]) {
+body.design-stitch :is(
+  p,
+  .faq__answer,
+  .article-body,
+  .article-excerpt,
+  .article-byline,
+  .legal-content,
+  .direct-answer,
+  .presta-listing__intro,
+  .pricing-section__intro,
+  .service-focus__inner > div > p,
+  .conversion-contact p,
+  .lead-strip__text,
+  .service-focus__problem-list
+) a:is(:hover, :focus-visible):not(.btn):not([class*="btn--"]):not(.conversion-services__link):not(.blog-filter-chip):not(.tarifs-teaser__card):not(.reviews-section__link):not(.blog-card__link):not(.price-examples-hub__cta) {
   color: var(--color-link-hover);
+  text-decoration-color: var(--color-link-hover);
 }
 
 body.design-stitch a.btn,
@@ -1050,11 +1082,12 @@ body.design-stitch a[class*="btn--"] {
   letter-spacing: 0.12em;
 }
 
-.design-stitch .site-footer a {
-  color: var(--stitch-on-surface);
+.design-stitch .site-footer a:is(:link, :visited) {
+  color: rgba(255, 255, 255, 0.88);
+  text-decoration: none;
 }
 
-.design-stitch .site-footer a:hover {
+.design-stitch .site-footer a:is(:hover, :focus-visible) {
   color: var(--stitch-primary);
 }
 
@@ -1062,8 +1095,26 @@ body.design-stitch a[class*="btn--"] {
   border-color: var(--stitch-outline);
 }
 
-.design-stitch .site-footer__bottom a {
-  color: var(--stitch-on-variant);
+.design-stitch .site-footer__bottom a:is(:link, :visited) {
+  color: rgba(255, 255, 255, 0.72);
+  text-decoration: none;
+}
+
+.design-stitch .site-footer__bottom a:is(:hover, :focus-visible) {
+  color: var(--stitch-primary);
+}
+
+.design-stitch .socials a:is(:link, :visited) {
+  color: rgba(255, 255, 255, 0.88);
+  text-decoration: none;
+}
+
+.design-stitch .socials a:is(:hover, :focus-visible) {
+  color: var(--stitch-primary);
+}
+
+.design-stitch .socials__icon svg {
+  fill: currentColor;
 }
 
 /* --- Bulle WhatsApp + retour haut --- */
@@ -1797,14 +1848,13 @@ body.design-stitch a[class*="btn--"] {
   color: var(--stitch-on-variant);
 }
 
-.design-stitch #main .breadcrumb a:link,
-.design-stitch #main .breadcrumb a:visited {
-  color: var(--color-link);
+.design-stitch #main .breadcrumb a:is(:link, :visited) {
+  color: rgba(255, 255, 255, 0.78);
+  text-decoration: none;
 }
 
-.design-stitch #main .breadcrumb a:hover,
-.design-stitch #main .breadcrumb a:focus-visible {
-  color: var(--color-link-hover);
+.design-stitch #main .breadcrumb a:is(:hover, :focus-visible) {
+  color: var(--stitch-primary);
 }
 
 .design-stitch .blog-article .article-header {
@@ -2236,13 +2286,12 @@ body.design-stitch a[class*="btn--"] {
 }
 
 .design-stitch .presta-listing__card a:is(:link, :visited) {
-  color: var(--color-link);
+  color: var(--stitch-on-surface);
   text-decoration: none;
 }
 
-.design-stitch .presta-listing__card a:hover,
-.design-stitch .presta-listing__card a:focus-visible {
-  color: var(--color-link-hover);
+.design-stitch .presta-listing__card a:is(:hover, :focus-visible) {
+  color: var(--stitch-primary);
   text-decoration: underline;
 }
 
