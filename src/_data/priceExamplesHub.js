@@ -1,7 +1,7 @@
 /**
  * Maillage interne prestations / tarifs → guides prix génériques /exemples/prix-…/
  */
-const { all } = require("./priceExamples.js");
+const { all, MODELS, SERVICES } = require("./priceExamples.js");
 
 const GENERIC_BY_SLUG = Object.fromEntries(
   all.filter((item) => item.isGeneric).map((item) => [item.slug, item])
@@ -155,6 +155,40 @@ const TARIFS_HUB = {
   lead: "Fourchettes indicatives RED-K MOTORS à Ivry. Chaque lien ouvre un comparatif complet avec d'autres enseignes.",
 };
 
+const EXAMPLES_HUB = {
+  kicker: "Guides prix",
+  title: "Exemples de prix par prestation et par modèle",
+  lead: "Comparatifs indicatifs RED-K MOTORS vs grand réseau — citadine, compacte ou SUV. Chaque guide détaille symptômes, fourchette et devis à Ivry-sur-Seine.",
+};
+
+/** serviceKey (priceExamples) → slug guide générique */
+const SERVICE_GUIDE_SLUG = {
+  "pare-brise": "prix-pare-brise",
+  vidange: "prix-vidange-moteur",
+  freinage: "prix-plaquettes-frein",
+  pneus: "prix-montage-pneus",
+  clim: "prix-recharge-climatisation",
+  distribution: "prix-courroie-distribution",
+  embrayage: "prix-embrayage",
+  batterie: "prix-batterie",
+};
+
+/** Modèles les plus recherchés pour le hub /exemples/ */
+const POPULAR_MODEL_SLUGS = [
+  "peugeot-208",
+  "renault-clio-4",
+  "renault-clio-5",
+  "volkswagen-golf-7",
+  "dacia-sandero",
+  "citroen-c3",
+  "peugeot-3008",
+  "renault-captur",
+  "toyota-yaris",
+  "volkswagen-polo",
+  "peugeot-2008",
+  "dacia-duster",
+];
+
 function hubLabelFromService(serviceLabel) {
   return (
     HUB_LABELS[serviceLabel] ||
@@ -205,11 +239,115 @@ function catalogGroups() {
   })).filter((group) => group.guides.length);
 }
 
+function guideSlugForService(serviceKey) {
+  return SERVICE_GUIDE_SLUG[serviceKey] || null;
+}
+
+function genericGuideForService(serviceKey) {
+  const slug = guideSlugForService(serviceKey);
+  return slug ? GENERIC_BY_SLUG[slug] : null;
+}
+
+function breadcrumbTrail(exemple) {
+  if (!exemple) return [];
+  const trail = [
+    { label: "Accueil", url: "/" },
+    { label: "Tarifs indicatifs", url: "/tarifs/" },
+  ];
+  const generic = genericGuideForService(exemple.serviceKey);
+  if (!exemple.isGeneric && generic) {
+    trail.push({
+      label: generic.searchQuery || hubLabelFromService(exemple.serviceLabel),
+      url: `/exemples/${generic.slug}/`,
+    });
+    trail.push({
+      label: `${exemple.brand} ${exemple.model}`,
+      url: `/exemples/${exemple.slug}/`,
+      current: true,
+    });
+    return trail;
+  }
+  trail.push({
+    label: exemple.searchQuery || hubLabelFromService(exemple.serviceLabel),
+    url: `/exemples/${exemple.slug}/`,
+    current: true,
+  });
+  return trail;
+}
+
+function popularModelExamples(serviceKey = "vidange") {
+  const svc = Object.values(SERVICES).find((s) => s.serviceKey === serviceKey);
+  if (!svc) return [];
+  const modelBySlug = Object.fromEntries(MODELS.map((m) => [m.slug, m]));
+  return POPULAR_MODEL_SLUGS.map((modelSlug) => {
+    const model = modelBySlug[modelSlug];
+    if (!model) return null;
+    const slug = `prix-${svc.slugPart}-${modelSlug}`;
+    const item = all.find((ex) => ex.slug === slug);
+    if (!item) return null;
+    return {
+      brand: model.brand,
+      model: model.model,
+      yearRange: model.yearRange,
+      url: `/exemples/${slug}/`,
+      serviceLabel: svc.serviceLabel,
+    };
+  }).filter(Boolean);
+}
+
+function modelExampleUrl(modelSlug, serviceKey = "vidange") {
+  const svc = Object.values(SERVICES).find((s) => s.serviceKey === serviceKey);
+  if (!svc) return null;
+  return `/exemples/prix-${svc.slugPart}-${modelSlug}/`;
+}
+
+function modelServiceLinks(modelSlug) {
+  const model = MODELS.find((m) => m.slug === modelSlug);
+  if (!model) return [];
+  return Object.keys(SERVICES).map((serviceKey) => {
+    const service = SERVICES[serviceKey];
+    const slug = `prix-${service.slugPart}-${modelSlug}`;
+    const item = all.find((ex) => ex.slug === slug);
+    if (!item) return null;
+    return {
+      slug,
+      url: `/exemples/${slug}/`,
+      hubLabel: hubLabelFromService(service.serviceLabel),
+      serviceLabel: service.serviceLabel,
+      redkPrice: service.redkPrice,
+    };
+  }).filter(Boolean);
+}
+
+function popularModelHubs() {
+  const modelBySlug = Object.fromEntries(MODELS.map((m) => [m.slug, m]));
+  return POPULAR_MODEL_SLUGS.map((slug) => {
+    const model = modelBySlug[slug];
+    if (!model) return null;
+    return {
+      slug,
+      brand: model.brand,
+      model: model.model,
+      yearRange: model.yearRange,
+      url: `/exemples/modeles/${slug}/`,
+    };
+  }).filter(Boolean);
+}
+
 module.exports = {
   forPage,
   forPageWithMeta,
   allGuides,
   catalogGroups,
+  breadcrumbTrail,
+  guideSlugForService,
+  genericGuideForService,
+  popularModelExamples,
+  modelExampleUrl,
+  modelServiceLinks,
+  popularModelHubs,
   PAGE_GUIDE_SLUGS,
   TARIFS_HUB,
+  EXAMPLES_HUB,
+  POPULAR_MODEL_SLUGS,
 };

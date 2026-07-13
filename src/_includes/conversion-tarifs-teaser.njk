@@ -4,15 +4,27 @@
       <p class="section-kicker">{{ tarifsTeaserKicker | default("Tarifs") }}</p>
       <h2 class="conversion-section-head__title" id="tarifs-teaser-title">{{ tarifsTeaserTitle | default("Extraits de prix indicatifs") }}</h2>
     </header>
-    <a
-      href="/tarifs/"
-      class="tarifs-teaser__card"
-      data-track="click_tarifs"
-      data-track-pos="{{ tarifsTeaserTrack | default('tarifs_teaser') }}"
-    >
-      <span class="tarifs-teaser__label">{{ tarifsTeaserCardLabel | default("Grille complète TTC") }}</span>
-      <span class="tarifs-teaser__cta">{{ tarifsTeaserCardCta | default("Voir les tarifs →") }}</span>
-      <p class="tarifs-teaser__hint">{{ tarifsTeaserLead | default("Vidange, freins, diagnostic, révision, distribution… Montants indicatifs — devis définitif gratuit après inspection.") }}</p>
-    </a>
+    <div class="conversion-tarifs-teaser__grid">
+      <a
+        href="/tarifs/"
+        class="tarifs-teaser__card"
+        data-track="click_tarifs"
+        data-track-pos="{{ tarifsTeaserTrack | default('tarifs_teaser') }}"
+      >
+        <span class="tarifs-teaser__label">{{ tarifsTeaserCardLabel | default("Grille complète TTC") }}</span>
+        <span class="tarifs-teaser__cta">{{ tarifsTeaserCardCta | default("Voir les tarifs →") }}</span>
+        <p class="tarifs-teaser__hint">{{ tarifsTeaserLead | default("Vidange, freins, diagnostic, révision, distribution… Montants indicatifs — devis définitif gratuit après inspection.") }}</p>
+      </a>
+      <a
+        href="/exemples/"
+        class="tarifs-teaser__card tarifs-teaser__card--guides"
+        data-track="click_price_example"
+        data-track-pos="{{ tarifsTeaserTrack | default('tarifs_teaser') }}_guides"
+      >
+        <span class="tarifs-teaser__label">Guides prix détaillés</span>
+        <span class="tarifs-teaser__cta">Comparatifs par prestation →</span>
+        <p class="tarifs-teaser__hint">Symptômes, fourchettes RED-K vs grand réseau, exemples par modèle (208, Clio, Golf…).</p>
+      </a>
+    </div>
   </div>
 </section>

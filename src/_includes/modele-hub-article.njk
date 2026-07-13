@@ -1,0 +1,75 @@
+<nav class="breadcrumb breadcrumb--compact" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li><a href="/tarifs/">Tarifs indicatifs</a></li>
+      <li><a href="/exemples/">Guides prix</a></li>
+      <li aria-current="page">{{ modele.brand }} {{ modele.model }}</li>
+    </ol>
+  </div>
+</nav>
+
+<article class="exemple-prix-article modele-hub-article">
+  <header class="exemple-prix-hero">
+    <div class="container exemple-prix-hero__inner">
+      <p class="section-kicker">Exemples de prix · {{ modele.brand }}</p>
+      <h1>Prix entretien {{ modele.brand }} {{ modele.model }}</h1>
+      <div class="exemple-prix-hero__chips" aria-label="Informations véhicule">
+        <span class="exemple-prix-chip">{{ modele.yearRange }}</span>
+        <span class="exemple-prix-chip">Ivry-sur-Seine (94)</span>
+        <span class="exemple-prix-chip">Diagnostic offert</span>
+      </div>
+      <p class="exemple-prix-hero__lead">
+        Tous les comparatifs indicatifs pour ce modèle — vidange, freins, pneus, climatisation, distribution, embrayage, batterie et pare-brise.
+        Montants à titre d'exemple : devis ferme après inspection au véhicule.
+      </p>
+      <p class="exemple-prix-hero__actions">
+        <a href="tel:{{ site.phone }}" class="btn btn--primary" data-track="click_call" data-track-pos="modele_hub_hero">Devis gratuit · {{ site.phoneDisplayCompact }}</a>
+        <a href="/tarifs/" class="btn btn--secondary" data-track="click_tarifs" data-track-pos="modele_hub_hero">Grille tarifaire</a>
+      </p>
+    </div>
+  </header>
+
+  <div class="exemple-prix-body">
+    <div class="container">
+      <section class="modele-hub-services" aria-labelledby="modele-hub-services-title">
+        <h2 id="modele-hub-services-title">Prestations pour {{ modele.brand }} {{ modele.model }}</h2>
+        <ul class="price-examples-hub__list modele-hub-services__list">
+          {% for link in serviceLinks %}
+          <li>
+            <a
+              class="price-examples-hub__row-link"
+              href="{{ link.url }}"
+              data-track="click_price_example"
+              data-track-pos="modele_hub_service"
+              data-track-label="{{ link.slug }}"
+            >
+              <span class="price-examples-hub__row-main">
+                <span class="price-examples-hub__label">{{ link.hubLabel }}</span>
+                <span class="price-examples-hub__hook">{{ link.serviceLabel | capitalize }}</span>
+              </span>
+              <span class="price-examples-hub__row-prices">
+                <span class="price-examples-hub__row-pill price-examples-hub__row-pill--redk">{{ link.redkPrice }}</span>
+              </span>
+              <span class="price-examples-hub__row-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </section>
+
+      <aside class="exemple-tarifs-strip" aria-label="Liens utiles">
+        <div class="exemple-tarifs-strip__inner">
+          <a href="/tarifs/" class="exemple-tarifs-strip__link">Grille tarifaire →</a>
+          <a href="/exemples/" class="exemple-tarifs-strip__link">Tous les guides prix →</a>
+          <a href="/contact/" class="exemple-tarifs-strip__link">Prendre rendez-vous →</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</article>
+
+{% set contactVariant = 'footer' %}
+{% set contactTitle = 'Devis pour votre ' ~ modele.brand ~ ' ' ~ modele.model %}
+{% set contactLead = 'Inspection gratuite à Ivry — lun–sam 9h–19h.' %}
+{% include "conversion-contact.njk" %}

@@ -1,0 +1,100 @@
+---
+layout: base.njk
+title: "Exemples de prix garage Ivry (94) — Guides par prestation & modèle | RED-K MOTORS"
+description: "Guides prix détaillés : vidange, freins, pneus, clim, distribution, embrayage, batterie… Comparatif indicatif RED-K MOTORS vs grand réseau à Ivry-sur-Seine. Devis gratuit."
+pageKey: exemples-hub
+date: 2026-07-13
+lastReviewed: 2026-07-13
+permalink: /exemples/
+sitemap:
+  changefreq: weekly
+  priority: 0.8
+hideServiceAreas: true
+breadcrumb:
+  "@context": "https://schema.org"
+  "@type": "BreadcrumbList"
+  itemListElement:
+    - "@type": "ListItem"
+      position: 1
+      name: "Accueil"
+      item: "https://redkmotors.fr/"
+    - "@type": "ListItem"
+      position: 2
+      name: "Tarifs indicatifs"
+      item: "https://redkmotors.fr/tarifs/"
+    - "@type": "ListItem"
+      position: 3
+      name: "Guides prix"
+      item: "https://redkmotors.fr/exemples/"
+---
+
+{% set heroActions %}
+<a class="btn btn--primary" href="tel:{{ site.phone }}" data-track="click_call" data-track-pos="hero">Appeler pour un devis</a>
+<a class="btn btn--secondary" href="/tarifs/" data-track="click_tarifs" data-track-pos="exemples_hub_hero">Grille tarifaire</a>
+{% endset %}
+{% set heroAria = "exemples-hub-title" %}
+{% set heroClass = "hero--subpage hero--conversion" %}
+{% set heroTitle = "Guides prix détaillés" %}
+{% set heroKicker %}Exemples concrets · Ivry (94){% endset %}
+{% set heroDesc = "Comparatifs indicatifs par prestation — symptômes, fourchettes et devis ferme après inspection." %}
+{% include "hero-simple.njk" %}
+
+{% include "lp-trust-bar.njk" %}
+
+<section class="service-focus service-focus--compact" aria-labelledby="exemples-hub-intro">
+  <div class="container service-focus__inner">
+    <div>
+      <p id="exemples-hub-intro">
+        Chaque guide compare un <strong>exemple de prix à Ivry</strong> avec une fourchette « ailleurs » (grand réseau ou constructeur).
+        Les montants restent indicatifs : le devis définitif est établi après inspection de votre véhicule.
+        Consultez aussi la <a href="/tarifs/">grille tarifaire complète</a>.
+      </p>
+    </div>
+  </div>
+</section>
+
+{% set hubCatalogGroups = priceExamplesHub.catalogGroups() %}
+{% set hubLayout = "catalog" %}
+{% set hubKicker = priceExamplesHub.EXAMPLES_HUB.kicker %}
+{% set hubTitle = priceExamplesHub.EXAMPLES_HUB.title %}
+{% set hubLead = priceExamplesHub.EXAMPLES_HUB.lead %}
+{% set hubTrack = "exemples_hub_catalog" %}
+{% include "price-examples-hub.njk" %}
+
+{% set popularModels = priceExamplesHub.popularModelExamples("vidange") %}
+{% set popularModelHubs = priceExamplesHub.popularModelHubs() %}
+{% if popularModels and popularModels.length %}
+<section class="exemples-models-hub" aria-labelledby="exemples-models-title">
+  <div class="container">
+    <header class="conversion-section-head conversion-section-head--light">
+      <p class="section-kicker">Par modèle</p>
+      <h2 class="conversion-section-head__title" id="exemples-models-title">Exemples vidange par véhicule</h2>
+      <p class="exemples-models-hub__lead">Les modèles les plus fréquents à l'atelier — chaque lien ouvre un comparatif détaillé.</p>
+    </header>
+    <ul class="exemple-prix-related__grid exemples-models-hub__grid">
+      {% for item in popularModels %}
+      <li>
+        <a
+          class="exemple-prix-related__link"
+          href="{{ item.url }}"
+          data-track="click_price_example"
+          data-track-pos="exemples_hub_models"
+          data-track-label="{{ item.brand }}-{{ item.model }}"
+        >
+          <span class="exemple-prix-related__brand">{{ item.brand }}</span>
+          <span class="exemple-prix-related__model">{{ item.model }}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+    <p class="exemples-models-hub__footer">
+      Chaque modèle dispose d'une <strong>fiche hub</strong> regroupant toutes les prestations :
+      {% for hub in popularModelHubs %}
+      <a href="{{ hub.url }}">{{ hub.brand }} {{ hub.model }}</a>{% if not loop.last %} · {% endif %}
+      {% endfor %}
+    </p>
+  </div>
+</section>
+{% endif %}
+
+{% include "conversion-contact.njk" %}

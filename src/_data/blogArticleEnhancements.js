@@ -58,7 +58,7 @@ module.exports = {
     },
     relatedLinks: [
       { url: "/vidange/", label: "Prestation vidange" },
-      { url: "/entretien/", label: "Entretien & révision" },
+      { url: "/exemples/prix-vidange-moteur/", label: "Guide prix vidange" },
       { url: "/tarifs/", label: "Grille tarifaire" },
     ],
     faqSchema: {
@@ -193,9 +193,9 @@ module.exports = {
       ],
     },
     relatedLinks: [
-      { url: "/entretien/", label: "Entretien véhicule" },
-      { url: "/diagnostic/", label: "Diagnostic électrique" },
-      { url: "/contact/", label: "Rendez-vous" },
+      { url: "/mecanique/", label: "Changement batterie" },
+      { url: "/exemples/prix-batterie/", label: "Guide prix batterie" },
+      { url: "/tarifs/", label: "Grille tarifaire" },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -374,8 +374,8 @@ module.exports = {
     },
     relatedLinks: [
       { url: "/entretien/", label: "Entretien" },
-      { url: "/mecanique/", label: "Mécanique" },
-      { url: "/contact/", label: "Recharge clim" },
+      { url: "/exemples/prix-recharge-climatisation/", label: "Guide prix clim" },
+      { url: "/tarifs/", label: "Grille tarifaire" },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -464,8 +464,8 @@ module.exports = {
     },
     relatedLinks: [
       { url: "/mecanique/", label: "Mécanique" },
-      { url: "/prestations/", label: "Prestations atelier" },
-      { url: "/contact/", label: "Devis distribution" },
+      { url: "/exemples/prix-courroie-distribution/", label: "Guide prix distribution" },
+      { url: "/tarifs/", label: "Grille tarifaire" },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -682,8 +682,8 @@ module.exports = {
     },
     relatedLinks: [
       { url: "/mecanique/", label: "Mécanique & réparations" },
-      { url: "/diagnostic/", label: "Diagnostic" },
-      { url: "/contact/", label: "Devis embrayage" },
+      { url: "/exemples/prix-embrayage/", label: "Guide prix embrayage" },
+      { url: "/tarifs/", label: "Grille tarifaire" },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -1280,8 +1280,8 @@ module.exports = {
     },
     relatedLinks: [
       { url: "/freins/", label: "Changement plaquettes frein" },
+      { url: "/exemples/prix-plaquettes-frein/", label: "Guide prix freins" },
       { url: "/tarifs/", label: "Grille tarifaire" },
-      { url: "/contact/", label: "Prendre rendez-vous" },
     ],
   },
   "prix-recharge-climatisation-94": {
@@ -1296,8 +1296,8 @@ module.exports = {
     },
     relatedLinks: [
       { url: "/prestations/recharge-clim/", label: "Réparation climatisation" },
+      { url: "/exemples/prix-recharge-climatisation/", label: "Guide prix clim" },
       { url: "/tarifs/", label: "Grille tarifaire" },
-      { url: "/contact/", label: "Prendre rendez-vous" },
     ],
   },
   "prix-changement-pneus-94": {
@@ -1312,8 +1312,8 @@ module.exports = {
     },
     relatedLinks: [
       { url: "/pneumatiques/", label: "Changement pneus" },
+      { url: "/exemples/prix-montage-pneus/", label: "Guide prix pneus" },
       { url: "/tarifs/", label: "Grille tarifaire" },
-      { url: "/contact/", label: "Prendre rendez-vous" },
     ],
   },
 };

@@ -773,6 +773,34 @@ body.design-stitch a[class*="btn--"] {
   font-family: var(--font-stitch-head);
 }
 
+.design-stitch .pricing-table__guide {
+  display: block;
+  margin-top: 0.35rem;
+  font-family: var(--font-stitch-body, var(--font-secondary));
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--color-red, #d41e24);
+  text-decoration: none;
+}
+
+.design-stitch .pricing-table__guide:hover,
+.design-stitch .pricing-table__guide:focus-visible {
+  text-decoration: underline;
+}
+
+.design-stitch .price-examples-hub__footer-link {
+  display: inline-block;
+  margin-left: 0.35rem;
+  color: var(--color-red, #d41e24);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.design-stitch .price-examples-hub__footer-link:hover,
+.design-stitch .price-examples-hub__footer-link:focus-visible {
+  text-decoration: underline;
+}
+
 .design-stitch .pricing-section__disclaimer {
   color: var(--stitch-on-variant);
 }
@@ -1051,6 +1079,8 @@ body.design-stitch a[class*="btn--"] {
   background: #09090b;
   color: var(--stitch-on-variant);
   border-top: 1px solid var(--stitch-outline);
+  font-size: 0.875rem;
+  line-height: 1.5;
 }
 
 .design-stitch .site-footer__brand .logo__img--footer {
@@ -1060,8 +1090,8 @@ body.design-stitch a[class*="btn--"] {
 
 .design-stitch .site-footer__bio {
   color: var(--stitch-on-variant);
-  font-size: 0.84rem;
-  line-height: 1.65;
+  font-size: inherit;
+  line-height: inherit;
   max-width: 28rem;
 }
 

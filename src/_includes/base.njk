@@ -153,6 +153,12 @@
     </script>
     {% endif %}
 
+    {% if offerSchema %}
+    <script type="application/ld+json">
+    {{ offerSchema | json | safe }}
+    </script>
+    {% endif %}
+
     {% if localServiceSchema %}
     <!-- JSON-LD Service (zone desservie) -->
     <script type="application/ld+json">

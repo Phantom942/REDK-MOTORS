@@ -1,26 +1,19 @@
 const SITE_URL = "https://redkmotors.fr";
+const { breadcrumbTrail } = require("../_data/priceExamplesHub.js");
 
 function buildBreadcrumb(data) {
   const ex = data.exemple;
   if (!ex) return undefined;
-  const pageUrl = `${SITE_URL}/exemples/${ex.slug}/`;
+  const trail = breadcrumbTrail(ex);
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Accueil",
-        item: `${SITE_URL}/`,
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: ex.title.replace(" · fourchette 2026", ""),
-        item: pageUrl,
-      },
-    ],
+    itemListElement: trail.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.label,
+      item: `${SITE_URL}${item.url}`,
+    })),
   };
 }
 
@@ -86,14 +79,37 @@ function buildArticleSchema(data) {
   };
 }
 
+function buildOfferSchema(data) {
+  const ex = data.exemple;
+  if (!ex) return undefined;
+  const pageUrl = `${SITE_URL}/exemples/${ex.slug}/`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "Offer",
+    name: ex.searchQuery || ex.title,
+    url: pageUrl,
+    priceCurrency: "EUR",
+    availability: "https://schema.org/InStock",
+    seller: { "@id": `${SITE_URL}/#business` },
+    itemOffered: {
+      "@type": "Service",
+      name: ex.serviceLabel,
+      areaServed: { "@type": "City", name: "Ivry-sur-Seine" },
+    },
+    description: `Exemple indicatif RED-K MOTORS : ${ex.redkPrice}. ${ex.redkNote}`,
+  };
+}
+
 module.exports = {
   eleventyComputed: {
     title: (data) => data.exemple?.title,
     description: (data) => data.exemple?.description,
     lastReviewed: (data) => data.exemple?.date,
     breadcrumb: (data) => buildBreadcrumb(data),
+    breadcrumbTrail: (data) => (data.exemple ? breadcrumbTrail(data.exemple) : []),
     faqSchema: (data) => buildFaqSchema(data),
     articleSchema: (data) => buildArticleSchema(data),
+    offerSchema: (data) => buildOfferSchema(data),
     pageKey: () => "exemple-prix",
     seoOnly: () => true,
     hideFromSiteNav: () => true,
@@ -118,9 +134,10 @@ module.exports = {
       } else {
         facts.push({ label: "Génération", value: ex.yearRange });
       }
+      facts.push({ label: "Grille tarifs", value: "Voir /tarifs/" });
       return {
         question: questionLabel,
-        answer: `Exemple à Ivry : ${ex.redkPrice} — ${ex.redkHighlight}. Ailleurs, en moyenne : ${ex.networkPrice}.`,
+        answer: `Exemple à Ivry : ${ex.redkPrice} — ${ex.redkHighlight}. Ailleurs, en moyenne : ${ex.networkPrice}. Grille complète sur redkmotors.fr/tarifs/.`,
         facts,
       };
     },

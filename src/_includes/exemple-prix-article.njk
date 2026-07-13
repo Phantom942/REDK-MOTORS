@@ -21,8 +21,15 @@
 <nav class="breadcrumb breadcrumb--compact" aria-label="Fil d'Ariane">
   <div class="container">
     <ol>
-      <li><a href="/">Accueil</a></li>
-      <li aria-current="page">{{ breadcrumbLabel }}</li>
+      {% for item in breadcrumbTrail %}
+      <li>
+        {% if item.current %}
+        <span aria-current="page">{{ item.label }}</span>
+        {% else %}
+        <a href="{{ item.url }}">{{ item.label }}</a>
+        {% endif %}
+      </li>
+      {% endfor %}
     </ol>
   </div>
 </nav>
@@ -38,6 +45,22 @@
         <span class="exemple-prix-chip">Diagnostic offert</span>
       </div>
       <p class="exemple-prix-hero__lead">{{ heroLead }}</p>
+      {% if exemple.isGeneric %}
+      <p class="exemple-model-intro">
+        Guide comparatif tous modèles (citadine à SUV) — fourchette indicative à Ivry.
+        <a href="/tarifs/">Grille tarifaire complète</a> · <a href="/exemples/">Tous les guides prix</a>.
+      </p>
+      {% else %}
+      <p class="exemple-model-intro">
+        Exemple indicatif pour une <strong>{{ modelLabel }}</strong> ({{ exemple.yearRange }}) à Ivry-sur-Seine.
+        Le montant exact dépend de l'état du véhicule après inspection — voir aussi la
+        <a href="/tarifs/">grille tarifaire complète</a>.
+      </p>
+      {% endif %}
+      <p class="exemple-prix-hero__actions">
+        <a href="tel:{{ site.phone }}" class="btn btn--primary" data-track="click_call" data-track-pos="exemple_prix_hero">Devis gratuit · {{ site.phoneDisplayCompact }}</a>
+        <a href="{{ site.whatsappUrl }}" class="btn btn--secondary" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp" data-track-pos="exemple_prix_hero">WhatsApp</a>
+      </p>
     </div>
   </header>
 
@@ -97,8 +120,23 @@
 
         <p class="exemple-compare__disclaimer">
           Montants indicatifs à titre d'exemple — le prix exact dépend du véhicule après inspection à l'atelier.
+          <a href="/tarifs/">Grille tarifaire complète</a>
+          {% if genericExemple and not exemple.isGeneric %}
+          · <a href="/exemples/{{ genericExemple.slug }}/">Guide {{ exemple.serviceLabel }} tous modèles</a>
+          {% endif %}
         </p>
       </section>
+
+      <aside class="exemple-tarifs-strip" aria-label="Liens tarifs et prestation">
+        <div class="exemple-tarifs-strip__inner">
+          <a href="/tarifs/" class="exemple-tarifs-strip__link" data-track="click_tarifs" data-track-pos="exemple_prix_strip">Grille tarifaire →</a>
+          <a href="/tarifs/#guides-prix" class="exemple-tarifs-strip__link" data-track="click_tarifs" data-track-pos="exemple_prix_strip_guides">Tous les guides prix →</a>
+          <a href="{{ exemple.serviceUrl }}" class="exemple-tarifs-strip__link" data-track="click_service" data-track-pos="exemple_prix_strip">Prestation atelier →</a>
+          {% if not exemple.isGeneric and exemple.modelSlug %}
+          <a href="/exemples/modeles/{{ exemple.modelSlug }}/" class="exemple-tarifs-strip__link" data-track="click_price_example" data-track-pos="exemple_prix_strip_modele">Toutes les prestations {{ exemple.brand }} {{ exemple.model }} →</a>
+          {% endif %}
+        </div>
+      </aside>
 
       {% if exemple.specifics and exemple.specifics.length %}
       <section class="exemple-specifics" aria-labelledby="exemple-specifics-title">
@@ -154,3 +192,8 @@
     </div>
   </div>
 </article>
+
+{% set contactVariant = 'footer' %}
+{% set contactTitle = 'Un devis pour votre véhicule ?' %}
+{% set contactLead = 'Inspection gratuite à Ivry — devis ferme avant toute intervention.' %}
+{% include "conversion-contact.njk" %}

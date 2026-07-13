@@ -270,8 +270,8 @@ p, li, td, th, span, a, h1, h2, h3, h4 {
 
 .site-footer__bio {
   margin: 0;
-  font-size: 0.875rem;
-  line-height: 1.65;
+  font-size: inherit;
+  line-height: inherit;
   color: rgba(255, 255, 255, 0.78);
   max-width: 28rem;
 }
@@ -1372,6 +1372,8 @@ body.is-nav-open .main-nav #primary-menu.is-open {
   background: var(--color-black);
   color: var(--color-white);
   padding: 60px 0 20px;
+  font-size: 0.875rem;
+  line-height: 1.5;
 }
 
 .site-footer__grid {
@@ -5177,6 +5179,130 @@ img[loading="lazy"].loaded {
   color: var(--stitch-on-variant, rgba(255, 255, 255, 0.72));
 }
 
+.exemple-model-intro {
+  margin: 1rem 0 0;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.exemple-prix-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.25rem;
+}
+
+.exemple-tarifs-strip {
+  margin: 1.5rem 0 2rem;
+  padding: 1rem 1.15rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.exemple-tarifs-strip__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+}
+
+.exemple-tarifs-strip__link {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--color-red, #d41e24);
+  text-decoration: none;
+}
+
+.exemple-tarifs-strip__link:hover,
+.exemple-tarifs-strip__link:focus-visible {
+  text-decoration: underline;
+}
+
+.exemples-models-hub {
+  padding: clamp(1.5rem, 4vw, 2.5rem) 0;
+}
+
+.exemples-models-hub__lead,
+.exemples-models-hub__footer {
+  margin: 0.5rem 0 0;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.exemples-models-hub__grid {
+  margin-top: 1.25rem;
+}
+
+.pricing-table__guide {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--color-red, #d41e24);
+  text-decoration: none;
+}
+
+.pricing-table__guide:hover,
+.pricing-table__guide:focus-visible {
+  text-decoration: underline;
+}
+
+.blog-conversion-strip {
+  padding: clamp(1.75rem, 4vw, 2.5rem) 0;
+  background: linear-gradient(180deg, rgba(196, 30, 58, 0.1) 0%, var(--color-black) 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.blog-conversion-strip__inner {
+  text-align: center;
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+.blog-conversion-strip__title {
+  margin: 0 0 0.35rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fafafa;
+}
+
+.blog-conversion-strip__lead {
+  margin: 0 0 1rem;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.95rem;
+}
+
+.blog-conversion-strip__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  justify-content: center;
+  margin: 0;
+}
+
+.modele-hub-services__list {
+  margin-top: 1rem;
+}
+
+.modele-hub-services h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.2rem;
+  color: #fafafa;
+}
+
+.exemples-models-hub__footer a {
+  color: var(--color-red, #d41e24);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.exemples-models-hub__footer a:hover,
+.exemples-models-hub__footer a:focus-visible {
+  text-decoration: underline;
+}
+
 .exemple-prix-body {
   padding: clamp(1.5rem, 4vw, 2.5rem) 0 3rem;
 }
@@ -8089,6 +8215,15 @@ a.review-card__name:hover {
   text-align: center;
 }
 
+.conversion-tarifs-teaser__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: 1rem;
+  width: 100%;
+  max-width: 52rem;
+  margin: 0 auto;
+}
+
 .conversion-tarifs-teaser .conversion-section-head {
   width: 100%;
   max-width: 36rem;
@@ -8108,8 +8243,8 @@ a.review-card__name:hover {
   justify-content: center;
   gap: 0.65rem;
   width: 100%;
-  max-width: 28rem;
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
   padding: 1.5rem 1.25rem;
   text-decoration: none;
   color: inherit;

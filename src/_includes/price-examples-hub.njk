@@ -2,6 +2,7 @@
 {% if (hubGuides and hubGuides.length) or hubCatalogGroups %}
 <section
   class="price-examples-hub price-examples-hub--{{ hubLayout | default('cards') }}{% if hubGuides and hubGuides.length == 1 %} price-examples-hub--solo{% endif %}"
+  {% if hubSectionId %}id="{{ hubSectionId }}"{% endif %}
   aria-labelledby="price-examples-hub-title"
 >
   <div class="container">
@@ -50,6 +51,7 @@
       </div>
       <p class="price-examples-hub__footer">
         Montants indicatifs TTC — devis ferme au véhicule. Modèle précis (Clio, 208, Golf…) dans chaque guide.
+        <a href="/exemples/" class="price-examples-hub__footer-link">Voir tous les guides prix →</a>
       </p>
 
     {% elif hubLayout == "feature" and hubGuides.length == 1 %}

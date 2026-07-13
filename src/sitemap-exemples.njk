@@ -5,6 +5,12 @@ eleventyExcludeFromCollections: true
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>{{ site.url }}/exemples/</loc>
+    <lastmod>{{ buildDate }}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
   {% for ex in priceExamples.all %}
   <url>
     <loc>{{ site.url }}/exemples/{{ ex.slug }}/</loc>
@@ -12,6 +18,14 @@ eleventyExcludeFromCollections: true
     <lastmod>{{ lastmodStr | default(buildDate) }}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>{% if ex.isGeneric %}0.65{% else %}0.55{% endif %}</priority>
+  </url>
+  {% endfor %}
+  {% for model in priceExamples.MODELS %}
+  <url>
+    <loc>{{ site.url }}/exemples/modeles/{{ model.slug }}/</loc>
+    <lastmod>{{ buildDate }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   {% endfor %}
 </urlset>

@@ -22,40 +22,6 @@ breadcrumb:
       position: 2
       name: "Tarifs indicatifs"
       item: "https://redkmotors.fr/tarifs/"
-offerCatalogSchema:
-  "@context": "https://schema.org"
-  "@type": "OfferCatalog"
-  name: "Tarifs indicatifs RED-K MOTORS"
-  url: "https://redkmotors.fr/tarifs/"
-  itemListElement:
-    - "@type": "Offer"
-      itemOffered: { "@type": "Service", "name": "Diagnostic avancé (approfondi)" }
-      priceSpecification: { "@type": "PriceSpecification", "minPrice": "50", "maxPrice": "100", "priceCurrency": "EUR" }
-    - "@type": "Offer"
-      itemOffered: { "@type": "Service", "name": "Vidange (huile + filtre)" }
-      priceSpecification: { "@type": "PriceSpecification", "minPrice": "70", "maxPrice": "150", "priceCurrency": "EUR" }
-    - "@type": "Offer"
-      itemOffered: { "@type": "Service", "name": "Révision" }
-      priceSpecification: { "@type": "PriceSpecification", "minPrice": "130", "maxPrice": "400", "priceCurrency": "EUR" }
-    - "@type": "Offer"
-      itemOffered: { "@type": "Service", "name": "Changement plaquettes de frein" }
-      priceSpecification: { "@type": "PriceSpecification", "minPrice": "100", "maxPrice": "190", "priceCurrency": "EUR" }
-    - "@type": "Offer"
-      itemOffered: { "@type": "Service", "name": "Changement pneus (montage 4 + équilibrage)" }
-      priceSpecification: { "@type": "PriceSpecification", "minPrice": "60", "maxPrice": "150", "priceCurrency": "EUR" }
-    - "@type": "Offer"
-      itemOffered: { "@type": "Service", "name": "Recharge climatisation" }
-      priceSpecification: { "@type": "PriceSpecification", "price": "40", "priceCurrency": "EUR" }
-    - "@type": "Offer"
-      itemOffered: { "@type": "Service", "name": "Changement batterie voiture" }
-      priceSpecification: { "@type": "PriceSpecification", "minPrice": "120", "maxPrice": "250", "priceCurrency": "EUR" }
-    - "@type": "Offer"
-      itemOffered: { "@type": "Service", "name": "Kit distribution (courroie + pose)" }
-      priceSpecification: { "@type": "PriceSpecification", "minPrice": "450", "maxPrice": "990", "priceCurrency": "EUR" }
-    - "@type": "Offer"
-      itemOffered: { "@type": "Service", "name": "Pré-contrôle technique" }
-      price: "40"
-      priceCurrency: "EUR"
 faqSchema:
   "@context": "https://schema.org"
   "@type": "FAQPage"
@@ -93,7 +59,7 @@ faqSchema:
 <section class="service-focus service-focus--compact" aria-labelledby="tarifs-seo-intro">
   <div class="container service-focus__inner">
     <div>
-      <p id="tarifs-seo-intro">Fourchettes indicatives pour vidange, freinage, changement de pneus, recharge climatisation, diagnostic et distribution. Le montant définitif figure sur le devis validé après inspection de votre véhicule à Ivry-sur-Seine.</p>
+      <p id="tarifs-seo-intro">Fourchettes indicatives pour vidange, freinage, changement de pneus, recharge climatisation, diagnostic et distribution. Chaque ligne de la grille peut ouvrir un <a href="/exemples/">guide prix détaillé</a> avec comparatif. Le montant définitif figure sur le devis validé après inspection de votre véhicule à Ivry-sur-Seine.</p>
     </div>
   </div>
 </section>
@@ -110,6 +76,7 @@ faqSchema:
 
 {% set hubCatalogGroups = priceExamplesHub.catalogGroups() %}
 {% set hubLayout = "catalog" %}
+{% set hubSectionId = "guides-prix" %}
 {% set hubKicker = priceExamplesHub.TARIFS_HUB.kicker | default("Guides détaillés") %}
 {% set hubTitle = priceExamplesHub.TARIFS_HUB.title | default("Exemples concrets par prestation") %}
 {% set hubLead = priceExamplesHub.TARIFS_HUB.lead %}

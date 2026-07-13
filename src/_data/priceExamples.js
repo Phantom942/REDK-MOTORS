@@ -459,6 +459,10 @@ function buildExample(model, serviceKey) {
   const base = {
     slug,
     isGeneric: false,
+    modelSlug: model.slug,
+    segment: model.segment,
+    tireSize: model.tireSize,
+    motorNote: model.motorNote,
     serviceKey: service.serviceKey,
     serviceLabel: service.serviceLabel,
     serviceUrl: service.serviceUrl,
@@ -496,7 +500,17 @@ function buildDescription(ex) {
   if (ex.isGeneric) {
     return `Combien coûte un ${ex.serviceLabel} ? Exemple concret citadine, compacte ou SUV — fourchette réseau vs RED-K MOTORS à Ivry (94). Devis gratuit · 06 48 74 56 68.`;
   }
-  return `Combien coûte un ${ex.serviceLabel} sur ${ex.brand} ${ex.model} ? Exemple concret, fourchette réseau vs RED-K MOTORS à Ivry (94). Devis gratuit · 06 48 74 56 68.`;
+  const segmentHints = {
+    citadine: "Segment citadine — pièces et main-d'œuvre souvent plus accessibles qu'un SUV.",
+    compacte: "Berline compacte — fourchette typique du segment familial français.",
+    suv: "SUV ou crossover — vitrage, freins et pneus peuvent coûter plus qu'une citadine.",
+    monospace: "Monospace — accès atelier et dimensions pneus à prévoir au devis.",
+    premium: "Véhicule premium — pièces et temps d'intervention souvent supérieurs.",
+    utilitaire: "Utilitaire léger — contraintes d'usage pro à intégrer au devis.",
+  };
+  const segmentNote = segmentHints[ex.segment] || "";
+  const tireNote = ex.tireSize ? ` Pneus courants : ${ex.tireSize}.` : "";
+  return `Prix ${ex.serviceLabel} ${ex.brand} ${ex.model} (${ex.yearRange}) à Ivry-sur-Seine : exemple indicatif RED-K MOTORS vs grand réseau.${tireNote} ${segmentNote} Devis gratuit après inspection · 06 48 74 56 68.`.replace(/\s+/g, " ").trim();
 }
 
 function buildQuery(ex) {
