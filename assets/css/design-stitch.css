@@ -45,13 +45,18 @@ body.design-stitch {
   font-family: var(--font-stitch-body);
 }
 
-/* Liens site entier — rouge charte (écrase bleu/violet navigateur partout) */
-body.design-stitch a:is(:link, :visited) {
+/* Liens site entier — rouge charte (écrase bleu/violet navigateur, hors boutons) */
+body.design-stitch a:is(:link, :visited):not(.btn):not([class*="btn--"]) {
   color: var(--color-link);
 }
 
-body.design-stitch a:is(:hover, :focus-visible) {
+body.design-stitch a:is(:hover, :focus-visible):not(.btn):not([class*="btn--"]) {
   color: var(--color-link-hover);
+}
+
+body.design-stitch a.btn,
+body.design-stitch a[class*="btn--"] {
+  text-decoration: none;
 }
 
 .design-stitch .scroll-progress {
@@ -2318,6 +2323,62 @@ body.design-stitch a:is(:hover, :focus-visible) {
 
 .design-stitch .article-related a {
   color: var(--stitch-primary);
+}
+
+/* Hub CTA fin d'article blog */
+.design-stitch .blog-article .article-cta {
+  background: linear-gradient(145deg, var(--stitch-surface) 0%, var(--stitch-bg-low) 100%);
+  border: 1px solid var(--stitch-outline);
+  box-shadow: var(--stitch-module-shadow);
+}
+
+.design-stitch .blog-article .article-cta::before {
+  font-family: var(--font-stitch-head);
+  color: var(--stitch-primary);
+}
+
+.design-stitch .blog-article .article-cta h3 {
+  font-family: var(--font-stitch-head);
+  color: #fafafa;
+}
+
+.design-stitch .blog-article .article-cta p {
+  color: var(--stitch-on-variant);
+}
+
+.design-stitch .blog-article .article-cta .btn--primary {
+  background: linear-gradient(135deg, var(--stitch-primary-container) 0%, var(--stitch-primary-container-2) 100%);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 12px 32px rgba(130, 17, 17, 0.45);
+}
+
+.design-stitch .blog-article .article-cta .btn--primary:is(:link, :visited, :hover, :focus-visible) {
+  color: #fff;
+  text-decoration: none;
+}
+
+.design-stitch .blog-article .article-cta .btn--primary:hover,
+.design-stitch .blog-article .article-cta .btn--primary:focus-visible {
+  background: linear-gradient(135deg, #9a1a1a 0%, var(--stitch-primary-container) 100%);
+}
+
+.design-stitch .blog-article .article-cta .btn--secondary {
+  background: rgba(42, 41, 46, 0.45);
+  border-color: rgba(167, 138, 134, 0.45);
+  color: #fafafa;
+}
+
+.design-stitch .blog-article .article-cta .btn--secondary:is(:link, :visited, :hover, :focus-visible) {
+  color: #fafafa;
+  text-decoration: none;
+}
+
+.design-stitch .blog-article .article-cta .btn--secondary:hover,
+.design-stitch .blog-article .article-cta .btn--secondary:focus-visible {
+  background: rgba(130, 17, 17, 0.22);
+  border-color: var(--stitch-primary);
+  color: #fff;
 }
 
 /* --- Espace Pro : thème sombre cohérent --- */
