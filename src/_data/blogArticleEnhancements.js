@@ -1363,4 +1363,1115 @@ module.exports = {
       ],
     },
   },
+  "voiture-ne-demarre-pas-causes": {
+    directAnswer: {
+      question: "Pourquoi ma voiture ne démarre pas ?",
+      answer:
+        "Causes les plus fréquentes : batterie à plat ou en fin de vie, démarreur HS, alternateur qui ne recharge plus, carburant / allumage, ou antidémarrage. Observez si tout est silencieux, s'il y a un clic, ou si le moteur tourne sans prendre — cela oriente déjà le diagnostic.",
+      facts: [
+        { label: "Cause n°1", value: "Batterie (surtout Start & Stop)" },
+        { label: "Garage", value: "RED-K MOTORS · Ivry-sur-Seine (94)" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/diagnostic/", label: "Diagnostic auto" },
+      { url: "/mecanique/", label: "Mécanique & réparations" },
+      { url: "/blog/batterie-voiture-quand-changer/", label: "Quand changer la batterie" },
+      { url: "/contact/", label: "Prendre rendez-vous" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Voiture qui ne démarre pas : batterie ou démarreur ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Silence total ou voyants faibles : souvent batterie. Un clic unique répété avec voyants allumés oriente vers le démarreur ou une batterie trop faible pour lancer. Un test de capacité et d'intensité au garage évite de remplacer la mauvaise pièce.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Peut-on forcer le démarreur plusieurs fois ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Non : des rafales longues font chauffer le démarreur et peuvent le griller. Faites une pause entre les essais, vérifiez le levier en P/N, et privilégiez un diagnostic à Ivry si ça ne part pas.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Le moteur tourne mais ne démarre pas : que faire ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Le démarreur fonctionne : on regarde carburant, allumage (bougies/bobines), antidémarrage ou capteur critique. Une lecture OBD chez RED-K MOTORS à Ivry-sur-Seine cible la cause rapidement.",
+          },
+        },
+      ],
+    },
+  },
+  "fumee-bleue-echappement-causes": {
+    directAnswer: {
+      question: "Que signifie une fumée bleue à l'échappement ?",
+      answer:
+        "La fumée bleue indique en général que le moteur brûle de l'huile (segments, guides de soupapes, turbo, ou joint). Ce n'est pas de la condensation : faites diagnostiquer avant une casse moteur ou un catalyseur / FAP encrassé.",
+      facts: [
+        { label: "Signification", value: "Huile brûlée dans la combustion" },
+        { label: "Atelier", value: "Diagnostic · RED-K MOTORS Ivry (94)" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/diagnostic/", label: "Diagnostic auto" },
+      { url: "/mecanique/", label: "Mécanique" },
+      { url: "/blog/consommation-huile-anormale-causes/", label: "Consommation d'huile anormale" },
+      { url: "/blog/fumee-blanche-echappement-que-faire/", label: "Fumée blanche à l'échappement" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Fumée bleue ou fumée blanche : quelle différence ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "La fumée bleue pointe vers l'huile brûlée. La fumée blanche dense (surtout à chaud) peut indiquer du liquide de refroidissement (joint de culasse). Une légère fumée blanche au démarrage froid est souvent de la condensation.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Peut-on rouler avec une fumée bleue ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Sur de très courtes distances seulement, en surveillant le niveau d'huile. Une surconsommation peut provoquer un grippage moteur. Prenez rendez-vous rapidement chez RED-K MOTORS à Ivry.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Le turbo peut-il causer une fumée bleue ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Oui : un joint de turbo usé laisse passer l'huile dans l'admission ou l'échappement. Le diagnostic croise niveau d'huile, bruit de sifflement et pression de suralimentation.",
+          },
+        },
+      ],
+    },
+  },
+  "consommation-huile-anormale-causes": {
+    directAnswer: {
+      question: "Quand une consommation d'huile est-elle anormale ?",
+      answer:
+        "Mesurez en litres pour 1 000 km. Au-delà des seuils constructeur (souvent autour de 0,5 L / 1 000 km selon moteurs), cherchez une fuite externe ou une huile brûlée (segments, turbo, guides). Un niveau sous le MIN est une urgence.",
+      facts: [
+        { label: "À mesurer", value: "Litres / 1 000 km entre deux contrôles" },
+        { label: "Garage", value: "RED-K MOTORS · Ivry-sur-Seine (94)" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/vidange/", label: "Vidange moteur" },
+      { url: "/mecanique/", label: "Mécanique" },
+      { url: "/blog/fuite-huile-moteur-causes-que-faire/", label: "Fuite d'huile moteur" },
+      { url: "/blog/fumee-bleue-echappement-causes/", label: "Fumée bleue" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Ajouter de l'huile entre deux vidanges est-il normal ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Une légère consommation peut être tolérée selon le constructeur. Si vous devez ajouter souvent un demi-litre, mesurez précisément et faites contrôler : fuite ou combustion d'huile.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Consommation d'huile sans tache au sol : que ça veut dire ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "L'huile part souvent dans la combustion (segments, guides, turbo) plutôt qu'en fuite externe. Une fumée bleue ou un niveau qui baisse sans flaque confirme cette piste.",
+          },
+        },
+      ],
+    },
+  },
+  "joint-culasse-signes-symptomes": {
+    directAnswer: {
+      question: "Quels sont les signes d'un joint de culasse HS ?",
+      answer:
+        "Surchauffe répétée, « mayonnaise » dans le vase d'expansion, perte de liquide sans fuite visible, fumée blanche dense à chaud ou gaz dans le circuit de refroidissement : faites diagnostiquer sans attendre.",
+      facts: [
+        { label: "Urgence", value: "Stopper si surchauffe / mayonnaise" },
+        { label: "Atelier", value: "Diagnostic moteur · Ivry (94)" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/diagnostic/", label: "Diagnostic auto" },
+      { url: "/mecanique/", label: "Mécanique" },
+      { url: "/blog/surchauffe-moteur-que-faire/", label: "Surchauffe moteur" },
+      { url: "/blog/fumee-blanche-echappement-que-faire/", label: "Fumée blanche" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Peut-on rouler avec un joint de culasse suspect ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Non recommandé : continuer peut voiler la culasse ou endommager le moteur. Arrêtez-vous en cas de surchauffe et faites remorquer ou diagnostiquer rapidement.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Mayonnaise dans le vase = joint de culasse forcément ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "C'est un signe fort d'émulsion huile/eau, souvent lié au joint de culasse, mais d'autres défauts existent. Un test de compression / gaz dans le circuit confirme chez le garage.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Combien coûte un joint de culasse à Ivry ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Le montant dépend du moteur (accès, culasse à rectifier ou non). Seul un devis après diagnostic est fiable — gratuit avant travaux chez RED-K MOTORS à Ivry-sur-Seine.",
+          },
+        },
+      ],
+    },
+  },
+  "roulement-roue-sifflement-symptomes": {
+    directAnswer: {
+      question: "Comment reconnaître un roulement de roue usé ?",
+      answer:
+        "Sifflement ou ronronnement qui augmente avec la vitesse et change en virage (charge d'un côté) : souvent un roulement. Ne confondez pas avec un pneu mal usé ou un frein qui frotte — un contrôle sous pont tranche.",
+      facts: [
+        { label: "Signe typique", value: "Bruit qui varie en virage" },
+        { label: "Garage", value: "RED-K MOTORS · mécanique Ivry" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/mecanique/", label: "Mécanique" },
+      { url: "/pneumatiques/", label: "Pneus & géométrie" },
+      { url: "/blog/geometrie-roues-signes-mauvais-alignement/", label: "Géométrie des roues" },
+      { url: "/contact/", label: "Diagnostic train roulant" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Peut-on rouler avec un roulement qui siffle ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Sur de courtes distances uniquement. Un roulement qui casse peut bloquer la roue ou endommager le moyeu. Faites contrôler rapidement à Ivry.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Roulement ou pneu : comment distinguer ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Un pneu usé ou hernié fait souvent un bruit plus « régulier » ; un roulement change souvent d'intensité en virage. L'essai route et le contrôle au cric confirment.",
+          },
+        },
+      ],
+    },
+  },
+  "cardan-qui-claque-causes": {
+    directAnswer: {
+      question: "Pourquoi un cardan claque en tournant ?",
+      answer:
+        "Un clac-clac en braquant à fond ou en accélérant en courbe pointe souvent vers un joint de cardan (soufflet déchiré, graisse partie, jeu). Plus on attend, plus le risque de rupture en virage augmente.",
+      facts: [
+        { label: "Signe classique", value: "Clac en braquage serré" },
+        { label: "Atelier", value: "Train avant · Ivry-sur-Seine (94)" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/mecanique/", label: "Mécanique & réparations" },
+      { url: "/pneumatiques/", label: "Géométrie" },
+      { url: "/blog/embrayage-qui-patine-causes/", label: "Embrayage qui patine" },
+      { url: "/contact/", label: "Devis cardan" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Peut-on rouler avec un cardan qui claque ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Évitez les grands braquages et les accélérations fortes. Un joint HS peut se désagréger : planifiez le remplacement rapidement chez RED-K MOTORS.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Faut-il changer le cardan complet ou seulement le soufflet ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Si le soufflet est déchiré depuis peu et le joint encore sain, un soufflet + graisse peut suffire. Dès qu'il y a du jeu ou du claquement, on remplace en général le joint ou le cardan complet.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Cardan ou silentbloc : même bruit ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Non : le cardan claque surtout en braquage / accélération en courbe. Les silentblocs claquent plutôt sur bosses ou au freinage. Un essai sous pont différencie.",
+          },
+        },
+      ],
+    },
+  },
+  "volant-qui-vibre-causes": {
+    directAnswer: {
+      question: "Pourquoi le volant vibre-t-il ?",
+      answer:
+        "Vibration dès ~90 km/h : souvent pneus (équilibrage, hernie) ou jante. Vibration surtout au freinage : disques voilés. Volant de travers + usure en biais : géométrie. Un diagnostic train avant cible la cause.",
+      facts: [
+        { label: "À noter", value: "Vitesse / freinage / virage" },
+        { label: "Garage", value: "RED-K MOTORS · Ivry (94)" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/pneumatiques/", label: "Pneus & géométrie" },
+      { url: "/freins/", label: "Freinage" },
+      { url: "/blog/disques-frein-voiles-usure-signes/", label: "Disques voilés" },
+      { url: "/blog/geometrie-roues-signes-mauvais-alignement/", label: "Mauvais alignement" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Volant qui vibre sur autoroute : que vérifier en premier ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Équilibrage et état des pneus (usure, hernie), puis jantes. Si le problème persiste, géométrie et silentblocs. Chez RED-K MOTORS à Ivry, on enchaîne contrôle pneus puis train avant.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Vibration uniquement au freinage : est-ce grave ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Souvent des disques voilés ou usés. Le freinage reste possible mais moins efficace et moins confortable — faites contrôler les freins avant un long trajet.",
+          },
+        },
+      ],
+    },
+  },
+  "surchauffe-moteur-que-faire": {
+    directAnswer: {
+      question: "Que faire en cas de surchauffe moteur ?",
+      answer:
+        "Coupez la clim, mettez le chauffage à fond, arrêtez-vous dès que c'est sûr, coupez le moteur et laissez refroidir. N'ouvrez jamais le bouchon à chaud. Ensuite : niveau de liquide, fuite, thermostat, radiateur ou joint de culasse à diagnostiquer.",
+      facts: [
+        { label: "Urgence", value: "Stopper · ne pas ouvrir le circuit chaud" },
+        { label: "Garage", value: "RED-K MOTORS · Ivry-sur-Seine (94)" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/mecanique/", label: "Mécanique" },
+      { url: "/diagnostic/", label: "Diagnostic" },
+      { url: "/blog/liquide-refroidissement-quand-verifier/", label: "Liquide de refroidissement" },
+      { url: "/blog/joint-culasse-signes-symptomes/", label: "Joint de culasse" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Peut-on compléter le liquide de refroidissement à chaud ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Non : risque de brûlure grave. Attendez le refroidissement complet, puis complétez à froid avec le produit adapté et recherchez la cause de la perte.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Quelles causes de surchauffe sont les plus fréquentes ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Niveau bas / fuite, thermostat bloqué, radiateur ou ventilateur HS, pompe à eau, et parfois joint de culasse après une première surchauffe.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Reprendre la route après une surchauffe ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Uniquement si la température est redescendue, le niveau est correct et aucun voyant ne reste allumé — et seulement pour rejoindre un garage. En cas de doute, faites dépanner.",
+          },
+        },
+      ],
+    },
+  },
+  "alternateur-hs-symptomes": {
+    directAnswer: {
+      question: "Quels sont les symptômes d'un alternateur HS ?",
+      answer:
+        "Voyant batterie allumé, phares qui baissent au ralenti, accessoires qui coupent, démarrages de plus en plus difficiles après un boost : l'alternateur (ou sa courroie) ne recharge plus. Un test de tension moteur tournant confirme.",
+      facts: [
+        { label: "Signe fréquent", value: "Voyant batterie + tension trop basse" },
+        { label: "Atelier", value: "Circuit de charge · Ivry (94)" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/mecanique/", label: "Mécanique" },
+      { url: "/diagnostic/", label: "Diagnostic" },
+      { url: "/blog/batterie-voiture-quand-changer/", label: "Batterie voiture" },
+      { url: "/blog/courroie-accessoires-symptomes-usure/", label: "Courroie d'accessoires" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Batterie ou alternateur : comment savoir ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Si la voiture démarre après un boost puis retombe en panne en roulant, l'alternateur (ou la courroie) est souvent en cause. Une batterie seule HS se vide surtout à l'arrêt. Le test de charge tranche.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Peut-on rouler avec le voyant batterie allumé ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Seulement pour rejoindre un garage proche : vous roulez sur la réserve de la batterie. Éteignez clim et accessoires non essentiels.",
+          },
+        },
+      ],
+    },
+  },
+  "pare-brise-fissure-controle-technique": {
+    directAnswer: {
+      question: "Un pare-brise fissuré passe-t-il le contrôle technique ?",
+      answer:
+        "Un impact dans le champ de vision du conducteur ou une fissure qui s'étend peut entraîner un défaut majeur / critique et un refus. Réparez l'impact ou remplacez le vitrage avant le CT pour éviter la contre-visite.",
+      facts: [
+        { label: "Zone sensible", value: "Champ de vision conducteur" },
+        { label: "Atelier", value: "Pare-brise · RED-K MOTORS Ivry" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/pare-brise/", label: "Pare-brise" },
+      { url: "/blog/5-points-controle-avant-ct-ivry/", label: "5 points avant le CT" },
+      { url: "/blog/controle-technique-2026-nouveautes/", label: "CT 2026" },
+      { url: "/contact/", label: "Devis vitrage" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Impact ou fissure : peut-on réparer sans changer le pare-brise ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Un petit impact hors zone critique se répare souvent. Dès qu'une fissure part, le remplacement est en général nécessaire. Un devis chez RED-K MOTORS à Ivry précise la solution.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Faut-il déclarer à l'assurance un impact pare-brise ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Souvent oui selon votre contrat (bris de glace). Vérifiez franchise et bonus. L'atelier peut vous aider pour le devis assurance.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Combien de temps avant le CT pour réparer ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Dès que l'impact apparaît : une fissure peut s'étendre en quelques jours (choc thermique, nid-de-poule). Réparer avant le passage évite le refus.",
+          },
+        },
+      ],
+    },
+  },
+  "prix-kit-distribution-94": {
+    directAnswer: {
+      question: "Combien coûte un kit de distribution dans le 94 ?",
+      answer:
+        "Pour une voiture courante en 2026, comptez souvent 450 à 900 € (kit + main-d'œuvre), et plutôt 650 à 1 400 € si la pompe à eau est remplacée en même temps. Devis ferme après diagnostic chez RED-K MOTORS à Ivry.",
+      facts: [
+        { label: "Fourchette kit", value: "450–900 €" },
+        { label: "Avec pompe à eau", value: "650–1 400 €" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/mecanique/", label: "Mécanique" },
+      { url: "/exemples/prix-courroie-distribution/", label: "Guide prix distribution" },
+      { url: "/blog/courroie-distribution-quand-changer-94/", label: "Quand changer la distribution" },
+      { url: "/tarifs/", label: "Grille tarifaire" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Faut-il changer la pompe à eau avec le kit distribution ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Oui sur de nombreux moteurs : la pompe est entraînée par la courroie et l'accès est le même. La changer en même temps évite une seconde immobilisation.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Pourquoi les prix varient-ils autant ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Accès moteur, qualité du kit, présence de la pompe à eau et temps de main-d'œuvre. Un diesel encombré coûte souvent plus qu'une citadine essence.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Le devis distribution est-il gratuit à Ivry ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Oui chez RED-K MOTORS : devis écrit avant travaux, après identification du moteur et du plan d'entretien constructeur.",
+          },
+        },
+      ],
+    },
+  },
+  "prix-changement-embrayage-94": {
+    directAnswer: {
+      question: "Combien coûte un changement d'embrayage dans le 94 ?",
+      answer:
+        "Kit d'embrayage (disque, mécanisme, butée + pose) : souvent 700 à 1 400 € en 2026. Avec volant bimasse : fréquemment 1 200 à 2 500 €. Fourchettes indicatives — devis après essai chez RED-K MOTORS à Ivry.",
+      facts: [
+        { label: "Kit seul", value: "700–1 400 €" },
+        { label: "Avec bimasse", value: "1 200–2 500 €" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/mecanique/", label: "Mécanique" },
+      { url: "/exemples/prix-embrayage/", label: "Guide prix embrayage" },
+      { url: "/blog/embrayage-qui-patine-causes/", label: "Embrayage qui patine" },
+      { url: "/tarifs/", label: "Grille tarifaire" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Faut-il toujours changer le volant bimasse ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Non : seulement s'il est fatigué (bruits, vibrations, jeu). Sur beaucoup de diesels, il est déjà usé au moment du kit — le devis isole clairement cette ligne.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Combien de temps pour changer un embrayage ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Souvent une journée selon l'accès (traction, boîte, berceau). RED-K MOTORS à Ivry confirme le délai sur le devis.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Quels signes avant de changer l'embrayage ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Patine à l'accélération, point de patinage haut, odeur de brûlé, bruit au débrayage. Un essai route évite de confondre avec une commande hydraulique.",
+          },
+        },
+      ],
+    },
+  },
+  "prix-changement-batterie-94": {
+    directAnswer: {
+      question: "Combien coûte un changement de batterie dans le 94 ?",
+      answer:
+        "Batterie plomb classique posée : souvent 100 à 220 € en 2026. Start & Stop (EFB/AGM) : plutôt 180 à 400 € selon capacité et recalibrage. Devis gratuit chez RED-K MOTORS à Ivry-sur-Seine.",
+      facts: [
+        { label: "Classique", value: "100–220 €" },
+        { label: "EFB / AGM", value: "180–400 €" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/mecanique/", label: "Mécanique" },
+      { url: "/exemples/prix-batterie/", label: "Guide prix batterie" },
+      { url: "/blog/batterie-voiture-quand-changer/", label: "Quand changer la batterie" },
+      { url: "/tarifs/", label: "Grille tarifaire" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Pourquoi une batterie Start & Stop coûte-t-elle plus cher ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Les technologies EFB/AGM supportent des cycles intensifs et nécessitent parfois un codage du calculateur. Une batterie classique n'est pas adaptée.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Le prix inclut-il la pose et le recyclage ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Chez RED-K MOTORS, le devis précise pièce conforme, pose, contrôle de charge et reprise de l'ancienne batterie — comparez ce périmètre, pas seulement le prix magasin.",
+          },
+        },
+      ],
+    },
+  },
+  "prix-geometrie-parallelisme-94": {
+    directAnswer: {
+      question: "Combien coûte une géométrie ou un parallélisme dans le 94 ?",
+      answer:
+        "Parallélisme train avant : souvent 50 à 90 € en 2026. Géométrie plus complète (multi-axes) : plutôt 80 à 150 €. Hors pièces usées (rotules, silentblocs) parfois nécessaires avant réglage. Devis chez RED-K MOTORS à Ivry.",
+      facts: [
+        { label: "Parallélisme", value: "50–90 €" },
+        { label: "Géométrie complète", value: "80–150 €" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/pneumatiques/", label: "Pneus & géométrie" },
+      { url: "/blog/geometrie-roues-signes-mauvais-alignement/", label: "Signes de mauvais alignement" },
+      { url: "/blog/volant-qui-vibre-causes/", label: "Volant qui vibre" },
+      { url: "/tarifs/", label: "Grille tarifaire" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Parallélisme et géométrie : quelle différence ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Le parallélisme règle surtout l'ouverture/fermeture du train avant. La géométrie mesure et règle davantage d'angles (carrossage, chasse, etc.) selon le véhicule.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Quand faire une géométrie ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Après un choc (trottoir, nid-de-poule), au changement de pneus, ou si la voiture tire / les pneus s'usent en biais — fréquent en usage urbain autour d'Ivry.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Le réglage suffit-il si un silentbloc est HS ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Non : une pièce de train usée empêche un réglage durable. Le devis isole d'abord les pièces à remplacer, puis la géométrie.",
+          },
+        },
+      ],
+    },
+  },
+  "prix-pre-controle-technique-ivry": {
+    directAnswer: {
+      question: "Combien coûte un pré-contrôle technique à Ivry ?",
+      answer:
+        "Un pré-CT en garage à Ivry / 94 se situe souvent entre 40 et 90 € en 2026 selon la profondeur du contrôle. Ce n'est pas le prix du CT officiel (centre agréé). L'intérêt : éviter la contre-visite et chiffrer les réparations.",
+      facts: [
+        { label: "Fourchette pré-CT", value: "40–90 €" },
+        { label: "Garage", value: "RED-K MOTORS · Ivry-sur-Seine" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/entretien/", label: "Entretien" },
+      { url: "/blog/5-points-controle-avant-ct-ivry/", label: "5 points avant le CT" },
+      { url: "/blog/controle-technique-2026-nouveautes/", label: "Nouveautés CT 2026" },
+      { url: "/contact/", label: "Réserver un pré-CT" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Pré-contrôle et contrôle technique : même chose ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Non. Le pré-CT est un contrôle atelier pour détecter les défauts avant le passage officiel. Le CT est délivré uniquement par un centre agréé.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Le pré-CT évite-t-il toujours la contre-visite ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Il réduit fortement le risque en corrigeant freins, pneus, éclairage, pollution et niveaux avant le jour J. Aucun garage ne peut garantir le résultat du centre, mais la préparation change la donne.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Quand faire un pré-CT à Ivry ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Idéalement 1 à 2 semaines avant le rendez-vous au centre, pour laisser le temps aux réparations et au devis.",
+          },
+        },
+      ],
+    },
+  },
+  "adblue-voyant-panne-diesel": {
+    directAnswer: {
+      question: "Que faire si le voyant AdBlue s'allume ?",
+      answer:
+        "Complétez avec de l'AdBlue conforme dès que possible et respectez l'autonomie affichée. Niveau trop bas, qualité médiocre ou panne de pompe / capteur peut immobiliser le diesel Euro 6. Ne videz pas le réservoir jusqu'à la panne.",
+      facts: [
+        { label: "Risque", value: "Immobilisation si niveau critique" },
+        { label: "Atelier diesel", value: "RED-K MOTORS · Ivry (94)" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/diagnostic/", label: "Diagnostic diesel" },
+      { url: "/mecanique/", label: "Mécanique" },
+      { url: "/blog/voyant-moteur-allume-que-faire/", label: "Voyant moteur" },
+      { url: "/contact/", label: "Prendre rendez-vous" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Peut-on rouler avec le voyant AdBlue allumé ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Oui tant que l'autonomie restante le permet, mais remplissez vite. À zéro, de nombreux diesels refusent le redémarrage après coupure moteur.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "AdBlue plein mais voyant toujours allumé : pourquoi ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Qualité du produit, cristallisation, pompe, injecteur AdBlue ou capteur défaillant. Un diagnostic valise chez RED-K MOTORS à Ivry identifie le défaut.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "N'importe quel AdBlue convient-il ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Utilisez un AdBlue conforme ISO 22241. Un produit dilué ou contaminé encrasse le système et peut coûter cher à réparer.",
+          },
+        },
+      ],
+    },
+  },
+  "filtre-gasoil-quand-changer": {
+    directAnswer: {
+      question: "Quand changer le filtre à gasoil ?",
+      answer:
+        "Suivez l'intervalle constructeur (souvent 20 000 à 40 000 km selon modèles) ou plus tôt si démarrages difficiles, perte de puissance, à-coups diesel. Un filtre saturé protège mal la pompe HP et les injecteurs.",
+      facts: [
+        { label: "Intervalle courant", value: "Selon carnet (souvent 20–40 000 km)" },
+        { label: "Garage", value: "Diesel · RED-K MOTORS Ivry" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/entretien/", label: "Entretien" },
+      { url: "/mecanique/", label: "Mécanique" },
+      { url: "/blog/injecteurs-encrasses-symptomes/", label: "Injecteurs encrassés" },
+      { url: "/vidange/", label: "Vidange" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Quels symptômes d'un filtre à gasoil colmaté ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Démarrages difficiles à froid, trous à l'accélération, perte de puissance, parfois voyant moteur. Le garage vérifie aussi la présence d'eau dans le filtre.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Faut-il purger le circuit après changement ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Oui sur de nombreux diesels : un circuit mal purgé empêche le démarrage. L'atelier dispose de la procédure adaptée au véhicule.",
+          },
+        },
+      ],
+    },
+  },
+  "injecteurs-encrasses-symptomes": {
+    directAnswer: {
+      question: "Quels sont les symptômes d'injecteurs encrassés ?",
+      answer:
+        "Ratés, ralenti instable, fumée noire, surconsommation, perte de puissance ou broutage : l'injection ne dose plus correctement. Un diagnostic évite de remplacer des injecteurs alors qu'un filtre, une EGR ou des bougies suffisent.",
+      facts: [
+        { label: "Usage à risque", value: "Ville, trajets courts, gasoil médiocre" },
+        { label: "Atelier", value: "Diagnostic injection · Ivry (94)" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/diagnostic/", label: "Diagnostic auto" },
+      { url: "/mecanique/", label: "Mécanique" },
+      { url: "/blog/filtre-gasoil-quand-changer/", label: "Filtre à gasoil" },
+      { url: "/blog/voiture-broute-acceleration-causes-94/", label: "Voiture qui broute" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Nettoyage ou remplacement des injecteurs ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Un encrassement modéré se traite parfois par nettoyage / additif / banc. Des injecteurs HS (fuite, débit hors tolérance) se remplacent. Le diagnostic valise et les mesures décident.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Les injecteurs encrassés allument-ils le voyant moteur ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Souvent oui (ratés, mélange incorrect), mais pas toujours. Une perte de puissance sans voyant mérite aussi un contrôle à Ivry.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Peut-on confondre avec une vanne EGR ou un FAP ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Oui : symptômes proches sur diesel urbain. C'est pourquoi on commence par lecture OBD, filtres et antipollution avant de changer les injecteurs.",
+          },
+        },
+      ],
+    },
+  },
+  "debosselage-sans-peinture-dsp": {
+    directAnswer: {
+      question: "Quand le débosselage sans peinture (DSP) est-il possible ?",
+      answer:
+        "Bosses légères (grêle, coup de portière) sans peinture écaillée ni pli marqué : le DSP repousse la tôle depuis l'intérieur. Rayure jusqu'au métal, pli vif ou peinture fissurée : carrosserie / peinture classique.",
+      facts: [
+        { label: "Idéal pour", value: "Bosses sans atteinte du vernis" },
+        { label: "Atelier", value: "Carrosserie · RED-K MOTORS Ivry" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/carrosserie/", label: "Carrosserie" },
+      { url: "/blog/rayure-carrosserie-quand-reparer/", label: "Rayure carrosserie" },
+      { url: "/blog/peinture-localisee-retouche-carrosserie/", label: "Peinture localisée" },
+      { url: "/contact/", label: "Devis DSP" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Le DSP est-il moins cher qu'une peinture ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Souvent oui, car on ne repeint pas le panneau. Le devis dépend du nombre et de l'accès aux bosses. RED-K MOTORS à Ivry chiffre après inspection.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Le DSP laisse-t-il des traces ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Bien réalisé, le résultat est très discret. Sur aluminium ou zones très tendues, les limites sont expliquées avant intervention.",
+          },
+        },
+      ],
+    },
+  },
+  "peinture-localisee-retouche-carrosserie": {
+    directAnswer: {
+      question: "Quand choisir une peinture localisée plutôt qu'une retouche stylo ?",
+      answer:
+        "Rayure profonde, éclat jusqu'au métal ou zone visible : une peinture localisée en cabine (teinte, vernis, lustrage) protège mieux qu'un stylo. Le stylo reste un dépannage esthétique provisoire.",
+      facts: [
+        { label: "Objectif", value: "Esthétique + protection anticorrosion" },
+        { label: "Atelier", value: "Peinture · Ivry-sur-Seine (94)" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/carrosserie/", label: "Carrosserie & peinture" },
+      { url: "/prestations/peinture-localisee/", label: "Peinture localisée" },
+      { url: "/blog/rayure-carrosserie-quand-reparer/", label: "Quand réparer une rayure" },
+      { url: "/blog/debosselage-sans-peinture-dsp/", label: "Débosselage sans peinture" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Peinture localisée ou panneau complet ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Selon la surface et la teinte (métallisée, nacrée). Une petite zone se traite en localisé ; un grand panneau ou un raccord difficile peut imposer une surface plus large.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Combien de temps pour une retouche peinture ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Souvent 1 à 2 jours selon séchage et polissage. Le devis chez RED-K MOTORS précise le délai d'immobilisation.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Une rayure non traitée peut-elle rouiller ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Oui dès que le métal est exposé à l'humidité. Une peinture localisée referme la protection avant que la corrosion ne s'étende.",
+          },
+        },
+      ],
+    },
+  },
+  "silentblocs-triangles-suspension-usure": {
+    directAnswer: {
+      question: "Quels signes d'usure des silentblocs de triangles ?",
+      answer:
+        "Claquements sur bosses, direction imprécise, usure irrégulière des pneus, géométrie impossible à tenir : les silentblocs de triangles filtrent mal les chocs. Un contrôle sous pont confirme le jeu.",
+      facts: [
+        { label: "Usage urbain", value: "Nids-de-poule · accélère l'usure" },
+        { label: "Garage", value: "Train avant · Ivry (94)" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/mecanique/", label: "Mécanique" },
+      { url: "/pneumatiques/", label: "Pneus & géométrie" },
+      { url: "/blog/amortisseurs-usures-symptomes/", label: "Amortisseurs usés" },
+      { url: "/blog/geometrie-roues-signes-mauvais-alignement/", label: "Géométrie" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Faut-il changer le triangle complet ou seulement le silentbloc ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Selon le modèle : certains silentblocs se pressent, d'autres sont solidaires du triangle. Le devis indique la solution la plus durable pour votre véhicule.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Faut-il refaire la géométrie après remplacement ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Oui : le train avant a bougé. Une géométrie après travaux garantit usure pneus et tenue de route correctes.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Silentblocs usés : danger immédiat ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Le véhicule reste souvent roulant, mais le comportement se dégrade et d'autres pièces (pneus, rotules) souffrent. Planifiez la réparation rapidement à Ivry.",
+          },
+        },
+      ],
+    },
+  },
+  "direction-assistee-dure-grincements": {
+    directAnswer: {
+      question: "Pourquoi la direction assistée est dure ou grince ?",
+      answer:
+        "Niveau d'huile de direction bas (hydraulique), courroie qui glisse, pompe fatiguée, ou assistance électrique en défaut : une direction dure ou qui grince se contrôle avant qu'elle ne bloque. Arrêtez-vous si le braquage devient très difficile.",
+      facts: [
+        { label: "Urgence", value: "Direction très dure = stop prudent" },
+        { label: "Atelier", value: "RED-K MOTORS · Ivry-sur-Seine" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/mecanique/", label: "Mécanique" },
+      { url: "/diagnostic/", label: "Diagnostic" },
+      { url: "/blog/courroie-accessoires-symptomes-usure/", label: "Courroie d'accessoires" },
+      { url: "/contact/", label: "Prendre rendez-vous" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Peut-on rouler avec une direction qui grince ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Sur de courtes distances pour rejoindre le garage, en évitant les manœuvres forcées. Un manque de fluide ou une pompe qui lâche peut faire perdre l'assistance.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Direction électrique et hydraulique : mêmes causes ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Non. L'hydraulique dépend du fluide, de la pompe et de la courroie. L'électrique dépend de l'alimentation, du calculateur et du moteur d'assistance — la valise est souvent nécessaire.",
+          },
+        },
+      ],
+    },
+  },
+  "clim-odeur-moisi-que-faire": {
+    directAnswer: {
+      question: "Que faire si la clim sent le moisi ?",
+      answer:
+        "Changez le filtre d'habitacle, faites un traitement antibactérien de l'évaporateur et vérifiez l'évacuation d'eau. L'odeur vient souvent de moisissures dans le circuit d'air, surtout après usage humidité / clim en ville.",
+      facts: [
+        { label: "Gestes utiles", value: "Filtre habitacle + traitement clim" },
+        { label: "Garage", value: "Clim · RED-K MOTORS Ivry (94)" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/reparation-climatisation-ivry/", label: "Réparation climatisation" },
+      { url: "/blog/filtre-habitacle-pollen-quand-changer/", label: "Filtre d'habitacle" },
+      { url: "/blog/climatisation-voiture-recharge-ivry/", label: "Recharge clim" },
+      { url: "/blog/prix-recharge-climatisation-94/", label: "Prix recharge clim" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Une recharge de gaz enlève-t-elle l'odeur de moisi ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Non : l'odeur vient de l'air et de l'évaporateur, pas du manque de gaz. Il faut nettoyer / traiter le circuit et changer le filtre habitacle.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Comment limiter le retour de l'odeur ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Coupez la clim quelques minutes avant d'arriver (sécher l'évaporateur), remplacez le filtre à l'échéance, et évitez de laisser l'habitacle très humide fermé.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "L'odeur de moisi est-elle dangereuse ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Elle irrite surtout les voies respiratoires et le confort (allergies). Un traitement en atelier à Ivry restaure un air plus sain.",
+          },
+        },
+      ],
+    },
+  },
+  "perte-puissance-soudaine-causes": {
+    directAnswer: {
+      question: "Pourquoi une perte de puissance soudaine ?",
+      answer:
+        "Mode dégradé (voyant moteur), turbo, injection, FAP / antipollution, admission ou carburant : une chute brutale de puissance demande un diagnostic rapide. Réduisez la charge moteur et évitez l'autoroute jusqu'au garage.",
+      facts: [
+        { label: "Réflexe", value: "Noter voyants + conditions (froid, côte…)" },
+        { label: "Diagnostic", value: "Valise · RED-K MOTORS Ivry" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/diagnostic/", label: "Diagnostic auto" },
+      { url: "/mecanique/", label: "Mécanique" },
+      { url: "/blog/turbo-compresseur-symptomes-panne/", label: "Panne de turbo" },
+      { url: "/blog/voyant-moteur-allume-que-faire/", label: "Voyant moteur" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Peut-on continuer à rouler en mode dégradé ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Sur de courtes distances pour rejoindre l'atelier, oui, en roulant souple. Forcer peut endommager turbo, FAP ou catalyseur.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Perte de puissance sans voyant : possible ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Oui (filtre carburant, turbo qui commence à lâcher, embrayage qui patine). Un essai route et des mesures complémentaires complètent la valise.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Diesel urbain à Ivry : causes fréquentes ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "FAP / EGR encrassés, AdBlue, filtre à gasoil et turbo sont souvent en cause sur les trajets courts du Val-de-Marne. Le diagnostic isole la bonne piste.",
+          },
+        },
+      ],
+    },
+  },
+  "controle-antipollution-refuse-que-faire": {
+    directAnswer: {
+      question: "Que faire si le contrôle antipollution est refusé ?",
+      answer:
+        "Lisez le procès-verbal (opacité, OBD, défauts). Causes fréquentes : FAP, catalyseur, sondes, vanne EGR, fuite échappement. Réparez, puis contre-visite dans les délais. Un diagnostic avant évite de changer les mauvaises pièces.",
+      facts: [
+        { label: "Délai", value: "Contre-visite selon mention du PV" },
+        { label: "Garage", value: "Préparation CT · Ivry-sur-Seine (94)" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/diagnostic/", label: "Diagnostic pollution" },
+      { url: "/blog/fap-dpf-encrasse-trajets-ville/", label: "FAP encrassé" },
+      { url: "/blog/catalyseur-bouche-symptomes-causes/", label: "Catalyseur bouché" },
+      { url: "/blog/controle-technique-2026-nouveautes/", label: "CT 2026" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Peut-on rouler après un refus antipollution ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Oui dans la limite de validité indiquée pour la contre-visite, mais le véhicule n'est plus en règle au-delà. Planifiez réparation + nouveau passage rapidement.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Un nettoyage FAP suffit-il pour repasser ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Si le colmatage est la cause et que le filtre est récupérable, souvent oui. Si le FAP est détruit ou le calculateur modifié, le remplacement / remise en conformité s'impose.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Comment préparer la contre-visite à Ivry ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Apportez le PV chez RED-K MOTORS : on lit les codes, on traite la cause (FAP, sondes, échappement…), puis on vous oriente pour la contre-visite au centre.",
+          },
+        },
+      ],
+    },
+  },
 };
