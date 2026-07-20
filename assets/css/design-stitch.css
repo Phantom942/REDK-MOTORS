@@ -234,21 +234,36 @@ body.design-stitch a[class*="btn--"] {
   color: #fff;
 }
 
-.design-stitch .main-nav__google-rating {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: var(--stitch-outline);
+.design-stitch .main-nav a.main-nav__google-rating {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.22);
   font-family: var(--font-stitch-head);
-}
-
-.design-stitch .main-nav__google-rating:hover,
-.design-stitch .main-nav__google-rating:focus-visible {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.18);
-  color: #f4f4f5;
-}
-
-.design-stitch .main-nav__google-score {
+  color: #fafafa;
+  text-transform: none;
   letter-spacing: 0.02em;
+  font-weight: 600;
+  font-size: 0.75rem;
+}
+
+.design-stitch .main-nav a.main-nav__google-rating:hover,
+.design-stitch .main-nav a.main-nav__google-rating:focus-visible {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.32);
+  color: #ffffff;
+}
+
+.design-stitch .main-nav a.main-nav__google-rating .main-nav__google-score {
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.design-stitch .main-nav a.main-nav__google-rating .main-nav__google-count {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.design-stitch .main-nav a.main-nav__google-rating .main-nav__google-stars {
+  color: #fbbc04;
 }
 
 .design-stitch .main-nav__bar-panel-inner {
