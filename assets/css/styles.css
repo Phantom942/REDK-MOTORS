@@ -5614,19 +5614,33 @@ img[loading="lazy"].loaded {
   padding: 0;
   display: grid;
   gap: 0.65rem;
-  grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+.exemple-prix-related__grid > li {
+  min-width: 0;
+  display: flex;
 }
 
 .exemple-prix-related__link {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 0.15rem;
+  flex: 1 1 auto;
+  width: 100%;
+  min-height: 4.25rem;
   padding: 0.85rem 1rem;
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.03);
+  text-align: center;
   text-decoration: none;
-  transition: border-color 0.2s, background 0.2s, transform 0.12s ease;
+  color: inherit;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  box-sizing: border-box;
+  transition: background 0.2s, border-color 0.2s, transform 0.12s ease;
 }
 
 .exemple-prix-related__link:hover,
@@ -5634,6 +5648,18 @@ img[loading="lazy"].loaded {
   border-color: rgba(196, 30, 58, 0.45);
   background: rgba(196, 30, 58, 0.1);
   transform: translateY(-1px);
+}
+
+@media (max-width: 900px) {
+  .exemple-prix-related__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .exemple-prix-related__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 .exemple-prix-related__brand {
@@ -8265,11 +8291,17 @@ a.review-card__name:hover {
 
 .conversion-tarifs-teaser__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
   width: 100%;
   max-width: 52rem;
   margin: 0 auto;
+}
+
+@media (max-width: 640px) {
+  .conversion-tarifs-teaser__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 .conversion-tarifs-teaser .conversion-section-head {
@@ -8291,6 +8323,8 @@ a.review-card__name:hover {
   justify-content: center;
   gap: 0.65rem;
   width: 100%;
+  height: 100%;
+  min-height: 9.5rem;
   max-width: none;
   margin: 0;
   padding: 1.5rem 1.25rem;
@@ -8347,12 +8381,27 @@ a.review-card__name:hover {
   color: var(--color-white);
 }
 
+.conversion-blog-teaser .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.conversion-blog-teaser .conversion-section-head {
+  width: 100%;
+  max-width: 40rem;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .conversion-blog-teaser__lead {
-  margin: 0.75rem 0 0;
+  margin: 0.75rem auto 0;
   font-size: 0.95rem;
   line-height: 1.55;
   color: rgba(255, 255, 255, 0.75);
   max-width: 36rem;
+  text-align: center;
 }
 
 .conversion-blog-teaser__grid {
@@ -8361,20 +8410,34 @@ a.review-card__name:hover {
   padding: 0;
   display: grid;
   gap: 0.75rem;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  width: 100%;
+}
+
+.conversion-blog-teaser__grid > li {
+  min-width: 0;
+  display: flex;
 }
 
 .conversion-blog-teaser__link {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
-  padding: 1rem 1.1rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  flex: 1 1 auto;
+  width: 100%;
+  min-height: 5.5rem;
+  padding: 1.1rem 1rem;
+  text-align: center;
   text-decoration: none;
   color: inherit;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 12px;
   transition: background 0.2s, border-color 0.2s;
+  box-sizing: border-box;
 }
 
 .conversion-blog-teaser__link:hover,
@@ -8387,18 +8450,35 @@ a.review-card__name:hover {
   font-weight: 700;
   font-size: 0.95rem;
   color: #fafafa;
+  line-height: 1.3;
+  text-wrap: balance;
 }
 
 .conversion-blog-teaser__hint {
   font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.4;
+  text-wrap: pretty;
+}
+
+@media (max-width: 900px) {
+  .conversion-blog-teaser__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .conversion-blog-teaser__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 .conversion-blog-teaser__footer {
   margin: 1.25rem 0 0;
   font-size: 0.92rem;
   color: rgba(255, 255, 255, 0.75);
+  text-align: center;
+  width: 100%;
 }
 
 .conversion-blog-teaser__footer a {
@@ -8439,7 +8519,30 @@ a.review-card__name:hover {
   padding: 0;
   display: grid;
   gap: 0.85rem;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+.price-examples-hub__grid > li {
+  min-width: 0;
+  display: flex;
+}
+
+.price-examples-hub__grid .price-examples-hub__card {
+  flex: 1 1 auto;
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .price-examples-hub__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .price-examples-hub__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 .price-examples-hub__card {
@@ -8984,12 +9087,20 @@ body.conversion-page .promesse--highlights .promesse__item h3 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.85rem;
   max-width: 44rem;
+  align-items: stretch;
+}
+
+.conversion-services__list > li {
+  min-width: 0;
+  display: flex;
 }
 
 .conversion-services__link {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex: 1 1 auto;
+  width: 100%;
   min-height: 3.25rem;
   padding: 0.9rem 1.15rem;
   background: var(--conv-card);
@@ -9001,6 +9112,7 @@ body.conversion-page .promesse--highlights .promesse__item h3 {
   text-decoration: none;
   color: var(--conv-text);
   transition: border-color 0.2s, background 0.2s, box-shadow 0.2s, transform 0.2s;
+  box-sizing: border-box;
 }
 
 a.conversion-services__link::after {
