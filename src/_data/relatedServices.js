@@ -63,10 +63,7 @@ const BY_PAGE = {
     "diagnostic",
     "prixVidange",
     "prixFreins",
-    "prixClim",
     "blog",
-    "ivry",
-    "samedi",
   ],
   diagnostic: ["mecanique", "voyantMoteur", "entretien", "exemples", "tarifs", "contact", "vitry"],
   freinage: ["plaquettes", "pneumatiques", "prixFreins", "tarifs", "contact"],
@@ -155,6 +152,9 @@ function resolveKeys(pageId) {
   return BY_PAGE.index;
 }
 
+/** Max 6 liens = grille 3×2 (desktop) ou 2×3 (tablette) sans case vide. */
+const RELATED_MAX = 6;
+
 function resolveRelated(pageId, currentUrl) {
   const keys = resolveKeys(pageId);
   const seen = new Set();
@@ -165,6 +165,7 @@ function resolveRelated(pageId, currentUrl) {
     if (isSameOrSiblingPage(currentUrl, page.url)) continue;
     seen.add(page.url);
     result.push(page);
+    if (result.length >= RELATED_MAX) break;
   }
   return result;
 }
