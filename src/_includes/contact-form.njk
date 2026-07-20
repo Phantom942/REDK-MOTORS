@@ -14,17 +14,17 @@
       <input type="hidden" name="_subject" value="Demande RDV — RED-K MOTORS" />
       <input type="hidden" name="_next" value="{{ site.url }}/merci/?source=form" />
       <input type="hidden" name="_template" value="table" />
-      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_captcha" value="true" />
       <input type="text" name="_honey" class="contact-form__honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
       <div class="contact-form__grid">
         <div class="contact-form__field">
-          <label for="contact-name">Nom <span aria-hidden="true">*</span></label>
-          <input id="contact-name" name="nom" type="text" autocomplete="name" required />
+          <label for="contact-name">Nom <span class="sr-only">(obligatoire)</span><span aria-hidden="true">*</span></label>
+          <input id="contact-name" name="nom" type="text" autocomplete="name" required aria-required="true" />
         </div>
         <div class="contact-form__field">
-          <label for="contact-phone">Téléphone <span aria-hidden="true">*</span></label>
-          <input id="contact-phone" name="telephone" type="tel" inputmode="tel" autocomplete="tel" required />
+          <label for="contact-phone">Téléphone <span class="sr-only">(obligatoire)</span><span aria-hidden="true">*</span></label>
+          <input id="contact-phone" name="telephone" type="tel" inputmode="tel" autocomplete="tel" required aria-required="true" />
         </div>
         <div class="contact-form__field contact-form__field--full">
           <label for="contact-email">Email</label>

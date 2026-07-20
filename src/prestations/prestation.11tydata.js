@@ -69,9 +69,8 @@ function buildServiceSchema(data) {
     url: `${SITE_URL}/prestations/${prestation.slug}/`,
     offers: {
       "@type": "Offer",
-      price: "0",
       priceCurrency: "EUR",
-      description: "Devis gratuit avant intervention",
+      description: "Devis gratuit avant intervention — tarif selon diagnostic",
     },
   };
 }

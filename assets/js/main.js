@@ -282,7 +282,16 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  faqQuestions.forEach(function(question) {
+  faqQuestions.forEach(function(question, index) {
+    const answer = question.nextElementSibling;
+    if (answer && answer.classList.contains('faq__answer')) {
+      const answerId = answer.id || ('faq-answer-' + index);
+      answer.id = answerId;
+      if (!question.getAttribute('aria-controls')) {
+        question.setAttribute('aria-controls', answerId);
+      }
+    }
+
     question.addEventListener('click', function() {
       const isExpanded = this.getAttribute('aria-expanded') === 'true';
 

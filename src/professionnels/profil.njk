@@ -4,11 +4,12 @@ pagination:
   data: professionnels.profiles
   size: 1
   alias: profil
-permalink: "/professionnels/{{ profil.slug }}/index.html"
+  addAllPagesToCollections: true
+permalink: "/professionnels/{{ profil.slug }}/"
 eleventyComputed:
   pageKey: "{{ profil.key }}"
-  title: "{{ profil.title }}"
-  description: "{{ profil.description }}"
+  title: "{{ profil.title | safe }}"
+  description: "{{ profil.description | safe }}"
   date: "2026-06-28"
   lastReviewed: "2026-06-28"
   hasHeroVideo: true

@@ -7,20 +7,32 @@ const indexableTags = JSON.parse(
 );
 
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addFilter("cacheBust", (filePath) => {
-    if (!filePath || typeof filePath !== "string") return filePath;
-    const normalized = filePath.replace(/^\//, "");
-    const fullPath = path.join(__dirname, normalized);
-    if (!fs.existsSync(fullPath)) return filePath;
-    try {
-      const content = fs.readFileSync(fullPath);
-      const hash = crypto.createHash("md5").update(content).digest("hex").slice(0, 8);
+  eleventyConfig.addFilter("cacheBust", (() => {
+    const hashCache = new Map();
+    return (filePath) => {
+      if (!filePath || typeof filePath !== "string") return filePath;
+      const normalized = filePath.replace(/^\//, "");
       const base = filePath.split("?")[0];
-      return `${base}?v=${hash}`;
-    } catch {
-      return filePath;
-    }
-  });
+      if (hashCache.has(normalized)) {
+        const cached = hashCache.get(normalized);
+        return cached ? `${base}?v=${cached}` : filePath;
+      }
+      const fullPath = path.join(__dirname, normalized);
+      if (!fs.existsSync(fullPath)) {
+        hashCache.set(normalized, null);
+        return filePath;
+      }
+      try {
+        const content = fs.readFileSync(fullPath);
+        const hash = crypto.createHash("md5").update(content).digest("hex").slice(0, 8);
+        hashCache.set(normalized, hash);
+        return `${base}?v=${hash}`;
+      } catch {
+        hashCache.set(normalized, null);
+        return filePath;
+      }
+    };
+  })());
 
   // Filtre JSON pour JSON-LD
   eleventyConfig.addFilter("json", (obj) => JSON.stringify(obj));
@@ -308,6 +320,8 @@ module.exports = function (eleventyConfig) {
         return false;
       }
       if (item.url === "/404.html" || item.url.endsWith("/404.html")) return false;
+      // Exclure fichiers texte / XML (ai.txt, llms.txt, sitemaps) — pas des pages HTML
+      if (/\.(txt|xml)\/?$/i.test(item.url)) return false;
       return true;
     });
   });

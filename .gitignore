@@ -32,6 +32,10 @@ dist/
 build/
 _site/
 
+# Artefacts locaux (audit / exports)
+lighthouse-*.json
+_sitemap-*.xml
+
 # Variables d'environnement (si nécessaire)
 .env
 .env.local

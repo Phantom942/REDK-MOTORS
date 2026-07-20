@@ -41,6 +41,7 @@ body.design-stitch {
   --conv-band-footer-card: rgba(31, 31, 35, 0.92);
   --color-link: #ff4d52;
   --color-link-hover: var(--stitch-primary, #ffb4ab);
+  --color-red-light: #ff4d52;
   background-color: var(--stitch-bg);
   color: var(--stitch-on-surface);
   font-family: var(--font-stitch-body);
@@ -333,7 +334,7 @@ body.design-stitch a[class*="btn--"] {
   background: rgba(130, 17, 17, 0.22);
 }
 
-.design-stitch .main-nav__bar {
+.design-stitch .main-nav__bars .main-nav__bar {
   background: #f4f4f5;
 }
 
@@ -793,7 +794,7 @@ body.design-stitch a[class*="btn--"] {
   font-family: var(--font-stitch-body, var(--font-secondary));
   font-size: 0.78rem;
   font-weight: 500;
-  color: var(--color-red, #d41e24);
+  color: var(--color-link, #ff4d52);
   text-decoration: none;
 }
 
@@ -805,7 +806,7 @@ body.design-stitch a[class*="btn--"] {
 .design-stitch .price-examples-hub__footer-link {
   display: inline-block;
   margin-left: 0.35rem;
-  color: var(--color-red, #d41e24);
+  color: var(--color-link, #ff4d52);
   font-weight: 600;
   text-decoration: none;
 }
@@ -1165,8 +1166,25 @@ body.design-stitch a[class*="btn--"] {
 
 /* --- Bulle WhatsApp + retour haut --- */
 @media (max-width: 768px) {
+  /* Shell mobile : fond sombre (annule #e8e8ed de styles.css) */
+  body.design-stitch {
+    background-color: var(--stitch-bg) !important;
+  }
+
+  body.design-stitch #main > section:not(.hero) {
+    background-color: var(--stitch-surface);
+    border-color: var(--stitch-outline);
+    box-shadow: var(--stitch-module-shadow);
+  }
+
   .design-stitch .whatsapp-float {
     display: none;
+  }
+
+  .design-stitch .cta-sticky__btn--whatsapp {
+    background: #128c7e;
+    border-color: #0e7a6e;
+    color: #fff;
   }
 }
 
@@ -3134,10 +3152,9 @@ body.conversion-page .promesse__item p {
     backdrop-filter: none;
   }
 
-  /* Sections fond clair sur mobile : texte sombre lisible */
+  /* Sections fond clair sur mobile : texte sombre lisible (pricing uniquement) */
   .design-stitch .pricing-section,
   .design-stitch .pricing-section--readable,
-  .design-stitch .reviews-section,
   .design-stitch .appointment,
   .design-stitch .appointment--final,
   .design-stitch .services,
@@ -3189,48 +3206,51 @@ body.conversion-page .promesse__item p {
     background: #ffffff;
   }
 
-  .design-stitch .reviews-section {
-    color: #1f1f1f;
+  /* Avis : rester en thème sombre lisible (pas de texte #1f1f1f sur fond stitch) */
+  .design-stitch .reviews-section,
+  .design-stitch .reviews-section--compact {
+    color: var(--stitch-on-surface);
+    background: var(--stitch-bg);
   }
 
   .design-stitch .reviews-section__title,
   .design-stitch .reviews-section__score {
-    color: #1f1f1f !important;
+    color: #fafafa !important;
   }
 
   .design-stitch .reviews-section__badge-google {
-    background: rgba(0, 0, 0, 0.04);
-    border-color: rgba(0, 0, 0, 0.12);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--stitch-outline);
   }
 
   .design-stitch .reviews-section__badge-text,
   .design-stitch .reviews-section__badge-count {
-    color: #444;
+    color: var(--stitch-on-variant);
   }
 
   .design-stitch .review-card {
-    background: #f7f7f7;
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    border-left: 4px solid var(--color-red, #b31217);
+    background: var(--stitch-surface);
+    border: 1px solid var(--stitch-outline);
+    border-left: 4px solid var(--stitch-primary-container);
   }
 
   .design-stitch .review-card__text {
-    color: #444 !important;
+    color: var(--stitch-on-variant) !important;
   }
 
   .design-stitch .review-card__name,
   .design-stitch .review-card__source {
-    color: #1f1f1f !important;
+    color: #fafafa !important;
   }
 
   .design-stitch .appointment--final h2 {
-    color: #1f1f1f !important;
+    color: #fafafa !important;
   }
 
   .design-stitch .appointment--final p,
   .design-stitch .appointment__info dt,
   .design-stitch .appointment__info dd {
-    color: #444 !important;
+    color: var(--stitch-on-variant) !important;
   }
 
   .design-stitch .appointment__info a {
