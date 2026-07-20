@@ -13,7 +13,8 @@ body.design-stitch {
   --stitch-surface: #1f1f23;
   --stitch-surface-high: #2a292e;
   --stitch-on-surface: #e4e1e7;
-  --stitch-on-variant: #c9b8b4;
+  /* Secondaire un peu plus clair pour lisibilité mobile (ex-#c9b8b4) */
+  --stitch-on-variant: #d4c8c4;
   --stitch-primary: #ffb4ab;
   --stitch-primary-container: #821111;
   --stitch-primary-container-2: #8b1917;
@@ -43,6 +44,19 @@ body.design-stitch {
   background-color: var(--stitch-bg);
   color: var(--stitch-on-surface);
   font-family: var(--font-stitch-body);
+}
+
+/* Gras : jamais #1f1f1f (thème clair) sur fonds sombres du site */
+.design-stitch #main strong,
+.design-stitch #main b {
+  color: #fafafa;
+}
+
+.design-stitch .btn strong,
+.design-stitch .btn b,
+.design-stitch a.btn strong,
+.design-stitch a.btn b {
+  color: inherit;
 }
 
 /* Liens inline dans le texte uniquement — rouge charte (pas footer, nav, listes UI) */
@@ -1900,7 +1914,8 @@ body.design-stitch a[class*="btn--"] {
 }
 
 .design-stitch .blog-article .article-meta,
-.design-stitch .blog-article .article-excerpt {
+.design-stitch .blog-article .article-excerpt,
+.design-stitch .blog-article .article-byline {
   color: var(--stitch-on-variant);
 }
 
@@ -1915,7 +1930,7 @@ body.design-stitch a[class*="btn--"] {
 }
 
 .design-stitch .blog-article .article-body {
-  color: var(--stitch-on-variant);
+  color: var(--stitch-on-surface);
 }
 
 .design-stitch .blog-article .article-body h3 {
@@ -1924,7 +1939,18 @@ body.design-stitch a[class*="btn--"] {
 
 .design-stitch .blog-article .article-body p,
 .design-stitch .blog-article .article-body li {
-  color: var(--stitch-on-variant);
+  color: var(--stitch-on-surface);
+}
+
+/* Gras / emphase : ne jamais hériter --color-black (#1f1f1f) sur fond sombre */
+.design-stitch .blog-article .article-body strong,
+.design-stitch .blog-article .article-body b {
+  color: #fafafa;
+  font-weight: 700;
+}
+
+.design-stitch .blog-article .article-body em {
+  color: var(--stitch-on-surface);
 }
 
 .design-stitch .blog-article .article-body a:link,
@@ -1953,6 +1979,100 @@ body.design-stitch a[class*="btn--"] {
 
 .design-stitch .blog-article .article-toc a:hover {
   color: var(--stitch-primary);
+}
+
+.design-stitch .blog-article .article-toc h2,
+.design-stitch .blog-article .article-toc li {
+  color: var(--stitch-on-surface);
+}
+
+/* Fil d'Ariane — séparateur visible sur fond sombre */
+.design-stitch #main .breadcrumb li:not(:last-child)::after {
+  color: rgba(255, 255, 255, 0.45);
+  opacity: 1;
+}
+
+.design-stitch #main .breadcrumb li[aria-current="page"] {
+  color: var(--stitch-on-surface);
+}
+
+/* Bloc réponse directe — cartes lisibles (plus de blanc + texte clair) */
+.design-stitch .direct-answer__lead {
+  color: var(--stitch-on-surface);
+}
+
+.design-stitch .direct-answer__fact {
+  background: var(--stitch-surface);
+  border: 1px solid var(--stitch-outline);
+}
+
+.design-stitch .service-focus--alt .direct-answer__fact {
+  background: var(--stitch-surface-high, var(--stitch-surface));
+}
+
+.design-stitch .direct-answer__fact dt {
+  color: var(--stitch-on-variant);
+}
+
+.design-stitch .direct-answer__fact dd {
+  color: #fafafa;
+}
+
+/* Footer tags article — thème sombre cohérent */
+.design-stitch .blog-article .article-footer {
+  background: var(--stitch-bg-low);
+  border-top: 1px solid var(--stitch-outline);
+}
+
+.design-stitch .blog-article .article-tags > span:first-child {
+  color: var(--stitch-on-surface);
+}
+
+.design-stitch .blog-article .article-tags a {
+  background: var(--stitch-surface);
+  border-color: var(--stitch-outline);
+  color: var(--stitch-primary);
+}
+
+.design-stitch .blog-article .article-tags a:hover,
+.design-stitch .blog-article .article-tags a:focus-visible {
+  background: rgba(130, 17, 17, 0.45);
+  border-color: var(--stitch-primary);
+  color: #fff;
+}
+
+/* Filtres index blog — plus d'îlot blanc illisible en dark */
+.design-stitch .blog-filters {
+  background: var(--stitch-surface);
+  border: 1px solid var(--stitch-outline);
+}
+
+.design-stitch .blog-filters__label {
+  color: var(--stitch-on-variant);
+}
+
+.design-stitch .blog-filter-chip {
+  background: var(--stitch-bg-low);
+  border-color: var(--stitch-outline);
+  color: var(--stitch-on-surface);
+}
+
+.design-stitch .blog-filter-chip:hover {
+  border-color: var(--stitch-primary);
+  color: var(--stitch-primary);
+  background: rgba(130, 17, 17, 0.25);
+}
+
+.design-stitch .blog-filter-chip--all,
+.design-stitch .blog-filter-chip.is-active {
+  border-color: var(--stitch-primary);
+  color: var(--stitch-primary);
+  background: rgba(130, 17, 17, 0.3);
+}
+
+.design-stitch .blog-filter-chip__count {
+  color: var(--stitch-on-surface);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* ========== Pages légales ========== */

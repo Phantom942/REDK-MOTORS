@@ -3237,13 +3237,13 @@ body.conversion-page .presta-listing__intro {
 .direct-answer__fact {
   margin: 0;
   padding: 0.75rem 1rem;
-  background: rgba(255, 255, 255, 0.65);
+  background: var(--stitch-surface, rgba(31, 31, 35, 0.95));
   border-radius: 6px;
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--stitch-outline, rgba(167, 138, 134, 0.15));
 }
 
 .service-focus--alt .direct-answer__fact {
-  background: var(--color-white);
+  background: var(--stitch-surface-high, var(--stitch-surface, #2a292e));
 }
 
 .direct-answer__fact dt {
@@ -3251,7 +3251,7 @@ body.conversion-page .presta-listing__intro {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: var(--color-muted, #666);
+  color: var(--stitch-on-variant, #d4c8c4);
   margin: 0 0 0.25rem;
 }
 
@@ -3260,6 +3260,7 @@ body.conversion-page .presta-listing__intro {
   font-size: 0.95rem;
   font-weight: 600;
   line-height: 1.4;
+  color: var(--stitch-on-surface, #fafafa);
 }
 
 .direct-answer__contact {
@@ -4571,15 +4572,15 @@ img[loading="lazy"].loaded {
 .blog-filters {
   margin-bottom: 2rem;
   padding: 1rem 1.1rem;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--stitch-outline, rgba(167, 138, 134, 0.15));
   border-radius: 12px;
-  background: #fff;
+  background: var(--stitch-surface, #1f1f23);
 }
 
 .blog-filters__label {
   margin: 0 0 0.75rem;
   font-size: 0.92rem;
-  color: var(--color-gray);
+  color: var(--stitch-on-variant, #d4c8c4);
   font-weight: 600;
 }
 
@@ -4598,10 +4599,10 @@ img[loading="lazy"].loaded {
   justify-content: center;
   gap: 0.4rem;
   padding: 0.45rem 0.75rem;
-  border: 1px solid rgba(0, 0, 0, 0.12);
+  border: 1px solid var(--stitch-outline, rgba(167, 138, 134, 0.15));
   border-radius: 999px;
-  background: #fff;
-  color: var(--color-gray-dark);
+  background: var(--stitch-bg-low, #1b1b1f);
+  color: var(--stitch-on-surface, #e4e1e7);
   font-size: 0.88rem;
   line-height: 1.2;
   text-decoration: none;
@@ -4609,21 +4610,21 @@ img[loading="lazy"].loaded {
 }
 
 .blog-filter-chip:hover {
-  border-color: var(--color-red);
-  color: var(--color-red);
-  background: rgba(179, 18, 23, 0.06);
+  border-color: var(--stitch-primary, #ffb4ab);
+  color: var(--stitch-primary, #ffb4ab);
+  background: rgba(130, 17, 17, 0.25);
 }
 
 .blog-filter-chip--all {
-  border-color: var(--color-red);
-  color: var(--color-red);
+  border-color: var(--stitch-primary, #ffb4ab);
+  color: var(--stitch-primary, #ffb4ab);
   font-weight: 600;
 }
 
 .blog-filter-chip.is-active {
-  border-color: var(--color-red);
-  color: var(--color-red);
-  background: rgba(179, 18, 23, 0.08);
+  border-color: var(--stitch-primary, #ffb4ab);
+  color: var(--stitch-primary, #ffb4ab);
+  background: rgba(130, 17, 17, 0.3);
   font-weight: 600;
 }
 
@@ -4638,8 +4639,8 @@ img[loading="lazy"].loaded {
   font-size: 0.72rem;
   font-weight: 700;
   line-height: 1;
-  color: var(--color-gray-dark);
-  background: rgba(0, 0, 0, 0.08);
+  color: var(--stitch-on-surface, #e4e1e7);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .blog-filter-chip.is-active .blog-filter-chip__count,
@@ -5003,7 +5004,7 @@ img[loading="lazy"].loaded {
 
 .blog-article .article-body strong {
   font-weight: 700;
-  color: var(--color-black);
+  color: #fafafa;
 }
 
 .blog-article .article-cta {
@@ -5096,8 +5097,8 @@ img[loading="lazy"].loaded {
 
 .blog-article .article-footer {
   padding: 2rem 0 3rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
-  background: var(--color-gray-light);
+  border-top: 1px solid var(--stitch-outline, rgba(167, 138, 134, 0.15));
+  background: var(--stitch-bg-low, #1b1b1f);
 }
 
 .blog-article .article-tags {
@@ -5110,24 +5111,24 @@ img[loading="lazy"].loaded {
 
 .blog-article .article-tags > span:first-child {
   font-weight: 700;
-  color: var(--color-gray-dark);
+  color: var(--stitch-on-surface, #e4e1e7);
 }
 
 .blog-article .article-tags a {
   display: inline-block;
   padding: 0.35rem 0.85rem;
-  background: var(--color-white);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: var(--stitch-surface, #1f1f23);
+  border: 1px solid var(--stitch-outline, rgba(167, 138, 134, 0.15));
   border-radius: 999px;
-  color: var(--color-red);
+  color: var(--stitch-primary, #ffb4ab);
   text-decoration: none;
   font-weight: 600;
 }
 
 .blog-article .article-tags a:hover {
-  background: var(--color-red);
-  color: var(--color-white);
-  border-color: var(--color-red);
+  background: rgba(130, 17, 17, 0.45);
+  color: #fff;
+  border-color: var(--stitch-primary, #ffb4ab);
 }
 
 /* Pages /exemples/ — SEO Google, hors menu site */
