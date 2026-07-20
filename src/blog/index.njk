@@ -74,7 +74,7 @@ permalink: /blog/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber
               <time datetime="{{ post.data.date }}">{{ post.data.dateDisplay or post.data.date }}</time>
             </div>
             <h2 class="blog-card__title">
-              <a href="{{ post.url }}">{{ post.data.title | replace(" | Blog RED-K MOTORS", "") }}</a>
+              <a href="{{ post.url }}">{{ post.data.title | replace(" | Blog RED-K MOTORS", "") | replace(" | RED-K MOTORS", "") | replace(" | Garage Ivry (94)", "") | replace(" | Garage Ivry", "") }}</a>
             </h2>
             <p class="blog-card__excerpt">{{ post.data.excerpt }}</p>
             <a href="{{ post.url }}" class="blog-card__link">Lire l'article →</a>
