@@ -87,6 +87,22 @@ faqs:
 
 {% include "conversion-services-nav.njk" %}
 
+{% set hubGuides = priceExamplesHub.allGuides() %}
+{% set hubLayout = "cards" %}
+{% set hubKicker = "Avant le RDV" %}
+{% set hubTitle = "Estimer un budget" %}
+{% set hubLead = "Guides prix indicatifs — utile avant l'appel ou l'envoi de photos WhatsApp." %}
+{% set hubTrack = "contact_exemples" %}
+{% include "price-examples-hub.njk" %}
+
+{% set blogTeaserTrack = "contact_blog" %}
+{% set blogTeaserTitle = "Préparer votre visite" %}
+{% set blogTeaserLead = "Comprendre le symptôme avant le diagnostic en atelier." %}
+{% include "conversion-blog-teaser.njk" %}
+
+{% set lpId = pageKey %}
+{% include "lp-related-services.njk" %}
+
 <section class="faq conversion-faq" aria-labelledby="contact-faq">
   <div class="container faq__inner faq__inner--compact">
     {% set sectionKicker = "FAQ" %}

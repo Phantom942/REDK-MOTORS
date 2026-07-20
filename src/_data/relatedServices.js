@@ -46,8 +46,29 @@ const PAGES = {
 };
 
 const BY_PAGE = {
-  index: ["diagnostic", "entretien", "freins", "pneumatiques", "carrosserie", "tarifs", "contact", "ivry"],
-  diagnostic: ["mecanique", "voyantMoteur", "entretien", "tarifs", "contact", "vitry"],
+  index: [
+    "exemples",
+    "prixVidange",
+    "prixFreins",
+    "diagnostic",
+    "entretien",
+    "tarifs",
+    "blog",
+    "contact",
+    "ivry",
+  ],
+  contact: [
+    "exemples",
+    "tarifs",
+    "diagnostic",
+    "prixVidange",
+    "prixFreins",
+    "prixClim",
+    "blog",
+    "ivry",
+    "samedi",
+  ],
+  diagnostic: ["mecanique", "voyantMoteur", "entretien", "exemples", "tarifs", "contact", "vitry"],
   freinage: ["plaquettes", "pneumatiques", "prixFreins", "tarifs", "contact"],
   revision: ["vidange", "vidangePresta", "prixVidange", "rechargeClim", "tarifs", "contact"],
   carrosserie: ["pareBrise", "prixPareBrise", "debosselage", "tarifs", "contact"],

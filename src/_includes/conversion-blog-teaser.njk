@@ -1,0 +1,43 @@
+{# Teaser blog — pages conversion / symptômes fréquents #}
+{% set blogTeaserItems = blogTeaserItems | default([
+  { url: "/blog/voyant-moteur-allume-que-faire/", label: "Voyant moteur allumé", hint: "Que faire sans paniquer" },
+  { url: "/blog/combien-coute-vidange-voiture/", label: "Prix vidange voiture", hint: "Fourchettes réalistes 2026" },
+  { url: "/blog/batterie-voiture-quand-changer/", label: "Quand changer la batterie", hint: "Signes et coût" },
+  { url: "/blog/clim-odeur-moisi-que-faire/", label: "Clim qui sent le moisi", hint: "Causes et solutions" },
+  { url: "/blog/plaquettes-frein-usure-signaux-a-ne-pas-ignorer/", label: "Plaquettes usées", hint: "Signaux à ne pas ignorer" },
+  { url: "/blog/courroie-distribution-quand-changer-94/", label: "Courroie de distribution", hint: "Quand la changer" }
+]) %}
+<section class="conversion-blog-teaser" aria-labelledby="blog-teaser-title">
+  <div class="container">
+    <header class="conversion-section-head conversion-section-head--light">
+      <p class="section-kicker">{{ blogTeaserKicker | default("Conseils") }}</p>
+      <h2 class="conversion-section-head__title" id="blog-teaser-title">
+        {{ blogTeaserTitle | default("Guides utiles avant le devis") }}
+      </h2>
+      {% if blogTeaserLead %}
+      <p class="conversion-blog-teaser__lead">{{ blogTeaserLead }}</p>
+      {% endif %}
+    </header>
+    <ul class="conversion-blog-teaser__grid">
+      {% for item in blogTeaserItems %}
+      <li>
+        <a
+          class="conversion-blog-teaser__link"
+          href="{{ item.url }}"
+          data-track="click_blog"
+          data-track-pos="{{ blogTeaserTrack | default('blog_teaser') }}"
+          data-track-label="{{ item.url }}"
+        >
+          <span class="conversion-blog-teaser__label">{{ item.label }}</span>
+          {% if item.hint %}<span class="conversion-blog-teaser__hint">{{ item.hint }}</span>{% endif %}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+    <p class="conversion-blog-teaser__footer">
+      <a href="/blog/">Tous les conseils auto →</a>
+      ·
+      <a href="/exemples/">Guides prix détaillés →</a>
+    </p>
+  </div>
+</section>
