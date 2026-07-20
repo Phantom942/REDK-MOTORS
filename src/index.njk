@@ -25,18 +25,12 @@ faqs:
     answer: "Oui — devis écrit gratuit, rien sans votre accord."
   - question: "Comment vous contacter ?"
     answer: "06 48 74 56 68, WhatsApp ou formulaire contact. Réponse rapide en journée."
-  - question: "Faites-vous le changement de pneus et la recharge climatisation ?"
-    answer: "Oui — montage, équilibrage, parallélisme et recharge clim après contrôle d'étanchéité. Devis après inspection au véhicule."
+  - question: "Faites-vous pneus, freins, vidange et clim ?"
+    answer: "Oui — montage/équilibrage, plaquettes, vidange et recharge clim après contrôle. Devis après inspection."
   - question: "Intervenez-vous sur Vitry, Villejuif et Paris 13 ?"
-    answer: "Oui. Atelier à Ivry-sur-Seine, accessible en quelques minutes depuis le Val-de-Marne et le sud de Paris."
-  - question: "Proposez-vous un devis pour freins, vidange ou révision ?"
-    answer: "Devis écrit gratuit pour plaquettes, disques, vidange moteur et révision — rien sans votre accord. Voir aussi les guides prix vidange et plaquettes, et la grille tarifaire."
-  - question: "Intervenez-vous sur turbo, vanne EGR ou FAP encrassé ?"
-    answer: "Oui — diagnostic en atelier (valise + contrôle mécanique), recherche de panne, puis devis détaillé avant toute réparation ou démontage. Guides : turbo, vanne EGR, FAP."
-  - question: "Où voir des exemples de prix avant de venir ?"
-    answer: "Sur les guides prix (vidange, freins, clim, distribution…) et la page tarifs. Les montants sont indicatifs : le devis ferme se fait après inspection du véhicule."
-  - question: "Quelles pannes mécaniques traitez-vous le plus souvent ?"
-    answer: "Voyant moteur, perte de puissance, embrayage qui patine, courroie de distribution, surconsommation, batterie, amortisseurs, boîte automatique — devis après inspection du véhicule."
+    answer: "Oui. Atelier à Ivry-sur-Seine, accessible depuis le Val-de-Marne et le sud de Paris."
+  - question: "Où voir des exemples de prix ?"
+    answer: "Sur les guides prix et la page tarifs. Montants indicatifs : devis ferme après inspection du véhicule."
 ---
 
 {% set heroActions %}
@@ -57,10 +51,9 @@ faqs:
 <section class="service-focus service-focus--compact" aria-labelledby="home-seo-intro">
   <div class="container service-focus__inner">
     <div>
-      <h2 id="home-seo-intro">Garage multimarque à Ivry-sur-Seine (94) — mécanique &amp; diagnostic</h2>
-      <p>RED-K MOTORS accueille particuliers et professionnels pour l'entretien courant et la réparation auto : <a href="/diagnostic/">diagnostic</a>, <a href="/freins/">freinage</a>, <a href="/vidange/">vidange</a>, <a href="/pneumatiques/">pneus</a>, recharge ou réparation <a href="/prestations/recharge-clim/">climatisation</a>, <a href="/carrosserie/">carrosserie</a> et <a href="/pare-brise/">pare-brise</a>.</p>
-      <p>Nous traitons aussi les soucis mécaniques les plus fréquents : <strong>turbo</strong> ou compresseur en panne, <strong>vanne EGR</strong> encrassée, <strong>FAP/DPF</strong>, courroie de <a href="/prestations/distribution-injection/">distribution</a>, <a href="/prestations/embrayage/">embrayage</a>, <a href="/blog/voyant-moteur-allume-que-faire/">voyant moteur</a>, voyant ABS, perte de puissance, surconsommation, démarreur, alternateur ou boîte automatique. Recherche de panne en atelier, explication claire et devis écrit avant travaux — consultez aussi nos guides sur le <a href="/blog/turbo-compresseur-symptomes-panne/">turbo</a>, la <a href="/blog/vanne-egr-encrassee-symptomes/">vanne EGR</a> et le <a href="/blog/fap-dpf-encrasse-trajets-ville/">FAP</a>.</p>
-      <p>Atelier au 9 rue Michelet, ouvert lun–sam 9h–19h. Devis gratuit — appelez, écrivez ou passez directement. Consultez la <a href="/tarifs/">grille tarifaire</a>, les <a href="/exemples/">guides prix détaillés</a> et nos <a href="/blog/">conseils auto</a>.</p>
+      <h2 id="home-seo-intro">Garage multimarque à Ivry-sur-Seine — mécanique &amp; diagnostic</h2>
+      <p>RED-K MOTORS accueille particuliers et professionnels : <a href="/diagnostic/">diagnostic</a>, <a href="/freins/">freinage</a>, <a href="/vidange/">vidange</a>, <a href="/pneumatiques/">pneus</a>, <a href="/prestations/recharge-clim/">climatisation</a>, <a href="/carrosserie/">carrosserie</a> et <a href="/pare-brise/">pare-brise</a>. On traite aussi turbo, vanne EGR, FAP, <a href="/prestations/distribution-injection/">distribution</a>, <a href="/prestations/embrayage/">embrayage</a> et <a href="/blog/voyant-moteur-allume-que-faire/">voyant moteur</a> — devis écrit avant travaux.</p>
+      <p>Atelier au 9 rue Michelet, lun–sam 9h–19h. <a href="/tarifs/">Tarifs</a> · <a href="/exemples/">guides prix</a> · <a href="/blog/">conseils auto</a>.</p>
     </div>
   </div>
 </section>
@@ -72,22 +65,11 @@ faqs:
 {% set tarifsTeaserTrack = "home_tarifs" %}
 {% include "conversion-tarifs-teaser.njk" %}
 
-{% set hubCatalogGroups = priceExamplesHub.catalogGroups() %}
-{% set hubLayout = "catalog" %}
-{% set hubKicker = "Guides prix" %}
-{% set hubTitle = "Combien ça coûte vraiment ?" %}
-{% set hubLead = "Comparatifs indicatifs par prestation — fourchettes atelier vs grand réseau, puis devis ferme après inspection." %}
-{% set hubTrack = "home_exemples_catalog" %}
-{% include "price-examples-hub.njk" %}
-
 {% set blogTeaserTrack = "home_blog" %}
 {% set blogTeaserLead = "Les questions les plus fréquentes avant un passage à l'atelier." %}
 {% include "conversion-blog-teaser.njk" %}
 
 {% include "conversion-services-nav.njk" %}
-
-{% set lpId = pageKey %}
-{% include "lp-related-services.njk" %}
 
 {% set pageReviews = "index" | resolvePageReviews(googleReviews, 3) %}
 {% set reviewsSectionTitle = "Ils nous font confiance" %}
