@@ -1316,4 +1316,51 @@ module.exports = {
       { url: "/tarifs/", label: "Grille tarifaire" },
     ],
   },
+  "fuite-huile-moteur-causes-que-faire": {
+    directAnswer: {
+      question: "Que faire en cas de fuite d'huile moteur ?",
+      answer:
+        "Contrôlez le niveau à froid. Petite tache sans voyant rouge : roulez prudemment et prenez rendez-vous. Voyant huile rouge, niveau sous le MIN ou flaque qui grossit : arrêtez-vous et faites diagnostiquer avant de reprendre la route.",
+      facts: [
+        { label: "Urgence", value: "Voyant rouge / niveau trop bas = stop" },
+        { label: "Garage", value: "RED-K MOTORS · Ivry-sur-Seine (94)" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/mecanique/", label: "Mécanique & réparations" },
+      { url: "/vidange/", label: "Vidange moteur" },
+      { url: "/blog/combien-coute-vidange-voiture/", label: "Prix d'une vidange" },
+      { url: "/contact/", label: "Prendre rendez-vous" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Peut-on rouler avec une fuite d'huile ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Oui uniquement si la fuite est légère, le niveau reste correct et aucun voyant rouge n'est allumé. Surveillez le niveau et faites localiser la fuite rapidement. En cas de doute, ne prenez pas le risque.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Quelles sont les causes d'une tache d'huile sous la voiture ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Les causes fréquentes sont le joint de carter, le joint de cache-culbuteurs, un joint spy, un filtre à huile mal monté ou une fuite liée au turbo / durites d'huile.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Combien coûte la réparation d'une fuite d'huile ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Le prix dépend de la pièce : un joint de cache-culbuteurs coûte nettement moins cher qu'un joint spy arrière. Chez RED-K MOTORS à Ivry, le devis est gratuit avant intervention.",
+          },
+        },
+      ],
+    },
+  },
 };
