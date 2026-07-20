@@ -1461,7 +1461,7 @@ module.exports = {
     directAnswer: {
       question: "Quand une consommation d'huile est-elle anormale ?",
       answer:
-        "Mesurez en litres pour 1 000 km. Au-delà des seuils constructeur (souvent autour de 0,5 L / 1 000 km selon moteurs), cherchez une fuite externe ou une huile brûlée (segments, turbo, guides). Un niveau sous le MIN est une urgence.",
+        "Mesurez en litres pour 1 000 km. Un plafond constructeur (souvent autour de 0,5 L / 1 000 km) n'est pas une consommation « normale » : dès ~0,2–0,3 L / 1 000 km, un contrôle s'impose (fuite externe ou huile brûlée). Un niveau sous le MIN est une urgence.",
       facts: [
         { label: "À mesurer", value: "Litres / 1 000 km entre deux contrôles" },
         { label: "Garage", value: "RED-K MOTORS · Ivry-sur-Seine (94)" },
@@ -1482,7 +1482,7 @@ module.exports = {
           name: "Ajouter de l'huile entre deux vidanges est-il normal ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Une légère consommation peut être tolérée selon le constructeur. Si vous devez ajouter souvent un demi-litre, mesurez précisément et faites contrôler : fuite ou combustion d'huile.",
+            text: "Une très légère consommation peut être tolérée selon le moteur. Si vous devez ajouter souvent (ex. > 0,2–0,3 L / 1 000 km), mesurez précisément et faites contrôler : fuite ou combustion d'huile.",
           },
         },
         {
