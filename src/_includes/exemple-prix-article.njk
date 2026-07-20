@@ -2,7 +2,7 @@
   {% set modelLabel = "votre véhicule" %}
   {% set breadcrumbLabel = exemple.searchQuery | default(exemple.serviceLabel) %}
   {% set kicker = "Guide prix · Tous modèles · Ivry (94)" %}
-  {% set heroTitle = exemple.heroTitle | default("Prix " ~ exemple.serviceLabel ~ " · tous modèles") %}
+  {% set heroTitle = exemple.heroTitle | default("Prix " ~ (exemple.shortService or exemple.serviceLabel) ~ " · tous modèles") %}
   {% set heroLead = exemple.problemLead | default(description) %}
   {% set compareIntro = "Exemple de prix indicatif à Ivry — citadine, compacte ou SUV (" ~ exemple.yearRange ~ "). Le montant exact dépend du véhicule après inspection." %}
   {% set specificsTitle = "Points de vigilance avant intervention" %}
@@ -11,7 +11,7 @@
   {% set modelLabel = exemple.brand ~ " " ~ exemple.model %}
   {% set breadcrumbLabel = modelLabel %}
   {% set kicker = "Guide prix · " ~ exemple.brand %}
-  {% set heroTitle = "Prix " ~ exemple.serviceLabel ~ " " ~ modelLabel %}
+  {% set heroTitle = "Prix " ~ (exemple.shortService or exemple.serviceLabel) ~ " " ~ modelLabel %}
   {% set heroLead = description %}
   {% set compareIntro = "Exemple de prix indicatif pour une <strong>" ~ modelLabel ~ "</strong> (" ~ exemple.yearRange ~ ")." %}
   {% set specificsTitle = "À savoir sur " ~ modelLabel %}
@@ -54,7 +54,10 @@
       <p class="exemple-model-intro">
         Exemple indicatif pour une <strong>{{ modelLabel }}</strong> ({{ exemple.yearRange }}) à Ivry-sur-Seine.
         Le montant exact dépend de l'état du véhicule après inspection — voir aussi la
-        <a href="/tarifs/">grille tarifaire complète</a>.
+        <a href="/tarifs/">grille tarifaire complète</a>
+        {% if exemple.modelSlug %}
+        · <a href="/exemples/modeles/{{ exemple.modelSlug }}/">toutes les prestations {{ modelLabel }}</a>
+        {% endif %}.
       </p>
       {% endif %}
       <p class="exemple-prix-hero__actions">
@@ -68,10 +71,13 @@
 
   <div class="exemple-prix-body">
     <div class="container">
-      {% if exemple.isGeneric and exemple.painPoints and exemple.painPoints.length %}
+      {% if exemple.painPoints and exemple.painPoints.length %}
       <section class="exemple-pain" aria-labelledby="exemple-pain-title">
         <p class="section-kicker">Le problème</p>
         <h2 id="exemple-pain-title">{{ exemple.problemTitle }}</h2>
+        {% if exemple.problemLead and not exemple.isGeneric %}
+        <p class="exemple-pain__lead">Sur une <strong>{{ modelLabel }}</strong> comme sur la plupart des véhicules : {{ exemple.problemLead }}</p>
+        {% endif %}
         <ul class="exemple-pain__list">
           {% for point in exemple.painPoints %}
           <li class="exemple-pain__item">
@@ -122,15 +128,25 @@
           Montants indicatifs à titre d'exemple — le prix exact dépend du véhicule après inspection à l'atelier.
           <a href="/tarifs/">Grille tarifaire complète</a>
           {% if genericExemple and not exemple.isGeneric %}
-          · <a href="/exemples/{{ genericExemple.slug }}/">Guide {{ exemple.serviceLabel }} tous modèles</a>
+          · <a href="/exemples/{{ genericExemple.slug }}/">Guide {{ exemple.shortService or exemple.serviceLabel }} tous modèles</a>
           {% endif %}
         </p>
+      </section>
+
+      <section class="exemple-process" aria-labelledby="exemple-process-title">
+        <h2 id="exemple-process-title">Comment ça se passe à l'atelier</h2>
+        <ol class="exemple-process__list">
+          <li><strong>Contact</strong> — appel ou WhatsApp, photos utiles pour un premier avis.</li>
+          <li><strong>Inspection</strong> — diagnostic offert, explication claire avant devis.</li>
+          <li><strong>Devis ferme</strong> — vous validez seulement si le montant vous convient.</li>
+          <li><strong>Intervention</strong> — lun–sam 9h–19h, 9 rue Michelet, Ivry-sur-Seine.</li>
+        </ol>
       </section>
 
       <aside class="exemple-tarifs-strip" aria-label="Liens tarifs et prestation">
         <div class="exemple-tarifs-strip__inner">
           <a href="/tarifs/" class="exemple-tarifs-strip__link" data-track="click_tarifs" data-track-pos="exemple_prix_strip">Grille tarifaire →</a>
-          <a href="/tarifs/#guides-prix" class="exemple-tarifs-strip__link" data-track="click_tarifs" data-track-pos="exemple_prix_strip_guides">Tous les guides prix →</a>
+          <a href="/exemples/" class="exemple-tarifs-strip__link" data-track="click_tarifs" data-track-pos="exemple_prix_strip_guides">Tous les guides prix →</a>
           <a href="{{ exemple.serviceUrl }}" class="exemple-tarifs-strip__link" data-track="click_service" data-track-pos="exemple_prix_strip">Prestation atelier →</a>
           {% if not exemple.isGeneric and exemple.modelSlug %}
           <a href="/exemples/modeles/{{ exemple.modelSlug }}/" class="exemple-tarifs-strip__link" data-track="click_price_example" data-track-pos="exemple_prix_strip_modele">Toutes les prestations {{ exemple.brand }} {{ exemple.model }} →</a>
@@ -155,7 +171,7 @@
       <section class="exemple-atelier" aria-labelledby="exemple-atelier-title">
         <div class="exemple-atelier__inner">
           <div>
-            <h2 id="exemple-atelier-title">{{ exemple.serviceLabel | capitalize }} à Ivry-sur-Seine</h2>
+            <h2 id="exemple-atelier-title">{{ (exemple.shortService or exemple.serviceLabel) | capitalize }} à Ivry-sur-Seine</h2>
             <p>
               RED-K MOTORS, 9 rue Michelet, 94200 Ivry-sur-Seine — accessible depuis Vitry, Villejuif, Paris 13 et le Val-de-Marne.
               Lun–sam 9h–19h. <strong>Diagnostic offert à chaque intervention.</strong>
@@ -168,9 +184,35 @@
         </div>
       </section>
 
+      {% if contextLinks and contextLinks.length %}
+      <nav class="exemple-prix-crosslinks" aria-label="Pages utiles">
+        <h2 class="exemple-prix-crosslinks__title">À consulter aussi</h2>
+        <ul class="exemple-prix-crosslinks__list">
+          {% for link in contextLinks %}
+          <li><a href="{{ link.url }}">{{ link.label }}</a></li>
+          {% endfor %}
+        </ul>
+      </nav>
+      {% endif %}
+
+      {% if siblingServices and siblingServices.length %}
+      <section class="exemple-prix-related" aria-labelledby="exemple-sibling-title">
+        <h2 id="exemple-sibling-title">Autres prestations {{ modelLabel }}</h2>
+        <ul class="exemple-prix-related__grid">
+          {% for item in siblingServices %}
+          <li>
+            <a class="exemple-prix-related__link" href="{{ item.url }}">
+              <span class="exemple-prix-related__model">{{ item.label }}</span>
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </section>
+      {% endif %}
+
       {% if genericExemple and not exemple.isGeneric %}
       <p class="exemple-prix-generic-link">
-        <a href="/exemples/{{ genericExemple.slug }}/">Voir le guide prix {{ exemple.serviceLabel }} — tous modèles</a>
+        <a href="/exemples/{{ genericExemple.slug }}/">Voir le guide prix {{ exemple.shortService or exemple.serviceLabel }} — tous modèles</a>
       </p>
       {% endif %}
 
@@ -181,8 +223,12 @@
           {% for item in relatedExemples %}
           <li>
             <a class="exemple-prix-related__link" href="/exemples/{{ item.slug }}/">
+              {% if item.anchor %}
+              <span class="exemple-prix-related__model">{{ item.anchor }}</span>
+              {% else %}
               <span class="exemple-prix-related__brand">{{ item.brand }}</span>
               <span class="exemple-prix-related__model">{{ item.model }}</span>
+              {% endif %}
             </a>
           </li>
           {% endfor %}

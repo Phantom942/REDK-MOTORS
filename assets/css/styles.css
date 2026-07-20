@@ -5650,6 +5650,55 @@ img[loading="lazy"].loaded {
   color: #fafafa;
 }
 
+.exemple-process {
+  margin: 2rem 0 2.5rem;
+}
+
+.exemple-process h2 {
+  margin: 0 0 0.75rem;
+}
+
+.exemple-process__list {
+  margin: 0;
+  padding-left: 1.25rem;
+  display: grid;
+  gap: 0.65rem;
+  max-width: 42rem;
+}
+
+.exemple-process__list li {
+  line-height: 1.45;
+}
+
+.exemple-pain__lead {
+  margin: 0 0 1rem;
+  max-width: 42rem;
+  line-height: 1.5;
+}
+
+.exemple-prix-crosslinks {
+  margin: 2rem 0;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+}
+
+.exemple-prix-crosslinks__title {
+  margin: 0 0 0.75rem;
+  font-size: 1.1rem;
+}
+
+.exemple-prix-crosslinks__list {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.exemple-prix-crosslinks__list a {
+  font-weight: 600;
+}
+
 .conversion-page .exemple-prix-body .direct-answer {
   margin-bottom: 0;
 }

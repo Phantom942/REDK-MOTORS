@@ -23,6 +23,11 @@
         Tous les comparatifs indicatifs pour ce modèle — vidange, freins, pneus, climatisation, distribution, embrayage, batterie et pare-brise.
         Montants à titre d'exemple : devis ferme après inspection au véhicule.
       </p>
+      <p class="exemple-model-intro">
+        Sur une <strong>{{ modele.brand }} {{ modele.model }}</strong> ({{ modele.yearRange }}), les pièces et le temps atelier varient selon motorisation et équipements.
+        Ces guides aident à situer une fourchette avant le devis — pas un tarif forfaitaire.
+        Consultez aussi la <a href="/tarifs/">grille tarifaire</a> et l'<a href="/exemples/">ensemble des guides prix</a>.
+      </p>
       <p class="exemple-prix-hero__actions">
         <a href="tel:{{ site.phone }}" class="btn btn--primary" data-track="click_call" data-track-pos="modele_hub_hero">Devis gratuit · {{ site.phoneDisplayCompact }}</a>
         <a href="/tarifs/" class="btn btn--secondary" data-track="click_tarifs" data-track-pos="modele_hub_hero">Grille tarifaire</a>
@@ -32,6 +37,15 @@
 
   <div class="exemple-prix-body">
     <div class="container">
+      <section class="exemple-process" aria-labelledby="modele-hub-process-title">
+        <h2 id="modele-hub-process-title">Pourquoi un hub par modèle ?</h2>
+        <p>
+          Chaque prestation ci-dessous ouvre un comparatif détaillé (exemple à Ivry vs fourchette « ailleurs »).
+          Objectif : arriver en atelier avec une idée réaliste du budget, puis valider un devis ferme après contrôle.
+          Diagnostic offert à chaque intervention — lun–sam 9h–19h à Ivry-sur-Seine.
+        </p>
+      </section>
+
       <section class="modele-hub-services" aria-labelledby="modele-hub-services-title">
         <h2 id="modele-hub-services-title">Prestations pour {{ modele.brand }} {{ modele.model }}</h2>
         <ul class="price-examples-hub__list modele-hub-services__list">
@@ -46,7 +60,7 @@
             >
               <span class="price-examples-hub__row-main">
                 <span class="price-examples-hub__label">{{ link.hubLabel }}</span>
-                <span class="price-examples-hub__hook">{{ link.serviceLabel | capitalize }}</span>
+                <span class="price-examples-hub__hook">Prix {{ link.hubLabel | lower }} {{ modele.brand }} {{ modele.model }}</span>
               </span>
               <span class="price-examples-hub__row-prices">
                 <span class="price-examples-hub__row-pill price-examples-hub__row-pill--redk">{{ link.redkPrice }}</span>
@@ -58,11 +72,42 @@
         </ul>
       </section>
 
+      {% if relatedModelHubs and relatedModelHubs.length %}
+      <section class="exemple-prix-related" aria-labelledby="modele-hub-related-title">
+        <h2 id="modele-hub-related-title">Autres modèles fréquents</h2>
+        <ul class="exemple-prix-related__grid">
+          {% for hub in relatedModelHubs %}
+          <li>
+            <a class="exemple-prix-related__link" href="{{ hub.url }}">
+              <span class="exemple-prix-related__model">Prix entretien {{ hub.brand }} {{ hub.model }}</span>
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </section>
+      {% endif %}
+
+      {% if genericGuides and genericGuides.length %}
+      <section class="exemple-prix-related" aria-labelledby="modele-hub-generics-title">
+        <h2 id="modele-hub-generics-title">Guides tous modèles</h2>
+        <ul class="exemple-prix-related__grid">
+          {% for guide in genericGuides %}
+          <li>
+            <a class="exemple-prix-related__link" href="{{ guide.url }}">
+              <span class="exemple-prix-related__model">{{ guide.cta }}</span>
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </section>
+      {% endif %}
+
       <aside class="exemple-tarifs-strip" aria-label="Liens utiles">
         <div class="exemple-tarifs-strip__inner">
           <a href="/tarifs/" class="exemple-tarifs-strip__link">Grille tarifaire →</a>
           <a href="/exemples/" class="exemple-tarifs-strip__link">Tous les guides prix →</a>
           <a href="/contact/" class="exemple-tarifs-strip__link">Prendre rendez-vous →</a>
+          <a href="/garage-ivry-sur-seine/" class="exemple-tarifs-strip__link">Garage Ivry-sur-Seine →</a>
         </div>
       </aside>
     </div>

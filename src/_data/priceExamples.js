@@ -9,9 +9,29 @@ const DATE = "2026-07-07";
 const DIAGNOSTIC_OFFERT = "diagnostic offert à chaque intervention";
 
 /** Copy SEO + psycho émotionnel — pages génériques uniquement */
+/** Libellés courts pour titles SEO (≤65 car. avec marque/modèle). */
+const SHORT_SERVICE = {
+  "pare-brise": "pare-brise",
+  distribution: "courroie distribution",
+  freinage: "plaquettes frein",
+  vidange: "vidange",
+  pneus: "montage pneus",
+  clim: "recharge clim",
+  embrayage: "embrayage",
+  batterie: "batterie",
+};
+
+function clampTitle(str, max = 65) {
+  const clean = String(str || "")
+    .replace(/\s+/g, " ")
+    .trim();
+  if (clean.length <= max) return clean;
+  return `${clean.slice(0, max - 1).replace(/[·,\s/-]+$/u, "").trim()}…`;
+}
+
 const GENERIC_SEO = {
   "pare-brise": {
-    title: "Prix pare-brise voiture 2026 · fourchette & devis Ivry (94)",
+    title: "Prix pare-brise voiture · devis Ivry (94)",
     metaDescription:
       "Prix pare-brise voiture : impact, fissure ou remplacement complet ? Fourchette réseau vs RED-K MOTORS à Ivry — diagnostic offert, franchise offerte, jusqu'à 150 €. Devis gratuit · 06 48 74 56 68.",
     searchQuery: "Prix pare-brise voiture",
@@ -30,7 +50,7 @@ const GENERIC_SEO = {
       "Photo WhatsApp pour un premier avis, inspection sur place et devis ferme. Sur remplacement : franchise bris de glace offerte + jusqu'à 150 € par l'atelier, avec accompagnement dossier assurance. Diagnostic offert à chaque passage.",
   },
   distribution: {
-    title: "Prix courroie de distribution 2026 · fourchette Ivry-sur-Seine (94)",
+    title: "Prix courroie de distribution · Ivry (94)",
     metaDescription:
       "Prix courroie de distribution : retarder, c'est risquer la casse moteur. Fourchette réseau vs RED-K MOTORS à Ivry — diagnostic offert, devis ferme avant travaux. 06 48 74 56 68.",
     searchQuery: "Prix courroie de distribution",
@@ -49,7 +69,7 @@ const GENERIC_SEO = {
       "On vérifie l'état réel, on explique ce qui doit partir (courroie, galets, pompe à eau) et on chiffre avant validation. Diagnostic offert à chaque intervention — vous décidez en connaissance de cause.",
   },
   freinage: {
-    title: "Prix plaquettes de frein 2026 · fourchette Ivry (94)",
+    title: "Prix plaquettes de frein · Ivry (94)",
     metaDescription:
       "Prix plaquettes de frein : grincement, pédale molle ou distance de freinage allongée ? Fourchette réseau vs RED-K MOTORS — diagnostic offert, devis avant travaux. Ivry (94) · 06 48 74 56 68.",
     searchQuery: "Prix plaquettes de frein",
@@ -68,7 +88,7 @@ const GENERIC_SEO = {
       "On mesure l'usure, on vous montre ce qui est urgent et ce qui peut attendre. Diagnostic offert à chaque intervention — vous repartez avec un devis ferme, sans travaux cachés.",
   },
   vidange: {
-    title: "Prix vidange moteur 2026 · fourchette Ivry-sur-Seine (94)",
+    title: "Prix vidange moteur · Ivry (94)",
     metaDescription:
       "Prix vidange moteur : huile usée = moteur qui vieillit plus vite. Fourchette réseau vs RED-K MOTORS à Ivry — huile homologuée constructeur, diagnostic offert. Devis gratuit · 06 48 74 56 68.",
     searchQuery: "Prix vidange moteur",
@@ -87,7 +107,7 @@ const GENERIC_SEO = {
       "Huile et filtre adaptés au carnet constructeur, contrôle des niveaux inclus. Diagnostic offert à chaque intervention : on repère les petits problèmes avant qu'ils deviennent gros.",
   },
   pneus: {
-    title: "Prix montage pneus 2026 · équilibrage Ivry (94)",
+    title: "Prix montage pneus · Ivry (94)",
     metaDescription:
       "Prix montage et équilibrage pneus : usure irrégulière, volant qui tire, crevaison ? Fourchette réseau vs RED-K MOTORS à Ivry — diagnostic offert. Devis au modèle · 06 48 74 56 68.",
     searchQuery: "Prix montage pneus",
@@ -106,7 +126,7 @@ const GENERIC_SEO = {
       "On vérifie l'usure et la dimension, on monte et équilibre correctement. Diagnostic offert à chaque intervention — parallélisme recommandé si besoin, expliqué avant devis.",
   },
   clim: {
-    title: "Prix recharge clim voiture · 40 € · Ivry-sur-Seine (94)",
+    title: "Prix recharge clim voiture · 40 € · Ivry (94)",
     metaDescription:
       "Prix recharge climatisation voiture : air tiède, mauvaise odeur, clim morte avant l'été ? RED-K MOTORS à Ivry : recharge 40 €, diagnostic offert, contrôle d'étanchéité avant intervention. 06 48 74 56 68.",
     searchQuery: "Prix recharge climatisation voiture",
@@ -125,7 +145,7 @@ const GENERIC_SEO = {
       "Contrôle du circuit avant recharge. Si tout est OK : 40 €. Fuite ou compresseur : on vous l'explique clairement avant tout travaux supplémentaire. Diagnostic offert à chaque intervention.",
   },
   embrayage: {
-    title: "Prix embrayage voiture 2026 · fourchette Ivry (94)",
+    title: "Prix embrayage voiture · Ivry (94)",
     metaDescription:
       "Prix embrayage : patinage, odeur de brûlé, pédale haute ? Fourchette réseau vs RED-K MOTORS à Ivry — diagnostic offert, devis ferme avant démontage. 06 48 74 56 68.",
     searchQuery: "Prix embrayage voiture",
@@ -144,7 +164,7 @@ const GENERIC_SEO = {
       "On confirme l'usure, on chiffre kit + main-d'œuvre (volant bi-masse si nécessaire) et on valide avec vous avant d'ouvrir la boîte. Diagnostic offert à chaque intervention.",
   },
   batterie: {
-    title: "Prix batterie voiture 2026 · fourchette Ivry-sur-Seine (94)",
+    title: "Prix batterie voiture · Ivry (94)",
     metaDescription:
       "Prix batterie voiture : démarrage lent, voyant, panne un matin de froid ? Fourchette réseau vs RED-K MOTORS — test batterie/alternateur, diagnostic offert. Ivry (94) · 06 48 74 56 68.",
     searchQuery: "Prix batterie voiture",
@@ -421,6 +441,7 @@ function buildGenericExample(serviceKey) {
     serviceKey: service.serviceKey,
     serviceLabel: service.serviceLabel,
     serviceUrl: service.serviceUrl,
+    shortService: SHORT_SERVICE[serviceKey] || service.serviceLabel,
     brand: "Tous véhicules",
     model: "citadine à SUV",
     yearRange: "essence, diesel et hybride",
@@ -480,17 +501,30 @@ function buildExample(model, serviceKey) {
   };
 
   const override = OVERRIDES[slug];
-  return override ? { ...base, ...override } : base;
+  const seo = GENERIC_SEO[serviceKey];
+  const withContext = seo
+    ? {
+        ...base,
+        problemTitle: seo.problemTitle,
+        problemLead: seo.problemLead,
+        painPoints: seo.painPoints,
+        solutionTitle: seo.solutionTitle,
+        solutionLead: seo.solutionLead,
+        shortService: SHORT_SERVICE[serviceKey] || service.serviceLabel,
+      }
+    : { ...base, shortService: SHORT_SERVICE[serviceKey] || service.serviceLabel };
+  return override ? { ...withContext, ...override } : withContext;
 }
 
 function buildTitle(ex) {
+  const short = SHORT_SERVICE[ex.serviceKey] || ex.serviceLabel;
   if (ex.isGeneric && ex.title) {
-    return ex.title;
+    return clampTitle(ex.title, 65);
   }
   if (ex.isGeneric) {
-    return `Prix ${ex.serviceLabel} · fourchette 2026`;
+    return clampTitle(`Prix ${short} · Ivry (94)`, 65);
   }
-  return `Prix ${ex.serviceLabel} ${ex.brand} ${ex.model} · fourchette 2026`;
+  return clampTitle(`Prix ${short} ${ex.brand} ${ex.model} · Ivry`, 65);
 }
 
 function buildDescription(ex) {
@@ -549,4 +583,4 @@ const all = EXAMPLES.filter((ex) => ex.published).map((ex) => ({
   searchQuery: buildQuery(ex),
 }));
 
-module.exports = { all, EXAMPLES, MODELS, SERVICES };
+module.exports = { all, EXAMPLES, MODELS, SERVICES, SHORT_SERVICE, clampTitle };

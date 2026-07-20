@@ -154,11 +154,71 @@ module.exports = {
       if (ex.isGeneric) {
         return all
           .filter((item) => !item.isGeneric && item.serviceKey === ex.serviceKey)
-          .slice(0, 6);
+          .slice(0, 8)
+          .map((item, i) => ({
+            ...item,
+            anchor:
+              i % 3 === 0
+                ? `Prix ${item.shortService || item.serviceLabel} ${item.brand} ${item.model}`
+                : i % 3 === 1
+                  ? `Combien coûte sur ${item.brand} ${item.model} ?`
+                  : `Exemple ${item.brand} ${item.model}`,
+          }));
       }
       return all
         .filter((item) => !item.isGeneric && item.slug !== ex.slug && item.serviceKey === ex.serviceKey)
-        .slice(0, 3);
+        .slice(0, 6)
+        .map((item, i) => ({
+          ...item,
+          anchor:
+            i % 2 === 0
+              ? `${item.brand} ${item.model} — même prestation`
+              : `Prix ${item.shortService || item.serviceLabel} ${item.brand} ${item.model}`,
+        }));
+    },
+    siblingServices: (data) => {
+      const ex = data.exemple;
+      if (!ex || ex.isGeneric || !ex.modelSlug) return [];
+      const { all } = require("../_data/priceExamples.js");
+      return all
+        .filter(
+          (item) =>
+            !item.isGeneric &&
+            item.modelSlug === ex.modelSlug &&
+            item.serviceKey !== ex.serviceKey
+        )
+        .slice(0, 5)
+        .map((item, i) => ({
+          url: `/exemples/${item.slug}/`,
+          label:
+            i % 2 === 0
+              ? `Aussi : ${item.shortService || item.serviceLabel} ${item.brand} ${item.model}`
+              : `Guide prix ${item.shortService || item.serviceLabel}`,
+        }));
+    },
+    contextLinks: (data) => {
+      const ex = data.exemple;
+      if (!ex) return [];
+      const links = [
+        { url: "/exemples/", label: "Tous les guides prix garage" },
+        { url: "/tarifs/", label: "Grille tarifaire indicative" },
+        { url: ex.serviceUrl, label: `Prestation ${ex.shortService || ex.serviceLabel}` },
+        { url: "/contact/", label: "Prendre rendez-vous à Ivry" },
+      ];
+      if (!ex.isGeneric && ex.modelSlug) {
+        links.splice(1, 0, {
+          url: `/exemples/modeles/${ex.modelSlug}/`,
+          label: `Entretien ${ex.brand} ${ex.model} — tous prix`,
+        });
+      }
+      const generic = data.genericExemple;
+      if (generic && !ex.isGeneric) {
+        links.splice(1, 0, {
+          url: `/exemples/${generic.slug}/`,
+          label: `Guide ${ex.shortService || ex.serviceLabel} tous modèles`,
+        });
+      }
+      return links;
     },
   },
 };
