@@ -1897,7 +1897,7 @@ module.exports = {
   },
   "prix-changement-batterie-94": {
     directAnswer: {
-      question: "Combien coûte un changement de batterie dans le 94 ?",
+      question: "Combien coûte un changement de batterie ?",
       answer:
         "Batterie plomb classique posée : souvent 100 à 220 € en 2026. Start & Stop (EFB/AGM) : plutôt 180 à 400 € selon capacité et recalibrage. Devis gratuit chez RED-K MOTORS à Ivry-sur-Seine.",
       facts: [
