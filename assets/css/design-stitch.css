@@ -944,9 +944,25 @@ body.design-stitch a[class*="btn--"] {
 }
 
 .design-stitch .reviews-section__badge-google {
-  background: var(--stitch-surface);
-  border: 1px solid var(--stitch-outline);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: none;
+}
+
+.design-stitch .reviews-section__badge-text,
+.design-stitch .reviews-section__badge-score,
+.design-stitch .reviews-section__badge-sep,
+.design-stitch .reviews-section__badge-count {
+  color: #fafafa;
+}
+
+.design-stitch .reviews-section__badge-score {
+  font-weight: 700;
+}
+
+.design-stitch .reviews-section__badge-sep,
+.design-stitch .reviews-section__badge-count {
+  color: rgba(255, 255, 255, 0.88);
 }
 
 .design-stitch .reviews-section__grid {
@@ -3234,13 +3250,20 @@ body.conversion-page .promesse__item p {
   }
 
   .design-stitch .reviews-section__badge-google {
-    background: rgba(255, 255, 255, 0.06);
-    border-color: var(--stitch-outline);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.18);
   }
 
   .design-stitch .reviews-section__badge-text,
+  .design-stitch .reviews-section__badge-score,
+  .design-stitch .reviews-section__badge-sep,
   .design-stitch .reviews-section__badge-count {
-    color: var(--stitch-on-variant);
+    color: #fafafa !important;
+  }
+
+  .design-stitch .reviews-section__badge-sep,
+  .design-stitch .reviews-section__badge-count {
+    color: rgba(255, 255, 255, 0.88) !important;
   }
 
   .design-stitch .review-card {
