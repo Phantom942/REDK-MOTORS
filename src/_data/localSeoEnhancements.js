@@ -230,7 +230,7 @@ const CATEGORIES = {
   },
 };
 
-/** Overrides ciblés (symptômes plus précis que la catégorie). */
+/** Overrides ciblés (symptômes + textes uniques pour landings whitelist). */
 const PAGE_OVERRIDES = {
   abs94Seo: {
     symptoms: [
@@ -239,6 +239,16 @@ const PAGE_OVERRIDES = {
       "Freinage moins efficace par temps humide",
       "Bruit au ralenti lié à la pompe ABS",
     ],
+    seoTitle: "Voyant ABS allumé — diagnostic freinage à Ivry (94)",
+    seoParagraphs: [
+      "Un voyant ABS ne veut pas toujours dire « freins HS », mais il signale un défaut de capteur, de connectique ou de l'unité hydraulique. On lit les codes, on contrôle les roues et on vous explique ce qui est urgent avant le prochain trajet.",
+      "À Ivry-sur-Seine, le diagnostic ABS est souvent réalisable sous 48 h sur rendez-vous — devis écrit avant toute pièce.",
+    ],
+    seoProblems: [
+      { text: "Voyant ABS : causes", url: "/blog/voyant-abs-allume-causes-conduite/" },
+      { text: "Pédale spongieuse", url: "/blog/freinage-mou-pedale-spongieuse/" },
+      { text: "Prix plaquettes 94", url: "/blog/prix-changement-plaquettes-frein-94/" },
+    ],
   },
   voyant94Seo: {
     symptoms: [
@@ -246,6 +256,16 @@ const PAGE_OVERRIDES = {
       "Perte de puissance soudaine",
       "Consommation anormale",
       "Ratés à froid ou à chaud",
+    ],
+    seoTitle: "Voyant moteur allumé — diagnostic OBD à Ivry-sur-Seine",
+    seoParagraphs: [
+      "Voyant moteur fixe ou clignotant : on branche la valise multimarques, on isole le défaut (sonde, turbo, EGR, FAP, allumage…) et on priorise ce qui bloque réellement le véhicule.",
+      "Pas de « boîte noire » : vous repartez avec un diagnostic clair et un devis avant réparation, atelier 9 rue Michelet.",
+    ],
+    seoProblems: [
+      { text: "Que faire si voyant moteur", url: "/blog/voyant-moteur-allume-que-faire/" },
+      { text: "Prix diagnostic 94", url: "/blog/prix-diagnostic-auto-94/" },
+      { text: "Perte de puissance", url: "/blog/perte-puissance-soudaine-causes/" },
     ],
   },
   bruitFrein94Seo: {
@@ -263,6 +283,27 @@ const PAGE_OVERRIDES = {
       "Clim qui s'arrête en ville",
       "Buée ou manque de débit d'air",
     ],
+    seoTitle: "Clim qui ne refroidit plus — diagnostic & recharge 94",
+    seoParagraphs: [
+      "Air tiède, odeur ou clim qui coupe : on mesure les pressions, on cherche une fuite éventuelle et on recharge uniquement si le circuit est sain. Évite de « remplir à l'aveugle ».",
+      "Recharge et contrôle clim sur rendez-vous à Ivry — devis avant intervention, pièces et gaz adaptés.",
+    ],
+    seoProblems: [
+      { text: "Recharge clim Ivry", url: "/blog/climatisation-voiture-recharge-ivry/" },
+      { text: "Prix recharge clim", url: "/blog/prix-recharge-climatisation-94/" },
+      { text: "Odeur moisi clim", url: "/blog/clim-odeur-moisi-que-faire/" },
+    ],
+  },
+  climIvrySeo: {
+    seoTitle: "Réparation climatisation auto à Ivry-sur-Seine",
+    seoParagraphs: [
+      "Atelier clim : test d'étanchéité, contrôle compresseur, recharge et désinfection du circuit si besoin. On vous dit si une simple recharge suffit ou s'il y a une fuite à traiter.",
+      "Conducteurs d'Ivry, Vitry, Villejuif et Paris sud : créneau souvent disponible en semaine et le samedi.",
+    ],
+    seoProblems: [
+      { text: "Guide recharge clim", url: "/blog/climatisation-voiture-recharge-ivry/" },
+      { text: "Exemple de prix clim", url: "/exemples/prix-recharge-climatisation/" },
+    ],
   },
   demarrage94Seo: {
     symptoms: [
@@ -271,6 +312,16 @@ const PAGE_OVERRIDES = {
       "Démarrage puis calage",
       "Voyants multiples allumés",
     ],
+    seoTitle: "Voiture qui ne démarre plus — diagnostic démarrage 94",
+    seoParagraphs: [
+      "Batterie, alternateur, démarreur, antivol ou panne électronique : on teste dans l'ordre pour éviter de changer une pièce inutile. Diagnostic clair avant devis.",
+      "Urgences démarrage à Ivry-sur-Seine sur rendez-vous — lun–sam 9h–19h.",
+    ],
+    seoProblems: [
+      { text: "Causes demarrage", url: "/blog/voiture-ne-demarre-pas-causes/" },
+      { text: "Batterie à changer", url: "/blog/batterie-voiture-quand-changer/" },
+      { text: "Changement batterie 94", url: "/changement-batterie-94/" },
+    ],
   },
   tremblementVolant94Seo: {
     symptoms: [
@@ -278,6 +329,109 @@ const PAGE_OVERRIDES = {
       "Vibrations après changement de pneus",
       "Tirage à gauche ou droite",
       "Usure inégale des pneus",
+    ],
+  },
+  batterie94Seo: {
+    seoTitle: "Changement de batterie voiture à Ivry (94)",
+    seoParagraphs: [
+      "Démarrage lent, cliquetis ou voyants au contact : on teste la batterie et le circuit de charge avant de remplacer. Une batterie neuve sur un alternateur HS ne règle rien.",
+      "Pose adaptée au véhicule (y compris start & stop quand compatible) — devis avant intervention à l'atelier RED-K MOTORS.",
+    ],
+    seoProblems: [
+      { text: "Quand changer la batterie", url: "/blog/batterie-voiture-quand-changer/" },
+      { text: "Prix batterie 94", url: "/blog/prix-changement-batterie-94/" },
+      { text: "Voiture qui ne démarre pas", url: "/blog/voiture-ne-demarre-pas-causes/" },
+    ],
+  },
+  plaquettes94Seo: {
+    seoTitle: "Changement plaquettes de frein à Ivry-sur-Seine",
+    seoParagraphs: [
+      "Grincement, voyant frein ou course de pédale allongée : contrôle plaquettes, disques et liquide. On remplace ce qui est hors cote — pas de forfait opaque.",
+      "Freinage sécurisé pour trajets urbains 94 / Paris sud — devis écrit, contrôle ABS si voyant associé.",
+    ],
+    seoProblems: [
+      { text: "Signaux d'usure plaquettes", url: "/blog/plaquettes-frein-usure-signaux-a-ne-pas-ignorer/" },
+      { text: "Prix plaquettes 94", url: "/blog/prix-changement-plaquettes-frein-94/" },
+      { text: "Exemple prix plaquettes", url: "/exemples/prix-plaquettes-frein/" },
+    ],
+  },
+  pneusFreins94Seo: {
+    seoTitle: "Garage pneus et freins dans le Val-de-Marne (94)",
+    seoParagraphs: [
+      "Deux postes sécurité réunis : montage / équilibrage pneus et freinage (plaquettes, disques, géométrie si besoin). Contrôle croisé usure pour éviter les mauvaises surprises au CT.",
+      "Stock selon arrivages ou montage de vos pneus — devis au modèle avant pose, atelier Ivry.",
+    ],
+    seoProblems: [
+      { text: "Quand changer les pneus", url: "/blog/quand-changer-pneus-usure-securite/" },
+      { text: "Prix pneus 94", url: "/blog/prix-changement-pneus-94/" },
+      { text: "Freinage", url: "/freins/" },
+    ],
+  },
+  revisionIvrySeo: {
+    seoTitle: "Révision voiture à Ivry-sur-Seine — carnet respecté",
+    seoParagraphs: [
+      "Révision selon préconisations constructeur : vidange, filtres, niveaux, points de sécurité. On vous dit ce qui est dû maintenant et ce qui peut attendre.",
+      "Idéal avant long trajet ou contrôle technique — créneaux lun–sam à Ivry.",
+    ],
+    seoProblems: [
+      { text: "Checklist 60 000 km", url: "/blog/revision-60000-km-checklist/" },
+      { text: "Vidange", url: "/vidange/" },
+      { text: "Tarifs indicatifs", url: "/tarifs/" },
+    ],
+  },
+  revision94Seo: {
+    seoTitle: "Révision auto Val-de-Marne — atelier Ivry",
+    seoParagraphs: [
+      "Pour les conducteurs du 94 : révision complète ou entretien courant avec pièces adaptées. Devis avant travaux, pas de surprise en fin d'intervention.",
+      "Accès simple depuis Vitry, Villejuif, Charenton, Alfortville — même atelier, même exigence.",
+    ],
+  },
+  garageSamedi94Seo: {
+    seoTitle: "Garage ouvert le samedi dans le 94 — Ivry-sur-Seine",
+    seoParagraphs: [
+      "Pas de semaine libre ? On reçoit aussi le samedi (9h–19h) pour diagnostic, freins, vidange, pneus et devis. Réservation conseillée pour garder un créneau.",
+      "Atelier RED-K MOTORS, 9 rue Michelet — idéal pour les actifs de Paris sud et du Val-de-Marne.",
+    ],
+  },
+  devisGarage94Seo: {
+    seoTitle: "Devis garage 94 — gratuit et détaillé",
+    seoParagraphs: [
+      "Demandez un devis clair : pièces, main-d'œuvre, délai. On ne démarre les travaux qu'après votre validation. Photo WhatsApp possible pour une première estimation carrosserie.",
+      "Devis gratuit à Ivry-sur-Seine — téléphone, WhatsApp ou formulaire contact.",
+    ],
+    seoProblems: [
+      { text: "Contact & RDV", url: "/contact/" },
+      { text: "Tarifs indicatifs", url: "/tarifs/" },
+    ],
+  },
+  pertePuissance94Seo: {
+    seoTitle: "Perte de puissance voiture — causes & diagnostic 94",
+    seoParagraphs: [
+      "Mode dégradé, turbo, filtre à carburant, sonde ou FAP : on mesure avant de remplacer. Objectif = retrouver la puissance sans pièces inutiles.",
+      "Diagnostic perte de puissance à Ivry — rapport clair + devis réparation.",
+    ],
+    seoProblems: [
+      { text: "Causes perte de puissance", url: "/blog/perte-puissance-soudaine-causes/" },
+      { text: "Turbo", url: "/blog/turbo-compresseur-symptomes-panne/" },
+      { text: "FAP encrassé", url: "/blog/fap-dpf-encrasse-trajets-ville/" },
+    ],
+  },
+  vidangeRapideIvrySeo: {
+    seoTitle: "Vidange rapide à Ivry — huile & filtre adaptés",
+    seoParagraphs: [
+      "Vidange moteur avec huile homologuée et filtre neuf, contrôle des niveaux et aperçu des points d'usure visibles. Souvent le jour même sur rendez-vous.",
+      "Complément fréquent d'une révision ou d'un pré-contrôle technique — atelier Ivry-sur-Seine.",
+    ],
+    seoProblems: [
+      { text: "Prix vidange", url: "/blog/combien-coute-vidange-voiture/" },
+      { text: "Exemple prix vidange", url: "/exemples/prix-vidange-moteur/" },
+    ],
+  },
+  reparationParisSudSeo: {
+    seoTitle: "Réparation auto Paris sud — atelier à Ivry",
+    seoParagraphs: [
+      "Depuis Paris 13, 14, 15 ou le sud de la capitale : atelier accessible pour mécanique, freinage, diagnostic et entretien. Même exigence qu'en centre-ville, sans la galère logistique.",
+      "Devis gratuit, créneaux lun–sam — 9 rue Michelet, Ivry-sur-Seine.",
     ],
   },
 };
