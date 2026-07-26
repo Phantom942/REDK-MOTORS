@@ -1,5 +1,5 @@
 /**
- * Liens vers pages money depuis les pages SEO longue traîne (noindex).
+ * Liens vers pages money depuis les pages SEO longue traîne.
  */
 const PAGES = {
   diagnostic: { title: "Diagnostic auto", url: "/diagnostic/" },
