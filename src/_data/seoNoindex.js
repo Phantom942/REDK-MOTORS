@@ -3,6 +3,9 @@
  *
  * Stratégie : pages template / doorway en noindex, sauf whitelist de landings
  * commerciales différenciées (indexables + sitemap).
+ *
+ * Matching = startsWith(prefix) uniquement (jamais "contains") pour ne pas
+ * noindexer un article blog du type /blog/voyant-abs-allume-…/
  */
 module.exports = {
   prefixes: [
@@ -65,4 +68,12 @@ module.exports = {
     "/vidange-rapide-ivry/",
     "/reparation-auto-paris-sud/",
   ],
+
+  /** true si l'URL doit être noindexée (hors whitelist). */
+  shouldNoindex(url) {
+    if (!url) return false;
+    const path = String(url);
+    if (this.indexablePaths.includes(path)) return false;
+    return this.prefixes.some((prefix) => path.startsWith(prefix));
+  },
 };

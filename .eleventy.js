@@ -303,16 +303,12 @@ module.exports = function (eleventyConfig) {
 
   // Collection sitemap : exclut 404, sitemap.xml, et pages avec sitemap.ignore
   eleventyConfig.addCollection("sitemap", function (collectionApi) {
-    const excludedPrefixes = seoNoindex.prefixes;
-    const indexablePaths = new Set(seoNoindex.indexablePaths);
-
     return collectionApi.getAll().filter((item) => {
       if (item.data.sitemap && item.data.sitemap.ignore === true) return false;
       if (item.data.eleventyExcludeFromCollections) return false;
       if (!item.url || item.url === "") return false;
       if (typeof item.data.robots === "string" && item.data.robots.toLowerCase().includes("noindex")) return false;
-      if (indexablePaths.has(item.url)) return true;
-      if (excludedPrefixes.some((prefix) => item.url.includes(prefix))) {
+      if (seoNoindex.shouldNoindex(item.url)) {
         if (item.url.startsWith("/blog/tag/")) {
           const tagSlug = item.url.replace(/^\/blog\/tag\//, "").replace(/\/$/, "");
           if (indexableTags.includes(tagSlug)) return true;
