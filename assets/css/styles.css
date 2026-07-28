@@ -4571,10 +4571,12 @@ img[loading="lazy"].loaded {
 
 .blog-filters {
   margin-bottom: 2rem;
-  padding: 1rem 1.1rem;
+  padding: 1.25rem 1.35rem;
   border: 1px solid var(--stitch-outline, rgba(167, 138, 134, 0.15));
   border-radius: 12px;
   background: var(--stitch-surface, #1f1f23);
+  display: grid;
+  gap: 1.35rem;
 }
 
 .blog-filters__label {
@@ -4582,6 +4584,74 @@ img[loading="lazy"].loaded {
   font-size: 0.92rem;
   color: var(--stitch-on-variant, #d4c8c4);
   font-weight: 600;
+}
+
+.blog-filters__featured-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.blog-filters__featured-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-height: 100%;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid var(--stitch-outline, rgba(167, 138, 134, 0.15));
+  border-radius: 10px;
+  background: var(--stitch-bg-low, #1b1b1f);
+  color: var(--stitch-on-surface, #e4e1e7);
+  text-decoration: none;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.blog-filters__featured-link:hover {
+  border-color: var(--stitch-primary, #ffb4ab);
+  background: rgba(130, 17, 17, 0.22);
+  transform: translateY(-1px);
+}
+
+.blog-filters__featured-title {
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.blog-filters__featured-hint {
+  font-size: 0.78rem;
+  color: var(--stitch-on-variant, #d4c8c4);
+  line-height: 1.35;
+}
+
+.blog-filters__themes {
+  display: grid;
+  gap: 1rem;
+}
+
+.blog-filters__all-row {
+  margin-bottom: 0.15rem;
+}
+
+.blog-filters__group-label {
+  margin: 0 0 0.55rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--stitch-on-variant, #d4c8c4);
+}
+
+.blog-filters__group + .blog-filters__group {
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(167, 138, 134, 0.12);
+}
+
+.blog-filters__group:has(.blog-filters__list:empty) {
+  display: none;
 }
 
 .blog-filters__list {
@@ -4744,6 +4814,22 @@ img[loading="lazy"].loaded {
 
 .blog-pagination a:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .blog-filters__featured-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .blog-filters {
+    padding: 1rem;
+  }
+
+  .blog-filters__featured-list {
+    grid-template-columns: 1fr;
+  }
 }
 
 .blog-pagination li {

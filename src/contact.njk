@@ -5,7 +5,7 @@ description: "Prenez RDV chez RED-K MOTORS : 9 rue Michelet, 94200 Ivry. ☎ 06 
 pageKey: contact
 date: 2026-06-11
 lastReviewed: 2026-07-01
-hasHeroVideo: false
+hasHeroVideo: true
 hideServiceAreas: true
 scripts:
   effects: false
@@ -52,7 +52,8 @@ faqs:
 {% set heroTitle = "Contacter RED-K MOTORS" %}
 {% set heroKicker = "Ivry (94) · Lun–sam 9h–19h" %}
 {% set heroDesc = "9 rue Michelet — téléphone, WhatsApp ou formulaire ci-dessous." %}
-{% include "hero-simple.njk" %}
+{% set videoSrc = "contact.mp4" %}
+{% include "hero-video.njk" %}
 
 {% include "lp-trust-bar.njk" %}
 

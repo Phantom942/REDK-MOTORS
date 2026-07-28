@@ -2474,4 +2474,194 @@ module.exports = {
       ],
     },
   },
+  "combien-temps-entre-deux-vidanges": {
+    directAnswer: {
+      question: "Combien de temps entre deux vidanges ?",
+      answer:
+        "En général, une vidange tous les 10 000 à 15 000 km ou une fois par an (selon ce qui arrive en premier). En ville et trajets courts, restez plutôt sur 10 000 km maximum même si le constructeur autorise plus.",
+      facts: [
+        { label: "Usage ville", value: "10 000 km ou 12 mois conseillés" },
+        { label: "Atelier", value: "RED-K MOTORS · Ivry-sur-Seine (94)" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/vidange/", label: "Prestation vidange" },
+      { url: "/blog/combien-coute-vidange-voiture/", label: "Prix vidange" },
+      { url: "/contact/", label: "Prendre rendez-vous" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Combien de km entre deux vidanges ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Comptez en général 10 000 à 15 000 km, ou une fois par an. En usage urbain intensif, 10 000 km maximum est plus prudent.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Faut-il vidanger si je roule peu ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Oui : l'huile vieillit avec le temps. Même en roulant peu, une vidange annuelle est recommandée.",
+          },
+        },
+      ],
+    },
+  },
+  "revision-garage-independant-garantie-constructeur": {
+    directAnswer: {
+      question: "Faut-il faire la révision chez le concessionnaire pour garder la garantie ?",
+      answer:
+        "Non. Un garage indépendant peut réaliser l'entretien si les pièces et fluides sont conformes au plan constructeur et que le carnet est tamponné avec facture détaillée.",
+      facts: [
+        { label: "Obligation", value: "Respecter intervalles + normes constructeur" },
+        { label: "Preuve", value: "Facture + carnet d'entretien tamponné" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/revision/", label: "Révision auto" },
+      { url: "/blog/revision-constructeur-que-comprend-vraiment-service/", label: "Contenu d'une révision" },
+      { url: "/contact/", label: "Prendre rendez-vous" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Un garage indépendant peut-il tamponner le carnet constructeur ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Oui, si l'entretien respecte le plan constructeur (pièces conformes, fluides aux normes, opérations prévues au kilométrage).",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Que risque-t-on en allant uniquement en concession ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Rien pour la garantie — mais le tarif est souvent plus élevé. Le libre entretien est un droit, pas une obligation d'aller en concession.",
+          },
+        },
+      ],
+    },
+  },
+  "batterie-morte-matin-que-faire": {
+    directAnswer: {
+      question: "Que faire si la batterie est morte le matin ?",
+      answer:
+        "Vérifiez qu'aucun équipement n'a été laissé allumé, serrez les câbles de batterie, puis tentez un démarrage assisté si vous savez le faire. Si la panne revient le lendemain, faites tester batterie et alternateur en atelier.",
+      facts: [
+        { label: "Durée de vie", value: "4–5 ans en moyenne" },
+        { label: "Atelier", value: "RED-K MOTORS · test batterie + alternateur" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/blog/voiture-ne-demarre-pas-causes/", label: "Voiture ne démarre pas" },
+      { url: "/mecanique/", label: "Mécanique" },
+      { url: "/contact/", label: "Prendre rendez-vous" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Comment savoir si c'est la batterie ou l'alternateur ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Si le voyant batterie s'allume en roulant, l'alternateur est suspect. Si le démarreur cliquette sans que le moteur tourne, c'est plutôt la batterie.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Peut-on rouler avec une batterie faible ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Sur de courtes distances après un démarrage assisté, oui temporairement. Mais une batterie HS peut vous laisser en panne au prochain arrêt — faites-la tester rapidement.",
+          },
+        },
+      ],
+    },
+  },
+  "bruit-anormal-voiture-que-faire": {
+    directAnswer: {
+      question: "Que faire si on entend un bruit anormal en roulant ?",
+      answer:
+        "Notez quand le bruit apparaît (vitesse, freinage, virage) et d'où il semble venir. Grincement au freinage = freins ; claquement sur dos d'âne = suspension ; sifflement constant = roulement. Si la direction ou le freinage est affecté, arrêtez-vous.",
+      facts: [
+        { label: "Urgence", value: "Freinage ou direction dégradés → arrêt immédiat" },
+        { label: "Diagnostic", value: "Essai routier + inspection ciblée" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/diagnostic/", label: "Diagnostic auto" },
+      { url: "/blog/roulement-roue-sifflement-symptomes/", label: "Bruit de roulement" },
+      { url: "/contact/", label: "Prendre rendez-vous" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Un bruit de frein est-il dangereux ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Un grincement au freinage indique souvent des plaquettes usées ou des disques voilés. À faire contrôler rapidement : le freinage peut se dégrader.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Faut-il continuer à rouler avec un bruit de suspension ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Si le bruit est léger et sans vibration, vous pouvez rouler prudemment pour vous rendre en atelier. Un claquement fort ou une direction qui tire impose l'arrêt.",
+          },
+        },
+      ],
+    },
+  },
+  "fuite-liquide-frein-reconnaitre": {
+    directAnswer: {
+      question: "Comment reconnaître une fuite de liquide de frein ?",
+      answer:
+        "Signes typiques : voyant frein allumé, pédale molle, niveau bas dans le réservoir sous le capot, tache claire à jaunâtre près d'une roue. Ne roulez pas si la pédale manque de fermeté.",
+      facts: [
+        { label: "Sécurité", value: "Ne pas rouler — faire remorquer si besoin" },
+        { label: "Atelier", value: "RED-K MOTORS · contrôle circuit freinage" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/freins/", label: "Freinage" },
+      { url: "/blog/liquide-frein-quand-changer/", label: "Liquide de frein : quand changer" },
+      { url: "/contact/", label: "Prendre rendez-vous" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Peut-on compléter le liquide de frein soi-même ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Un appoint ponctuel avec le liquide indiqué (DOT3, DOT4…) peut dépanner pour rejoindre un garage, mais si le niveau baisse à nouveau, il y a une fuite à réparer.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Une fuite de frein fait-elle passer le contrôle technique ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Non : un circuit de freinage défaillant ou une fuite visible entraîne un refus au contrôle technique.",
+          },
+        },
+      ],
+    },
+  },
 };

@@ -285,6 +285,28 @@ module.exports = function (eleventyConfig) {
     },
   });
 
+  eleventyConfig.addFilter("findTagCount", (tag, list) => {
+    if (!tag || !Array.isArray(list)) return 0;
+    const found = list.find((item) => item.tag === tag);
+    return found ? found.count : 0;
+  });
+
+  eleventyConfig.addCollection("blogTagsWithCounts", function (collectionApi) {
+    const blogs = collectionApi
+      .getFilteredByGlob("src/blog/articles/*.njk")
+      .filter((item) => !item.data.draft);
+    const counts = new Map();
+    for (const post of blogs) {
+      if (!post.data.tags) continue;
+      for (const tag of post.data.tags) {
+        counts.set(tag, (counts.get(tag) || 0) + 1);
+      }
+    }
+    return Array.from(counts.entries())
+      .map(([tag, count]) => ({ tag, count }))
+      .sort((a, b) => b.count - a.count || a.tag.localeCompare(b.tag, "fr"));
+  });
+
   // Liste des tags uniques pour les pages par tag
   eleventyConfig.addCollection("tagList", function (collectionApi) {
     const blogs = collectionApi

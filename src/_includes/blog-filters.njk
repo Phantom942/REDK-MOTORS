@@ -1,0 +1,54 @@
+<nav class="blog-filters" aria-label="Navigation du blog">
+  {% if blogNav.featured and blogNav.featured.length > 0 %}
+  <div class="blog-filters__featured">
+    <p class="blog-filters__label">Guides utiles</p>
+    <ul class="blog-filters__featured-list">
+      {% for item in blogNav.featured %}
+      <li>
+        <a class="blog-filters__featured-link" href="{{ item.url }}">
+          <span class="blog-filters__featured-title">{{ item.label }}</span>
+          {% if item.hint %}<span class="blog-filters__featured-hint">{{ item.hint }}</span>{% endif %}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+  <div class="blog-filters__themes">
+    <p class="blog-filters__label">Filtrer par thème</p>
+    <div class="blog-filters__all-row">
+      <a
+        class="blog-filter-chip blog-filter-chip--all{% if not activeTag %} is-active{% endif %}"
+        href="/blog/"
+        {% if not activeTag %}aria-current="page"{% endif %}
+      >
+        Tous les articles
+        <span class="blog-filter-chip__count">{{ collections.blog | length }}</span>
+      </a>
+    </div>
+
+    {% for group in blogNav.groups %}
+    <div class="blog-filters__group">
+      <p class="blog-filters__group-label">{{ group.label }}</p>
+      <ul class="blog-filters__list">
+        {% for tag in group.tags %}
+        {% set tagCount = tag | findTagCount(collections.blogTagsWithCounts) %}
+        {% if tagCount > 0 %}
+        <li>
+          <a
+            class="blog-filter-chip{% if activeTag == tag %} is-active{% endif %}"
+            href="/blog/tag/{{ tag }}/"
+            {% if activeTag == tag %}aria-current="page"{% endif %}
+          >
+            {{ tagNames[tag] or tag }}
+            <span class="blog-filter-chip__count">{{ tagCount }}</span>
+          </a>
+        </li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+  </div>
+</nav>
