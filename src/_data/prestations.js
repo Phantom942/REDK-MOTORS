@@ -12,6 +12,8 @@ const PROCESS_STEPS = [
 
 const DIAGNOSTIC_ONLY_SLUGS = new Set([
   "diagnostic-voyant-moteur",
+  "diagnostic-electronique",
+  "diagnostic-securite",
   "recherche-de-panne",
   "diagnostic-abs",
 ]);
@@ -21,7 +23,7 @@ const CATEGORY_HUB = {
   Moteur: "/mecanique/",
   Suspension: "/mecanique/",
   "Pneus / Roues": "/pneumatiques/",
-  "Batterie, alternateur, demarreur": "/mecanique/",
+  "Batterie, alternateur, démarreur": "/mecanique/",
   Freinage: "/freins/",
   Transmission: "/mecanique/",
   Climatisation: "/entretien/",
@@ -59,12 +61,12 @@ const AD_OVERRIDES = {
     prestaHubSubtitle: "Indiquez plaque et symptômes — rappel en journée.",
   },
   "revision-entretien": {
-    heroTitle: "Révision & Entretien à Ivry — Carnet Constructeur",
+    heroTitle: "Révision Constructeur à Ivry — Carnet Respecté",
     heroKicker: "Entretien · Garantie préservée",
     heroDesc: "Révision selon préconisations constructeur. Pièces adaptées et devis gratuit.",
   },
   "vidange-moteur": {
-    heroTitle: "Vidange Moteur à Ivry — Rapide & Constructeur",
+    heroTitle: "Révision et Vidange à Ivry",
     heroKicker: "Huile homologuée · Filtre neuf",
     heroDesc: "Vidange avec huile adaptée à votre carnet. Contrôle des niveaux inclus.",
   },
@@ -106,19 +108,69 @@ const AD_OVERRIDES = {
     heroDesc: "Pédale haute, patinage ou bruit ? Diagnostic puis devis avant remplacement.",
   },
   "distribution-injection": {
-    heroTitle: "Kit Distribution à Ivry — Courroie & Injection",
+    heroTitle: "Distribution à Ivry — Kit Courroie & Pose",
     heroKicker: "Moteur · Prévention panne",
-    heroDesc: "Distribution, courroie ou injecteurs : diagnostic, devis ferme, pièces adaptées au véhicule.",
+    heroDesc: "Kit distribution : diagnostic, devis ferme et pièces adaptées au véhicule avant remplacement.",
+  },
+  injecteurs: {
+    heroTitle: "Injecteurs à Ivry — Diagnostic & Remplacement",
+    heroKicker: "Moteur · Injection",
+    heroDesc: "Ratés, fumée ou perte de puissance ? Diagnostic injecteurs puis devis avant nettoyage ou remplacement.",
   },
   "decalaminage-moteur": {
     heroTitle: "Décalaminage Moteur à Ivry",
-    heroKicker: "Moteur · Performance",
+    heroKicker: "Moteur · Forfait",
     heroDesc: "Perte de puissance ou fumée ? Décalaminage pour retrouver des performances optimales.",
+  },
+  "vanne-egr": {
+    heroTitle: "Vanne EGR à Ivry — Nettoyage & Remplacement",
+    heroKicker: "Moteur · Antipollution",
+    heroDesc: "Voyant moteur, fumée ou perte de puissance diesel ? Contrôle vanne EGR et devis avant intervention.",
+  },
+  "courroie-accessoires": {
+    heroTitle: "Courroie d'Accessoires à Ivry",
+    heroKicker: "Moteur · Prévention",
+    heroDesc: "Grincement au démarrage ou courroie fissurée ? Contrôle et remplacement de la courroie d'accessoires.",
+  },
+  "changement-bougies": {
+    heroTitle: "Changement des Bougies à Ivry",
+    heroKicker: "Entretien · Allumage",
+    heroDesc: "Démarrages difficiles ou ratés ? Remplacement des bougies d'allumage selon préconisations constructeur.",
+  },
+  "filtre-habitacle": {
+    heroTitle: "Filtre d'Habitacle à Ivry",
+    heroKicker: "Entretien · Air habitacle",
+    heroDesc: "Odeur, buée ou air saturé ? Remplacement du filtre d'habitacle (pollen / charbon actif).",
+  },
+  "liquide-refroidissement": {
+    heroTitle: "Liquide de Refroidissement à Ivry",
+    heroKicker: "Entretien · Forfait",
+    heroDesc: "Niveau bas, surchauffe ou liquide usé ? Contrôle circuit et remplacement du liquide de refroidissement.",
+  },
+  "diagnostic-securite": {
+    heroTitle: "Diagnostic Sécurité (Check-up) à Ivry",
+    heroKicker: "Entretien · Sécurité",
+    heroDesc: "Check-up freins, pneus, éclairage, niveaux et points de sécurité — avant long trajet ou CT.",
+  },
+  "diagnostic-electronique": {
+    heroTitle: "Diagnostic Électronique à Ivry",
+    heroKicker: "Valise multimarques · Devis",
+    heroDesc: "Lecture OBD, identification des codes défaut et devis clair avant toute réparation.",
   },
   amortisseurs: {
     heroTitle: "Amortisseurs à Ivry — Suspension & Confort",
     heroKicker: "Suspension · Sécurité",
     heroDesc: "Sauts, bruits ou tenue de route dégradée ? Contrôle suspension et devis avant remplacement.",
+  },
+  "kit-roulement-arriere": {
+    heroTitle: "Kit Roulement Arrière à Ivry",
+    heroKicker: "Suspension · Roues",
+    heroDesc: "Sifflement ou ronronnement qui augmente avec la vitesse ? Contrôle et remplacement du roulement arrière.",
+  },
+  "rotule-direction": {
+    heroTitle: "Rotule de Direction à Ivry",
+    heroKicker: "Direction · Sécurité",
+    heroDesc: "Jeu au volant, bruit en braquant ou usure irrégulière des pneus ? Contrôle rotules et devis.",
   },
   "pre-controle-technique": {
     heroTitle: "Pré-Contrôle Technique à Ivry",
@@ -126,9 +178,14 @@ const AD_OVERRIDES = {
     heroDesc: "Anticipez le contrôle technique : points de contrôle et devis pour corriger avant le CT.",
   },
   "purge-liquide-frein": {
-    heroTitle: "Purge Liquide de Frein à Ivry",
-    heroKicker: "Freinage · Sécurité",
+    heroTitle: "Liquide de Freins à Ivry — Purge & Remplacement",
+    heroKicker: "Freinage · Forfait",
     heroDesc: "Liquide de frein usé ou pédale spongieuse ? Purge complète du circuit avec devis avant intervention.",
+  },
+  demarreur: {
+    heroTitle: "Démarreur à Ivry — Diagnostic & Remplacement",
+    heroKicker: "Démarrage · Électricité",
+    heroDesc: "Clic au démarrage ou moteur qui ne tourne pas ? Test démarreur, batterie et circuit de charge.",
   },
   "diagnostic-abs": {
     heroTitle: "Voyant ABS Allumé à Ivry ? Diagnostic Freinage",
@@ -140,6 +197,16 @@ const AD_OVERRIDES = {
     heroKicker: "Démarrage · Rapide",
     heroDesc: "Voiture qui ne démarre plus ? Test batterie et alternateur, remplacement sur place si besoin.",
   },
+  "controle-alternateur": {
+    heroTitle: "Alternateur à Ivry — Test & Remplacement",
+    heroKicker: "Charge · Électricité",
+    heroDesc: "Voyant batterie, phares faibles ou batterie qui se décharge ? Test alternateur et devis avant remplacement.",
+  },
+  cardans: {
+    heroTitle: "Cardan à Ivry — Cliquetis & Vibrations",
+    heroKicker: "Transmission · Sécurité",
+    heroDesc: "Claquement en braquant ou vibration à l'accélération ? Contrôle cardan et devis ferme.",
+  },
   "retouches-finitions": {
     heroTitle: "Retouches & Finitions Carrosserie à Ivry",
     heroKicker: "Esthétique · Finitions",
@@ -150,11 +217,6 @@ const AD_OVERRIDES = {
     heroTitle: "Désinfection Climatisation à Ivry",
     heroKicker: "Clim · Hygiène",
     heroDesc: "Odeur dans l'habitacle ? Désinfection du circuit clim pour un air sain.",
-  },
-  cardans: {
-    heroTitle: "Cardans à Ivry — Cliquetis & Vibrations",
-    heroKicker: "Transmission · Sécurité",
-    heroDesc: "Claquement en braquant ou vibration à l'accélération ? Contrôle cardans et devis ferme.",
   },
   "reparation-crevaison": {
     heroTitle: "Réparation Crevaison à Ivry",
@@ -168,8 +230,13 @@ const categories = [
     key: "frequentes",
     title: "Prestations fréquentes",
     services: [
-      { slug: "revision-entretien", name: "Révision et entretien" },
-      { slug: "vidange-moteur", name: "Vidange moteur" },
+      { slug: "revision-entretien", name: "Révision constructeur" },
+      { slug: "vidange-moteur", name: "Révision et vidange" },
+      { slug: "diagnostic-electronique", name: "Diagnostic électronique" },
+      { slug: "diagnostic-securite", name: "Diagnostic Sécurité (Check-up)" },
+      { slug: "changement-bougies", name: "Changement des bougies" },
+      { slug: "filtre-habitacle", name: "Filtre d'habitacle" },
+      { slug: "liquide-refroidissement", name: "Liquide de refroidissement" },
       { slug: "pre-controle-technique", name: "Pré-contrôle technique" },
     ],
   },
@@ -178,9 +245,12 @@ const categories = [
     title: "Moteur",
     services: [
       { slug: "recherche-de-panne", name: "Recherche de panne" },
-      { slug: "distribution-injection", name: "Distribution et injection" },
+      { slug: "distribution-injection", name: "Distribution" },
+      { slug: "injecteurs", name: "Injecteurs" },
+      { slug: "vanne-egr", name: "Vanne EGR" },
+      { slug: "courroie-accessoires", name: "Courroie d'accessoires" },
       { slug: "diagnostic-voyant-moteur", name: "Diagnostic voyant moteur" },
-      { slug: "decalaminage-moteur", name: "Decalaminage moteur" },
+      { slug: "decalaminage-moteur", name: "Décalaminage" },
     ],
   },
   {
@@ -189,33 +259,36 @@ const categories = [
     services: [
       { slug: "amortisseurs", name: "Amortisseurs" },
       { slug: "coupelles-triangles", name: "Coupelles et triangles" },
-      { slug: "geometrie", name: "Geometrie" },
+      { slug: "kit-roulement-arriere", name: "Kit de roulement arrière" },
+      { slug: "rotule-direction", name: "Rotule de direction" },
+      { slug: "geometrie", name: "Géométrie (parallélisme)" },
     ],
   },
   {
     key: "pneus",
     title: "Pneus / Roues",
     services: [
-      { slug: "montage-equilibrage", name: "Montage et equilibrage" },
+      { slug: "montage-equilibrage", name: "Montage et équilibrage" },
       { slug: "permutation-pneus", name: "Permutation pneus" },
-      { slug: "reparation-crevaison", name: "Reparation crevaison" },
+      { slug: "reparation-crevaison", name: "Réparation crevaison" },
     ],
   },
   {
     key: "batterie",
-    title: "Batterie, alternateur, demarreur",
+    title: "Batterie, alternateur, démarreur",
     services: [
       { slug: "test-batterie", name: "Test batterie" },
-      { slug: "remplacement-batterie", name: "Remplacement batterie" },
-      { slug: "controle-alternateur", name: "Controle alternateur" },
+      { slug: "remplacement-batterie", name: "Batterie" },
+      { slug: "controle-alternateur", name: "Alternateur" },
+      { slug: "demarreur", name: "Démarreur" },
     ],
   },
   {
     key: "freinage",
     title: "Freinage",
     services: [
-      { slug: "plaquettes-disques", name: "Plaquettes et disques" },
-      { slug: "purge-liquide-frein", name: "Purge liquide de frein" },
+      { slug: "plaquettes-disques", name: "Freinage" },
+      { slug: "purge-liquide-frein", name: "Liquide de freins" },
       { slug: "diagnostic-abs", name: "Diagnostic ABS" },
     ],
   },
@@ -224,8 +297,8 @@ const categories = [
     title: "Transmission",
     services: [
       { slug: "embrayage", name: "Embrayage" },
-      { slug: "cardans", name: "Cardans" },
-      { slug: "vidange-boite", name: "Vidange de boite" },
+      { slug: "cardans", name: "Cardan" },
+      { slug: "vidange-boite", name: "Vidange de boîte" },
     ],
   },
   {
@@ -233,16 +306,16 @@ const categories = [
     title: "Climatisation",
     services: [
       { slug: "recharge-clim", name: "Recharge clim" },
-      { slug: "desinfection-circuit-clim", name: "Desinfection circuit clim" },
-      { slug: "controle-compresseur", name: "Controle compresseur" },
+      { slug: "desinfection-circuit-clim", name: "Désinfection circuit clim" },
+      { slug: "controle-compresseur", name: "Contrôle compresseur" },
     ],
   },
   {
     key: "carrosserie",
     title: "Carrosserie",
     services: [
-      { slug: "debosselage", name: "Debosselage" },
-      { slug: "peinture-localisee", name: "Peinture localisee" },
+      { slug: "debosselage", name: "Débosselage" },
+      { slug: "peinture-localisee", name: "Peinture localisée" },
       { slug: "pare-brise-vitrage", name: "Pare-brise et vitrage" },
       { slug: "retouches-finitions", name: "Retouches et finitions" },
     ],
@@ -252,12 +325,55 @@ const categories = [
 /** Texte SEO discret par prestation (corps de page, pas les titres). */
 const SEO_CONTENT = {
   "revision-entretien": {
-    seoTitle: "Révision et entretien auto",
+    seoTitle: "Révision constructeur",
     seoParagraphs: [
-      "Révision voiture selon le carnet constructeur : filtres, niveaux, points de sécurité et contrôles d'usure.",
-      "Entretien périodique à Ivry (94) — devis écrit avant travaux, carnet tamponné quand c'est possible.",
+      "Révision selon le carnet constructeur : filtres, niveaux, points de sécurité et contrôles d'usure.",
+      "Entretien périodique à Ivry (94) — devis écrit avant travaux, carnet tamponné quand c'est possible. Garantie constructeur préservée si pièces et fluides conformes.",
     ],
     seoFooter: "Planifiez votre révision par téléphone ou WhatsApp.",
+  },
+  "vidange-moteur": {
+    seoTitle: "Révision et vidange",
+    seoParagraphs: [
+      "Vidange avec huile homologuée constructeur et filtre neuf. Contrôle des niveaux inclus.",
+      "Souvent réalisée le jour même sur rendez-vous à Ivry-sur-Seine.",
+    ],
+    seoFooter: "Huile adaptée à votre carnet — devis avant travaux.",
+  },
+  "diagnostic-electronique": {
+    seoTitle: "Diagnostic électronique",
+    seoParagraphs: [
+      "Lecture OBD multimarques : identification des codes défaut, explication claire et devis avant réparation.",
+      "Indispensable dès qu'un voyant s'allume ou qu'un comportement anormal apparaît.",
+    ],
+  },
+  "diagnostic-securite": {
+    seoTitle: "Diagnostic Sécurité (Check-up)",
+    seoParagraphs: [
+      "Check-up freins, pneus, éclairage, niveaux, direction et points de sécurité avant long trajet ou contrôle technique.",
+      "Rapport clair des points à corriger + devis si intervention nécessaire.",
+    ],
+  },
+  "changement-bougies": {
+    seoTitle: "Changement des bougies",
+    seoParagraphs: [
+      "Remplacement des bougies d'allumage selon préconisations constructeur (intervalle ou symptômes).",
+      "Démarrages difficiles, ratés ou surconsommation : un contrôle rapide tranche.",
+    ],
+  },
+  "filtre-habitacle": {
+    seoTitle: "Filtre d'habitacle",
+    seoParagraphs: [
+      "Filtre pollen ou charbon actif saturé : odeurs, buée, air moins frais dans l'habitacle.",
+      "Remplacement rapide, idéal en entretien périodique ou avant la saison des pollens.",
+    ],
+  },
+  "liquide-refroidissement": {
+    seoTitle: "Liquide de refroidissement",
+    seoParagraphs: [
+      "Niveau bas, liquide usé ou risque de surchauffe : contrôle du circuit et remplacement forfaitaire du liquide de refroidissement.",
+      "Ne jamais ouvrir le vase d'expansion à chaud.",
+    ],
   },
   "pre-controle-technique": {
     seoTitle: "Pré-contrôle technique",
@@ -281,11 +397,39 @@ const SEO_CONTENT = {
       "Voyant orange ou rouge : ne roulez pas en doute — passez à l'atelier.",
     ],
   },
+  "distribution-injection": {
+    seoTitle: "Distribution",
+    seoParagraphs: [
+      "Kit distribution (courroie ou chaîne selon moteur) : diagnostic et devis ferme avant remplacement.",
+      "Respectez l'intervalle constructeur — une rupture peut endommager le moteur.",
+    ],
+  },
+  injecteurs: {
+    seoTitle: "Injecteurs",
+    seoParagraphs: [
+      "Injecteurs encrassés ou défaillants : ratés, fumée, perte de puissance ou surconsommation.",
+      "Diagnostic valise puis nettoyage ou remplacement selon l'état — devis avant travaux.",
+    ],
+  },
+  "vanne-egr": {
+    seoTitle: "Vanne EGR",
+    seoParagraphs: [
+      "Vanne EGR encrassée (surtout diesel urbain) : perte de puissance, fumée, voyant moteur.",
+      "Nettoyage ou remplacement après diagnostic — devis ferme à Ivry-sur-Seine.",
+    ],
+  },
+  "courroie-accessoires": {
+    seoTitle: "Courroie d'accessoires",
+    seoParagraphs: [
+      "La courroie d'accessoires entraîne alternateur, pompe à eau et parfois la direction assistée.",
+      "Grincement, fissures ou brillance : contrôle et remplacement préventif recommandé.",
+    ],
+  },
   "decalaminage-moteur": {
-    seoTitle: "Décalaminage moteur",
+    seoTitle: "Décalaminage",
     seoParagraphs: [
       "Perte de puissance, fumée ou surconsommation : décalaminage pour retrouver des performances.",
-      "Intervention après diagnostic moteur et validation du devis.",
+      "Intervention forfaitaire après diagnostic moteur et validation du devis.",
     ],
   },
   amortisseurs: {
@@ -300,6 +444,20 @@ const SEO_CONTENT = {
     seoParagraphs: [
       "Claquements en négociant un dos-d'âne ou usure des coupelles : contrôle train avant et arrière.",
       "Pièces adaptées au véhicule, devis avant travaux.",
+    ],
+  },
+  "kit-roulement-arriere": {
+    seoTitle: "Kit de roulement arrière",
+    seoParagraphs: [
+      "Sifflement ou ronronnement qui augmente avec la vitesse et change en virage : souvent un roulement arrière.",
+      "Remplacement du kit roulement après contrôle sous pont — devis avant pose.",
+    ],
+  },
+  "rotule-direction": {
+    seoTitle: "Rotule de direction",
+    seoParagraphs: [
+      "Jeu au volant, bruit en braquant ou usure irrégulière des pneus : contrôle des rotules de direction.",
+      "Pièce de sécurité — remplacement recommandé dès le premier jeu constaté.",
     ],
   },
   "permutation-pneus": {
@@ -324,17 +482,24 @@ const SEO_CONTENT = {
     seoFooter: "Remplacement batterie possible le jour même selon stock.",
   },
   "controle-alternateur": {
-    seoTitle: "Contrôle alternateur",
+    seoTitle: "Alternateur",
     seoParagraphs: [
       "Batterie qui se décharge, voyant batterie ou éclairage faible : test alternateur et circuit de charge.",
-      "Devis avant remplacement.",
+      "Devis avant remplacement de l'alternateur.",
+    ],
+  },
+  demarreur: {
+    seoTitle: "Démarreur",
+    seoParagraphs: [
+      "Clic au démarrage, démarreur qui tourne dans le vide ou silence total : test démarreur et batterie.",
+      "Remplacement sur devis après confirmation du diagnostic.",
     ],
   },
   "purge-liquide-frein": {
-    seoTitle: "Purge liquide de frein",
+    seoTitle: "Liquide de freins",
     seoParagraphs: [
-      "Liquide de frein usé ou pédale spongieuse : purge complète du circuit pour retrouver une freinage efficace.",
-      "Recommandé selon préconisations constructeur.",
+      "Liquide de frein usé ou pédale spongieuse : purge complète du circuit pour retrouver un freinage efficace.",
+      "Forfait selon préconisations constructeur.",
     ],
   },
   "diagnostic-abs": {
@@ -351,9 +516,9 @@ const SEO_CONTENT = {
     ],
   },
   cardans: {
-    seoTitle: "Cardans et transmission",
+    seoTitle: "Cardan",
     seoParagraphs: [
-      "Claquement en braquant ou vibration à l'accélération : contrôle cardans et soufflets.",
+      "Claquement en braquant ou vibration à l'accélération : contrôle cardan et soufflets.",
     ],
   },
   "vidange-boite": {
@@ -404,7 +569,7 @@ const SEO_CONTENT = {
     ],
   },
   "plaquettes-disques": {
-    seoTitle: "Plaquettes et disques de frein",
+    seoTitle: "Freinage — plaquettes et disques",
     seoParagraphs: [
       "Changement de plaquettes de frein et disques sur devis ferme, après mesure d'usure à l'atelier — sans remplacement abusif.",
       "Grincement, pédale molle ou voyant ABS : contrôle gratuit avant intervention.",
@@ -427,27 +592,14 @@ const SEO_CONTENT = {
     ],
     seoFooter: "Appelez avec la dimension de vos pneus pour réserver un créneau.",
   },
-  "vidange-moteur": {
-    seoTitle: "Vidange moteur",
-    seoParagraphs: [
-      "Vidange voiture avec huile homologuée constructeur et filtre neuf. Contrôle des niveaux inclus.",
-    ],
-    seoFooter: "Souvent réalisée le jour même sur rendez-vous.",
-  },
   "remplacement-batterie": {
     seoTitle: "Batterie auto",
     seoParagraphs: [
       "Test batterie et alternateur, changement batterie voiture sur place si nécessaire. Voiture qui ne démarre plus : passez à l'atelier.",
     ],
   },
-  "distribution-injection": {
-    seoTitle: "Courroie de distribution",
-    seoParagraphs: [
-      "Kit distribution, courroie et injecteurs : diagnostic et devis ferme avant changement courroie de distribution.",
-    ],
-  },
   geometrie: {
-    seoTitle: "Parallélisme et géométrie",
+    seoTitle: "Géométrie (parallélisme)",
     seoParagraphs: [
       "Réglage parallélisme et géométrie des roues. Usure irrégulière des pneus ou volant qui tire : contrôle recommandé.",
     ],
