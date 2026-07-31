@@ -7802,6 +7802,10 @@ html:has(.page-link-hub) {
   }
 }
 
+.page-link-hub.is-cookie-visible {
+  padding-bottom: 0 !important;
+}
+
 .link-hub__social {
   display: inline-flex;
   align-items: center;
