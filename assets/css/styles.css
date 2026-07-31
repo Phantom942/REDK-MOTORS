@@ -7293,18 +7293,24 @@ a.review-card__name:hover {
 }
 
 /* —— Link hub /links/ (style Linktree) —— */
-html:has(.page-link-hub),
-.page-link-hub {
+html:has(.page-link-hub) {
   background: #050508 !important;
+  height: 100%;
+  height: 100dvh;
+  overflow: hidden;
+  overscroll-behavior: none;
 }
 
 .page-link-hub {
   margin: 0;
-  min-height: 100%;
-  min-height: 100dvh;
+  height: 100%;
+  height: 100dvh;
   width: 100%;
   max-width: none;
-  overflow-x: clip;
+  overflow: hidden;
+  overscroll-behavior: none;
+  touch-action: manipulation;
+  background: #050508 !important;
 }
 
 .page-link-hub .skip-link {
@@ -7317,31 +7323,33 @@ html:has(.page-link-hub),
   padding: 0;
   width: 100%;
   max-width: none;
-  min-height: 100dvh;
+  height: 100dvh;
+  max-height: 100dvh;
   background: #050508 !important;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .link-hub {
   position: relative;
   isolation: isolate;
-  overflow-x: clip;
-  overflow-y: visible;
+  overflow: hidden;
   width: 100%;
   max-width: none;
-  min-height: 100dvh;
-  min-height: 100svh;
+  height: 100dvh;
+  height: 100svh;
+  max-height: 100dvh;
   margin: 0;
   border: 0;
   border-radius: 0;
   box-shadow: none;
-  padding: 2.75rem 1.25rem 2rem;
-  padding-top: max(2.75rem, calc(1.25rem + env(safe-area-inset-top, 0px)));
+  padding: 1.25rem;
+  padding-top: max(1.25rem, env(safe-area-inset-top, 0px));
   padding-right: max(1.25rem, env(safe-area-inset-right, 0px));
-  padding-bottom: max(2rem, calc(1.25rem + env(safe-area-inset-bottom, 0px)));
+  padding-bottom: max(1.25rem, env(safe-area-inset-bottom, 0px));
   padding-left: max(1.25rem, env(safe-area-inset-left, 0px));
   display: flex;
   justify-content: center;
+  align-items: center;
   background: #050508;
 }
 
@@ -7602,18 +7610,21 @@ html:has(.page-link-hub),
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  justify-content: center;
+  flex: 0 1 auto;
+  max-height: 100%;
 }
 
 .link-hub__header {
   text-align: center;
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.25rem;
 }
 
 .link-hub__avatar {
   display: block;
-  width: 6rem;
-  height: 6rem;
-  margin: 0 auto 1rem;
+  width: 5.25rem;
+  height: 5.25rem;
+  margin: 0 auto 0.75rem;
   border-radius: 50%;
   object-fit: cover;
   background: #1a1a1e;
@@ -7622,9 +7633,9 @@ html:has(.page-link-hub),
 }
 
 .link-hub__title {
-  margin: 0 0 0.2rem;
+  margin: 0 0 0.15rem;
   font-family: var(--font-primary, inherit);
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   font-weight: 800;
   letter-spacing: 0.01em;
   color: #fff;
@@ -7632,8 +7643,8 @@ html:has(.page-link-hub),
 }
 
 .link-hub__handle {
-  margin: 0 0 0.65rem;
-  font-size: 0.9rem;
+  margin: 0 0 0.45rem;
+  font-size: 0.85rem;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.55);
 }
@@ -7641,17 +7652,17 @@ html:has(.page-link-hub),
 .link-hub__bio {
   margin: 0 auto;
   max-width: 20rem;
-  font-size: 0.88rem;
-  line-height: 1.45;
+  font-size: 0.82rem;
+  line-height: 1.4;
   color: rgba(255, 255, 255, 0.78);
 }
 
 .link-hub__list {
   list-style: none;
-  margin: 0 0 1.5rem;
+  margin: 0 0 1.1rem;
   padding: 0;
   display: grid;
-  gap: 0.75rem;
+  gap: 0.55rem;
 }
 
 .link-hub__btn {
@@ -7661,15 +7672,15 @@ html:has(.page-link-hub),
   justify-content: center;
   gap: 0.65rem;
   width: 100%;
-  min-height: 3.5rem; /* ≥ 44–56px cible tactile */
-  padding: 0.9rem 2.75rem; /* place pour l’icône à gauche */
+  min-height: 2.85rem;
+  padding: 0.7rem 2.75rem;
   border-radius: 999px;
   background: #fff;
   border: none;
   color: #111;
   text-decoration: none;
   font-weight: 700;
-  font-size: 0.98rem;
+  font-size: 0.95rem;
   line-height: 1.2;
   box-shadow: 0 2px 0 rgba(0, 0, 0, 0.06);
   -webkit-tap-highlight-color: transparent;
@@ -7727,8 +7738,68 @@ html:has(.page-link-hub),
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.65rem;
-  margin: 0.25rem 0 1.75rem;
+  gap: 0.55rem;
+  margin: 0;
+}
+
+/* Petits viewports : densifier pour tenir sans scroll */
+@media (max-height: 740px) {
+  .link-hub__avatar {
+    width: 4.5rem;
+    height: 4.5rem;
+    margin-bottom: 0.55rem;
+  }
+
+  .link-hub__header {
+    margin-bottom: 0.85rem;
+  }
+
+  .link-hub__bio {
+    font-size: 0.78rem;
+  }
+
+  .link-hub__list {
+    gap: 0.45rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .link-hub__btn {
+    min-height: 2.65rem;
+    padding: 0.55rem 2.5rem;
+    font-size: 0.9rem;
+  }
+
+  .link-hub__social {
+    width: 2.75rem;
+    height: 2.75rem;
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .link-hub__social .link-hub__icon,
+  .link-hub__social .link-hub__icon svg {
+    width: 1.45rem;
+    height: 1.45rem;
+  }
+}
+
+@media (max-height: 640px) {
+  .link-hub__bio br {
+    display: none;
+  }
+
+  .link-hub__avatar {
+    width: 3.75rem;
+    height: 3.75rem;
+  }
+
+  .link-hub__title {
+    font-size: 1.1rem;
+  }
+
+  .link-hub__btn {
+    min-height: 2.4rem;
+  }
 }
 
 .link-hub__social {
