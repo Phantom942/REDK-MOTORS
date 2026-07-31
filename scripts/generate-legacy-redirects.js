@@ -27,6 +27,8 @@ const STATIC_REDIRECTS = [
   ["/mentions-legales.html", "/mentions-legales/"],
   ["/blog/5-points-controle-avant-ct-ivry.html", "/blog/5-points-controle-avant-ct-ivry/"],
   ["/blog/tag/mecanique/confidentialite.html", "/confidentialite/"],
+  ["/liens/", "/links/"],
+  ["/liens", "/links/"],
 ];
 
 function redirectHtml(target) {

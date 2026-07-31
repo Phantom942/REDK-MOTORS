@@ -34,12 +34,11 @@
     <meta name="twitter:image" content="{{ ogImage | default(site.ogImage) }}" />
     <meta name="twitter:image:alt" content="{{ site.name }} - Garage mécanique et carrosserie Île-de-France" />
 
-    <!-- Favicon + PWA (PNG / ICO depuis logo-basique-carre, SVG en secours) -->
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="icon" href="{{ '/favicon.svg' | cacheBust }}" type="image/svg+xml" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <!-- Favicon + PWA (logo-basique-carre) -->
+    <link rel="icon" href="{{ '/favicon.ico' | cacheBust }}" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ '/favicon-32x32.png' | cacheBust }}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ '/favicon-16x16.png' | cacheBust }}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ '/apple-touch-icon.png' | cacheBust }}" />
     <link rel="manifest" href="/site.webmanifest" />
 
     <title>{{ title | default(site.seoTitle) | default(site.name) }}</title>
@@ -175,13 +174,16 @@
     </script>
     {% endif %}
   </head>
-  <body class="design-stitch{% if lpKey or lp or hideServiceAreas or exemple or hasHeroVideo %} conversion-page{% endif %}" data-page="{{ pageKey | default('index') }}" data-gtm-id="{{ site.gtmId }}">
+  <body class="design-stitch{% if lpKey or lp or hideServiceAreas or exemple or hasHeroVideo %} conversion-page{% endif %}{% if pageKey == 'links' %} page-link-hub{% endif %}" data-page="{{ pageKey | default('index') }}" data-gtm-id="{{ site.gtmId }}">
+    {% if pageKey != 'links' %}
     {% include "header.njk" %}
+    {% endif %}
 
-    <main id="main">
+    <main id="main"{% if pageKey == 'links' %} class="main--link-hub"{% endif %}>
       {{ content | safe }}
     </main>
 
+    {% if pageKey != 'links' %}
     {% set showServiceAreas = true %}
     {% if pageKey in ['merci', 'mentions-legales', 'confidentialite', 'cookies', '404'] %}
       {% set showServiceAreas = false %}
@@ -239,8 +241,9 @@
 
     {% include "footer.njk" %}
     {% include "floating-whatsapp.njk" %}
-    {% if pageKey not in ['404', 'mentions-legales', 'confidentialite', 'cookies'] %}
+    {% if pageKey not in ['404', 'mentions-legales', 'confidentialite', 'cookies', 'links'] %}
       {% include "cta-sticky-call.njk" %}
+    {% endif %}
     {% endif %}
 
     <script src="{{ '/assets/js/main.js' | cacheBust }}" defer></script>

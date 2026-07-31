@@ -7292,6 +7292,459 @@ a.review-card__name:hover {
   text-decoration: underline;
 }
 
+/* —— Link hub /links/ (style Linktree) —— */
+.page-link-hub {
+  min-height: 100dvh;
+  background: #050508;
+}
+
+.page-link-hub .skip-link {
+  display: none;
+}
+
+.main--link-hub {
+  min-height: 100dvh;
+}
+
+.link-hub {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 100dvh;
+  min-height: 100svh;
+  padding: 2.75rem 1.25rem 2rem;
+  padding-top: max(2.75rem, calc(1.25rem + env(safe-area-inset-top, 0px)));
+  padding-right: max(1.25rem, env(safe-area-inset-right, 0px));
+  padding-bottom: max(2rem, calc(1.25rem + env(safe-area-inset-bottom, 0px)));
+  padding-left: max(1.25rem, env(safe-area-inset-left, 0px));
+  display: flex;
+  justify-content: center;
+  background: #050508;
+}
+
+/* Ciel étoilé — même stack que phantomdev.fr (static stars + codepen meteors) */
+.link-hub__sky {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  contain: layout style paint;
+  transform: translateZ(0);
+}
+
+.link-hub__sky-base {
+  position: absolute;
+  inset: 0;
+  background-color: #050508;
+}
+
+.link-hub__halo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(90% 65% at 50% 8%, rgba(130, 17, 17, 0.28) 0%, transparent 58%),
+    radial-gradient(70% 55% at 50% 35%, rgba(130, 17, 17, 0.1) 0%, transparent 62%),
+    radial-gradient(120% 100%, transparent 0%, rgba(5, 5, 8, 0.35) 68%, rgba(5, 5, 8, 0.7) 100%);
+}
+
+.link-hub__stars-field {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+  contain: strict;
+  transform: translateZ(0);
+}
+
+.link-hub__static-star {
+  position: absolute;
+  opacity: var(--star-opacity, 0.8);
+  background: #fff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 1px #fffc;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .link-hub__static-star {
+    will-change: opacity;
+    animation: link-hub-star-twinkle ease-in-out infinite;
+  }
+}
+
+@keyframes link-hub-star-twinkle {
+  0%,
+  100% {
+    opacity: calc(var(--star-opacity, 0.8) * 0.45);
+  }
+  50% {
+    opacity: var(--star-opacity, 0.8);
+  }
+}
+
+@keyframes link-hub-star-twinkle-glow {
+  0%,
+  100% {
+    opacity: calc(var(--star-opacity, 0.8) * 0.5);
+  }
+  50% {
+    opacity: min(1, calc(var(--star-opacity, 0.8) * 1.08));
+  }
+}
+
+.link-hub__static-star--glow {
+  box-shadow:
+    0 0 4px 1px rgba(255, 255, 255, 0.7),
+    0 0 10px 2px rgba(255, 180, 171, 0.35);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .link-hub__static-star--glow {
+    animation-name: link-hub-star-twinkle-glow;
+  }
+}
+
+/*
+  Pure CSS Shooting Star Animation Effect
+  Copyright (c) 2021 by Delroy Prithvi
+  https://codepen.io/delroyprithvi/pen/LYyJROR
+  Licensed under the MIT License.
+  (variante codepen-meteors utilisée sur phantomdev.fr)
+*/
+.link-hub__meteors {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.link-hub__meteors span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 4px rgba(255, 255, 255, 0.1),
+    0 0 0 8px rgba(255, 255, 255, 0.1),
+    0 0 20px rgba(255, 255, 255, 0.1);
+  animation: 3s linear infinite link-hub-meteor;
+  will-change: transform, opacity;
+}
+
+.link-hub__meteors span::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 300px;
+  height: 1px;
+  background: linear-gradient(90deg, #fff, transparent);
+}
+
+@keyframes link-hub-meteor {
+  0% {
+    opacity: 1;
+    transform: rotate(315deg) translate(0);
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(315deg) translate(-1000px);
+  }
+}
+
+.link-hub__meteors span:nth-child(1) {
+  top: 0;
+  left: auto;
+  right: 0;
+  animation-duration: 1s;
+  animation-delay: 0s;
+}
+.link-hub__meteors span:nth-child(2) {
+  top: 0;
+  left: auto;
+  right: 80px;
+  animation-duration: 3s;
+  animation-delay: 0.2s;
+}
+.link-hub__meteors span:nth-child(3) {
+  top: 80px;
+  left: auto;
+  right: 0;
+  animation-duration: 2s;
+  animation-delay: 0.4s;
+}
+.link-hub__meteors span:nth-child(4) {
+  top: 0;
+  left: auto;
+  right: 180px;
+  animation-duration: 1.5s;
+  animation-delay: 0.6s;
+}
+.link-hub__meteors span:nth-child(5) {
+  top: 0;
+  left: auto;
+  right: 400px;
+  animation-duration: 2.5s;
+  animation-delay: 0.8s;
+}
+.link-hub__meteors span:nth-child(6) {
+  top: 0;
+  left: auto;
+  right: 600px;
+  animation-duration: 3s;
+  animation-delay: 1s;
+}
+.link-hub__meteors span:nth-child(7) {
+  top: 300px;
+  left: auto;
+  right: 0;
+  animation-duration: 1.75s;
+  animation-delay: 1.2s;
+}
+.link-hub__meteors span:nth-child(8) {
+  top: 0;
+  left: auto;
+  right: 700px;
+  animation-duration: 1.25s;
+  animation-delay: 1.4s;
+}
+.link-hub__meteors span:nth-child(9) {
+  top: 0;
+  left: auto;
+  right: 450px;
+  animation-duration: 2.75s;
+  animation-delay: 2.75s;
+}
+.link-hub__meteors span:nth-child(10) {
+  top: 0;
+  left: auto;
+  right: 1000px;
+  animation-duration: 2.25s;
+  animation-delay: 0.75s;
+}
+
+@media (max-width: 767px) {
+  .link-hub__static-star:nth-child(n + 71) {
+    display: none;
+  }
+
+  .link-hub__static-star:nth-child(2n) {
+    opacity: var(--star-opacity, 0.8);
+    animation: none;
+  }
+
+  .link-hub__meteors span:nth-child(n + 5) {
+    display: none;
+  }
+
+  .link-hub__halo {
+    opacity: 0.85;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .link-hub__static-star:nth-child(n + 61) {
+    display: none;
+  }
+
+  .link-hub__static-star {
+    opacity: var(--star-opacity, 0.8);
+    animation: none;
+  }
+
+  .link-hub__meteors span {
+    opacity: 0;
+    animation: none;
+  }
+}
+
+.link-hub__inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 24rem; /* ~384px — largeur type Linktree téléphone */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.link-hub__header {
+  text-align: center;
+  margin-bottom: 1.75rem;
+}
+
+.link-hub__avatar {
+  display: block;
+  width: 6rem;
+  height: 6rem;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #1a1a1e;
+  border: 3px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+}
+
+.link-hub__title {
+  margin: 0 0 0.2rem;
+  font-family: var(--font-primary, inherit);
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.link-hub__handle {
+  margin: 0 0 0.65rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.link-hub__bio {
+  margin: 0 auto;
+  max-width: 20rem;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.link-hub__list {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.link-hub__btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  width: 100%;
+  min-height: 3.5rem; /* ≥ 44–56px cible tactile */
+  padding: 0.9rem 2.75rem; /* place pour l’icône à gauche */
+  border-radius: 999px;
+  background: #fff;
+  border: none;
+  color: #111;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.98rem;
+  line-height: 1.2;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.06);
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+@media (hover: hover) {
+  .link-hub__btn:hover,
+  .link-hub__btn:focus-visible {
+    transform: scale(1.02);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+    background: #f7f7f8;
+    color: #111;
+  }
+
+  .link-hub__btn--featured:hover,
+  .link-hub__btn--featured:focus-visible {
+    background: #1ebe57;
+    color: #042;
+  }
+}
+
+.link-hub__btn:active {
+  transform: scale(0.98);
+}
+
+.link-hub__btn--featured {
+  background: #25d366;
+  color: #063;
+}
+
+.link-hub__btn .link-hub__icon {
+  position: absolute;
+  left: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.65rem;
+  height: 1.65rem;
+  color: inherit;
+}
+
+.link-hub__btn .link-hub__icon svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  display: block;
+}
+
+.link-hub__btn-label {
+  text-align: center;
+}
+
+.link-hub__socials {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem;
+  margin: 0.25rem 0 1.75rem;
+}
+
+.link-hub__social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.25rem; /* 52px */
+  height: 3.25rem;
+  min-width: 52px;
+  min-height: 52px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #fff;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+@media (hover: hover) {
+  .link-hub__social:hover,
+  .link-hub__social:focus-visible {
+    background: rgba(255, 255, 255, 0.18);
+    transform: translateY(-2px);
+    color: #fff;
+  }
+}
+
+.link-hub__social .link-hub__icon {
+  display: inline-flex;
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.link-hub__social .link-hub__icon svg {
+  width: 1.75rem;
+  height: 1.75rem;
+  display: block;
+}
+
 @media (max-width: 480px) {
   .merci-page__title {
     font-size: 22px;

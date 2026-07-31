@@ -1,0 +1,136 @@
+---
+layout: base.njk
+title: "Liens RED-K MOTORS — Réseaux, contact & avis | Ivry (94)"
+description: "Tous les liens RED-K MOTORS : WhatsApp, téléphone, site, avis Google, Instagram, TikTok, Facebook, YouTube et Snapchat. Garage à Ivry-sur-Seine."
+pageKey: links
+permalink: /links/
+date: 2026-07-31
+lastReviewed: 2026-07-31
+hideServiceAreas: true
+scripts:
+  effects: false
+  mobileOptimizer: false
+sitemap:
+  priority: 0.7
+  changefreq: monthly
+breadcrumb:
+  "@context": "https://schema.org"
+  "@type": "BreadcrumbList"
+  itemListElement:
+    - "@type": "ListItem"
+      position: 1
+      name: "Accueil"
+      item: "https://redkmotors.fr/"
+    - "@type": "ListItem"
+      position: 2
+      name: "Links"
+      item: "https://redkmotors.fr/links/"
+---
+
+{%- macro hubHref(item) -%}
+{%- if item.href -%}{{ item.href }}
+{%- elif item.hrefKey == "whatsappUrl" -%}{{ site.whatsappUrl }}
+{%- elif item.hrefKey == "phoneTel" -%}tel:{{ site.phone }}
+{%- elif item.hrefKey == "googleReviewsMaps" -%}{{ site.googleReviews.mapsPlaceUrl }}
+{%- elif item.hrefKey == "instagramUrl" -%}{{ site.social.instagramUrl }}
+{%- elif item.hrefKey == "tiktokUrl" -%}{{ site.social.tiktokUrl }}
+{%- elif item.hrefKey == "facebookUrl" -%}{{ site.social.facebookUrl }}
+{%- elif item.hrefKey == "youtubeUrl" -%}{{ site.social.youtubeUrl }}
+{%- elif item.hrefKey == "snapchatUrl" -%}{{ site.social.snapchatUrl }}
+{%- endif -%}
+{%- endmacro -%}
+
+{%- macro hubIcon(icon) -%}
+<span class="link-hub__icon" aria-hidden="true">
+{%- if icon == "site" -%}
+  <svg viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm7.9 9h-3.2a15 15 0 0 0-1.3-5 8.1 8.1 0 0 1 4.5 5zM12 4c.9 0 2.2 2.1 2.9 7H9.1C9.8 6.1 11.1 4 12 4zM4.1 11a8.1 8.1 0 0 1 4.5-5 15 15 0 0 0-1.3 5H4.1zM5.3 13h3.1c.3 2.1.9 4 1.6 5.3A8.1 8.1 0 0 1 5.3 13zm6.7 7c-.9 0-2.2-2.1-2.9-7h5.8c-.7 4.9-2 7-2.9 7zm2.3-1.7c.7-1.3 1.3-3.2 1.6-5.3h3.1a8.1 8.1 0 0 1-4.7 5.3z"/></svg>
+{%- elif icon == "whatsapp" -%}
+  <svg viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.7 15l-1.1 4 4.1-1.1A10 10 0 1 0 12 2zm0 1.8a8.2 8.2 0 0 1 6.9 12.6l-.3.4.7 2.5-2.6-.7-.4.2A8.2 8.2 0 1 1 12 3.8zm4.6 10.6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.7.9-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5l.4-.5c.1-.1.2-.3.2-.4 0-.1 0-.3-.1-.4-.1-.1-.5-1.3-.7-1.7-.2-.5-.4-.4-.5-.4h-.4c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.3c.1.2 1.6 2.5 3.9 3.4.5.2 1 .4 1.3.5.6.2 1.1.1 1.5.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.2-.4-.3z"/></svg>
+{%- elif icon == "phone" -%}
+  <svg viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.2 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.8 21 3 13.2 3 3.7c0-.6.4-1 1-1H7c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.2 1.1l-2.2 2.2z"/></svg>
+{%- elif icon == "calendar" -%}
+  <svg viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M7 2v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2V2h-2v2H9V2H7zm12 8H5v10h14V10z"/></svg>
+{%- elif icon == "google" -%}
+  <svg viewBox="0 0 24 24" focusable="false"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+{%- elif icon == "instagram" -%}
+  <svg viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M7.8 3h8.4A4.8 4.8 0 0 1 21 7.8v8.4a4.8 4.8 0 0 1-4.8 4.8H7.8A4.8 4.8 0 0 1 3 16.2V7.8A4.8 4.8 0 0 1 7.8 3zm0 1.9A2.9 2.9 0 0 0 4.9 7.8v8.4a2.9 2.9 0 0 0 2.9 2.9h8.4a2.9 2.9 0 0 0 2.9-2.9V7.8a2.9 2.9 0 0 0-2.9-2.9H7.8zm8.8 1.4a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.9a3.1 3.1 0 1 0 0 6.2 3.1 3.1 0 0 0 0-6.2z"/></svg>
+{%- elif icon == "tiktok" -%}
+  <svg viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M14.7 3h2.5c.2 1.8 1.3 3.1 3 3.3v2.5c-1.3 0-2.5-.4-3.5-1.1v6.7a5.4 5.4 0 1 1-5.4-5.4h.3v2.6h-.3a2.8 2.8 0 1 0 2.8 2.8V3z"/></svg>
+{%- elif icon == "facebook" -%}
+  <svg viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M13.5 22v-8h2.7l.4-3.1h-3.1V8.9c0-.9.3-1.5 1.6-1.5h1.7V4.6c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H8V14h2.9v8h2.6z"/></svg>
+{%- elif icon == "youtube" -%}
+  <svg viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C17.9 5 12 5 12 5s-5.9 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8C6.1 19 12 19 12 19s5.9 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15.5v-7l6 3.5-6 3.5z"/></svg>
+{%- elif icon == "snapchat" -%}
+  <svg viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M12 3.2c2.7 0 4.8 2 4.8 4.8v2.2c0 .3.2.6.5.7.5.2.9.4 1.1.7.2.3.2.7-.1 1.1-.3.4-.7.6-1.2.8-.2.1-.3.2-.2.4.2.7.8 1.3 1.6 1.5.2.1.4.3.3.6-.2.6-1.2 1-2.8 1.2-.2 0-.3.1-.4.3-.3.8-.8 1.4-1.4 1.8-.7.4-1.5.6-2.2.6-.7 0-1.5-.2-2.2-.6-.6-.4-1.1-1-1.4-1.8-.1-.2-.2-.3-.4-.3-1.6-.2-2.6-.6-2.8-1.2-.1-.3.1-.5.3-.6.8-.2 1.4-.8 1.6-1.5.1-.2 0-.3-.2-.4-.5-.2-.9-.4-1.2-.8-.3-.4-.3-.8-.1-1.1.2-.3.6-.5 1.1-.7.3-.1.5-.4.5-.7V8c0-2.8 2.1-4.8 4.8-4.8z"/></svg>
+{%- endif -%}
+</span>
+{%- endmacro -%}
+
+<section class="link-hub" aria-labelledby="link-hub-title">
+  {# Ciel étoilé + météores (même stack que phantomdev.fr / CodePen Delroy Prithvi MIT) #}
+  <div class="link-hub__sky" aria-hidden="true">
+    <div class="link-hub__sky-base"></div>
+    <div class="link-hub__halo"></div>
+    <div class="link-hub__stars-field">
+      {% for star in linkHubStars %}
+      <span
+        class="link-hub__static-star{% if star.glow %} link-hub__static-star--glow{% endif %}"
+        style="left:{{ star.left }}%;top:{{ star.top }}%;width:{{ star.size }}px;height:{{ star.size }}px;--star-opacity:{{ star.opacity }};animation-duration:{{ star.duration }}s;animation-delay:{{ star.delay }}s"
+      ></span>
+      {% endfor %}
+    </div>
+    <div class="link-hub__meteors">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+  <div class="link-hub__inner">
+    <header class="link-hub__header">
+      <img
+        class="link-hub__avatar"
+        src="{{ '/assets/img/logo-basique-carre.png' | cacheBust }}"
+        alt=""
+        width="96"
+        height="96"
+        decoding="async"
+        fetchpriority="high"
+      />
+      <h1 id="link-hub-title" class="link-hub__title">{{ site.name }}</h1>
+      <p class="link-hub__handle">@redkmotors</p>
+      <p class="link-hub__bio">Garage Ivry-sur-Seine (94) · Lun–sam 9h–19h<br />{{ site.googleReviews.rating }},0 ★ · {{ site.googleReviews.count }} avis Google</p>
+    </header>
+
+    <ul class="link-hub__list">
+      {% for item in linkHub.actions %}
+      <li>
+        <a
+          class="link-hub__btn{% if item.id == 'whatsapp' %} link-hub__btn--featured{% endif %}"
+          href="{{ hubHref(item) | trim }}"
+          {% if item.external %}target="_blank" rel="noopener noreferrer"{% endif %}
+          data-track="{{ item.track }}"
+          data-track-pos="{{ item.trackPos }}"
+        >
+          {{ hubIcon(item.icon) }}
+          <span class="link-hub__btn-label">{{ item.label }}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+
+    <nav class="link-hub__socials" aria-label="Réseaux sociaux">
+      {% for item in linkHub.social %}
+      <a
+        class="link-hub__social"
+        href="{{ hubHref(item) | trim }}"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="{{ item.label }}"
+        data-track="{{ item.track }}"
+        data-track-pos="{{ item.trackPos }}"
+      >
+        {{ hubIcon(item.icon) }}
+      </a>
+      {% endfor %}
+    </nav>
+  </div>
+</section>

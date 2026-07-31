@@ -346,7 +346,6 @@ module.exports = function (eleventyConfig) {
 
   // Copier les assets inchangés
   eleventyConfig.addPassthroughCopy("assets");
-  eleventyConfig.addPassthroughCopy("favicon.svg");
   eleventyConfig.addPassthroughCopy("favicon.ico");
   eleventyConfig.addPassthroughCopy("favicon-16x16.png");
   eleventyConfig.addPassthroughCopy("favicon-32x32.png");

@@ -46,3 +46,7 @@
 # Blog
 /blog              /blog/         301
 /blog/page/:num    /blog/page/:num/ 301
+
+# Hub bio (ancien slug FR)
+/liens/            /links/        301
+/liens             /links/        301
