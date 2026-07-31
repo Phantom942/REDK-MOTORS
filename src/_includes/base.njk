@@ -59,8 +59,8 @@
     <link rel="stylesheet" href="{{ '/assets/css/design-stitch.css' | cacheBust }}" />
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="theme-color" content="#131317" />
-    <meta name="msapplication-TileColor" content="#131317" />
+    <meta name="theme-color" content="{% if pageKey == 'links' %}#050508{% else %}#131317{% endif %}" />
+    <meta name="msapplication-TileColor" content="{% if pageKey == 'links' %}#050508{% else %}#131317{% endif %}" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="mobile-web-app-capable" content="yes" />
@@ -174,7 +174,7 @@
     </script>
     {% endif %}
   </head>
-  <body class="design-stitch{% if lpKey or lp or hideServiceAreas or exemple or hasHeroVideo %} conversion-page{% endif %}{% if pageKey == 'links' %} page-link-hub{% endif %}" data-page="{{ pageKey | default('index') }}" data-gtm-id="{{ site.gtmId }}">
+  <body class="design-stitch{% if pageKey != 'links' and (lpKey or lp or hideServiceAreas or exemple or hasHeroVideo) %} conversion-page{% endif %}{% if pageKey == 'links' %} page-link-hub{% endif %}" data-page="{{ pageKey | default('index') }}" data-gtm-id="{{ site.gtmId }}">
     {% if pageKey != 'links' %}
     {% include "header.njk" %}
     {% endif %}
