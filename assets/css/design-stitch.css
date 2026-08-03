@@ -245,6 +245,9 @@ body.design-stitch a[class*="btn--"] {
   font-size: 0.75rem;
   overflow: visible;
   max-width: none;
+  /* Force la marge droite : le shorthand générique nav a / cache peut coller le texte au bord */
+  padding: 0.45rem 1.55rem 0.45rem 0.55rem !important;
+  box-sizing: border-box;
 }
 
 .design-stitch .main-nav a.main-nav__google-rating:hover,
@@ -262,6 +265,7 @@ body.design-stitch a[class*="btn--"] {
 
 .design-stitch .main-nav a.main-nav__google-rating .main-nav__google-count {
   color: rgba(255, 255, 255, 0.78);
+  padding-inline-end: 0.2rem;
 }
 
 .design-stitch .main-nav a.main-nav__google-rating .main-nav__google-stars {
