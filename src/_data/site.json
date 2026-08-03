@@ -22,12 +22,12 @@
   },
   "seoKeywords": "garage ivry-sur-seine, garage 94, mecanique ivry, carrosserie ivry, pare-brise ivry, remplacement pare-brise 94, navette vehicule ivry, bris de glace, diagnostic auto ivry, entretien auto ivry, pneus ivry, freins ivry, garage paris 13, garage vitry-sur-seine, garage villejuif, garage charenton-le-pont, garage taxi ivry, garage vtc 94, entretien flotte entreprise, garage auto ecole ivry, espace pro garage val-de-marne",
   "geo": {
-    "latitude": 48.8076408,
-    "longitude": 2.3777448,
+    "latitude": 48.80768,
+    "longitude": 2.37737,
     "region": "FR-94",
     "placename": "Ivry-sur-Seine",
-    "position": "48.8076408;2.3777448",
-    "icbm": "48.8076408, 2.3777448"
+    "position": "48.80768;2.37737",
+    "icbm": "48.80768, 2.37737"
   },
   "nav": [
     {
@@ -116,11 +116,11 @@
     "knowledgeGraphId": "/g/11y__lnrkb",
     "mapsFeatureId": "0x47e67337fbef5277:0xe6bcd3ccf746dd16",
     "rating": 5,
-    "count": 32,
+    "count": 35,
     "placeId": "ChIJd1Lv-zdz5kcRFt1G98zTvOY",
     "placeQuery": "RED-K MOTORS, 9 rue Michelet, 94200 Ivry-sur-Seine, France",
     "maxReviews": 4,
-    "mapsPlaceUrl": "https://www.google.com/maps/place/Red-k+Motors/@48.8076408,2.3777448,17z/data=!4m8!3m7!1s0x47e67337fbef5277:0xe6bcd3ccf746dd16!8m2!3d48.8076408!4d2.3777448!16s%2Fg%2F11y__lnrkb",
+    "mapsPlaceUrl": "https://www.google.com/maps/place/Red-K+Motors/@48.80768,2.37737,17z/data=!4m6!3m5!1s0x47e67337fbef5277:0xe6bcd3ccf746dd16!8m2!3d48.80768!4d2.37737!16s%2Fg%2F11y__lnrkb",
     "writeReviewUrl": "https://www.google.com/search?q=Red-k+Motors&ludocid=0xe6bcd3ccf746dd16#lrd=0xe6bcd3ccf746dd16,1,,,"
   }
 }

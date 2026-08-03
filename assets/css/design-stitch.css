@@ -243,6 +243,8 @@ body.design-stitch a[class*="btn--"] {
   letter-spacing: 0.01em;
   font-weight: 600;
   font-size: 0.75rem;
+  overflow: visible;
+  max-width: none;
 }
 
 .design-stitch .main-nav a.main-nav__google-rating:hover,
