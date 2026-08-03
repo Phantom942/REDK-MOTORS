@@ -57,5 +57,9 @@ _stitch_extract2/
 .tmp-gsc-export-*/
 .tmp-crawl-me/
 
+# Listes d’URLs d’indexation (ops SEO, pas le site public)
+indexation-gsc-priorite.txt
+exemples-urls-indexation.txt
+
 # Exports DNS / zone (données hébergeur, pas le site)
 dns_zone*.csv

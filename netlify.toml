@@ -1,6 +1,13 @@
-# RED-K MOTORS — Netlify
-# Les redirections 301 sont dans ./_redirects (copié vers _site à la build par Eleventy).
-
 [build]
   command = "npm run build"
   publish = "_site"
+
+# En-têtes si hébergé sur Netlify (GitHub Pages ne les lit pas — préférer Cloudflare Proxy)
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    X-XSS-Protection = "0"

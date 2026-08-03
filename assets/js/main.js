@@ -426,12 +426,19 @@ document.addEventListener('DOMContentLoaded', function() {
   if (plateInput) {
     var plaqueParam = new URLSearchParams(window.location.search).get('plaque');
     if (plaqueParam) {
-      var normalizedPlate = plaqueParam.trim().toUpperCase();
-      plateInput.value = normalizedPlate;
-      if (contactMessage && !contactMessage.value.trim()) {
-        contactMessage.value = 'Plaque : ' + normalizedPlate + '. ';
+      var normalizedPlate = plaqueParam.trim().toUpperCase().replace(/[^A-Z0-9-]/g, '').slice(0, 10);
+      if (normalizedPlate) {
+        plateInput.value = normalizedPlate;
+        if (contactMessage && !contactMessage.value.trim()) {
+          contactMessage.value = 'Plaque : ' + normalizedPlate + '. ';
+        }
       }
     }
+
+    plateInput.addEventListener('input', function () {
+      var cleaned = plateInput.value.toUpperCase().replace(/[^A-Z0-9-]/g, '').slice(0, 10);
+      if (cleaned !== plateInput.value) plateInput.value = cleaned;
+    });
   }
 });
 
