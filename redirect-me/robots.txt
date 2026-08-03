@@ -1,0 +1,5 @@
+# redk-motors.me — domaine en migration vers redkmotors.fr
+User-agent: *
+Allow: /
+
+Sitemap: https://redkmotors.fr/sitemap.xml
