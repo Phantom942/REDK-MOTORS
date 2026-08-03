@@ -349,7 +349,7 @@ p, li, td, th, span, a, h1, h2, h3, h4 {
   display: none;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.4rem 0.9rem 0.4rem 0.45rem;
+  padding: 0.4rem 1.2rem 0.4rem 0.5rem;
   min-height: 40px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.07);
@@ -521,7 +521,7 @@ p, li, td, th, span, a, h1, h2, h3, h4 {
 
 @media (min-width: 1280px) {
   .main-nav__google-rating {
-    padding: 0.45rem 1rem 0.45rem 0.5rem;
+    padding: 0.45rem 1.35rem 0.45rem 0.55rem;
     gap: 0.5rem;
   }
 
