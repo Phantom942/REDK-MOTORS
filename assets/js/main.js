@@ -82,6 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
       navScrollY = window.scrollY || document.documentElement.scrollTop;
       navPreviousFocus = document.activeElement;
       document.body.style.top = '-' + navScrollY + 'px';
+      document.body.style.setProperty('--nav-scroll-lock', navScrollY + 'px');
     }
 
     navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
@@ -138,6 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       if (isCurrentlyOpen) {
         document.body.style.top = '';
+        document.body.style.removeProperty('--nav-scroll-lock');
         window.scrollTo(0, navScrollY);
       }
       if (navPreviousFocus && typeof navPreviousFocus.focus === 'function') {

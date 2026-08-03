@@ -979,8 +979,21 @@ body.is-nav-open {
   right: 0;
 }
 
+/*
+  body top:-scrollY keeps page content visually stable, but the sticky
+  header (in-flow at document y=0) would leave the viewport. Offset it
+  back with the same scroll lock value; position:relative keeps layout
+  space and does not create a fixed containing block for the drawer.
+*/
 body.is-nav-open .main-header {
-  z-index: 10050;
+  position: relative;
+  top: var(--nav-scroll-lock, 0px);
+  z-index: 10053;
+}
+
+body.is-nav-open .main-nav__toggle {
+  position: relative;
+  z-index: 10054;
 }
 
 body.is-nav-open .main-nav__backdrop.is-visible {
