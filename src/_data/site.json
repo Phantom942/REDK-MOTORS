@@ -49,7 +49,19 @@
         { "title": "Pneus & freins", "url": "/pneumatiques/", "key": "pneumatiques" }
       ]
     },
-    { "title": "Tarifs", "url": "/tarifs/", "key": "tarifs" },
+    {
+      "title": "Tarifs",
+      "key": "nav-tarifs",
+      "activeKeys": ["tarifs", "exemples-hub", "exemple-prix"],
+      "hub": {
+        "title": "Grille tarifaire",
+        "url": "/tarifs/",
+        "key": "tarifs"
+      },
+      "children": [
+        { "title": "Exemples de prix", "url": "/exemples/", "key": "exemples-hub" }
+      ]
+    },
     {
       "title": "Le garage",
       "key": "nav-garage",
@@ -94,11 +106,12 @@
   "sitelinksHints": [
     { "@type": "ListItem", "position": 1, "name": "Contact", "url": "https://redkmotors.fr/contact/" },
     { "@type": "ListItem", "position": 2, "name": "Tarifs", "url": "https://redkmotors.fr/tarifs/" },
-    { "@type": "ListItem", "position": 3, "name": "Diagnostic", "url": "https://redkmotors.fr/diagnostic/" },
-    { "@type": "ListItem", "position": 4, "name": "Mécanique", "url": "https://redkmotors.fr/mecanique/" },
-    { "@type": "ListItem", "position": 5, "name": "Carrosserie", "url": "https://redkmotors.fr/carrosserie/" },
-    { "@type": "ListItem", "position": 6, "name": "Pare-brise", "url": "https://redkmotors.fr/pare-brise/" },
-    { "@type": "ListItem", "position": 7, "name": "Espace Pro", "url": "https://redkmotors.fr/professionnels/" }
+    { "@type": "ListItem", "position": 3, "name": "Exemples de prix", "url": "https://redkmotors.fr/exemples/" },
+    { "@type": "ListItem", "position": 4, "name": "Diagnostic", "url": "https://redkmotors.fr/diagnostic/" },
+    { "@type": "ListItem", "position": 5, "name": "Mécanique", "url": "https://redkmotors.fr/mecanique/" },
+    { "@type": "ListItem", "position": 6, "name": "Carrosserie", "url": "https://redkmotors.fr/carrosserie/" },
+    { "@type": "ListItem", "position": 7, "name": "Pare-brise", "url": "https://redkmotors.fr/pare-brise/" },
+    { "@type": "ListItem", "position": 8, "name": "Espace Pro", "url": "https://redkmotors.fr/professionnels/" }
   ],
   "gtmId": "GTM-NTC72X2G",
   "ogImage": "https://redkmotors.fr/assets/img/og-brand.png",

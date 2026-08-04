@@ -45,6 +45,16 @@ module.exports = {
       trackPos: "liens_contact",
     },
     {
+      id: "tarifs",
+      label: "Tarifs & exemples",
+      hint: "Grille + guides prix",
+      href: "/tarifs/",
+      icon: "site",
+      external: false,
+      track: "click_tarifs",
+      trackPos: "liens_tarifs",
+    },
+    {
       id: "google",
       label: "Avis Google",
       hintKey: "googleReviewsLabel",
