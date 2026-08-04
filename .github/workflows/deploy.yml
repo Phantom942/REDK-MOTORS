@@ -149,7 +149,13 @@ jobs:
         with:
           node-version: "24"
 
-      - name: IndexNow — signaler le sitemap à Bing et autres moteurs
+      - name: IndexNow — URLs prioritaires (money + hubs)
+        env:
+          SITE_URL: https://redkmotors.fr
+          INDEXNOW_KEY: 315a9d29deec456a9cd2ae11fe67e677
+        run: node scripts/indexnow-priority.js
+
+      - name: IndexNow — sitemap complet
         env:
           SITE_URL: https://redkmotors.fr
           INDEXNOW_KEY: 315a9d29deec456a9cd2ae11fe67e677
