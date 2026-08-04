@@ -71,6 +71,9 @@ faqs:
 
 {% include "conversion-services-nav.njk" %}
 
+{% set lpId = pageKey %}
+{% include "lp-related-services.njk" %}
+
 {% set pageReviews = "index" | resolvePageReviews(googleReviews, 3) %}
 {% set reviewsSectionTitle = "Ils nous font confiance" %}
 {% include "reviews-page-block.njk" %}

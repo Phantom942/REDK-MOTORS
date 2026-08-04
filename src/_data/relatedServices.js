@@ -66,16 +66,22 @@ const BY_PAGE = {
     "blog",
   ],
   diagnostic: ["mecanique", "voyantMoteur", "entretien", "exemples", "tarifs", "contact", "vitry"],
-  freinage: ["plaquettes", "pneumatiques", "prixFreins", "tarifs", "contact"],
+  freinage: ["plaquettes", "pneumatiques", "prixFreins", "tarifs", "contact", "diagnostic"],
   revision: ["vidange", "vidangePresta", "prixVidange", "rechargeClim", "tarifs", "contact"],
-  carrosserie: ["pareBrise", "prixPareBrise", "debosselage", "tarifs", "contact"],
+  carrosserie: ["pareBrise", "prixPareBrise", "debosselage", "tarifs", "contact", "exemples"],
   mecanique: ["diagnostic", "distribution", "prixDistribution", "embrayage", "tarifs", "contact"],
-  "pare-brise": ["debosselage", "prixPareBrise", "carrosserie", "tarifs", "contact"],
-  pneumatiques: ["montagePneus", "prixPneus", "geometrie", "freins", "tarifs"],
-  vidange: ["vidangePresta", "prixVidange", "entretien", "tarifs", "contact"],
-  prestations: ["diagnostic", "entretien", "exemples", "tarifs", "contact"],
-  garageIvry: ["diagnostic", "entretien", "exemples", "tarifs", "contact", "vitry"],
+  "pare-brise": ["debosselage", "prixPareBrise", "carrosserie", "tarifs", "contact", "exemples"],
+  pneumatiques: ["montagePneus", "prixPneus", "geometrie", "freins", "tarifs", "contact"],
+  vidange: ["vidangePresta", "prixVidange", "entretien", "tarifs", "contact", "exemples"],
+  prestations: ["diagnostic", "entretien", "tarifs", "contact"],
+  garageIvry: ["diagnostic", "entretien", "tarifs", "contact", "vitry", "exemples"],
   revision94Seo: ["entretien", "vidange", "prixVidange", "tarifs", "contact", "ivry"],
+  tarifs: ["exemples", "diagnostic", "entretien", "contact", "prestations", "blog"],
+  equipe: ["diagnostic", "entretien", "tarifs", "contact"],
+  processus: ["diagnostic", "tarifs", "contact", "prestations"],
+  professionnels: ["entretien", "tarifs", "contact", "diagnostic"],
+  "exemples-hub": ["tarifs", "diagnostic", "entretien", "contact"],
+  blog: ["exemples", "diagnostic", "entretien", "tarifs", "contact", "prestations"],
 };
 
 const PRESTATION_BY_SLUG = {
@@ -158,13 +164,54 @@ function resolveKeys(pageId) {
     return PRESTATION_BY_SLUG[slug] || ["prestations", "tarifs", "contact"];
   }
   if (["vitry-sur-seine", "villejuif", "paris-13", "alfortville", "maisons-alfort", "kremlin-bicetre", "charenton-le-pont"].includes(pageId)) {
-    return ["diagnostic", "entretien", "freins", "pneumatiques", "tarifs", "contact", "ivry"];
+    return ["diagnostic", "entretien", "freins", "pneumatiques", "tarifs", "contact"];
+  }
+  if (["vitry", "villejuif", "paris13", "alfortville", "maisonsAlfort", "kremlin", "kremlinBicetre", "charenton"].includes(pageId)) {
+    return ["diagnostic", "entretien", "freins", "pneumatiques", "tarifs", "contact"];
   }
   return BY_PAGE.index;
 }
 
-/** Max 6 liens = grille 3×2 (desktop) ou 2×3 (tablette) sans case vide. */
+/** Max 6 liens = grille paire 2×2 ou 3×2, sans case vide. */
 const RELATED_MAX = 6;
+
+/** Nombre impair → retire le lien le moins utile (exemples prix, puis guides, puis avant Contact). */
+function trimToEven(links) {
+  if (links.length % 2 === 0) return links;
+  const list = [...links];
+  const tarifsUrl = PAGES.tarifs.url;
+  const exemplesUrl = PAGES.exemples.url;
+  const contactUrl = PAGES.contact.url;
+  const blogUrl = PAGES.blog.url;
+
+  const dropBy = (pred) => {
+    const idx = list.findIndex(pred);
+    if (idx >= 0) {
+      list.splice(idx, 1);
+      return true;
+    }
+    return false;
+  };
+
+  if (list.some((l) => l.url === tarifsUrl) && list.some((l) => l.url === exemplesUrl)) {
+    dropBy((l) => l.url === exemplesUrl);
+  } else if (
+    dropBy((l) => l.url.startsWith("/exemples/prix-")) ||
+    dropBy((l) => l.url === blogUrl) ||
+    dropBy((l) => l.url === exemplesUrl)
+  ) {
+    // dropped
+  } else {
+    const dropIdx = [...list]
+      .map((l, i) => ({ i, url: l.url }))
+      .reverse()
+      .find((entry) => entry.url !== contactUrl)?.i;
+    if (dropIdx == null) list.pop();
+    else list.splice(dropIdx, 1);
+  }
+
+  return list.length % 2 === 0 ? list : list.slice(0, -1);
+}
 
 function resolveRelated(pageId, currentUrl) {
   const keys = resolveKeys(pageId);
@@ -178,7 +225,7 @@ function resolveRelated(pageId, currentUrl) {
     result.push(page);
     if (result.length >= RELATED_MAX) break;
   }
-  return result;
+  return trimToEven(result);
 }
 
 module.exports = {

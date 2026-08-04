@@ -1,5 +1,6 @@
 /**
  * Liens vers pages money depuis les pages SEO longue traîne.
+ * Toujours un nombre pair (grille 2 colonnes).
  */
 const PAGES = {
   diagnostic: { title: "Diagnostic auto", url: "/diagnostic/" },
@@ -19,35 +20,37 @@ const PAGES = {
   pro: { title: "Espace Pro (VTC, flottes)", url: "/professionnels/" },
 };
 
+/** Listes à 4 liens (pair) — contact/tarifs en complément si besoin. */
 const BY_PAGE_KEY = {
-  voyant94Seo: ["diagnostic", "mecanique", "tarifs"],
-  abs94Seo: ["freins", "diagnostic", "tarifs"],
-  demarrage94Seo: ["diagnostic", "mecanique", "contact"],
-  tremblementVolant94Seo: ["pneumatiques", "freins", "mecanique"],
-  revisionRapide94Seo: ["entretien", "vidange", "tarifs"],
-  revision94Seo: ["entretien", "vidange", "diagnostic", "tarifs", "contact", "ivry"],
-  pertePuissance94Seo: ["diagnostic", "mecanique", "entretien"],
-  urgence94Seo: ["diagnostic", "contact", "mecanique"],
-  pneusFreins94Seo: ["freins", "pneumatiques", "tarifs"],
-  pneusIvrySeo: ["pneumatiques", "montagePneus", "tarifs"],
-  garageSamedi94Seo: ["entretien", "diagnostic", "ivry"],
-  flotte94Seo: ["pro", "entretien", "contact"],
-  pro94Seo: ["pro", "entretien", "tarifs"],
-  entretienVtc94Seo: ["pro", "entretien", "vidange"],
-  preventifVtc94Seo: ["pro", "entretien", "diagnostic"],
-  devisGarage94Seo: ["contact", "tarifs", "diagnostic"],
-  conso94Seo: ["diagnostic", "entretien", "mecanique"],
-  clim94Seo: ["rechargeClim", "entretien", "tarifs"],
-  climIvrySeo: ["rechargeClim", "entretien", "contact"],
-  plaquettes94Seo: ["freins", "plaquettes", "tarifs"],
-  batterie94Seo: ["mecanique", "diagnostic", "contact"],
-  diagnostic94Seo: ["diagnostic", "mecanique", "ivry"],
-  diagnosticVitrySeo: ["diagnostic", "ivry", "tarifs"],
-  diagnosticChoisySeo: ["diagnostic", "ivry", "contact"],
-  bruitFrein94Seo: ["freins", "plaquettes", "tarifs"],
+  voyant94Seo: ["diagnostic", "mecanique", "tarifs", "contact"],
+  abs94Seo: ["freins", "diagnostic", "tarifs", "contact"],
+  demarrage94Seo: ["diagnostic", "mecanique", "tarifs", "contact"],
+  tremblementVolant94Seo: ["pneumatiques", "freins", "mecanique", "tarifs"],
+  revisionRapide94Seo: ["entretien", "vidange", "tarifs", "contact"],
+  revision94Seo: ["entretien", "vidange", "tarifs", "contact"],
+  pertePuissance94Seo: ["diagnostic", "mecanique", "entretien", "tarifs"],
+  urgence94Seo: ["diagnostic", "mecanique", "tarifs", "contact"],
+  pneusFreins94Seo: ["freins", "pneumatiques", "tarifs", "contact"],
+  pneusIvrySeo: ["pneumatiques", "montagePneus", "tarifs", "contact"],
+  garageSamedi94Seo: ["entretien", "diagnostic", "ivry", "contact"],
+  flotte94Seo: ["pro", "entretien", "tarifs", "contact"],
+  pro94Seo: ["pro", "entretien", "tarifs", "contact"],
+  entretienVtc94Seo: ["pro", "entretien", "vidange", "tarifs"],
+  preventifVtc94Seo: ["pro", "entretien", "diagnostic", "tarifs"],
+  devisGarage94Seo: ["contact", "tarifs", "diagnostic", "entretien"],
+  conso94Seo: ["diagnostic", "entretien", "mecanique", "tarifs"],
+  clim94Seo: ["rechargeClim", "entretien", "tarifs", "contact"],
+  climIvrySeo: ["rechargeClim", "entretien", "tarifs", "contact"],
+  plaquettes94Seo: ["freins", "plaquettes", "tarifs", "contact"],
+  batterie94Seo: ["mecanique", "diagnostic", "tarifs", "contact"],
+  diagnostic94Seo: ["diagnostic", "mecanique", "ivry", "tarifs"],
+  diagnosticVitrySeo: ["diagnostic", "ivry", "tarifs", "contact"],
+  diagnosticChoisySeo: ["diagnostic", "ivry", "tarifs", "contact"],
+  bruitFrein94Seo: ["freins", "plaquettes", "tarifs", "contact"],
 };
 
 const DEFAULT_KEYS = ["diagnostic", "entretien", "tarifs", "contact"];
+const PAD_KEYS = ["tarifs", "contact", "entretien", "diagnostic"];
 
 function resolveMoneyPages(pageKey) {
   const keys = BY_PAGE_KEY[pageKey] || DEFAULT_KEYS;
@@ -60,6 +63,15 @@ function resolveMoneyPages(pageKey) {
       result.push(page);
     }
   }
+  for (const key of PAD_KEYS) {
+    if (result.length % 2 === 0 && result.length >= 2) break;
+    const page = PAGES[key];
+    if (page && !seen.has(page.url)) {
+      seen.add(page.url);
+      result.push(page);
+    }
+  }
+  if (result.length % 2 === 1) result.pop();
   return result;
 }
 

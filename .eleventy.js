@@ -61,11 +61,33 @@ module.exports = function (eleventyConfig) {
   const { resolveMoneyPages } = require("./src/_data/localSeoMoneyPages.js");
   eleventyConfig.addFilter("localSeoMoneyPages", (pageKey) => resolveMoneyPages(pageKey));
 
-  const { resolveRelated, isSameOrSiblingPage } = require("./src/_data/relatedServices.js");
-  eleventyConfig.addFilter("relatedServices", (pageId, currentUrl) => resolveRelated(pageId, currentUrl));
-  eleventyConfig.addFilter("isSelfPageLink", (targetUrl, currentUrl) =>
-    isSameOrSiblingPage(currentUrl, targetUrl)
-  );
+  const relatedServicesPath = path.join(__dirname, "src/_data/relatedServices.js");
+  eleventyConfig.addWatchTarget(relatedServicesPath);
+  eleventyConfig.addFilter("relatedServices", (pageId, currentUrl) => {
+    delete require.cache[require.resolve(relatedServicesPath)];
+    const { resolveRelated } = require(relatedServicesPath);
+    return resolveRelated(pageId, currentUrl);
+  });
+  eleventyConfig.addFilter("isSelfPageLink", (targetUrl, currentUrl) => {
+    delete require.cache[require.resolve(relatedServicesPath)];
+    const { isSameOrSiblingPage } = require(relatedServicesPath);
+    return isSameOrSiblingPage(currentUrl, targetUrl);
+  });
+
+  /** Garde un nombre pair d'items (grille 2 colonnes sans case orpheline). */
+  eleventyConfig.addFilter("evenItems", (items) => {
+    if (!Array.isArray(items) || !items.length) return [];
+    return items.length % 2 === 0 ? items : items.slice(0, -1);
+  });
+
+  eleventyConfig.addFilter("serviceLinksEven", (services, currentUrl) => {
+    delete require.cache[require.resolve(relatedServicesPath)];
+    const { isSameOrSiblingPage } = require(relatedServicesPath);
+    const list = (Array.isArray(services) ? services : []).filter(
+      (s) => s && s.url && !isSameOrSiblingPage(currentUrl, s.url)
+    );
+    return list.length % 2 === 0 ? list : list.slice(0, -1);
+  });
 
   const citySeoContent = require("./src/_data/citySeoContent.js");
   eleventyConfig.addFilter("citySeoContent", (pageKey) => citySeoContent[pageKey] || null);

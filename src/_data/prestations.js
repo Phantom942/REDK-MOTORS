@@ -229,6 +229,7 @@ const categories = [
   {
     key: "frequentes",
     title: "Prestations fréquentes",
+    navLabel: "Fréquentes",
     services: [
       { slug: "revision-entretien", name: "Révision constructeur" },
       { slug: "vidange-moteur", name: "Révision et vidange" },
@@ -267,6 +268,7 @@ const categories = [
   {
     key: "pneus",
     title: "Pneus / Roues",
+    navLabel: "Pneus",
     services: [
       { slug: "montage-equilibrage", name: "Montage et équilibrage" },
       { slug: "permutation-pneus", name: "Permutation pneus" },
@@ -276,6 +278,7 @@ const categories = [
   {
     key: "batterie",
     title: "Batterie, alternateur, démarreur",
+    navLabel: "Batterie",
     services: [
       { slug: "test-batterie", name: "Test batterie" },
       { slug: "remplacement-batterie", name: "Batterie" },

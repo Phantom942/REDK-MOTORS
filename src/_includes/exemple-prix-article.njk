@@ -190,10 +190,12 @@
       {% endif %}
 
       {% if siblingServices and siblingServices.length %}
+      {% set siblingEven = siblingServices | evenItems %}
+      {% if siblingEven.length %}
       <section class="exemple-prix-related" aria-labelledby="exemple-sibling-title">
         <h2 id="exemple-sibling-title">Autres prestations {{ modelLabel }}</h2>
         <ul class="exemple-prix-related__grid">
-          {% for item in siblingServices %}
+          {% for item in siblingEven %}
           <li>
             <a class="exemple-prix-related__link" href="{{ item.url }}">
               <span class="exemple-prix-related__model">{{ item.label }}</span>
@@ -203,6 +205,7 @@
         </ul>
       </section>
       {% endif %}
+      {% endif %}
 
       {% if genericExemple and not exemple.isGeneric %}
       <p class="exemple-prix-generic-link">
@@ -211,10 +214,12 @@
       {% endif %}
 
       {% if relatedExemples and relatedExemples.length %}
+      {% set relatedExEven = relatedExemples | evenItems %}
+      {% if relatedExEven.length %}
       <section class="exemple-prix-related" aria-labelledby="exemple-related-title">
         <h2 id="exemple-related-title">{{ relatedTitle }}</h2>
         <ul class="exemple-prix-related__grid">
-          {% for item in relatedExemples %}
+          {% for item in relatedExEven %}
           <li>
             <a class="exemple-prix-related__link" href="/exemples/{{ item.slug }}/">
               {% if item.anchor %}
@@ -228,6 +233,7 @@
           {% endfor %}
         </ul>
       </section>
+      {% endif %}
       {% endif %}
     </div>
   </div>

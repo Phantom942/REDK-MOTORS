@@ -61,7 +61,7 @@ breadcrumb:
 {% set hubTrack = "exemples_hub_catalog" %}
 {% include "price-examples-hub.njk" %}
 
-{% set popularModels = priceExamplesHub.popularModelExamples("vidange") %}
+{% set popularModels = priceExamplesHub.popularModelExamples("vidange") | evenItems %}
 {% set popularModelHubs = priceExamplesHub.popularModelHubs() %}
 {% if popularModels and popularModels.length %}
 <section class="exemples-models-hub" aria-labelledby="exemples-models-title">
@@ -97,3 +97,6 @@ breadcrumb:
 {% endif %}
 
 {% include "conversion-contact.njk" %}
+
+{% set lpId = pageKey %}
+{% include "lp-related-services.njk" %}

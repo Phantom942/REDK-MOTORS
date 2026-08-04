@@ -3262,8 +3262,12 @@ body.is-nav-open .main-nav #primary-menu.is-open {
 }
 
 body.conversion-page .presta-listing__intro {
-  margin-bottom: 1.5rem;
-  max-width: 42rem;
+  margin-bottom: 0;
+  max-width: none;
+}
+
+body.conversion-page .presta-listing__intro-links a {
+  color: var(--color-link);
 }
 
 /* Direct answer — citabilité GEO (réponse extractible IA) */
@@ -5757,8 +5761,9 @@ img[loading="lazy"].loaded {
   padding: 0;
   display: grid;
   gap: 0.65rem;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: stretch;
+  max-width: 36rem;
 }
 
 .exemple-prix-related__grid > li {
@@ -5801,7 +5806,7 @@ img[loading="lazy"].loaded {
 
 @media (max-width: 520px) {
   .exemple-prix-related__grid {
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -9780,11 +9785,17 @@ body.conversion-page .promesse--highlights .promesse__item h3 {
   margin: 0 auto;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  /* 2 colonnes partout → 2 / 4 / 6 cases toujours symétriques */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.85rem;
-  max-width: 48rem;
+  max-width: 36rem;
   width: 100%;
   align-items: stretch;
+}
+
+.conversion-services--related .conversion-services__list,
+.conversion-services--money .conversion-services__list {
+  max-width: 36rem;
 }
 
 .conversion-services__list > li {
@@ -9796,6 +9807,19 @@ body.conversion-page .promesse--highlights .promesse__item h3 {
   width: 100%;
   justify-content: center;
   text-align: center;
+}
+
+.conversion-services__more {
+  margin: 1rem auto 0;
+  text-align: center;
+  max-width: 36rem;
+}
+
+.conversion-services__more a {
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .conversion-services__link {
@@ -9873,9 +9897,16 @@ a.conversion-services__link:focus-visible::after {
   margin: 0 auto;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.75rem;
-  max-width: 56rem;
+  max-width: 36rem;
+}
+
+@media (min-width: 900px) {
+  .conversion-nav__grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    max-width: 56rem;
+  }
 }
 
 .conversion-nav__grid a {
@@ -10105,12 +10136,6 @@ body.conversion-page .conversion-hub {
   display: none !important;
 }
 
-@media (max-width: 900px) {
-  .conversion-nav__grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-}
-
 @media (max-width: 768px) {
   .conversion-services__list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -10120,8 +10145,9 @@ body.conversion-page .conversion-hub {
 
 @media (max-width: 640px) {
   .conversion-services__list {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     max-width: 22rem;
+    gap: 0.65rem;
   }
 
   .conversion-nav__grid {

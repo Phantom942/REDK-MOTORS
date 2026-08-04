@@ -58,16 +58,50 @@ faqSchema:
 
 <section class="presta-listing" aria-labelledby="presta-listing-title">
   <div class="container">
-    <h2 id="presta-listing-title" class="sr-only">Liste des prestations</h2>
-    <p class="presta-listing__intro">Chaque fiche explique quand la demander, ce qui est contrôlé et comment obtenir un devis à Ivry-sur-Seine (94). Atelier multimarque — <a href="/equipe/">notre équipe</a> · <a href="/tarifs/">tarifs indicatifs</a> · <a href="/contact/">contact</a>.</p>
+    <header class="presta-listing__head">
+      <p class="section-kicker">Catalogue atelier</p>
+      <h2 id="presta-listing-title" class="presta-listing__title">Toutes les prestations</h2>
+      <p class="presta-listing__intro">
+        Choisissez une fiche : quand intervenir, ce qui est contrôlé, devis à Ivry-sur-Seine.
+        <span class="presta-listing__intro-links">
+          <a href="/equipe/">Équipe</a>
+          <a href="/tarifs/">Tarifs</a>
+          <a href="/contact/">Contact</a>
+        </span>
+      </p>
+    </header>
+
+    <nav class="presta-listing__nav" aria-label="Catégories de prestations">
+      <ul class="presta-listing__nav-list">
+        {% for category in prestations.categories %}
+        <li>
+          <a class="presta-listing__nav-link" href="#cat-{{ category.key }}">{{ category.navLabel or category.title }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
 
     <div class="presta-listing__grid">
       {% for category in prestations.categories %}
-      <article class="presta-listing__card">
-        <h2>{{ category.title }}</h2>
-        <ul>
+      <article class="presta-listing__card" id="cat-{{ category.key }}">
+        <header class="presta-listing__card-head">
+          <h3 class="presta-listing__card-title">{{ category.title }}</h3>
+          <span class="presta-listing__count">{{ category.services | length }}</span>
+        </header>
+        <ul class="presta-listing__links">
           {% for service in category.services %}
-          <li><a href="/prestations/{{ service.slug }}/">{{ service.name }}</a></li>
+          <li>
+            <a
+              class="presta-listing__link"
+              href="/prestations/{{ service.slug }}/"
+              data-track="click_prestation"
+              data-track-pos="prestations_hub"
+              data-track-label="{{ service.slug }}"
+            >
+              <span class="presta-listing__link-label">{{ service.name }}</span>
+              <span class="presta-listing__link-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
           {% endfor %}
         </ul>
       </article>

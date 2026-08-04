@@ -68,7 +68,7 @@
 
 {% include "local-seo-zone.njk" %}
 
-{% set moneyPages = pageKey | localSeoMoneyPages %}
+{% set moneyPages = pageKey | localSeoMoneyPages | evenItems %}
 {% if moneyPages.length %}
 <section class="conversion-services conversion-services--money" aria-labelledby="local-money-{{ pageKey }}">
   <div class="container">

@@ -90,14 +90,22 @@ faqSchema:
     {% set sectionHeadId = "pro-profiles-title" %}
     {% include "conversion-section-head.njk" %}
     <ul class="conversion-services__list">
-      {% for profil in professionnels.profiles %}
+      {% for profil in professionnels.profiles | evenItems %}
       <li><a href="/professionnels/{{ profil.slug }}/" class="conversion-services__link">{{ profil.navTitle }}</a></li>
       {% endfor %}
     </ul>
+    {% if professionnels.profiles.length % 2 == 1 %}
+    <p class="conversion-services__more">
+      <a href="/professionnels/{{ professionnels.profiles[professionnels.profiles.length - 1].slug }}/">{{ professionnels.profiles[professionnels.profiles.length - 1].navTitle }} →</a>
+    </p>
+    {% endif %}
   </div>
 </section>
 
 {% include "reviews-block.njk" %}
+
+{% set lpId = pageKey %}
+{% include "lp-related-services.njk" %}
 
 <section class="faq conversion-faq" aria-labelledby="pro-faq-title">
   <div class="container faq__inner faq__inner--compact">

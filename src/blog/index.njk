@@ -71,3 +71,6 @@ permalink: /blog/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber
     {% endif %}
   </div>
 </section>
+
+{% set lpId = pageKey %}
+{% include "lp-related-services.njk" %}

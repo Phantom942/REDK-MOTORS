@@ -2466,43 +2466,247 @@ body.design-stitch a[class*="btn--"] {
   margin-top: 0;
 }
 
-.design-stitch .presta-listing p {
+.design-stitch .presta-listing {
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
+}
+
+.design-stitch .presta-listing__head {
+  margin: 0 auto clamp(1.5rem, 3vw, 2.25rem);
+  max-width: 36rem;
+  text-align: center;
+}
+
+.design-stitch .presta-listing__title {
+  margin: 0.35rem auto 0.75rem;
+  font-family: var(--font-primary);
+  font-size: clamp(1.45rem, 3vw, 1.85rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--stitch-on-surface, #fafafa);
+  text-wrap: balance;
+}
+
+.design-stitch .presta-listing__intro {
+  margin: 0 auto;
+  max-width: 32rem;
   color: var(--stitch-on-variant);
+  line-height: 1.55;
+  font-size: 0.98rem;
 }
 
-.design-stitch .presta-listing__grid {
-  margin-top: 1.25rem;
-  display: grid;
-  gap: 0.9rem;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+.design-stitch .presta-listing__intro-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 0.85rem;
+  margin-top: 0.85rem;
 }
 
-.design-stitch .presta-listing__card {
-  background: var(--stitch-surface);
-  border: 1px solid var(--stitch-outline);
-  border-radius: 0.75rem;
-  padding: 1rem;
+.design-stitch .presta-listing__intro-links a {
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: var(--stitch-primary, #ffb4ab);
 }
 
-.design-stitch .presta-listing__card h2 {
-  margin-top: 0;
-  font-size: 1.05rem;
-  color: var(--stitch-primary);
+.design-stitch .presta-listing__intro-links a:hover,
+.design-stitch .presta-listing__intro-links a:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
-.design-stitch .presta-listing__card ul {
+.design-stitch .presta-listing__nav {
+  margin: 0 0 1.25rem;
+  position: sticky;
+  top: 0.65rem;
+  z-index: 4;
+}
+
+.design-stitch .presta-listing__nav-list {
+  list-style: none;
   margin: 0;
-  padding-left: 1.05rem;
+  padding: 0.35rem;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.4rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  background: color-mix(in srgb, var(--stitch-surface, #1f1f23) 92%, transparent);
+  border: 1px solid var(--stitch-outline, rgba(167, 138, 134, 0.18));
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
 }
 
-.design-stitch .presta-listing__card a:is(:link, :visited) {
-  color: var(--stitch-on-surface);
+.design-stitch .presta-listing__nav-list li {
+  flex: 0 0 auto;
+}
+
+.design-stitch .presta-listing__nav-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.5rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-decoration: none;
+  color: var(--stitch-on-variant, #cac4cf);
+  border: 1px solid transparent;
+}
+
+.design-stitch .presta-listing__nav-link:is(:link, :visited) {
+  color: var(--stitch-on-variant, #cac4cf);
   text-decoration: none;
 }
 
-.design-stitch .presta-listing__card a:is(:hover, :focus-visible) {
-  color: var(--stitch-primary);
-  text-decoration: underline;
+.design-stitch .presta-listing__nav-link:hover,
+.design-stitch .presta-listing__nav-link:focus-visible {
+  color: var(--stitch-on-surface, #fafafa);
+  background: rgba(179, 18, 23, 0.16);
+  border-color: var(--stitch-outline, rgba(167, 138, 134, 0.25));
+  outline: none;
+}
+
+.design-stitch .presta-listing__card {
+  scroll-margin-top: 4.5rem;
+}
+
+.design-stitch .presta-listing__grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+
+@media (min-width: 640px) {
+  .design-stitch .presta-listing__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .design-stitch .presta-listing__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.15rem;
+  }
+}
+
+.design-stitch .presta-listing__card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background: var(--stitch-surface, #1f1f23);
+  border: 1px solid var(--stitch-outline, rgba(167, 138, 134, 0.18));
+  border-radius: 14px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.design-stitch .presta-listing__card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.95rem 1.05rem;
+  border-bottom: 1px solid var(--stitch-outline, rgba(167, 138, 134, 0.15));
+  background: linear-gradient(
+    180deg,
+    rgba(179, 18, 23, 0.12) 0%,
+    transparent 100%
+  );
+}
+
+.design-stitch .presta-listing__card-title {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.3;
+  color: var(--stitch-on-surface, #fafafa);
+  text-align: left;
+}
+
+.design-stitch .presta-listing__count {
+  flex-shrink: 0;
+  min-width: 1.65rem;
+  height: 1.65rem;
+  padding: 0 0.4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--stitch-on-variant, #d4c8c4);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--stitch-outline, rgba(167, 138, 134, 0.2));
+}
+
+.design-stitch .presta-listing__links {
+  list-style: none;
+  margin: 0;
+  padding: 0.35rem 0.4rem 0.45rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.design-stitch .presta-listing__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  min-height: 2.75rem;
+  padding: 0.55rem 0.7rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--stitch-on-surface, #e8e6ea);
+  font-size: 0.92rem;
+  font-weight: 500;
+  line-height: 1.35;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+.design-stitch .presta-listing__link:is(:link, :visited) {
+  color: var(--stitch-on-surface, #e8e6ea);
+  text-decoration: none;
+}
+
+.design-stitch .presta-listing__link-label {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.design-stitch .presta-listing__link-arrow {
+  flex-shrink: 0;
+  color: var(--color-red, #b31217);
+  font-weight: 700;
+  opacity: 0.7;
+  transition: transform 0.18s ease, opacity 0.18s ease;
+}
+
+.design-stitch .presta-listing__link:hover,
+.design-stitch .presta-listing__link:focus-visible {
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  text-decoration: none;
+  outline: none;
+}
+
+.design-stitch .presta-listing__link:hover .presta-listing__link-arrow,
+.design-stitch .presta-listing__link:focus-visible .presta-listing__link-arrow {
+  opacity: 1;
+  transform: translateX(3px);
+  color: var(--stitch-primary, #ffb4ab);
+}
+
+.design-stitch .presta-listing__link:focus-visible {
+  box-shadow: inset 0 0 0 2px var(--stitch-primary, #ffb4ab);
 }
 
 .design-stitch .presta-detail {

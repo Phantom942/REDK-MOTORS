@@ -1,10 +1,13 @@
 {% if relatedLinks and relatedLinks.length > 0 %}
+{% set relatedEven = relatedLinks | evenItems %}
+{% if relatedEven.length %}
 <aside class="article-related" aria-label="Pages utiles">
   <h2>À lire aussi sur le site</h2>
   <ul>
-    {% for link in relatedLinks %}
+    {% for link in relatedEven %}
     <li><a href="{{ link.url }}">{{ link.label }}</a></li>
     {% endfor %}
   </ul>
 </aside>
+{% endif %}
 {% endif %}

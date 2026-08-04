@@ -123,6 +123,8 @@
 {% include "conversion-tarifs-teaser.njk" %}
 
 {% if lp.services and lp.services.length %}
+{% set lpServiceLinks = lp.services | serviceLinksEven(page.url) %}
+{% if lpServiceLinks.length %}
 <section class="conversion-services" aria-labelledby="lp-services-title">
   <div class="container">
     {% set sectionKicker = "Prestations" %}
@@ -130,16 +132,15 @@
     {% set sectionHeadId = "lp-services-title" %}
     {% include "conversion-section-head.njk" %}
     <ul class="conversion-services__list">
-      {% for service in lp.services %}
-      {% if not (service.url | isSelfPageLink(page.url)) %}
+      {% for service in lpServiceLinks %}
       <li>
         <a href="{{ service.url }}" class="conversion-services__link">{{ service.title }}</a>
       </li>
-      {% endif %}
       {% endfor %}
     </ul>
   </div>
 </section>
+{% endif %}
 {% endif %}
 
 {% include "conversion-services-nav.njk" %}
