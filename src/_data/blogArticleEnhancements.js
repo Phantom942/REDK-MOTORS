@@ -244,18 +244,19 @@ module.exports = {
   },
   "controle-technique-2026-nouveautes": {
     directAnswer: {
-      question: "Quelles nouveautés pour le contrôle technique en 2026 ?",
+      question: "Quelle est la liste des points de contrôle technique 2026 ?",
       answer:
-        "Le CT renforce le contrôle pollution, le bruit et l'électronique embarquée (ADAS, freinage). Un entretien préalable (éclairage, pneus, freins, niveaux) limite les contre-visites.",
+        "Pollution/échappement (FAP), OBD/voyants, bruit, freinage, pneus, éclairage, direction/liaisons au sol et visibilité (pare-brise). Un pré-contrôle atelier limite les contre-visites.",
       facts: [
-        { label: "Préparation CT", value: "Contrôle pré-CT en atelier" },
-        { label: "Garage", value: "RED-K MOTORS · 94" },
+        { label: "Priorité diesel", value: "FAP + opacité + OBD" },
+        { label: "Préparation", value: "Pré-CT 1–2 semaines avant" },
+        { label: "Garage", value: "RED-K MOTORS · Ivry (94)" },
       ],
     },
     relatedLinks: [
-      { url: "/entretien/", label: "Entretien & révision" },
-      { url: "/blog/5-points-controle-avant-ct-ivry/", label: "5 points avant le CT" },
-      { url: "/contact/", label: "Contrôle pré-CT" },
+      { url: "/prestations/pre-controle-technique/", label: "Pré-contrôle technique" },
+      { url: "/blog/5-points-controle-avant-ct-ivry/", label: "5 checks avant le CT" },
+      { url: "/blog/suppression-fap-controle-technique-2026/", label: "FAP et CT 2026" },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -266,7 +267,15 @@ module.exports = {
           name: "Faut-il préparer sa voiture avant le contrôle technique ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Oui : vérifiez éclairage, pneus, freins, essuie-glaces et niveaux. Un passage atelier avant le CT réduit le risque de contre-visite.",
+            text: "Oui : feux, pneus, freins, niveaux, voyants, échappement/FAP. Un pré-contrôle en atelier 1 à 2 semaines avant réduit le risque de contre-visite.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Un FAP retiré passe-t-il le CT 2026 ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Non en principe : opacité, OBD et contrôle visuel font refuser un FAP supprimé ou modifié. Remise en conformité obligatoire.",
           },
         },
       ],
@@ -276,16 +285,16 @@ module.exports = {
     directAnswer: {
       question: "Que vérifier avant le contrôle technique à Ivry ?",
       answer:
-        "Contrôlez les feux, l'état des pneus, le freinage, les niveaux et l'échappement. Ces cinq points représentent une large part des refus au CT.",
+        "En priorité : tous les feux, freins (tirage / grincement), pneus ≥ 1,6 mm, niveaux sans fuite, échappement et voyant moteur. Ces cinq points évitent beaucoup de contre-visites.",
       facts: [
-        { label: "Local", value: "Centres CT proches d'Ivry-sur-Seine" },
-        { label: "Aide atelier", value: "RED-K MOTORS · devis gratuit" },
+        { label: "Délai idéal", value: "Pré-CT 1–2 semaines avant" },
+        { label: "Atelier", value: "9 rue Michelet · Ivry" },
       ],
     },
     relatedLinks: [
-      { url: "/pneumatiques/", label: "Pneus" },
+      { url: "/prestations/pre-controle-technique/", label: "Pré-contrôle technique" },
+      { url: "/blog/controle-technique-2026-nouveautes/", label: "Liste points CT 2026" },
       { url: "/freins/", label: "Freinage" },
-      { url: "/entretien/", label: "Révision" },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -296,7 +305,7 @@ module.exports = {
           name: "Combien coûte une contre-visite ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Le tarif est fixé par le centre agréé. Éviter la contre-visite en corrigeant les défauts majeurs avant le premier passage est le plus économique.",
+            text: "Le tarif est fixé par le centre agréé. Corriger les défauts majeurs avant le premier passage reste en général moins cher qu'une contre-visite + immobilisation.",
           },
         },
       ],
@@ -612,17 +621,18 @@ module.exports = {
   },
   "amortisseurs-usures-symptomes": {
     directAnswer: {
-      question: "Quels sont les signes d'amortisseurs usés ?",
+      question: "Quels sont les signes d'usure d'un amortisseur voiture ?",
       answer:
-        "Rebonds excessifs, freinage instable, aquaplaning plus fréquent, usure en « vague » des pneus ou bruits de claquement : les amortisseurs fatigués dégradent freinage et tenue de route.",
+        "Rebonds après un dos d'âne, plongée au freinage, claquements sur bosses, voiture qui flotte en virage, pneus usés en vagues, fuite d'huile sur l'amortisseur, ESP/ABS qui interviennent plus tôt.",
       facts: [
-        { label: "Contrôle", value: "Lors de chaque révision ou changement pneus" },
-        { label: "Garage", value: "RED-K MOTORS · mécanique" },
+        { label: "Test maison", value: "1 rebond OK · 2+ = à contrôler" },
+        { label: "Règle atelier", value: "Remplacement par paire (essieu)" },
+        { label: "Garage", value: "RED-K MOTORS · Ivry (94)" },
       ],
     },
     relatedLinks: [
-      { url: "/mecanique/", label: "Mécanique" },
-      { url: "/pneumatiques/", label: "Pneus" },
+      { url: "/prestations/amortisseurs/", label: "Prestation amortisseurs" },
+      { url: "/prestations/geometrie/", label: "Géométrie" },
       { url: "/contact/", label: "Diagnostic suspension" },
     ],
     faqSchema: {
@@ -634,7 +644,15 @@ module.exports = {
           name: "Faut-il changer les amortisseurs par paire ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Oui, on remplace au minimum par essieu (avant ou arrière) pour garder un comportement équilibré et une usure régulière des pneus.",
+            text: "Oui : au minimum les deux du même essieu (avant ou arrière) pour un comportement équilibré et une usure régulière des pneus.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Faut-il faire la géométrie après changement d'amortisseurs ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Souvent oui sur le train avant, surtout si les pneus montraient déjà une usure irrégulière. Le devis le précise après contrôle.",
           },
         },
       ],
