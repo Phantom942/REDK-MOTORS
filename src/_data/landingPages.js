@@ -110,7 +110,7 @@ const landingPages = {
       "Changement plaquettes et disques sur devis ferme. Conducteurs du 94 : RDV par téléphone ou WhatsApp.",
   },
   revision: {
-    videoSrc: "mecanique.mp4",
+    videoSrc: "entretien.mp4",
     heroKicker: "Entretien · Ivry-sur-Seine (94)",
     heroTitle: "Révision & Vidange à Ivry : Préservez votre Garantie Constructeur",
     heroDesc:
@@ -265,7 +265,7 @@ const landingPages = {
     seoFooter: "Envoyez une photo de l'impact par WhatsApp pour lancer le dossier.",
   },
   pneumatiques: {
-    videoSrc: "mecanique.mp4",
+    videoSrc: "pneumatique.mp4",
     heroKicker: "Montage · Équilibrage · Parallélisme",
     heroTitle: "Pneus & Géométrie à Ivry — Montage Rapide sur RDV",
     heroDesc:
@@ -297,7 +297,7 @@ const landingPages = {
     seoFooter: "Appelez avec la dimension de vos pneus pour un créneau rapide à Ivry-sur-Seine.",
   },
   vidange: {
-    videoSrc: "mecanique.mp4",
+    videoSrc: "entretien.mp4",
     heroKicker: "Huile constructeur · Filtre neuf",
     heroTitle: "Vidange à Ivry — Rapide, Huile Homologuée Constructeur",
     heroDesc:

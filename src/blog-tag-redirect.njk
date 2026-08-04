@@ -1,0 +1,23 @@
+---
+pagination:
+  data: blogTagRedirects
+  size: 1
+  alias: bt
+permalink: "{{ bt.from }}"
+eleventyExcludeFromCollections: true
+layout: false
+---
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Redirection…</title>
+  <link rel="canonical" href="{{ site.url }}{{ bt.to }}">
+  <meta http-equiv="refresh" content="0;url={{ bt.to }}">
+  <meta name="robots" content="noindex, follow">
+  <script>location.replace({{ bt.to | dump | safe }});</script>
+</head>
+<body>
+  <p>Redirection vers <a href="{{ bt.to }}">{{ bt.label }}</a>.</p>
+</body>
+</html>

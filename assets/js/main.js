@@ -349,6 +349,13 @@ document.addEventListener('DOMContentLoaded', function() {
         valid = false;
       }
       if (!valid) e.preventDefault();
+      else {
+        const submitBtn = form.querySelector('button[type="submit"], input[type="submit"]');
+        if (submitBtn && !submitBtn.disabled) {
+          submitBtn.disabled = true;
+          submitBtn.setAttribute('aria-busy', 'true');
+        }
+      }
     });
     form.querySelectorAll('input, select, textarea').forEach(input => {
       input.addEventListener('blur', () => validateField(input));

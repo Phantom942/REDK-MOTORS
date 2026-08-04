@@ -92,3 +92,53 @@
 /garage-proche-thiais             /vitry-sur-seine/  301
 /garage-proche-vincennes/         /paris-13/  301
 /garage-proche-vincennes          /paris-13/  301
+
+# Hub révision (lien mort) → entretien
+/revision/         /entretien/    301
+/revision          /entretien/    301
+
+# Landing Ads legacy
+/lp-diagnostic/    /diagnostic/   301
+/lp-diagnostic     /diagnostic/   301
+/lp-freinage/      /freins/       301
+/lp-freinage       /freins/       301
+/lp-revision/      /entretien/    301
+/lp-revision       /entretien/    301
+/lp-carrosserie/   /carrosserie/  301
+/lp-carrosserie    /carrosserie/  301
+
+# Tags blog orphelins → indexables
+/blog/tag/revision-auto/   /blog/tag/revision/        301
+/blog/tag/revision-auto    /blog/tag/revision/        301
+/blog/tag/plaquettes/      /blog/tag/freins/          301
+/blog/tag/plaquettes       /blog/tag/freins/          301
+/blog/tag/climatisation/   /blog/tag/entretien/       301
+/blog/tag/climatisation    /blog/tag/entretien/       301
+/blog/tag/tarifs/          /blog/tag/conseils-auto/   301
+/blog/tag/tarifs           /blog/tag/conseils-auto/   301
+/blog/tag/embrayage/       /blog/tag/mecanique/       301
+/blog/tag/embrayage        /blog/tag/mecanique/       301
+/blog/tag/suspension/      /blog/tag/mecanique/       301
+/blog/tag/suspension       /blog/tag/mecanique/       301
+/blog/tag/ivry-sur-seine/  /blog/tag/conseils-auto/   301
+/blog/tag/ivry-sur-seine   /blog/tag/conseils-auto/   301
+/blog/tag/reparation/      /blog/tag/mecanique/       301
+/blog/tag/reparation       /blog/tag/mecanique/       301
+/blog/tag/pollution/       /blog/tag/moteur/          301
+/blog/tag/pollution        /blog/tag/moteur/          301
+/blog/tag/allumage/        /blog/tag/moteur/          301
+/blog/tag/allumage         /blog/tag/moteur/          301
+/blog/tag/refroidissement/ /blog/tag/moteur/          301
+/blog/tag/refroidissement  /blog/tag/moteur/          301
+/blog/tag/courroie/        /blog/tag/mecanique/       301
+/blog/tag/courroie         /blog/tag/mecanique/       301
+/blog/tag/turbo/           /blog/tag/moteur/          301
+/blog/tag/turbo            /blog/tag/moteur/          301
+/blog/tag/electricite/     /blog/tag/diagnostic/      301
+/blog/tag/electricite      /blog/tag/diagnostic/      301
+/blog/tag/boite-automatique/  /blog/tag/entretien/    301
+/blog/tag/boite-automatique   /blog/tag/entretien/    301
+/blog/tag/batterie/        /blog/tag/mecanique/       301
+/blog/tag/batterie         /blog/tag/mecanique/       301
+/blog/tag/diesel/          /blog/tag/moteur/          301
+/blog/tag/diesel           /blog/tag/moteur/          301

@@ -2541,7 +2541,7 @@ module.exports = {
       ],
     },
     relatedLinks: [
-      { url: "/revision/", label: "Révision auto" },
+      { url: "/entretien/", label: "Révision auto" },
       { url: "/blog/revision-constructeur-que-comprend-vraiment-service/", label: "Contenu d'une révision" },
       { url: "/contact/", label: "Prendre rendez-vous" },
     ],

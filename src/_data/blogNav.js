@@ -45,7 +45,7 @@ module.exports = {
     },
     {
       label: "Freinage & pneus",
-      tags: ["freins", "pneus", "pneumatiques", "securite-routiere"],
+      tags: ["freins", "pneumatiques", "securite-routiere"],
     },
     {
       label: "Carrosserie",

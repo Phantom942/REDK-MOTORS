@@ -8,6 +8,7 @@ const path = require("path");
 
 const adLandingUrls = require("../src/_data/adLandingUrls.js");
 const garageProcheRedirects = require("../src/_data/garageProcheRedirects.js");
+const blogTagRedirects = require("../src/_data/blogTagRedirects.js");
 
 const SITE_URL = "https://redkmotors.fr";
 const OUT_DIR = path.join(__dirname, "..", "_site");
@@ -41,6 +42,15 @@ const STATIC_REDIRECTS = [
       [noSlash, to],
     ];
   }),
+  ...blogTagRedirects.flatMap(({ from, to }) => {
+    const noSlash = from.endsWith("/") ? from.slice(0, -1) : from;
+    return [
+      [from, to],
+      [noSlash, to],
+    ];
+  }),
+  ["/revision/", "/entretien/"],
+  ["/revision", "/entretien/"],
 ];
 
 function redirectHtml(target) {

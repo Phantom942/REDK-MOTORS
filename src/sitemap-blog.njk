@@ -22,4 +22,12 @@ eleventyExcludeFromCollections: true
     <priority>{{ meta.priority }}</priority>
   </url>
 {%- endfor %}
+{%- for tag in indexableTags %}
+  <url>
+    <loc>{{ site.url }}/blog/tag/{{ tag }}/</loc>
+    <lastmod>{{ buildDate }}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.55</priority>
+  </url>
+{%- endfor %}
 </urlset>
