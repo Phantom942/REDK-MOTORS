@@ -619,12 +619,12 @@ function buildLp(service, category) {
   const videoSrc = category === "Carrosserie" ? "carrosserie.mp4" : "mecanique.mp4";
 
   return {
-    heroTitle: ad.heroTitle || `${service.name} à Ivry-sur-Seine`,
-    heroKicker: ad.heroKicker || `${category} · Devis gratuit · Lun–sam 9h–19h`,
+    heroTitle: ad.heroTitle || `${service.name} à Ivry — Devis gratuit`,
+    heroKicker: ad.heroKicker || `${category} · Lun–sam 9h–19h · ☎ 06 48 74 56 68`,
     heroDesc:
       ad.heroDesc ||
-      `${service.name} à Ivry : diagnostic, devis clair et intervention validée avant travaux.`,
-    heroCtaLabel: "Appeler le 06.48.74.56.68",
+      `${service.name} à Ivry : diagnostic, devis écrit, travaux uniquement après votre accord. Réponse en journée.`,
+    heroCtaLabel: "Appeler le 06 48 74 56 68",
     videoSrc,
     symptoms: ad.symptoms || seoEnhance.symptoms[service.slug],
     trustNote: ad.trustNote,

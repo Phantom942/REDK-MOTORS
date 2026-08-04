@@ -31,9 +31,9 @@ function clampTitle(str, max = 65) {
 
 const GENERIC_SEO = {
   "pare-brise": {
-    title: "Prix pare-brise voiture · devis Ivry (94)",
+    title: "Prix pare-brise · franchise offerte + 150 € | Ivry",
     metaDescription:
-      "Prix pare-brise voiture : impact, fissure ou remplacement complet ? Fourchette indicative RED-K MOTORS à Ivry — diagnostic offert, franchise offerte, jusqu'à 150 €. Devis gratuit · 06 48 74 56 68.",
+      "Prix pare-brise voiture : impact ou remplacement ? Franchise offerte + jusqu'à 150 € à Ivry. Diagnostic offert · devis · ☎ 06 48 74 56 68.",
     searchQuery: "Prix pare-brise voiture",
     heroTitle: "Prix pare-brise voiture : combien ça coûte vraiment ?",
     problemTitle: "Impact, éclat ou fissure : la mauvaise surprise arrive souvent au devis",
@@ -50,9 +50,9 @@ const GENERIC_SEO = {
       "Photo WhatsApp pour un premier avis, inspection sur place et devis ferme. Sur remplacement : franchise bris de glace offerte + jusqu'à 150 € par l'atelier, avec accompagnement dossier assurance. Diagnostic offert à chaque passage.",
   },
   distribution: {
-    title: "Prix courroie de distribution · Ivry (94)",
+    title: "Prix courroie distribution · 450–990 € | Ivry",
     metaDescription:
-      "Prix courroie de distribution : retarder, c'est risquer la casse moteur. Fourchette indicative RED-K MOTORS à Ivry — diagnostic offert, devis ferme avant travaux. 06 48 74 56 68.",
+      "Prix courroie de distribution : 450–990 € indicatif à Ivry. Casse moteur si on attend. Diagnostic offert · devis · ☎ 06 48 74 56 68.",
     searchQuery: "Prix courroie de distribution",
     heroTitle: "Prix courroie de distribution : le coût de l'attente est bien plus élevé",
     problemTitle: "Courroie en retard : une réparation qui peut tout faire basculer",
@@ -69,9 +69,9 @@ const GENERIC_SEO = {
       "On vérifie l'état réel, on explique ce qui doit partir (courroie, galets, pompe à eau) et on chiffre avant validation. Diagnostic offert à chaque intervention — vous décidez en connaissance de cause.",
   },
   freinage: {
-    title: "Prix plaquettes de frein · Ivry (94)",
+    title: "Prix plaquettes de frein · 100–190 € | Ivry",
     metaDescription:
-      "Prix plaquettes de frein : grincement, pédale molle ou distance de freinage allongée ? Fourchette indicative RED-K MOTORS — diagnostic offert, devis avant travaux. Ivry (94) · 06 48 74 56 68.",
+      "Prix plaquettes de frein : 100–190 € indicatif (un essieu). Grincement ou freinage long ? Devis à Ivry · ☎ 06 48 74 56 68.",
     searchQuery: "Prix plaquettes de frein",
     heroTitle: "Prix plaquettes de frein : votre sécurité ne devrait pas attendre le CT",
     problemTitle: "Freins qui grincent ou qui tirent : le risque est réel, pas théorique",
@@ -88,9 +88,9 @@ const GENERIC_SEO = {
       "On mesure l'usure, on vous montre ce qui est urgent et ce qui peut attendre. Diagnostic offert à chaque intervention — vous repartez avec un devis ferme, sans travaux cachés.",
   },
   vidange: {
-    title: "Prix vidange moteur · Ivry (94)",
+    title: "Prix vidange moteur · 70–150 € | Ivry",
     metaDescription:
-      "Prix vidange moteur : huile usée = moteur qui vieillit plus vite. Fourchette indicative RED-K MOTORS à Ivry — huile homologuée constructeur, diagnostic offert. Devis gratuit · 06 48 74 56 68.",
+      "Prix vidange moteur : 70–150 € indicatif à Ivry. Huile homologuée + filtre. Diagnostic offert · ☎ 06 48 74 56 68.",
     searchQuery: "Prix vidange moteur",
     heroTitle: "Prix vidange moteur : l'entretien qu'on oublie… jusqu'à la panne",
     problemTitle: "Vidange repoussée : votre moteur encaisse en silence",
@@ -107,9 +107,9 @@ const GENERIC_SEO = {
       "Huile et filtre adaptés au carnet constructeur, contrôle des niveaux inclus. Diagnostic offert à chaque intervention : on repère les petits problèmes avant qu'ils deviennent gros.",
   },
   pneus: {
-    title: "Prix montage pneus · Ivry (94)",
+    title: "Prix montage pneus · 60–150 € | Ivry",
     metaDescription:
-      "Prix montage et équilibrage pneus : usure irrégulière, volant qui tire, crevaison ? Fourchette indicative RED-K MOTORS à Ivry — diagnostic offert. Devis au modèle · 06 48 74 56 68.",
+      "Prix montage et équilibrage pneus : 60–150 € hors pneus à Ivry. Devis au modèle · ☎ 06 48 74 56 68.",
     searchQuery: "Prix montage pneus",
     heroTitle: "Prix montage pneus : rouler sur du doute, c'est rouler en danger",
     problemTitle: "Pneus usés ou mal montés : l'accrochage ne pardonne pas",
@@ -126,9 +126,9 @@ const GENERIC_SEO = {
       "On vérifie l'usure et la dimension, on monte et équilibre correctement. Diagnostic offert à chaque intervention — parallélisme recommandé si besoin, expliqué avant devis.",
   },
   clim: {
-    title: "Prix recharge clim voiture · 40 € · Ivry (94)",
+    title: "Prix recharge clim voiture · 40 € | Ivry",
     metaDescription:
-      "Prix recharge climatisation voiture : air tiède, mauvaise odeur, clim morte avant l'été ? RED-K MOTORS à Ivry : recharge 40 €, diagnostic offert, contrôle d'étanchéité avant intervention. 06 48 74 56 68.",
+      "Prix recharge clim voiture : 40 € après contrôle à Ivry (Renault & toutes marques). Fuite chiffrée avant travaux · ☎ 06 48 74 56 68.",
     searchQuery: "Prix recharge climatisation voiture",
     heroTitle: "Prix recharge clim voiture : 40 € — avant que la chaleur vous rattrape",
     problemTitle: "Clim tiède en été : inconfort, fatigue au volant, trajets subis",
@@ -145,9 +145,9 @@ const GENERIC_SEO = {
       "Contrôle du circuit avant recharge. Si tout est OK : 40 €. Fuite ou compresseur : on vous l'explique clairement avant tout travaux supplémentaire. Diagnostic offert à chaque intervention.",
   },
   embrayage: {
-    title: "Prix embrayage voiture · Ivry (94)",
+    title: "Prix embrayage voiture · 800–1600 € | Ivry",
     metaDescription:
-      "Prix embrayage : patinage, odeur de brûlé, pédale haute ? Fourchette indicative RED-K MOTORS à Ivry — diagnostic offert, devis ferme avant démontage. 06 48 74 56 68.",
+      "Prix embrayage : 800–1 600 € indicatif à Ivry. Patinage, odeur, pédale haute ? Diagnostic offert · devis · ☎ 06 48 74 56 68.",
     searchQuery: "Prix embrayage voiture",
     heroTitle: "Prix embrayage : patinage aujourd'hui, immobilisation demain",
     problemTitle: "Embrayage qui patine : la panne arrive toujours au pire moment",
@@ -164,9 +164,9 @@ const GENERIC_SEO = {
       "On confirme l'usure, on chiffre kit + main-d'œuvre (volant bi-masse si nécessaire) et on valide avec vous avant d'ouvrir la boîte. Diagnostic offert à chaque intervention.",
   },
   batterie: {
-    title: "Prix batterie voiture · Ivry (94)",
+    title: "Prix batterie voiture · 120–250 € | Ivry",
     metaDescription:
-      "Prix batterie voiture : démarrage lent, voyant, panne un matin de froid ? Fourchette indicative RED-K MOTORS — test batterie/alternateur, diagnostic offert. Ivry (94) · 06 48 74 56 68.",
+      "Prix batterie voiture : 120–250 € indicatif à Ivry. Démarrage lent ou voyant ? Test inclus · ☎ 06 48 74 56 68.",
     searchQuery: "Prix batterie voiture",
     heroTitle: "Prix batterie voiture : le matin où elle ne démarre plus, c'est trop tard",
     problemTitle: "Démarrage lent ou voyant batterie : la panne totale approche",
@@ -518,33 +518,56 @@ function buildExample(model, serviceKey) {
 
 function buildTitle(ex) {
   const short = SHORT_SERVICE[ex.serviceKey] || ex.serviceLabel;
+  const snip = priceSnippet(ex.redkPrice);
+
   if (ex.isGeneric && ex.title) {
-    return clampTitle(ex.title, 65);
+    return clampTitle(ex.title, 60);
   }
   if (ex.isGeneric) {
-    return clampTitle(`Prix ${short} · Ivry (94)`, 65);
+    return clampTitle(snip ? `Prix ${short} ${snip} · Ivry` : `Prix ${short} · devis Ivry`, 60);
   }
-  return clampTitle(`Prix ${short} ${ex.brand} ${ex.model} · Ivry`, 65);
+  if (snip && snip.length <= 18) {
+    return clampTitle(`Prix ${short} ${ex.brand} ${ex.model} · ${snip}`, 60);
+  }
+  return clampTitle(`Prix ${short} ${ex.brand} ${ex.model} · devis Ivry`, 60);
+}
+
+/** Extrait un prix court pour le title Google (CTR). */
+function priceSnippet(redkPrice) {
+  if (!redkPrice) return "";
+  const raw = String(redkPrice).replace(/\s+/g, " ").trim();
+  if (/variable/i.test(raw)) {
+    const m = raw.match(/(\d[\d\s]*)\s*€/);
+    return m ? `jusqu'à ${m[1].replace(/\s/g, "")} €` : "";
+  }
+  return raw.replace(/ à /g, "–");
 }
 
 function buildDescription(ex) {
+  const short = SHORT_SERVICE[ex.serviceKey] || ex.serviceLabel;
+  const phone = "☎ 06 48 74 56 68";
+
   if (ex.isGeneric && ex.metaDescription) {
-    return ex.metaDescription;
+    return ensurePhoneCta(ex.metaDescription, phone);
   }
   if (ex.isGeneric) {
-    return `Combien coûte un ${ex.serviceLabel} ? Exemple concret citadine, compacte ou SUV — fourchette indicative RED-K MOTORS à Ivry (94). Devis gratuit · 06 48 74 56 68.`;
+    return ensurePhoneCta(
+      `Combien coûte un ${ex.serviceLabel} ? Exemple ${ex.redkPrice} à Ivry — diagnostic offert, devis avant travaux.`,
+      phone
+    );
   }
-  const segmentHints = {
-    citadine: "Segment citadine — pièces et main-d'œuvre souvent plus accessibles qu'un SUV.",
-    compacte: "Berline compacte — fourchette typique du segment familial français.",
-    suv: "SUV ou crossover — vitrage, freins et pneus peuvent coûter plus qu'une citadine.",
-    monospace: "Monospace — accès atelier et dimensions pneus à prévoir au devis.",
-    premium: "Véhicule premium — pièces et temps d'intervention souvent supérieurs.",
-    utilitaire: "Utilitaire léger — contraintes d'usage pro à intégrer au devis.",
-  };
-  const segmentNote = segmentHints[ex.segment] || "";
-  const tireNote = ex.tireSize ? ` Pneus courants : ${ex.tireSize}.` : "";
-  return `Prix ${ex.serviceLabel} ${ex.brand} ${ex.model} : combien ça coûte ? Exemple à Ivry ${ex.redkPrice}.${tireNote} Devis gratuit · ☎ 06 48 74 56 68.`.replace(/\s+/g, " ").trim();
+  return ensurePhoneCta(
+    `Prix ${short} ${ex.brand} ${ex.model} : exemple ${ex.redkPrice} à Ivry. Diagnostic offert · devis gratuit.`,
+    phone
+  );
+}
+
+function ensurePhoneCta(text, phone) {
+  const clean = String(text || "")
+    .replace(/\s+/g, " ")
+    .trim();
+  if (/06\s*48\s*74|☎/i.test(clean)) return clean;
+  return `${clean.replace(/\.$/, "")} · ${phone}.`;
 }
 
 function buildQuery(ex) {

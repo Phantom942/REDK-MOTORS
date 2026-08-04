@@ -6,12 +6,12 @@ module.exports = {
     title: (data) => {
       const { clampTitle } = require("../../_data/priceExamples.js");
       return clampTitle(
-        `Prix entretien ${data.modele.brand} ${data.modele.model} · Ivry (94)`,
-        65
+        `Prix ${data.modele.brand} ${data.modele.model} : vidange, freins, clim… | Ivry`,
+        60
       );
     },
     description: (data) =>
-      `Exemples de prix pour ${data.modele.brand} ${data.modele.model} (${data.modele.yearRange}) : vidange, freins, pneus, clim, distribution, embrayage, batterie, pare-brise. Comparatifs indicatifs à Ivry-sur-Seine.`,
+      `Prix entretien ${data.modele.brand} ${data.modele.model} (${data.modele.yearRange}) à Ivry : vidange, freins, pneus, clim, distribution, embrayage, batterie, pare-brise. Exemples + devis · ☎ 06 48 74 56 68.`,
     lastReviewed: () => "2026-07-20",
     pageKey: () => "exemple-modele-hub",
     seoOnly: () => true,
