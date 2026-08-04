@@ -4,6 +4,75 @@ const seoEnhance = require("./prestationSeoEnhancements.js");
 const TARIFS_FAQ =
   "Consultez notre grille tarifaire sur redkmotors.fr/tarifs/ — devis fermé après inspection.";
 
+/** Réponses prix différenciées (évite le même texte ×40 prestations). */
+const PRICE_FAQ_BY_SLUG = {
+  "vidange-moteur":
+    "Fourchette indicative sur /tarifs/ et /exemples/prix-vidange-moteur/ — le devis ferme dépend de l'huile homologuée et des filtres de votre véhicule.",
+  "revision-entretien":
+    "Le montant suit le carnet constructeur (points contrôlés, pièces). Voir /tarifs/ puis devis écrit après inspection.",
+  "plaquettes-disques":
+    "Plaquettes / disques : fourchettes sur /tarifs/ et /exemples/prix-plaquettes-frein/ — devis après mesure d'usure réelle (jamais un forfait opaque).",
+  "remplacement-batterie":
+    "Batterie classique ou Start-Stop : exemple sur /exemples/prix-batterie/ — devis selon ampérage et type de véhicule.",
+  "distribution-injection":
+    "Courroie / chaîne / kit : fourchette indicative sur /exemples/prix-courroie-distribution/ — chiffrage ferme après contrôle moteur.",
+  "recharge-clim":
+    "Recharge clim : voir /exemples/prix-recharge-climatisation/ — devis après contrôle d'étanchéité du circuit.",
+  "diagnostic-voyant-moteur":
+    "Diagnostic valise : grille sur /tarifs/. Offert si une réparation mécanique est validée ensuite (voir offre atelier).",
+  "diagnostic-electronique":
+    "Lecture codes + diagnostic : tarif sur /tarifs/ — offert en cas d'intervention mécanique validée.",
+  amortisseurs:
+    "Remplacement par essieu (avant ou arrière) : devis après contrôle géométrie et état des coupelles — jamais un seul côté.",
+  embrayage:
+    "Kit embrayage : fourchette sur /exemples/prix-embrayage/ — devis ferme après diagnostic (patinage, point de croisement, bruits).",
+  "montage-equilibrage":
+    "Montage + équilibrage : voir /exemples/prix-montage-pneus/ — devis selon dimensions et type (été/hiver/runflat).",
+  geometrie:
+    "Parallélisme / géométrie : tarif indicatif sur /tarifs/ — souvent recommandé après pneus, choc ou usure en biais.",
+  "pre-controle-technique":
+    "Pré-CT : forfait contrôle des points de refus fréquents — devis réparation séparé si des défauts sont trouvés.",
+  "purge-liquide-frein":
+    "Purge circuit : tarif sur /tarifs/ — utile si pédale spongieuse ou liquide sombre / hygrométrie élevée.",
+  "diagnostic-abs":
+    "Lecture codes ABS + contrôle capteurs : grille /tarifs/ — réparation (capteur, faisceau…) chiffrée ensuite.",
+  "recherche-de-panne":
+    "Temps diagnostic selon complexité — voir /tarifs/. Devis réparation séparé après identification de la cause.",
+  "pare-brise-vitrage":
+    "Pare-brise / vitrage : exemple sur /exemples/prix-pare-brise/ — devis photo WhatsApp possible selon impact.",
+};
+
+const WHEN_FAQ_BY_SLUG = {
+  "vidange-moteur":
+    "Selon le carnet (souvent 10–15 000 km ou 1 an) ou dès que l'huile est noire, le niveau baisse ou le voyant s'allume.",
+  "revision-entretien":
+    "À l'échéance constructeur (km ou mois) — ou avant un long trajet / contrôle technique si l'entretien est en retard.",
+  "plaquettes-disques":
+    "Grincement, pédale molle, vibration au freinage ou usure mesurée hors cote : contrôle immédiat recommandé.",
+  "remplacement-batterie":
+    "Démarrages difficiles, clic au contact, batterie >4–5 ans ou test au voltmètre/chargeur hors norme.",
+  "distribution-injection":
+    "À l'échéance constructeur (souvent 5–10 ans / 80–160 000 km) — ne pas attendre le claquement moteur.",
+  "recharge-clim":
+    "Air tiède, buée persistante ou odeur : contrôle pression + recharge après test d'étanchéité.",
+  "diagnostic-voyant-moteur":
+    "Dès que le voyant s'allume, surtout s'il clignote, en mode dégradé ou avec perte de puissance.",
+  amortisseurs:
+    "Rebonds après dos-d'âne, tenue floue, usure pneus en vagues ou fuite d'huile sur l'amortisseur.",
+  embrayage:
+    "Patinage à l'accélération, point de croisement haut, bruits ou odeur de brûlé à l'embrayage.",
+  "montage-equilibrage":
+    "Pneu usé/crevé, vibrations à vitesse, ou changement saisonnier été/hiver.",
+  geometrie:
+    "Volant qui tire, usure pneus en bordure, après choc trottoir ou remplacement de trains.",
+  "pre-controle-technique":
+    "Idéalement 2–4 semaines avant le CT, ou juste après un refus pour préparer la contre-visite.",
+  "diagnostic-abs":
+    "Voyant ABS/ESP allumé, freinage qui pulse ou ABS actif sur route sèche : lecture codes recommandée.",
+  "recherche-de-panne":
+    "Perte de puissance, bruit anormal, calage ou panne intermittente : diagnostic atelier avant de changer des pièces.",
+};
+
 const PROCESS_STEPS = [
   { title: "Contactez-nous", desc: "Téléphone, WhatsApp ou formulaire — réponse en journée." },
   { title: "Devis clair", desc: "Inspection, explication et chiffrage avant travaux." },
@@ -620,6 +689,7 @@ function buildLp(service, category) {
   const extraFaqs = seoEnhance.extraFaqs[service.slug] || [];
   const hubUrl = CATEGORY_HUB[category] || "/prestations/";
   const videoSrc = category === "Carrosserie" ? "carrosserie.mp4" : "mecanique.mp4";
+  const faqOverride = seoEnhance.faqOverrides?.[service.slug];
 
   return {
     heroTitle: ad.heroTitle || `${service.name} à Ivry — Devis gratuit`,
@@ -651,22 +721,27 @@ function buildLp(service, category) {
       { title: "Toutes nos prestations", url: "/prestations/" },
       { title: "Tarifs indicatifs", url: "/tarifs/" },
     ],
-    faqs: [
-      {
-        question: `Quand faut-il prévoir ${service.name.toLowerCase()} ?`,
-        answer:
-          "Signes d'usure, voyant ou comportement anormal : un contrôle rapide permet de confirmer le besoin.",
-      },
-      {
-        question: `Combien coûte ${service.name.toLowerCase()} ?`,
-        answer: TARIFS_FAQ,
-      },
-      {
-        question: "Comment prendre rendez-vous ?",
-        answer: "06 48 74 56 68, WhatsApp ou formulaire contact. Réponse en journée lun–sam 9h–19h.",
-      },
-      ...extraFaqs,
-    ],
+    faqs: faqOverride
+      ? [...faqOverride, ...extraFaqs]
+      : [
+          {
+            question: `Quand faut-il prévoir ${service.name.toLowerCase()} ?`,
+            answer:
+              WHEN_FAQ_BY_SLUG[service.slug] ||
+              "Signes d'usure, voyant ou comportement anormal : un contrôle rapide en atelier permet de confirmer le besoin avant d'engager des pièces.",
+          },
+          {
+            question: `Combien coûte ${service.name.toLowerCase()} ?`,
+            answer: PRICE_FAQ_BY_SLUG[service.slug] || TARIFS_FAQ,
+          },
+          {
+            question: "Comment prendre rendez-vous ?",
+            answer: DIAGNOSTIC_ONLY_SLUGS.has(service.slug)
+              ? "Appelez le 06 48 74 56 68 ou WhatsApp avec plaque + symptômes — créneau diagnostic souvent le jour même lun–sam 9h–19h."
+              : "06 48 74 56 68, WhatsApp (photos utiles) ou formulaire contact — réponse en journée, lun–sam 9h–19h.",
+          },
+          ...extraFaqs,
+        ],
     seoProblems: seo.seoProblems || seoEnhance.seoProblems[service.slug],
     seoParagraphs: [...(seo.seoParagraphs || []), ...extraParagraphs],
     seoTitle: seo.seoTitle,

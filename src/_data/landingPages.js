@@ -2,9 +2,24 @@
  * Contenu des landing pages — services + Google Ads.
  * URLs campagnes : adLandingUrls.js
  */
-const TARIFS_FAQ =
-  "Consultez notre grille tarifaire sur redkmotors.fr/tarifs/ — devis fermé après inspection au véhicule.";
-
+const TARIFS_FAQ_BY_KEY = {
+  diagnostic:
+    "Tarif diagnostic valise sur /tarifs/ — offert si une réparation mécanique est validée ensuite à l'atelier.",
+  freinage:
+    "Fourchettes plaquettes/disques sur /tarifs/ et /exemples/prix-plaquettes-frein/ — devis après mesure d'usure, pas de forfait « kit complet » imposé.",
+  revision:
+    "Révision / vidange : fourchettes sur /tarifs/ — devis selon carnet constructeur, huile et filtres adaptés.",
+  mecanique:
+    "Le montant dépend de la panne (distribution, embrayage, turbo…). Voir /tarifs/ puis devis écrit après diagnostic.",
+  pneumatiques:
+    "Montage / équilibrage : exemples sur /exemples/prix-montage-pneus/ — devis selon dimensions et type de pneu.",
+  carrosserie:
+    "Débosselage / peinture : devis sur photo WhatsApp possible — chiffrage ferme après inspection en atelier.",
+  "pare-brise":
+    "Pare-brise / vitrage : fourchette sur /exemples/prix-pare-brise/ — devis selon impact et modèle.",
+  vidange:
+    "Vidange : exemple sur /exemples/prix-vidange-moteur/ — devis ferme selon huile homologuée et filtres.",
+};
 const PROCESS_STEPS = [
   { title: "Contactez-nous", desc: "Téléphone, WhatsApp ou formulaire — réponse en journée lun–sam 9h–19h." },
   { title: "Devis clair", desc: "Inspection au véhicule, explication et chiffrage avant toute intervention." },
@@ -40,7 +55,7 @@ const landingPages = {
       { title: "Entretien préventif", url: "/entretien/" },
     ],
     faqs: [
-      { question: "Combien coûte un diagnostic ?", answer: TARIFS_FAQ },
+      { question: "Combien coûte un diagnostic ?", answer: TARIFS_FAQ_BY_KEY.diagnostic },
       { question: "Faut-il prendre rendez-vous ?", answer: "Recommandé pour garantir un créneau. Appel ou WhatsApp — souvent le jour même." },
       { question: "Réparez-vous après le diagnostic ?", answer: "Oui, sur devis validé par vous — pas de remplacement « au hasard »." },
     ],
@@ -83,12 +98,12 @@ const landingPages = {
     ],
     faqs: [
       { question: "Comment savoir si mes freins sont usés ?", answer: "Grincement, pédale molle ou voyant : passez à l'atelier pour un contrôle gratuit." },
-      { question: "Combien coûte un changement de plaquettes ?", answer: TARIFS_FAQ },
+      { question: "Combien coûte un changement de plaquettes ?", answer: TARIFS_FAQ_BY_KEY.freinage },
       { question: "Intervention rapide ?", answer: "Oui, souvent le jour même sur rendez-vous." },
     ],
-    seoTitle: "Freinage et plaquettes de frein à Ivry",
+    seoTitle: "Freinage automobile à Ivry — hub plaquettes, disques & ABS",
     seoParagraphs: [
-      "Plaquettes, disques, purge de liquide de frein et diagnostic ABS : nous contrôlons l'usure réelle avant tout changement de plaquettes de frein.",
+      "Hub freinage : plaquettes, disques, purge de liquide et diagnostic ABS. Contrôle d'usure réel avant tout changement — distinct de la landing « changement plaquettes 94 ».",
       "Freins qui grincent, pédale molle ou voyant allumé ? Ne remettez pas — contrôle gratuit à l'atelier.",
     ],
     seoFooter:
@@ -118,13 +133,13 @@ const landingPages = {
     ],
     faqs: [
       { question: "Respectez-vous le carnet d'entretien ?", answer: "Oui — préconisations constructeur et pièces adaptées quand c'est possible." },
-      { question: "Combien coûte une révision ?", answer: TARIFS_FAQ },
+      { question: "Combien coûte une révision ?", answer: TARIFS_FAQ_BY_KEY.revision },
       { question: "Comment prendre RDV ?", answer: "06 48 74 56 68, WhatsApp ou contact. Créneau sous 48 h en général." },
     ],
-    seoTitle: "Entretien, révision et climatisation",
+    seoTitle: "Entretien auto à Ivry — révision, clim et pré-CT",
     seoParagraphs: [
-      "Révision selon carnet constructeur, vidange moteur, filtres et recharge climatisation : entretien complet avec pièces adaptées à votre véhicule.",
-      "La clim ne refroidit plus ou sent mauvais ? Diagnostic du circuit clim avant recharge — réparation climatisation sur devis.",
+      "Hub entretien : révision carnet, filtres, recharge clim et pré-contrôle technique — plus large qu'une vidange seule ou une revision-voiture-ivry dédiée.",
+      "La clim ne refroidit plus ou sent mauvais ? Diagnostic du circuit avant recharge — réparation clim sur devis.",
     ],
     seoFooter:
       "Vidange souvent le jour même sur rendez-vous. Garage à Ivry (94), ouvert lun–sam 9h–19h.",
@@ -306,10 +321,10 @@ const landingPages = {
       { question: "Combien de temps sans voiture ?", answer: "Comptez 30 minutes à 1 heure en général." },
       { question: "Faut-il un rendez-vous ?", answer: "Recommandé — créneau possible dans la journée. 06 48 74 56 68." },
     ],
-    seoTitle: "Vidange moteur à Ivry",
+    seoTitle: "Vidange moteur à Ivry — service huile & filtre",
     seoParagraphs: [
-      "Vidange avec huile homologuée constructeur, filtre à huile neuf et contrôle des niveaux — souvent réalisée le jour même sur rendez-vous.",
-      "Entretien courant pour préserver moteur et garantie : complément idéal d'une révision ou d'un passage au contrôle technique.",
+      "Hub vidange : huile homologuée constructeur et filtre neuf, distinct d'une révision complète au carnet ou d'une landing « vidange express ».",
+      "Souvent le jour même sur rendez-vous — contrôle des niveaux inclus. Complément idéal d'une révision ou d'un passage au contrôle technique.",
     ],
     seoFooter: "Fourchettes tarifaires sur redkmotors.fr/tarifs/ — devis fermé après inspection au véhicule.",
   },

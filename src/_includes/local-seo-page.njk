@@ -37,7 +37,7 @@
 {% endif %}
 
 {% set pageSymptoms = symptoms | default(lp.symptoms) %}
-{% if pageSymptoms and pageSymptoms.length %}
+{% if pageSymptoms and pageSymptoms.length and not (lp.seoProblems and lp.seoProblems.length >= 4) %}
   {% set symptoms = pageSymptoms %}
   {% set symptomsSectionId = "local-symptoms-" ~ pageKey %}
   {% include "lp-symptoms.njk" %}

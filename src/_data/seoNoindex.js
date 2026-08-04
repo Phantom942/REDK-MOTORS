@@ -6,6 +6,22 @@
  *
  * Matching = startsWith(prefix) uniquement (jamais "contains") pour ne pas
  * noindexer un article blog du type /blog/voyant-abs-allume-…/
+ *
+ * Clusters money vs hubs (garder doorways faibles hors whitelist) :
+ * - Freins : indexables = /freins/ (hub) + /changement-plaquettes-frein-94/ + /voyant-abs-allume-94/
+ *   noindex volontaire : /bruit-frein-voiture-* (hors whitelist), /changement-plaquettes-frein-* (hors 94)
+ * - Batterie : indexable = /changement-batterie-94/ ; noindex = /changement-batterie-* autres
+ * - Vidange/révision : indexables = /vidange/, /entretien/, /revision-voiture-ivry/,
+ *   /revision-auto-val-de-marne/, /vidange-rapide-ivry/ ;
+ *   noindex : /revision-rapide-*, /revision-auto-* ville (Vitry, Choisy…), /vidange-rapide-* hors ivry
+ * - Clim : indexables = /clim-voiture-ne-refroidit-plus-94/ + /reparation-climatisation-ivry/ ;
+ *   noindex : /clim-voiture-ne-refroidit-plus-* autres, /reparation-climatisation-* hors ivry
+ *
+ * Garage-proche (~16) : toutes noindex via préfixe /garage-proche-.
+ * Stub redirect déjà en place : /garage-proche-maisons-alfort/ → /maisons-alfort/
+ * (seul vrai doublon ville money). Pas d'autre twin exact (pas de /creteil/, /vincennes/…).
+ * Candidats futurs (si page ville money créée) : creteil, vincennes, saint-mande,
+ * joinville-le-pont, choisy-le-roi, cachan, arcueil, gentilly — sinon laisser noindex.
  */
 module.exports = {
   prefixes: [
@@ -46,10 +62,12 @@ module.exports = {
     "/carrosserie-peinture-ivry/",
     "/garage-ouvert-samedi-",
     "/lp-",
+    "/liens",
   ],
   /**
    * Landings fortes à garder indexables malgré un préfixe noindex.
    * ~15 max — contenu différencié (éviter doorway).
+   * Ne pas ajouter bruit-frein, revision-rapide, revision-auto-ville, garage-proche.
    */
   indexablePaths: [
     "/changement-batterie-94/",

@@ -7,6 +7,11 @@ pagination:
   data: collections.blog
   size: 20
   reverse: true
+eleventyComputed:
+  title: "{% if pagination.pageNumber > 0 %}Blog — page {{ pagination.pageNumber + 1 }} | Conseils auto | RED-K MOTORS{% else %}Blog | Conseils auto, entretien et mécanique | RED-K MOTORS{% endif %}"
+  description: "{% if pagination.pageNumber > 0 %}Page {{ pagination.pageNumber + 1 }} du blog RED-K MOTORS — conseils auto, entretien et mécanique à Ivry-sur-Seine.{% else %}Conseils et actualités du garage RED-K MOTORS à Ivry-sur-Seine. Entretien, mécanique, carrosserie, pneumatiques — tous nos articles pour prendre soin de votre véhicule.{% endif %}"
+  robots: "{% if pagination.pageNumber > 0 %}noindex, follow{% else %}index, follow{% endif %}"
+  canonicalPath: "{% if pagination.pageNumber > 0 %}/blog/{% else %}{{ page.url }}{% endif %}"
 breadcrumb:
   "@context": "https://schema.org"
   "@type": "BreadcrumbList"

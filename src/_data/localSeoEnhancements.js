@@ -275,32 +275,46 @@ const PAGE_OVERRIDES = {
       "Vibrations dans le volant",
       "Pédale qui tremble",
     ],
+    // Page noindex (doorway) — texte distinct du hub /freins/ et de /changement-plaquettes-frein-94/
+    seoTitle: "Bruit au freinage — diagnostic plaquettes & disques (94)",
+    seoParagraphs: [
+      "Grincement, sifflement ou frottement métallique : on écoute le type de bruit, on mesure l'usure plaquettes/disques et on contrôle le liquide avant de proposer un devis.",
+      "Objectif : distinguer usure normale, disque rayé ou autre cause — atelier Ivry, sans forfait opaque.",
+    ],
+    seoProblems: [
+      { text: "Signaux d'usure plaquettes", url: "/blog/plaquettes-frein-usure-signaux-a-ne-pas-ignorer/" },
+      { text: "Hub freinage Ivry", url: "/freins/" },
+      { text: "Changement plaquettes 94", url: "/changement-plaquettes-frein-94/" },
+    ],
   },
   clim94Seo: {
+    // Money symptôme « ne refroidit plus » ≠ /reparation-climatisation-ivry/ (réparation circuit) ≠ prestation recharge
     symptoms: [
       "Air tiède malgré clim au max",
       "Odeur moisi à la ventilation",
       "Clim qui s'arrête en ville",
       "Buée ou manque de débit d'air",
     ],
-    seoTitle: "Clim qui ne refroidit plus — diagnostic & recharge 94",
+    seoTitle: "Clim qui ne refroidit plus — diagnostic avant recharge (94)",
     seoParagraphs: [
       "Air tiède, odeur ou clim qui coupe : on mesure les pressions, on cherche une fuite éventuelle et on recharge uniquement si le circuit est sain. Évite de « remplir à l'aveugle ».",
-      "Recharge et contrôle clim sur rendez-vous à Ivry — devis avant intervention, pièces et gaz adaptés.",
+      "Page symptômes 94 — pour une réparation de circuit (compresseur, fuite), voir aussi réparation clim Ivry.",
     ],
     seoProblems: [
-      { text: "Recharge clim Ivry", url: "/blog/climatisation-voiture-recharge-ivry/" },
+      { text: "Réparation clim Ivry", url: "/reparation-climatisation-ivry/" },
+      { text: "Recharge clim prestation", url: "/prestations/recharge-clim/" },
       { text: "Prix recharge clim", url: "/blog/prix-recharge-climatisation-94/" },
       { text: "Odeur moisi clim", url: "/blog/clim-odeur-moisi-que-faire/" },
     ],
   },
   climIvrySeo: {
-    seoTitle: "Réparation climatisation auto à Ivry-sur-Seine",
+    seoTitle: "Réparation circuit clim à Ivry — fuite & compresseur",
     seoParagraphs: [
-      "Atelier clim : test d'étanchéité, contrôle compresseur, recharge et désinfection du circuit si besoin. On vous dit si une simple recharge suffit ou s'il y a une fuite à traiter.",
+      "Atelier clim : test d'étanchéité, contrôle compresseur, recharge et désinfection si besoin. On distingue recharge simple et vraie réparation de circuit.",
       "Conducteurs d'Ivry, Vitry, Villejuif et Paris sud : créneau souvent disponible en semaine et le samedi.",
     ],
     seoProblems: [
+      { text: "Symptôme clim tiède 94", url: "/clim-voiture-ne-refroidit-plus-94/" },
       { text: "Guide recharge clim", url: "/blog/climatisation-voiture-recharge-ivry/" },
       { text: "Exemple de prix clim", url: "/exemples/prix-recharge-climatisation/" },
     ],
@@ -330,8 +344,19 @@ const PAGE_OVERRIDES = {
       "Tirage à gauche ou droite",
       "Usure inégale des pneus",
     ],
+    seoTitle: "Volant qui tremble — équilibrage & géométrie 94",
+    seoParagraphs: [
+      "Tremblement sur autoroute : on contrôle équilibrage, géométrie et état des pneus avant de parler freins ou suspension. Cause fréquente après un montage ou un choc de trottoir.",
+      "Diagnostic vibrations à Ivry — devis avant réglage ou remplacement.",
+    ],
+    seoProblems: [
+      { text: "Géométrie des roues", url: "/blog/geometrie-roues-signes-mauvais-alignement/" },
+      { text: "Montage pneus", url: "/prestations/montage-equilibrage/" },
+      { text: "Hub pneumatiques", url: "/pneumatiques/" },
+    ],
   },
   batterie94Seo: {
+    // Money batterie ≠ hub démarrage (/voiture-ne-demarre-plus-94/) ≠ prestation /prestations/remplacement-batterie/
     seoTitle: "Changement de batterie voiture à Ivry (94)",
     seoParagraphs: [
       "Démarrage lent, cliquetis ou voyants au contact : on teste la batterie et le circuit de charge avant de remplacer. Une batterie neuve sur un alternateur HS ne règle rien.",
@@ -340,18 +365,21 @@ const PAGE_OVERRIDES = {
     seoProblems: [
       { text: "Quand changer la batterie", url: "/blog/batterie-voiture-quand-changer/" },
       { text: "Prix batterie 94", url: "/blog/prix-changement-batterie-94/" },
+      { text: "Prestation batterie atelier", url: "/prestations/remplacement-batterie/" },
       { text: "Voiture qui ne démarre pas", url: "/blog/voiture-ne-demarre-pas-causes/" },
     ],
   },
   plaquettes94Seo: {
+    // Money plaquettes ≠ hub symptômes /freins/ ≠ prestation /prestations/plaquettes-disques/
     seoTitle: "Changement plaquettes de frein à Ivry-sur-Seine",
     seoParagraphs: [
       "Grincement, voyant frein ou course de pédale allongée : contrôle plaquettes, disques et liquide. On remplace ce qui est hors cote — pas de forfait opaque.",
-      "Freinage sécurisé pour trajets urbains 94 / Paris sud — devis écrit, contrôle ABS si voyant associé.",
+      "Freinage sécurisé pour trajets urbains 94 / Paris sud — devis écrit, contrôle ABS si voyant associé. Pour le diagnostic freinage général, voir aussi le hub freins.",
     ],
     seoProblems: [
       { text: "Signaux d'usure plaquettes", url: "/blog/plaquettes-frein-usure-signaux-a-ne-pas-ignorer/" },
       { text: "Prix plaquettes 94", url: "/blog/prix-changement-plaquettes-frein-94/" },
+      { text: "Hub freinage Ivry", url: "/freins/" },
       { text: "Exemple prix plaquettes", url: "/exemples/prix-plaquettes-frein/" },
     ],
   },
@@ -368,22 +396,32 @@ const PAGE_OVERRIDES = {
     ],
   },
   revisionIvrySeo: {
+    // Money révision Ivry ≠ hub /entretien/ (révision+clim+CT) ≠ /vidange/ ≠ /vidange-rapide-ivry/
     seoTitle: "Révision voiture à Ivry-sur-Seine — carnet respecté",
     seoParagraphs: [
-      "Révision selon préconisations constructeur : vidange, filtres, niveaux, points de sécurité. On vous dit ce qui est dû maintenant et ce qui peut attendre.",
+      "Révision selon préconisations constructeur : vidange, filtres, niveaux, points de sécurité. On vous dit ce qui est dû maintenant et ce qui peut attendre — distinct d'une simple vidange express.",
       "Idéal avant long trajet ou contrôle technique — créneaux lun–sam à Ivry.",
     ],
     seoProblems: [
       { text: "Checklist 60 000 km", url: "/blog/revision-60000-km-checklist/" },
-      { text: "Vidange", url: "/vidange/" },
+      { text: "Hub entretien Ivry", url: "/entretien/" },
+      { text: "Vidange seule", url: "/vidange/" },
       { text: "Tarifs indicatifs", url: "/tarifs/" },
     ],
   },
   revision94Seo: {
-    seoTitle: "Révision auto Val-de-Marne — atelier Ivry",
+    // Angle « garage 94 / Val-de-Marne » — pas un clone de /revision-voiture-ivry/
+    seoTitle: "Garage Val-de-Marne (94) — entretien & révision à Ivry",
     seoParagraphs: [
       "Pour les conducteurs du 94 : révision complète ou entretien courant avec pièces adaptées. Devis avant travaux, pas de surprise en fin d'intervention.",
-      "Accès simple depuis Vitry, Villejuif, Charenton, Alfortville — même atelier, même exigence.",
+      "Accès simple depuis Vitry, Villejuif, Charenton, Alfortville — même atelier, même exigence. Page zone 94, complémentaire à la révision Ivry locale.",
+    ],
+  },
+  revisionRapide94Seo: {
+    // Doorway noindex — texte distinct des landings indexables
+    seoTitle: "Révision express 94 — créneau atelier Ivry",
+    seoParagraphs: [
+      "Créneau révision express selon charge atelier : points carnet prioritaires, devis avant travaux. Pour la révision complète indexable, voir /revision-voiture-ivry/.",
     ],
   },
   garageSamedi94Seo: {
@@ -417,13 +455,16 @@ const PAGE_OVERRIDES = {
     ],
   },
   vidangeRapideIvrySeo: {
-    seoTitle: "Vidange rapide à Ivry — huile & filtre adaptés",
+    // Money « express » ≠ hub /vidange/ (service) ≠ /revision-voiture-ivry/ (carnet complet)
+    seoTitle: "Vidange express à Ivry — huile & filtre le jour même",
     seoParagraphs: [
-      "Vidange moteur avec huile homologuée et filtre neuf, contrôle des niveaux et aperçu des points d'usure visibles. Souvent le jour même sur rendez-vous.",
-      "Complément fréquent d'une révision ou d'un pré-contrôle technique — atelier Ivry-sur-Seine.",
+      "Créneau vidange rapide : huile homologuée, filtre neuf, contrôle des niveaux. Souvent le jour même sur rendez-vous — sans remplacer une révision complète au carnet.",
+      "Si d'autres points d'usure apparaissent, on vous oriente vers révision ou pré-CT — atelier Ivry-sur-Seine.",
     ],
     seoProblems: [
+      { text: "Hub vidange Ivry", url: "/vidange/" },
       { text: "Prix vidange", url: "/blog/combien-coute-vidange-voiture/" },
+      { text: "Révision constructeur", url: "/revision-voiture-ivry/" },
       { text: "Exemple prix vidange", url: "/exemples/prix-vidange-moteur/" },
     ],
   },

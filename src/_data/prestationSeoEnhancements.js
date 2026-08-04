@@ -270,28 +270,297 @@ module.exports = {
     "revision-entretien": [
       "Entretien préventif : filtres, bougies, courroie accessoires, liquides et contrôle des points liés au turbo, à l'EGR et au FAP selon le kilométrage et l'usage.",
     ],
+    "plaquettes-disques": [
+      "Mesure d'usure devant vous : on ne change pas « au forfait » — uniquement plaquettes et/ou disques hors cote, avec contrôle liquide et ABS si voyant associé.",
+    ],
+    "remplacement-batterie": [
+      "Test capacité + circuit de charge avant pose. Batteries AGM/EFB pour Start-Stop quand le véhicule l'exige — enregistrement calculateur si requis par la marque.",
+    ],
+    "recharge-clim": [
+      "Contrôle pressions et étanchéité avant recharge gaz. Si fuite détectée, devis réparation circuit plutôt qu'une recharge temporaire.",
+    ],
+    "vidange-moteur": [
+      "Huile et filtre adaptés à la norme constructeur (ACEA / constructeur). Contrôle fuites visibles et niveaux associés inclus au forfait vidange.",
+    ],
+    amortisseurs: [
+      "Contrôle sur pont : fuite d'amortisseur, coupelles et état des pneus. Remplacement souvent par essieu pour garder l'équilibre du train.",
+    ],
+    geometrie: [
+      "Mesure sur banc : carrossage, parallélisme, chasse selon véhicule. Rapport de mesures avant/après réglage remis au client.",
+    ],
+    "montage-equilibrage": [
+      "Équilibrage électronique et contrôle pression. Usure irrégulière : on propose géométrie plutôt que de remonter des pneus sur un train mal réglé.",
+    ],
   },
 
   extraFaqs: {
-    "recherche-de-panne": [
-      {
-        question: "Diagnostiquez-vous turbo, vanne EGR et FAP ?",
-        answer:
-          "Oui — recherche de panne mécanique et électronique en atelier, avec devis détaillé avant démontage ou remplacement.",
-      },
-    ],
-    "diagnostic-voyant-moteur": [
-      {
-        question: "Le voyant moteur peut-il venir du turbo ou de l'EGR ?",
-        answer:
-          "Oui, c'est fréquent sur diesel. Nous lisons les codes défaut et vérifions les organes concernés avant de chiffrer la réparation.",
-      },
-    ],
     "decalaminage-moteur": [
       {
         question: "Le décalaminage suffit-il si le FAP est saturé ?",
         answer:
           "Pas toujours — selon le niveau d'encrassement, une régénération, un nettoyage ou le remplacement du FAP peut être nécessaire après diagnostic.",
+      },
+    ],
+  },
+
+  /**
+   * FAQ complètes (remplacent le template générique TARIFS_FAQ + 3 Q) — top slugs money.
+   * Les autres prestations gardent le template + extraFaqs éventuels.
+   */
+  faqOverrides: {
+    "vidange-moteur": [
+      {
+        question: "Quand faut-il faire une vidange ?",
+        answer:
+          "Selon le carnet (souvent 10–15 000 km ou 1 an) ou dès que l'huile est noire, le niveau baisse ou le voyant entretien s'allume. Trajets urbains : plutôt le bas de fourchette.",
+      },
+      {
+        question: "Combien coûte une vidange à Ivry ?",
+        answer:
+          "Le montant dépend de l'huile homologuée (viscosité, norme constructeur) et du filtre. Grille indicative sur /tarifs/ — devis ferme après identification du véhicule.",
+      },
+      {
+        question: "Vidange seule ou révision complète ?",
+        answer:
+          "La vidange change huile + filtre et contrôle les niveaux. La révision ajoute filtres, points sécurité et opérations carnet. On vous oriente selon l'échéance réelle.",
+      },
+    ],
+    "plaquettes-disques": [
+      {
+        question: "Comment savoir si les plaquettes sont usées ?",
+        answer:
+          "Grincement métallique, sifflement, pédale molle, vibrations ou voyant frein : on mesure l'épaisseur à l'atelier avant de décider du remplacement.",
+      },
+      {
+        question: "Combien coûte un changement de plaquettes ?",
+        answer:
+          "Selon essieu (AV/AR), marque et état des disques. Indicatif sur /tarifs/ et exemples /exemples/prix-plaquettes-frein/ — devis écrit après mesure d'usure, sans forfait opaque.",
+      },
+      {
+        question: "Faut-il toujours changer les disques avec les plaquettes ?",
+        answer:
+          "Non. On remplace les disques s'ils sont hors cote, voilés ou trop rayés. Sinon plaquettes seules + contrôle liquide de frein.",
+      },
+    ],
+    "remplacement-batterie": [
+      {
+        question: "Quand changer la batterie ?",
+        answer:
+          "Démarrage lent, cliquetis, voyants au contact ou batterie de plus de 4–5 ans : on teste capacité et circuit de charge avant de poser une neuve.",
+      },
+      {
+        question: "Combien coûte un changement de batterie ?",
+        answer:
+          "Selon technologie (plomb, AGM, EFB Start-Stop) et véhicule. Voir /tarifs/ et /blog/prix-changement-batterie-94/ — devis après test, pose souvent le jour même.",
+      },
+      {
+        question: "Testez-vous l'alternateur avant de remplacer ?",
+        answer:
+          "Oui. Une batterie neuve sur un alternateur défaillant se décharge à nouveau — on contrôle charge et démarreur si besoin.",
+      },
+    ],
+    "distribution-injection": [
+      {
+        question: "Quand changer la courroie de distribution ?",
+        answer:
+          "Selon intervalle constructeur (km ou années, le premier atteint). Bruit de claquement ou historique inconnu : contrôle recommandé avant casse moteur.",
+      },
+      {
+        question: "Combien coûte un kit distribution ?",
+        answer:
+          "Variable selon moteur (courroie/chaîne, pompe à eau incluse ou non). Indicatif blog /blog/prix-kit-distribution-94/ — devis ferme après identification du kit adapté.",
+      },
+      {
+        question: "Pourquoi un devis avant démontage ?",
+        answer:
+          "Le kit et la main-d'œuvre dépendent du moteur. On confirme la référence et le périmètre (pompe à eau, galets, tensionneur) avant intervention.",
+      },
+    ],
+    "recharge-clim": [
+      {
+        question: "Pourquoi la clim ne refroidit plus ?",
+        answer:
+          "Manque de gaz, fuite, filtre habitacle saturé ou compresseur faible. On mesure les pressions avant toute recharge — remplir un circuit fuyant ne tient pas.",
+      },
+      {
+        question: "Combien coûte une recharge clim ?",
+        answer:
+          "Selon gaz (R134a / R1234yf) et état du circuit. Voir /tarifs/ et /blog/prix-recharge-climatisation-94/ — devis après contrôle d'étanchéité.",
+      },
+      {
+        question: "Recharge seule ou réparation ?",
+        answer:
+          "Si fuite ou compresseur HS, on chiffre la réparation circuit. Sinon recharge + contrôle performance. Voir aussi /reparation-climatisation-ivry/.",
+      },
+    ],
+    "diagnostic-voyant-moteur": [
+      {
+        question: "Que faire si le voyant moteur s'allume ?",
+        answer:
+          "Évitez de rouler longtemps sans diagnostic, surtout s'il clignote. On lit les codes OBD, on explique la cause (sonde, turbo, EGR, FAP…) et on chiffre avant réparation.",
+      },
+      {
+        question: "Combien coûte un diagnostic voyant ?",
+        answer:
+          "Forfait lecture + explication selon la grille /tarifs/ et /blog/prix-diagnostic-auto-94/. Le coût de réparation est séparé et validé après diagnostic.",
+      },
+      {
+        question: "Le voyant peut-il venir du turbo ou de l'EGR ?",
+        answer:
+          "Oui, surtout en diesel urbain. On isole le défaut avant de proposer décalaminage, nettoyage ou remplacement.",
+      },
+    ],
+    amortisseurs: [
+      {
+        question: "Quels signes d'amortisseurs usés ?",
+        answer:
+          "Sauts sur dos-d'âne, tenue floue, bruits de suspension, usure pneus irrégulière. Contrôle sur pont recommandé avant long trajet.",
+      },
+      {
+        question: "Combien coûte un changement d'amortisseurs ?",
+        answer:
+          "Selon essieu et modèle (souvent par paire AV ou AR). Devis après inspection — voir aussi /blog/amortisseurs-usures-symptomes/.",
+      },
+      {
+        question: "Faut-il refaire la géométrie après ?",
+        answer:
+          "Souvent oui après remplacement suspension ou triangles — on le propose au devis si nécessaire.",
+      },
+    ],
+    embrayage: [
+      {
+        question: "Comment reconnaître un embrayage usé ?",
+        answer:
+          "Patinage en côte, régime qui monte sans accélérer, pédale haute ou grincement au débrayage. Diagnostic avant remplacement du kit.",
+      },
+      {
+        question: "Combien coûte un changement d'embrayage ?",
+        answer:
+          "Kit + main-d'œuvre selon boîte et véhicule. Indicatif /blog/prix-changement-embrayage-94/ — devis ferme après inspection (volant moteur inclus ou non).",
+      },
+      {
+        question: "Peut-on seulement changer le disque ?",
+        answer:
+          "Rarement pertinent : on remplace en général le kit complet (disque, mécanisme, butée) pour éviter une seconde ouverture de boîte.",
+      },
+    ],
+    "revision-entretien": [
+      {
+        question: "Que comprend une révision constructeur ?",
+        answer:
+          "Opérations du carnet : vidange, filtres, niveaux, points sécurité et contrôles d'usure. On précise ce qui est dû maintenant vs ce qui peut attendre.",
+      },
+      {
+        question: "Combien coûte une révision ?",
+        answer:
+          "Selon kilométrage et opérations prévues (petite / grande révision). Grille /tarifs/ — devis après lecture carnet et identification véhicule.",
+      },
+      {
+        question: "La garantie constructeur est-elle préservée ?",
+        answer:
+          "Oui si pièces et fluides conformes et traçabilité OK. Garage indépendant autorisé — voir aussi nos guides révision garantie.",
+      },
+    ],
+    "montage-equilibrage": [
+      {
+        question: "Combien de temps pour monter des pneus ?",
+        answer:
+          "En général dans la journée sur rendez-vous. Prévenez avec la dimension (ex. 205/55 R16) pour préparer le créneau.",
+      },
+      {
+        question: "Combien coûte un montage / équilibrage ?",
+        answer:
+          "Selon nombre de pneus et services (valve, équilibrage, géométrie). Voir /tarifs/ et /blog/prix-changement-pneus-94/ — devis au modèle.",
+      },
+      {
+        question: "Fournissez-vous les pneus ?",
+        answer:
+          "Oui selon stock, ou montage de vos pneus. Contrôle usure et pression inclus ; parallélisme si le volant tire.",
+      },
+    ],
+    geometrie: [
+      {
+        question: "Quand faire une géométrie / parallélisme ?",
+        answer:
+          "Volant qui tire, usure pneu en bordure, vibrations après choc ou montage pneus. Contrôle recommandé aussi après travaux suspension.",
+      },
+      {
+        question: "Combien coûte un réglage géométrie ?",
+        answer:
+          "Selon train (AV / AV+AR) et véhicule. Indicatif /blog/prix-geometrie-parallelisme-94/ — devis après mesure sur banc.",
+      },
+      {
+        question: "La géométrie suffit-elle si les pneus sont usés ?",
+        answer:
+          "Si l'usure est trop avancée, on remplace d'abord les pneus puis on règle — sinon le réglage ne tient pas.",
+      },
+    ],
+    "recherche-de-panne": [
+      {
+        question: "Comment se déroule une recherche de panne ?",
+        answer:
+          "Écoute des symptômes, tests atelier (OBD, mesures), identification de la cause puis devis avant démontage ou remplacement.",
+      },
+      {
+        question: "Combien coûte une recherche de panne ?",
+        answer:
+          "Temps diagnostic selon complexité — voir grille /tarifs/. Le devis réparation est séparé et validé ensuite.",
+      },
+      {
+        question: "Diagnostiquez-vous turbo, vanne EGR et FAP ?",
+        answer:
+          "Oui — pannes fréquentes en diesel urbain. On confirme la cause avant de chiffrer nettoyage, régénération ou remplacement.",
+      },
+    ],
+    "pre-controle-technique": [
+      {
+        question: "Pourquoi un pré-contrôle technique ?",
+        answer:
+          "Pour corriger freins, éclairage, pneus, pollution et points de rejet fréquents avant le CT officiel — évite une contre-visite.",
+      },
+      {
+        question: "Combien coûte un pré-CT ?",
+        answer:
+          "Forfait contrôle + devis des corrections. Indicatif /blog/prix-pre-controle-technique-ivry/ — pas de réparation sans votre accord.",
+      },
+      {
+        question: "Corrigez-vous les défauts sur place ?",
+        answer:
+          "Oui quand c'est possible (ampoules, freins, niveaux…). Travaux plus lourds chiffrés au devis avant intervention.",
+      },
+    ],
+    "diagnostic-abs": [
+      {
+        question: "Que signifie un voyant ABS allumé ?",
+        answer:
+          "Défaut capteur, connectique, unité hydraulique ou roue. Les freins de base fonctionnent souvent, mais l'assistance ABS peut être coupée — diagnostic recommandé.",
+      },
+      {
+        question: "Combien coûte un diagnostic ABS ?",
+        answer:
+          "Lecture codes + contrôle capteurs selon /tarifs/. Réparation (capteur, faisceau…) chiffrée séparément après identification.",
+      },
+      {
+        question: "Peut-on rouler avec le voyant ABS ?",
+        answer:
+          "À éviter sur route glissante. Passez à l'atelier pour lecture codes — voir aussi /voyant-abs-allume-94/.",
+      },
+    ],
+    "purge-liquide-frein": [
+      {
+        question: "Quand purger le liquide de frein ?",
+        answer:
+          "Tous les 2 ans environ, ou si le liquide est foncé / la pédale spongieuse. L'humidité réduit l'efficacité au freinage appuyé.",
+      },
+      {
+        question: "Combien coûte une purge de liquide de frein ?",
+        answer:
+          "Forfait main-d'œuvre + liquide adapté. Voir /tarifs/ — devis rapide après contrôle niveau et état du circuit.",
+      },
+      {
+        question: "La purge remplace-t-elle un changement de plaquettes ?",
+        answer:
+          "Non. La purge entretient le circuit hydraulique ; plaquettes/disques sont un autre poste. On contrôle les deux si symptômes mêlés.",
       },
     ],
   },

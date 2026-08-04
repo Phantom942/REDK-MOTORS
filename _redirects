@@ -50,3 +50,11 @@
 # Hub bio (ancien slug FR)
 /liens/            /links/        301
 /liens             /links/        301
+
+# Tag blog alias — freinage fusionné dans freins (seul indexable)
+/blog/tag/freinage/  /blog/tag/freins/  301
+/blog/tag/freinage   /blog/tag/freins/  301
+
+# Doublon Maisons-Alfort → page ville canonique
+/garage-proche-maisons-alfort/   /maisons-alfort/   301
+/garage-proche-maisons-alfort    /maisons-alfort/   301

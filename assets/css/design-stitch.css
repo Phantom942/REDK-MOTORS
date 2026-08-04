@@ -73,9 +73,8 @@ body.design-stitch :is(
   .pricing-section__intro,
   .service-focus__inner > div > p,
   .conversion-contact p,
-  .lead-strip__text,
-  .service-focus__problem-list
-) a:is(:link, :visited):not(.btn):not([class*="btn--"]):not(.conversion-services__link):not(.blog-filter-chip):not(.tarifs-teaser__card):not(.reviews-section__link):not(.blog-card__link):not(.price-examples-hub__cta):not(.site-footer a) {
+  .lead-strip__text
+) a:is(:link, :visited):not(.btn):not([class*="btn--"]):not(.conversion-services__link):not(.service-focus__problem-link):not(.blog-filter-chip):not(.tarifs-teaser__card):not(.reviews-section__link):not(.blog-card__link):not(.price-examples-hub__cta):not(.site-footer a) {
   color: var(--color-link);
   text-decoration: underline;
   text-underline-offset: 0.18em;
@@ -94,9 +93,8 @@ body.design-stitch :is(
   .pricing-section__intro,
   .service-focus__inner > div > p,
   .conversion-contact p,
-  .lead-strip__text,
-  .service-focus__problem-list
-) a:is(:hover, :focus-visible):not(.btn):not([class*="btn--"]):not(.conversion-services__link):not(.blog-filter-chip):not(.tarifs-teaser__card):not(.reviews-section__link):not(.blog-card__link):not(.price-examples-hub__cta):not(.site-footer a) {
+  .lead-strip__text
+) a:is(:hover, :focus-visible):not(.btn):not([class*="btn--"]):not(.conversion-services__link):not(.service-focus__problem-link):not(.blog-filter-chip):not(.tarifs-teaser__card):not(.reviews-section__link):not(.blog-card__link):not(.price-examples-hub__cta):not(.site-footer a) {
   color: var(--color-link-hover);
   text-decoration-color: var(--color-link-hover);
 }
@@ -1343,7 +1341,7 @@ body.design-stitch a[class*="btn--"] {
   font-weight: 700;
 }
 
-.design-stitch .service-focus .service-focus__inner ul {
+.design-stitch .service-focus .service-focus__inner ul:not(.service-areas):not(.service-focus__problem-list) {
   list-style: none;
   margin: 1.25rem auto 0;
   padding: 0;
@@ -1355,7 +1353,7 @@ body.design-stitch a[class*="btn--"] {
   text-align: center;
 }
 
-.design-stitch .service-focus .service-focus__inner ul li {
+.design-stitch .service-focus .service-focus__inner ul:not(.service-areas):not(.service-focus__problem-list) li {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
@@ -1367,7 +1365,7 @@ body.design-stitch a[class*="btn--"] {
   text-align: center;
 }
 
-.design-stitch .service-focus .service-focus__inner ul li::before {
+.design-stitch .service-focus .service-focus__inner ul:not(.service-areas):not(.service-focus__problem-list) li::before {
   content: "✓";
   position: static;
   flex-shrink: 0;
@@ -1378,6 +1376,7 @@ body.design-stitch a[class*="btn--"] {
 
 /* Zone chips — compact row (overrides vertical list above) */
 .design-stitch .service-focus .service-focus__inner ul.service-areas {
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
@@ -1385,6 +1384,9 @@ body.design-stitch a[class*="btn--"] {
   gap: 0.5rem 0.625rem;
   max-width: 38rem;
   margin: 0.875rem auto 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
 }
 
 .design-stitch .service-focus .service-focus__inner ul.service-areas li {
@@ -1397,6 +1399,77 @@ body.design-stitch a[class*="btn--"] {
 .design-stitch .service-focus .service-focus__inner ul.service-areas li::before {
   content: none;
   display: none;
+}
+
+/* Problèmes fréquents — grille 2 cols compacte (pas la pile ✓ + grosses cards) */
+.design-stitch .service-focus .service-focus__inner ul.service-focus__problem-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.45rem;
+  max-width: 34rem;
+  width: 100%;
+  margin: 0.65rem auto 0;
+  flex-direction: unset;
+  align-items: stretch;
+  text-align: center;
+}
+
+.design-stitch .service-focus .service-focus__inner ul.service-focus__problem-list li {
+  display: block;
+  padding: 0;
+  gap: 0;
+  min-width: 0;
+}
+
+.design-stitch .service-focus .service-focus__inner ul.service-focus__problem-list li::before {
+  content: none;
+  display: none;
+}
+
+.design-stitch .service-focus__problem-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 2.4rem;
+  padding: 0.45rem 0.65rem;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: 1px solid var(--stitch-outline, rgba(167, 138, 134, 0.22));
+  background: var(--stitch-surface, #1f1f23);
+  color: var(--stitch-on-surface, #fafafa);
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: none;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+
+.design-stitch a.service-focus__problem-link:is(:link, :visited) {
+  color: var(--stitch-on-surface, #fafafa);
+  text-decoration: none;
+}
+
+.design-stitch a.service-focus__problem-link:hover,
+.design-stitch a.service-focus__problem-link:focus-visible {
+  color: #fff;
+  border-color: rgba(179, 18, 23, 0.45);
+  background: rgba(179, 18, 23, 0.18);
+  outline: none;
+}
+
+.design-stitch .service-focus__problem-link--text {
+  color: var(--stitch-on-variant, #cac4cf);
+  cursor: default;
+}
+
+.design-stitch .service-focus__subhead {
+  margin: 1.15rem auto 0;
+  max-width: 34rem;
+  text-align: center;
+  color: var(--stitch-on-surface, #fafafa);
+  font-size: 1rem;
 }
 
 .design-stitch .service-focus .service-areas a,

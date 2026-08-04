@@ -56,6 +56,8 @@
     { "source": "/processus", "destination": "/processus/", "permanent": true },
     { "source": "/confidentialite", "destination": "/confidentialite/", "permanent": true },
     { "source": "/cookies", "destination": "/cookies/", "permanent": true },
-    { "source": "/mentions-legales", "destination": "/mentions-legales/", "permanent": true }
+    { "source": "/mentions-legales", "destination": "/mentions-legales/", "permanent": true },
+    { "source": "/garage-proche-maisons-alfort/", "destination": "/maisons-alfort/", "permanent": true },
+    { "source": "/garage-proche-maisons-alfort", "destination": "/maisons-alfort/", "permanent": true }
   ]
 }

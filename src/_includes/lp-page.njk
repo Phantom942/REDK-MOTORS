@@ -54,7 +54,7 @@
   {% include "reviews-page-block.njk" %}
 {% endif %}
 
-{% if lp.symptoms and lp.symptoms.length %}
+{% if lp.symptoms and lp.symptoms.length and not (lp.seoProblems and lp.seoProblems.length >= 4) %}
   {% set symptoms = lp.symptoms %}
   {% include "lp-symptoms.njk" %}
 {% endif %}

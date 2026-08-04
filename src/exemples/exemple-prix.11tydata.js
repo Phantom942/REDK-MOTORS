@@ -30,6 +30,35 @@ function buildFaqSchema(data) {
     ? `Exemple à Ivry : ${ex.redkPrice}. ${ex.redkHighlight}. ${ex.redkNote}`
     : `Exemple à Ivry pour ce modèle : ${ex.redkPrice}. ${ex.redkHighlight}. ${ex.redkNote}`;
 
+  const serviceKey = ex.serviceKey || "";
+  const diagnosticFaq =
+    serviceKey === "freinage" || serviceKey === "plaquettes"
+      ? {
+          name: "Faut-il forcément changer disques et plaquettes ensemble ?",
+          text: "Pas toujours. On mesure l'épaisseur des disques et l'usure des plaquettes : on remplace uniquement ce qui est hors cote, avec devis écrit avant travaux.",
+        }
+      : serviceKey === "vidange" || serviceKey === "entretien"
+        ? {
+            name: "L'huile et le filtre sont-ils inclus dans l'exemple ?",
+            text: "L'exemple indique une fourchette atelier. Le devis ferme précise l'huile homologuée et les filtres adaptés à votre véhicule.",
+          }
+        : serviceKey === "batterie"
+          ? {
+              name: "Batterie Start-Stop : est-ce le même tarif ?",
+              text: "Non — les batteries AGM/EFB sont spécifiques. On vérifie le type avant devis ; l'exemple de base concerne souvent une batterie classique.",
+            }
+          : {
+              name: "Le diagnostic est-il offert ?",
+              text: "Oui. À chaque intervention à l'atelier, contrôle du véhicule et explication avant validation du devis — sans frais supplémentaires liés au diagnostic d'atelier.",
+            };
+
+  const devisFaq = {
+    name: "Le devis est-il gratuit ?",
+    text: ex.isGeneric
+      ? `Oui. Inspection et devis ferme pour ${ex.serviceLabel || "cette prestation"} avant intervention — lun–sam 9h–19h, Ivry-sur-Seine.`
+      : `Oui. Devis ferme pour ${ex.serviceLabel || "cette prestation"} sur ${ex.brand} ${ex.model} après inspection — rien sans votre accord.`,
+  };
+
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -44,18 +73,18 @@ function buildFaqSchema(data) {
       },
       {
         "@type": "Question",
-        name: "Le diagnostic est-il offert ?",
+        name: diagnosticFaq.name,
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Oui. À chaque intervention à l'atelier, RED-K MOTORS réalise un diagnostic sans frais supplémentaires : contrôle du véhicule, lecture des codes si besoin et explication avant validation du devis.",
+          text: diagnosticFaq.text,
         },
       },
       {
         "@type": "Question",
-        name: "Le devis est-il gratuit ?",
+        name: devisFaq.name,
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Oui. Inspection au véhicule et devis ferme avant toute intervention — lun–sam 9h–19h, 9 rue Michelet, Ivry-sur-Seine.",
+          text: devisFaq.text,
         },
       },
     ],
@@ -114,7 +143,8 @@ module.exports = {
     seoOnly: () => true,
     hideFromSiteNav: () => true,
     hideServiceAreas: () => true,
-    robots: () => "index, follow",
+    robots: (data) =>
+      data.exemple && !data.exemple.isGeneric ? "noindex, follow" : "index, follow",
     directAnswer: (data) => {
       const ex = data.exemple;
       if (!ex) return undefined;

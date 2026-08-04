@@ -29,6 +29,10 @@ const STATIC_REDIRECTS = [
   ["/blog/tag/mecanique/confidentialite.html", "/confidentialite/"],
   ["/liens/", "/links/"],
   ["/liens", "/links/"],
+  ["/blog/tag/freinage/", "/blog/tag/freins/"],
+  ["/blog/tag/freinage", "/blog/tag/freins/"],
+  ["/garage-proche-maisons-alfort/", "/maisons-alfort/"],
+  ["/garage-proche-maisons-alfort", "/maisons-alfort/"],
 ];
 
 function redirectHtml(target) {
@@ -137,6 +141,7 @@ function main() {
   const blogRedirects = collectBlogArticleRedirects();
   const lpRedirects = collectLpRedirects();
   const directoryRedirects = collectDirectoryRedirects();
+  const staticFrom = new Set(STATIC_REDIRECTS.map(([from]) => from));
   const all = [...STATIC_REDIRECTS, ...lpRedirects, ...blogRedirects, ...directoryRedirects];
   const seen = new Set();
   let written = 0;
@@ -149,7 +154,8 @@ function main() {
     if (outRel === "index.html") continue;
 
     const outAbs = path.join(OUT_DIR, outRel);
-    if (fs.existsSync(outAbs)) {
+    const forceStatic = staticFrom.has(from);
+    if (!forceStatic && fs.existsSync(outAbs)) {
       const stat = fs.statSync(outAbs);
       if (stat.size > 2048) continue;
     }
