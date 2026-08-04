@@ -33,7 +33,7 @@ const GENERIC_SEO = {
   "pare-brise": {
     title: "Prix pare-brise voiture · devis Ivry (94)",
     metaDescription:
-      "Prix pare-brise voiture : impact, fissure ou remplacement complet ? Fourchette réseau vs RED-K MOTORS à Ivry — diagnostic offert, franchise offerte, jusqu'à 150 €. Devis gratuit · 06 48 74 56 68.",
+      "Prix pare-brise voiture : impact, fissure ou remplacement complet ? Fourchette indicative RED-K MOTORS à Ivry — diagnostic offert, franchise offerte, jusqu'à 150 €. Devis gratuit · 06 48 74 56 68.",
     searchQuery: "Prix pare-brise voiture",
     heroTitle: "Prix pare-brise voiture : combien ça coûte vraiment ?",
     problemTitle: "Impact, éclat ou fissure : la mauvaise surprise arrive souvent au devis",
@@ -52,7 +52,7 @@ const GENERIC_SEO = {
   distribution: {
     title: "Prix courroie de distribution · Ivry (94)",
     metaDescription:
-      "Prix courroie de distribution : retarder, c'est risquer la casse moteur. Fourchette réseau vs RED-K MOTORS à Ivry — diagnostic offert, devis ferme avant travaux. 06 48 74 56 68.",
+      "Prix courroie de distribution : retarder, c'est risquer la casse moteur. Fourchette indicative RED-K MOTORS à Ivry — diagnostic offert, devis ferme avant travaux. 06 48 74 56 68.",
     searchQuery: "Prix courroie de distribution",
     heroTitle: "Prix courroie de distribution : le coût de l'attente est bien plus élevé",
     problemTitle: "Courroie en retard : une réparation qui peut tout faire basculer",
@@ -71,7 +71,7 @@ const GENERIC_SEO = {
   freinage: {
     title: "Prix plaquettes de frein · Ivry (94)",
     metaDescription:
-      "Prix plaquettes de frein : grincement, pédale molle ou distance de freinage allongée ? Fourchette réseau vs RED-K MOTORS — diagnostic offert, devis avant travaux. Ivry (94) · 06 48 74 56 68.",
+      "Prix plaquettes de frein : grincement, pédale molle ou distance de freinage allongée ? Fourchette indicative RED-K MOTORS — diagnostic offert, devis avant travaux. Ivry (94) · 06 48 74 56 68.",
     searchQuery: "Prix plaquettes de frein",
     heroTitle: "Prix plaquettes de frein : votre sécurité ne devrait pas attendre le CT",
     problemTitle: "Freins qui grincent ou qui tirent : le risque est réel, pas théorique",
@@ -90,7 +90,7 @@ const GENERIC_SEO = {
   vidange: {
     title: "Prix vidange moteur · Ivry (94)",
     metaDescription:
-      "Prix vidange moteur : huile usée = moteur qui vieillit plus vite. Fourchette réseau vs RED-K MOTORS à Ivry — huile homologuée constructeur, diagnostic offert. Devis gratuit · 06 48 74 56 68.",
+      "Prix vidange moteur : huile usée = moteur qui vieillit plus vite. Fourchette indicative RED-K MOTORS à Ivry — huile homologuée constructeur, diagnostic offert. Devis gratuit · 06 48 74 56 68.",
     searchQuery: "Prix vidange moteur",
     heroTitle: "Prix vidange moteur : l'entretien qu'on oublie… jusqu'à la panne",
     problemTitle: "Vidange repoussée : votre moteur encaisse en silence",
@@ -109,7 +109,7 @@ const GENERIC_SEO = {
   pneus: {
     title: "Prix montage pneus · Ivry (94)",
     metaDescription:
-      "Prix montage et équilibrage pneus : usure irrégulière, volant qui tire, crevaison ? Fourchette réseau vs RED-K MOTORS à Ivry — diagnostic offert. Devis au modèle · 06 48 74 56 68.",
+      "Prix montage et équilibrage pneus : usure irrégulière, volant qui tire, crevaison ? Fourchette indicative RED-K MOTORS à Ivry — diagnostic offert. Devis au modèle · 06 48 74 56 68.",
     searchQuery: "Prix montage pneus",
     heroTitle: "Prix montage pneus : rouler sur du doute, c'est rouler en danger",
     problemTitle: "Pneus usés ou mal montés : l'accrochage ne pardonne pas",
@@ -147,7 +147,7 @@ const GENERIC_SEO = {
   embrayage: {
     title: "Prix embrayage voiture · Ivry (94)",
     metaDescription:
-      "Prix embrayage : patinage, odeur de brûlé, pédale haute ? Fourchette réseau vs RED-K MOTORS à Ivry — diagnostic offert, devis ferme avant démontage. 06 48 74 56 68.",
+      "Prix embrayage : patinage, odeur de brûlé, pédale haute ? Fourchette indicative RED-K MOTORS à Ivry — diagnostic offert, devis ferme avant démontage. 06 48 74 56 68.",
     searchQuery: "Prix embrayage voiture",
     heroTitle: "Prix embrayage : patinage aujourd'hui, immobilisation demain",
     problemTitle: "Embrayage qui patine : la panne arrive toujours au pire moment",
@@ -166,7 +166,7 @@ const GENERIC_SEO = {
   batterie: {
     title: "Prix batterie voiture · Ivry (94)",
     metaDescription:
-      "Prix batterie voiture : démarrage lent, voyant, panne un matin de froid ? Fourchette réseau vs RED-K MOTORS — test batterie/alternateur, diagnostic offert. Ivry (94) · 06 48 74 56 68.",
+      "Prix batterie voiture : démarrage lent, voyant, panne un matin de froid ? Fourchette indicative RED-K MOTORS — test batterie/alternateur, diagnostic offert. Ivry (94) · 06 48 74 56 68.",
     searchQuery: "Prix batterie voiture",
     heroTitle: "Prix batterie voiture : le matin où elle ne démarre plus, c'est trop tard",
     problemTitle: "Démarrage lent ou voyant batterie : la panne totale approche",
@@ -532,7 +532,7 @@ function buildDescription(ex) {
     return ex.metaDescription;
   }
   if (ex.isGeneric) {
-    return `Combien coûte un ${ex.serviceLabel} ? Exemple concret citadine, compacte ou SUV — fourchette réseau vs RED-K MOTORS à Ivry (94). Devis gratuit · 06 48 74 56 68.`;
+    return `Combien coûte un ${ex.serviceLabel} ? Exemple concret citadine, compacte ou SUV — fourchette indicative RED-K MOTORS à Ivry (94). Devis gratuit · 06 48 74 56 68.`;
   }
   const segmentHints = {
     citadine: "Segment citadine — pièces et main-d'œuvre souvent plus accessibles qu'un SUV.",
@@ -544,7 +544,7 @@ function buildDescription(ex) {
   };
   const segmentNote = segmentHints[ex.segment] || "";
   const tireNote = ex.tireSize ? ` Pneus courants : ${ex.tireSize}.` : "";
-  return `Prix ${ex.serviceLabel} ${ex.brand} ${ex.model} (${ex.yearRange}) à Ivry-sur-Seine : exemple indicatif RED-K MOTORS vs grand réseau.${tireNote} ${segmentNote} Devis gratuit après inspection · 06 48 74 56 68.`.replace(/\s+/g, " ").trim();
+  return `Prix ${ex.serviceLabel} ${ex.brand} ${ex.model} (${ex.yearRange}) à Ivry-sur-Seine : exemple indicatif RED-K MOTORS.${tireNote} ${segmentNote} Devis gratuit après inspection · 06 48 74 56 68.`.replace(/\s+/g, " ").trim();
 }
 
 function buildQuery(ex) {

@@ -61,7 +61,8 @@ const HUB_LABELS = {
 /**
  * Exemples de prix affichés dans les hubs — alignés grille /tarifs/
  * redkExample = fourchette ou montant indicatif atelier Ivry
- * elsewhereExample = comparaison grand réseau (optionnelle, en petit)
+ * redkExample = fourchette affichée dans le hub
+ * (pas de comparaison « ailleurs »)
  */
 const GUIDE_META = {
   "prix-pare-brise": {
@@ -110,7 +111,7 @@ const PAGE_HUB = {
   "pare-brise": {
     kicker: "Exemple de prix",
     title: "Combien coûte un pare-brise ?",
-    lead: "Fourchette indicative et offre atelier — le guide détaille aussi les prix ailleurs.",
+    lead: "Fourchette indicative et offre atelier — détail dans le guide prix.",
   },
   vidange: {
     kicker: "Exemple de prix",
@@ -120,12 +121,12 @@ const PAGE_HUB = {
   freins: {
     kicker: "Exemple de prix",
     title: "Combien coûtent des plaquettes de frein ?",
-    lead: "Montants indicatifs TTC — le guide compare aussi le grand réseau.",
+    lead: "Montants indicatifs TTC — détail dans le guide prix.",
   },
   freinage: {
     kicker: "Exemple de prix",
     title: "Combien coûtent des plaquettes de frein ?",
-    lead: "Montants indicatifs TTC — le guide compare aussi le grand réseau.",
+    lead: "Montants indicatifs TTC — détail dans le guide prix.",
   },
   pneumatiques: {
     kicker: "Exemple de prix",
@@ -145,20 +146,20 @@ const PAGE_HUB = {
   mecanique: {
     kicker: "Exemples de prix",
     title: "Distribution, embrayage, batterie : combien ça coûte ?",
-    lead: "Trois fourchettes indicatives — le guide détaille symptômes et comparatif.",
+    lead: "Trois fourchettes indicatives — symptômes et détail dans chaque guide.",
   },
 };
 
 const TARIFS_HUB = {
   kicker: "Exemples détaillés",
   title: "Un exemple de prix par prestation",
-  lead: "Fourchettes indicatives RED-K MOTORS à Ivry. Chaque lien ouvre un comparatif complet avec d'autres enseignes.",
+  lead: "Fourchettes indicatives RED-K MOTORS à Ivry. Chaque lien ouvre un guide prix détaillé.",
 };
 
 const EXAMPLES_HUB = {
   kicker: "Guides prix",
   title: "Exemples de prix par prestation et par modèle",
-  lead: "Comparatifs indicatifs RED-K MOTORS vs grand réseau — citadine, compacte ou SUV. Chaque guide détaille symptômes, fourchette et devis à Ivry-sur-Seine.",
+  lead: "Exemples indicatifs RED-K MOTORS — citadine, compacte ou SUV. Chaque guide détaille symptômes, fourchette et devis à Ivry-sur-Seine.",
 };
 
 /** serviceKey (priceExamples) → slug guide générique */
@@ -205,7 +206,6 @@ function enrichGuide(slug) {
     url: `/exemples/${slug}/`,
     hubLabel: hubLabelFromService(item.serviceLabel),
     redkExample: meta.redkExample,
-    elsewhereExample: item.networkPrice,
     hook: meta.hook,
     cta: meta.cta,
   };

@@ -5554,6 +5554,10 @@ img[loading="lazy"].loaded {
     grid-template-columns: 1fr 1fr;
     align-items: stretch;
   }
+
+  .exemple-compare__grid--solo {
+    grid-template-columns: minmax(0, 28rem);
+  }
 }
 
 .exemple-compare__card {

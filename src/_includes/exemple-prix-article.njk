@@ -47,7 +47,7 @@
       <p class="exemple-prix-hero__lead">{{ heroLead }}</p>
       {% if exemple.isGeneric %}
       <p class="exemple-model-intro">
-        Guide comparatif tous modèles (citadine à SUV) — fourchette indicative à Ivry.
+        Guide prix tous modèles (citadine à SUV) — fourchette indicative à Ivry.
         <a href="/tarifs/">Grille tarifaire complète</a> · <a href="/exemples/">Tous les guides prix</a>.
       </p>
       {% else %}
@@ -106,7 +106,7 @@
           {{ compareIntro | safe }}
         </p>
 
-        <div class="exemple-compare__grid">
+        <div class="exemple-compare__grid exemple-compare__grid--solo">
           <article class="exemple-compare__card exemple-compare__card--redk">
             <span class="exemple-compare__badge">Exemple chez nous · Ivry</span>
             <p class="exemple-compare__price">{{ exemple.redkPrice }}</p>
@@ -115,12 +115,6 @@
             {% endif %}
             <p class="exemple-compare__note">{{ exemple.redkNote }}</p>
             <a href="{{ exemple.serviceUrl }}" class="btn btn--primary exemple-compare__cta">Voir la prestation</a>
-          </article>
-
-          <article class="exemple-compare__card exemple-compare__card--network">
-            <span class="exemple-compare__label">Ailleurs, en moyenne</span>
-            <p class="exemple-compare__price">{{ exemple.networkPrice }}</p>
-            <p class="exemple-compare__note">{{ exemple.networkNote }}</p>
           </article>
         </div>
 

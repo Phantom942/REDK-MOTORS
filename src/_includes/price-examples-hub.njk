@@ -37,9 +37,6 @@
                 </span>
                 <span class="price-examples-hub__row-prices">
                   <span class="price-examples-hub__row-pill price-examples-hub__row-pill--redk">{{ guide.redkExample }}</span>
-                  {% if guide.elsewhereExample %}
-                  <span class="price-examples-hub__row-pill price-examples-hub__row-pill--muted">Ailleurs {{ guide.elsewhereExample }}</span>
-                  {% endif %}
                 </span>
                 <span class="price-examples-hub__row-arrow" aria-hidden="true">→</span>
               </a>
@@ -67,9 +64,6 @@
         <div class="price-examples-hub__feature-price">
           <span class="price-examples-hub__feature-label">Exemple de prix à Ivry</span>
           <span class="price-examples-hub__feature-value">{{ guide.redkExample }}</span>
-          {% if guide.elsewhereExample %}
-          <span class="price-examples-hub__feature-elsewhere">Ailleurs, en moyenne : {{ guide.elsewhereExample }}</span>
-          {% endif %}
         </div>
         <span class="price-examples-hub__feature-cta">{{ guide.cta }} →</span>
       </a>
@@ -91,9 +85,6 @@
               <span class="price-examples-hub__card-price-label">Exemple à Ivry</span>
               <span class="price-examples-hub__card-price-value">{{ guide.redkExample }}</span>
             </div>
-            {% if guide.elsewhereExample %}
-            <span class="price-examples-hub__elsewhere">Ailleurs : {{ guide.elsewhereExample }}</span>
-            {% endif %}
             <span class="price-examples-hub__cta">{{ guide.cta }} →</span>
           </a>
         </li>

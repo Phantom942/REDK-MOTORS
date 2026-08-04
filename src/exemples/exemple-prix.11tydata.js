@@ -27,8 +27,8 @@ function buildFaqSchema(data) {
     ex.isGeneric && ex.searchQuery ? `Combien coûte ${ex.searchQuery.toLowerCase()} ?` : questionLabel;
 
   const priceAnswer = ex.isGeneric
-    ? `Exemple à Ivry : ${ex.redkPrice}. ${ex.redkHighlight}. ${ex.redkNote} Ailleurs, en moyenne : ${ex.networkPrice} (${ex.networkNote}).`
-    : `Exemple à Ivry pour ce modèle : ${ex.redkPrice}. ${ex.redkHighlight}. ${ex.redkNote} Ailleurs, en moyenne : ${ex.networkPrice} (${ex.networkNote}).`;
+    ? `Exemple à Ivry : ${ex.redkPrice}. ${ex.redkHighlight}. ${ex.redkNote}`
+    : `Exemple à Ivry pour ce modèle : ${ex.redkPrice}. ${ex.redkHighlight}. ${ex.redkNote}`;
 
   return {
     "@context": "https://schema.org",
@@ -126,7 +126,6 @@ module.exports = {
             : `Combien coûte un ${ex.serviceLabel} sur ${ex.brand} ${ex.model} ?`;
       const facts = [
         { label: "Exemple à Ivry", value: ex.redkPrice },
-        { label: "Ailleurs (indicatif)", value: ex.networkPrice },
         { label: "Diagnostic", value: "Offert à chaque intervention" },
       ];
       if (ex.isGeneric) {
@@ -137,7 +136,7 @@ module.exports = {
       facts.push({ label: "Grille tarifs", value: "Voir /tarifs/" });
       return {
         question: questionLabel,
-        answer: `Exemple à Ivry : ${ex.redkPrice} — ${ex.redkHighlight}. Ailleurs, en moyenne : ${ex.networkPrice}. Grille complète sur redkmotors.fr/tarifs/.`,
+        answer: `Exemple à Ivry : ${ex.redkPrice} — ${ex.redkHighlight}. Grille complète sur redkmotors.fr/tarifs/.`,
         facts,
       };
     },
