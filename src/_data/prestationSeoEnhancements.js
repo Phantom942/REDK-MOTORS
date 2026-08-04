@@ -563,6 +563,431 @@ module.exports = {
           "Non. La purge entretient le circuit hydraulique ; plaquettes/disques sont un autre poste. On contrôle les deux si symptômes mêlés.",
       },
     ],
+    "diagnostic-electronique": [
+      {
+        question: "Que couvre un diagnostic électronique ?",
+        answer:
+          "Lecture codes OBD, contrôle capteurs, actionneurs et réseau CAN — explication claire avant toute réparation mécanique ou électrique.",
+      },
+      {
+        question: "Combien coûte un diagnostic électronique ?",
+        answer:
+          "Grille sur /tarifs/ — souvent offert si une intervention mécanique est validée ensuite à l'atelier.",
+      },
+      {
+        question: "Différence avec le diagnostic voyant moteur ?",
+        answer:
+          "Le voyant moteur cible les défauts moteur/antipollution ; l'électronique élargit aux ABS, airbags, BSI, confort — selon symptômes.",
+      },
+    ],
+    "diagnostic-securite": [
+      {
+        question: "Que comprend un check-up sécurité ?",
+        answer:
+          "Freins, pneus, éclairage, niveaux, suspension visible et points CT fréquents — rapport avant long trajet ou contre-visite.",
+      },
+      {
+        question: "Combien coûte un diagnostic sécurité ?",
+        answer:
+          "Forfait contrôle sur /tarifs/ — devis séparé si des réparations sont nécessaires (plaquettes, ampoules, géométrie…).",
+      },
+      {
+        question: "Utile avant le contrôle technique ?",
+        answer:
+          "Oui — complète le pré-CT : on identifie les refus probables (freins, pneus, pollution, éclairage) avant le passage officiel.",
+      },
+    ],
+    "changement-bougies": [
+      {
+        question: "Quand changer les bougies d'allumage ?",
+        answer:
+          "Selon carnet (souvent 30–60 000 km) ou ratés, démarrage difficile, surconsommation — contrôle électrodes en atelier.",
+      },
+      {
+        question: "Combien coûte un changement de bougies ?",
+        answer:
+          "Selon nombre de cylindres et type (iridium, platine). Voir /tarifs/ — devis après identification moteur.",
+      },
+      {
+        question: "Bougies seules ou bobines aussi ?",
+        answer:
+          "On teste bobines et faisceaux si ratés persistent — pas de remplacement bobine sans diagnostic.",
+      },
+    ],
+    "filtre-habitacle": [
+      {
+        question: "Quand changer le filtre d'habitacle ?",
+        answer:
+          "Tous les 12–24 mois ou odeur moisi, buée lente, allergies — surtout si trajets ville et parking poussiéreux.",
+      },
+      {
+        question: "Combien coûte un filtre habitacle ?",
+        answer:
+          "Pièce + pose selon modèle (filtre pollen ou charbon actif). Grille /tarifs/ — souvent rapide sans immobilisation longue.",
+      },
+      {
+        question: "Lié à la climatisation ?",
+        answer:
+          "Oui — filtre encrassé réduit le débit d'air. À coupler avec recharge ou désinfection si odeur persistante.",
+      },
+    ],
+    "liquide-refroidissement": [
+      {
+        question: "Quand contrôler le liquide de refroidissement ?",
+        answer:
+          "À chaque entretien ou dès surchauffe, fuite, voyant température — niveau et couleur à vérifier régulièrement.",
+      },
+      {
+        question: "Combien coûte un contrôle / remplissage ?",
+        answer:
+          "Complément niveau souvent inclus au contrôle ; vidange circuit selon /tarifs/ si liquide usé ou mélange inadapté.",
+      },
+      {
+        question: "Faut-il purger tout le circuit ?",
+        answer:
+          "Si liquide foncé, contamination huile/eau ou remplacement radiateur — purge complète recommandée avec liquide homologué.",
+      },
+    ],
+    injecteurs: [
+      {
+        question: "Comment savoir si les injecteurs sont encrassés ?",
+        answer:
+          "Ratés, broute, fumée noire, perte de puissance ou surconsommation — test pression et équilibrage en atelier.",
+      },
+      {
+        question: "Combien coûte un nettoyage injecteurs ?",
+        answer:
+          "Nettoyage ultrason ou additif selon diagnostic — devis après lecture codes et essai. Voir /tarifs/.",
+      },
+      {
+        question: "Remplacement ou nettoyage ?",
+        answer:
+          "Nettoyage si encrassement ; remplacement si fuite, résistance hors spec ou injecteur bloqué — chiffré au cas par cas.",
+      },
+    ],
+    "vanne-egr": [
+      {
+        question: "Symptômes vanne EGR encrassée ?",
+        answer:
+          "Perte de puissance, ratés, voyant moteur, fumée — fréquent en diesel urbain (trajets courts).",
+      },
+      {
+        question: "Combien coûte un nettoyage / remplacement EGR ?",
+        answer:
+          "Nettoyage si récupérable, sinon remplacement pièce + recalage. Devis après diagnostic — voir aussi décalaminage.",
+      },
+      {
+        question: "Peut-on rouler avec une EGR défaillante ?",
+        answer:
+          "Court terme parfois, mais risque mode dégradé et refus antipollution — intervention recommandée rapidement.",
+      },
+    ],
+    "courroie-accessoires": [
+      {
+        question: "Quand changer la courroie d'accessoires ?",
+        answer:
+          "Usure visible, bruit de sifflement, fissures ou intervalle constructeur — distincte de la courroie de distribution.",
+      },
+      {
+        question: "Combien coûte une courroie accessoires ?",
+        answer:
+          "Courroie + galets tendeurs selon moteur. Voir /tarifs/ — devis ferme après inspection (alternateur, direction assistée).",
+      },
+      {
+        question: "Que se passe-t-il si elle casse ?",
+        answer:
+          "Perte alternateur, direction assistée et parfois surchauffe — immobilisation immédiate. Mieux vaut anticiper au bruit.",
+      },
+    ],
+    "decalaminage-moteur": [
+      {
+        question: "Qu'est-ce que le décalaminage moteur ?",
+        answer:
+          "Nettoyage des dépôts (admission, soupapes, FAP/EGR selon méthode) pour retrouver puissance et réduire fumée.",
+      },
+      {
+        question: "Combien coûte un décalaminage ?",
+        answer:
+          "Selon méthode (hydrogène, additifs, démontage) et motorisation. Devis après diagnostic — pas de forfait unique.",
+      },
+      {
+        question: "Pour qui est-ce utile ?",
+        answer:
+          "Diesel urbain, véhicule qui broute, FAP/EGR encrassés — après confirmation que la cause n'est pas mécanique (turbo, injecteurs).",
+      },
+    ],
+    "coupelles-triangles": [
+      {
+        question: "Signes de coupelles ou triangles usés ?",
+        answer:
+          "Claquement en négociation, jeu direction, usure pneu intérieur — contrôle sur pont avec géométrie si besoin.",
+      },
+      {
+        question: "Combien coûte le remplacement ?",
+        answer:
+          "Selon essieu et pièces (coupelle, triangle, rotule). Devis écrit — géométrie souvent recommandée après travaux.",
+      },
+      {
+        question: "Une seule pièce ou le kit ?",
+        answer:
+          "On remplace ce qui a du jeu mesurable — par paire si usure symétrique pour éviter un déséquilibre.",
+      },
+    ],
+    "kit-roulement-arriere": [
+      {
+        question: "Comment reconnaître un roulement arrière HS ?",
+        answer:
+          "Grondement qui augmente avec la vitesse, jeu roue au sol, ABS erratique — test rotation libre en atelier.",
+      },
+      {
+        question: "Combien coûte un roulement arrière ?",
+        answer:
+          "Kit roulement + main-d'œuvre par roue. Voir /tarifs/ — on contrôle aussi frein à tambour/disque côté roue.",
+      },
+      {
+        question: "Faut-il changer les deux côtés ?",
+        answer:
+          "Pas obligatoire, mais recommandé si kilométrage élevé ou bruit des deux côtés — devis au diagnostic.",
+      },
+    ],
+    "rotule-direction": [
+      {
+        question: "Symptômes rotule de direction usée ?",
+        answer:
+          "Jeu au volant, claquement sur bosses, usure pneu en biais — contrôle sécurité avant CT.",
+      },
+      {
+        question: "Combien coûte une rotule de direction ?",
+        answer:
+          "Pièce + parallélisme si démontage train AV. Grille /tarifs/ — devis après mesure du jeu.",
+      },
+      {
+        question: "Rotule seule ou crémaillère ?",
+        answer:
+          "On isole la source du jeu — rotule externe/interne ou crémaillère — avant de chiffrer la bonne réparation.",
+      },
+    ],
+    "permutation-pneus": [
+      {
+        question: "Pourquoi permuter les pneus ?",
+        answer:
+          "Usure plus homogène avant/arrière, surtout sur traction ou gros kilométrage autoroute — prolonge la durée de vie.",
+      },
+      {
+        question: "Combien coûte une permutation ?",
+        answer:
+          "Forfait main-d'œuvre + contrôle pression/usure. Voir /tarifs/ — souvent couplé à équilibrage si vibrations.",
+      },
+      {
+        question: "À quelle fréquence ?",
+        answer:
+          "Tous les 10–15 000 km ou à chaque changement saison — selon usure mesurée en atelier.",
+      },
+    ],
+    "reparation-crevaison": [
+      {
+        question: "Peut-on réparer une crevaison ?",
+        answer:
+          "Oui si perforation dans la bande de roulement et pas sur flanc — réparation temporaire ou définitive selon norme.",
+      },
+      {
+        question: "Combien coûte une réparation crevaison ?",
+        answer:
+          "Forfait réparation + contrôle pression. Si flanc abîmé ou hernie : remplacement pneu recommandé — devis clair.",
+      },
+      {
+        question: "Rouler avec une réparation ?",
+        answer:
+          "Réparation homologuée OK pour usage normal ; gonfleur de secours ou roue spare : vitesse et distance limitées.",
+      },
+    ],
+    "test-batterie": [
+      {
+        question: "Quand tester la batterie ?",
+        answer:
+          "Démarrage lent, voyant batterie, véhicule immobilisé ou avant hiver — test capacité + charge alternateur.",
+      },
+      {
+        question: "Combien coûte un test batterie ?",
+        answer:
+          "Souvent inclus au diagnostic atelier — voir /tarifs/. Remplacement chiffré séparément si capacité insuffisante.",
+      },
+      {
+        question: "Test seul ou remplacement direct ?",
+        answer:
+          "On teste d'abord charge et démarreur — une batterie neuve sur alternateur HS se décharge à nouveau.",
+      },
+    ],
+    "controle-alternateur": [
+      {
+        question: "Signes alternateur défaillant ?",
+        answer:
+          "Batterie qui se décharge en roulant, voyant batterie, phares qui faiblissent — test charge au ralenti et régime.",
+      },
+      {
+        question: "Combien coûte un contrôle alternateur ?",
+        answer:
+          "Diagnostic charge sur /tarifs/ — remplacement alternateur chiffré après confirmation (courroie accessoires incluse ou non).",
+      },
+      {
+        question: "Alternateur ou batterie ?",
+        answer:
+          "Test croisé batterie/charge/démarreur — on identifie la cause avant de remplacer quoi que ce soit.",
+      },
+    ],
+    demarreur: [
+      {
+        question: "Symptômes démarreur HS ?",
+        answer:
+          "Clic au contact sans démarrage, démarreur qui tourne à vide, odeur électrique — distinct de batterie faible.",
+      },
+      {
+        question: "Combien coûte un démarreur ?",
+        answer:
+          "Pièce reconditionnée ou neuve + pose selon moteur. Devis après test batterie et alimentation — voir /tarifs/.",
+      },
+      {
+        question: "Démarreur ou contacteur ?",
+        answer:
+          "Parfois le relais/contacteur de démarreur — diagnostic électrique avant remplacement du moteur de démarrage.",
+      },
+    ],
+    cardans: [
+      {
+        question: "Comment reconnaître un cardan usé ?",
+        answer:
+          "Claquement en braquage à fond, vibration accélération, soufflette graisse visible — contrôle transmission.",
+      },
+      {
+        question: "Combien coûte un cardan ?",
+        answer:
+          "Cardan complet ou tripode selon modèle (traction). Voir /tarifs/ — devis après essai et levée véhicule.",
+      },
+      {
+        question: "Un cardan ou la paire ?",
+        answer:
+          "On remplace le côté défectueux ; contrôle du second si kilométrage élevé ou bruit bilatéral.",
+      },
+    ],
+    "vidange-boite": [
+      {
+        question: "Quand vidanger la boîte automatique ?",
+        answer:
+          "Selon carnet constructeur ou si à-coups, patinage, odeur brûlé — boîte mal entretenue coûte cher.",
+      },
+      {
+        question: "Combien coûte une vidange boîte auto ?",
+        answer:
+          "Partielle ou intégrale selon boîte et méthode. Devis au modèle — voir /blog/vidange-boite-automatique-quand-faire/.",
+      },
+      {
+        question: "Vidange boîte manuelle aussi ?",
+        answer:
+          "Intervalle plus long mais huile boîte usée abîme synchroniseurs — on vérifie niveau et couleur au diagnostic.",
+      },
+    ],
+    "desinfection-circuit-clim": [
+      {
+        question: "Pourquoi désinfecter la climatisation ?",
+        answer:
+          "Odeur moisi, bactéries dans évaporateur, allergie — traitement habitacle + filtre si encrassé.",
+      },
+      {
+        question: "Combien coûte une désinfection clim ?",
+        answer:
+          "Forfait traitement + contrôle débit. Voir /tarifs/ — souvent après recharge si air tiède ou odeur persistante.",
+      },
+      {
+        question: "Désinfection ou recharge seule ?",
+        answer:
+          "Odeur = désinfection ; air chaud = recharge/fuite d'abord. On cible la cause avant de facturer les deux.",
+      },
+    ],
+    "controle-compresseur": [
+      {
+        question: "Signes compresseur clim faible ?",
+        answer:
+          "Clim tiède malgré recharge, bruit compresseur, embrayage qui ne coupe plus — test pressions circuit.",
+      },
+      {
+        question: "Combien coûte un contrôle compresseur ?",
+        answer:
+          "Diagnostic clim sur /tarifs/ — remplacement compresseur chiffré séparément (souvent avec déshydrateur).",
+      },
+      {
+        question: "Compresseur ou fuite seulement ?",
+        answer:
+          "On recherche fuite avant gros poste — remplir un circuit fuyant ne tient pas. Voir /reparation-climatisation-ivry/.",
+      },
+    ],
+    debosselage: [
+      {
+        question: "Qu'est-ce que le débosselage sans peinture ?",
+        answer:
+          "Redresser un enfoncement sans repeindre — idéal grêle, coups de portière si la laque n'est pas fissurée.",
+      },
+      {
+        question: "Combien coûte un débosselage ?",
+        answer:
+          "Selon nombre de bosses, accessibilité, taille. Devis photo WhatsApp possible — voir /blog/debosselage-sans-peinture-dsp/.",
+      },
+      {
+        question: "DSP ou carrosserie peinture ?",
+        answer:
+          "DSP si tôle intacte ; peinture si rayure profonde ou laque écaillée — on oriente au diagnostic visuel.",
+      },
+    ],
+    "peinture-localisee": [
+      {
+        question: "Peinture localisée : dans quels cas ?",
+        answer:
+          "Rayure profonde, éclat, aile ou pare-chocs abîmé — retouche zone limitée vs élément complet selon étendue.",
+      },
+      {
+        question: "Combien coûte une retouche peinture ?",
+        answer:
+          "Variable selon panneau et préparation. Devis après photos ou inspection — voir /blog/peinture-localisee-retouche-carrosserie/.",
+      },
+      {
+        question: "Retouche visible ou invisible ?",
+        answer:
+          "On vise la meilleure fusion possible ; couleur et finition validées avant travaux — nuancier constructeur.",
+      },
+    ],
+    "pare-brise-vitrage": [
+      {
+        question: "Réparer ou remplacer un pare-brise ?",
+        answer:
+          "Impact hors champ de vision et < pièce de monnaie : réparation possible. Fissure ou capteur : remplacement.",
+      },
+      {
+        question: "Combien coûte un pare-brise ?",
+        answer:
+          "Exemple /exemples/prix-pare-brise/ — franchise bris de glace offerte + jusqu'à 150 € selon dossier assurance.",
+      },
+      {
+        question: "Combien de temps pour le remplacement ?",
+        answer:
+          "Souvent une demi-journée — collage séchage inclus. Photo WhatsApp pour premier avis avant RDV.",
+      },
+    ],
+    "retouches-finitions": [
+      {
+        question: "Retouches finitions : quels travaux ?",
+        answer:
+          "Petites rayures, éclats de peinture, finition après réparation — polish ou retouche localisée.",
+      },
+      {
+        question: "Combien coûte une retouche finition ?",
+        answer:
+          "Selon surface et préparation. Devis après inspection — couplé carrosserie si choc plus important.",
+      },
+      {
+        question: "Différence avec peinture localisée ?",
+        answer:
+          "Finitions = léger ; peinture localisée = panneau partiel. On choisit la méthode la moins invasive possible.",
+      },
+    ],
   },
 
   /** Enrichissement des hubs landingPages (lpKey) */

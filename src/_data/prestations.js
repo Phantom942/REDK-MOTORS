@@ -40,6 +40,52 @@ const PRICE_FAQ_BY_SLUG = {
     "Temps diagnostic selon complexité — voir /tarifs/. Devis réparation séparé après identification de la cause.",
   "pare-brise-vitrage":
     "Pare-brise / vitrage : exemple sur /exemples/prix-pare-brise/ — devis photo WhatsApp possible selon impact.",
+  "diagnostic-securite":
+    "Check-up freins, pneus, éclairage : forfait /tarifs/ — corrections chiffrées séparément si besoin.",
+  "changement-bougies":
+    "Bougies selon cylindres et type : devis après identification moteur — voir /blog/bougies-allumage-quand-changer/.",
+  "filtre-habitacle":
+    "Filtre pollen / charbon actif : pièce + pose rapide — voir /blog/filtre-habitacle-pollen-quand-changer/.",
+  "liquide-refroidissement":
+    "Contrôle niveau inclus ; vidange circuit si liquide usé — tarif /tarifs/ après inspection.",
+  injecteurs:
+    "Nettoyage ou remplacement injecteurs : devis diagnostic — fréquent sur diesel urbain encrassé.",
+  "vanne-egr":
+    "Nettoyage ou remplacement EGR : chiffré après lecture codes — voir /blog/vanne-egr-encrassee-symptomes/.",
+  "courroie-accessoires":
+    "Courroie + galets tendeurs : fourchette /tarifs/ — distincte de la courroie de distribution.",
+  "decalaminage-moteur":
+    "Décalaminage selon méthode et motorisation — devis après diagnostic FAP/EGR/turbo.",
+  "coupelles-triangles":
+    "Suspension AV/AR : devis après mesure jeu — géométrie souvent recommandée après remplacement.",
+  "kit-roulement-arriere":
+    "Roulement arrière par roue : tarif /tarifs/ — contrôle frein côté roue inclus au diagnostic.",
+  "rotule-direction":
+    "Rotule + parallélisme si besoin : devis après contrôle train avant.",
+  "permutation-pneus":
+    "Permutation + contrôle pression/usure : forfait /tarifs/ — souvent avec équilibrage si vibrations.",
+  "reparation-crevaison":
+    "Réparation si bande de roulement OK — sinon remplacement pneu chiffré au modèle.",
+  "test-batterie":
+    "Test capacité + charge : souvent inclus au passage atelier — voir /blog/batterie-voiture-quand-changer/.",
+  "controle-alternateur":
+    "Test charge alternateur : /tarifs/ — remplacement chiffré si hors tolérance.",
+  demarreur:
+    "Démarreur reconditionné ou neuf : devis après test batterie et alimentation.",
+  cardans:
+    "Cardan ou tripode selon transmission : devis après essai braquage / vibration.",
+  "vidange-boite":
+    "Vidange boîte auto ou contrôle niveau manuelle : devis au modèle — voir blog vidange boîte auto.",
+  "desinfection-circuit-clim":
+    "Traitement anti-odeur habitacle : forfait /tarifs/ — souvent avec filtre habitacle neuf.",
+  "controle-compresseur":
+    "Diagnostic pressions clim : /tarifs/ — réparation compresseur chiffrée séparément.",
+  debosselage:
+    "DSP selon nombre de bosses : devis photo — voir /blog/debosselage-sans-peinture-dsp/.",
+  "peinture-localisee":
+    "Retouche panneau selon préparation : devis inspection ou photos WhatsApp.",
+  "retouches-finitions":
+    "Polish ou retouche légère : devis à l'inspection — moins invasif qu'une peinture complète.",
 };
 
 const WHEN_FAQ_BY_SLUG = {
@@ -71,6 +117,54 @@ const WHEN_FAQ_BY_SLUG = {
     "Voyant ABS/ESP allumé, freinage qui pulse ou ABS actif sur route sèche : lecture codes recommandée.",
   "recherche-de-panne":
     "Perte de puissance, bruit anormal, calage ou panne intermittente : diagnostic atelier avant de changer des pièces.",
+  "diagnostic-electronique":
+    "Voyants multiples, défauts confort ou réseau CAN : lecture codes avant réparation ciblée.",
+  "diagnostic-securite":
+    "Avant long trajet, CT ou après choc léger : contrôle freins, pneus, éclairage et niveaux.",
+  "changement-bougies":
+    "Ratés, démarrage difficile ou intervalle carnet dépassé — surtout essence haute mileage.",
+  "filtre-habitacle":
+    "Odeur moisi, buée lente ou tous les 12–24 mois — coupler avec recharge clim si besoin.",
+  "liquide-refroidissement":
+    "Voyant température, fuite, surchauffe ou entretien préventif au carnet.",
+  injecteurs:
+    "Ratés, broute, fumée noire ou codes défaut injection — diagnostic avant nettoyage ou remplacement.",
+  "vanne-egr":
+    "Perte de puissance, voyant moteur, fumée — fréquent diesel ville (trajets courts).",
+  "courroie-accessoires":
+    "Sifflement moteur, usure visible ou intervalle constructeur — ne pas confondre avec la distribution.",
+  "decalaminage-moteur":
+    "Perte progressive puissance, FAP/EGR encrassés, véhicule qui broute en diesel urbain.",
+  "coupelles-triangles":
+    "Claquement suspension, jeu direction ou usure pneu intérieur anormale.",
+  "kit-roulement-arriere":
+    "Grondement vitesse croissante, jeu roue ou ABS erratique à l'arrière.",
+  "rotule-direction":
+    "Jeu volant, claquement bosses ou usure pneus en biais côté direction.",
+  "permutation-pneus":
+    "Usure différente avant/arrière ou changement saison — tous les 10–15 000 km environ.",
+  "reparation-crevaison":
+    "Pneu qui se dégonfle, clou dans la bande de roulement ou hernie à vérifier.",
+  "test-batterie":
+    "Démarrage lent, voyant batterie ou véhicule immobilisé plusieurs jours.",
+  "controle-alternateur":
+    "Batterie qui se décharge en roulant ou voyant charge au tableau de bord.",
+  demarreur:
+    "Clic au contact sans démarrage ou moteur de démarreur qui ne tourne pas.",
+  cardans:
+    "Claquement en braquage à fond ou vibration à l'accélération (transmission).",
+  "vidange-boite":
+    "À-coups boîte auto, patinage ou intervalle constructeur — huile boîte manuelle si niveau bas.",
+  "desinfection-circuit-clim":
+    "Odeur moisi à la clim, allergie ou après longue période sans utiliser la clim.",
+  "controle-compresseur":
+    "Clim tiède malgré entretien récent, bruit compresseur ou embrayage clim HS.",
+  debosselage:
+    "Enfoncement sans peinture abîmée — grêle, coups de portière, petites bosses.",
+  "peinture-localisee":
+    "Rayure profonde, éclat ou panneau abîmé nécessitant repeinture partielle.",
+  "retouches-finitions":
+    "Petites rayures, éclats ou finition après réparation carrosserie.",
 };
 
 const PROCESS_STEPS = [

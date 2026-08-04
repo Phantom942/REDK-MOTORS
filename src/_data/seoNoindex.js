@@ -17,8 +17,7 @@
  * - Clim : indexables = /clim-voiture-ne-refroidit-plus-94/ + /reparation-climatisation-ivry/ ;
  *   noindex : /clim-voiture-ne-refroidit-plus-* autres, /reparation-climatisation-* hors ivry
  *
- * Garage-proche (~16) : toutes noindex via préfixe /garage-proche-.
- * Stub redirect déjà en place : /garage-proche-maisons-alfort/ → /maisons-alfort/
+ * Garage-proche (~16) : stubs 301 → pages ville / money (voir garageProcheRedirects.js).
  * (seul vrai doublon ville money). Pas d'autre twin exact (pas de /creteil/, /vincennes/…).
  * Candidats futurs (si page ville money créée) : creteil, vincennes, saint-mande,
  * joinville-le-pont, choisy-le-roi, cachan, arcueil, gentilly — sinon laisser noindex.

@@ -7,6 +7,7 @@ const fs = require("fs");
 const path = require("path");
 
 const adLandingUrls = require("../src/_data/adLandingUrls.js");
+const garageProcheRedirects = require("../src/_data/garageProcheRedirects.js");
 
 const SITE_URL = "https://redkmotors.fr";
 const OUT_DIR = path.join(__dirname, "..", "_site");
@@ -31,8 +32,15 @@ const STATIC_REDIRECTS = [
   ["/liens", "/links/"],
   ["/blog/tag/freinage/", "/blog/tag/freins/"],
   ["/blog/tag/freinage", "/blog/tag/freins/"],
-  ["/garage-proche-maisons-alfort/", "/maisons-alfort/"],
-  ["/garage-proche-maisons-alfort", "/maisons-alfort/"],
+  ["/blog/tag/pneus/", "/blog/tag/pneumatiques/"],
+  ["/blog/tag/pneus", "/blog/tag/pneumatiques/"],
+  ...garageProcheRedirects.flatMap(({ from, to }) => {
+    const noSlash = from.endsWith("/") ? from.slice(0, -1) : from;
+    return [
+      [from, to],
+      [noSlash, to],
+    ];
+  }),
 ];
 
 function redirectHtml(target) {

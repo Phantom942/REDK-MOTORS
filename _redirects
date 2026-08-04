@@ -55,6 +55,40 @@
 /blog/tag/freinage/  /blog/tag/freins/  301
 /blog/tag/freinage   /blog/tag/freins/  301
 
-# Doublon Maisons-Alfort → page ville canonique
+# Tag blog alias — pneus fusionné dans pneumatiques (seul indexable)
+/blog/tag/pneus/     /blog/tag/pneumatiques/  301
+/blog/tag/pneus      /blog/tag/pneumatiques/  301
+
+# Garage-proche → pages ville / money canoniques
 /garage-proche-maisons-alfort/   /maisons-alfort/   301
 /garage-proche-maisons-alfort    /maisons-alfort/   301
+/garage-proche-arcueil/          /kremlin-bicetre/  301
+/garage-proche-arcueil           /kremlin-bicetre/  301
+/garage-proche-cachan/           /kremlin-bicetre/  301
+/garage-proche-cachan            /kremlin-bicetre/  301
+/garage-proche-choisy-le-roi/     /diagnostic-auto-choisy-le-roi/  301
+/garage-proche-choisy-le-roi     /diagnostic-auto-choisy-le-roi/  301
+/garage-proche-creteil/          /vitry-sur-seine/  301
+/garage-proche-creteil           /vitry-sur-seine/  301
+/garage-proche-fontenay-sous-bois/  /paris-13/  301
+/garage-proche-fontenay-sous-bois   /paris-13/  301
+/garage-proche-gentilly/         /garage-ivry-sur-seine/  301
+/garage-proche-gentilly          /garage-ivry-sur-seine/  301
+/garage-proche-joinville-le-pont/  /charenton-le-pont/  301
+/garage-proche-joinville-le-pont   /charenton-le-pont/  301
+/garage-proche-lhay-les-roses/   /garage-ivry-sur-seine/  301
+/garage-proche-lhay-les-roses    /garage-ivry-sur-seine/  301
+/garage-proche-le-perreux-sur-marne/  /garage-ivry-sur-seine/  301
+/garage-proche-le-perreux-sur-marne   /garage-ivry-sur-seine/  301
+/garage-proche-nogent-sur-marne/  /garage-ivry-sur-seine/  301
+/garage-proche-nogent-sur-marne   /garage-ivry-sur-seine/  301
+/garage-proche-orly/             /garage-ivry-sur-seine/  301
+/garage-proche-orly              /garage-ivry-sur-seine/  301
+/garage-proche-rungis/           /garage-ivry-sur-seine/  301
+/garage-proche-rungis            /garage-ivry-sur-seine/  301
+/garage-proche-saint-mande/      /paris-13/  301
+/garage-proche-saint-mande       /paris-13/  301
+/garage-proche-thiais/            /vitry-sur-seine/  301
+/garage-proche-thiais             /vitry-sur-seine/  301
+/garage-proche-vincennes/         /paris-13/  301
+/garage-proche-vincennes          /paris-13/  301

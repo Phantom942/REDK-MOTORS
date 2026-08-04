@@ -12,7 +12,7 @@
   {% set breadcrumbLabel = modelLabel %}
   {% set kicker = "Guide prix · " ~ exemple.brand %}
   {% set heroTitle = "Prix " ~ (exemple.shortService or exemple.serviceLabel) ~ " " ~ modelLabel %}
-  {% set heroLead = description %}
+  {% set heroLead = exemple.modelLead | default(description) %}
   {% set compareIntro = "Exemple de prix indicatif pour une <strong>" ~ modelLabel ~ "</strong> (" ~ exemple.yearRange ~ ")." %}
   {% set specificsTitle = "À savoir sur " ~ modelLabel %}
   {% set relatedTitle = "Même prestation, autre modèle" %}

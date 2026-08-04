@@ -6,6 +6,37 @@
  */
 const DATE = "2026-07-07";
 
+const SEGMENT_LABEL = {
+  citadine: "citadine",
+  compacte: "compacte",
+  suv: "SUV",
+  premium: "berline premium",
+  utilitaire: "utilitaire",
+};
+
+/** Intro unique par modèle (évite le clone du bloc pain/solution générique). */
+function buildModelLead(model, serviceKey, service) {
+  const veh = `${model.brand} ${model.model}`;
+  const seg = SEGMENT_LABEL[model.segment] || "véhicule";
+  const yr = model.yearRange;
+
+  const byService = {
+    freinage: `Freinage sur ${veh} (${yr}) : le poids du ${seg} et l'usage ville influencent l'usure — on mesure plaquettes et disques avant devis.`,
+    vidange: `${veh} : vidange selon carnet (${yr}), huile homologuée et filtre adaptés au moteur.`,
+    distribution: `Distribution ${veh} (${yr})${model.motorNote ? ` — ${model.motorNote}` : ""} : intervalle constructeur à respecter avant casse.`,
+    pneus: `Pneus ${veh}${model.tireSize ? ` — dimension fréquente ${model.tireSize}` : ""} : montage, équilibrage et contrôle pression à Ivry.`,
+    clim: `Climatisation ${veh} (${yr}) : recharge après test d'étanchéité — gaz R134a ou R1234yf selon millésime.`,
+    embrayage: `Embrayage ${veh} (${seg}, ${yr}) : kit complet souvent recommandé — diagnostic patinage avant chiffrage.`,
+    batterie: `Batterie ${veh} (${yr}) : type plomb, AGM ou EFB Start-Stop à confirmer avant pose.`,
+    "pare-brise": `Pare-brise ${veh} (${seg}) : impact réparable ou remplacement selon zone — capteurs pluie/caméra à vérifier.`,
+  };
+
+  return (
+    byService[serviceKey] ||
+    `${service.serviceLabel} sur ${veh} (${seg}, ${yr}) : exemple indicatif à Ivry — devis ferme après inspection atelier.`
+  );
+}
+
 const DIAGNOSTIC_OFFERT = "diagnostic offert à chaque intervention";
 
 /** Copy SEO + psycho émotionnel — pages génériques uniquement */
@@ -501,18 +532,11 @@ function buildExample(model, serviceKey) {
   };
 
   const override = OVERRIDES[slug];
-  const seo = GENERIC_SEO[serviceKey];
-  const withContext = seo
-    ? {
-        ...base,
-        problemTitle: seo.problemTitle,
-        problemLead: seo.problemLead,
-        painPoints: seo.painPoints,
-        solutionTitle: seo.solutionTitle,
-        solutionLead: seo.solutionLead,
-        shortService: SHORT_SERVICE[serviceKey] || service.serviceLabel,
-      }
-    : { ...base, shortService: SHORT_SERVICE[serviceKey] || service.serviceLabel };
+  const withContext = {
+    ...base,
+    shortService: SHORT_SERVICE[serviceKey] || service.serviceLabel,
+    modelLead: buildModelLead(model, serviceKey, service),
+  };
   return override ? { ...withContext, ...override } : withContext;
 }
 
@@ -557,7 +581,7 @@ function buildDescription(ex) {
     );
   }
   return ensurePhoneCta(
-    `Prix ${short} ${ex.brand} ${ex.model} : exemple ${ex.redkPrice} à Ivry. Diagnostic offert · devis gratuit.`,
+    `Prix ${short} ${ex.brand} ${ex.model} (${ex.yearRange}) : exemple ${ex.redkPrice} à Ivry. ${ex.modelLead || "Diagnostic offert · devis gratuit."}`,
     phone
   );
 }
