@@ -544,7 +544,7 @@ function buildDescription(ex) {
   };
   const segmentNote = segmentHints[ex.segment] || "";
   const tireNote = ex.tireSize ? ` Pneus courants : ${ex.tireSize}.` : "";
-  return `Prix ${ex.serviceLabel} ${ex.brand} ${ex.model} (${ex.yearRange}) à Ivry-sur-Seine : exemple indicatif RED-K MOTORS.${tireNote} ${segmentNote} Devis gratuit après inspection · 06 48 74 56 68.`.replace(/\s+/g, " ").trim();
+  return `Prix ${ex.serviceLabel} ${ex.brand} ${ex.model} : combien ça coûte ? Exemple à Ivry ${ex.redkPrice}.${tireNote} Devis gratuit · ☎ 06 48 74 56 68.`.replace(/\s+/g, " ").trim();
 }
 
 function buildQuery(ex) {
