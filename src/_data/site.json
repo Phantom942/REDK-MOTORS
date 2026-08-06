@@ -4,7 +4,7 @@
   "url": "https://redkmotors.fr",
   "locale": "fr_FR",
   "phone": "+33648745668",
-  "phoneDisplay": "06.48.74.56.68",
+  "phoneDisplay": "+33 6 48 74 56 68",
   "phoneDisplayCompact": "06 48 74 56 68",
   "whatsappUrl": "https://wa.me/33648745668?text=Bonjour%2C%20je%20contacte%20RED-K%20MOTORS%20pour%20mon%20v%C3%A9hicule.",
   "email": "contact@redkmotors.fr",
@@ -14,10 +14,10 @@
   "addressFull": "9 rue Michelet, 94200 Ivry-sur-Seine",
   "wazeUrl": "https://ul.waze.com/ul?venue_id=1573352.15602449.41728604&overview=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location",
   "region": "Île-de-France",
-  "openingHours": "Lun-Sam 9h-19h",
+  "openingHours": "Lun–sam 9h–19h",
   "openingHoursSchema": {
     "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-    "opens": "9:00",
+    "opens": "09:00",
     "closes": "19:00"
   },
   "seoKeywords": "garage ivry-sur-seine, garage 94, mecanique ivry, carrosserie ivry, pare-brise ivry, remplacement pare-brise 94, navette vehicule ivry, bris de glace, diagnostic auto ivry, entretien auto ivry, pneus ivry, freins ivry, garage paris 13, garage vitry-sur-seine, garage villejuif, garage charenton-le-pont, garage taxi ivry, garage vtc 94, entretien flotte entreprise, garage auto ecole ivry, espace pro garage val-de-marne",

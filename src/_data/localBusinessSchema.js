@@ -1,5 +1,4 @@
 const localBusiness = require("./localBusiness.json");
-const googleReviews = require("./googleReviews.json");
 const site = require("./site.json");
 const team = require("./team.json");
 const { all: prestationCatalog } = require("./prestations.js");
@@ -21,7 +20,6 @@ const CORE_KNOWS_ABOUT = [
 module.exports = function localBusinessSchema() {
   const schema = JSON.parse(JSON.stringify(localBusiness.schema));
   const { latitude, longitude } = site.geo;
-  const { rating, count } = site.googleReviews;
 
   schema.geo = {
     "@type": "GeoCoordinates",
@@ -48,31 +46,8 @@ module.exports = function localBusinessSchema() {
     ...prestationCatalog.map((entry) => entry.name),
   ];
 
-  schema.aggregateRating = {
-    "@type": "AggregateRating",
-    ratingValue: rating,
-    reviewCount: count,
-    bestRating: 5,
-    worstRating: 1,
-  };
-
-  schema.review = googleReviews.reviews.slice(0, 4).map((entry) => {
-    const review = {
-      "@type": "Review",
-      author: { "@type": "Person", name: entry.author },
-      reviewRating: {
-        "@type": "Rating",
-        ratingValue: entry.rating,
-        bestRating: 5,
-        worstRating: 1,
-      },
-      reviewBody: entry.text,
-    };
-    if (entry.date) {
-      review.datePublished = entry.date;
-    }
-    return review;
-  });
+  // Pas d'aggregateRating / review JSON-LD : avis collectés sur Google
+  // (balisage non conforme aux règles Google si recopié ici).
 
   const placeId = (process.env.GOOGLE_PLACES_PLACE_ID || site.googleReviews.placeId || "").trim();
   if (placeId) {

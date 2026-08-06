@@ -37,6 +37,14 @@ module.exports = function (eleventyConfig) {
   // Filtre JSON pour JSON-LD
   eleventyConfig.addFilter("json", (obj) => JSON.stringify(obj));
 
+  /** Nœud JSON-LD sans @context (pour un seul @graph par page). */
+  eleventyConfig.addFilter("jsonLdNode", (obj) => {
+    if (!obj || typeof obj !== "object") return "null";
+    const clone = JSON.parse(JSON.stringify(obj));
+    delete clone["@context"];
+    return JSON.stringify(clone);
+  });
+
   eleventyConfig.addFilter("pageFaqs", (faqs, faqSchema, limit = 3) => {
     if (Array.isArray(faqs) && faqs.length) {
       return faqs.slice(0, limit);

@@ -14,6 +14,6 @@ module.exports = {
   ],
   disclaimer:
     "Offre valable lors d'une intervention mécanique, entretien ou freinage validée à l'atelier. Un diagnostic seul, sans autre prestation, reste facturé selon notre grille tarifaire.",
-  ctaLabel: "Appeler le 06.48.74.56.68",
+  ctaLabel: "Appeler le 06 48 74 56 68",
   ctaSecondaryLabel: "WhatsApp",
 };

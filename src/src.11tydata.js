@@ -1,20 +1,55 @@
 /** FAQ JSON-LD auto-généré depuis `faqs` ou landingPages + meta CTR. */
 const landingPages = require("./_data/landingPages.js");
 
+const SITE_URL = "https://redkmotors.fr";
 const PHONE_CTA = "☎ 06 48 74 56 68";
 const SKIP_PHONE_KEYS = new Set(["cookies", "confidentialite", "merci", "404", "links"]);
+const SKIP_BREADCRUMB_KEYS = new Set(["index", "404", "links", "merci"]);
 
 function withPhoneCta(text, pageKey) {
   if (!text || typeof text !== "string") return text;
   if (SKIP_PHONE_KEYS.has(pageKey)) return text;
   const clean = text.replace(/\s+/g, " ").trim();
-  if (/06\s*48\s*74|☎/i.test(clean)) return clean;
+  if (/06\s*48\s*74|☎|\+33\s*6/i.test(clean)) return clean;
   return `${clean.replace(/\.$/, "")} · ${PHONE_CTA}.`;
+}
+
+function defaultBreadcrumb(data) {
+  if (data.breadcrumb) return data.breadcrumb;
+  if (SKIP_BREADCRUMB_KEYS.has(data.pageKey)) return undefined;
+
+  const rawUrl = data.page?.url;
+  if (!rawUrl || rawUrl === "/" || rawUrl === "/index.html") return undefined;
+
+  const pageUrl = `${SITE_URL}${String(rawUrl).replace("/index.html", "/")}`;
+  const name = String(data.title || data.pageKey || "Page")
+    .replace(/\s*[|—–-]\s*RED-K MOTORS.*$/i, "")
+    .trim()
+    .slice(0, 80);
+
+  return {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Accueil",
+        item: `${SITE_URL}/`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: name || "Page",
+        item: pageUrl,
+      },
+    ],
+  };
 }
 
 module.exports = {
   eleventyComputed: {
     description: (data) => withPhoneCta(data.description, data.pageKey),
+    breadcrumb: (data) => defaultBreadcrumb(data),
     faqSchema: (data) => {
       if (data.faqSchema) {
         return data.faqSchema;

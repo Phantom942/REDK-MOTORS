@@ -1,0 +1,26 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "redk-motors.me"
+        }
+      ],
+      "destination": "https://redkmotors.fr/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.redk-motors.me"
+        }
+      ],
+      "destination": "https://redkmotors.fr/:path*",
+      "permanent": true
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+# 301 permanente redk-motors.me → redkmotors.fr (chemins conservés 1:1)
+# À utiliser si le domaine .me est servi via Amen micro-hébergement / Apache.
+# GitHub Pages ignore ce fichier.
+
+RewriteEngine On
+
+# Force HTTPS + host canonique cible
+RewriteCond %{HTTP_HOST} ^(www\.)?redk-motors\.me$ [NC]
+RewriteRule ^(.*)$ https://redkmotors.fr/$1 [R=301,L]
