@@ -5,7 +5,8 @@
 | Fichier | Rôle |
 |---|---|
 | `redirects-map.csv` | Table source (913 entrées) — généré par `npm run build` via `scripts/generate-legacy-redirects.js` |
-| `cloudflare-redirects-me.csv` | Import Bulk Redirects Cloudflare (domaine `.me`) |
+| `cloudflare-redirects-me.csv` | Export avec en-tête (lecture humaine / scripts) |
+| `cloudflare-redirects-me-import.csv` | **Import Cloudflare** (sans en-tête — obligatoire) |
 | `cloudflare-bulk-redirects.csv` | Import Bulk Redirects Cloudflare (domaine `.fr`, legacy `.html` etc.) |
 | `category-a-urls.txt` | Paths identiques — couverts par la règle générique CF |
 | `check-redirects.sh` | Vérification curl des 301 |
@@ -29,7 +30,7 @@ Status: 301
 
 ### 2. Bulk Redirects (catégories B + C)
 
-Importer `cloudflare-redirects-me.csv` dans **Bulk Redirects** (domaine `redk-motors.me`).
+Importer `cloudflare-redirects-me-import.csv` dans **Bulk Redirects** (domaine `redk-motors.me`).
 
 ### 3. Bulk Redirects `.fr` (optionnel)
 

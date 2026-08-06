@@ -26,6 +26,8 @@ const ROOT = path.join(__dirname, "..");
 const OUT_DIR = path.join(ROOT, "_site");
 const ARTICLES_DIR = path.join(ROOT, "src", "blog", "articles");
 const BULK_CSV = path.join(OUT_DIR, "cloudflare-bulk-redirects.csv");
+const ROOT_BULK_CSV = path.join(ROOT, "cloudflare-bulk-redirects.csv");
+const ROOT_BULK_IMPORT_CSV = path.join(ROOT, "cloudflare-bulk-redirects-import.csv");
 const ROOT_MAP_CSV = path.join(ROOT, "redirects-map.csv");
 
 /** @type {Array<[string, string]>} from → to (chemins absolus site) */
@@ -169,17 +171,21 @@ function csvEscape(value) {
 
 function writeCloudflareBulk(pairs) {
   // Format Bulk Redirects Cloudflare : source_url, target_url, status_code, preserve_query_string, ...
-  const lines = [
-    "source_url,target_url,status_code,preserve_query_string,subpath_matching,preserve_path_suffix",
-  ];
+  const header =
+    "source_url,target_url,status_code,preserve_query_string,subpath_matching,preserve_path_suffix";
+  const lines = [header];
+  const importLines = [];
   for (const [from, to] of pairs) {
     const source = `${SITE_URL}${from}`;
     const target = `${SITE_URL}${to}`;
-    lines.push(
-      [source, target, "301", "TRUE", "FALSE", "FALSE"].map(csvEscape).join(","),
-    );
+    const row = [source, target, "301", "TRUE", "FALSE", "FALSE"].map(csvEscape).join(",");
+    lines.push(row);
+    importLines.push(row);
   }
-  fs.writeFileSync(BULK_CSV, `${lines.join("\n")}\n`, "utf8");
+  const withHeader = `${lines.join("\n")}\n`;
+  fs.writeFileSync(BULK_CSV, withHeader, "utf8");
+  fs.writeFileSync(ROOT_BULK_CSV, withHeader, "utf8");
+  fs.writeFileSync(ROOT_BULK_IMPORT_CSV, `${importLines.join("\n")}\n`, "utf8");
 }
 
 function writeRootMap(pairs) {

@@ -1,0 +1,17 @@
+name = "redkmotors-fr-redirect"
+main = "redkmotors-fr-redirect-kv.js"
+compatibility_date = "2026-07-01"
+account_id = "82e31c401bb561864cba4a522774e8b8"
+
+[[kv_namespaces]]
+binding = "REDIRECTS"
+id = "5d9807d363a24a089326f8d24f4f340c"
+
+[[routes]]
+pattern = "redkmotors.fr/*"
+zone_name = "redkmotors.fr"
+
+[[routes]]
+pattern = "www.redkmotors.fr/*"
+zone_name = "redkmotors.fr"
+

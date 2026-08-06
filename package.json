@@ -14,7 +14,8 @@
     "videos:optimize": "node scripts/optimize-videos.js",
     "indexnow:ping": "node scripts/indexnow-ping.js",
     "indexnow:priority": "node scripts/indexnow-priority.js",
-    "redirects:export-me": "node scripts/export-cloudflare-me-redirects.js"
+    "redirects:export-me": "node scripts/export-cloudflare-me-redirects.js",
+    "redirects:kv-shards": "node scripts/generate-kv-redirect-shards.js"
   },
   "keywords": [
     "eleventy",

@@ -63,3 +63,23 @@ exemples-urls-indexation.txt
 
 # Exports DNS / zone (données hébergeur, pas le site)
 dns_zone*.csv
+
+# Cloudflare — exports import dashboard (regénérés par npm run build / redirects:export-me)
+cloudflare-*-import.csv
+
+# Cloudflare Workers — artefacts locaux / générés
+workers/.wrangler/
+workers/kv-shards/
+workers/_*
+workers/kv-*.json
+workers/mcp-*
+workers/gen-*.js
+workers/deploy-*.js
+workers/split-*.js
+workers/shard-*.js
+workers/generate-*.js
+workers/redirect-map.json
+workers/redkmotors-fr-redirect.js
+workers/redkmotors-fr-redirect-compact.js
+workers/*.payload.json
+workers/mcp-args-*.json

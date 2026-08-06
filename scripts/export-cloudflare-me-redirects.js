@@ -12,6 +12,7 @@ const https = require("https");
 const ROOT = path.join(__dirname, "..");
 const MAP_CSV = path.join(ROOT, "redirects-map.csv");
 const OUT_ME = path.join(ROOT, "cloudflare-redirects-me.csv");
+const OUT_ME_IMPORT = path.join(ROOT, "cloudflare-redirects-me-import.csv");
 const OUT_A = path.join(ROOT, "category-a-urls.txt");
 const FR = "https://redkmotors.fr";
 const ME = "https://redk-motors.me";
@@ -70,16 +71,20 @@ async function frSitemapPaths() {
   return [...paths].sort();
 }
 
+function meCsvLines(rows) {
+  const header =
+    "source_url,target_url,status_code,preserve_query_string,subpath_matching,preserve_path_suffix";
+  const data = rows.map(({ source, dest }) =>
+    [source, dest, "301", "TRUE", "FALSE", "FALSE"].map(csvEscape).join(","),
+  );
+  return { header, data };
+}
+
 function writeMeCsv(rows) {
-  const lines = [
-    "source_url,target_url,status_code,preserve_query_string,subpath_matching,preserve_path_suffix",
-  ];
-  for (const { source, dest } of rows) {
-    lines.push(
-      [source, dest, "301", "TRUE", "FALSE", "FALSE"].map(csvEscape).join(","),
-    );
-  }
-  fs.writeFileSync(OUT_ME, `${lines.join("\n")}\n`, "utf8");
+  const { header, data } = meCsvLines(rows);
+  fs.writeFileSync(OUT_ME, `${[header, ...data].join("\n")}\n`, "utf8");
+  // Cloudflare dashboard: pas de ligne d'en-tête (sinon erreur « URL invalide » position 1)
+  fs.writeFileSync(OUT_ME_IMPORT, `${data.join("\n")}\n`, "utf8");
 }
 
 function writeCategoryA(sitemapPaths, explicitSources) {
@@ -130,7 +135,7 @@ async function main() {
         redirectsMapTotal: unique.length,
         cloudflareMeCsv: explicit.length,
         categoryAPaths: categoryACount,
-        outputs: [path.basename(OUT_ME), path.basename(OUT_A)],
+        outputs: [path.basename(OUT_ME), path.basename(OUT_ME_IMPORT), path.basename(OUT_A)],
       },
       null,
       2,
