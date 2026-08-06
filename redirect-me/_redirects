@@ -1,0 +1,4 @@
+# Netlify / Cloudflare Pages — 301 page à page (path conservé)
+# Syntaxe splat : tout chemin .me → même chemin sur redkmotors.fr
+
+/*    https://redkmotors.fr/:splat    301!

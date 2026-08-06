@@ -15,9 +15,12 @@
     <meta name="geo.position" content="{{ site.geo.position }}" />
     <meta name="ICBM" content="{{ site.geo.icbm }}" />
 
+    {% set pagePath = canonicalPath | default(page.url) | default('/') | replace('/index.html','/') %}
+    {% set canonicalUrl = site.url ~ pagePath %}
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="{{ ogType | default('website') }}" />
-    <meta property="og:url" content="{{ site.url }}{{ page.url | default('/') | replace('/index.html','/') }}" />
+    <meta property="og:url" content="{{ canonicalUrl }}" />
     <meta property="og:site_name" content="Garage Automobile {{ site.name }}" />
     <meta property="og:locale" content="{{ site.locale }}" />
     <meta property="og:title" content="{{ ogTitle | default(title) | default(site.seoTitle) | default(site.name) }}" />
@@ -42,7 +45,7 @@
     <link rel="manifest" href="/site.webmanifest" />
 
     <title>{{ title | default(site.seoTitle) | default(site.name) }}</title>
-    <link rel="canonical" href="{{ site.url }}{{ canonicalPath | default(page.url) | default('/') | replace('/index.html','/') }}" />
+    <link rel="canonical" href="{{ canonicalUrl }}" />
     <link rel="sitemap" type="application/xml" title="Sitemap" href="{{ site.url }}/sitemap.xml" />
     <script src="{{ '/assets/js/canonical-url.js' | cacheBust }}" defer></script>
     <link rel="alternate" type="text/plain" href="{{ site.url }}/llms.txt" title="LLM context (llms.txt)" />
@@ -68,7 +71,7 @@
 
     <!-- GTM chargé uniquement après consentement cookies (voir cookies.js) -->
 
-    <!-- JSON-LD global (WebSite + AutoRepair + WebPage, une seule injection par page) -->
+    <!-- JSON-LD : un seul @graph par page (AutoRepair + schémas page) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -90,8 +93,8 @@
         },
         {
           "@type": "WebPage",
-          "@id": "{{ site.url }}{{ page.url | default('/') | replace('/index.html','/') }}#webpage",
-          "url": "{{ site.url }}{{ page.url | default('/') | replace('/index.html','/') }}",
+          "@id": "{{ canonicalUrl }}#webpage",
+          "url": "{{ canonicalUrl }}",
           "name": "{{ title | default(site.seoTitle) | default(site.name) }}",
           "description": "{{ description | default(site.description) }}",
           {% set freshnessDate = (lastReviewed or date) | dateToIso %}
@@ -106,74 +109,20 @@
             "cssSelector": ["h1", "h2", ".hero__lede", ".hero__desc", ".direct-answer__lead", ".promesse__title", "meta[name='description']"]
           }
         },
-        {{ (localBusinessSchema or localBusiness.schema) | json | safe }}
+        {{ (localBusinessSchema or localBusiness.schema) | jsonLdNode | safe }}
+        {% if breadcrumb %},{{ breadcrumb | jsonLdNode | safe }}{% endif %}
+        {% if faqSchema %},{{ faqSchema | jsonLdNode | safe }}{% endif %}
+        {% if articleSchema %},{{ articleSchema | jsonLdNode | safe }}{% endif %}
+        {% if offerSchema %},{{ offerSchema | jsonLdNode | safe }}{% endif %}
+        {% if localServiceSchema %},{{ localServiceSchema | jsonLdNode | safe }}{% endif %}
+        {% if itemListSchema %},{{ itemListSchema | jsonLdNode | safe }}{% endif %}
+        {% if howToSchema %},{{ howToSchema | jsonLdNode | safe }}{% endif %}
+        {% if offerCatalogSchema %},{{ offerCatalogSchema | jsonLdNode | safe }}{% endif %}
+        {% if contactPageSchema %},{{ contactPageSchema | jsonLdNode | safe }}{% endif %}
+        {% if personSchema %},{{ personSchema | jsonLdNode | safe }}{% endif %}
       ]
     }
     </script>
-
-    {% if breadcrumb %}
-    <!-- Breadcrumb Schema -->
-    <script type="application/ld+json">
-    {{ breadcrumb | json | safe }}
-    </script>
-    {% endif %}
-
-    {% if faqSchema %}
-    <!-- FAQ Schema -->
-    <script type="application/ld+json">
-    {{ faqSchema | json | safe }}
-    </script>
-    {% endif %}
-
-    {% if articleSchema %}
-    <!-- Article Schema (BlogPosting) -->
-    <script type="application/ld+json">
-    {{ articleSchema | json | safe }}
-    </script>
-    {% endif %}
-
-    {% if offerSchema %}
-    <script type="application/ld+json">
-    {{ offerSchema | json | safe }}
-    </script>
-    {% endif %}
-
-    {% if localServiceSchema %}
-    <!-- JSON-LD Service (zone desservie) -->
-    <script type="application/ld+json">
-    {{ localServiceSchema | json | safe }}
-    </script>
-    {% endif %}
-
-    {% if itemListSchema %}
-    <script type="application/ld+json">
-    {{ itemListSchema | json | safe }}
-    </script>
-    {% endif %}
-
-    {% if howToSchema %}
-    <script type="application/ld+json">
-    {{ howToSchema | json | safe }}
-    </script>
-    {% endif %}
-
-    {% if offerCatalogSchema %}
-    <script type="application/ld+json">
-    {{ offerCatalogSchema | json | safe }}
-    </script>
-    {% endif %}
-
-    {% if contactPageSchema %}
-    <script type="application/ld+json">
-    {{ contactPageSchema | json | safe }}
-    </script>
-    {% endif %}
-
-    {% if personSchema %}
-    <script type="application/ld+json">
-    {{ personSchema | json | safe }}
-    </script>
-    {% endif %}
   </head>
   <body class="design-stitch{% if pageKey != 'links' and (lpKey or lp or hideServiceAreas or exemple or hasHeroVideo) %} conversion-page{% endif %}{% if pageKey == 'links' %} page-link-hub{% endif %}" data-page="{{ pageKey | default('index') }}" data-gtm-id="{{ site.gtmId }}">
     {% if pageKey != 'links' %}

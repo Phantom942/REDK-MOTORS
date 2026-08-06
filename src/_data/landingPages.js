@@ -26,7 +26,7 @@ const PROCESS_STEPS = [
   { title: "Intervention validée", desc: "Les travaux démarrent uniquement après votre accord." },
 ];
 
-const CTA = "Appeler le 06.48.74.56.68";
+const CTA = "Appeler le 06 48 74 56 68";
 const seoEnhance = require("./prestationSeoEnhancements.js");
 
 const landingPages = {

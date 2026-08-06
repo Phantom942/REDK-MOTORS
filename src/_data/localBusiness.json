@@ -34,7 +34,7 @@
       {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        "opens": "9:00",
+        "opens": "09:00",
         "closes": "19:00"
       }
     ],
