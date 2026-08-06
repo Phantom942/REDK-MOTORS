@@ -1,0 +1,180 @@
+source,destination,note
+https://redk-motors.me/,https://redkmotors.fr/,accueil
+https://redk-motors.me/achat-revente,https://redkmotors.fr/achat-revente/,sans slash → avec slash
+https://redk-motors.me/achat-revente.html,https://redkmotors.fr/achat-revente/,legacy .html → trailing slash
+https://redk-motors.me/blog,https://redkmotors.fr/blog/,sans slash
+https://redk-motors.me/blog/5-points-controle-avant-ct-ivry.html,https://redkmotors.fr/blog/5-points-controle-avant-ct-ivry/,legacy .html → trailing slash
+https://redk-motors.me/blog/adblue-voyant-panne-diesel.html,https://redkmotors.fr/blog/adblue-voyant-panne-diesel/,article blog .html → slash
+https://redk-motors.me/blog/alternateur-hs-symptomes.html,https://redkmotors.fr/blog/alternateur-hs-symptomes/,article blog .html → slash
+https://redk-motors.me/blog/amortisseurs-usures-symptomes.html,https://redkmotors.fr/blog/amortisseurs-usures-symptomes/,article blog .html → slash
+https://redk-motors.me/blog/batterie-morte-matin-que-faire.html,https://redkmotors.fr/blog/batterie-morte-matin-que-faire/,article blog .html → slash
+https://redk-motors.me/blog/batterie-start-stop-usure-prematuree.html,https://redkmotors.fr/blog/batterie-start-stop-usure-prematuree/,article blog .html → slash
+https://redk-motors.me/blog/batterie-voiture-quand-changer.html,https://redkmotors.fr/blog/batterie-voiture-quand-changer/,article blog .html → slash
+https://redk-motors.me/blog/bougies-allumage-quand-changer.html,https://redkmotors.fr/blog/bougies-allumage-quand-changer/,article blog .html → slash
+https://redk-motors.me/blog/bruit-anormal-voiture-que-faire.html,https://redkmotors.fr/blog/bruit-anormal-voiture-que-faire/,article blog .html → slash
+https://redk-motors.me/blog/cardan-qui-claque-causes.html,https://redkmotors.fr/blog/cardan-qui-claque-causes/,article blog .html → slash
+https://redk-motors.me/blog/catalyseur-bouche-symptomes-causes.html,https://redkmotors.fr/blog/catalyseur-bouche-symptomes-causes/,article blog .html → slash
+https://redk-motors.me/blog/clim-odeur-moisi-que-faire.html,https://redkmotors.fr/blog/clim-odeur-moisi-que-faire/,article blog .html → slash
+https://redk-motors.me/blog/climatisation-voiture-recharge-ivry.html,https://redkmotors.fr/blog/climatisation-voiture-recharge-ivry/,article blog .html → slash
+https://redk-motors.me/blog/combien-coute-vidange-voiture.html,https://redkmotors.fr/blog/combien-coute-vidange-voiture/,article blog .html → slash
+https://redk-motors.me/blog/combien-temps-entre-deux-vidanges.html,https://redkmotors.fr/blog/combien-temps-entre-deux-vidanges/,article blog .html → slash
+https://redk-motors.me/blog/consommation-huile-anormale-causes.html,https://redkmotors.fr/blog/consommation-huile-anormale-causes/,article blog .html → slash
+https://redk-motors.me/blog/controle-antipollution-refuse-que-faire.html,https://redkmotors.fr/blog/controle-antipollution-refuse-que-faire/,article blog .html → slash
+https://redk-motors.me/blog/controle-technique-2026-nouveautes.html,https://redkmotors.fr/blog/controle-technique-2026-nouveautes/,article blog .html → slash
+https://redk-motors.me/blog/courroie-accessoires-symptomes-usure.html,https://redkmotors.fr/blog/courroie-accessoires-symptomes-usure/,article blog .html → slash
+https://redk-motors.me/blog/courroie-distribution-quand-changer-94.html,https://redkmotors.fr/blog/courroie-distribution-quand-changer-94/,article blog .html → slash
+https://redk-motors.me/blog/debosselage-sans-peinture-dsp.html,https://redkmotors.fr/blog/debosselage-sans-peinture-dsp/,article blog .html → slash
+https://redk-motors.me/blog/direction-assistee-dure-grincements.html,https://redkmotors.fr/blog/direction-assistee-dure-grincements/,article blog .html → slash
+https://redk-motors.me/blog/disques-frein-voiles-usure-signes.html,https://redkmotors.fr/blog/disques-frein-voiles-usure-signes/,article blog .html → slash
+https://redk-motors.me/blog/embrayage-qui-patine-causes.html,https://redkmotors.fr/blog/embrayage-qui-patine-causes/,article blog .html → slash
+https://redk-motors.me/blog/entretien-voiture-eviter-pannes-ivry.html,https://redkmotors.fr/blog/entretien-voiture-eviter-pannes-ivry/,article blog .html → slash
+https://redk-motors.me/blog/fap-dpf-encrasse-trajets-ville.html,https://redkmotors.fr/blog/fap-dpf-encrasse-trajets-ville/,article blog .html → slash
+https://redk-motors.me/blog/filtre-gasoil-quand-changer.html,https://redkmotors.fr/blog/filtre-gasoil-quand-changer/,article blog .html → slash
+https://redk-motors.me/blog/filtre-habitacle-pollen-quand-changer.html,https://redkmotors.fr/blog/filtre-habitacle-pollen-quand-changer/,article blog .html → slash
+https://redk-motors.me/blog/freinage-mou-pedale-spongieuse.html,https://redkmotors.fr/blog/freinage-mou-pedale-spongieuse/,article blog .html → slash
+https://redk-motors.me/blog/fuite-huile-moteur-causes-que-faire.html,https://redkmotors.fr/blog/fuite-huile-moteur-causes-que-faire/,article blog .html → slash
+https://redk-motors.me/blog/fuite-liquide-frein-reconnaitre.html,https://redkmotors.fr/blog/fuite-liquide-frein-reconnaitre/,article blog .html → slash
+https://redk-motors.me/blog/fumee-blanche-echappement-que-faire.html,https://redkmotors.fr/blog/fumee-blanche-echappement-que-faire/,article blog .html → slash
+https://redk-motors.me/blog/fumee-bleue-echappement-causes.html,https://redkmotors.fr/blog/fumee-bleue-echappement-causes/,article blog .html → slash
+https://redk-motors.me/blog/garage-independant-vs-concessionnaire.html,https://redkmotors.fr/blog/garage-independant-vs-concessionnaire/,article blog .html → slash
+https://redk-motors.me/blog/geometrie-roues-signes-mauvais-alignement.html,https://redkmotors.fr/blog/geometrie-roues-signes-mauvais-alignement/,article blog .html → slash
+https://redk-motors.me/blog/injecteurs-encrasses-symptomes.html,https://redkmotors.fr/blog/injecteurs-encrasses-symptomes/,article blog .html → slash
+https://redk-motors.me/blog/joint-culasse-signes-symptomes.html,https://redkmotors.fr/blog/joint-culasse-signes-symptomes/,article blog .html → slash
+https://redk-motors.me/blog/liquide-frein-quand-changer.html,https://redkmotors.fr/blog/liquide-frein-quand-changer/,article blog .html → slash
+https://redk-motors.me/blog/liquide-refroidissement-quand-verifier.html,https://redkmotors.fr/blog/liquide-refroidissement-quand-verifier/,article blog .html → slash
+https://redk-motors.me/blog/pare-brise-fissure-controle-technique.html,https://redkmotors.fr/blog/pare-brise-fissure-controle-technique/,article blog .html → slash
+https://redk-motors.me/blog/peinture-localisee-retouche-carrosserie.html,https://redkmotors.fr/blog/peinture-localisee-retouche-carrosserie/,article blog .html → slash
+https://redk-motors.me/blog/perte-puissance-soudaine-causes.html,https://redkmotors.fr/blog/perte-puissance-soudaine-causes/,article blog .html → slash
+https://redk-motors.me/blog/plaquettes-frein-usure-signaux-a-ne-pas-ignorer.html,https://redkmotors.fr/blog/plaquettes-frein-usure-signaux-a-ne-pas-ignorer/,article blog .html → slash
+https://redk-motors.me/blog/pneus-ete-quand-passer-hiver-ile-de-france.html,https://redkmotors.fr/blog/pneus-ete-quand-passer-hiver-ile-de-france/,article blog .html → slash
+https://redk-motors.me/blog/preparer-voiture-hiver-conseils.html,https://redkmotors.fr/blog/preparer-voiture-hiver-conseils/,article blog .html → slash
+https://redk-motors.me/blog/prix-changement-batterie-94.html,https://redkmotors.fr/blog/prix-changement-batterie-94/,article blog .html → slash
+https://redk-motors.me/blog/prix-changement-embrayage-94.html,https://redkmotors.fr/blog/prix-changement-embrayage-94/,article blog .html → slash
+https://redk-motors.me/blog/prix-changement-plaquettes-frein-94.html,https://redkmotors.fr/blog/prix-changement-plaquettes-frein-94/,article blog .html → slash
+https://redk-motors.me/blog/prix-changement-pneus-94.html,https://redkmotors.fr/blog/prix-changement-pneus-94/,article blog .html → slash
+https://redk-motors.me/blog/prix-diagnostic-auto-94.html,https://redkmotors.fr/blog/prix-diagnostic-auto-94/,article blog .html → slash
+https://redk-motors.me/blog/prix-geometrie-parallelisme-94.html,https://redkmotors.fr/blog/prix-geometrie-parallelisme-94/,article blog .html → slash
+https://redk-motors.me/blog/prix-kit-distribution-94.html,https://redkmotors.fr/blog/prix-kit-distribution-94/,article blog .html → slash
+https://redk-motors.me/blog/prix-pre-controle-technique-ivry.html,https://redkmotors.fr/blog/prix-pre-controle-technique-ivry/,article blog .html → slash
+https://redk-motors.me/blog/prix-recharge-climatisation-94.html,https://redkmotors.fr/blog/prix-recharge-climatisation-94/,article blog .html → slash
+https://redk-motors.me/blog/quand-changer-pneus-usure-securite.html,https://redkmotors.fr/blog/quand-changer-pneus-usure-securite/,article blog .html → slash
+https://redk-motors.me/blog/que-faire-apres-accident-carrosserie.html,https://redkmotors.fr/blog/que-faire-apres-accident-carrosserie/,article blog .html → slash
+https://redk-motors.me/blog/rayure-carrosserie-quand-reparer.html,https://redkmotors.fr/blog/rayure-carrosserie-quand-reparer/,article blog .html → slash
+https://redk-motors.me/blog/revision-60000-km-checklist.html,https://redkmotors.fr/blog/revision-60000-km-checklist/,article blog .html → slash
+https://redk-motors.me/blog/revision-constructeur-que-comprend-vraiment-service.html,https://redkmotors.fr/blog/revision-constructeur-que-comprend-vraiment-service/,article blog .html → slash
+https://redk-motors.me/blog/revision-garage-independant-garantie-constructeur.html,https://redkmotors.fr/blog/revision-garage-independant-garantie-constructeur/,article blog .html → slash
+https://redk-motors.me/blog/roulement-roue-sifflement-symptomes.html,https://redkmotors.fr/blog/roulement-roue-sifflement-symptomes/,article blog .html → slash
+https://redk-motors.me/blog/silentblocs-triangles-suspension-usure.html,https://redkmotors.fr/blog/silentblocs-triangles-suspension-usure/,article blog .html → slash
+https://redk-motors.me/blog/suppression-fap-controle-technique-2026.html,https://redkmotors.fr/blog/suppression-fap-controle-technique-2026/,article blog .html → slash
+https://redk-motors.me/blog/surchauffe-moteur-que-faire.html,https://redkmotors.fr/blog/surchauffe-moteur-que-faire/,article blog .html → slash
+https://redk-motors.me/blog/tag/allumage,https://redkmotors.fr/blog/tag/moteur/,tag blog orphelin → indexable
+https://redk-motors.me/blog/tag/allumage/,https://redkmotors.fr/blog/tag/moteur/,tag blog orphelin → indexable
+https://redk-motors.me/blog/tag/batterie,https://redkmotors.fr/blog/tag/mecanique/,tag blog orphelin → indexable
+https://redk-motors.me/blog/tag/batterie/,https://redkmotors.fr/blog/tag/mecanique/,tag blog orphelin → indexable
+https://redk-motors.me/blog/tag/boite-automatique,https://redkmotors.fr/blog/tag/entretien/,tag blog orphelin → indexable
+https://redk-motors.me/blog/tag/boite-automatique/,https://redkmotors.fr/blog/tag/entretien/,tag blog orphelin → indexable
+https://redk-motors.me/blog/tag/climatisation,https://redkmotors.fr/blog/tag/entretien/,tag blog orphelin → indexable
+https://redk-motors.me/blog/tag/climatisation/,https://redkmotors.fr/blog/tag/entretien/,tag blog orphelin → indexable
+https://redk-motors.me/blog/tag/courroie,https://redkmotors.fr/blog/tag/mecanique/,tag blog orphelin → indexable
+https://redk-motors.me/blog/tag/courroie/,https://redkmotors.fr/blog/tag/mecanique/,tag blog orphelin → indexable
+https://redk-motors.me/blog/tag/diesel,https://redkmotors.fr/blog/tag/moteur/,tag blog orphelin → indexable
+https://redk-motors.me/blog/tag/diesel/,https://redkmotors.fr/blog/tag/moteur/,tag blog orphelin → indexable
+https://redk-motors.me/blog/tag/electricite,https://redkmotors.fr/blog/tag/diagnostic/,tag blog orphelin → indexable
+https://redk-motors.me/blog/tag/electricite/,https://redkmotors.fr/blog/tag/diagnostic/,tag blog orphelin → indexable
+https://redk-motors.me/blog/tag/embrayage,https://redkmotors.fr/blog/tag/mecanique/,tag blog orphelin → indexable
+https://redk-motors.me/blog/tag/embrayage/,https://redkmotors.fr/blog/tag/mecanique/,tag blog orphelin → indexable
+https://redk-motors.me/blog/tag/freinage,https://redkmotors.fr/blog/tag/freins/,tag blog orphelin → indexable
+https://redk-motors.me/blog/tag/freinage/,https://redkmotors.fr/blog/tag/freins/,tag blog orphelin → indexable
+https://redk-motors.me/blog/tag/ivry-sur-seine,https://redkmotors.fr/blog/tag/conseils-auto/,tag blog orphelin → indexable
+https://redk-motors.me/blog/tag/ivry-sur-seine/,https://redkmotors.fr/blog/tag/conseils-auto/,tag blog orphelin → indexable
+https://redk-motors.me/blog/tag/mecanique/confidentialite.html,https://redkmotors.fr/confidentialite/,chemin erroné historique → page légale
+https://redk-motors.me/blog/tag/plaquettes,https://redkmotors.fr/blog/tag/freins/,tag blog orphelin → indexable
+https://redk-motors.me/blog/tag/plaquettes/,https://redkmotors.fr/blog/tag/freins/,tag blog orphelin → indexable
+https://redk-motors.me/blog/tag/pneus,https://redkmotors.fr/blog/tag/pneumatiques/,tag blog orphelin → indexable
+https://redk-motors.me/blog/tag/pneus/,https://redkmotors.fr/blog/tag/pneumatiques/,tag blog orphelin → indexable
+https://redk-motors.me/blog/tag/pollution,https://redkmotors.fr/blog/tag/moteur/,tag blog orphelin → indexable
+https://redk-motors.me/blog/tag/pollution/,https://redkmotors.fr/blog/tag/moteur/,tag blog orphelin → indexable
+https://redk-motors.me/blog/tag/refroidissement,https://redkmotors.fr/blog/tag/moteur/,tag blog orphelin → indexable
+https://redk-motors.me/blog/tag/refroidissement/,https://redkmotors.fr/blog/tag/moteur/,tag blog orphelin → indexable
+https://redk-motors.me/blog/tag/reparation,https://redkmotors.fr/blog/tag/mecanique/,tag blog orphelin → indexable
+https://redk-motors.me/blog/tag/reparation/,https://redkmotors.fr/blog/tag/mecanique/,tag blog orphelin → indexable
+https://redk-motors.me/blog/tag/revision-auto,https://redkmotors.fr/blog/tag/revision/,tag blog orphelin → indexable
+https://redk-motors.me/blog/tag/revision-auto/,https://redkmotors.fr/blog/tag/revision/,tag blog orphelin → indexable
+https://redk-motors.me/blog/tag/suspension,https://redkmotors.fr/blog/tag/mecanique/,tag blog orphelin → indexable
+https://redk-motors.me/blog/tag/suspension/,https://redkmotors.fr/blog/tag/mecanique/,tag blog orphelin → indexable
+https://redk-motors.me/blog/tag/tarifs,https://redkmotors.fr/blog/tag/conseils-auto/,tag blog orphelin → indexable
+https://redk-motors.me/blog/tag/tarifs/,https://redkmotors.fr/blog/tag/conseils-auto/,tag blog orphelin → indexable
+https://redk-motors.me/blog/tag/turbo,https://redkmotors.fr/blog/tag/moteur/,tag blog orphelin → indexable
+https://redk-motors.me/blog/tag/turbo/,https://redkmotors.fr/blog/tag/moteur/,tag blog orphelin → indexable
+https://redk-motors.me/blog/turbo-compresseur-symptomes-panne.html,https://redkmotors.fr/blog/turbo-compresseur-symptomes-panne/,article blog .html → slash
+https://redk-motors.me/blog/vanne-egr-encrassee-symptomes.html,https://redkmotors.fr/blog/vanne-egr-encrassee-symptomes/,article blog .html → slash
+https://redk-motors.me/blog/vidange-boite-automatique-quand-faire.html,https://redkmotors.fr/blog/vidange-boite-automatique-quand-faire/,article blog .html → slash
+https://redk-motors.me/blog/voiture-broute-acceleration-causes-94.html,https://redkmotors.fr/blog/voiture-broute-acceleration-causes-94/,article blog .html → slash
+https://redk-motors.me/blog/voiture-ne-demarre-pas-causes.html,https://redkmotors.fr/blog/voiture-ne-demarre-pas-causes/,article blog .html → slash
+https://redk-motors.me/blog/volant-qui-vibre-causes.html,https://redkmotors.fr/blog/volant-qui-vibre-causes/,article blog .html → slash
+https://redk-motors.me/blog/voyant-abs-allume-causes-conduite.html,https://redkmotors.fr/blog/voyant-abs-allume-causes-conduite/,article blog .html → slash
+https://redk-motors.me/blog/voyant-moteur-allume-que-faire.html,https://redkmotors.fr/blog/voyant-moteur-allume-que-faire/,article blog .html → slash
+https://redk-motors.me/carrosserie,https://redkmotors.fr/carrosserie/,sans slash → avec slash
+https://redk-motors.me/carrosserie.html,https://redkmotors.fr/carrosserie/,legacy .html → trailing slash
+https://redk-motors.me/confidentialite,https://redkmotors.fr/confidentialite/,sans slash → avec slash
+https://redk-motors.me/confidentialite.html,https://redkmotors.fr/confidentialite/,legacy .html → trailing slash
+https://redk-motors.me/contact,https://redkmotors.fr/contact/,sans slash → avec slash
+https://redk-motors.me/contact.html,https://redkmotors.fr/contact/,legacy .html → trailing slash
+https://redk-motors.me/cookies,https://redkmotors.fr/cookies/,sans slash → avec slash
+https://redk-motors.me/cookies.html,https://redkmotors.fr/cookies/,legacy .html → trailing slash
+https://redk-motors.me/entretien,https://redkmotors.fr/entretien/,sans slash → avec slash
+https://redk-motors.me/entretien.html,https://redkmotors.fr/entretien/,legacy .html → trailing slash
+https://redk-motors.me/garage-proche-arcueil,https://redkmotors.fr/kremlin-bicetre/,proche thématique
+https://redk-motors.me/garage-proche-arcueil/,https://redkmotors.fr/kremlin-bicetre/,proche thématique
+https://redk-motors.me/garage-proche-cachan,https://redkmotors.fr/kremlin-bicetre/,proche thématique
+https://redk-motors.me/garage-proche-cachan/,https://redkmotors.fr/kremlin-bicetre/,proche thématique
+https://redk-motors.me/garage-proche-choisy-le-roi,https://redkmotors.fr/diagnostic-auto-choisy-le-roi/,money page dédiée
+https://redk-motors.me/garage-proche-choisy-le-roi/,https://redkmotors.fr/diagnostic-auto-choisy-le-roi/,money page dédiée
+https://redk-motors.me/garage-proche-creteil,https://redkmotors.fr/vitry-sur-seine/,proche thématique
+https://redk-motors.me/garage-proche-creteil/,https://redkmotors.fr/vitry-sur-seine/,proche thématique
+https://redk-motors.me/garage-proche-fontenay-sous-bois,https://redkmotors.fr/paris-13/,proche thématique
+https://redk-motors.me/garage-proche-fontenay-sous-bois/,https://redkmotors.fr/paris-13/,proche thématique
+https://redk-motors.me/garage-proche-gentilly,https://redkmotors.fr/garage-ivry-sur-seine/,proche → page garage Ivry
+https://redk-motors.me/garage-proche-gentilly/,https://redkmotors.fr/garage-ivry-sur-seine/,proche → page garage Ivry
+https://redk-motors.me/garage-proche-joinville-le-pont,https://redkmotors.fr/charenton-le-pont/,proche thématique
+https://redk-motors.me/garage-proche-joinville-le-pont/,https://redkmotors.fr/charenton-le-pont/,proche thématique
+https://redk-motors.me/garage-proche-le-perreux-sur-marne,https://redkmotors.fr/garage-ivry-sur-seine/,proche → page garage Ivry
+https://redk-motors.me/garage-proche-le-perreux-sur-marne/,https://redkmotors.fr/garage-ivry-sur-seine/,proche → page garage Ivry
+https://redk-motors.me/garage-proche-lhay-les-roses,https://redkmotors.fr/garage-ivry-sur-seine/,proche → page garage Ivry
+https://redk-motors.me/garage-proche-lhay-les-roses/,https://redkmotors.fr/garage-ivry-sur-seine/,proche → page garage Ivry
+https://redk-motors.me/garage-proche-maisons-alfort,https://redkmotors.fr/maisons-alfort/,alias ville
+https://redk-motors.me/garage-proche-maisons-alfort/,https://redkmotors.fr/maisons-alfort/,alias ville
+https://redk-motors.me/garage-proche-nogent-sur-marne,https://redkmotors.fr/garage-ivry-sur-seine/,proche → page garage Ivry
+https://redk-motors.me/garage-proche-nogent-sur-marne/,https://redkmotors.fr/garage-ivry-sur-seine/,proche → page garage Ivry
+https://redk-motors.me/garage-proche-orly,https://redkmotors.fr/garage-ivry-sur-seine/,proche → page garage Ivry
+https://redk-motors.me/garage-proche-orly/,https://redkmotors.fr/garage-ivry-sur-seine/,proche → page garage Ivry
+https://redk-motors.me/garage-proche-rungis,https://redkmotors.fr/garage-ivry-sur-seine/,proche → page garage Ivry
+https://redk-motors.me/garage-proche-rungis/,https://redkmotors.fr/garage-ivry-sur-seine/,proche → page garage Ivry
+https://redk-motors.me/garage-proche-saint-mande,https://redkmotors.fr/paris-13/,proche thématique
+https://redk-motors.me/garage-proche-saint-mande/,https://redkmotors.fr/paris-13/,proche thématique
+https://redk-motors.me/garage-proche-thiais,https://redkmotors.fr/vitry-sur-seine/,proche thématique
+https://redk-motors.me/garage-proche-thiais/,https://redkmotors.fr/vitry-sur-seine/,proche thématique
+https://redk-motors.me/garage-proche-vincennes,https://redkmotors.fr/paris-13/,proche thématique
+https://redk-motors.me/garage-proche-vincennes/,https://redkmotors.fr/paris-13/,proche thématique
+https://redk-motors.me/liens,https://redkmotors.fr/links/,ancien slug FR hub bio
+https://redk-motors.me/liens/,https://redkmotors.fr/links/,ancien slug FR hub bio
+https://redk-motors.me/location,https://redkmotors.fr/location/,sans slash → avec slash
+https://redk-motors.me/location.html,https://redkmotors.fr/location/,legacy .html → trailing slash
+https://redk-motors.me/lp-carrosserie,https://redkmotors.fr/carrosserie/,landing Ads legacy
+https://redk-motors.me/lp-carrosserie/,https://redkmotors.fr/carrosserie/,landing Ads legacy
+https://redk-motors.me/lp-diagnostic,https://redkmotors.fr/diagnostic/,landing Ads legacy
+https://redk-motors.me/lp-diagnostic/,https://redkmotors.fr/diagnostic/,landing Ads legacy
+https://redk-motors.me/lp-freinage,https://redkmotors.fr/freins/,landing Ads legacy
+https://redk-motors.me/lp-freinage/,https://redkmotors.fr/freins/,landing Ads legacy
+https://redk-motors.me/lp-revision,https://redkmotors.fr/entretien/,landing Ads legacy
+https://redk-motors.me/lp-revision/,https://redkmotors.fr/entretien/,landing Ads legacy
+https://redk-motors.me/mecanique,https://redkmotors.fr/mecanique/,sans slash → avec slash
+https://redk-motors.me/mecanique.html,https://redkmotors.fr/mecanique/,legacy .html → trailing slash
+https://redk-motors.me/mentions-legales,https://redkmotors.fr/mentions-legales/,sans slash → avec slash
+https://redk-motors.me/mentions-legales.html,https://redkmotors.fr/mentions-legales/,legacy .html → trailing slash
+https://redk-motors.me/pneumatiques,https://redkmotors.fr/pneumatiques/,sans slash → avec slash
+https://redk-motors.me/pneumatiques.html,https://redkmotors.fr/pneumatiques/,legacy .html → trailing slash
+https://redk-motors.me/processus,https://redkmotors.fr/processus/,sans slash → avec slash
+https://redk-motors.me/processus.html,https://redkmotors.fr/processus/,legacy .html → trailing slash
+https://redk-motors.me/revision,https://redkmotors.fr/entretien/,hub révision retiré → entretien
+https://redk-motors.me/revision/,https://redkmotors.fr/entretien/,hub révision retiré → entretien
