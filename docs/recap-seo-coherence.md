@@ -32,7 +32,17 @@ Source de vérité appliquée : `https://redkmotors.fr` · Lun–sam 09:00–19:
 7. **llms.txt** : zone + liste des services avec URLs canoniques.
 8. **Sitemap** : généré au build depuis les collections Eleventy (pages / blog / exemples), URLs absolues `redkmotors.fr`, exclusion noindex via `collections.sitemap` — inchangé structurellement, toujours valide après build.
 9. **Vidéos** : déjà `preload="none"` + `poster` dans `hero-video.njk`.
-10. **Redirections 301 `.me`** : fichiers serveur prêts (Apache / Netlify / Vercel). Le soft redirect GitHub Pages est conservé en fallback.
+10. **Redirections** : configs 301 Apache/Netlify/Vercel dans `redirect-me/` ; **plus aucun stub HTML meta-refresh+noindex** généré sur le `.fr` (voir ci-dessous).
+
+## Soft-redirects retirés du build `.fr` (2026-08)
+
+`scripts/generate-legacy-redirects.js` **n’écrit plus** de fichiers HTML « Redirection… » + `noindex` dans `_site/`.
+
+- Les pages canoniques (`/location/`, `/mecanique/`, blog, etc.) sont **inchangées**.
+- Les anciennes URL du type `/location.html` ne sont plus servies comme pages 200 toxiques.
+- Le build exporte `_site/cloudflare-bulk-redirects.csv` + `redirects-map.csv` pour importer de vrais **301** dans Cloudflare.
+
+**Attention :** `redkmotors.fr` est encore servi par **GitHub Pages** (sans proxy Cloudflare). Sans règles 301 Cloudflare sur le `.fr` (ou sur le `.me` vers l’URL finale), une ancienne URL `.html` peut répondre **404**. Mettre à jour les Redirect Rules / Bulk Redirects avec le CSV avant ou juste après le merge.
 
 ## Actions restantes hors code
 

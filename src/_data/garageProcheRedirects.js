@@ -1,5 +1,6 @@
 /**
- * 301 garage-proche-* → page ville / money canonique (stubs HTML + Netlify/Vercel).
+ * 301 garage-proche-* → page ville / money canonique
+ * (listées dans _redirects, vercel.json, redirects-map.csv — plus de stubs HTML).
  */
 module.exports = [
   { from: "/garage-proche-maisons-alfort/", to: "/maisons-alfort/", label: "Maisons-Alfort" },

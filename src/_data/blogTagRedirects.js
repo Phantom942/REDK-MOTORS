@@ -1,5 +1,6 @@
 /**
- * Tags blog orphelins → tag indexable canonique (301 + stubs HTML).
+ * Tags blog orphelins → tag indexable canonique
+ * (listés dans _redirects, vercel.json, redirects-map.csv — plus de stubs HTML).
  */
 module.exports = [
   { from: "/blog/tag/revision-auto/", to: "/blog/tag/revision/", label: "Révision" },
