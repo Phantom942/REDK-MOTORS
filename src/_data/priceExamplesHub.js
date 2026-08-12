@@ -174,21 +174,51 @@ const SERVICE_GUIDE_SLUG = {
   batterie: "prix-batterie",
 };
 
-/** Modèles les plus recherchés pour le hub /exemples/ */
-const POPULAR_MODEL_SLUGS = [
+/**
+ * Hubs modèles indexables (sitemap + index, follow).
+ * Critères type « helpful content » local : parc auto IDF/94, requêtes prix entretien,
+ * hub réellement utile (pas un duplicate du guide générique).
+ * Les 36 autres hubs restent en noindex, follow pour le maillage interne.
+ */
+const INDEXABLE_MODEL_HUB_SLUGS = [
+  // Citadines — cœur de parc 94
   "peugeot-208",
   "renault-clio-4",
   "renault-clio-5",
-  "volkswagen-golf-7",
   "dacia-sandero",
   "citroen-c3",
-  "peugeot-3008",
-  "renault-captur",
-  "toyota-yaris",
+  "volkswagen-golf-7",
+  "volkswagen-golf-8",
   "volkswagen-polo",
+  "toyota-yaris",
+  // SUV / crossover
+  "renault-captur",
   "peugeot-2008",
+  "peugeot-3008",
   "dacia-duster",
+  "citroen-c3-aircross",
+  "nissan-qashqai",
+  "volkswagen-tiguan",
+  // Compactes / berlines
+  "peugeot-308",
+  "renault-megane-4",
+  "toyota-corolla",
+  "ford-focus",
+  // Utilitaires (artisans, VTC, livraison 94)
+  "renault-kangoo",
+  "peugeot-partner",
+  // Électrique (parc croissant IDF)
+  "renault-zoe",
 ];
+
+const INDEXABLE_MODEL_HUB_SET = new Set(INDEXABLE_MODEL_HUB_SLUGS);
+
+/** Modèles mis en avant sur /exemples/ (sous-ensemble des indexables) */
+const POPULAR_MODEL_SLUGS = INDEXABLE_MODEL_HUB_SLUGS.slice(0, 12);
+
+function isIndexableModelHub(slug) {
+  return INDEXABLE_MODEL_HUB_SET.has(slug);
+}
 
 function hubLabelFromService(serviceLabel) {
   return (
@@ -319,19 +349,27 @@ function modelServiceLinks(modelSlug) {
   }).filter(Boolean);
 }
 
+function hubFromSlug(slug, modelBySlug) {
+  const model = modelBySlug[slug];
+  if (!model) return null;
+  return {
+    slug,
+    brand: model.brand,
+    model: model.model,
+    yearRange: model.yearRange,
+    url: `/exemples/modeles/${slug}/`,
+    indexable: isIndexableModelHub(slug),
+  };
+}
+
+function indexableModelHubs() {
+  const modelBySlug = Object.fromEntries(MODELS.map((m) => [m.slug, m]));
+  return INDEXABLE_MODEL_HUB_SLUGS.map((slug) => hubFromSlug(slug, modelBySlug)).filter(Boolean);
+}
+
 function popularModelHubs() {
   const modelBySlug = Object.fromEntries(MODELS.map((m) => [m.slug, m]));
-  return POPULAR_MODEL_SLUGS.map((slug) => {
-    const model = modelBySlug[slug];
-    if (!model) return null;
-    return {
-      slug,
-      brand: model.brand,
-      model: model.model,
-      yearRange: model.yearRange,
-      url: `/exemples/modeles/${slug}/`,
-    };
-  }).filter(Boolean);
+  return POPULAR_MODEL_SLUGS.map((slug) => hubFromSlug(slug, modelBySlug)).filter(Boolean);
 }
 
 module.exports = {
@@ -346,8 +384,11 @@ module.exports = {
   modelExampleUrl,
   modelServiceLinks,
   popularModelHubs,
+  indexableModelHubs,
+  isIndexableModelHub,
   PAGE_GUIDE_SLUGS,
   TARIFS_HUB,
   EXAMPLES_HUB,
   POPULAR_MODEL_SLUGS,
+  INDEXABLE_MODEL_HUB_SLUGS,
 };

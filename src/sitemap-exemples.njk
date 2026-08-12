@@ -22,9 +22,9 @@ eleventyExcludeFromCollections: true
   </url>
   {% endif %}
   {% endfor %}
-  {% for model in priceExamples.MODELS %}
+  {% for hub in priceExamplesHub.indexableModelHubs() %}
   <url>
-    <loc>{{ site.url }}/exemples/modeles/{{ model.slug }}/</loc>
+    <loc>{{ site.url }}{{ hub.url }}</loc>
     <lastmod>{{ buildDate }}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

@@ -1,5 +1,10 @@
 const SITE_URL = "https://redkmotors.fr";
-const { modelServiceLinks, popularModelHubs, allGuides } = require("../../_data/priceExamplesHub.js");
+const {
+  modelServiceLinks,
+  indexableModelHubs,
+  isIndexableModelHub,
+  allGuides,
+} = require("../../_data/priceExamplesHub.js");
 
 module.exports = {
   eleventyComputed: {
@@ -10,17 +15,23 @@ module.exports = {
         60
       );
     },
-    description: (data) =>
-      `Prix entretien ${data.modele.brand} ${data.modele.model} (${data.modele.yearRange}) à Ivry : vidange, freins, pneus, clim, distribution, embrayage, batterie, pare-brise. Exemples + devis · ☎ 06 48 74 56 68.`,
+    description: (data) => {
+      const m = data.modele;
+      const geo = isIndexableModelHub(m.slug)
+        ? " à Ivry-sur-Seine et Val-de-Marne (94)"
+        : " à Ivry";
+      return `Prix entretien ${m.brand} ${m.model} (${m.yearRange})${geo} : vidange, freins, pneus, clim, distribution, embrayage, batterie, pare-brise. Exemples + devis · ☎ 06 48 74 56 68.`;
+    },
     lastReviewed: () => "2026-07-20",
     pageKey: () => "exemple-modele-hub",
     seoOnly: () => true,
     hideFromSiteNav: () => true,
     hideServiceAreas: () => true,
-    robots: () => "index, follow",
+    robots: (data) =>
+      isIndexableModelHub(data.modele.slug) ? "index, follow" : "noindex, follow",
     serviceLinks: (data) => modelServiceLinks(data.modele.slug),
     relatedModelHubs: (data) => {
-      const hubs = popularModelHubs().filter((h) => h.slug !== data.modele.slug);
+      const hubs = indexableModelHubs().filter((h) => h.slug !== data.modele.slug);
       return hubs.slice(0, 6);
     },
     genericGuides: () => allGuides().slice(0, 8),
