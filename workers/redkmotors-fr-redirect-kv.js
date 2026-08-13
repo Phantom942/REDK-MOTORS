@@ -4,6 +4,10 @@ export default {
     const path = url.pathname;
 
     if (path.endsWith(".html")) {
+      // Fichiers racine requis tels quels (Google Search Console, etc.)
+      if (/^\/google[a-f0-9]+\.html$/i.test(path)) {
+        return fetch(request);
+      }
       const dest = new URL(path.slice(0, -5) + "/" + url.search, "https://redkmotors.fr");
       return Response.redirect(dest.toString(), 301);
     }
