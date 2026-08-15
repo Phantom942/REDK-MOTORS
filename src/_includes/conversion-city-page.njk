@@ -23,7 +23,7 @@
   {% set heroDescription = heroDesc %}
 {% endif %}
 {% if not introText %}
-  {% set introText = heroDescription | default("Garage à Ivry-sur-Seine — devis gratuit.") %}
+  {% set introText = heroDescription | default("Garage à Ivry-sur-Seine — devis écrit avant travaux.") %}
 {% endif %}
 {% if not services %}
   {% set services = [

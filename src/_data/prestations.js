@@ -226,7 +226,7 @@ const AD_OVERRIDES = {
   "revision-entretien": {
     heroTitle: "Révision Constructeur à Ivry — Carnet Respecté",
     heroKicker: "Entretien · Garantie préservée",
-    heroDesc: "Révision selon préconisations constructeur. Pièces adaptées et devis gratuit.",
+    heroDesc: "Révision selon préconisations constructeur. Pièces adaptées, devis écrit avant travaux.",
   },
   "vidange-moteur": {
     heroTitle: "Révision et Vidange à Ivry",

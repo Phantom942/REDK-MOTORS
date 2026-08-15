@@ -86,17 +86,44 @@ module.exports = {
     ],
   },
   "vitry-sur-seine": {
-    seoTitle: "Garage accessible depuis Vitry-sur-Seine",
+    seoTitle: "Garage proche Vitry-sur-Seine",
     seoParagraphs: [
-      "Atelier à Ivry, à quelques minutes de Vitry : révision, freins, diagnostic et carrosserie.",
-      "Entretien, vidange et réparation auto multimarque — devis écrit avant travaux.",
+      "Vitry compte plusieurs quartiers (Mairie, Stalingrad, Les Malassis, bords de Seine) : depuis tous, l'atelier Ivry reste à quelques minutes sans entrer dans Paris.",
+      "Révision, freins, diagnostic diesel (FAP, EGR, AdBlue), carrosserie et pare-brise : même équipe qu'à Ivry-centre, pas une franchise délocalisée.",
+      "Beaucoup de clients Vitry déposent le véhicule le matin avant le travail — navette possible selon disponibilité, diagnostic dans la journée.",
     ],
-    seoFooter: "06 48 74 56 68 · WhatsApp accepté pour photos et devis.",
+    seoFooter: "Itinéraire via Ivry-centre — créneau souvent sous 48 h sur RDV.",
+    heroDesc:
+      "Depuis Vitry, l'atelier Ivry est à 5–10 min. Entretien, freins, diagnostic — devis expliqué avant toute intervention.",
+    introHeading: "Vitry-sur-Seine et Ivry",
+    introText:
+      "Si vous cherchez un garage sans traverser Paris intra-muros, l'adresse rue Michelet à Ivry est un compromis pratique : tarifs atelier indépendant, équipe qui connaît les trajets Vitry–Paris sud et les flottes VTC du 94.",
     highlights: [
-      "Accès rapide depuis Vitry",
-      "Devis écrit avant intervention",
-      "Multimarque essence et diesel",
-      "Lun–sam 9h–19h",
+      "5–10 min depuis Mairie ou Stalingrad",
+      "Navette dépôt possible selon dispo",
+      "Diesel, Start-Stop, AdBlue : valise multimarques",
+      "Devis écrit — aucune pièce changée sans accord",
+    ],
+    faqs: [
+      {
+        question: "Pourquoi choisir Ivry plutôt qu'un garage à Vitry ?",
+        answer:
+          "L'atelier est installé à Ivry depuis longtemps avec la même équipe. Pas de centre d'appels : vous parlez directement au mécanicien, devis détaillé avant travaux.",
+      },
+      {
+        question: "Intervenez-vous sur les véhicules récents (Start-Stop, AdBlue) ?",
+        answer:
+          "Oui — batterie AGM/EFB, FAP, vanne EGR : lecture codes et chiffrage après contrôle physique, pas au téléphone.",
+      },
+      {
+        question: "Puis-je déposer la voiture avant le travail ?",
+        answer:
+          "Oui, sur RDV. Diagnostic dans la journée, rappel avant toute réparation validée.",
+      },
+      {
+        question: "Comment vous joindre depuis Vitry ?",
+        answer: "06 48 74 56 68 ou WhatsApp (photos de voyants, pare-brise). Plan sur redkmotors.fr/contact/.",
+      },
     ],
   },
   villejuif: {
