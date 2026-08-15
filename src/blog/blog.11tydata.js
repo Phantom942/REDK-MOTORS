@@ -4,7 +4,6 @@ const enhancements = require("../_data/blogArticleEnhancements.js");
 const SITE_URL = "https://redkmotors.fr";
 const LOGO_URL = `${SITE_URL}/assets/img/logo-redk-motors.png`;
 const OG_DEFAULT = `${SITE_URL}/assets/img/og-brand.png`;
-const PHONE_CTA = "☎ 06 48 74 56 68";
 
 function slugFromPermalink(permalink) {
   if (!permalink || typeof permalink !== "string") return "";
@@ -17,18 +16,10 @@ function pickEnhancement(data) {
   return enhancements[slug] || {};
 }
 
-function withPhoneCta(text) {
-  if (!text || typeof text !== "string") return text;
-  const clean = text.replace(/\s+/g, " ").trim();
-  if (/06\s*48\s*74|☎/i.test(clean)) return clean;
-  return `${clean.replace(/\.$/, "")} · ${PHONE_CTA}.`;
-}
-
 module.exports = {
   eleventyComputed: {
     ogImage: (data) => data.ogImage || OG_DEFAULT,
     lastReviewed: (data) => data.lastReviewed || data.date,
-    description: (data) => withPhoneCta(data.description),
     directAnswer: (data) => data.directAnswer || pickEnhancement(data).directAnswer,
     relatedLinks: (data) => data.relatedLinks || pickEnhancement(data).relatedLinks,
     faqSchema: (data) => {
@@ -60,7 +51,6 @@ module.exports = {
       };
       schema.image = data.ogImage || OG_DEFAULT;
       schema.dateModified = reviewed;
-      if (schema.description) schema.description = withPhoneCta(schema.description);
       return schema;
     },
   },
