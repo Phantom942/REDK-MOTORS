@@ -2682,4 +2682,270 @@ module.exports = {
       ],
     },
   },
+  "demarreur-hs-symptomes": {
+    directAnswer: {
+      question: "Comment savoir si c'est la batterie ou le démarreur ?",
+      answer:
+        "Clic sec sans moteur qui tourne : plutôt démarreur. Phares faibles et démarrage avec câbles : plutôt batterie. Un test de charge et de consommation au démarrage tranche en atelier.",
+      facts: [
+        { label: "Fourchette démarreur", value: "250–550 € (indicatif, citadine)" },
+        { label: "Atelier", value: "RED-K MOTORS · Ivry (94)" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/prestations/demarreur/", label: "Démarreur" },
+      { url: "/blog/batterie-voiture-quand-changer/", label: "Batterie : quand changer" },
+      { url: "/contact/", label: "Prendre rendez-vous" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Un clic au démarrage, c'est toujours le démarreur ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Souvent oui, surtout si le moteur ne tourne pas du tout. Une batterie faible peut aussi produire un clic, d'où l'intérêt d'un test avant remplacement.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Combien coûte un démarreur neuf ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Comptez souvent 250 à 550 € TTC pièce et main-d'œuvre sur une citadine ou compacte — selon motorisation et accessibilité.",
+          },
+        },
+      ],
+    },
+  },
+  "compresseur-clim-mort-symptomes": {
+    directAnswer: {
+      question: "Comment savoir si le compresseur clim est mort ?",
+      answer:
+        "Air tiède malgré le minimum, bruit métallique à l'enclenchement, compresseur qui ne tourne pas ou clim qui se coupe : faites contrôler pressions et étanchéité avant toute recharge.",
+      facts: [
+        { label: "Recharge seule", value: "80–200 € (circuit étanche)" },
+        { label: "Compresseur + recharge", value: "450–1 200 € (indicatif)" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/reparation-climatisation-ivry/", label: "Réparation clim Ivry" },
+      { url: "/blog/prix-recharge-climatisation-94/", label: "Prix recharge clim" },
+      { url: "/contact/", label: "Prendre rendez-vous" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Peut-on recharger la clim si le compresseur est HS ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Non : sans compresseur fonctionnel, le fluide ne refroidit pas. Il faut réparer ou remplacer le compresseur et corriger toute fuite avant recharge.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Combien coûte le remplacement d'un compresseur de clim ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Sur une voiture courante, comptez souvent 450 à 1 200 € TTC (compresseur + recharge), selon modèle et fluide R134a ou R1234yf. Un condenseur ou une fuite associée peut augmenter la facture.",
+          },
+        },
+      ],
+    },
+  },
+  "rotule-biellette-direction-quand-changer": {
+    directAnswer: {
+      question: "Quand changer une rotule de direction ?",
+      answer:
+        "Dès qu'un contrôle au pont montre un jeu supérieur aux tolérances, ou en cas de claquements en braquant et d'usure asymétrique des pneus. Une géométrie est recommandée après remplacement.",
+      facts: [
+        { label: "Fourchette rotule", value: "80–200 € / côté (indicatif)" },
+        { label: "Atelier", value: "RED-K MOTORS · Ivry" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/prestations/rotule-direction/", label: "Rotule de direction" },
+      { url: "/pneumatiques/", label: "Géométrie & pneus" },
+      { url: "/blog/geometrie-roues-signes-mauvais-alignement/", label: "Signes mauvais alignement" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Peut-on rouler avec une rotule de direction usée ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Un jeu léger peut sembler tolérable, mais l'usure accélère les pneus, dégrade la géométrie et peut provoquer une contre-visite au contrôle technique. Mieux vaut remplacer dès que le jeu dépasse les tolérances.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Faut-il faire une géométrie après changement de rotule ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Oui, toute intervention sur le train avant (rotule, triangle, amortisseur) justifie un contrôle de géométrie. Sans réglage, les pneus s'usent en biais en quelques milliers de kilomètres.",
+          },
+        },
+      ],
+    },
+  },
+  "decalaminage-moteur-utile-ou-arnaque": {
+    directAnswer: {
+      question: "Le décalaminage moteur est-il utile ?",
+      answer:
+        "Utile en préventif sur moteurs urbains encrassés (GDI, diesel trajets courts) si un diagnostic le justifie. Inutile ou insuffisant si FAP saturé, turbo HS ou injecteurs défaillants — il faut traiter la cause.",
+      facts: [
+        { label: "Fourchette atelier", value: "80–250 € (indicatif)" },
+        { label: "Prestation", value: "Décalaminage moteur RED-K MOTORS" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/prestations/decalaminage-moteur/", label: "Décalaminage" },
+      { url: "/diagnostic/", label: "Diagnostic auto" },
+      { url: "/blog/vanne-egr-encrassee-symptomes/", label: "Vanne EGR encrassée" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Le décalaminage moteur améliore-t-il la consommation ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Parfois légèrement sur un moteur encrassé, mais aucune méthode ne garantit une baisse de consommation nette. L'intérêt principal est de retrouver de la souplesse et d'éviter l'encrassement de pièces comme l'EGR ou l'admission.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Le décalaminage remplace-t-il un nettoyage FAP ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Non. Un FAP saturé ou un voyant antipollution lié au filtre demande un diagnostic et un traitement adapté (régénération, nettoyage ou remplacement). Le décalaminage admission ne suffit pas dans ce cas.",
+          },
+        },
+      ],
+    },
+  },
+  "crevaison-reparer-ou-changer-pneu": {
+    directAnswer: {
+      question: "Peut-on réparer une crevaison ?",
+      answer:
+        "Oui si la perforation est dans la bande de roulement, de petite taille, et que le pneu n'a pas roulé à plat. Sur le flanc ou en cas de déchirure, il faut changer le pneu.",
+      facts: [
+        { label: "Réparation", value: "25–45 € (indicatif)" },
+        { label: "Atelier", value: "RED-K MOTORS · Ivry" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/prestations/reparation-crevaison/", label: "Réparation crevaison" },
+      { url: "/pneumatiques/", label: "Pneumatiques" },
+      { url: "/blog/quand-changer-pneus-usure-securite/", label: "Quand changer ses pneus" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Peut-on réparer une crevaison sur le flanc du pneu ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Non. Une perforation sur le flanc est considérée comme non réparable pour des raisons de sécurité : la zone est trop souple en charge. Il faut remplacer le pneu.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Combien coûte une réparation de crevaison en garage ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Comptez souvent 25 à 45 € pour une réparation professionnelle avec démontage, contrôle intérieur du pneu et équilibrage si nécessaire — bien moins qu'un pneu neuf.",
+          },
+        },
+      ],
+    },
+  },
+  "voiture-occasion-checklist-achat": {
+    directAnswer: {
+      question: "Que vérifier avant d'acheter une voiture d'occasion ?",
+      answer:
+        "Carnet d'entretien, CT récent, distribution/courroie, freins et pneus, niveaux sans fuite, essai route 20–30 min et idéalement un contrôle pré-achat avec valise OBD.",
+      facts: [
+        { label: "Point critique", value: "Distribution si historique inconnu" },
+        { label: "Atelier", value: "Contrôle pré-achat · Ivry (94)" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/diagnostic/", label: "Diagnostic & contrôle" },
+      { url: "/blog/courroie-distribution-quand-changer-94/", label: "Courroie distribution" },
+      { url: "/contact/", label: "Prendre rendez-vous" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Faut-il faire contrôler une voiture d'occasion avant achat ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Fortement recommandé. Un contrôle pré-achat (valise OBD, freins, pont, essai route) révèle distribution, FAP, freins ou fuites que l'annonce ne mentionne pas — et permet de renégocier ou d'éviter une mauvaise affaire.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Quel est le point le plus critique sur une occasion ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "La distribution (courroie ou chaîne) si l'historique est inconnu au-delà de 100 000 km. Son remplacement peut représenter 800 à 1 500 € selon motorisation — à chiffrer avant de signer.",
+          },
+        },
+      ],
+    },
+  },
+  "revision-kilometrage-usage-urbain-94": {
+    directAnswer: {
+      question: "À quelle fréquence vidanger en usage urbain ?",
+      answer:
+        "En trajets courts (Ivry, Paris, 94), comptez souvent 10 000–15 000 km ou maximum 12 mois entre deux vidanges — même si le constructeur annonce plus en km.",
+      facts: [
+        { label: "Règle pratique", value: "12 mois max en urbain" },
+        { label: "Atelier", value: "RED-K MOTORS · Ivry (94)" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/vidange/", label: "Vidange moteur" },
+      { url: "/revision-voiture-ivry/", label: "Révision Ivry" },
+      { url: "/blog/combien-temps-entre-deux-vidanges/", label: "Entre deux vidanges" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "À quelle fréquence vidanger en usage urbain ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "En trajets courts (ville, 94), prévoyez souvent une vidange tous les 10 000 à 15 000 km ou maximum 12 mois — même si le constructeur annonce une échéance plus longue en kilomètres.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Pourquoi l'huile s'use plus vite en ville ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Le moteur reste longtemps à température partielle, ce qui favorise la condensation dans l'huile et l'encrassement. Start & Stop, embrayage et freinage répétés sollicitent aussi batterie, FAP (diesel) et plaquettes sans rouler beaucoup de km.",
+          },
+        },
+      ],
+    },
+  },
 };
