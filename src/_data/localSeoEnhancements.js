@@ -5,11 +5,62 @@
 const citySeoContent = require("./citySeoContent.js");
 
 const PROCESS_HIGHLIGHTS = [
-  "Devis gratuit avant intervention",
+  "Devis écrit avant intervention",
   "Atelier à Ivry-sur-Seine (94)",
   "Essence et diesel, toutes marques",
   "Lun–sam 9h–19h — réponse en journée",
 ];
+
+const CATEGORY_HIGHLIGHTS = {
+  freinage: [
+    "Contrôle usure réel (plaquettes / disques)",
+    "Pas de forfait imposé sans mesure",
+    "Devis écrit avant travaux",
+    "Lun–sam 9h–19h",
+  ],
+  diagnostic: [
+    "Valise multimarques — codes expliqués",
+    "Priorisation de ce qui bloque vraiment",
+    "Devis avant réparation",
+    "Lun–sam 9h–19h",
+  ],
+  revision: [
+    "Carnet constructeur respecté",
+    "Huiles et filtres adaptés au moteur",
+    "Vidange souvent le jour même sur RDV",
+    "Lun–sam 9h–19h",
+  ],
+  pneumatiques: [
+    "Montage, équilibrage, géométrie",
+    "Stock été/hiver selon arrivages",
+    "Contrôle pression et usure",
+    "Lun–sam 9h–19h",
+  ],
+  vidange: [
+    "Huile homologuée constructeur",
+    "Filtre neuf + contrôle niveaux",
+    "30 min à 1 h en général",
+    "Lun–sam 9h–19h",
+  ],
+  carrosserie: [
+    "Devis sur photo WhatsApp",
+    "Débosselage et peinture localisée",
+    "Documents pour dossier assurance",
+    "Lun–sam 9h–19h",
+  ],
+  clim: [
+    "Test d'étanchéité avant recharge",
+    "Pas de « remplissage à l'aveugle »",
+    "Devis avant intervention",
+    "Lun–sam 9h–19h",
+  ],
+  mecanique: [
+    "Diagnostic puis devis écrit",
+    "Distribution, embrayage, turbo, EGR…",
+    "Multimarque essence et diesel",
+    "Lun–sam 9h–19h",
+  ],
+};
 
 const CATEGORIES = {
   freinage: {
@@ -32,7 +83,7 @@ const CATEGORIES = {
       { text: "Pédale molle", url: "/blog/freinage-mou-pedale-spongieuse/" },
       { text: "Changement plaquettes 94", url: "/blog/prix-changement-plaquettes-frein-94/" },
     ],
-    highlights: PROCESS_HIGHLIGHTS,
+    highlights: CATEGORY_HIGHLIGHTS.freinage,
   },
   diagnostic: {
     reviewKey: "diagnostic",
@@ -54,7 +105,7 @@ const CATEGORIES = {
       { text: "Turbo en panne", url: "/blog/turbo-compresseur-symptomes-panne/" },
       { text: "Vanne EGR", url: "/blog/vanne-egr-encrassee-symptomes/" },
     ],
-    highlights: PROCESS_HIGHLIGHTS,
+    highlights: CATEGORY_HIGHLIGHTS.diagnostic,
   },
   revision: {
     reviewKey: "revision",
@@ -75,7 +126,7 @@ const CATEGORIES = {
       { text: "Vidange moteur", url: "/blog/combien-coute-vidange-voiture/" },
       { text: "Recharge clim", url: "/blog/climatisation-voiture-recharge-ivry/" },
     ],
-    highlights: PROCESS_HIGHLIGHTS,
+    highlights: CATEGORY_HIGHLIGHTS.revision,
   },
   pneumatiques: {
     reviewKey: "pneumatiques",
@@ -96,7 +147,7 @@ const CATEGORIES = {
       { text: "Géométrie des roues", url: "/blog/geometrie-roues-signes-mauvais-alignement/" },
       { text: "Prix pneus 94", url: "/blog/prix-changement-pneus-94/" },
     ],
-    highlights: PROCESS_HIGHLIGHTS,
+    highlights: CATEGORY_HIGHLIGHTS.pneumatiques,
   },
   vidange: {
     reviewKey: "vidange",
@@ -114,7 +165,7 @@ const CATEGORIES = {
     seoProblems: [
       { text: "Combien coûte une vidange", url: "/blog/combien-coute-vidange-voiture/" },
     ],
-    highlights: PROCESS_HIGHLIGHTS,
+    highlights: CATEGORY_HIGHLIGHTS.vidange,
   },
   carrosserie: {
     reviewKey: "carrosserie",
@@ -133,7 +184,7 @@ const CATEGORIES = {
       { text: "Rayure carrosserie", url: "/blog/rayure-carrosserie-quand-reparer/" },
       { text: "Après un accident", url: "/blog/que-faire-apres-accident-carrosserie/" },
     ],
-    highlights: PROCESS_HIGHLIGHTS,
+    highlights: CATEGORY_HIGHLIGHTS.carrosserie,
   },
   clim: {
     reviewKey: "revision",
@@ -152,7 +203,7 @@ const CATEGORIES = {
       { text: "Recharge clim Ivry", url: "/blog/climatisation-voiture-recharge-ivry/" },
       { text: "Prix recharge clim 94", url: "/blog/prix-recharge-climatisation-94/" },
     ],
-    highlights: PROCESS_HIGHLIGHTS,
+    highlights: CATEGORY_HIGHLIGHTS.clim,
   },
   mecanique: {
     reviewKey: "mecanique",
@@ -174,7 +225,7 @@ const CATEGORIES = {
       { text: "Turbo", url: "/blog/turbo-compresseur-symptomes-panne/" },
       { text: "Batterie voiture", url: "/blog/batterie-voiture-quand-changer/" },
     ],
-    highlights: PROCESS_HIGHLIGHTS,
+    highlights: CATEGORY_HIGHLIGHTS.mecanique,
   },
   fleet: {
     reviewKey: "revision",

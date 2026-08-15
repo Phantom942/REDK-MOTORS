@@ -33,10 +33,10 @@ const landingPages = {
   diagnostic: {
     showDiagnosticInterventionOffer: false,
     videoSrc: "mecanique.mp4",
-    heroKicker: "Urgence · Ivry-sur-Seine (94)",
-    heroTitle: "Voyant Allumé ou Voiture en Panne à Ivry ? Diagnostic Rapide",
+    heroKicker: "Diagnostic · Ivry-sur-Seine (94)",
+    heroTitle: "Voyant moteur ou panne : diagnostic à l'atelier",
     heroDesc:
-      "Ne prenez pas le risque d'aggraver la panne. Nos experts identifient le problème en moins de 45 minutes et vous remettent un devis clair avant toute réparation.",
+      "On branche la valise, on lit les codes et on vous explique ce qui se passe — avant de chiffrer une réparation. En général 30 à 45 minutes à l'atelier.",
     heroCtaLabel: CTA,
     reviewCount: 2,
     highlights: [
@@ -69,10 +69,10 @@ const landingPages = {
   },
   freinage: {
     videoSrc: "mecanique.mp4",
-    heroKicker: "Sécurité · Freinage Ivry (94)",
-    heroTitle: "Freins qui Grincent ou Vibrations ? Diagnostic Freinage à Ivry",
+    heroKicker: "Freinage · Ivry (94)",
+    heroTitle: "Freins qui grincent ou pédale molle",
     heroDesc:
-      "Ne jouez pas avec votre sécurité. Contrôle usure, devis 100% gratuit et ferme avant toute intervention.",
+      "On mesure l'usure plaquettes et disques devant vous. Devis écrit avant de remplacer quoi que ce soit.",
     heroCtaLabel: CTA,
     symptoms: [
       "Grincement ou sifflement au freinage",
@@ -112,9 +112,9 @@ const landingPages = {
   revision: {
     videoSrc: "entretien.mp4",
     heroKicker: "Entretien · Ivry-sur-Seine (94)",
-    heroTitle: "Révision & Vidange à Ivry : Préservez votre Garantie Constructeur",
+    heroTitle: "Révision et vidange selon votre carnet",
     heroDesc:
-      "Entretien rapide selon carnet constructeur. Pièces certifiées et devis gratuit avant intervention.",
+      "Huiles, filtres et points de contrôle adaptés au modèle. Devis expliqué avant travaux — carnet respecté quand c'est possible.",
     heroCtaLabel: CTA,
     reviewCount: 2,
     highlights: [
@@ -146,10 +146,10 @@ const landingPages = {
   },
   carrosserie: {
     videoSrc: "carrosserie.mp4",
-    heroKicker: "Chocs & sinistres · Ivry (94)",
-    heroTitle: "Carrosserie & Pare-Brise à Ivry : Devis Rapide sur Photo",
+    heroKicker: "Carrosserie · Ivry (94)",
+    heroTitle: "Carrosserie et pare-brise — devis sur photo",
     heroDesc:
-      "Rayure, enfoncement ou impact sur votre vitrage ? Nous redonnons à votre véhicule son aspect d'origine. Prise en charge toutes assurances.",
+      "Rayure, enfoncement ou impact vitrage : envoyez une photo WhatsApp pour une première estimation, puis inspection en atelier si besoin.",
     heroCtaLabel: CTA,
     whatsappCtaText:
       "Envoyez la photo de vos dégâts par WhatsApp pour une estimation en quelques minutes",
@@ -181,10 +181,10 @@ const landingPages = {
   },
   mecanique: {
     videoSrc: "mecanique.mp4",
-    heroKicker: "Toutes marques · Devis avant travaux",
-    heroTitle: "Garage Mécanique à Ivry — Turbo, EGR, Distribution, Embrayage",
+    heroKicker: "Mécanique · Ivry (94)",
+    heroTitle: "Mécanique générale — turbo, distribution, embrayage",
     heroDesc:
-      "Turbo, vanne EGR, FAP, distribution, embrayage ou perte de puissance ? Diagnostic en atelier, devis écrit avant réparation. Essence et diesel.",
+      "Panne moteur, perte de puissance ou bruit anormal : diagnostic en atelier, devis écrit avant réparation. Essence et diesel, toutes marques.",
     heroCtaLabel: CTA,
     highlights: [
       "Diagnostic puis devis écrit",
@@ -214,9 +214,9 @@ const landingPages = {
   "pare-brise": {
     videoSrc: "carrosserie.mp4",
     heroKicker: "Jusqu'à 150 € + franchise offerte",
-    heroTitle: "Pare-Brise à Ivry — Impact, Bris de Glace & Remplacement",
+    heroTitle: "Pare-brise — impact, remplacement et dossier assurance",
     heroDesc:
-      "Impact ou vitrage fissuré ? RED-K MOTORS vous offre jusqu'à 150 € + votre franchise sur chaque remplacement de pare-brise. Dossier assurance accompagné — navette possible sur Ivry, Vitry et alentours.",
+      "Impact ou fissure ? Jusqu'à 150 € + franchise offerte sur remplacement pare-brise (conditions au devis). Photo WhatsApp pour démarrer le dossier.",
     heroCtaLabel: CTA,
     offer: {
       badge: "Offre pare-brise",
@@ -267,9 +267,9 @@ const landingPages = {
   pneumatiques: {
     videoSrc: "pneumatique.mp4",
     heroKicker: "Montage · Équilibrage · Parallélisme",
-    heroTitle: "Pneus & Géométrie à Ivry — Montage Rapide sur RDV",
+    heroTitle: "Pneus, montage et géométrie",
     heroDesc:
-      "Montage, équilibrage et parallélisme. Stock été/hiver selon arrivages — ou montage de vos pneus. Devis au modèle.",
+      "Montage, équilibrage et parallélisme sur RDV. Stock été/hiver selon arrivages — ou pose de vos pneus.",
     heroCtaLabel: CTA,
     highlights: [
       "Montage et équilibrage",
@@ -299,9 +299,9 @@ const landingPages = {
   vidange: {
     videoSrc: "entretien.mp4",
     heroKicker: "Huile constructeur · Filtre neuf",
-    heroTitle: "Vidange à Ivry — Rapide, Huile Homologuée Constructeur",
+    heroTitle: "Vidange moteur — huile adaptée au carnet",
     heroDesc:
-      "Vidange moteur avec huile adaptée à votre carnet et contrôle des niveaux. Souvent le jour même sur rendez-vous.",
+      "Huile homologuée, filtre neuf, contrôle des niveaux. Souvent le jour même si vous avez un créneau.",
     heroCtaLabel: CTA,
     highlights: [
       "Huile homologuée constructeur",

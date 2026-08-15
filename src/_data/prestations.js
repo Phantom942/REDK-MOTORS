@@ -209,7 +209,7 @@ const AD_OVERRIDES = {
     ],
   },
   "diagnostic-voyant-moteur": {
-    heroTitle: "Voyant Moteur Allumé à Ivry ? Diagnostic Rapide",
+    heroTitle: "Voyant moteur allumé — diagnostic valise",
     heroKicker: "Urgence · Valise multimarques",
     heroDesc:
       "Ne roulez pas en doute : lecture des codes, explication claire et devis avant réparation.",
@@ -217,7 +217,7 @@ const AD_OVERRIDES = {
     prestaHubSubtitle: "Plaque + symptômes — on vous rappelle avec une première estimation.",
   },
   "recherche-de-panne": {
-    heroTitle: "Voiture en Panne à Ivry ? Recherche de Panne Rapide",
+    heroTitle: "Voiture en panne — recherche de panne en atelier",
     heroKicker: "Urgence · Toutes marques",
     heroDesc: "Identification de la cause en atelier, devis clair — rien sans votre accord.",
     prestaHubTitle: "Décrivez vos symptômes pour une estimation rapide",
@@ -351,7 +351,7 @@ const AD_OVERRIDES = {
     heroDesc: "Clic au démarrage ou moteur qui ne tourne pas ? Test démarreur, batterie et circuit de charge.",
   },
   "diagnostic-abs": {
-    heroTitle: "Voyant ABS Allumé à Ivry ? Diagnostic Freinage",
+    heroTitle: "Voyant ABS — diagnostic freinage",
     heroKicker: "Freinage · Électronique",
     heroDesc: "Voyant ABS ou ESP : lecture des codes, identification de la cause, devis avant réparation.",
   },

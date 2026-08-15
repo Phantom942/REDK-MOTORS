@@ -4,6 +4,21 @@
 {% if not heroKickerText and heroKicker %}
   {% set heroKickerText = heroKicker %}
 {% endif %}
+{% set cityContent = pageKey | citySeoContent %}
+{% if cityContent %}
+  {% if cityContent.heroDesc %}
+    {% set heroDesc = cityContent.heroDesc %}
+  {% endif %}
+  {% if cityContent.introText %}
+    {% set introText = cityContent.introText %}
+  {% endif %}
+  {% if cityContent.introHeading %}
+    {% set introHeading = cityContent.introHeading %}
+  {% endif %}
+  {% if cityContent.faqs %}
+    {% set faqs = cityContent.faqs %}
+  {% endif %}
+{% endif %}
 {% if not heroDescription and heroDesc %}
   {% set heroDescription = heroDesc %}
 {% endif %}

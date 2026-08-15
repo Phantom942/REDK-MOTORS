@@ -53,7 +53,7 @@ module.exports = {
         "Pour une citadine ou berline courante, comptez environ 80 à 180 € (huile adaptée + filtre + main-d'œuvre). Le devis exact dépend du moteur, du volume d'huile et de la norme constructeur.",
       facts: [
         { label: "Fourchette indicative", value: "80–180 €" },
-        { label: "Chez RED-K MOTORS", value: "Devis gratuit · lun–sam 9h–19h" },
+        { label: "Atelier", value: "Ivry-sur-Seine (94) · lun–sam 9h–19h" },
       ],
     },
     relatedLinks: [
@@ -108,7 +108,7 @@ module.exports = {
           name: "Le diagnostic est-il remboursé si je fais réparer au garage ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Chez RED-K MOTORS, le diagnostic peut être déduit de la facture de réparation si vous confiez les travaux à l'atelier — demandez-le lors du devis.",
+            text: "Le diagnostic peut être déduit de la facture de réparation si vous confiez les travaux à l'atelier — à préciser lors du devis.",
           },
         },
         {
@@ -1375,7 +1375,7 @@ module.exports = {
           name: "Combien coûte la réparation d'une fuite d'huile ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Le prix dépend de la pièce : un joint de cache-culbuteurs coûte nettement moins cher qu'un joint spy arrière. Chez RED-K MOTORS à Ivry, le devis est gratuit avant intervention.",
+            text: "Le prix dépend de la pièce : un joint de cache-culbuteurs coûte nettement moins cher qu'un joint spy arrière. Devis gratuit à l'atelier Ivry avant intervention.",
           },
         },
       ],
@@ -1672,7 +1672,7 @@ module.exports = {
           name: "Volant qui vibre sur autoroute : que vérifier en premier ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Équilibrage et état des pneus (usure, hernie), puis jantes. Si le problème persiste, géométrie et silentblocs. Chez RED-K MOTORS à Ivry, on enchaîne contrôle pneus puis train avant.",
+            text: "Équilibrage et état des pneus (usure, hernie), puis jantes. Si le problème persiste, géométrie et silentblocs — contrôle pneus puis train avant en atelier.",
           },
         },
         {
@@ -1946,7 +1946,7 @@ module.exports = {
           name: "Le prix inclut-il la pose et le recyclage ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Chez RED-K MOTORS, le devis précise pièce conforme, pose, contrôle de charge et reprise de l'ancienne batterie — comparez ce périmètre, pas seulement le prix magasin.",
+            text: "Le devis précise pièce conforme, pose, contrôle de charge et reprise de l'ancienne batterie — comparez ce périmètre, pas seulement le prix magasin.",
           },
         },
       ],
