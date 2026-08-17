@@ -4192,3 +4192,21 @@ body.conversion-page .promesse__item p {
   color: var(--stitch-on-variant);
   max-width: 36rem;
 }
+
+.design-stitch .contest-garage-teaser a:not(.btn) {
+  color: var(--stitch-primary);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.design-stitch .contest-faq {
+  padding: 2.5rem 0 3rem;
+  background: var(--stitch-bg);
+  border-top: 1px solid var(--stitch-outline);
+}
+
+.design-stitch .contest-direct-answer a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}

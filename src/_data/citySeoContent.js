@@ -3,16 +3,16 @@
  */
 module.exports = {
   "garage-ivry": {
-    seoTitle: "Garage Ivry-sur-Seine — 9 rue Michelet",
+    seoTitle: "Garage automobile Ivry-sur-Seine — 9 rue Michelet (94)",
     seoParagraphs: [
-      "RED-K MOTORS, 9 rue Michelet, 94200 Ivry-sur-Seine. Ouvert lun–sam 9h–19h. Tél. 06 48 74 56 68. Parking dépôt véhicule sur place.",
+      "RED-K MOTORS, garage automobile au 9 rue Michelet, 94200 Ivry-sur-Seine. Ouvert lun–sam 9h–19h. Tél. 06 48 74 56 68. Parking dépôt véhicule sur place.",
       "Ce qu'on fait vraiment ici : diagnostic OBD, vidange, freins, pneus/géométrie, clim, distribution, embrayage, carrosserie, pare-brise. Devis écrit avant travaux — pas de surprise.",
       "Accès depuis Vitry, Villejuif, Paris 13, Charenton, Maisons-Alfort. Multimarque essence/diesel. RDV recommandé, sans RDV possible selon charge atelier.",
     ],
     seoFooter: "Plan et formulaire : redkmotors.fr/contact/ — WhatsApp pour photos et premier avis.",
     heroDesc:
       "Diagnostic, freins, pneus, clim, carrosserie. Devis écrit avant travaux. Parking dépôt sur place, 9 rue Michelet.",
-    introHeading: "Votre garage à Ivry-centre",
+    introHeading: "Garage automobile à Ivry-centre",
     introText:
       "L'atelier est au cœur d'Ivry : on reçoit les véhicules du quartier, les flottes VTC du 94 et les conducteurs qui passent par le périph'. Pas de centre d'appels — vous parlez directement à l'équipe atelier.",
     highlights: [
