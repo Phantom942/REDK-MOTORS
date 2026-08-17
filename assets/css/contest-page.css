@@ -1,0 +1,493 @@
+/* Page jeu concours — styles dédiés, scope data-page */
+
+[data-page="jeu-concours-gta-vi"] #main {
+  background: var(--stitch-bg);
+}
+
+/* —— Hero —— */
+[data-page="jeu-concours-gta-vi"] .contest-hero {
+  padding: clamp(2rem, 5vw, 3.5rem) 0 0;
+  background: linear-gradient(180deg, rgba(190, 24, 93, 0.08) 0%, transparent 42%);
+  border-bottom: 1px solid var(--stitch-outline);
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-hero__inner {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+  max-width: 1080px;
+  margin-inline: auto;
+}
+
+@media (min-width: 900px) {
+  [data-page="jeu-concours-gta-vi"] .contest-hero__inner {
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 380px);
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 899px) {
+  [data-page="jeu-concours-gta-vi"] .contest-hero__inner {
+    display: flex;
+    flex-direction: column;
+  }
+
+  [data-page="jeu-concours-gta-vi"] .contest-hero__visual {
+    order: -1;
+    width: min(100%, 300px);
+    margin-inline: auto;
+  }
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-hero__copy {
+  text-align: center;
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-hero__kicker {
+  margin: 0 0 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--stitch-primary);
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-hero h1 {
+  margin: 0 0 0.85rem;
+  font-family: var(--font-stitch-head, inherit);
+  font-size: clamp(1.75rem, 4.5vw, 2.5rem);
+  line-height: 1.12;
+  color: #fafafa;
+  text-wrap: balance;
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-hero__accent {
+  color: #f9a8d4;
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-hero__lead {
+  margin: 0 auto 1.15rem;
+  max-width: 34rem;
+  color: var(--stitch-on-variant);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-hero__facts {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto 1.25rem;
+  display: grid;
+  gap: 0.5rem;
+  max-width: 32rem;
+}
+
+@media (min-width: 640px) {
+  [data-page="jeu-concours-gta-vi"] .contest-hero__facts {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: none;
+  }
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-hero__facts li {
+  padding: 0.6rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid var(--stitch-outline);
+  background: var(--stitch-surface);
+  font-size: 0.88rem;
+  color: #fafafa;
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-hero__facts span {
+  display: block;
+  margin-bottom: 0.15rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--stitch-on-variant);
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem;
+  margin-bottom: 0.75rem;
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-hero__legal-note {
+  margin: 0;
+  font-size: 0.84rem;
+  color: var(--stitch-on-variant);
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-hero__legal-note a {
+  color: #f9a8d4;
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-hero__visual {
+  margin: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--stitch-outline);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-hero__visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-hero__caption {
+  margin: 0;
+  padding: 0.55rem 0.65rem;
+  font-size: 0.78rem;
+  text-align: center;
+  color: var(--stitch-on-variant);
+  background: var(--stitch-surface);
+  border-top: 1px solid var(--stitch-outline);
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-hero__caption a {
+  color: #f9a8d4;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-hero__caption a:hover {
+  text-decoration: underline;
+}
+
+[data-page="jeu-concours-gta-vi"] .btn--snapchat {
+  background: #fffc00;
+  color: #111;
+  border: 1px solid rgba(255, 252, 0, 0.5);
+}
+
+[data-page="jeu-concours-gta-vi"] .btn--snapchat:hover {
+  background: #fff566;
+  color: #111;
+}
+
+/* —— Nav ancres (statique, pas sticky) —— */
+[data-page="jeu-concours-gta-vi"] .contest-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 1rem 0 1.25rem;
+  border-top: 1px solid var(--stitch-outline);
+  margin-top: clamp(1.5rem, 3vw, 2rem);
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-nav__link {
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid var(--stitch-outline);
+  background: var(--stitch-surface);
+  color: #fafafa;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-nav__link:hover,
+[data-page="jeu-concours-gta-vi"] .contest-nav__link:focus-visible {
+  background: rgba(190, 24, 93, 0.15);
+  border-color: rgba(244, 114, 182, 0.4);
+}
+
+/* —— Intro SEO —— */
+[data-page="jeu-concours-gta-vi"] .contest-seo-intro {
+  padding: 1.25rem 0 0;
+  border-bottom: 1px solid var(--stitch-outline);
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-seo-intro p {
+  margin: 0 auto;
+  max-width: 42rem;
+  text-align: center;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--stitch-on-variant);
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-seo-intro a {
+  color: #f9a8d4;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* —— Sections communes —— */
+[data-page="jeu-concours-gta-vi"] .contest-section-head {
+  max-width: 38rem;
+  margin: 0 auto 1.75rem;
+  text-align: center;
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-section-head h2 {
+  margin: 0.35rem 0 0.75rem;
+  font-family: var(--font-stitch-head, inherit);
+  font-size: clamp(1.35rem, 3vw, 1.85rem);
+  color: #fafafa;
+  text-wrap: balance;
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-section-head h2::after {
+  content: "";
+  display: block;
+  width: 2.5rem;
+  height: 2px;
+  margin: 0.75rem auto 0;
+  border-radius: 999px;
+  background: var(--stitch-primary);
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-section-head p {
+  margin: 0 auto;
+  max-width: 32rem;
+  color: var(--stitch-on-variant);
+  line-height: 1.6;
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-steps,
+[data-page="jeu-concours-gta-vi"] .contest-prize,
+[data-page="jeu-concours-gta-vi"] .contest-faq,
+[data-page="jeu-concours-gta-vi"] .contest-rules {
+  scroll-margin-top: 5.5rem;
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-steps {
+  padding: clamp(2.25rem, 4vw, 3.25rem) 0;
+  background: var(--stitch-bg-low);
+}
+
+/* —— Cartes plateformes —— */
+[data-page="jeu-concours-gta-vi"] .contest-platforms__grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  [data-page="jeu-concours-gta-vi"] .contest-platforms__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-platform-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.25rem 1.15rem;
+  border-radius: 12px;
+  border: 1px solid var(--stitch-outline);
+  background: var(--stitch-surface);
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-platform-card--instagram {
+  border-top: 3px solid #dd2a7b;
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-platform-card--tiktok {
+  border-top: 3px solid #fafafa;
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-platform-card--snapchat {
+  border-top: 3px solid #fffc00;
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-platform-card__title {
+  margin: 0 0 0.85rem;
+  font-family: var(--font-stitch-head, inherit);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fafafa;
+  text-align: center;
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-platform-card__steps {
+  margin: 0 0 0.85rem;
+  padding-left: 1.15rem;
+  flex: 1;
+  color: var(--stitch-on-variant);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-platform-card__steps li + li {
+  margin-top: 0.35rem;
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-platform-card__note {
+  margin: 0 0 1rem;
+  font-size: 0.8rem;
+  color: var(--stitch-on-variant);
+  text-align: center;
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-platform-card__note--warn {
+  color: #fde047;
+  font-weight: 600;
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-platform-card__link {
+  display: block;
+  margin-top: auto;
+  padding: 0.55rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid var(--stitch-outline);
+  background: var(--stitch-bg-low);
+  color: #fafafa;
+  font-size: 0.84rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-platform-card__link:hover {
+  border-color: rgba(244, 114, 182, 0.45);
+  background: rgba(190, 24, 93, 0.12);
+}
+
+/* —— Dotation —— */
+[data-page="jeu-concours-gta-vi"] .contest-prize {
+  padding: clamp(2.25rem, 4vw, 3.25rem) 0;
+  border-top: 1px solid var(--stitch-outline);
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-prize__meta {
+  margin: 0 auto;
+  max-width: 720px;
+  display: grid;
+  gap: 0.6rem;
+}
+
+@media (min-width: 640px) {
+  [data-page="jeu-concours-gta-vi"] .contest-prize__meta {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 900px) {
+  [data-page="jeu-concours-gta-vi"] .contest-prize__meta {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-prize__meta div {
+  padding: 0.75rem 0.85rem;
+  border-radius: 8px;
+  border: 1px solid var(--stitch-outline);
+  background: var(--stitch-surface);
+  text-align: center;
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-prize__meta dt {
+  margin-bottom: 0.15rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--stitch-on-variant);
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-prize__meta dd {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fafafa;
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-prize__meta-item--highlight {
+  border-color: rgba(244, 114, 182, 0.45);
+  background: rgba(190, 24, 93, 0.1);
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-prize__meta-item--highlight dt {
+  color: #f9a8d4;
+}
+
+/* —— FAQ —— */
+[data-page="jeu-concours-gta-vi"] .contest-faq {
+  padding: clamp(2rem, 4vw, 3rem) 0;
+  background: var(--stitch-bg-low);
+  border-top: 1px solid var(--stitch-outline);
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-faq .faq__list {
+  max-width: 40rem;
+  margin-inline: auto;
+}
+
+/* —— Règlement —— */
+[data-page="jeu-concours-gta-vi"] .contest-rules.legal-content {
+  padding: clamp(2rem, 4vw, 3rem) 0;
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-rules .legal-content__inner {
+  max-width: 42rem;
+  margin-inline: auto;
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-section-head--legal {
+  margin-bottom: 1rem;
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-section-head--legal .legal-content__intro {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  border-left: none;
+  background: rgba(130, 17, 17, 0.18);
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-rules .legal-content__related {
+  justify-content: center;
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-rules .legal-content__inner h3 {
+  text-align: left;
+  margin-top: 1.5rem;
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-rules .legal-content__callout {
+  margin-top: 1.25rem;
+  text-align: center;
+  border-left: none;
+  max-width: none;
+}
+
+/* —— Teaser garage —— */
+[data-page="jeu-concours-gta-vi"] .contest-garage-teaser {
+  padding: 2rem 0 2.5rem;
+  border-top: 1px solid var(--stitch-outline);
+  background: var(--stitch-bg-low);
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-garage-teaser__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
+  text-align: center;
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-garage-teaser p {
+  margin: 0;
+  max-width: 34rem;
+  color: #fafafa;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+[data-page="jeu-concours-gta-vi"] .contest-garage-teaser__sub {
+  color: var(--stitch-on-variant) !important;
+  font-size: 0.88rem !important;
+}

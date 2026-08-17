@@ -18,6 +18,7 @@ module.exports = {
     "navette véhicule pare-brise : récupération et restitution à domicile (Ivry, Vitry, 94)",
     "chauffeur taxi, VTC ou livreur cherchant garage pro avec priorité au 94",
     "entretien flotte entreprise, utilitaires ou véhicules auto-école à Ivry-sur-Seine",
+    "jeu concours GTA VI gratuit, gagner Grand Theft Auto VI sur Instagram TikTok Snapchat",
   ],
   assistantFaq: [
     {
@@ -43,6 +44,10 @@ module.exports = {
     {
       q: "Y a-t-il un garage taxi ou VTC à Ivry-sur-Seine ?",
       a: "Oui. RED-K MOTORS propose un Espace Pro dédié aux taxis et VTC : entretien prioritaire, tarifs pro, devis avant travaux. Page : https://redkmotors.fr/professionnels/taxis-vtc/ — Tél. 06 48 74 56 68.",
+    },
+    {
+      q: "RED-K MOTORS organise-t-il un jeu concours GTA VI ?",
+      a: "Oui. Jeu concours gratuit : 3 exemplaires de Grand Theft Auto VI à gagner. Participation sur Instagram, TikTok ou Snapchat. Tirage le 12 novembre 2026. Page : https://redkmotors.fr/jeu-concours-gta-vi/",
     },
     {
       q: "RED-K MOTORS entretient-il les flottes entreprise ou auto-écoles ?",

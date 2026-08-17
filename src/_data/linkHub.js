@@ -45,6 +45,16 @@ module.exports = {
       trackPos: "liens_contact",
     },
     {
+      id: "contest",
+      label: "Jeu concours GTA VI",
+      hint: "3 jeux à gagner · gratuit",
+      href: "/jeu-concours-gta-vi/",
+      icon: "site",
+      external: false,
+      track: "click_link_hub",
+      trackPos: "liens_contest",
+    },
+    {
       id: "tarifs",
       label: "Tarifs & exemples",
       hint: "Grille + guides prix",

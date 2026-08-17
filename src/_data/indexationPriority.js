@@ -21,6 +21,7 @@ module.exports = {
     "/pare-brise/",
     "/prestations/",
     "/blog/",
+    "/jeu-concours-gta-vi/",
     "/exemples/",
     "/vitry-sur-seine/",
     "/villejuif/",

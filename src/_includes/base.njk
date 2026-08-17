@@ -61,6 +61,9 @@
     <link rel="stylesheet" href="{{ '/assets/css/styles.css' | cacheBust }}" />
     <link rel="stylesheet" href="{{ '/assets/css/design-stitch.css' | cacheBust }}" media="print" onload="this.media='all'" />
     <noscript><link rel="stylesheet" href="{{ '/assets/css/design-stitch.css' | cacheBust }}" /></noscript>
+    {% if pageKey == 'jeu-concours-gta-vi' %}
+    <link rel="stylesheet" href="{{ '/assets/css/contest-page.css' | cacheBust }}" />
+    {% endif %}
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="theme-color" content="{% if pageKey == 'links' %}#050508{% else %}#131317{% endif %}" />
@@ -180,12 +183,12 @@
           {% set showConversionHub = true %}
         {% endif %}
       {% endfor %}
-      {% if showConversionHub and pageKey != 'contact' and pageKey != 'merci' and not lpKey and not lp and not hideServiceAreas %}
+      {% if showConversionHub and pageKey != 'contact' and pageKey != 'merci' and pageKey != 'jeu-concours-gta-vi' and not lpKey and not lp and not hideServiceAreas %}
         {% include "conversion-hub.njk" %}
       {% endif %}
     {% endif %}
 
-    {% if pageKey != 'contact' and pageKey != 'merci' and not lpKey and not lp and not hideServiceAreas %}
+    {% if pageKey != 'contact' and pageKey != 'merci' and pageKey != 'jeu-concours-gta-vi' and not lpKey and not lp and not hideServiceAreas %}
       {% include "lead-strip.njk" %}
     {% endif %}
 
@@ -193,7 +196,7 @@
     {% if pageKey not in ['404', 'merci'] %}
     {% include "floating-whatsapp.njk" %}
     {% endif %}
-    {% if pageKey not in ['404', 'mentions-legales', 'confidentialite', 'cookies', 'links'] %}
+    {% if pageKey not in ['404', 'mentions-legales', 'confidentialite', 'cookies', 'links', 'jeu-concours-gta-vi'] %}
       {% include "cta-sticky-call.njk" %}
     {% endif %}
     {% endif %}

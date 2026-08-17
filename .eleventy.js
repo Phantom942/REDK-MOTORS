@@ -127,6 +127,7 @@ module.exports = function (eleventyConfig) {
       "/mecanique/",
       "/carrosserie/",
       "/professionnels/",
+      "/jeu-concours-gta-vi/",
     ];
     const tierB = [
       "/entretien/",
