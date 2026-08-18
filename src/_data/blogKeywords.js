@@ -8,44 +8,44 @@
 module.exports = {
   "5-points-controle-avant-ct-ivry": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
-    primary: "points contrôle technique avant CT",
-    secondary: ["checklist contrôle technique", "préparer voiture CT"],
-    longTail: ["points à vérifier avant contrôle technique Ivry 94", "liste contrôle technique 2026"],
+    contentFormat: "Checklist pratique",
+    primary: "contrôle technique Ivry",
+    secondary: ["checklist contrôle technique","préparer voiture CT"],
+    longTail: "5 points à vérifier avant contrôle technique 94",
     candidateQueries: [
-      "points contrôle technique avant CT",
+      "contrôle technique Ivry",
       "checklist contrôle technique",
       "préparer voiture CT",
-      "points à vérifier avant contrôle technique Ivry 94",
+      "5 points à vérifier avant contrôle technique 94",
+      "points contrôle technique avant CT",
       "liste contrôle technique 2026",
-      "points contrôle technique avant CT : que faire",
-      "comment points contrôle technique avant CT",
-      "checklist contrôle technique points contrôle technique",
+      "comment préparer contrôle technique Ivry",
+      "que vérifier avant CT garage 94",
     ],
   },
   "adblue-voyant-panne-diesel": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide symptômes — signes, causes, que faire",
     primary: "voyant AdBlue allumé",
-    secondary: ["panne AdBlue diesel", "autonomie AdBlue"],
-    longTail: ["que faire voyant AdBlue diesel Euro 6", "recharge AdBlue garage 94"],
+    secondary: ["panne AdBlue diesel","système SCR diesel"],
+    longTail: "que faire voyant AdBlue diesel Euro 6",
     candidateQueries: [
       "voyant AdBlue allumé",
       "panne AdBlue diesel",
-      "autonomie AdBlue",
       "que faire voyant AdBlue diesel Euro 6",
       "recharge AdBlue garage 94",
-      "voyant AdBlue allumé : que faire",
-      "comment voyant AdBlue allumé",
-      "panne AdBlue diesel voyant AdBlue allumé",
+      "autonomie AdBlue restante",
+      "AdBlue plein voyant allumé",
+      "système SCR panne diesel",
+      "voyant AdBlue refus démarrage",
     ],
   },
   "alternateur-hs-symptomes": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide symptômes — signes, causes, que faire",
     primary: "alternateur HS symptômes",
-    secondary: ["panne alternateur voiture", "voyant batterie allumé"],
-    longTail: ["comment savoir si alternateur est mort", "alternateur à changer Ivry"],
+    secondary: ["panne alternateur voiture","voyant batterie allumé"],
+    longTail: "comment savoir si alternateur est mort",
     candidateQueries: [
       "alternateur HS symptômes",
       "panne alternateur voiture",
@@ -59,10 +59,10 @@ module.exports = {
   },
   "amortisseurs-usures-symptomes": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide symptômes — signes, causes, que faire",
     primary: "amortisseurs usés symptômes",
-    secondary: ["usure amortisseur voiture", "tenue de route amortisseurs"],
-    longTail: ["quand changer amortisseurs avant arrière", "amortisseurs fatigués bruit"],
+    secondary: ["usure amortisseur voiture","tenue de route amortisseurs"],
+    longTail: "quand changer amortisseurs avant arrière",
     candidateQueries: [
       "amortisseurs usés symptômes",
       "usure amortisseur voiture",
@@ -76,10 +76,10 @@ module.exports = {
   },
   "batterie-morte-matin-que-faire": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide pratique — causes, que faire, retour atelier",
     primary: "batterie morte le matin que faire",
-    secondary: ["voiture ne démarre pas froid", "batterie voiture déchargée"],
-    longTail: ["batterie à plat au réveil que faire", "dépannage batterie Ivry 94"],
+    secondary: ["voiture ne démarre pas froid","batterie voiture déchargée"],
+    longTail: "batterie à plat au réveil que faire",
     candidateQueries: [
       "batterie morte le matin que faire",
       "voiture ne démarre pas froid",
@@ -93,10 +93,10 @@ module.exports = {
   },
   "batterie-start-stop-usure-prematuree": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide pratique — causes, que faire, retour atelier",
     primary: "batterie start-stop usure",
-    secondary: ["batterie AGM start stop", "durée vie batterie start stop"],
-    longTail: ["batterie start stop usée trop vite", "changer batterie start stop 94"],
+    secondary: ["batterie AGM start stop","durée vie batterie start stop"],
+    longTail: "batterie start stop usée trop vite",
     candidateQueries: [
       "batterie start-stop usure",
       "batterie AGM start stop",
@@ -110,10 +110,10 @@ module.exports = {
   },
   "batterie-voiture-quand-changer": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide entretien — fréquence et critères",
     primary: "quand changer batterie voiture",
-    secondary: ["durée vie batterie auto", "signes batterie faible"],
-    longTail: ["batterie voiture combien d'années", "remplacement batterie garage Ivry"],
+    secondary: ["durée vie batterie auto","signes batterie faible"],
+    longTail: "batterie voiture combien d'années",
     candidateQueries: [
       "quand changer batterie voiture",
       "durée vie batterie auto",
@@ -127,10 +127,10 @@ module.exports = {
   },
   "bougies-allumage-quand-changer": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide entretien — fréquence et critères",
     primary: "bougies d'allumage quand changer",
-    secondary: ["intervalle changement bougies", "bougies usées symptômes"],
-    longTail: ["bougies essence à changer tous les combien km", "bougies moteur ratés allumage"],
+    secondary: ["intervalle changement bougies","bougies usées symptômes"],
+    longTail: "bougies essence à changer tous les combien km",
     candidateQueries: [
       "bougies d'allumage quand changer",
       "intervalle changement bougies",
@@ -144,10 +144,10 @@ module.exports = {
   },
   "bruit-anormal-voiture-que-faire": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide symptômes — signes, causes, que faire",
     primary: "bruit anormal voiture que faire",
-    secondary: ["bruit moteur suspension", "diagnostic bruit auto"],
-    longTail: ["bruit au freinage ou accélération que faire", "identifier bruit voiture garage"],
+    secondary: ["bruit moteur suspension","diagnostic bruit auto"],
+    longTail: "bruit au freinage ou accélération que faire",
     candidateQueries: [
       "bruit anormal voiture que faire",
       "bruit moteur suspension",
@@ -161,10 +161,10 @@ module.exports = {
   },
   "cardan-qui-claque-causes": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide pratique — causes, que faire, retour atelier",
     primary: "cardan qui claque",
-    secondary: ["joint cardan usé", "bruit cardan virage"],
-    longTail: ["cardan claque en braquant causes", "remplacement cardan prix 94"],
+    secondary: ["joint cardan usé","bruit cardan virage"],
+    longTail: "cardan claque en braquant causes",
     candidateQueries: [
       "cardan qui claque",
       "joint cardan usé",
@@ -178,10 +178,10 @@ module.exports = {
   },
   "catalyseur-bouche-symptomes-causes": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide symptômes — signes, causes, que faire",
     primary: "catalyseur bouché symptômes",
-    secondary: ["panne catalyseur voiture", "perte puissance catalyseur"],
-    longTail: ["catalyseur encrassé que faire", "catalyseur à changer diesel"],
+    secondary: ["panne catalyseur voiture","perte puissance catalyseur"],
+    longTail: "catalyseur encrassé que faire",
     candidateQueries: [
       "catalyseur bouché symptômes",
       "panne catalyseur voiture",
@@ -195,10 +195,10 @@ module.exports = {
   },
   "clim-odeur-moisi-que-faire": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide pratique — causes, que faire, retour atelier",
     primary: "climatisation odeur moisi",
-    secondary: ["odeur humidité clim voiture", "nettoyage évaporateur clim"],
-    longTail: ["clim sent mauvais que faire", "désinfection climatisation auto Ivry"],
+    secondary: ["odeur humidité clim voiture","nettoyage évaporateur clim"],
+    longTail: "clim sent mauvais que faire",
     candidateQueries: [
       "climatisation odeur moisi",
       "odeur humidité clim voiture",
@@ -212,10 +212,10 @@ module.exports = {
   },
   "climatisation-voiture-recharge-ivry": {
     intent: "transactional",
-    contentFormat: "Prestation locale — prise de RDV, zone Ivry/94, devis gratuit",
+    contentFormat: "Guide pratique — causes, que faire, retour atelier",
     primary: "recharge climatisation voiture",
-    secondary: ["clim ne refroidit plus", "gaz climatisation auto"],
-    longTail: ["recharge clim voiture Ivry-sur-Seine", "prix recharge clim 94"],
+    secondary: ["clim ne refroidit plus","gaz climatisation auto"],
+    longTail: "recharge clim voiture Ivry-sur-Seine",
     candidateQueries: [
       "recharge climatisation voiture",
       "clim ne refroidit plus",
@@ -229,10 +229,10 @@ module.exports = {
   },
   "combien-coute-vidange-voiture": {
     intent: "commercial",
-    contentFormat: "Comparatif & fourchettes — critères de prix, inclus/exclus, devis",
+    contentFormat: "Guide prix — fourchette et prestation",
     primary: "prix vidange voiture",
-    secondary: ["combien coûte une vidange", "tarif vidange garage"],
-    longTail: ["prix vidange voiture 2026 France", "vidange garage indépendant 94"],
+    secondary: ["combien coûte une vidange","tarif vidange garage"],
+    longTail: "prix vidange voiture 2026 France",
     candidateQueries: [
       "prix vidange voiture",
       "combien coûte une vidange",
@@ -246,10 +246,10 @@ module.exports = {
   },
   "combien-temps-entre-deux-vidanges": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide entretien — fréquence et critères",
     primary: "intervalle entre deux vidanges",
-    secondary: ["fréquence vidange voiture", "vidange tous les combien km"],
-    longTail: ["combien de km entre deux vidanges", "vidange annuelle obligatoire"],
+    secondary: ["fréquence vidange voiture","vidange tous les combien km"],
+    longTail: "combien de km entre deux vidanges",
     candidateQueries: [
       "intervalle entre deux vidanges",
       "fréquence vidange voiture",
@@ -263,10 +263,10 @@ module.exports = {
   },
   "compresseur-clim-mort-symptomes": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide symptômes — signes, causes, que faire",
     primary: "compresseur clim mort symptômes",
-    secondary: ["panne compresseur climatisation", "clim plus de froid"],
-    longTail: ["compresseur clim HS bruit", "changer compresseur clim prix"],
+    secondary: ["panne compresseur climatisation","clim plus de froid"],
+    longTail: "compresseur clim HS bruit",
     candidateQueries: [
       "compresseur clim mort symptômes",
       "panne compresseur climatisation",
@@ -280,10 +280,10 @@ module.exports = {
   },
   "consommation-huile-anormale-causes": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide pratique — causes, que faire, retour atelier",
     primary: "consommation huile anormale",
-    secondary: ["voiture consomme de l'huile", "niveau huile baisse"],
-    longTail: ["consommation huile excessive causes moteur", "huile moteur qui disparaît"],
+    secondary: ["voiture consomme de l'huile","niveau huile baisse"],
+    longTail: "consommation huile excessive causes moteur",
     candidateQueries: [
       "consommation huile anormale",
       "voiture consomme de l'huile",
@@ -297,10 +297,10 @@ module.exports = {
   },
   "controle-antipollution-refuse-que-faire": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide pratique — causes, que faire, retour atelier",
     primary: "contrôle antipollution refusé que faire",
-    secondary: ["visite antipollution contre-visite", "pollution CT refus"],
-    longTail: ["contre-visite antipollution que faire", "réparer pour antipollution 94"],
+    secondary: ["visite antipollution contre-visite","pollution CT refus"],
+    longTail: "contre-visite antipollution que faire",
     candidateQueries: [
       "contrôle antipollution refusé que faire",
       "visite antipollution contre-visite",
@@ -314,10 +314,10 @@ module.exports = {
   },
   "controle-technique-2026-nouveautes": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide pratique — causes, que faire, retour atelier",
     primary: "contrôle technique 2026 nouveautés",
-    secondary: ["nouveau contrôle technique 2026", "règlement CT 2026"],
-    longTail: ["changements contrôle technique 2026 France", "CT 2026 ce qui change"],
+    secondary: ["nouveau contrôle technique 2026","règlement CT 2026"],
+    longTail: "changements contrôle technique 2026 France",
     candidateQueries: [
       "contrôle technique 2026 nouveautés",
       "nouveau contrôle technique 2026",
@@ -331,10 +331,10 @@ module.exports = {
   },
   "courroie-accessoires-symptomes-usure": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide symptômes — signes, causes, que faire",
     primary: "courroie accessoires usée symptômes",
-    secondary: ["courroie alternateur usure", "bruit courroie accessoires"],
-    longTail: ["quand changer courroie accessoires", "courroie accessoires cassée"],
+    secondary: ["courroie alternateur usure","bruit courroie accessoires"],
+    longTail: "quand changer courroie accessoires",
     candidateQueries: [
       "courroie accessoires usée symptômes",
       "courroie alternateur usure",
@@ -348,10 +348,10 @@ module.exports = {
   },
   "courroie-distribution-quand-changer-94": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide entretien — fréquence et critères",
     primary: "courroie distribution quand changer",
-    secondary: ["kit distribution intervalle", "courroie distribution cassée"],
-    longTail: ["changement courroie distribution 94 prix", "distribution tous les combien km"],
+    secondary: ["kit distribution intervalle","courroie distribution cassée"],
+    longTail: "changement courroie distribution 94 prix",
     candidateQueries: [
       "courroie distribution quand changer",
       "kit distribution intervalle",
@@ -365,10 +365,10 @@ module.exports = {
   },
   "crevaison-reparer-ou-changer-pneu": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide pratique — causes, que faire, retour atelier",
     primary: "crevaison réparer ou changer pneu",
-    secondary: ["réparation pneu crevé", "pneu hors service"],
-    longTail: ["crevaison clou réparable ou pas", "changer pneu après crevaison"],
+    secondary: ["réparation pneu crevé","pneu hors service"],
+    longTail: "crevaison clou réparable ou pas",
     candidateQueries: [
       "crevaison réparer ou changer pneu",
       "réparation pneu crevé",
@@ -382,10 +382,10 @@ module.exports = {
   },
   "debosselage-sans-peinture-dsp": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide pratique — causes, que faire, retour atelier",
     primary: "débosselage sans peinture DSP",
-    secondary: ["enlever bosse carrosserie", "DSP carrosserie"],
-    longTail: ["débosselage sans peinture prix Ivry", "bosse portière sans repeindre"],
+    secondary: ["enlever bosse carrosserie","DSP carrosserie"],
+    longTail: "débosselage sans peinture prix Ivry",
     candidateQueries: [
       "débosselage sans peinture DSP",
       "enlever bosse carrosserie",
@@ -399,10 +399,10 @@ module.exports = {
   },
   "decalaminage-moteur-utile-ou-arnaque": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide pratique — causes, que faire, retour atelier",
     primary: "décalaminage moteur utile ou arnaque",
-    secondary: ["nettoyage moteur hydrogène", "décalaminage diesel"],
-    longTail: ["décalaminage moteur ça marche vraiment", "hydrogénation moteur avis"],
+    secondary: ["nettoyage moteur hydrogène","décalaminage diesel"],
+    longTail: "décalaminage moteur ça marche vraiment",
     candidateQueries: [
       "décalaminage moteur utile ou arnaque",
       "nettoyage moteur hydrogène",
@@ -416,10 +416,10 @@ module.exports = {
   },
   "demarreur-hs-symptomes": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide symptômes — signes, causes, que faire",
     primary: "démarreur HS symptômes",
-    secondary: ["panne démarreur voiture", "voiture clique sans démarrer"],
-    longTail: ["démarreur mort bruit clic", "changer démarreur prix 94"],
+    secondary: ["panne démarreur voiture","voiture clique sans démarrer"],
+    longTail: "démarreur mort bruit clic",
     candidateQueries: [
       "démarreur HS symptômes",
       "panne démarreur voiture",
@@ -433,10 +433,10 @@ module.exports = {
   },
   "direction-assistee-dure-grincements": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide pratique — causes, que faire, retour atelier",
     primary: "direction assistée dure grincements",
-    secondary: ["crissement direction", "direction dure à froid"],
-    longTail: ["direction assistée dure en virage", "liquide direction assistée"],
+    secondary: ["crissement direction","direction dure à froid"],
+    longTail: "direction assistée dure en virage",
     candidateQueries: [
       "direction assistée dure grincements",
       "crissement direction",
@@ -450,10 +450,10 @@ module.exports = {
   },
   "disques-frein-voiles-usure-signes": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide symptômes — signes, causes, que faire",
     primary: "disques frein voilés usure",
-    secondary: ["disque frein usé symptômes", "vibration freinage disque"],
-    longTail: ["disques de frein voilés que faire", "rectifier ou changer disques frein"],
+    secondary: ["disque frein usé symptômes","vibration freinage disque"],
+    longTail: "disques de frein voilés que faire",
     candidateQueries: [
       "disques frein voilés usure",
       "disque frein usé symptômes",
@@ -467,10 +467,10 @@ module.exports = {
   },
   "embrayage-qui-patine-causes": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide pratique — causes, que faire, retour atelier",
     primary: "embrayage qui patine",
-    secondary: ["embrayage usé symptômes", "patine embrayage causes"],
-    longTail: ["embrayage patine côte causes", "changer embrayage prix 94"],
+    secondary: ["embrayage usé symptômes","patine embrayage causes"],
+    longTail: "embrayage patine côte causes",
     candidateQueries: [
       "embrayage qui patine",
       "embrayage usé symptômes",
@@ -484,10 +484,10 @@ module.exports = {
   },
   "entretien-voiture-eviter-pannes-ivry": {
     intent: "transactional",
-    contentFormat: "Prestation locale — prise de RDV, zone Ivry/94, devis gratuit",
+    contentFormat: "Guide pratique — causes, que faire, retour atelier",
     primary: "entretien voiture éviter pannes",
-    secondary: ["entretien préventif auto", "révision entretien courant"],
-    longTail: ["entretien voiture Ivry-sur-Seine", "éviter panne voiture usage ville"],
+    secondary: ["entretien préventif auto","révision entretien courant"],
+    longTail: "entretien voiture Ivry-sur-Seine",
     candidateQueries: [
       "entretien voiture éviter pannes",
       "entretien préventif auto",
@@ -501,10 +501,10 @@ module.exports = {
   },
   "fap-dpf-encrasse-trajets-ville": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide pratique — causes, que faire, retour atelier",
     primary: "FAP DPF encrassé trajets ville",
-    secondary: ["filtre particules bouché", "régénération FAP"],
-    longTail: ["FAP encrassé conduite urbaine que faire", "nettoyage FAP diesel 94"],
+    secondary: ["filtre particules bouché","régénération FAP"],
+    longTail: "FAP encrassé conduite urbaine que faire",
     candidateQueries: [
       "FAP DPF encrassé trajets ville",
       "filtre particules bouché",
@@ -518,10 +518,10 @@ module.exports = {
   },
   "filtre-gasoil-quand-changer": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide entretien — fréquence et critères",
     primary: "filtre gasoil quand changer",
-    secondary: ["filtre à carburant diesel", "intervalle filtre gasoil"],
-    longTail: ["changer filtre gasoil tous les combien km", "filtre gasoil bouché symptômes"],
+    secondary: ["filtre à carburant diesel","intervalle filtre gasoil"],
+    longTail: "changer filtre gasoil tous les combien km",
     candidateQueries: [
       "filtre gasoil quand changer",
       "filtre à carburant diesel",
@@ -535,10 +535,10 @@ module.exports = {
   },
   "filtre-habitacle-pollen-quand-changer": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide entretien — fréquence et critères",
     primary: "filtre habitacle pollen quand changer",
-    secondary: ["filtre pollen voiture", "filtre climatisation habitacle"],
-    longTail: ["filtre habitacle à changer fréquence", "odeur clim filtre pollen"],
+    secondary: ["filtre pollen voiture","filtre climatisation habitacle"],
+    longTail: "filtre habitacle à changer fréquence",
     candidateQueries: [
       "filtre habitacle pollen quand changer",
       "filtre pollen voiture",
@@ -552,10 +552,10 @@ module.exports = {
   },
   "freinage-mou-pedale-spongieuse": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide pratique — causes, que faire, retour atelier",
     primary: "freinage mou pédale spongieuse",
-    secondary: ["pédale frein molle", "liquide frein air circuit"],
-    longTail: ["pédale de frein spongieuse causes", "frein mou dangereux que faire"],
+    secondary: ["pédale frein molle","liquide frein air circuit"],
+    longTail: "pédale de frein spongieuse causes",
     candidateQueries: [
       "freinage mou pédale spongieuse",
       "pédale frein molle",
@@ -569,10 +569,10 @@ module.exports = {
   },
   "fuite-huile-moteur-causes-que-faire": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide symptômes — signes, causes, que faire",
     primary: "fuite huile moteur causes",
-    secondary: ["voiture perd de l'huile", "tache huile sous moteur"],
-    longTail: ["fuite huile moteur que faire urgence", "réparer fuite huile garage"],
+    secondary: ["voiture perd de l'huile","tache huile sous moteur"],
+    longTail: "fuite huile moteur que faire urgence",
     candidateQueries: [
       "fuite huile moteur causes",
       "voiture perd de l'huile",
@@ -586,10 +586,10 @@ module.exports = {
   },
   "fuite-liquide-frein-reconnaitre": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide symptômes — signes, causes, que faire",
     primary: "fuite liquide de frein",
-    secondary: ["niveau liquide frein bas", "reconnaître fuite frein"],
-    longTail: ["fuite liquide frein symptômes", "liquide frein rouge sous voiture"],
+    secondary: ["niveau liquide frein bas","reconnaître fuite frein"],
+    longTail: "fuite liquide frein symptômes",
     candidateQueries: [
       "fuite liquide de frein",
       "niveau liquide frein bas",
@@ -603,10 +603,10 @@ module.exports = {
   },
   "fumee-blanche-echappement-que-faire": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide symptômes — signes, causes, que faire",
     primary: "fumée blanche échappement",
-    secondary: ["fumée blanche au démarrage", "vapeur échappement"],
-    longTail: ["fumée blanche échappement que faire", "fumée blanche joint culasse"],
+    secondary: ["fumée blanche au démarrage","vapeur échappement"],
+    longTail: "fumée blanche échappement que faire",
     candidateQueries: [
       "fumée blanche échappement",
       "fumée blanche au démarrage",
@@ -620,10 +620,10 @@ module.exports = {
   },
   "fumee-bleue-echappement-causes": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide symptômes — signes, causes, que faire",
     primary: "fumée bleue échappement causes",
-    secondary: ["voiture fume bleu", "consommation huile fumée bleue"],
-    longTail: ["fumée bleue moteur essence causes", "segments moteur fumée bleue"],
+    secondary: ["voiture fume bleu","consommation huile fumée bleue"],
+    longTail: "fumée bleue moteur essence causes",
     candidateQueries: [
       "fumée bleue échappement causes",
       "voiture fume bleu",
@@ -637,10 +637,10 @@ module.exports = {
   },
   "garage-independant-vs-concessionnaire": {
     intent: "commercial",
-    contentFormat: "Comparatif & fourchettes — critères de prix, inclus/exclus, devis",
+    contentFormat: "Comparatif — avantages et limites",
     primary: "garage indépendant vs concessionnaire",
-    secondary: ["entretien garage indépendant", "révision chez concession"],
-    longTail: ["garage indépendant ou concessionnaire avantages", "prix entretien indépendant 94"],
+    secondary: ["entretien garage indépendant","révision chez concession"],
+    longTail: "garage indépendant ou concessionnaire avantages",
     candidateQueries: [
       "garage indépendant vs concessionnaire",
       "entretien garage indépendant",
@@ -654,10 +654,10 @@ module.exports = {
   },
   "geometrie-roues-signes-mauvais-alignement": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide symptômes — signes, causes, que faire",
     primary: "géométrie roues mauvais alignement",
-    secondary: ["parallelisme voiture", "voiture tire sur un côté"],
-    longTail: ["signes mauvais parallelisme pneus", "géométrie roues prix 94"],
+    secondary: ["parallelisme voiture","voiture tire sur un côté"],
+    longTail: "signes mauvais parallelisme pneus",
     candidateQueries: [
       "géométrie roues mauvais alignement",
       "parallelisme voiture",
@@ -671,10 +671,10 @@ module.exports = {
   },
   "injecteurs-encrasses-symptomes": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide symptômes — signes, causes, que faire",
     primary: "injecteurs encrassés symptômes",
-    secondary: ["injecteur diesel bouché", "perte puissance injecteurs"],
-    longTail: ["nettoyage injecteurs utile", "injecteurs encrassés broute"],
+    secondary: ["injecteur diesel bouché","perte puissance injecteurs"],
+    longTail: "nettoyage injecteurs utile",
     candidateQueries: [
       "injecteurs encrassés symptômes",
       "injecteur diesel bouché",
@@ -688,10 +688,10 @@ module.exports = {
   },
   "joint-culasse-signes-symptomes": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide symptômes — signes, causes, que faire",
     primary: "joint de culasse symptômes",
-    secondary: ["joint culasse HS signes", "surchauffe joint culasse"],
-    longTail: ["comment savoir joint culasse HS", "joint culasse fumée mayonnaise"],
+    secondary: ["joint culasse HS signes","surchauffe joint culasse"],
+    longTail: "comment savoir joint culasse HS",
     candidateQueries: [
       "joint de culasse symptômes",
       "joint culasse HS signes",
@@ -705,10 +705,10 @@ module.exports = {
   },
   "liquide-frein-quand-changer": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide entretien — fréquence et critères",
     primary: "liquide de frein quand changer",
-    secondary: ["intervalle liquide frein", "DOT4 frein"],
-    longTail: ["changer liquide frein tous les combien", "liquide frein foncé"],
+    secondary: ["intervalle liquide frein","DOT4 frein"],
+    longTail: "changer liquide frein tous les combien",
     candidateQueries: [
       "liquide de frein quand changer",
       "intervalle liquide frein",
@@ -722,10 +722,10 @@ module.exports = {
   },
   "liquide-refroidissement-quand-verifier": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide entretien — fréquence et critères",
     primary: "liquide refroidissement quand vérifier",
-    secondary: ["niveau liquide refroidissement", "antigel moteur"],
-    longTail: ["vérifier liquide refroidissement fréquence", "liquide refroidissement bas"],
+    secondary: ["niveau liquide refroidissement","antigel moteur"],
+    longTail: "vérifier liquide refroidissement fréquence",
     candidateQueries: [
       "liquide refroidissement quand vérifier",
       "niveau liquide refroidissement",
@@ -739,10 +739,10 @@ module.exports = {
   },
   "pare-brise-fissure-controle-technique": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide pratique — causes, que faire, retour atelier",
     primary: "pare-brise fissure contrôle technique",
-    secondary: ["impact pare-brise CT", "fissure vitre avant CT"],
-    longTail: ["pare-brise fissuré refus CT", "remplacement pare-brise 94"],
+    secondary: ["impact pare-brise CT","fissure vitre avant CT"],
+    longTail: "pare-brise fissuré refus CT",
     candidateQueries: [
       "pare-brise fissure contrôle technique",
       "impact pare-brise CT",
@@ -756,10 +756,10 @@ module.exports = {
   },
   "peinture-localisee-retouche-carrosserie": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide pratique — causes, que faire, retour atelier",
     primary: "peinture localisée retouche carrosserie",
-    secondary: ["retouche peinture auto", "rayure peinture réparer"],
-    longTail: ["retouche peinture aile portière prix", "peinture localisée garage Ivry"],
+    secondary: ["retouche peinture auto","rayure peinture réparer"],
+    longTail: "retouche peinture aile portière prix",
     candidateQueries: [
       "peinture localisée retouche carrosserie",
       "retouche peinture auto",
@@ -773,10 +773,10 @@ module.exports = {
   },
   "perte-puissance-soudaine-causes": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide pratique — causes, que faire, retour atelier",
     primary: "perte de puissance soudaine",
-    secondary: ["voiture manque de puissance", "moteur étouffe"],
-    longTail: ["perte puissance accélération causes", "voiture ne tire plus diesel"],
+    secondary: ["voiture manque de puissance","moteur étouffe"],
+    longTail: "perte puissance accélération causes",
     candidateQueries: [
       "perte de puissance soudaine",
       "voiture manque de puissance",
@@ -790,10 +790,10 @@ module.exports = {
   },
   "plaquettes-frein-usure-signaux-a-ne-pas-ignorer": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide pratique — causes, que faire, retour atelier",
     primary: "plaquettes frein usées signaux",
-    secondary: ["usure plaquettes frein", "changer plaquettes frein"],
-    longTail: ["signes plaquettes frein usées", "plaquettes frein bruit sifflement"],
+    secondary: ["usure plaquettes frein","changer plaquettes frein"],
+    longTail: "signes plaquettes frein usées",
     candidateQueries: [
       "plaquettes frein usées signaux",
       "usure plaquettes frein",
@@ -807,10 +807,10 @@ module.exports = {
   },
   "pneus-ete-quand-passer-hiver-ile-de-france": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide entretien — fréquence et critères",
     primary: "pneus été quand passer hiver",
-    secondary: ["pneus hiver Île-de-France", "date pneus neige"],
-    longTail: ["quand monter pneus hiver 94", "pneus été hiver date limite"],
+    secondary: ["pneus hiver Île-de-France","date pneus neige"],
+    longTail: "quand monter pneus hiver 94",
     candidateQueries: [
       "pneus été quand passer hiver",
       "pneus hiver Île-de-France",
@@ -824,10 +824,10 @@ module.exports = {
   },
   "preparer-voiture-hiver-conseils": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide pratique — causes, que faire, retour atelier",
     primary: "préparer voiture pour l'hiver",
-    secondary: ["entretien voiture hiver", "batterie froid hiver"],
-    longTail: ["checklist voiture hiver Ivry", "conseils conduite hiver 94"],
+    secondary: ["entretien voiture hiver","batterie froid hiver"],
+    longTail: "checklist voiture hiver Ivry",
     candidateQueries: [
       "préparer voiture pour l'hiver",
       "entretien voiture hiver",
@@ -841,10 +841,10 @@ module.exports = {
   },
   "prix-changement-batterie-94": {
     intent: "commercial",
-    contentFormat: "Comparatif & fourchettes — critères de prix, inclus/exclus, devis",
+    contentFormat: "Comparatif prix — fourchette et facteurs",
     primary: "prix changement batterie 94",
-    secondary: ["tarif batterie voiture", "batterie auto prix posée"],
-    longTail: ["prix batterie voiture Val-de-Marne", "changer batterie Ivry prix"],
+    secondary: ["tarif batterie voiture","batterie auto prix posée"],
+    longTail: "prix batterie voiture Val-de-Marne",
     candidateQueries: [
       "prix changement batterie 94",
       "tarif batterie voiture",
@@ -858,10 +858,10 @@ module.exports = {
   },
   "prix-changement-embrayage-94": {
     intent: "commercial",
-    contentFormat: "Comparatif & fourchettes — critères de prix, inclus/exclus, devis",
+    contentFormat: "Comparatif prix — fourchette et facteurs",
     primary: "prix changement embrayage 94",
-    secondary: ["tarif kit embrayage", "embrayage voiture prix"],
-    longTail: ["prix embrayage complet 94", "changer embrayage Ivry devis"],
+    secondary: ["tarif kit embrayage","embrayage voiture prix"],
+    longTail: "prix embrayage complet 94",
     candidateQueries: [
       "prix changement embrayage 94",
       "tarif kit embrayage",
@@ -875,10 +875,10 @@ module.exports = {
   },
   "prix-changement-plaquettes-frein-94": {
     intent: "commercial",
-    contentFormat: "Comparatif & fourchettes — critères de prix, inclus/exclus, devis",
+    contentFormat: "Comparatif prix — fourchette et facteurs",
     primary: "prix changement plaquettes frein 94",
-    secondary: ["tarif plaquettes frein", "frein avant prix"],
-    longTail: ["prix plaquettes frein posées 94", "changer plaquettes Ivry"],
+    secondary: ["tarif plaquettes frein","frein avant prix"],
+    longTail: "prix plaquettes frein posées 94",
     candidateQueries: [
       "prix changement plaquettes frein 94",
       "tarif plaquettes frein",
@@ -892,10 +892,10 @@ module.exports = {
   },
   "prix-changement-pneus-94": {
     intent: "commercial",
-    contentFormat: "Comparatif & fourchettes — critères de prix, inclus/exclus, devis",
+    contentFormat: "Comparatif prix — fourchette et facteurs",
     primary: "prix changement pneus 94",
-    secondary: ["tarif montage pneus", "pneus voiture prix"],
-    longTail: ["prix 4 pneus montés 94", "changer pneus Ivry-sur-Seine"],
+    secondary: ["tarif montage pneus","pneus voiture prix"],
+    longTail: "prix 4 pneus montés 94",
     candidateQueries: [
       "prix changement pneus 94",
       "tarif montage pneus",
@@ -909,10 +909,10 @@ module.exports = {
   },
   "prix-diagnostic-auto-94": {
     intent: "commercial",
-    contentFormat: "Comparatif & fourchettes — critères de prix, inclus/exclus, devis",
+    contentFormat: "Comparatif prix — fourchette et facteurs",
     primary: "prix diagnostic auto 94",
-    secondary: ["tarif valise diagnostic", "diagnostic OBD prix"],
-    longTail: ["prix diagnostic électronique Val-de-Marne", "diagnostic voiture Ivry prix"],
+    secondary: ["tarif valise diagnostic","diagnostic OBD prix"],
+    longTail: "prix diagnostic électronique Val-de-Marne",
     candidateQueries: [
       "prix diagnostic auto 94",
       "tarif valise diagnostic",
@@ -926,10 +926,10 @@ module.exports = {
   },
   "prix-geometrie-parallelisme-94": {
     intent: "commercial",
-    contentFormat: "Comparatif & fourchettes — critères de prix, inclus/exclus, devis",
+    contentFormat: "Comparatif prix — fourchette et facteurs",
     primary: "prix géométrie parallelisme 94",
-    secondary: ["tarif parallelisme", "alignement roues prix"],
-    longTail: ["prix géométrie 2 roues 94", "parallelisme Ivry tarif"],
+    secondary: ["tarif parallelisme","alignement roues prix"],
+    longTail: "prix géométrie 2 roues 94",
     candidateQueries: [
       "prix géométrie parallelisme 94",
       "tarif parallelisme",
@@ -943,10 +943,10 @@ module.exports = {
   },
   "prix-kit-distribution-94": {
     intent: "commercial",
-    contentFormat: "Comparatif & fourchettes — critères de prix, inclus/exclus, devis",
+    contentFormat: "Comparatif prix — fourchette et facteurs",
     primary: "prix kit distribution 94",
-    secondary: ["tarif courroie distribution", "distribution posée prix"],
-    longTail: ["prix changement distribution Val-de-Marne", "kit distribution Ivry"],
+    secondary: ["tarif courroie distribution","distribution posée prix"],
+    longTail: "prix changement distribution Val-de-Marne",
     candidateQueries: [
       "prix kit distribution 94",
       "tarif courroie distribution",
@@ -960,10 +960,10 @@ module.exports = {
   },
   "prix-pre-controle-technique-ivry": {
     intent: "transactional",
-    contentFormat: "Prestation locale — prise de RDV, zone Ivry/94, devis gratuit",
+    contentFormat: "Comparatif prix — fourchette et facteurs",
     primary: "prix pré-contrôle technique Ivry",
-    secondary: ["contre-visite CT prix", "préparation contrôle technique"],
-    longTail: ["pré-contrôle technique Ivry-sur-Seine prix", "éviter contre-visite CT 94"],
+    secondary: ["contre-visite CT prix","préparation contrôle technique"],
+    longTail: "pré-contrôle technique Ivry-sur-Seine prix",
     candidateQueries: [
       "prix pré-contrôle technique Ivry",
       "contre-visite CT prix",
@@ -977,10 +977,10 @@ module.exports = {
   },
   "prix-recharge-climatisation-94": {
     intent: "commercial",
-    contentFormat: "Comparatif & fourchettes — critères de prix, inclus/exclus, devis",
+    contentFormat: "Comparatif prix — fourchette et facteurs",
     primary: "prix recharge climatisation 94",
-    secondary: ["tarif recharge clim", "gaz clim prix"],
-    longTail: ["prix recharge clim Val-de-Marne", "recharge clim Ivry tarif"],
+    secondary: ["tarif recharge clim","gaz clim prix"],
+    longTail: "prix recharge clim Val-de-Marne",
     candidateQueries: [
       "prix recharge climatisation 94",
       "tarif recharge clim",
@@ -994,10 +994,10 @@ module.exports = {
   },
   "quand-changer-pneus-usure-securite": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide entretien — fréquence et critères",
     primary: "quand changer pneus usure",
-    secondary: ["témoin usure pneu", "profondeur sculpture pneu"],
-    longTail: ["pneus usés limite légale sécurité", "changer pneus avant hiver"],
+    secondary: ["témoin usure pneu","profondeur sculpture pneu"],
+    longTail: "pneus usés limite légale sécurité",
     candidateQueries: [
       "quand changer pneus usure",
       "témoin usure pneu",
@@ -1011,10 +1011,10 @@ module.exports = {
   },
   "que-faire-apres-accident-carrosserie": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide pratique — causes, que faire, retour atelier",
     primary: "que faire après accident carrosserie",
-    secondary: ["déclaration sinistre auto", "réparation carrosserie accident"],
-    longTail: ["démarches après accrochage carrosserie", "carrosserie accident Ivry 94"],
+    secondary: ["déclaration sinistre auto","réparation carrosserie accident"],
+    longTail: "démarches après accrochage carrosserie",
     candidateQueries: [
       "que faire après accident carrosserie",
       "déclaration sinistre auto",
@@ -1028,10 +1028,10 @@ module.exports = {
   },
   "rayure-carrosserie-quand-reparer": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide entretien — fréquence et critères",
     primary: "rayure carrosserie quand réparer",
-    secondary: ["retouche rayure peinture", "rayure profonde carrosserie"],
-    longTail: ["rayure portière réparer ou pas", "rayure carrosserie prix Ivry"],
+    secondary: ["retouche rayure peinture","rayure profonde carrosserie"],
+    longTail: "rayure portière réparer ou pas",
     candidateQueries: [
       "rayure carrosserie quand réparer",
       "retouche rayure peinture",
@@ -1045,10 +1045,10 @@ module.exports = {
   },
   "revision-60000-km-checklist": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Checklist pratique",
     primary: "révision 60000 km checklist",
-    secondary: ["entretien 60 000 km", "grand entretien voiture"],
-    longTail: ["que faire révision 60000 km", "révision 60 000 km prix"],
+    secondary: ["entretien 60 000 km","grand entretien voiture"],
+    longTail: "que faire révision 60000 km",
     candidateQueries: [
       "révision 60000 km checklist",
       "entretien 60 000 km",
@@ -1062,10 +1062,10 @@ module.exports = {
   },
   "revision-constructeur-que-comprend-vraiment-service": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide pratique — causes, que faire, retour atelier",
     primary: "révision constructeur que comprend",
-    secondary: ["entretien carnet constructeur", "opérations révision officielle"],
-    longTail: ["contenu révision constructeur détail", "révision réseau vs indépendant"],
+    secondary: ["entretien carnet constructeur","opérations révision officielle"],
+    longTail: "contenu révision constructeur détail",
     candidateQueries: [
       "révision constructeur que comprend",
       "entretien carnet constructeur",
@@ -1079,10 +1079,10 @@ module.exports = {
   },
   "revision-garage-independant-garantie-constructeur": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide pratique — causes, que faire, retour atelier",
     primary: "révision garage indépendant garantie",
-    secondary: ["entretien hors réseau garantie", "Loi Hamon entretien auto"],
-    longTail: ["garage indépendant préserve garantie constructeur", "révision indépendant carnet"],
+    secondary: ["entretien hors réseau garantie","Loi Hamon entretien auto"],
+    longTail: "garage indépendant préserve garantie constructeur",
     candidateQueries: [
       "révision garage indépendant garantie",
       "entretien hors réseau garantie",
@@ -1096,10 +1096,10 @@ module.exports = {
   },
   "revision-kilometrage-usage-urbain-94": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide pratique — causes, que faire, retour atelier",
     primary: "révision kilométrage usage urbain",
-    secondary: ["entretien voiture ville", "intervalle révision trajets courts"],
-    longTail: ["révision voiture usage urbain 94", "entretien conduite ville Ivry"],
+    secondary: ["entretien voiture ville","intervalle révision trajets courts"],
+    longTail: "révision voiture usage urbain 94",
     candidateQueries: [
       "révision kilométrage usage urbain",
       "entretien voiture ville",
@@ -1113,10 +1113,10 @@ module.exports = {
   },
   "rotule-biellette-direction-quand-changer": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide entretien — fréquence et critères",
     primary: "rotule direction quand changer",
-    secondary: ["biellette direction usée", "jeu direction rotule"],
-    longTail: ["rotule de direction symptômes usure", "changer rotule direction prix"],
+    secondary: ["biellette direction usée","jeu direction rotule"],
+    longTail: "rotule de direction symptômes usure",
     candidateQueries: [
       "rotule direction quand changer",
       "biellette direction usée",
@@ -1130,10 +1130,10 @@ module.exports = {
   },
   "roulement-roue-sifflement-symptomes": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide symptômes — signes, causes, que faire",
     primary: "roulement roue sifflement",
-    secondary: ["roulement avant HS", "bruit roue à vitesse"],
-    longTail: ["sifflement roulement roue causes", "changer roulement roue prix"],
+    secondary: ["roulement avant HS","bruit roue à vitesse"],
+    longTail: "sifflement roulement roue causes",
     candidateQueries: [
       "roulement roue sifflement",
       "roulement avant HS",
@@ -1147,10 +1147,10 @@ module.exports = {
   },
   "silentblocs-triangles-suspension-usure": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide pratique — causes, que faire, retour atelier",
     primary: "silentblocs triangles suspension usure",
-    secondary: ["triangle suspension jeu", "silentbloc HS symptômes"],
-    longTail: ["silentblocs usés bruit claquement", "changer triangles suspension"],
+    secondary: ["triangle suspension jeu","silentbloc HS symptômes"],
+    longTail: "silentblocs usés bruit claquement",
     candidateQueries: [
       "silentblocs triangles suspension usure",
       "triangle suspension jeu",
@@ -1164,10 +1164,10 @@ module.exports = {
   },
   "suppression-fap-controle-technique-2026": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide pratique — causes, que faire, retour atelier",
     primary: "suppression FAP contrôle technique 2026",
-    secondary: ["FAP retiré CT", "contre-visite FAP"],
-    longTail: ["suppression FAP légalité CT 2026", "FAP supprimé refus CT"],
+    secondary: ["FAP retiré CT","contre-visite FAP"],
+    longTail: "suppression FAP légalité CT 2026",
     candidateQueries: [
       "suppression FAP contrôle technique 2026",
       "FAP retiré CT",
@@ -1181,10 +1181,10 @@ module.exports = {
   },
   "surchauffe-moteur-que-faire": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide pratique — causes, que faire, retour atelier",
     primary: "surchauffe moteur que faire",
-    secondary: ["voyant température allumé", "moteur surchauffe urgence"],
-    longTail: ["surchauffe moteur conduite que faire", "moteur qui chauffe arrêt"],
+    secondary: ["voyant température allumé","moteur surchauffe urgence"],
+    longTail: "surchauffe moteur conduite que faire",
     candidateQueries: [
       "surchauffe moteur que faire",
       "voyant température allumé",
@@ -1198,10 +1198,10 @@ module.exports = {
   },
   "turbo-compresseur-symptomes-panne": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide symptômes — signes, causes, que faire",
     primary: "turbo compresseur symptômes panne",
-    secondary: ["turbo HS diesel", "perte puissance turbo"],
-    longTail: ["turbo qui siffle fume noir", "changer turbo prix 94"],
+    secondary: ["turbo HS diesel","perte puissance turbo"],
+    longTail: "turbo qui siffle fume noir",
     candidateQueries: [
       "turbo compresseur symptômes panne",
       "turbo HS diesel",
@@ -1215,10 +1215,10 @@ module.exports = {
   },
   "vanne-egr-encrassee-symptomes": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide symptômes — signes, causes, que faire",
     primary: "vanne EGR encrassée symptômes",
-    secondary: ["EGR bouchée diesel", "nettoyage vanne EGR"],
-    longTail: ["vanne EGR encrassée perte puissance", "EGR à changer ou nettoyer"],
+    secondary: ["EGR bouchée diesel","nettoyage vanne EGR"],
+    longTail: "vanne EGR encrassée perte puissance",
     candidateQueries: [
       "vanne EGR encrassée symptômes",
       "EGR bouchée diesel",
@@ -1232,10 +1232,10 @@ module.exports = {
   },
   "vidange-boite-automatique-quand-faire": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide entretien — fréquence et critères",
     primary: "vidange boîte automatique quand faire",
-    secondary: ["huile boîte auto intervalle", "entretien boîte automatique"],
-    longTail: ["vidange boîte auto tous les combien km", "boîte automatique huile noire"],
+    secondary: ["huile boîte auto intervalle","entretien boîte automatique"],
+    longTail: "vidange boîte auto tous les combien km",
     candidateQueries: [
       "vidange boîte automatique quand faire",
       "huile boîte auto intervalle",
@@ -1249,10 +1249,10 @@ module.exports = {
   },
   "voiture-broute-acceleration-causes-94": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide pratique — causes, que faire, retour atelier",
     primary: "voiture broute à l'accélération",
-    secondary: ["ratés accélération diesel", "manque de puissance accélération"],
-    longTail: ["voiture broute en accélérant causes 94", "broute moteur diesel EGR"],
+    secondary: ["ratés accélération diesel","manque de puissance accélération"],
+    longTail: "voiture broute en accélérant causes 94",
     candidateQueries: [
       "voiture broute à l'accélération",
       "ratés accélération diesel",
@@ -1266,10 +1266,10 @@ module.exports = {
   },
   "voiture-ne-demarre-pas-causes": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide pratique — causes, que faire, retour atelier",
     primary: "voiture ne démarre pas causes",
-    secondary: ["panne démarrage auto", "moteur ne tourne pas"],
-    longTail: ["voiture ne démarre plus le matin", "diagnostic voiture ne démarre pas"],
+    secondary: ["panne démarrage auto","moteur ne tourne pas"],
+    longTail: "voiture ne démarre plus le matin",
     candidateQueries: [
       "voiture ne démarre pas causes",
       "panne démarrage auto",
@@ -1283,10 +1283,10 @@ module.exports = {
   },
   "voiture-occasion-checklist-achat": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Checklist pratique",
     primary: "checklist achat voiture occasion",
-    secondary: ["contrôler voiture occasion", "points vérifier occasion"],
-    longTail: ["liste vérification voiture d'occasion", "acheter occasion sans arnaque"],
+    secondary: ["contrôler voiture occasion","points vérifier occasion"],
+    longTail: "liste vérification voiture d'occasion",
     candidateQueries: [
       "checklist achat voiture occasion",
       "contrôler voiture occasion",
@@ -1300,10 +1300,10 @@ module.exports = {
   },
   "volant-qui-vibre-causes": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide pratique — causes, que faire, retour atelier",
     primary: "volant qui vibre causes",
-    secondary: ["vibration volant freinage", "volant tremble vitesse"],
-    longTail: ["volant vibre à 100 km/h causes", "équilibrage roues vibration"],
+    secondary: ["vibration volant freinage","volant tremble vitesse"],
+    longTail: "volant vibre à 100 km/h causes",
     candidateQueries: [
       "volant qui vibre causes",
       "vibration volant freinage",
@@ -1317,10 +1317,10 @@ module.exports = {
   },
   "voyant-abs-allume-causes-conduite": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide symptômes — signes, causes, que faire",
     primary: "voyant ABS allumé causes",
-    secondary: ["panne ABS voiture", "conduire avec ABS allumé"],
-    longTail: ["voyant ABS fixe que faire", "capteur ABS défaillant"],
+    secondary: ["panne ABS voiture","conduire avec ABS allumé"],
+    longTail: "voyant ABS fixe que faire",
     candidateQueries: [
       "voyant ABS allumé causes",
       "panne ABS voiture",
@@ -1334,10 +1334,10 @@ module.exports = {
   },
   "voyant-moteur-allume-que-faire": {
     intent: "informational",
-    contentFormat: "Guide pratique — symptômes, causes, que faire, retour atelier",
+    contentFormat: "Guide symptômes — signes, causes, que faire",
     primary: "voyant moteur allumé que faire",
-    secondary: ["diagnostic OBD voyant moteur", "voyant moteur orange rouge"],
-    longTail: ["diagnostic voyant moteur Ivry 94", "peut-on rouler voyant moteur"],
+    secondary: ["diagnostic OBD voyant moteur","voyant moteur orange rouge"],
+    longTail: "diagnostic voyant moteur Ivry 94",
     candidateQueries: [
       "voyant moteur allumé que faire",
       "diagnostic OBD voyant moteur",

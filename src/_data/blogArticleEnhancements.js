@@ -53,7 +53,7 @@ module.exports = {
         "Pour une citadine ou berline courante, comptez environ 80 à 180 € (huile adaptée + filtre + main-d'œuvre). Le devis exact dépend du moteur, du volume d'huile et de la norme constructeur.",
       facts: [
         { label: "Fourchette indicative", value: "80–180 €" },
-        { label: "Atelier", value: "Ivry-sur-Seine (94) · lun–sam 9h–19h" },
+        { label: "Atelier", value: "RED-K MOTORS · Ivry (94)" },
       ],
     },
     relatedLinks: [
@@ -347,10 +347,10 @@ module.exports = {
     directAnswer: {
       question: "Que vérifier avant le contrôle technique à Ivry ?",
       answer:
-        "En priorité : tous les feux, freins (tirage / grincement), pneus ≥ 1,6 mm, niveaux sans fuite, échappement et voyant moteur. Ces cinq points évitent beaucoup de contre-visites.",
+        "Vérifiez en priorité les feux, le freinage (pédale, grincements, tirage), les pneus (≥ 1,6 mm, flancs intacts), les niveaux sans fuite visible et l'échappement (pas de voyant moteur ni fumée anormale). Ces cinq points couvrent la majorité des contre-visites.",
       facts: [
         { label: "Délai idéal", value: "Pré-CT 1–2 semaines avant" },
-        { label: "Atelier", value: "9 rue Michelet · Ivry" },
+        { label: "Atelier", value: "RED-K MOTORS · Ivry (94)" },
       ],
     },
     relatedLinks: [
@@ -531,7 +531,7 @@ module.exports = {
       answer:
         "Rayure profonde jusqu'au métal ou bosse : réparez vite pour éviter la rouille. Rayure légère sur vernis : souvent esthétique, mais un polissage ou retouche localisée protège la peinture.",
       facts: [
-        { label: "Atelier", value: "Carrosserie & peinture · Ivry" },
+        { label: "Atelier", value: "RED-K MOTORS · Ivry (94)" },
         { label: "Devis", value: "Gratuit · lun–sam 9h–19h" },
       ],
     },
@@ -780,7 +780,7 @@ module.exports = {
         "En général tous les 2 ans ou 40 000 à 60 000 km (le premier critère atteint). Le liquide absorbe l'humidité même véhicule à l'arrêt — un niveau correct ne garantit pas un fluide sain.",
       facts: [
         { label: "Norme", value: "DOT 3, DOT 4 ou DOT 5.1 selon constructeur" },
-        { label: "Atelier", value: "Purge frein · RED-K MOTORS Ivry" },
+        { label: "Atelier", value: "RED-K MOTORS · Ivry (94)" },
       ],
     },
     relatedLinks: [
@@ -1197,7 +1197,7 @@ module.exports = {
         "Sécurisez les lieux, constatez avec l'autre partie, photographiez les dégâts, déclarez à l'assurance sous 5 jours ouvrés, puis faites établir un devis carrosserie avant réparation.",
       facts: [
         { label: "Délai assurance", value: "5 jours ouvrés (déclaration sinistre)" },
-        { label: "Atelier", value: "Carrosserie RED-K MOTORS · Ivry" },
+        { label: "Atelier", value: "RED-K MOTORS · Ivry (94)" },
       ],
     },
     relatedLinks: [
@@ -1287,7 +1287,7 @@ module.exports = {
         "En général entre 30 000 et 60 000 km selon le moteur (essence, GPL). Des ratés au ralenti, une surconsommation ou un voyant moteur sont des signes d'usure : faites contrôler avant que le catalyseur ne souffre.",
       facts: [
         { label: "Intervalle courant", value: "30 000–60 000 km" },
-        { label: "Atelier", value: "RED-K MOTORS · Ivry-sur-Seine (94)" },
+        { label: "Atelier", value: "RED-K MOTORS · Ivry (94)" },
       ],
     },
     relatedLinks: [
@@ -1721,7 +1721,7 @@ module.exports = {
         "Non : un FAP retiré ou débridé entraîne en principe un refus au CT 2026 (opacimètre, OBD, contrôle visuel). Seules des solutions conformes — nettoyage, remplacement ou remise en état — permettent de repasser.",
       facts: [
         { label: "CT 2026", value: "OBD systématique + opacité renforcée diesel" },
-        { label: "Atelier diesel", value: "RED-K MOTORS · Ivry-sur-Seine (94)" },
+        { label: "Atelier", value: "RED-K MOTORS · Ivry (94)" },
       ],
     },
     relatedLinks: [
@@ -2114,7 +2114,7 @@ module.exports = {
         "Surchauffe répétée, « mayonnaise » dans le vase d'expansion, perte de liquide sans fuite visible, fumée blanche dense à chaud ou gaz dans le circuit de refroidissement : faites diagnostiquer sans attendre.",
       facts: [
         { label: "Urgence", value: "Stopper si surchauffe / mayonnaise" },
-        { label: "Atelier", value: "Diagnostic moteur · Ivry (94)" },
+        { label: "Atelier", value: "RED-K MOTORS · Ivry (94)" },
       ],
     },
     relatedLinks: [
@@ -2200,7 +2200,7 @@ module.exports = {
         "Un clac-clac en braquant à fond ou en accélérant en courbe pointe souvent vers un joint de cardan (soufflet déchiré, graisse partie, jeu). Plus on attend, plus le risque de rupture en virage augmente.",
       facts: [
         { label: "Signe classique", value: "Clac en braquage serré" },
-        { label: "Atelier", value: "Train avant · Ivry-sur-Seine (94)" },
+        { label: "Atelier", value: "RED-K MOTORS · Ivry (94)" },
       ],
     },
     relatedLinks: [
@@ -2333,7 +2333,7 @@ module.exports = {
         "Voyant batterie allumé, phares qui baissent au ralenti, accessoires qui coupent, démarrages de plus en plus difficiles après un boost : l'alternateur (ou sa courroie) ne recharge plus. Un test de tension moteur tournant confirme.",
       facts: [
         { label: "Signe fréquent", value: "Voyant batterie + tension trop basse" },
-        { label: "Atelier", value: "Circuit de charge · Ivry (94)" },
+        { label: "Atelier", value: "RED-K MOTORS · Ivry (94)" },
       ],
     },
     relatedLinks: [
@@ -2380,7 +2380,7 @@ module.exports = {
         "Un impact dans le champ de vision du conducteur ou une fissure qui s'étend peut entraîner un défaut majeur / critique et un refus. Réparez l'impact ou remplacez le vitrage avant le CT pour éviter la contre-visite.",
       facts: [
         { label: "Zone sensible", value: "Champ de vision conducteur" },
-        { label: "Atelier", value: "Pare-brise · RED-K MOTORS Ivry" },
+        { label: "Atelier", value: "RED-K MOTORS · Ivry (94)" },
       ],
     },
     relatedLinks: [
@@ -2651,10 +2651,10 @@ module.exports = {
     directAnswer: {
       question: "Que faire si le voyant AdBlue s'allume ?",
       answer:
-        "Complétez avec de l'AdBlue conforme dès que possible et respectez l'autonomie affichée. Niveau trop bas, qualité médiocre ou panne de pompe / capteur peut immobiliser le diesel Euro 6. Ne videz pas le réservoir jusqu'à la panne.",
+        "Complétez avec de l'AdBlue conforme ISO 22241 dès les premiers messages et respectez l'autonomie affichée. À niveau critique, de nombreux diesels Euro 6 refusent le redémarrage. Si le voyant persiste après appoint, un diagnostic SCR est nécessaire (pompe, capteur, qualité du produit).",
       facts: [
-        { label: "Risque", value: "Immobilisation si niveau critique" },
-        { label: "Atelier diesel", value: "RED-K MOTORS · Ivry (94)" },
+        { label: "Risque", value: "Refus de démarrage si niveau à zéro" },
+        { label: "Atelier", value: "RED-K MOTORS · Ivry (94)" },
       ],
     },
     relatedLinks: [
@@ -2881,7 +2881,7 @@ module.exports = {
         "Rayure profonde, éclat jusqu'au métal ou zone visible : une peinture localisée en cabine (teinte, vernis, lustrage) protège mieux qu'un stylo. Le stylo reste un dépannage esthétique provisoire.",
       facts: [
         { label: "Objectif", value: "Esthétique + protection anticorrosion" },
-        { label: "Atelier", value: "Peinture · Ivry-sur-Seine (94)" },
+        { label: "Atelier", value: "RED-K MOTORS · Ivry (94)" },
       ],
     },
     relatedLinks: [
@@ -3176,7 +3176,7 @@ module.exports = {
         "En général, une vidange tous les 10 000 à 15 000 km ou une fois par an (selon ce qui arrive en premier). En ville et trajets courts, restez plutôt sur 10 000 km maximum même si le constructeur autorise plus.",
       facts: [
         { label: "Usage ville", value: "10 000 km ou 12 mois conseillés" },
-        { label: "Atelier", value: "RED-K MOTORS · Ivry-sur-Seine (94)" },
+        { label: "Atelier", value: "RED-K MOTORS · Ivry (94)" },
       ],
     },
     relatedLinks: [
@@ -3260,7 +3260,7 @@ module.exports = {
         "Vérifiez qu'aucun équipement n'a été laissé allumé, serrez les câbles de batterie, puis tentez un démarrage assisté si vous savez le faire. Si la panne revient le lendemain, faites tester batterie et alternateur en atelier.",
       facts: [
         { label: "Durée de vie", value: "4–5 ans en moyenne" },
-        { label: "Atelier", value: "RED-K MOTORS · test batterie + alternateur" },
+        { label: "Atelier", value: "RED-K MOTORS · Ivry (94)" },
       ],
     },
     relatedLinks: [
@@ -3518,7 +3518,7 @@ module.exports = {
         "Dès qu'un contrôle au pont montre un jeu supérieur aux tolérances, ou en cas de claquements en braquant et d'usure asymétrique des pneus. Une géométrie est recommandée après remplacement.",
       facts: [
         { label: "Fourchette rotule", value: "80–200 € / côté (indicatif)" },
-        { label: "Atelier", value: "RED-K MOTORS · Ivry" },
+        { label: "Atelier", value: "RED-K MOTORS · Ivry (94)" },
       ],
     },
     relatedLinks: [
@@ -3676,7 +3676,7 @@ module.exports = {
         "Carnet d'entretien, CT récent, distribution/courroie, freins et pneus, niveaux sans fuite, essai route 20–30 min et idéalement un contrôle pré-achat avec valise OBD.",
       facts: [
         { label: "Point critique", value: "Distribution si historique inconnu" },
-        { label: "Atelier", value: "Contrôle pré-achat · Ivry (94)" },
+        { label: "Atelier", value: "RED-K MOTORS · Ivry (94)" },
       ],
     },
     relatedLinks: [
