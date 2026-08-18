@@ -19,7 +19,10 @@
     "redirects:export-me": "node scripts/export-cloudflare-me-redirects.js",
     "redirects:kv-shards": "node scripts/generate-kv-redirect-shards.js",
     "audit:blog": "node scripts/audit-blog-seo.js && node scripts/audit-blog-geo.js",
-    "audit:code": "node scripts/audit-code.js"
+    "audit:exemples": "node scripts/audit-exemples.js",
+    "audit:code": "node scripts/audit-code.js",
+    "verify:prod": "node scripts/verify-prod-headers.js",
+    "cf:deploy-headers": "npx wrangler deploy --config workers/response-headers/wrangler.toml"
   },
   "keywords": [
     "eleventy",

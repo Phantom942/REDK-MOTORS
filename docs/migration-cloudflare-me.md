@@ -106,8 +106,28 @@ curl -I https://redk-motors.me/contact
 
 ## Checklist post-migration
 
-- [ ] Proxy orange actif sur `redkmotors.fr` et `www`
-- [ ] `curl -I ai.txt` → `text/plain`
-- [ ] 301 `redk-motors.me` → `.fr` (règle + bulk)
+- [x] Proxy orange actif sur `redkmotors.fr` et `www`
+- [x] 301 `redk-motors.me` → `.fr` (règle + bulk)
+- [ ] **Worker headers** — `npm run cf:deploy-headers` (cache 1 an + sécu, GitHub Pages ne lit pas `_headers`)
+- [ ] `curl -I ai.txt` → `Cache-Control: max-age=86400`
+- [ ] `curl -I /assets/fonts/*.woff2` → `immutable`
 - [ ] SSL Full (strict), HTTPS forcé
-- [ ] Fonts self-hosted servies depuis `/assets/fonts/` (plus de requête Google Fonts)
+- [x] Fonts self-hosted servies depuis `/assets/fonts/`
+
+---
+
+## Worker Cloudflare — en-têtes `_headers` sur GitHub Pages
+
+GitHub Pages ignore `_headers`. Avec Cloudflare proxy actif, déployer le Worker :
+
+```bash
+npm run cf:deploy-headers
+```
+
+Fichiers : `workers/response-headers/` — injecte cache long `/assets/*`, sécu globale, `text/plain` pour ai.txt/llms.txt.
+
+Vérification :
+
+```bash
+npm run verify:prod
+```

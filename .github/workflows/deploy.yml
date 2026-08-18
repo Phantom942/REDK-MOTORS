@@ -38,6 +38,9 @@ jobs:
       - name: Audit code (npm + blog + assets)
         run: npm run audit:code
 
+      - name: Audit exemples (noindex longue traîne)
+        run: npm run audit:exemples
+
       - name: Build
         env:
           GOOGLE_PLACES_API_KEY: ${{ secrets.GOOGLE_PLACES_API_KEY }}
@@ -135,6 +138,25 @@ jobs:
           check_seo_asset "https://redkmotors.fr/ai.txt" "Llms-Txt:" "ai.txt"
           check_seo_asset "https://redkmotors.fr/" "fonts-local.css" "fonts self-hosted (fonts-local.css)"
           check_seo_asset "https://redkmotors.fr/" "logo-redk-motors.webp" "logo WebP (picture)"
+
+          sec_headers=$(curl -sSL --max-redirs 3 -I "https://redkmotors.fr/")
+          if echo "$sec_headers" | grep -qi "x-content-type-options: nosniff"; then
+            echo "✅ headers sécu → X-Content-Type-Options nosniff"
+          else
+            echo "⚠ headers sécu → manquant (déployer Worker : npm run cf:deploy-headers)"
+          fi
+
+          response=$(curl -sSL --max-redirs 3 -w "\n%{http_code}" -I "https://redkmotors.fr/assets/fonts/manrope-latin-400-normal.woff2")
+          code=$(echo "$response" | tail -n 1)
+          headers=$(echo "$response" | head -n -1)
+          if [ "$code" != "200" ]; then
+            echo "❌ font woff2 → HTTP $code"
+            FAILED=1
+          elif echo "$headers" | grep -qi "immutable"; then
+            echo "✅ font woff2 → cache immutable"
+          else
+            echo "⚠ font woff2 → cache court (Worker headers non déployé)"
+          fi
 
           if [ "$FAILED" -eq 1 ]; then
             echo "::error::Smoke test failed"

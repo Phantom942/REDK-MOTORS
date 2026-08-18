@@ -1,0 +1,12 @@
+name = "redk-motors-headers"
+main = "src/index.js"
+compatibility_date = "2024-08-01"
+workers_dev = false
+
+[[routes]]
+pattern = "redkmotors.fr/*"
+zone_name = "redkmotors.fr"
+
+[[routes]]
+pattern = "www.redkmotors.fr/*"
+zone_name = "redkmotors.fr"

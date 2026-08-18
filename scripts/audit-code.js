@@ -68,6 +68,14 @@ for (const script of ["audit-blog-seo.js", "audit-blog-geo.js"]) {
   }
 }
 
+// Audit exemples (noindex longue traîne)
+try {
+  execSync("node scripts/audit-exemples.js", { cwd: root, stdio: "inherit" });
+  ok("Exemples — politique noindex");
+} catch {
+  fail("Exemples — audit en échec");
+}
+
 console.log("");
 if (failed) {
   console.error(`Audit code : ${failed} échec(s)`);

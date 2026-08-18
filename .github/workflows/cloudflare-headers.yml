@@ -1,0 +1,39 @@
+# Déploie le Worker Cloudflare qui injecte _headers sur GitHub Pages.
+# Secret requis : CLOUDFLARE_API_TOKEN (Zone:Read + Workers Scripts:Edit + Routes:Edit)
+name: Cloudflare response headers
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "workers/response-headers/**"
+      - "_headers"
+
+jobs:
+  deploy-headers:
+    runs-on: ubuntu-latest
+    if: github.repository == 'Phantom942/REDK-MOTORS'
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Deploy Worker (response headers)
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
+            echo "CLOUDFLARE_API_TOKEN absent — skip (npm run cf:deploy-headers en local)"
+            exit 0
+          fi
+          npm run cf:deploy-headers
+
+      - name: Verify prod headers
+        run: npm run verify:prod
+        continue-on-error: true
