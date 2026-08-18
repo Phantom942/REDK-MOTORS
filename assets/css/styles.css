@@ -5074,6 +5074,28 @@ img[loading="lazy"].loaded {
   text-align: left;
 }
 
+.blog-article .direct-answer--blog-head {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-left: 3px solid var(--color-primary, #c41e1e);
+  background: rgba(196, 30, 30, 0.04);
+  border-radius: 6px;
+}
+
+.blog-article .direct-answer--blog-head .direct-answer__inner {
+  padding: 0.85rem 1rem 1rem;
+}
+
+.blog-article .direct-answer--blog-head h2 {
+  font-size: clamp(1.15rem, 2.5vw, 1.35rem);
+  margin-bottom: 0.65rem;
+}
+
+.blog-article .direct-answer--blog-head .direct-answer__lead {
+  margin-bottom: 0.85rem;
+}
+
 .blog-article .article-content {
   padding: 0 0 3rem;
 }

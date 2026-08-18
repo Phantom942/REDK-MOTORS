@@ -2039,6 +2039,34 @@ body.design-stitch a[class*="btn--"] {
   border-bottom: 1px solid var(--stitch-outline);
 }
 
+.design-stitch .blog-article .direct-answer--blog-head {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--stitch-outline);
+  border-left: 3px solid var(--stitch-primary);
+  background: rgba(130, 17, 17, 0.12);
+  border-radius: 0.35rem;
+}
+
+.design-stitch .blog-article .direct-answer--blog-head .section-kicker {
+  margin-bottom: 0.35rem;
+}
+
+.design-stitch .blog-article .direct-answer--blog-head h2 {
+  color: #fafafa;
+  font-size: clamp(1.15rem, 2.5vw, 1.35rem);
+  margin-bottom: 0.65rem;
+}
+
+.design-stitch .blog-article .direct-answer--blog-head .direct-answer__lead {
+  color: var(--stitch-on-surface);
+  margin-bottom: 0.85rem;
+}
+
+.design-stitch .blog-article .direct-answer--blog-head .direct-answer__inner {
+  padding: 0.85rem 1rem 1rem;
+}
+
 .design-stitch .blog-article .article-header h1 {
   color: #fafafa;
   font-family: var(--font-stitch-head);

@@ -34,6 +34,23 @@ module.exports = {
     lastReviewed: (data) => data.lastReviewed || data.date,
     seoKeywords: (data) => pickKeywords(data),
     directAnswer: (data) => data.directAnswer || pickEnhancement(data).directAnswer,
+    directAnswerSchema: (data) => {
+      if (data.directAnswerSchema) return data.directAnswerSchema;
+      const da = data.directAnswer || pickEnhancement(data).directAnswer;
+      if (!da) return undefined;
+      const factText = Array.isArray(da.facts)
+        ? da.facts.map((f) => `${f.label} : ${f.value}`).join(". ")
+        : "";
+      return {
+        "@context": "https://schema.org",
+        "@type": "Question",
+        name: da.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: factText ? `${da.answer} ${factText}`.trim() : da.answer,
+        },
+      };
+    },
     relatedLinks: (data) => data.relatedLinks || pickEnhancement(data).relatedLinks,
     faqSchema: (data) => {
       if (data.faqSchema) return data.faqSchema;

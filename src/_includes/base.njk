@@ -106,11 +106,12 @@
           "inLanguage": "fr-FR",
           "speakable": {
             "@type": "SpeakableSpecification",
-            "cssSelector": ["h1", "h2", ".hero__lede", ".hero__desc", ".direct-answer__lead", ".promesse__title", "meta[name='description']"]
+            "cssSelector": ["h1", "#blog-direct-answer", ".direct-answer__lead", "h2", ".hero__lede", ".hero__desc", ".promesse__title", "meta[name='description']"]
           }
         },
         {{ (localBusinessSchema or localBusiness.schema) | jsonLdNode | safe }}
         {% if breadcrumb %},{{ breadcrumb | jsonLdNode | safe }}{% endif %}
+        {% if directAnswerSchema %},{{ directAnswerSchema | jsonLdNode | safe }}{% endif %}
         {% if faqSchema %},{{ faqSchema | jsonLdNode | safe }}{% endif %}
         {% if articleSchema %},{{ articleSchema | jsonLdNode | safe }}{% endif %}
         {% if offerSchema %},{{ offerSchema | jsonLdNode | safe }}{% endif %}

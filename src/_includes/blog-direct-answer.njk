@@ -1,10 +1,24 @@
 {% if directAnswer %}
-<section class="direct-answer service-focus service-focus--compact" aria-labelledby="blog-direct-answer" data-animate="slide-up">
+{% set isHead = directAnswerPlacement == "head" %}
+<section
+  id="reponse-directe"
+  class="direct-answer service-focus service-focus--compact{% if isHead %} direct-answer--blog-head{% endif %}"
+  aria-labelledby="blog-direct-answer"
+  data-animate="slide-up"
+  itemscope
+  itemtype="https://schema.org/Question"
+>
+  {% if isHead %}
+  <div class="direct-answer__inner service-focus__inner">
+  {% else %}
   <div class="container service-focus__inner direct-answer__inner">
+  {% endif %}
     <div>
       <p class="section-kicker">Réponse directe</p>
-      <h2 id="blog-direct-answer">{{ directAnswer.question }}</h2>
-      <p class="direct-answer__lead">{{ directAnswer.answer }}</p>
+      <h2 id="blog-direct-answer" itemprop="name">{{ directAnswer.question }}</h2>
+      <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+        <p class="direct-answer__lead" itemprop="text">{{ directAnswer.answer }}</p>
+      </div>
       {% if directAnswer.facts %}
       <dl class="direct-answer__facts">
         {% for fact in directAnswer.facts %}
