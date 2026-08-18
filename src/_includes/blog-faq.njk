@@ -1,0 +1,16 @@
+{% set blogFaqItems = [] | pageFaqs(faqs, faqSchema, 12) %}
+{% if blogFaqItems.length > 0 %}
+<section class="faq-section blog-article-faq" aria-labelledby="blog-article-faq-title">
+  <h2 id="blog-article-faq-title">Questions fréquentes</h2>
+  <div class="faq__list" data-accordion>
+    {% for faq in blogFaqItems %}
+    <article class="faq__item">
+      <button class="faq__question" type="button" aria-expanded="false">{{ faq.question }}</button>
+      <div class="faq__answer" hidden>
+        <p>{{ faq.answer }}</p>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}

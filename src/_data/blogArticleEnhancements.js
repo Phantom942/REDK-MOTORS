@@ -81,6 +81,14 @@ module.exports = {
             text: "En règle générale entre 10 000 et 30 000 km ou au moins une fois par an, selon le carnet d'entretien et votre usage (ville, autoroute).",
           },
         },
+        {
+          "@type": "Question",
+          name: "Que comprend une vidange complète en 2026 ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Vidange huile moteur, remplacement filtre à huile, huile conforme constructeur, contrôle des niveaux et signalement des anomalies — devis écrit chez RED-K MOTORS à Ivry.",
+          },
+        },
       ],
     },
   },
@@ -209,23 +217,53 @@ module.exports = {
             text: "Le froid réduit la capacité chimique de la batterie et le démarrage demande plus d'énergie. Une batterie déjà faible cède en premier.",
           },
         },
+        {
+          "@type": "Question",
+          name: "Combien coûte le changement de batterie à Ivry ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Comptez environ 120 à 280 € TTC (batterie + pose) sur une citadine, plus pour AGM/EFB Start-Stop. Devis gratuit avant remplacement.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Batterie ou alternateur : comment trancher ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Voyant batterie en roulant = plutôt alternateur. Démarrage qui peine à l'arrêt = plutôt batterie. Test de charge en atelier tranche en quelques minutes.",
+          },
+        },
       ],
     },
   },
   "garage-independant-vs-concessionnaire": {
     directAnswer: {
       question: "Garage indépendant ou concessionnaire : que choisir ?",
-      answer:
-        "Le concessionnaire convient pour la garantie constructeur stricte. Un garage indépendant multimarque offre souvent de meilleurs tarifs, plus de flexibilité et un interlocuteur unique pour l'entretien courant.",
+      answer: "Concession : expertise marque, rappels officiels. Indépendant : tarifs −20 à 40 %, multimarque, délais courts — garantie constructeur conservée si entretien conforme au carnet.",
       facts: [
-        { label: "RED-K MOTORS", value: "Garage indépendant · toutes marques" },
-        { label: "Devis", value: "Gratuit avant travaux" },
+        {
+          label: "RED-K MOTORS",
+          value: "Indépendant multimarque · Ivry",
+        },
+        {
+          label: "Devis",
+          value: "Gratuit avant travaux",
+        },
       ],
     },
     relatedLinks: [
-      { url: "/garage-ivry-sur-seine/", label: "Notre garage à Ivry" },
-      { url: "/processus/", label: "Comment ça se passe" },
-      { url: "/tarifs/", label: "Tarifs" },
+      {
+        url: "/garage-ivry-sur-seine/",
+        label: "Garage à Ivry",
+      },
+      {
+        url: "/blog/revision-garage-independant-garantie-constructeur/",
+        label: "Garantie & indépendant",
+      },
+      {
+        url: "/tarifs/",
+        label: "Tarifs",
+      },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -236,7 +274,23 @@ module.exports = {
           name: "Un garage indépendant peut-il respecter le carnet d'entretien ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Oui, à condition d'utiliser des pièces et fluides conformes aux préconisations constructeur et de tamponner le carnet d'entretien.",
+            text: "Oui : pièces et fluides conformes, facture détaillée et tampon carnet. La garantie constructeur reste valide.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Les pièces équivalentes sont-elles fiables ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Oui si marques reconnues (Bosch, Valeo, Mann…) : mêmes équipementiers que l'origine, emballage différent.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Quand passer par la concession ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Rappels constructeur, mises à jour logicielles très spécifiques, ou véhicule encore sous extension garantie marque exigeante.",
           },
         },
       ],
@@ -278,6 +332,14 @@ module.exports = {
             text: "Non en principe : opacité, OBD et contrôle visuel font refuser un FAP supprimé ou modifié. Remise en conformité obligatoire.",
           },
         },
+        {
+          "@type": "Question",
+          name: "Le bruit d'échappement est-il contrôlé en 2026 ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Oui : mesure au ralenti et à l'accélération. Ligne modifiée ou silencieux percé entraînent souvent un refus.",
+          },
+        },
       ],
     },
   },
@@ -308,23 +370,53 @@ module.exports = {
             text: "Le tarif est fixé par le centre agréé. Corriger les défauts majeurs avant le premier passage reste en général moins cher qu'une contre-visite + immobilisation.",
           },
         },
+        {
+          "@type": "Question",
+          name: "Peut-on préparer le CT soi-même ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Oui pour les feux, niveaux et pneus visibles. Le réglage phares, freinage au banc et lecture OBD demandent l'atelier — pré-contrôle recommandé 1 à 2 semaines avant.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Voyant moteur allumé : CT refusé ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Souvent oui si un défaut antipollution est actif. Faites un diagnostic valise à Ivry avant le passage au centre agréé.",
+          },
+        },
       ],
     },
   },
   "entretien-voiture-eviter-pannes-ivry": {
     directAnswer: {
       question: "Comment éviter les pannes avec un entretien régulier ?",
-      answer:
-        "Respectez vidanges, filtres, courroie de distribution, batterie et freinage selon le carnet. Un entretien préventif coûte toujours moins qu'une casse moteur ou boîte.",
+      answer: "Respectez vidanges, filtres, courroie de distribution, batterie et freinage selon le carnet. Un entretien préventif coûte toujours moins qu'une casse moteur ou boîte.",
       facts: [
-        { label: "Horaires", value: "Lun–sam 9h–19h" },
-        { label: "Adresse", value: "9 rue Michelet, Ivry-sur-Seine" },
+        {
+          label: "Horaires",
+          value: "Lun–sam 9h–19h",
+        },
+        {
+          label: "Adresse",
+          value: "9 rue Michelet, Ivry-sur-Seine",
+        },
       ],
     },
     relatedLinks: [
-      { url: "/entretien/", label: "Entretien & révision" },
-      { url: "/prestations/", label: "Toutes nos prestations" },
-      { url: "/contact/", label: "Planifier un entretien" },
+      {
+        url: "/entretien/",
+        label: "Entretien & révision",
+      },
+      {
+        url: "/blog/revision-kilometrage-usage-urbain-94/",
+        label: "Révision usage urbain",
+      },
+      {
+        url: "/contact/",
+        label: "Planifier un entretien",
+      },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -335,7 +427,23 @@ module.exports = {
           name: "Quel entretien faire chaque année ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Au minimum : vidange ou contrôle huile, filtres selon intervalle, niveaux, freins, pneus, batterie et éclairage.",
+            text: "Minimum : vidange ou contrôle huile, filtres selon intervalle, niveaux, freins, pneus, batterie et éclairage.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "L'usage urbain raccourcit-il les intervalles ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Oui : trajets courts, embrayages répétés, FAP diesel et Start & Stop sollicitent plus que l'autoroute.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Carnet perdu : par où commencer ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Un bilan complet en atelier (vidange, filtres, distribution, freins) repart sur de bonnes bases avec facture détaillée.",
           },
         },
       ],
@@ -398,6 +506,22 @@ module.exports = {
             text: "Non : une fuite ou un compresseur fatigué peut imposer une réparation. Le test d'étanchéité évite de regonfler un circuit défaillant.",
           },
         },
+        {
+          "@type": "Question",
+          name: "Combien coûte une recharge clim à Ivry en 2026 ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Comptez environ 80 à 200 € pour une recharge seule sur circuit étanche, plus si recherche de fuite ou fluide R1234yf. Devis avant intervention.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "À quelle fréquence recharger la climatisation ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Pas de règle fixe : contrôle si baisse de performance ou tous les 2 à 4 ans sur véhicule vieillissant. Le circuit étanche ne demande pas de recharge régulière.",
+          },
+        },
       ],
     },
   },
@@ -408,12 +532,12 @@ module.exports = {
         "Rayure profonde jusqu'au métal ou bosse : réparez vite pour éviter la rouille. Rayure légère sur vernis : souvent esthétique, mais un polissage ou retouche localisée protège la peinture.",
       facts: [
         { label: "Atelier", value: "Carrosserie & peinture · Ivry" },
-        { label: "Devis", value: "Gratuit" },
+        { label: "Devis", value: "Gratuit · lun–sam 9h–19h" },
       ],
     },
     relatedLinks: [
       { url: "/carrosserie/", label: "Carrosserie" },
-      { url: "/prestations/peinture-localisee/", label: "Peinture localisée" },
+      { url: "/blog/debosselage-sans-peinture-dsp/", label: "Débosselage sans peinture" },
       { url: "/contact/", label: "Devis carrosserie" },
     ],
     faqSchema: {
@@ -425,7 +549,23 @@ module.exports = {
           name: "Une rayure peut-elle rouiller ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Oui, dès que la couche de protection est entamée et que le métal est exposé à l'humidité, surtout en hiver ou près de la mer.",
+            text: "Oui, dès que le métal est exposé à l'humidité et au sel, surtout en hiver. Traitez une rayure jusqu'au métal sous deux semaines.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Faut-il passer par l'assurance pour une rayure ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Comparez le devis à votre franchise. Si la réparation coûte moins que la franchise, payer de sa poche évite souvent un sinistre.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Peut-on réparer une bosse sans repeindre ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Oui, si la peinture n'est pas fissurée : le débosselage sans peinture (DSP) repousse la tôle sans retouche.",
           },
         },
       ],
@@ -438,13 +578,13 @@ module.exports = {
         "Vidange, filtres prévus au plan, contrôles sécurité et électroniques selon le kilométrage. Le détail exact est dans le carnet d'entretien — deux révisions de même nom n'incluent pas forcément les mêmes opérations.",
       facts: [
         { label: "Alternative", value: "Révision multimarque en garage indépendant" },
-        { label: "Devis", value: "Écrit avant intervention" },
+        { label: "Devis", value: "Écrit avant intervention · Ivry (94)" },
       ],
     },
     relatedLinks: [
       { url: "/entretien/", label: "Entretien & révision" },
+      { url: "/blog/revision-60000-km-checklist/", label: "Checklist 60 000 km" },
       { url: "/tarifs/", label: "Tarifs" },
-      { url: "/processus/", label: "Déroulement en atelier" },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -455,7 +595,23 @@ module.exports = {
           name: "Une révision en garage indépendant conserve-t-elle la garantie ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "En dehors de la période de garantie constructeur, oui. Pendant la garantie, vérifiez les conditions du constructeur ; un entretien conforme au carnet est en général accepté.",
+            text: "Oui, si l'entretien respecte le plan constructeur (pièces conformes, carnet tamponné, facture détaillée).",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Quelle différence entre vidange et révision ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "La vidange remplace huile et filtre à huile. La révision ajoute filtres, contrôles et opérations prévues au kilométrage du carnet.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Combien coûte une révision constructeur ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Souvent 150 à 350 € hors distribution sur une compacte. Le devis dépend des filtres et opérations prévues à l'échéance.",
           },
         },
       ],
@@ -464,17 +620,35 @@ module.exports = {
   "courroie-distribution-quand-changer-94": {
     directAnswer: {
       question: "Quand changer la courroie de distribution ?",
-      answer:
-        "Suivez l'intervalle constructeur (souvent 100 000 à 160 000 km ou 5 à 10 ans). Ne repoussez pas : une courroie qui casse peut détruire le moteur sur de nombreux modèles.",
+      answer: "Suivez l'intervalle constructeur (souvent 60 000 à 180 000 km ou 5 à 10 ans). Ne repoussez pas : une courroie qui casse peut détruire le moteur sur de nombreux modèles.",
       facts: [
-        { label: "Risque", value: "Cas moteur possible si rupture" },
-        { label: "Prestation", value: "Distribution · RED-K MOTORS 94" },
+        {
+          label: "Risque rupture",
+          value: "Cas moteur possible",
+        },
+        {
+          label: "Fourchette kit",
+          value: "550 – 1 500 € selon moteur",
+        },
+        {
+          label: "Atelier",
+          value: "RED-K MOTORS · Ivry (94)",
+        },
       ],
     },
     relatedLinks: [
-      { url: "/mecanique/", label: "Mécanique" },
-      { url: "/exemples/prix-courroie-distribution/", label: "Guide prix distribution" },
-      { url: "/tarifs/", label: "Grille tarifaire" },
+      {
+        url: "/mecanique/",
+        label: "Mécanique & distribution",
+      },
+      {
+        url: "/blog/prix-kit-distribution-94/",
+        label: "Prix kit distribution",
+      },
+      {
+        url: "/contact/",
+        label: "Devis distribution",
+      },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -485,7 +659,23 @@ module.exports = {
           name: "Chaîne ou courroie : même entretien ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Non : une chaîne est lubrifiée en continu et dure souvent plus longtemps, mais elle se contrôle au bruit et à l'allongement. Une courroie se remplace par intervalle.",
+            text: "Non : une chaîne se contrôle au bruit et à l'allongement. Une courroie se remplace par intervalle km et années.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Faut-il changer la pompe à eau en même temps ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Sur de nombreux moteurs, oui : même courroie, évite une dépose double. Le devis précise le périmètre du kit.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Peut-on rouler avec une distribution en retard ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "C'est un pari : la rupture est soudaine et sans voyant. Mieux vaut anticiper, surtout à l'achat d'une occasion sans factures.",
           },
         },
       ],
@@ -495,16 +685,16 @@ module.exports = {
     directAnswer: {
       question: "Que signifie une fumée blanche à l'échappement ?",
       answer:
-        "Légère fumée blanche au démarrage par froid : souvent normale (condensation). Fumée blanche persistante, odeur de sucre ou surchauffe : faites diagnostiquer (joint de culasse, injecteurs, etc.).",
+        "Légère fumée blanche au démarrage par froid : souvent normale (condensation). Fumée blanche persistante, odeur sucrée ou surchauffe : faites diagnostiquer (joint de culasse, injecteurs, etc.).",
       facts: [
-        { label: "Urgence", value: "Arrêt si surchauffe ou grosse fumée continue" },
+        { label: "Urgence", value: "Arrêt si surchauffe ou fumée dense à chaud" },
         { label: "Diagnostic", value: "50–100 € · Ivry-sur-Seine" },
       ],
     },
     relatedLinks: [
       { url: "/diagnostic/", label: "Diagnostic auto" },
-      { url: "/mecanique/", label: "Mécanique" },
-      { url: "/contact/", label: "Prendre rendez-vous" },
+      { url: "/blog/fumee-bleue-echappement-causes/", label: "Fumée bleue échappement" },
+      { url: "/blog/joint-culasse-signes-symptomes/", label: "Joint de culasse" },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -515,7 +705,23 @@ module.exports = {
           name: "Fumée blanche le matin : est-ce grave ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "En général non si elle disparaît après quelques minutes de roulage par temps froid. Si elle reste dense à chaud, consultez un garage.",
+            text: "En général non si elle disparaît après quelques minutes par temps froid. Si elle reste dense à moteur chaud, consultez un garage.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Fumée blanche et joint de culasse : comment savoir ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Signes associés : liquide de refroidissement qui baisse, huile laiteuse sur la jauge, surchauffe. Un test compression ou CO₂ dans le LDR confirme.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Peut-on rouler avec une fumée blanche persistante ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Limitez les trajets et faites diagnostiquer rapidement. Avec surchauffe ou voyant température : arrêt et remorquage.",
           },
         },
       ],
@@ -528,7 +734,7 @@ module.exports = {
         "Causes fréquentes : bougies ou bobines, injecteurs encrassés, filtre à air/colmaté, turbo ou embrayage usé. Un diagnostic permet d'éviter de remplacer les mauvaises pièces.",
       facts: [
         { label: "Première étape", value: "Lecture codes défaut + essai route" },
-        { label: "Garage", value: "RED-K MOTORS · multimarque" },
+        { label: "Garage", value: "RED-K MOTORS · Ivry-sur-Seine (94)" },
       ],
     },
     relatedLinks: [
@@ -542,10 +748,26 @@ module.exports = {
       mainEntity: [
         {
           "@type": "Question",
+          name: "Peut-on rouler avec une voiture qui broute ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Sur de courtes distances oui, mais un broutage persistant peut endommager le catalyseur ou l'embrayage. Faites diagnostiquer rapidement.",
+          },
+        },
+        {
+          "@type": "Question",
           name: "Le broutage peut-il venir du carburant ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Un carburant de mauvaise qualité ou un mauvais mélange peut provoquer des ratés, mais on vérifie d'abord allumage, admission et injection.",
+            text: "Un carburant de mauvaise qualité peut provoquer des ratés, mais on vérifie d'abord allumage, admission et injection.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Combien coûte un diagnostic broutage ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Comptez 50 à 100 € pour un diagnostic valise + essai route à Ivry — devis réparation séparé.",
           },
         },
       ],
@@ -592,17 +814,31 @@ module.exports = {
   "geometrie-roues-signes-mauvais-alignement": {
     directAnswer: {
       question: "Comment savoir si la géométrie est mauvaise ?",
-      answer:
-        "Voiture qui tire sur un côté, volant de travers à plat, pneus usés de façon irrégulière ou vibrations : faites contrôler parallélisme et géométrie, surtout après un trottoir ou un choc.",
+      answer: "Voiture qui tire sur un côté, volant de travers à plat, pneus usés de façon irrégulière ou vibrations : faites contrôler parallélisme et géométrie, surtout après un choc.",
       facts: [
-        { label: "Usure légale pneu", value: "1,6 mm minimum (témoin d'usure)" },
-        { label: "Prestation", value: "Géométrie · Ivry-sur-Seine (94)" },
+        {
+          label: "Usure légale pneu",
+          value: "1,6 mm minimum",
+        },
+        {
+          label: "Prestation",
+          value: "Géométrie · Ivry (94)",
+        },
       ],
     },
     relatedLinks: [
-      { url: "/pneumatiques/", label: "Pneus & géométrie" },
-      { url: "/blog/quand-changer-pneus-usure-securite/", label: "Usure des pneus" },
-      { url: "/contact/", label: "Contrôle géométrie" },
+      {
+        url: "/pneumatiques/",
+        label: "Pneus & géométrie",
+      },
+      {
+        url: "/blog/prix-geometrie-parallelisme-94/",
+        label: "Prix géométrie 94",
+      },
+      {
+        url: "/contact/",
+        label: "Contrôle géométrie",
+      },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -613,7 +849,23 @@ module.exports = {
           name: "À quelle fréquence faire la géométrie ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Lors d'un changement de pneus, après un choc à une roue, ou dès les premiers signes d'usure asymétrique — pas de calendrier fixe, mais un contrôle annuel est prudent en usage urbain.",
+            text: "À chaque changement de pneus, après choc à une roue, ou dès usure asymétrique — contrôle annuel prudent en usage urbain.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Parallélisme ou géométrie complète ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Parallélisme = réglage rapide des angles. Géométrie complète mesure carrossage, chasse et parallélisme sur banc.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Changer les pneus sans géométrie : risque ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Si usure régulière et trajectoire droite, parfois non. Usure asymétrique ou volant de travers : géométrie obligatoire avant.",
           },
         },
       ],
@@ -655,23 +907,45 @@ module.exports = {
             text: "Souvent oui sur le train avant, surtout si les pneus montraient déjà une usure irrégulière. Le devis le précise après contrôle.",
           },
         },
+        {
+          "@type": "Question",
+          name: "Amortisseurs usés : danger au freinage ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Oui : distance de freinage allongée et tenue de route dégradée, surtout sous la pluie. Un contrôle suspension est recommandé dès les premiers rebonds.",
+          },
+        },
       ],
     },
   },
   "filtre-habitacle-pollen-quand-changer": {
     directAnswer: {
       question: "Quand changer le filtre d'habitacle ?",
-      answer:
-        "En général tous les 15 000 à 30 000 km ou une fois par an, selon le carnet. Un filtre encrassé réduit le débit de clim/chauffage et laisse passer pollens et poussières.",
+      answer: "En général tous les 15 000 à 30 000 km ou une fois par an. Un filtre encrassé réduit le débit clim/chauffage et laisse passer pollens et odeurs.",
       facts: [
-        { label: "Signes", value: "Odeur moisi · air faible · buée lente" },
-        { label: "Prestation", value: "Entretien clim · Ivry (94)" },
+        {
+          label: "Signes",
+          value: "Odeur moisi · air faible · buée lente",
+        },
+        {
+          label: "Atelier",
+          value: "Entretien clim · Ivry (94)",
+        },
       ],
     },
     relatedLinks: [
-      { url: "/entretien/", label: "Entretien" },
-      { url: "/blog/climatisation-voiture-recharge-ivry/", label: "Recharge clim" },
-      { url: "/contact/", label: "Rendez-vous" },
+      {
+        url: "/entretien/",
+        label: "Entretien",
+      },
+      {
+        url: "/blog/clim-odeur-moisi-que-faire/",
+        label: "Clim odeur moisi",
+      },
+      {
+        url: "/blog/climatisation-voiture-recharge-ivry/",
+        label: "Recharge clim Ivry",
+      },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -682,7 +956,23 @@ module.exports = {
           name: "Filtre pollen et filtre habitacle : même chose ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Oui, il s'agit du filtre qui nettoie l'air entrant dans l'habitacle. Les versions « charbon actif » filtrent aussi mieux les odeurs.",
+            text: "Oui : filtre qui nettoie l'air entrant. Versions charbon actif filtrent aussi mieux les odeurs.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Clim faible : filtre ou compresseur ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Commencez par le filtre : un élément colmaté réduit fortement le débit. Si le problème persiste, contrôle clim complet.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Changer le filtre aide-t-il contre les allergies ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Oui : un filtre pollen neuf ou charbon actif retient bien mieux les allergènes qu'un filtre saturé depuis des années.",
           },
         },
       ],
@@ -691,17 +981,31 @@ module.exports = {
   "embrayage-qui-patine-causes": {
     directAnswer: {
       question: "Pourquoi l'embrayage patine ?",
-      answer:
-        "Usure du disque, huile ou graisse sur le volant, ressort faible ou conduite agressive en côte : le moteur monte en régime sans que la voiture accélère proportionnellement.",
+      answer: "Usure du disque, huile sur le volant, butée défaillante ou conduite agressive en côte : le moteur monte en régime sans que la voiture accélère proportionnellement.",
       facts: [
-        { label: "Urgence", value: "Limiter les accélérations · diagnostic rapide" },
-        { label: "Atelier", value: "Mécanique · RED-K MOTORS" },
+        {
+          label: "Durée de vie",
+          value: "120 000 – 180 000 km",
+        },
+        {
+          label: "Atelier",
+          value: "Mécanique · RED-K MOTORS",
+        },
       ],
     },
     relatedLinks: [
-      { url: "/mecanique/", label: "Mécanique & réparations" },
-      { url: "/exemples/prix-embrayage/", label: "Guide prix embrayage" },
-      { url: "/tarifs/", label: "Grille tarifaire" },
+      {
+        url: "/mecanique/",
+        label: "Mécanique & réparations",
+      },
+      {
+        url: "/blog/prix-changement-embrayage-94/",
+        label: "Prix embrayage 94",
+      },
+      {
+        url: "/contact/",
+        label: "Devis embrayage",
+      },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -712,7 +1016,23 @@ module.exports = {
           name: "Peut-on rouler avec un embrayage qui patine ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Sur de courtes distances oui, mais chaque patinage use davantage le disque et peut endommager le volant moteur. Mieux vaut planifier la réparation rapidement.",
+            text: "Sur courtes distances oui, mais chaque patinage use le disque et peut endommager le volant moteur. Planifiez la réparation.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Odeur de brûlé : embrayage ou freins ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Les deux peuvent sentir le brûlé. Si l'odeur vient en accélération/côte, c'est l'embrayage. Au freinage, plutôt les freins.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Faut-il changer le volant moteur en même temps ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Si le volant bi-masse est usé ou si le disque a patiné longtemps, oui. L'inspection avant devis évite les surprises.",
           },
         },
       ],
@@ -721,17 +1041,31 @@ module.exports = {
   "fap-dpf-encrasse-trajets-ville": {
     directAnswer: {
       question: "Pourquoi mon FAP s'encrasse en ville ?",
-      answer:
-        "Les trajets courts empêchent la régénération (passive ou active) de se terminer. Le filtre se colmate, le voyant moteur s'allume et la puissance baisse.",
+      answer: "Les trajets courts empêchent la régénération (passive ou active) de se terminer. Le filtre se colmate, le voyant moteur s'allume et la puissance baisse.",
       facts: [
-        { label: "Conseil", value: "20–30 min à régime stable 1×/semaine si usage urbain" },
-        { label: "Diagnostic", value: "Valise + mesure colmatage · Ivry" },
+        {
+          label: "Conseil",
+          value: "20–30 min à régime stable 1×/semaine",
+        },
+        {
+          label: "Diagnostic",
+          value: "Valise + colmatage · Ivry",
+        },
       ],
     },
     relatedLinks: [
-      { url: "/diagnostic/", label: "Diagnostic diesel" },
-      { url: "/mecanique/", label: "Mécanique" },
-      { url: "/blog/voyant-moteur-allume-que-faire/", label: "Voyant moteur" },
+      {
+        url: "/diagnostic/",
+        label: "Diagnostic diesel",
+      },
+      {
+        url: "/blog/decalaminage-moteur-utile-ou-arnaque/",
+        label: "Décalaminage moteur",
+      },
+      {
+        url: "/blog/voyant-moteur-allume-que-faire/",
+        label: "Voyant moteur",
+      },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -742,7 +1076,23 @@ module.exports = {
           name: "Peut-on nettoyer un FAP sans le remplacer ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Souvent oui si le colmatage est modéré : nettoyage par additif, régénération forcée ou décalaminage en atelier. Au-delà d'un certain seuil, le remplacement devient nécessaire.",
+            text: "Souvent oui si le colmatage est modéré : additif, régénération forcée ou nettoyage atelier. Au-delà d'un seuil, remplacement nécessaire.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Un trajet autoroute suffit-il à décolmater ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Ça aide en prévention, mais un FAP déjà très chargé demande souvent une intervention atelier.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Voyant FAP et perte de puissance : urgence ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Roulez prudemment et consultez rapidement : continuer en mode dégradé peut endommager turbo et catalyseur.",
           },
         },
       ],
@@ -755,13 +1105,13 @@ module.exports = {
         "L'ABS est désactivé mais le freinage de base reste en principe actif. Évitez les freinages brusques, faites diagnostiquer la cause (capteur, fusible, liquide de frein, roulement).",
       facts: [
         { label: "Sécurité", value: "Freinage possible sans assistance ABS" },
-        { label: "Diagnostic", value: "50–100 € · RED-K MOTORS 94" },
+        { label: "Diagnostic", value: "50–100 € · RED-K MOTORS Ivry (94)" },
       ],
     },
     relatedLinks: [
       { url: "/freins/", label: "Freinage" },
       { url: "/diagnostic/", label: "Diagnostic électronique" },
-      { url: "/diagnostic-voyant-moteur-94/", label: "Voyant moteur & diagnostic" },
+      { url: "/blog/voyant-moteur-allume-que-faire/", label: "Voyant moteur" },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -769,10 +1119,26 @@ module.exports = {
       mainEntity: [
         {
           "@type": "Question",
+          name: "Peut-on rouler avec le voyant ABS allumé ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Oui avec prudence : les freins fonctionnent sans antiblocage. Évitez sol glissant et freinages d'urgence.",
+          },
+        },
+        {
+          "@type": "Question",
           name: "Le voyant ABS et le voyant frein : même problème ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Pas toujours. Le voyant frein peut signaler un niveau bas ou le frein à main ; le voyant ABS concerne le système antiblocage. Un diagnostic valise identifie la cause exacte.",
+            text: "Pas toujours. Le voyant frein peut signaler un niveau bas ; le voyant ABS concerne l'antiblocage. Un diagnostic valise identifie la cause.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Combien coûte le remplacement d'un capteur ABS ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Souvent 80 à 200 € pièce posée selon la roue et le modèle. Devis gratuit chez RED-K MOTORS à Ivry.",
           },
         },
       ],
@@ -785,13 +1151,13 @@ module.exports = {
         "Vidange, filtres (huile, air, habitacle, carburant), contrôle freins, courroie distribution ou chaîne selon plan, liquides (frein, refroidissement) et points de sécurité. Le détail exact est dans le carnet constructeur.",
       facts: [
         { label: "Palier", value: "60 000 km — révision majeure fréquente" },
-        { label: "Devis", value: "Gratuit · lun–sam 9h–19h" },
+        { label: "Devis", value: "Gratuit · lun–sam 9h–19h · Ivry" },
       ],
     },
     relatedLinks: [
       { url: "/entretien/", label: "Entretien & révision" },
       { url: "/blog/revision-constructeur-que-comprend-vraiment-service/", label: "Révision constructeur" },
-      { url: "/tarifs/", label: "Tarifs" },
+      { url: "/blog/courroie-distribution-quand-changer-94/", label: "Courroie distribution" },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -802,7 +1168,23 @@ module.exports = {
           name: "60 000 km : faut-il changer la courroie de distribution ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Uniquement si l'intervalle constructeur le prévoit à ce kilométrage. Sur certains moteurs c'est 90 000 ou 120 000 km — vérifiez le carnet avant d'intervenir.",
+            text: "Uniquement si l'intervalle constructeur le prévoit à ce kilométrage. Sur certains moteurs c'est 90 000 ou 120 000 km.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Faut-il changer les bougies à 60 000 km ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Sur essence, souvent oui entre 60 000 et 100 000 km selon le type (iridium, platine). Vérifiez le carnet.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Combien coûte une révision à 60 000 km ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Hors distribution : souvent 200 à 450 € sur compacte. Avec kit distribution : variable selon moteur — devis obligatoire.",
           },
         },
       ],
@@ -841,17 +1223,31 @@ module.exports = {
   "freinage-mou-pedale-spongieuse": {
     directAnswer: {
       question: "Pourquoi la pédale de frein est molle ou spongieuse ?",
-      answer:
-        "Air dans le circuit, liquide de frein usé, fuite, étrier grippé ou disques voilés : la pédale manque de fermeté. Faites contrôler le freinage avant de reprendre la route longue distance.",
+      answer: "Air dans le circuit, fuite, liquide usé, maître-cylindre fatigué ou disques voilés : la pédale manque de fermeté. Faites contrôler avant un long trajet.",
       facts: [
-        { label: "Priorité", value: "Sécurité — diagnostic freinage urgent" },
-        { label: "Atelier", value: "RED-K MOTORS · 9 rue Michelet Ivry" },
+        {
+          label: "Priorité",
+          value: "Sécurité — diagnostic urgent",
+        },
+        {
+          label: "Atelier",
+          value: "9 rue Michelet · Ivry",
+        },
       ],
     },
     relatedLinks: [
-      { url: "/freins/", label: "Freinage" },
-      { url: "/blog/liquide-frein-quand-changer/", label: "Liquide de frein" },
-      { url: "/blog/plaquettes-frein-usure-signaux-a-ne-pas-ignorer/", label: "Plaquettes usées" },
+      {
+        url: "/freins/",
+        label: "Freinage",
+      },
+      {
+        url: "/blog/fuite-liquide-frein-reconnaitre/",
+        label: "Fuite liquide frein",
+      },
+      {
+        url: "/blog/liquide-frein-quand-changer/",
+        label: "Liquide de frein",
+      },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -862,7 +1258,23 @@ module.exports = {
           name: "Pédale spongieuse : peut-on rouler ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Seulement sur de très courtes distances pour rejoindre un garage. Une pédale qui s'enfonce anormalement indique un défaut de freinage à corriger immédiatement.",
+            text: "Non recommandé : le freinage peut devenir imprévisible. Faites remorquer si la pédale touche le plancher.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Une purge suffit-elle toujours ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Si le liquide est usé ou s'il y a de l'air après une réparation, oui. Si le niveau baisse, cherchez la fuite d'abord.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "À quelle fréquence purger le liquide de frein ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "En général tous les 2 ans, car le liquide absorbe l'humidité et perd en efficacité sous forte sollicitation.",
           },
         },
       ],
@@ -903,6 +1315,14 @@ module.exports = {
             text: "Comptez environ 80 à 250 € selon le nombre de cylindres et l'accessibilité du moteur (4 cylindres en ligne vs V6). Devis gratuit chez RED-K MOTORS avant intervention.",
           },
         },
+        {
+          "@type": "Question",
+          name: "Bougies iridium : faut-il attendre 120 000 km ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Suivez le carnet, mais en usage urbain (94) un contrôle visuel à chaque vidange est prudent. Ratés ou surconsommation = remplacement même avant l'échéance.",
+          },
+        },
       ],
     },
   },
@@ -939,6 +1359,14 @@ module.exports = {
           acceptedAnswer: {
             "@type": "Answer",
             text: "Un grincement signale une usure ou un mauvais tendeur. La courroie peut casser sans préavis : faites contrôler rapidement pour éviter une panne sur la route.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Combien coûte le remplacement courroie accessoires ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Souvent 150 à 350 € TTC (kit courroie + tendeur + galets) sur citadine/compacte. Variable selon motorisation et accessibilité — devis à Ivry.",
           },
         },
       ],
@@ -1022,18 +1450,32 @@ module.exports = {
   },
   "disques-frein-voiles-usure-signes": {
     directAnswer: {
-      question: "Comment reconnaître des disques de frein voilés ou usés ?",
-      answer:
-        "Volant ou pédale qui vibre au freinage, bruit métallique, traces bleues ou rainures profondes : les disques voilés ou sous l'épaisseur minimale doivent être remplacés, souvent avec les plaquettes.",
+      question: "Comment reconnaître un disque de frein voilé ?",
+      answer: "Volant qui vibre au freinage, pédale qui pulse, bruits métalliques : signes typiques. Mesurez l'épaisseur : en dessous du minimum constructeur, remplacement obligatoire.",
       facts: [
-        { label: "Signe fréquent", value: "Vibration au freinage" },
-        { label: "Sécurité", value: "Contrôle freinage avant long trajet" },
+        {
+          label: "Durée de vie",
+          value: "2–3 jeux de plaquettes",
+        },
+        {
+          label: "Atelier",
+          value: "Freinage · Ivry (94)",
+        },
       ],
     },
     relatedLinks: [
-      { url: "/freins/", label: "Freinage" },
-      { url: "/blog/plaquettes-frein-usure-signaux-a-ne-pas-ignorer/", label: "Plaquettes usées" },
-      { url: "/blog/freinage-mou-pedale-spongieuse/", label: "Pédale spongieuse" },
+      {
+        url: "/freins/",
+        label: "Freinage",
+      },
+      {
+        url: "/blog/plaquettes-frein-usure-signaux-a-ne-pas-ignorer/",
+        label: "Plaquettes usées",
+      },
+      {
+        url: "/blog/prix-changement-plaquettes-frein-94/",
+        label: "Prix plaquettes 94",
+      },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -1041,18 +1483,26 @@ module.exports = {
       mainEntity: [
         {
           "@type": "Question",
-          name: "Peut-on rectifier des disques voilés ?",
+          name: "Peut-on rectifier un disque voilé ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Le rectifiage est possible si l'épaisseur reste au-dessus du minimum constructeur. Au-delà, ou si les disques sont trop usés, le remplacement est obligatoire pour garantir l'efficacité du freinage.",
+            text: "Parfois si l'épaisseur restante le permet. Si trop fin ou fissuré, remplacement obligatoire par paire sur l'essieu.",
           },
         },
         {
           "@type": "Question",
-          name: "Faut-il changer les disques et les plaquettes en même temps ?",
+          name: "Faut-il changer les plaquettes avec les disques ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Lors d'un remplacement de disques, des plaquettes neuves sont recommandées pour un contact uniforme. À l'inverse, des plaquettes neuves sur disques très usés accélèrent l'usure.",
+            text: "Oui : des plaquettes neuves sur disques neufs garantissent un freinage équilibré et évite une usure prématurée.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Vibration au freinage : disques ou géométrie ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Vibration au freinage seul oriente vers disques voilés. Volant de travers à plat = plutôt géométrie.",
           },
         },
       ],
@@ -1091,6 +1541,14 @@ module.exports = {
           acceptedAnswer: {
             "@type": "Answer",
             text: "Souvent oui. Le calculateur coupe le Start-Stop si la batterie est faible ou mal codée. Un test batterie/alternateur et parfois un codage après remplacement résolvent le problème.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Faut-il coder la batterie après remplacement Start-Stop ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Sur de nombreux véhicules récents, oui : le BSI/calculateur doit enregistrer la nouvelle batterie pour gérer correctement la charge et le Start-Stop.",
           },
         },
       ],
@@ -1167,6 +1625,14 @@ module.exports = {
           acceptedAnswer: {
             "@type": "Answer",
             text: "De 300 à plus de 1 500 € selon le véhicule (origine ou compatible). Un diagnostic préalable évite de remplacer un catalyseur encore sain — devis chez RED-K MOTORS à Ivry.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Catalyseur bouché : faut-il traiter la cause amont ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Oui impérativement : bougies, injecteurs, consommation d'huile ou ratés non corrigés encrassent le nouveau pot en quelques semaines.",
           },
         },
       ],
@@ -1298,9 +1764,40 @@ module.exports = {
     },
     relatedLinks: [
       { url: "/freins/", label: "Changement plaquettes frein" },
-      { url: "/exemples/prix-plaquettes-frein/", label: "Guide prix freins" },
+      { url: "/blog/plaquettes-frein-usure-signaux-a-ne-pas-ignorer/", label: "Signes plaquettes usées" },
+      { url: "/blog/disques-frein-voiles-usure-signes/", label: "Disques voilés" },
       { url: "/tarifs/", label: "Grille tarifaire" },
     ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Combien coûte un changement de plaquettes de frein dans le 94 ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "En 2026, comptez souvent 100 à 190 € pour plaquettes seules (un essieu) et 240 à 590 € si les disques doivent aussi être remplacés. Devis après mesure d'usure chez RED-K MOTORS à Ivry.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Faut-il changer les disques en même temps que les plaquettes ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Oui si les disques sont voilés, rayés ou sous l'épaisseur minimum constructeur. Changer les plaquettes seules sur disques abîmés accélère l'usure et dégrade le freinage.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Le devis plaquettes est-il gratuit à Ivry ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Oui : RED-K MOTORS mesure l'usure devant vous et établit un devis ferme avant toute intervention, lun–sam 9h–19h.",
+          },
+        },
+      ],
+    },
   },
   "prix-recharge-climatisation-94": {
     directAnswer: {
@@ -1314,9 +1811,40 @@ module.exports = {
     },
     relatedLinks: [
       { url: "/prestations/recharge-clim/", label: "Réparation climatisation" },
-      { url: "/exemples/prix-recharge-climatisation/", label: "Guide prix clim" },
+      { url: "/blog/compresseur-clim-mort-symptomes/", label: "Compresseur clim HS" },
+      { url: "/blog/climatisation-voiture-recharge-ivry/", label: "Recharge clim Ivry" },
       { url: "/tarifs/", label: "Grille tarifaire" },
     ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Combien coûte une recharge climatisation en 2026 ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Une recharge clim en atelier coûte en général 80 à 200 € selon le véhicule et le fluide (R134a ou R1234yf). Si la clim perd du gaz, une recherche de fuite est nécessaire avant recharge.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Peut-on recharger la clim sans diagnostic ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Non recommandé : une clim qui ne refroidit plus a presque toujours une fuite. Recharger sans réparer = gaz perdu en quelques semaines et argent jeté.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "R134a ou R1234yf : impact sur le prix ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Le R1234yf (véhicules récents) coûte plus cher que le R134a. Le devis précise le fluide adapté à votre modèle — RED-K MOTORS à Ivry-sur-Seine.",
+          },
+        },
+      ],
+    },
   },
   "prix-changement-pneus-94": {
     directAnswer: {
@@ -1330,25 +1858,9 @@ module.exports = {
     },
     relatedLinks: [
       { url: "/pneumatiques/", label: "Changement pneus" },
-      { url: "/exemples/prix-montage-pneus/", label: "Guide prix pneus" },
+      { url: "/blog/quand-changer-pneus-usure-securite/", label: "Quand changer ses pneus" },
+      { url: "/blog/prix-geometrie-parallelisme-94/", label: "Prix géométrie 94" },
       { url: "/tarifs/", label: "Grille tarifaire" },
-    ],
-  },
-  "fuite-huile-moteur-causes-que-faire": {
-    directAnswer: {
-      question: "Que faire en cas de fuite d'huile moteur ?",
-      answer:
-        "Contrôlez le niveau à froid. Petite tache sans voyant rouge : roulez prudemment et prenez rendez-vous. Voyant huile rouge, niveau sous le MIN ou flaque qui grossit : arrêtez-vous et faites diagnostiquer avant de reprendre la route.",
-      facts: [
-        { label: "Urgence", value: "Voyant rouge / niveau trop bas = stop" },
-        { label: "Garage", value: "RED-K MOTORS · Ivry-sur-Seine (94)" },
-      ],
-    },
-    relatedLinks: [
-      { url: "/mecanique/", label: "Mécanique & réparations" },
-      { url: "/vidange/", label: "Vidange moteur" },
-      { url: "/blog/combien-coute-vidange-voiture/", label: "Prix d'une vidange" },
-      { url: "/contact/", label: "Prendre rendez-vous" },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -1356,26 +1868,86 @@ module.exports = {
       mainEntity: [
         {
           "@type": "Question",
-          name: "Peut-on rouler avec une fuite d'huile ?",
+          name: "Combien coûte le montage de 4 pneus en 2026 ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Oui uniquement si la fuite est légère, le niveau reste correct et aucun voyant rouge n'est allumé. Surveillez le niveau et faites localiser la fuite rapidement. En cas de doute, ne prenez pas le risque.",
+            text: "Comptez en général 60 à 150 € pour montage et équilibrage de 4 pneus (hors prix des pneus). Fourchette indicative à Ivry — devis selon dimension et type de jante.",
           },
         },
         {
           "@type": "Question",
-          name: "Quelles sont les causes d'une tache d'huile sous la voiture ?",
+          name: "Faut-il faire la géométrie après un changement de pneus ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Les causes fréquentes sont le joint de carter, le joint de cache-culbuteurs, un joint spy, un filtre à huile mal monté ou une fuite liée au turbo / durites d'huile.",
+            text: "Recommandé si le volant tire, si les anciens pneus étaient usés en biais ou après un choc. Sinon, un contrôle visuel suffit parfois après montage simple.",
           },
         },
         {
           "@type": "Question",
-          name: "Combien coûte la réparation d'une fuite d'huile ?",
+          name: "Peut-on apporter ses propres pneus au garage ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Le prix dépend de la pièce : un joint de cache-culbuteurs coûte nettement moins cher qu'un joint spy arrière. Devis gratuit à l'atelier Ivry avant intervention.",
+            text: "Oui chez RED-K MOTORS : apportez vos pneus ou choisissez dans le stock. Montage, équilibrage et parallélisme sur RDV à Ivry-sur-Seine.",
+          },
+        },
+      ],
+    },
+  },
+  "fuite-huile-moteur-causes-que-faire": {
+    directAnswer: {
+      question: "Que faire en cas de fuite d'huile moteur ?",
+      answer: "Contrôlez le niveau à froid. Petite tache + niveau stable : RDV garage sous 48 h. Voyant huile rouge ou niveau sous MIN : arrêt et remorquage.",
+      facts: [
+        {
+          label: "Causes fréquentes",
+          value: "Carter, cache-culbuteurs, joint spy",
+        },
+        {
+          label: "Atelier",
+          value: "RED-K MOTORS · Ivry",
+        },
+      ],
+    },
+    relatedLinks: [
+      {
+        url: "/mecanique/",
+        label: "Mécanique",
+      },
+      {
+        url: "/vidange/",
+        label: "Vidange",
+      },
+      {
+        url: "/blog/consommation-huile-anormale-causes/",
+        label: "Consommation huile",
+      },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Fuite d'huile ou consommation d'huile : différence ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Fuite = tache au sol, niveau baisse dehors. Consommation = huile brûlée (fumée bleue) sans tache externe.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Peut-on rouler avec une petite fuite ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Courte distance oui si niveau OK et pas de voyant. Vérifiez la jauge avant chaque trajet en attendant le garage.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Fuite après vidange : que faire ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Retournez immédiatement à l'atelier : bouchon mal serré, joint de filtre oublié — ne roulez pas avec une fuite nette.",
           },
         },
       ],
@@ -1431,18 +2003,31 @@ module.exports = {
   "fumee-bleue-echappement-causes": {
     directAnswer: {
       question: "Que signifie une fumée bleue à l'échappement ?",
-      answer:
-        "La fumée bleue indique en général que le moteur brûle de l'huile (segments, guides de soupapes, turbo, ou joint). Ce n'est pas de la condensation : faites diagnostiquer avant une casse moteur ou un catalyseur / FAP encrassé.",
+      answer: "Huile moteur qui brûle dans les cylindres. Causes fréquentes : turbo, segments usés, guides de soupapes ou niveau d'huile trop haut.",
       facts: [
-        { label: "Signification", value: "Huile brûlée dans la combustion" },
-        { label: "Atelier", value: "Diagnostic · RED-K MOTORS Ivry (94)" },
+        {
+          label: "Urgence",
+          value: "Voyant huile rouge = arrêt",
+        },
+        {
+          label: "Diagnostic",
+          value: "50–100 € · Ivry",
+        },
       ],
     },
     relatedLinks: [
-      { url: "/diagnostic/", label: "Diagnostic auto" },
-      { url: "/mecanique/", label: "Mécanique" },
-      { url: "/blog/consommation-huile-anormale-causes/", label: "Consommation d'huile anormale" },
-      { url: "/blog/fumee-blanche-echappement-que-faire/", label: "Fumée blanche à l'échappement" },
+      {
+        url: "/mecanique/",
+        label: "Mécanique",
+      },
+      {
+        url: "/blog/fumee-blanche-echappement-que-faire/",
+        label: "Fumée blanche",
+      },
+      {
+        url: "/blog/turbo-compresseur-symptomes-panne/",
+        label: "Turbo HS",
+      },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -1450,10 +2035,18 @@ module.exports = {
       mainEntity: [
         {
           "@type": "Question",
-          name: "Fumée bleue ou fumée blanche : quelle différence ?",
+          name: "Fumée bleue le matin : est-ce grave ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "La fumée bleue pointe vers l'huile brûlée. La fumée blanche dense (surtout à chaud) peut indiquer du liquide de refroidissement (joint de culasse). Une légère fumée blanche au démarrage froid est souvent de la condensation.",
+            text: "Légère et qui disparaît vite sur vieux moteur : parfois bénin. Persistante à chaud = contrôle nécessaire.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Turbo ou segments : comment savoir ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Diagnostic : jeu turbo, pression huile, compression, consommation. Ne remplacez pas à l'aveugle.",
           },
         },
         {
@@ -1461,15 +2054,7 @@ module.exports = {
           name: "Peut-on rouler avec une fumée bleue ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Sur de très courtes distances seulement, en surveillant le niveau d'huile. Une surconsommation peut provoquer un grippage moteur. Prenez rendez-vous rapidement chez RED-K MOTORS à Ivry.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Le turbo peut-il causer une fumée bleue ?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Oui : un joint de turbo usé laisse passer l'huile dans l'admission ou l'échappement. Le diagnostic croise niveau d'huile, bruit de sifflement et pression de suralimentation.",
+            text: "Prudemment sur courte distance si niveau OK. Voyant huile ou consommation rapide : arrêt et remorquage.",
           },
         },
       ],
@@ -1509,6 +2094,14 @@ module.exports = {
           acceptedAnswer: {
             "@type": "Answer",
             text: "L'huile part souvent dans la combustion (segments, guides, turbo) plutôt qu'en fuite externe. Une fumée bleue ou un niveau qui baisse sans flaque confirme cette piste.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Peut-on rouler avec un niveau d'huile bas ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Non sous le MIN : risque de casse moteur. Faites l'appoint avec la bonne référence puis diagnostic rapidement chez RED-K MOTORS à Ivry.",
           },
         },
       ],
@@ -1769,6 +2362,14 @@ module.exports = {
             text: "Seulement pour rejoindre un garage proche : vous roulez sur la réserve de la batterie. Éteignez clim et accessoires non essentiels.",
           },
         },
+        {
+          "@type": "Question",
+          name: "Combien coûte le remplacement d'un alternateur ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Souvent 350 à 750 € TTC (pièce + pose) sur citadine/compacte, variable selon motorisation. Contrôle courroie d'accessoires avant — devis à Ivry.",
+          },
+        },
       ],
     },
   },
@@ -1823,10 +2424,10 @@ module.exports = {
     directAnswer: {
       question: "Combien coûte un kit de distribution dans le 94 ?",
       answer:
-        "Pour une voiture courante en 2026, comptez souvent 450 à 900 € (kit + main-d'œuvre), et plutôt 650 à 1 400 € si la pompe à eau est remplacée en même temps. Devis ferme après diagnostic chez RED-K MOTORS à Ivry.",
+        "Pour une voiture courante en 2026, comptez souvent 550 à 1 000 € (kit + main-d'œuvre), et plutôt 750 à 1 500 € si la pompe à eau est remplacée en même temps. Devis ferme après diagnostic chez RED-K MOTORS à Ivry.",
       facts: [
-        { label: "Fourchette kit", value: "450–900 €" },
-        { label: "Avec pompe à eau", value: "650–1 400 €" },
+        { label: "Fourchette kit", value: "550–1 000 €" },
+        { label: "Avec pompe à eau", value: "750–1 500 €" },
       ],
     },
     relatedLinks: [
@@ -2096,18 +2697,31 @@ module.exports = {
   "filtre-gasoil-quand-changer": {
     directAnswer: {
       question: "Quand changer le filtre à gasoil ?",
-      answer:
-        "Suivez l'intervalle constructeur (souvent 20 000 à 40 000 km selon modèles) ou plus tôt si démarrages difficiles, perte de puissance, à-coups diesel. Un filtre saturé protège mal la pompe HP et les injecteurs.",
+      answer: "En général entre 20 000 et 60 000 km selon le carnet, ou plus tôt si perte de puissance, ratés ou démarrage difficile. Protège pompe HP et injecteurs.",
       facts: [
-        { label: "Intervalle courant", value: "Selon carnet (souvent 20–40 000 km)" },
-        { label: "Garage", value: "Diesel · RED-K MOTORS Ivry" },
+        {
+          label: "Risque si négligé",
+          value: "Pompe / injecteurs HS",
+        },
+        {
+          label: "Atelier",
+          value: "Entretien diesel · Ivry",
+        },
       ],
     },
     relatedLinks: [
-      { url: "/entretien/", label: "Entretien" },
-      { url: "/mecanique/", label: "Mécanique" },
-      { url: "/blog/injecteurs-encrasses-symptomes/", label: "Injecteurs encrassés" },
-      { url: "/vidange/", label: "Vidange" },
+      {
+        url: "/entretien/",
+        label: "Entretien & révision",
+      },
+      {
+        url: "/blog/injecteurs-encrasses-symptomes/",
+        label: "Injecteurs encrassés",
+      },
+      {
+        url: "/contact/",
+        label: "Rendez-vous",
+      },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -2115,18 +2729,26 @@ module.exports = {
       mainEntity: [
         {
           "@type": "Question",
-          name: "Quels symptômes d'un filtre à gasoil colmaté ?",
+          name: "Filtre gasoil encrassé : quels symptômes ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Démarrages difficiles à froid, trous à l'accélération, perte de puissance, parfois voyant moteur. Le garage vérifie aussi la présence d'eau dans le filtre.",
+            text: "Perte de puissance, à-coups, calage à chaud, démarrage difficile — parfois voyant antipollution.",
           },
         },
         {
           "@type": "Question",
-          name: "Faut-il purger le circuit après changement ?",
+          name: "Faut-il purger après changement de filtre gasoil ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Oui sur de nombreux diesels : un circuit mal purgé empêche le démarrage. L'atelier dispose de la procédure adaptée au véhicule.",
+            text: "Oui : purge indispensable pour chasser l'air. Sur diesels récents, un outil diagnostic peut amorcer la pompe.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Un filtre gasoil bas de gamme, est-ce risqué ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Oui : mauvaise filtration = injecteurs et pompe HP exposés. Privilégiez qualité équivalente constructeur.",
           },
         },
       ],
@@ -2135,18 +2757,31 @@ module.exports = {
   "injecteurs-encrasses-symptomes": {
     directAnswer: {
       question: "Quels sont les symptômes d'injecteurs encrassés ?",
-      answer:
-        "Ratés, ralenti instable, fumée noire, surconsommation, perte de puissance ou broutage : l'injection ne dose plus correctement. Un diagnostic évite de remplacer des injecteurs alors qu'un filtre, une EGR ou des bougies suffisent.",
+      answer: "Ralenti irrégulier, ratés à l'accélération, perte de puissance, fumée noire (diesel), surconsommation et voyant moteur. Diagnostic avant remplacement.",
       facts: [
-        { label: "Usage à risque", value: "Ville, trajets courts, gasoil médiocre" },
-        { label: "Atelier", value: "Diagnostic injection · Ivry (94)" },
+        {
+          label: "Première étape",
+          value: "Valise + test injection",
+        },
+        {
+          label: "Atelier",
+          value: "RED-K MOTORS · Ivry",
+        },
       ],
     },
     relatedLinks: [
-      { url: "/diagnostic/", label: "Diagnostic auto" },
-      { url: "/mecanique/", label: "Mécanique" },
-      { url: "/blog/filtre-gasoil-quand-changer/", label: "Filtre à gasoil" },
-      { url: "/blog/voiture-broute-acceleration-causes-94/", label: "Voiture qui broute" },
+      {
+        url: "/diagnostic/",
+        label: "Diagnostic auto",
+      },
+      {
+        url: "/blog/filtre-gasoil-quand-changer/",
+        label: "Filtre gasoil",
+      },
+      {
+        url: "/blog/voiture-broute-acceleration-causes-94/",
+        label: "Voiture qui broute",
+      },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -2157,23 +2792,23 @@ module.exports = {
           name: "Nettoyage ou remplacement des injecteurs ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Un encrassement modéré se traite parfois par nettoyage / additif / banc. Des injecteurs HS (fuite, débit hors tolérance) se remplacent. Le diagnostic valise et les mesures décident.",
+            text: "Nettoyage si encrassement modéré. Remplacement si fuite, hors tolérance ou usure mécanique — avec codage calculateur sur common rail.",
           },
         },
         {
           "@type": "Question",
-          name: "Les injecteurs encrassés allument-ils le voyant moteur ?",
+          name: "Injecteurs encrassés ou bougies HS ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Souvent oui (ratés, mélange incorrect), mais pas toujours. Une perte de puissance sans voyant mérite aussi un contrôle à Ivry.",
+            text: "Mêmes symptômes sur essence. Le diagnostic (codes défaut, paramètres live) évite de confondre.",
           },
         },
         {
           "@type": "Question",
-          name: "Peut-on confondre avec une vanne EGR ou un FAP ?",
+          name: "Peut-on rouler avec des injecteurs encrassés ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Oui : symptômes proches sur diesel urbain. C'est pourquoi on commence par lecture OBD, filtres et antipollution avant de changer les injecteurs.",
+            text: "Courte distance oui, mais ratés répétés encrassent catalyseur/FAP. Faites diagnostiquer rapidement.",
           },
         },
       ],
@@ -2181,19 +2816,32 @@ module.exports = {
   },
   "debosselage-sans-peinture-dsp": {
     directAnswer: {
-      question: "Quand le débosselage sans peinture (DSP) est-il possible ?",
-      answer:
-        "Bosses légères (grêle, coup de portière) sans peinture écaillée ni pli marqué : le DSP repousse la tôle depuis l'intérieur. Rayure jusqu'au métal, pli vif ou peinture fissurée : carrosserie / peinture classique.",
+      question: "Le débosselage sans peinture (DSP), c'est pour qui ?",
+      answer: "Pour les bosses légères avec peinture intacte (portière, aile, grêle). Si le vernis est fissuré ou le pli trop vif, une réparation carrosserie classique s'impose.",
       facts: [
-        { label: "Idéal pour", value: "Bosses sans atteinte du vernis" },
-        { label: "Atelier", value: "Carrosserie · RED-K MOTORS Ivry" },
+        {
+          label: "Fourchette",
+          value: "50 – 200 € / bosse selon accès",
+        },
+        {
+          label: "Atelier",
+          value: "Carrosserie · Ivry (94)",
+        },
       ],
     },
     relatedLinks: [
-      { url: "/carrosserie/", label: "Carrosserie" },
-      { url: "/blog/rayure-carrosserie-quand-reparer/", label: "Rayure carrosserie" },
-      { url: "/blog/peinture-localisee-retouche-carrosserie/", label: "Peinture localisée" },
-      { url: "/contact/", label: "Devis DSP" },
+      {
+        url: "/carrosserie/",
+        label: "Carrosserie & peinture",
+      },
+      {
+        url: "/blog/rayure-carrosserie-quand-reparer/",
+        label: "Rayure : quand réparer",
+      },
+      {
+        url: "/contact/",
+        label: "Devis DSP",
+      },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -2201,18 +2849,26 @@ module.exports = {
       mainEntity: [
         {
           "@type": "Question",
-          name: "Le DSP est-il moins cher qu'une peinture ?",
+          name: "Le DSP laisse-t-il des traces ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Souvent oui, car on ne repeint pas le panneau. Le devis dépend du nombre et de l'accès aux bosses. RED-K MOTORS à Ivry chiffre après inspection.",
+            text: "Bien fait, le DSP est invisible : la peinture d'origine est conservée. Un polish léger peut finir le travail.",
           },
         },
         {
           "@type": "Question",
-          name: "Le DSP laisse-t-il des traces ?",
+          name: "Toutes les bosses se prêtent au DSP ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Bien réalisé, le résultat est très discret. Sur aluminium ou zones très tendues, les limites sont expliquées avant intervention.",
+            text: "Non : pli tranchant, tôle étirée, peinture craquelée ou zone sans accès arrière limitent ou interdisent le DSP.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Le DSP est-il moins cher qu'une peinture ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "En général oui : pas de cabine, pas de teinte. Le devis dépend du nombre d'impacts et de l'accessibilité.",
           },
         },
       ],
@@ -2315,18 +2971,31 @@ module.exports = {
   "direction-assistee-dure-grincements": {
     directAnswer: {
       question: "Pourquoi la direction assistée est dure ou grince ?",
-      answer:
-        "Niveau d'huile de direction bas (hydraulique), courroie qui glisse, pompe fatiguée, ou assistance électrique en défaut : une direction dure ou qui grince se contrôle avant qu'elle ne bloque. Arrêtez-vous si le braquage devient très difficile.",
+      answer: "Hydraulique : niveau bas, fuite, pompe ou courroie. Électrique : défaut EPS, batterie faible, capteur. Rotules usées ou pneus sous-gonflés durcissent aussi le volant.",
       facts: [
-        { label: "Urgence", value: "Direction très dure = stop prudent" },
-        { label: "Atelier", value: "RED-K MOTORS · Ivry-sur-Seine" },
+        {
+          label: "Urgence",
+          value: "Volant soudainement dur = prudence",
+        },
+        {
+          label: "Atelier",
+          value: "RED-K MOTORS · Ivry (94)",
+        },
       ],
     },
     relatedLinks: [
-      { url: "/mecanique/", label: "Mécanique" },
-      { url: "/diagnostic/", label: "Diagnostic" },
-      { url: "/blog/courroie-accessoires-symptomes-usure/", label: "Courroie d'accessoires" },
-      { url: "/contact/", label: "Prendre rendez-vous" },
+      {
+        url: "/mecanique/",
+        label: "Mécanique",
+      },
+      {
+        url: "/diagnostic/",
+        label: "Diagnostic OBD",
+      },
+      {
+        url: "/blog/geometrie-roues-signes-mauvais-alignement/",
+        label: "Géométrie roues",
+      },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -2334,18 +3003,26 @@ module.exports = {
       mainEntity: [
         {
           "@type": "Question",
-          name: "Peut-on rouler avec une direction qui grince ?",
+          name: "Direction dure uniquement au parking : pourquoi ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Sur de courtes distances pour rejoindre le garage, en évitant les manœuvres forcées. Un manque de fluide ou une pompe qui lâche peut faire perdre l'assistance.",
+            text: "L'assistance est maximale à basse vitesse. Si le volant est dur au parking, la perte d'assistance est probable (pompe, EPS, liquide).",
           },
         },
         {
           "@type": "Question",
-          name: "Direction électrique et hydraulique : mêmes causes ?",
+          name: "Peut-on faire un appoint de liquide de direction ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Non. L'hydraulique dépend du fluide, de la pompe et de la courroie. L'électrique dépend de l'alimentation, du calculateur et du moteur d'assistance — la valise est souvent nécessaire.",
+            text: "Un appoint temporaire oui, mais cherchez la fuite : un niveau qui baisse révèle une fuite à traiter.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Grincement en braquant à fond : danger ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Ne forcez pas en butée : vous usez pompe ou crémaillère. Faites contrôler niveau, courroie et fuites.",
           },
         },
       ],
@@ -2527,6 +3204,14 @@ module.exports = {
             text: "Oui : l'huile vieillit avec le temps. Même en roulant peu, une vidange annuelle est recommandée.",
           },
         },
+        {
+          "@type": "Question",
+          name: "Huile longue durée : peut-on dépasser l'intervalle km ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Non sans limite : le constructeur indique souvent « X km ou Y ans ». En usage urbain 94, l'année arrive souvent en premier — ne dépassez pas 12 mois.",
+          },
+        },
       ],
     },
   },
@@ -2603,6 +3288,14 @@ module.exports = {
             text: "Sur de courtes distances après un démarrage assisté, oui temporairement. Mais une batterie HS peut vous laisser en panne au prochain arrêt — faites-la tester rapidement.",
           },
         },
+        {
+          "@type": "Question",
+          name: "Démarrage assisté : est-ce une solution durable ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Non : si la voiture ne tient pas la charge le lendemain, batterie ou alternateur est en cause. Test en atelier avant achat d'une batterie neuve.",
+          },
+        },
       ],
     },
   },
@@ -2641,23 +3334,45 @@ module.exports = {
             text: "Si le bruit est léger et sans vibration, vous pouvez rouler prudemment pour vous rendre en atelier. Un claquement fort ou une direction qui tire impose l'arrêt.",
           },
         },
+        {
+          "@type": "Question",
+          name: "Une vidéo du bruit aide-t-elle le diagnostic ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Oui : 10 secondes en roulant sur route calme, avec note vitesse et conditions (freinage, virage), orientent l'essai routier chez RED-K MOTORS à Ivry.",
+          },
+        },
       ],
     },
   },
   "fuite-liquide-frein-reconnaitre": {
     directAnswer: {
       question: "Comment reconnaître une fuite de liquide de frein ?",
-      answer:
-        "Signes typiques : voyant frein allumé, pédale molle, niveau bas dans le réservoir sous le capot, tache claire à jaunâtre près d'une roue. Ne roulez pas si la pédale manque de fermeté.",
+      answer: "Voyant frein, pédale molle, niveau bas dans le réservoir, tache claire à jaunâtre près d'une roue ou sous le capot. Ne roulez pas si le freinage semble incertain.",
       facts: [
-        { label: "Sécurité", value: "Ne pas rouler — faire remorquer si besoin" },
-        { label: "Atelier", value: "RED-K MOTORS · contrôle circuit freinage" },
+        {
+          label: "Urgence",
+          value: "Sécurité — remorquage si doute",
+        },
+        {
+          label: "Atelier",
+          value: "Freinage · Ivry (94)",
+        },
       ],
     },
     relatedLinks: [
-      { url: "/freins/", label: "Freinage" },
-      { url: "/blog/liquide-frein-quand-changer/", label: "Liquide de frein : quand changer" },
-      { url: "/contact/", label: "Prendre rendez-vous" },
+      {
+        url: "/freins/",
+        label: "Freinage",
+      },
+      {
+        url: "/blog/freinage-mou-pedale-spongieuse/",
+        label: "Pédale spongieuse",
+      },
+      {
+        url: "/contact/",
+        label: "Urgence freinage",
+      },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -2665,18 +3380,26 @@ module.exports = {
       mainEntity: [
         {
           "@type": "Question",
-          name: "Peut-on compléter le liquide de frein soi-même ?",
+          name: "Liquide de frein vs huile moteur : comment distinguer ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Un appoint ponctuel avec le liquide indiqué (DOT3, DOT4…) peut dépanner pour rejoindre un garage, mais si le niveau baisse à nouveau, il y a une fuite à réparer.",
+            text: "Frein : clair à ambré, fluide, légère odeur chimique. Huile moteur : brun foncé, visqueuse.",
           },
         },
         {
           "@type": "Question",
-          name: "Une fuite de frein fait-elle passer le contrôle technique ?",
+          name: "Un appoint de liquide suffit-il ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Non : un circuit de freinage défaillant ou une fuite visible entraîne un refus au contrôle technique.",
+            text: "Non durablement : si le niveau baisse, il y a une fuite. Trouvez et réparez la cause, puis purgez.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Où regarder en premier ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Réservoir sous capot, flexibles près des roues, étriers, maître-cylindre et zone pédales.",
           },
         },
       ],
@@ -2684,18 +3407,32 @@ module.exports = {
   },
   "demarreur-hs-symptomes": {
     directAnswer: {
-      question: "Comment savoir si c'est la batterie ou le démarreur ?",
-      answer:
-        "Clic sec sans moteur qui tourne : plutôt démarreur. Phares faibles et démarrage avec câbles : plutôt batterie. Un test de charge et de consommation au démarrage tranche en atelier.",
+      question: "Comment savoir si le démarreur est HS ?",
+      answer: "Clic sec sans que le moteur tourne, grincement au démarrage, moteur qui tourne lentement puis s'arrête : signes classiques. Vérifiez d'abord batterie et masse avant de condamner le démarreur.",
       facts: [
-        { label: "Fourchette démarreur", value: "250–550 € (indicatif, citadine)" },
-        { label: "Atelier", value: "RED-K MOTORS · Ivry (94)" },
+        {
+          label: "Fourchette remplacement",
+          value: "250 – 550 € citadine",
+        },
+        {
+          label: "Atelier",
+          value: "RED-K MOTORS · Ivry (94)",
+        },
       ],
     },
     relatedLinks: [
-      { url: "/prestations/demarreur/", label: "Démarreur" },
-      { url: "/blog/batterie-voiture-quand-changer/", label: "Batterie : quand changer" },
-      { url: "/contact/", label: "Prendre rendez-vous" },
+      {
+        url: "/prestations/demarreur/",
+        label: "Démarreur & batterie",
+      },
+      {
+        url: "/blog/batterie-voiture-quand-changer/",
+        label: "Batterie voiture",
+      },
+      {
+        url: "/blog/voiture-ne-demarre-pas-causes/",
+        label: "Voiture ne démarre pas",
+      },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -2703,10 +3440,18 @@ module.exports = {
       mainEntity: [
         {
           "@type": "Question",
-          name: "Un clic au démarrage, c'est toujours le démarreur ?",
+          name: "Batterie ou démarreur : comment trancher ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Souvent oui, surtout si le moteur ne tourne pas du tout. Une batterie faible peut aussi produire un clic, d'où l'intérêt d'un test avant remplacement.",
+            text: "Si le démarrage fonctionne avec un câble et que la batterie est chargée, orientez vers démarreur ou masse. Un test en atelier tranche en minutes.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Peut-on rouler avec un démarreur fatigué ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Tant que ça démarre encore, oui sur courtes distances — mais la panne totale peut survenir du jour au lendemain.",
           },
         },
         {
@@ -2714,7 +3459,7 @@ module.exports = {
           name: "Combien coûte un démarreur neuf ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Comptez souvent 250 à 550 € TTC pièce et main-d'œuvre sur une citadine ou compacte — selon motorisation et accessibilité.",
+            text: "Souvent 250 à 550 € TTC pièce + pose sur citadine/compacte, variable selon motorisation et accessibilité.",
           },
         },
       ],
@@ -2753,6 +3498,14 @@ module.exports = {
           acceptedAnswer: {
             "@type": "Answer",
             text: "Sur une voiture courante, comptez souvent 450 à 1 200 € TTC (compresseur + recharge), selon modèle et fluide R134a ou R1234yf. Un condenseur ou une fuite associée peut augmenter la facture.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Air tiède : compresseur ou simple recharge ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Mesure des pressions haute/basse et test commande compresseur tranchent. Recharge sans diagnostic = gaspillage si le compresseur ne compresse plus ou si le circuit fuit.",
           },
         },
       ],
@@ -2799,17 +3552,31 @@ module.exports = {
   "decalaminage-moteur-utile-ou-arnaque": {
     directAnswer: {
       question: "Le décalaminage moteur est-il utile ?",
-      answer:
-        "Utile en préventif sur moteurs urbains encrassés (GDI, diesel trajets courts) si un diagnostic le justifie. Inutile ou insuffisant si FAP saturé, turbo HS ou injecteurs défaillants — il faut traiter la cause.",
+      answer: "Utile en préventif ou si admission/EGR encrassés après diagnostic — pas comme forfait systématique. Inutile si FAP saturé, turbo HS ou injecteurs défaillants sans traiter la cause.",
       facts: [
-        { label: "Fourchette atelier", value: "80–250 € (indicatif)" },
-        { label: "Prestation", value: "Décalaminage moteur RED-K MOTORS" },
+        {
+          label: "Fourchette",
+          value: "80 – 250 € selon méthode",
+        },
+        {
+          label: "Atelier",
+          value: "RED-K MOTORS · Ivry",
+        },
       ],
     },
     relatedLinks: [
-      { url: "/prestations/decalaminage-moteur/", label: "Décalaminage" },
-      { url: "/diagnostic/", label: "Diagnostic auto" },
-      { url: "/blog/vanne-egr-encrassee-symptomes/", label: "Vanne EGR encrassée" },
+      {
+        url: "/prestations/decalaminage-moteur/",
+        label: "Décalaminage moteur",
+      },
+      {
+        url: "/blog/fap-dpf-encrasse-trajets-ville/",
+        label: "FAP encrassé",
+      },
+      {
+        url: "/diagnostic/",
+        label: "Diagnostic auto",
+      },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -2817,10 +3584,18 @@ module.exports = {
       mainEntity: [
         {
           "@type": "Question",
-          name: "Le décalaminage moteur améliore-t-il la consommation ?",
+          name: "Le décalaminage réduit-il la consommation ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Parfois légèrement sur un moteur encrassé, mais aucune méthode ne garantit une baisse de consommation nette. L'intérêt principal est de retrouver de la souplesse et d'éviter l'encrassement de pièces comme l'EGR ou l'admission.",
+            text: "Parfois légèrement si l'encrassement était réel, mais aucune méthode ne garantit −30 %. Méfiez-vous des promesses miracles.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Hydrogène ou additif : lequel choisir ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Cela dépend du niveau d'encrassement et du moteur. Un diagnostic préalable détermine la méthode adaptée.",
           },
         },
         {
@@ -2828,7 +3603,7 @@ module.exports = {
           name: "Le décalaminage remplace-t-il un nettoyage FAP ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Non. Un FAP saturé ou un voyant antipollution lié au filtre demande un diagnostic et un traitement adapté (régénération, nettoyage ou remplacement). Le décalaminage admission ne suffit pas dans ce cas.",
+            text: "Non : FAP saturé = traitement FAP dédié. Le décalaminage admission ne suffit pas à décolmater un filtre très chargé.",
           },
         },
       ],
@@ -2836,18 +3611,32 @@ module.exports = {
   },
   "crevaison-reparer-ou-changer-pneu": {
     directAnswer: {
-      question: "Peut-on réparer une crevaison ?",
-      answer:
-        "Oui si la perforation est dans la bande de roulement, de petite taille, et que le pneu n'a pas roulé à plat. Sur le flanc ou en cas de déchirure, il faut changer le pneu.",
+      question: "Crevaison : réparer ou changer le pneu ?",
+      answer: "Réparation possible si perforation dans la bande de roulement (≤ 6 mm), pneu non roulé à plat et usure suffisante. Flanc, herse ou runflat roulé à plat : changement obligatoire.",
       facts: [
-        { label: "Réparation", value: "25–45 € (indicatif)" },
-        { label: "Atelier", value: "RED-K MOTORS · Ivry" },
+        {
+          label: "Réparation",
+          value: "25 – 45 € indicatif",
+        },
+        {
+          label: "Atelier",
+          value: "RED-K MOTORS · Ivry (94)",
+        },
       ],
     },
     relatedLinks: [
-      { url: "/prestations/reparation-crevaison/", label: "Réparation crevaison" },
-      { url: "/pneumatiques/", label: "Pneumatiques" },
-      { url: "/blog/quand-changer-pneus-usure-securite/", label: "Quand changer ses pneus" },
+      {
+        url: "/pneumatiques/",
+        label: "Pneumatiques",
+      },
+      {
+        url: "/prestations/reparation-crevaison/",
+        label: "Réparation crevaison",
+      },
+      {
+        url: "/blog/quand-changer-pneus-usure-securite/",
+        label: "Usure des pneus",
+      },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -2855,18 +3644,26 @@ module.exports = {
       mainEntity: [
         {
           "@type": "Question",
-          name: "Peut-on réparer une crevaison sur le flanc du pneu ?",
+          name: "Peut-on réparer une crevaison sur le flanc ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Non. Une perforation sur le flanc est considérée comme non réparable pour des raisons de sécurité : la zone est trop souple en charge. Il faut remplacer le pneu.",
+            text: "Non : la réparation sur flanc est interdite pour des raisons de sécurité. Le pneu doit être remplacé.",
           },
         },
         {
           "@type": "Question",
-          name: "Combien coûte une réparation de crevaison en garage ?",
+          name: "Un kit anti-crevaison suffit-il ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Comptez souvent 25 à 45 € pour une réparation professionnelle avec démontage, contrôle intérieur du pneu et équilibrage si nécessaire — bien moins qu'un pneu neuf.",
+            text: "Non durablement : la mousse dépanne pour rejoindre un garage. Faites contrôler le pneu en atelier ensuite.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Combien coûte une réparation de crevaison ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Comptez souvent 25 à 45 € pour une réparation professionnelle avec contrôle, bien moins qu'un pneu neuf.",
           },
         },
       ],

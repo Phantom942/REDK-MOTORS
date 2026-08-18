@@ -1,0 +1,11 @@
+{% if seoKeywords and seoKeywords.candidateQueries %}
+<section class="article-scope" aria-labelledby="article-scope-title">
+  <h2 id="article-scope-title">Dans cet article</h2>
+  <p class="article-scope__lead">Réponses claires sur <strong>{{ seoKeywords.primary }}</strong>{% if seoKeywords.intent === 'commercial' %} — comparatif et fourchettes de prix{% elif seoKeywords.intent === 'transactional' %} — prestation à Ivry-sur-Seine (94){% else %} — guide pratique{% endif %}.</p>
+  <ul class="article-scope__queries">
+    {% for query in seoKeywords.candidateQueries %}
+    {% if loop.index0 < 6 %}<li>{{ query }}</li>{% endif %}
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}

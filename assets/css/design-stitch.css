@@ -2150,6 +2150,48 @@ body.design-stitch a[class*="btn--"] {
   color: var(--stitch-on-surface);
 }
 
+.design-stitch .blog-article .blog-article-faq {
+  margin: 2.25rem 0 0;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--stitch-outline);
+}
+
+.design-stitch .blog-article .blog-article-faq > h2 {
+  font-size: 1.25rem;
+  margin: 0 0 1rem;
+}
+
+.design-stitch .blog-article .article-scope {
+  margin: 0 0 1.75rem;
+  padding: 1.15rem 1.35rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--stitch-outline);
+  border-radius: 0.5rem;
+}
+
+.design-stitch .blog-article .article-scope > h2 {
+  font-size: 1rem;
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+.design-stitch .blog-article .article-scope__lead {
+  margin: 0 0 0.75rem;
+  color: var(--stitch-on-variant);
+  font-size: 0.95rem;
+}
+
+.design-stitch .blog-article .article-scope__queries {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--stitch-on-surface);
+  font-size: 0.9rem;
+}
+
+.design-stitch .blog-article .article-scope__queries li {
+  margin: 0.25rem 0;
+}
+
 .design-stitch .blog-article .article-body .table-scroll {
   width: 100%;
   max-width: 100%;

@@ -1,5 +1,6 @@
 const team = require("../_data/team.json");
 const enhancements = require("../_data/blogArticleEnhancements.js");
+const blogKeywords = require("../_data/blogKeywords.js");
 
 const SITE_URL = "https://redkmotors.fr";
 const LOGO_URL = `${SITE_URL}/assets/img/logo-redk-motors.png`;
@@ -16,10 +17,22 @@ function pickEnhancement(data) {
   return enhancements[slug] || {};
 }
 
+function pickKeywords(data) {
+  const slug = slugFromPermalink(data.permalink);
+  return blogKeywords[slug] || null;
+}
+
+function keywordsToSchemaString(kw) {
+  if (!kw) return undefined;
+  const candidates = Array.isArray(kw.candidateQueries) ? kw.candidateQueries.slice(0, 3) : [];
+  return [kw.primary, ...kw.secondary, ...kw.longTail, ...candidates].join(", ");
+}
+
 module.exports = {
   eleventyComputed: {
     ogImage: (data) => data.ogImage || OG_DEFAULT,
     lastReviewed: (data) => data.lastReviewed || data.date,
+    seoKeywords: (data) => pickKeywords(data),
     directAnswer: (data) => data.directAnswer || pickEnhancement(data).directAnswer,
     relatedLinks: (data) => data.relatedLinks || pickEnhancement(data).relatedLinks,
     faqSchema: (data) => {
@@ -32,6 +45,11 @@ module.exports = {
 
       const schema = JSON.parse(JSON.stringify(data.articleSchema));
       const reviewed = data.lastReviewed || data.date;
+      const kwString = keywordsToSchemaString(pickKeywords(data));
+
+      if (kwString) {
+        schema.keywords = kwString;
+      }
 
       schema.author = {
         "@type": "Person",
