@@ -22,7 +22,8 @@
     "audit:exemples": "node scripts/audit-exemples.js",
     "audit:code": "node scripts/audit-code.js",
     "verify:prod": "node scripts/verify-prod-headers.js",
-    "cf:deploy-headers": "node scripts/deploy-kv-worker-headers.js",
+    "post-deploy": "node scripts/post-deploy.js",
+    "cf:deploy-headers": "node scripts/deploy-kv-worker-headers.js"
   },
   "keywords": [
     "eleventy",

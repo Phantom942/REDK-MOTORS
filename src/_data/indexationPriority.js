@@ -23,6 +23,8 @@ module.exports = {
     "/blog/",
     "/jeu-concours-gta-vi/",
     "/exemples/",
+    "/llms.txt",
+    "/ai.txt",
     "/vitry-sur-seine/",
     "/villejuif/",
     "/charenton-le-pont/",

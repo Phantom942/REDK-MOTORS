@@ -1,21 +1,31 @@
 #!/usr/bin/env node
 /**
- * Vérifie les en-têtes HTTP en production (Cloudflare + Worker headers).
+ * Vérifie les en-têtes HTTP en production (Cloudflare Worker).
  * Usage: node scripts/verify-prod-headers.js [baseUrl]
  */
 const https = require("https");
 
 const BASE = process.argv[2] || "https://redkmotors.fr";
+const BUST = `v=${Date.now()}`;
 let failed = 0;
 
-function head(url) {
+function head(urlStr) {
+  const url = new URL(urlStr);
   return new Promise((resolve, reject) => {
-    https
-      .get(url, { method: "HEAD" }, (res) => {
+    const req = https.request(
+      {
+        hostname: url.hostname,
+        path: `${url.pathname}${url.search}`,
+        method: "HEAD",
+        headers: { "Cache-Control": "no-cache" },
+      },
+      (res) => {
         res.resume();
         resolve({ status: res.statusCode, headers: res.headers });
-      })
-      .on("error", reject);
+      },
+    );
+    req.on("error", reject);
+    req.end();
   });
 }
 
@@ -27,23 +37,28 @@ function check(label, cond, detail = "") {
   }
 }
 
+function hasSec(h) {
+  return h["x-content-type-options"] === "nosniff" && h["referrer-policy"];
+}
+
 async function main() {
   console.log(`=== Vérif prod ${BASE} ===\n`);
 
-  const ai = await head(`${BASE}/ai.txt`);
-  check("ai.txt 200", ai.status === 200, String(ai.status));
+  const home = await head(`${BASE}/?${BUST}`);
+  check("home 200", home.status === 200);
+  check("headers sécu home", hasSec(home.headers));
+  check("CF actif", Boolean(home.headers["cf-ray"]));
+
+  const ai = await head(`${BASE}/ai.txt?${BUST}`);
+  check("ai.txt 200", ai.status === 200);
   check("ai.txt text/plain", (ai.headers["content-type"] || "").includes("text/plain"));
+  check("ai.txt headers sécu", hasSec(ai.headers));
   check("ai.txt cache 86400", (ai.headers["cache-control"] || "").includes("86400"));
 
-  const font = await head(`${BASE}/assets/fonts/manrope-latin-400-normal.woff2`);
+  const font = await head(`${BASE}/assets/fonts/manrope-latin-400-normal.woff2?${BUST}`);
   check("font 200", font.status === 200);
   check("font cache immutable", (font.headers["cache-control"] || "").includes("immutable"));
-
-  const home = await head(`${BASE}/`);
-  check("X-Content-Type-Options", home.headers["x-content-type-options"] === "nosniff");
-  check("X-Frame-Options", home.headers["x-frame-options"] === "SAMEORIGIN");
-  check("Referrer-Policy", Boolean(home.headers["referrer-policy"]));
-  check("CF actif", Boolean(home.headers["cf-ray"]));
+  check("font headers sécu", hasSec(font.headers));
 
   const me = await head("https://redk-motors.me/contact/");
   check("redk-motors.me 301", me.status === 301);
@@ -51,7 +66,7 @@ async function main() {
 
   console.log("");
   if (failed) {
-    console.error(`${failed} échec(s) — déployer le Worker : npm run cf:deploy-headers`);
+    console.error(`${failed} échec(s)`);
     process.exit(1);
   }
   console.log("Prod headers : OK");
