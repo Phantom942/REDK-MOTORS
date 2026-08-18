@@ -35,6 +35,9 @@ jobs:
       - name: Install
         run: npm ci
 
+      - name: Audit code (npm + blog + assets)
+        run: npm run audit:code
+
       - name: Build
         env:
           GOOGLE_PLACES_API_KEY: ${{ secrets.GOOGLE_PLACES_API_KEY }}
@@ -130,6 +133,8 @@ jobs:
           check_seo_asset "https://redkmotors.fr/llms.txt" "SIRET" "llms.txt (SIRET)"
           check_seo_asset "https://redkmotors.fr/llms-full.txt" "RED-K MOTORS" "llms-full.txt"
           check_seo_asset "https://redkmotors.fr/ai.txt" "Llms-Txt:" "ai.txt"
+          check_seo_asset "https://redkmotors.fr/" "fonts-local.css" "fonts self-hosted (fonts-local.css)"
+          check_seo_asset "https://redkmotors.fr/" "logo-redk-motors.webp" "logo WebP (picture)"
 
           if [ "$FAILED" -eq 1 ]; then
             echo "::error::Smoke test failed"

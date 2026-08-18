@@ -51,12 +51,9 @@
     <link rel="alternate" type="text/plain" href="{{ site.url }}/llms.txt" title="LLM context (llms.txt)" />
     <link rel="alternate" type="text/plain" href="{{ site.url }}/ai.txt" title="AI discovery (ai.txt)" />
 
-    {% set googleFontsUrl = "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" %}
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" href="{{ googleFontsUrl }}" as="style" />
-    <link rel="stylesheet" href="{{ googleFontsUrl }}" media="print" onload="this.media='all'" />
-    <noscript><link rel="stylesheet" href="{{ googleFontsUrl }}" /></noscript>
+    <link rel="preload" href="{{ '/assets/fonts/manrope-latin-400-normal.woff2' | cacheBust }}" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="{{ '/assets/fonts/space-grotesk-latin-700-normal.woff2' | cacheBust }}" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="{{ '/assets/css/fonts-local.css' | cacheBust }}" />
     <link rel="preload" href="{{ '/assets/css/styles.css' | cacheBust }}" as="style" fetchpriority="high" />
     <link rel="stylesheet" href="{{ '/assets/css/styles.css' | cacheBust }}" />
     <link rel="stylesheet" href="{{ '/assets/css/design-stitch.css' | cacheBust }}" media="print" onload="this.media='all'" />

@@ -24,3 +24,7 @@ console.log("Intro GEO:", slugs.length - introMismatch.length, "/", slugs.length
 if (introMismatch.length) console.log("Intro mismatch:", introMismatch.join(", "));
 console.log("Disclaimer:", slugs.length - noDisclaimer.length, "/", slugs.length);
 if (noDisclaimer.length) console.log("Sans disclaimer:", noDisclaimer.join(", "));
+
+if (introMismatch.length || noDisclaimer.length) {
+  process.exit(1);
+}

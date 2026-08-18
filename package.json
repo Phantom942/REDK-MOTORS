@@ -8,6 +8,8 @@
     "google:reviews": "node scripts/sync-google-reviews.js",
     "serve": "eleventy --serve",
     "dev": "eleventy --serve",
+    "fonts:setup": "node scripts/setup-local-fonts.js",
+    "logo:webp": "node scripts/generate-logo-webp.js",
     "favicon": "node scripts/generate-favicons.js",
     "og-image": "node scripts/generate-og-image.js",
     "google:place-id": "node scripts/resolve-google-place-id.js",
@@ -15,7 +17,9 @@
     "indexnow:ping": "node scripts/indexnow-ping.js",
     "indexnow:priority": "node scripts/indexnow-priority.js",
     "redirects:export-me": "node scripts/export-cloudflare-me-redirects.js",
-    "redirects:kv-shards": "node scripts/generate-kv-redirect-shards.js"
+    "redirects:kv-shards": "node scripts/generate-kv-redirect-shards.js",
+    "audit:blog": "node scripts/audit-blog-seo.js && node scripts/audit-blog-geo.js",
+    "audit:code": "node scripts/audit-code.js"
   },
   "keywords": [
     "eleventy",
@@ -26,8 +30,10 @@
   "license": "UNLICENSED",
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
+    "@fontsource/manrope": "^5.3.0",
+    "@fontsource/space-grotesk": "^5.3.0",
     "clean-css": "^5.3.3",
-    "sharp": "^0.33.5",
+    "sharp": "^0.35.3",
     "sharp-ico": "^0.1.5"
   }
 }
