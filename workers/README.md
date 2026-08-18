@@ -6,7 +6,7 @@ Gère les 301 internes sur `redkmotors.fr` (legacy `.html`, tags blog, garage-pr
 
 | Fichier | Rôle |
 |---|---|
-| `redkmotors-fr-redirect-kv.js` | Worker déployé (KV + règle `.html`) |
+| `redkmotors-fr-redirect-kv.js` | Worker déployé (KV redirects + headers `_headers`) |
 | `wrangler.toml` | Config Wrangler (routes + binding KV) |
 
 ## Régénérer les shards KV
@@ -32,4 +32,8 @@ cd workers
 npx wrangler deploy
 ```
 
-Ou via `scripts/deploy-fr-redirect-worker.mjs` (token API).
+Ou via MCP Cloudflare / script :
+
+```bash
+npm run cf:deploy-headers   # CLOUDFLARE_API_TOKEN requis hors Cursor
+```

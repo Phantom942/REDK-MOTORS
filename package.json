@@ -22,7 +22,7 @@
     "audit:exemples": "node scripts/audit-exemples.js",
     "audit:code": "node scripts/audit-code.js",
     "verify:prod": "node scripts/verify-prod-headers.js",
-    "cf:deploy-headers": "npx wrangler deploy --config workers/response-headers/wrangler.toml"
+    "cf:deploy-headers": "node scripts/deploy-kv-worker-headers.js",
   },
   "keywords": [
     "eleventy",
