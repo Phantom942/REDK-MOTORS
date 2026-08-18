@@ -3279,8 +3279,16 @@ body.design-stitch a[class*="btn--"] {
   color: #fff;
 }
 
-.design-stitch .contact-form__alt {
+.design-stitch .contact-form__alt,
+.design-stitch .contact-form__privacy {
   color: var(--stitch-on-variant);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  max-width: 36rem;
+}
+
+.design-stitch .contact-form__privacy a {
+  color: var(--stitch-primary);
 }
 
 /* ========== Pages conversion (thÃ¨me sombre unifiÃ©) ========== */
@@ -3680,7 +3688,19 @@ body.conversion-page .promesse__item p {
     background: #ffffff;
   }
 
-  /* Avis : rester en thÃ¨me sombre lisible (pas de texte #1f1f1f sur fond stitch) */
+  /* Avis + trust block : rester en thème sombre lisible (pas de texte #1f1f1f sur fond stitch) */
+  .design-stitch .trust-block--reviews-only,
+  .design-stitch .trust-block--reviews-only__inner,
+  .design-stitch .trust-block--reviews-only__text,
+  .design-stitch #trust-block-title {
+    color: var(--stitch-on-variant) !important;
+  }
+
+  .design-stitch .trust-block--reviews-only {
+    background: var(--stitch-bg-low);
+    border-color: var(--stitch-outline);
+  }
+
   .design-stitch .reviews-section,
   .design-stitch .reviews-section--compact {
     color: var(--stitch-on-surface);

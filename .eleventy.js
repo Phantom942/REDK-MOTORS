@@ -144,6 +144,8 @@ module.exports = function (eleventyConfig) {
       "/revision-auto-val-de-marne/",
       "/garage-ouvert-samedi-94/",
       "/pare-brise/",
+      "/prestations/",
+      "/exemples/",
       "/professionnels/taxis-vtc/",
       "/professionnels/chauffeurs-livreurs/",
       "/professionnels/artisans-flottes/",
@@ -157,9 +159,15 @@ module.exports = function (eleventyConfig) {
     } else if (tierB.includes(normalized)) {
       changefreq = "weekly";
       priority = "0.85";
-    } else if (normalized.includes("/blog/") || normalized.includes("/prestations/")) {
+    } else if (normalized.startsWith("/prestations/") && normalized !== "/prestations/") {
+      changefreq = "monthly";
+      priority = "0.75";
+    } else if (normalized.includes("/blog/")) {
       changefreq = "monthly";
       priority = "0.60";
+    } else if (normalized.startsWith("/professionnels/") && normalized !== "/professionnels/") {
+      changefreq = "weekly";
+      priority = "0.88";
     } else if (
       normalized === "/confidentialite/" ||
       normalized === "/cookies/" ||
@@ -387,6 +395,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("315a9d29deec456a9cd2ae11fe67e677.txt");
   eleventyConfig.addPassthroughCopy(".nojekyll");
   eleventyConfig.addPassthroughCopy("_redirects");
+  eleventyConfig.addPassthroughCopy("_headers");
 
   // Données globales accessibles partout
   eleventyConfig.addGlobalData("layout", "base.njk");
