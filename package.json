@@ -19,6 +19,7 @@
     "redirects:export-me": "node scripts/export-cloudflare-me-redirects.js",
     "redirects:kv-shards": "node scripts/generate-kv-redirect-shards.js",
     "audit:blog": "node scripts/audit-blog-seo.js && node scripts/audit-blog-geo.js",
+    "blog:refresh": "node scripts/refresh-blog-freshness.js",
     "audit:exemples": "node scripts/audit-exemples.js",
     "audit:code": "node scripts/audit-code.js",
     "verify:prod": "node scripts/verify-prod-headers.js",

@@ -164,10 +164,10 @@ module.exports = {
     directAnswer: {
       question: "Quand faut-il changer ses pneus ?",
       answer:
-        "Changez vos pneus dès que la profondeur de sculpture atteint 1,6 mm (limite légale), idéalement avant 3 mm pour la sécurité sur route mouillée. Remplacez aussi un pneu fissuré, hernie ou vieux de plus de 10 ans.",
+        "Le témoin d'usure (TWI) au fond des rainures indique la limite légale de 1,6 mm (article R314-1). Anticipez avec une pièce d'un euro (~3 mm) ; changez aussi un pneu fissuré, hernié ou vieux de plus de 10 ans.",
       facts: [
-        { label: "Limite légale", value: "1,6 mm de sculpture" },
-        { label: "Conseil sécurité", value: "Changer avant 3 mm" },
+        { label: "Limite légale", value: "1,6 mm (TWI)" },
+        { label: "Astuce", value: "Pièce 1 € ≈ 3 mm" },
       ],
     },
     relatedLinks: [
@@ -181,7 +181,15 @@ module.exports = {
       mainEntity: [
         {
           "@type": "Question",
-          name: "Comment mesurer l'usure des pneus ?",
+          name: "Où trouver le témoin d'usure (TWI) sur un pneu ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Au fond des rainures principales, repéré grâce au triangle ou aux lettres TWI sur le flanc. Quand la gomme est au niveau des bosses, vous atteignez 1,6 mm — limite légale.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Comment mesurer l'usure des pneus sans jauge ?",
           acceptedAnswer: {
             "@type": "Answer",
             text: "Utilisez un témoin d'usure intégré au pneu ou une jauge de profondeur. Des sculptures irrégulières peuvent aussi indiquer un problème de géométrie.",
@@ -449,19 +457,67 @@ module.exports = {
       ],
     },
   },
+  "essuie-glaces-usures-quand-changer": {
+    directAnswer: {
+      question: "Quand changer ses essuie-glaces ?",
+      answer:
+        "Contrairement à d'autres pièces d'usure, les essuie-glaces ne déclenchent aucun voyant au tableau de bord. Remplacez-les tous les 6 à 12 mois, ou dès traces, grincements ou caoutchouc fissuré.",
+      facts: [
+        { label: "Fréquence", value: "6–12 mois (selon climat)" },
+        { label: "Ennemi n°1", value: "UV / soleil (pas la pluie)" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/entretien/", label: "Entretien auto" },
+      { url: "/blog/preparer-voiture-hiver-conseils/", label: "Préparer sa voiture pour l'hiver" },
+      { url: "/blog/pare-brise-fissure-controle-technique/", label: "Pare-brise et CT" },
+      { url: "/contact/", label: "Prendre rendez-vous" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Comment savoir si les essuie-glaces sont usés ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Traces ou zones mal essuyées, grincement au passage, caoutchouc fissuré ou qui se détache : ce sont les signes les plus fréquents.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Pourquoi le soleil use-t-il les balais d'essuie-glace ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Les rayons UV assèchent le caoutchouc qui perd sa souplesse, même sur une voiture qui roule peu. Le gel hivernal accélère encore le phénomène.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Y a-t-il un voyant pour les essuie-glaces usés ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Non : aucun témoin au tableau de bord. L'usure se détecte uniquement à l'usage — d'où l'intérêt d'un remplacement préventif tous les 6 à 12 mois.",
+          },
+        },
+      ],
+    },
+  },
   "preparer-voiture-hiver-conseils": {
     directAnswer: {
       question: "Comment préparer sa voiture pour l'hiver ?",
       answer:
-        "Vérifiez la batterie, les pneus (hiver ou 4 saisons adaptés), l'antigel, l'éclairage et les essuie-glaces. Un bilan hivernal en atelier prend environ une heure.",
+        "Batterie (test si > 4 ans), liquide de refroidissement avec antigel dosé (réfractomètre −25 °C), pneus hiver ou 4 saisons 3PMSF, éclairage et essuie-glaces. Ces trois points — batterie, liquides, pneus — lâchent le plus souvent avec le froid.",
       facts: [
-        { label: "Saison", value: "Bilan recommandé avant les premières gelées" },
-        { label: "Zone", value: "Ivry-sur-Seine · Paris sud" },
+        { label: "Batterie", value: "Test recommandé si > 4 ans" },
+        { label: "Pneus", value: "Freinage ÷2 sur neige vs été" },
       ],
     },
     relatedLinks: [
       { url: "/pneumatiques/", label: "Pneus hiver / 4 saisons" },
       { url: "/entretien/", label: "Entretien" },
+      { url: "/blog/essuie-glaces-usures-quand-changer/", label: "Essuie-glaces usés" },
       { url: "/contact/", label: "Bilan hivernal" },
     ],
     faqSchema: {
@@ -476,6 +532,99 @@ module.exports = {
             text: "Consultez la réglementation en vigueur pour votre zone. Même sans obligation locale, des pneus adaptés améliorent fortement l'adhérence par temps froid.",
           },
         },
+        {
+          "@type": "Question",
+          name: "À partir de quel âge tester la batterie avant l'hiver ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Si la batterie a plus de quatre ans, un test de charge (tension + CCA) avant les premières gelées est recommandé. À 0 °C, elle perd environ 30 % de capacité.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Comment vérifier la protection antigel du liquide de refroidissement ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Un test au réfractomètre en atelier indique la température de protection, généralement jusqu'à −25 °C. Un mélange trop dilué peut geler et endommager le moteur.",
+          },
+        },
+      ],
+    },
+  },
+  "pousser-voiture-automatique-demarrer-mythe": {
+    directAnswer: {
+      question: "Peut-on pousser une voiture automatique pour la faire démarrer ?",
+      answer:
+        "Pousser une voiture automatique pour la faire démarrer ne fonctionnera jamais : le convertisseur de couple a besoin que le moteur tourne déjà. Sur une manuelle, le geste n'est plus vraiment recommandé non plus (pot catalytique).",
+      facts: [
+        { label: "Automatique", value: "Physiquement impossible" },
+        { label: "Solution", value: "Câbles, booster ou assistance" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/blog/batterie-morte-matin-que-faire/", label: "Batterie morte le matin" },
+      { url: "/blog/voiture-ne-demarre-pas-causes/", label: "Voiture ne démarre pas" },
+      { url: "/mecanique/", label: "Mécanique & électricité" },
+      { url: "/contact/", label: "Prendre rendez-vous" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Pourquoi pousser une automatique ne fonctionne pas ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Le convertisseur de couple est hydraulique : il faut que le moteur tourne pour créer la pression. Pousser la voiture ne transmet aucune force au moteur.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Peut-on pousser une manuelle pour démarrer ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "C'était possible sur les anciennes voitures, mais ce n'est plus recommandé : le carburant non brûlé peut endommager le pot catalytique.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Quelle solution en cas de batterie à plat ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Câbles de démarrage sur un autre véhicule, booster portable ou assistance routière — quelle que soit la boîte de vitesses.",
+          },
+        },
+      ],
+    },
+  },
+  "pression-pneus-verification-tpms": {
+    directAnswer: {
+      question: "À quelle fréquence vérifier la pression des pneus ?",
+      answer:
+        "Une fois par mois, à froid, avant de rouler. La pression recommandée figure sur la portière conducteur ou la trappe à carburant — le voyant TPMS n'alerte qu'en cas d'écart important.",
+      facts: [
+        { label: "Fréquence", value: "1× par mois, pneus à froid" },
+        { label: "Atelier", value: "RED-K MOTORS · Ivry (94)" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/pneumatiques/", label: "Pneus & géométrie" },
+      { url: "/blog/quand-changer-pneus-usure-securite/", label: "Usure et témoin TWI" },
+      { url: "/contact/", label: "Prendre rendez-vous" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Le TPMS suffit-il pour surveiller la pression des pneus ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Non. Le TPMS n'alerte qu'en cas d'écart important et peut rester silencieux si les pneus sont légèrement sous-gonflés. Un contrôle manuel à froid, une fois par mois, reste indispensable.",
+          },
+        },
       ],
     },
   },
@@ -483,9 +632,9 @@ module.exports = {
     directAnswer: {
       question: "Quand recharger la climatisation de voiture ?",
       answer:
-        "Rechargez quand l'air est moins froid, qu'il y a une odeur d'humidité ou tous les 2 à 4 ans. Une recharge professionnelle inclut test d'étanchéité et gaz adapté au véhicule.",
+        "Une clim qui faiblit perd naturellement 10 à 15 % de gaz par an, même sans fuite apparente. Rechargez après test d'étanchéité, par un professionnel certifié — les kits grand public sont illégaux et masquent souvent une fuite.",
       facts: [
-        { label: "Signes", value: "Air tiède · mauvaise odeur · baisse de performance" },
+        { label: "Perte naturelle", value: "10–15 % de gaz / an" },
         { label: "Garage", value: "RED-K MOTORS · Ivry (94)" },
       ],
     },
@@ -516,6 +665,14 @@ module.exports = {
         },
         {
           "@type": "Question",
+          name: "Peut-on recharger sa clim soi-même avec un kit du commerce ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Non : la manipulation du fluide frigorigène est réservée aux professionnels certifiés. Les kits masquent souvent une fuite sans la réparer et peuvent endommager le compresseur.",
+          },
+        },
+        {
+          "@type": "Question",
           name: "À quelle fréquence recharger la climatisation ?",
           acceptedAnswer: {
             "@type": "Answer",
@@ -529,10 +686,10 @@ module.exports = {
     directAnswer: {
       question: "Faut-il réparer une rayure sur la carrosserie ?",
       answer:
-        "Rayure profonde jusqu'au métal ou bosse : réparez vite pour éviter la rouille. Rayure légère sur vernis : souvent esthétique, mais un polissage ou retouche localisée protège la peinture.",
+        "Test du doigt : creux = métal déformé, carrosserie nécessaire ; peinture seule écaillée = retouche. Traité dans le mois : quelques dizaines d'euros ; ignoré deux ans avec rouille : jusqu'à 5× plus cher.",
       facts: [
+        { label: "Urgence", value: "Métal exposé → rouille en semaines" },
         { label: "Atelier", value: "RED-K MOTORS · Ivry (94)" },
-        { label: "Devis", value: "Gratuit · lun–sam 9h–19h" },
       ],
     },
     relatedLinks: [
@@ -620,20 +777,11 @@ module.exports = {
   "courroie-distribution-quand-changer-94": {
     directAnswer: {
       question: "Quand changer la courroie de distribution ?",
-      answer: "Suivez l'intervalle constructeur (souvent 60 000 à 180 000 km ou 5 à 10 ans). Ne repoussez pas : une courroie qui casse peut détruire le moteur sur de nombreux modèles.",
+      answer:
+        "Remplacement préventif : 300 à 900 €. Après rupture sur moteur à interférence : 3 000 à 8 000 € — jusqu'à 8× plus cher. Intervalle constructeur (souvent 60 000–160 000 km ou 5–10 ans), sans signe avant-coureur fiable.",
       facts: [
-        {
-          label: "Risque rupture",
-          value: "Cas moteur possible",
-        },
-        {
-          label: "Fourchette kit",
-          value: "550 – 1 500 € selon moteur",
-        },
-        {
-          label: "Atelier",
-          value: "RED-K MOTORS · Ivry (94)",
-        },
+        { label: "Préventif", value: "300–900 € (kit + MO)" },
+        { label: "Après rupture", value: "3 000–8 000 €+" },
       ],
     },
     relatedLinks: [
@@ -654,6 +802,14 @@ module.exports = {
       "@context": "https://schema.org",
       "@type": "FAQPage",
       mainEntity: [
+        {
+          "@type": "Question",
+          name: "Combien coûte une réparation après rupture de distribution ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Sur un moteur à interférence, la réparation après casse peut grimper entre 3 000 et 8 000 € selon les dégâts — jusqu'à 8 fois le coût d'un remplacement préventif.",
+          },
+        },
         {
           "@type": "Question",
           name: "Chaîne ou courroie : même entretien ?",
@@ -693,6 +849,7 @@ module.exports = {
     },
     relatedLinks: [
       { url: "/diagnostic/", label: "Diagnostic auto" },
+      { url: "/blog/fumee-echappement-couleur-signification/", label: "Fumée échappement : couleurs" },
       { url: "/blog/fumee-bleue-echappement-causes/", label: "Fumée bleue échappement" },
       { url: "/blog/joint-culasse-signes-symptomes/", label: "Joint de culasse" },
     ],
@@ -722,6 +879,53 @@ module.exports = {
           acceptedAnswer: {
             "@type": "Answer",
             text: "Limitez les trajets et faites diagnostiquer rapidement. Avec surchauffe ou voyant température : arrêt et remorquage.",
+          },
+        },
+      ],
+    },
+  },
+  "fumee-echappement-couleur-signification": {
+    directAnswer: {
+      question: "Que signifie la couleur de la fumée à l'échappement ?",
+      answer:
+        "Blanche fine au démarrage : condensation, rien d'anormal. Blanche épaisse persistante, bleue ou noire : diagnostic nécessaire — la fumée anormale est à l'origine de plus de 4 contre-visites sur 10 au contrôle technique.",
+      facts: [
+        { label: "Blanche épaisse", value: "Possible fuite LDR / joint culasse" },
+        { label: "Bleue", value: "Huile qui brûle dans le moteur" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/diagnostic/", label: "Diagnostic auto" },
+      { url: "/blog/fumee-blanche-echappement-que-faire/", label: "Fumée blanche" },
+      { url: "/blog/fumee-bleue-echappement-causes/", label: "Fumée bleue" },
+      { url: "/blog/controle-antipollution-refuse-que-faire/", label: "Antipollution refusé" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Fumée blanche au démarrage : est-ce normal ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Oui si elle est fine et disparaît en quelques minutes par temps froid (condensation). Épaisse et persistante à moteur chaud : consultez un garage.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Que signifie une fumée bleue à l'échappement ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Elle indique presque toujours de l'huile moteur qui brûle dans la chambre de combustion — consommation d'huile anormale à diagnostiquer.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Une fumée noire peut-elle faire échouer le CT ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Oui : fumée excessive ou anormale peut entraîner un défaut majeur au contrôle technique. Traitez la cause (filtre à air, EGR, injecteurs…) avant le passage.",
           },
         },
       ],
@@ -777,10 +981,10 @@ module.exports = {
     directAnswer: {
       question: "À quelle fréquence changer le liquide de frein ?",
       answer:
-        "En général tous les 2 ans ou 40 000 à 60 000 km (le premier critère atteint). Le liquide absorbe l'humidité même véhicule à l'arrêt — un niveau correct ne garantit pas un fluide sain.",
+        "Un liquide DOT 4 neuf bout à 230°C ; avec 3 % d'eau absorbée (~2 ans), cette température chute à 155-165°C. Purge tous les 2 ans ; contrôle annuel du taux d'humidité recommandé.",
       facts: [
-        { label: "Norme", value: "DOT 3, DOT 4 ou DOT 5.1 selon constructeur" },
-        { label: "Atelier", value: "RED-K MOTORS · Ivry (94)" },
+        { label: "DOT 4 neuf", value: "Point d'ébullition ≈ 230°C" },
+        { label: "Après ~2 ans", value: "155-165°C avec 3 % d'eau" },
       ],
     },
     relatedLinks: [
@@ -792,6 +996,14 @@ module.exports = {
       "@context": "https://schema.org",
       "@type": "FAQPage",
       mainEntity: [
+        {
+          "@type": "Question",
+          name: "Pourquoi le point d'ébullition du liquide de frein baisse-t-il ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Le liquide absorbe l'humidité de l'air (hygroscopique). Un DOT 4 neuf bout à ~230°C ; avec 3 % d'eau (~2 ans), il peut chuter à 155-165°C, avec risque de pédale molle sous forte sollicitation.",
+          },
+        },
         {
           "@type": "Question",
           name: "Pourquoi purger le liquide de frein tous les 2 ans ?",
@@ -806,6 +1018,99 @@ module.exports = {
           acceptedAnswer: {
             "@type": "Answer",
             text: "DOT 3 et DOT 4 (glycol) sont en général compatibles, mais respectez toujours la spécification du réservoir et du carnet d'entretien. Ne mélangez jamais avec du DOT 5 silicone.",
+          },
+        },
+      ],
+    },
+  },
+  "laver-moteur-karcher-risques": {
+    directAnswer: {
+      question: "Peut-on laver le moteur au Kärcher ?",
+      answer:
+        "Sur un véhicule récent, un jet Kärcher mal dirigé peut endommager calculateurs et capteurs sensibles à l'humidité — plusieurs centaines d'euros de réparation. Sur mécanique ancienne et très encrassée, le Kärcher reste possible à condition d'être méthodique ; sinon, le nettoyage à sec est plus sûr.",
+      facts: [
+        { label: "Distance", value: "40–60 cm minimum" },
+        { label: "Alternative", value: "Dégraissant + chiffons (sans eau)" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/blog/fuite-huile-moteur-causes-que-faire/", label: "Fuite huile moteur" },
+      { url: "/entretien/", label: "Entretien auto" },
+      { url: "/contact/", label: "Prendre rendez-vous" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Quels organes protéger avant un lavage moteur au jet ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Alternateur, batterie et boîtier à fusibles avec des sacs plastique. Ne redémarrez pas le moteur juste après : laissez sécher plusieurs heures.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Quelle alternative sans eau pour nettoyer le moteur ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Nettoyant frein en spray pour une tache localisée, ou dégraissant moteur + pinceau + chiffons microfibres pour un nettoyage complet sans risque électrique.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Pourquoi nettoyer le compartiment moteur ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Un moteur propre permet de repérer immédiatement une fuite d'huile ou de liquide de refroidissement, invisible sur un bloc encrassé.",
+          },
+        },
+      ],
+    },
+  },
+  "gestes-quotidien-usent-voiture": {
+    directAnswer: {
+      question: "Quels gestes au volant usent prématurément la voiture ?",
+      answer:
+        "Pied posé sur l'embrayage, main sur le levier de vitesses et passage marche arrière trop brutal : trois habitudes qui usent embrayage, tringlerie et boîte bien plus vite que la normale.",
+      facts: [
+        { label: "Embrayage", value: "≈ 6 h MO au remplacement" },
+        { label: "Zone", value: "Ivry-sur-Seine · Paris sud" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/entretien/", label: "Entretien mécanique" },
+      { url: "/blog/embrayage-qui-patine-causes/", label: "Embrayage qui patine" },
+      { url: "/blog/prix-changement-embrayage-94/", label: "Prix embrayage 94" },
+      { url: "/contact/", label: "Diagnostic atelier" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Garder le pied sur l'embrayage abîme-t-il la voiture ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Oui : une pression continue use prématurément le disque et le mécanisme. Dès que vous n'embrayez plus, reposez le pied sur le repos-pied.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Peut-on rouler la main sur le levier de vitesses ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "C'est une mauvaise habitude : la pression permanente sur la tringlerie use les éléments internes de la boîte. Gardez les deux mains sur le volant quand c'est possible.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Pourquoi attendre à l'arrêt complet avant la marche arrière ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Enchaîner marche avant et arrière sans immobilisation complète force les synchroniseurs et l'embrayage. Quelques secondes d'attente évitent une usure coûteuse.",
           },
         },
       ],
@@ -875,11 +1180,11 @@ module.exports = {
     directAnswer: {
       question: "Quels sont les signes d'usure d'un amortisseur voiture ?",
       answer:
-        "Rebonds après un dos d'âne, plongée au freinage, claquements sur bosses, voiture qui flotte en virage, pneus usés en vagues, fuite d'huile sur l'amortisseur, ESP/ABS qui interviennent plus tôt.",
+        "Un cognement sourd à chaque bosse ou un rebond qui n'en finit pas : signes d'amortisseurs fatigués. Usés à 50 %, la distance de freinage peut allonger de 2 à 3 m à 50 km/h.",
       facts: [
         { label: "Test maison", value: "1 rebond OK · 2+ = à contrôler" },
+        { label: "Freinage", value: "+2–3 m à 50 km/h si usés 50 %" },
         { label: "Règle atelier", value: "Remplacement par paire (essieu)" },
-        { label: "Garage", value: "RED-K MOTORS · Ivry (94)" },
       ],
     },
     relatedLinks: [
@@ -1041,16 +1346,12 @@ module.exports = {
   "fap-dpf-encrasse-trajets-ville": {
     directAnswer: {
       question: "Pourquoi mon FAP s'encrasse en ville ?",
-      answer: "Les trajets courts empêchent la régénération (passive ou active) de se terminer. Le filtre se colmate, le voyant moteur s'allume et la puissance baisse.",
+      answer:
+        "La régénération exige 550–600 °C et ~20 min à régime soutenu — impossible en ville. Voyant fixe : surveiller ; clignotant : consulter vite. Rouler occasionnellement sur voie rapide limite le risque.",
       facts: [
-        {
-          label: "Conseil",
-          value: "20–30 min à régime stable 1×/semaine",
-        },
-        {
-          label: "Diagnostic",
-          value: "Valise + colmatage · Ivry",
-        },
+        { label: "Température", value: "550–600 °C pour brûler la suie" },
+        { label: "Trajet utile", value: "10–20 min à ~3 000 tr/min" },
+        { label: "Diagnostic", value: "Valise + colmatage · Ivry" },
       ],
     },
     relatedLinks: [
@@ -1451,16 +1752,11 @@ module.exports = {
   "disques-frein-voiles-usure-signes": {
     directAnswer: {
       question: "Comment reconnaître un disque de frein voilé ?",
-      answer: "Volant qui vibre au freinage, pédale qui pulse, bruits métalliques : signes typiques. Mesurez l'épaisseur : en dessous du minimum constructeur, remplacement obligatoire.",
+      answer:
+        "Vibration dans le volant à chaque freinage : signe typique d'un disque voilé. Si la vibration remonte dans le volant, elle vient généralement de l'avant ; si elle se ressent surtout dans la pédale, plutôt de l'arrière. Ne pas attendre si ça s'intensifie.",
       facts: [
-        {
-          label: "Durée de vie",
-          value: "2–3 jeux de plaquettes",
-        },
-        {
-          label: "Atelier",
-          value: "Freinage · Ivry (94)",
-        },
+        { label: "Cause fréquente", value: "Surchauffe après freinage intense" },
+        { label: "Atelier", value: "Freinage · Ivry (94)" },
       ],
     },
     relatedLinks: [
@@ -1558,10 +1854,10 @@ module.exports = {
     directAnswer: {
       question: "Quand passer aux pneus hiver en Île-de-France ?",
       answer:
-        "Dès que les températures descendent régulièrement sous 7 °C, généralement entre novembre et mars. La loi Montagne ne s'applique pas au 94, mais les pneus hiver ou 4 saisons améliorent l'adhérence par temps froid et humide.",
+        "En IDF, pas d'obligation locale au quotidien. Loi Montagne (34 départements, 1er nov.–31 mars) : seuls les pneus 3PMSF sont conformes depuis nov. 2024 — le M+S seul ne suffit plus.",
       facts: [
-        { label: "Seuil adhérence", value: "Sous 7 °C" },
-        { label: "Période IDF", value: "Nov.–mars (selon météo)" },
+        { label: "IDF quotidien", value: "Conseillé sous 7 °C" },
+        { label: "Loi Montagne", value: "3PMSF obligatoire depuis 2024" },
       ],
     },
     relatedLinks: [
@@ -1573,6 +1869,14 @@ module.exports = {
       "@context": "https://schema.org",
       "@type": "FAQPage",
       mainEntity: [
+        {
+          "@type": "Question",
+          name: "Le marquage M+S suffit-il pour la Loi Montagne en 2024 ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Non depuis le 1er novembre 2024 : seuls les pneus 3PMSF (flocon dans un pic) sont reconnus conformes en zone Loi Montagne. Le M+S seul ne suffit plus.",
+          },
+        },
         {
           "@type": "Question",
           name: "Pneus 4 saisons ou pneus hiver en région parisienne ?",
@@ -2102,6 +2406,54 @@ module.exports = {
           acceptedAnswer: {
             "@type": "Answer",
             text: "Non sous le MIN : risque de casse moteur. Faites l'appoint avec la bonne référence puis diagnostic rapidement chez RED-K MOTORS à Ivry.",
+          },
+        },
+      ],
+    },
+  },
+  "consommation-voiture-plus-hiver": {
+    directAnswer: {
+      question: "Pourquoi la voiture consomme plus en hiver ?",
+      answer:
+        "À −5 °C, la consommation peut augmenter d'environ 10 % par rapport à 20 °C ; sur les trajets courts, jusqu'à 20 %. L'air froid, l'huile épaissie et les pneus sous-gonflés pèsent plus que le chauffage habitacle.",
+      facts: [
+        { label: "À −5 °C", value: "+10 % vs 20 °C" },
+        { label: "Trajets courts", value: "Jusqu'à +20 %" },
+        { label: "Chauffage", value: "Impact marginal (thermique)" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/blog/preparer-voiture-hiver-conseils/", label: "Préparer sa voiture pour l'hiver" },
+      { url: "/blog/pression-pneus-verification-tpms/", label: "Pression des pneus" },
+      { url: "/diagnostic/", label: "Diagnostic auto" },
+      { url: "/contact/", label: "Prendre rendez-vous" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Le chauffage fait-il consommer beaucoup en hiver ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Sur un moteur thermique, le chauffage puise dans la chaleur déjà produite par le moteur : son impact sur la consommation reste marginal. L'air froid, l'huile épaissie et les pneus sous-gonflés pèsent davantage.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "De combien augmente la consommation par grand froid ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Environ 10 % à −5 °C par rapport à 20 °C, et jusqu'à 20 % sur les trajets courts où le moteur n'atteint jamais sa température optimale.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Comment limiter la surconsommation hivernale ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Vérifier la pression des pneus mensuellement, anticiper la révision, tester la batterie avant l'hiver et enchaîner plusieurs courses en un seul trajet quand c'est possible.",
           },
         },
       ],
@@ -3028,6 +3380,53 @@ module.exports = {
       ],
     },
   },
+  "checklist-voiture-avant-vacances": {
+    directAnswer: {
+      question: "Que vérifier sur sa voiture avant les vacances ?",
+      answer:
+        "Niveaux (huile, refroidissement, frein, lave-glace), pneus et roue de secours, éclairage complet et climatisation. Vingt minutes avant le départ évitent la majorité des pannes sur autoroute.",
+      facts: [
+        { label: "Durée", value: "≈ 20 min de contrôle" },
+        { label: "Atelier", value: "RED-K MOTORS · Ivry (94)" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/entretien/", label: "Entretien & révision" },
+      { url: "/pneumatiques/", label: "Pneus & géométrie" },
+      { url: "/blog/combien-temps-entre-deux-vidanges/", label: "Intervalle vidange" },
+      { url: "/contact/", label: "Contrôle avant départ" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Faut-il faire réviser sa voiture avant les vacances ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Un contrôle express (niveaux, pneus, éclairage, clim) suffit pour un départ serein. Si la révision est due ou que vous partez loin, un bilan en atelier reste le plus sûr.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Quels niveaux vérifier avant un long trajet ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Huile moteur, liquide de refroidissement, liquide de frein et lave-glace — moteur froid, véhicule à plat, entre repères min et max.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Pourquoi tester la clim avant les vacances ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Une clim qui souffle tiède ou qui sent le moisi révèle souvent un problème avant les grosses chaleurs. Mieux vaut le traiter avant le départ que sur l'autoroute.",
+          },
+        },
+      ],
+    },
+  },
   "clim-odeur-moisi-que-faire": {
     directAnswer: {
       question: "Que faire si la clim sent le moisi ?",
@@ -3219,10 +3618,10 @@ module.exports = {
     directAnswer: {
       question: "Faut-il faire la révision chez le concessionnaire pour garder la garantie ?",
       answer:
-        "Non. Un garage indépendant peut réaliser l'entretien si les pièces et fluides sont conformes au plan constructeur et que le carnet est tamponné avec facture détaillée.",
+        "Non : un règlement européen garantit le libre entretien chez un garage indépendant. Carnet tamponné + facture détaillée = garantie conservée et meilleure revente (jusqu'à +15 %).",
       facts: [
-        { label: "Obligation", value: "Respecter intervalles + normes constructeur" },
-        { label: "Preuve", value: "Facture + carnet d'entretien tamponné" },
+        { label: "Base légale", value: "Règlement européen n° 461/2010" },
+        { label: "Revente", value: "Carnet complet : jusqu'à +15 %" },
       ],
     },
     relatedLinks: [
@@ -3244,6 +3643,14 @@ module.exports = {
         },
         {
           "@type": "Question",
+          name: "Un carnet d'entretien complet augmente-t-il la valeur de revente ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Oui : un carnet complet et à jour peut augmenter la valeur de revente jusqu'à environ 15 % selon les estimations professionnelles. Un carnet absent ou incomplet refroidit les acheteurs.",
+          },
+        },
+        {
+          "@type": "Question",
           name: "Que risque-t-on en allant uniquement en concession ?",
           acceptedAnswer: {
             "@type": "Answer",
@@ -3257,10 +3664,11 @@ module.exports = {
     directAnswer: {
       question: "Que faire si la batterie est morte le matin ?",
       answer:
-        "Vérifiez qu'aucun équipement n'a été laissé allumé, serrez les câbles de batterie, puis tentez un démarrage assisté si vous savez le faire. Si la panne revient le lendemain, faites tester batterie et alternateur en atelier.",
+        "Une voiture à plat après un week-end sans rouler n'est pas toujours une batterie morte : un courant de fuite (accessoire oublié, dashcam) peut vider la batterie en 48–72 h. Testez avant d'acheter une batterie neuve.",
       facts: [
+        { label: "Veille normale", value: "10–50 mA" },
+        { label: "Fuite suspecte", value: "Batterie vide en 48–72 h" },
         { label: "Durée de vie", value: "4–5 ans en moyenne" },
-        { label: "Atelier", value: "RED-K MOTORS · Ivry (94)" },
       ],
     },
     relatedLinks: [
@@ -3506,6 +3914,99 @@ module.exports = {
           acceptedAnswer: {
             "@type": "Answer",
             text: "Mesure des pressions haute/basse et test commande compresseur tranchent. Recharge sans diagnostic = gaspillage si le compresseur ne compresse plus ou si le circuit fuit.",
+          },
+        },
+      ],
+    },
+  },
+  "rouler-reserve-pompe-carburant": {
+    directAnswer: {
+      question: "Rouler sur la réserve abîme-t-il la pompe à essence ?",
+      answer:
+        "Occasionnellement, non. En revanche, conduire souvent avec le réservoir presque vide accélère l'usure de la pompe : elle est refroidie par le carburant qui l'entoure. Faites le plein dès le premier quart de réservoir.",
+      facts: [
+        { label: "Source", value: "Bosch — systèmes carburant" },
+        { label: "Bon réflexe", value: "Plein avant le voyant réserve" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/entretien/", label: "Entretien auto" },
+      { url: "/blog/voiture-ne-demarre-pas-causes/", label: "Voiture ne démarre pas" },
+      { url: "/contact/", label: "Diagnostic atelier" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Peut-on rouler sur la réserve de temps en temps ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Une fois occasionnellement, ce n'est pas dramatique. C'est la répétition — réservoir bas chronique — qui use prématurément la pompe à carburant.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Pourquoi la pompe souffre avec peu de carburant ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "La pompe est immergée dans le carburant qui la refroidit. Niveau bas = moins de refroidissement, usure accélérée et risque d'aspirer les impuretés du fond du réservoir.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Le diesel est-il plus sensible à la réserve ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Oui : rouler à réserve sur diesel favorise l'aspiration d'eau et de boues au fond du réservoir, ce qui peut encrasser le filtre et provoquer des ratés ou une panne.",
+          },
+        },
+      ],
+    },
+  },
+  "rouille-carrosserie-zones-surveiller": {
+    directAnswer: {
+      question: "Où surveiller la rouille sur une carrosserie ?",
+      answer:
+        "La rouille ne commence presque jamais au milieu d'une portière bien en vue. Inspectez en priorité bas de caisse, passages de roue et cadres de portières — idéalement après chaque hiver.",
+      facts: [
+        { label: "Zones clés", value: "Bas de caisse · passages de roue · portes" },
+        { label: "Signe sonore", value: "Craquement inhabituel en conduisant" },
+      ],
+    },
+    relatedLinks: [
+      { url: "/carrosserie/", label: "Carrosserie" },
+      { url: "/blog/rayure-carrosserie-quand-reparer/", label: "Rayure : quand réparer" },
+      { url: "/blog/peinture-localisee-retouche-carrosserie/", label: "Peinture localisée" },
+      { url: "/contact/", label: "Inspection carrosserie" },
+    ],
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Les voitures récentes rouillent-elles ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Oui, même avec une carrosserie galvanisée : la protection s'amenuise avec le temps, les impacts de gravillons et les rayures jusqu'au métal.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Quel bruit indique une rouille avancée ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Un craquement inhabituel en ouvrant une portière ou en passant un dos-d'âne peut trahir une corrosion avancée sur le châssis — à faire contrôler.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Comment prévenir la rouille au quotidien ?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Lavez le bas de caisse régulièrement, traitez vite toute rayure jusqu'au métal, inspectez les zones sensibles après l'hiver.",
           },
         },
       ],

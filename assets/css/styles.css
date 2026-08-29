@@ -5057,6 +5057,12 @@ img[loading="lazy"].loaded {
   border-radius: 4px;
 }
 
+.blog-article .article-updated,
+.blog-card__updated {
+  font-weight: 600;
+  color: var(--color-gray-dark);
+}
+
 .blog-article .article-header h1 {
   font-family: var(--font-primary);
   font-size: clamp(1.65rem, 4.2vw, 2.35rem);

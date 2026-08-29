@@ -37,6 +37,13 @@ module.exports = function (eleventyConfig) {
   // Filtre JSON pour JSON-LD
   eleventyConfig.addFilter("json", (obj) => JSON.stringify(obj));
 
+  eleventyConfig.addFilter("formatDateFr", (isoDate) => {
+    if (!isoDate) return "";
+    const d = new Date(`${isoDate}T12:00:00`);
+    if (Number.isNaN(d.getTime())) return String(isoDate);
+    return d.toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" });
+  });
+
   /** Nœud JSON-LD sans @context (pour un seul @graph par page). */
   eleventyConfig.addFilter("jsonLdNode", (obj) => {
     if (!obj || typeof obj !== "object") return "null";
@@ -180,12 +187,13 @@ module.exports = function (eleventyConfig) {
     return { changefreq, priority };
   });
 
-  // Collection blog triée par date décroissante (hors brouillons)
+  // Collection blog triée par fraîcheur (lastReviewed ou date de publication)
   eleventyConfig.addCollection("blog", function (collectionApi) {
+    const freshness = (item) => new Date(item.data.lastReviewed || item.data.date);
     return collectionApi
       .getFilteredByGlob(["src/blog/articles/*.njk", "src/blog/drafts/*.njk"])
       .filter((item) => !item.data.draft)
-      .sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
+      .sort((a, b) => freshness(b) - freshness(a));
   });
 
   // Brouillons : pas de page générée

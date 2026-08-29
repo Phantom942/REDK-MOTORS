@@ -13,7 +13,10 @@
     <div class="container">
       <div class="article-meta">
         {% if category %}<span class="article-category">{{ category }}</span>{% endif %}
-        <time datetime="{{ date }}">{{ dateDisplay or date }}</time>
+        <time datetime="{{ date }}">{% if lastReviewed and lastReviewed > date %}Publié le {% endif %}{{ dateDisplay or date }}</time>
+        {% if lastReviewed and lastReviewed > date %}
+        <time datetime="{{ lastReviewed }}" class="article-updated">Mis à jour le {{ lastReviewed | formatDateFr }}</time>
+        {% endif %}
         {% if readingTime %}<span class="article-reading-time">{{ readingTime }}</span>{% endif %}
       </div>
       <h1>{{ title | replace(" | Blog RED-K MOTORS", "") | replace(" | RED-K MOTORS", "") | replace(" | Garage Ivry (94)", "") | replace(" | Garage Ivry", "") }}</h1>
