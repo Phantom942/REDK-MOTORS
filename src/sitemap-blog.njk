@@ -14,7 +14,7 @@ eleventyExcludeFromCollections: true
 {%- for post in collections.blog %}
 {%- set normalizedUrl = post.url | replace('/index.html', '/') %}
 {%- set meta = normalizedUrl | sitemapMeta %}
-{%- set lastmodStr = post.data.date | dateToIso %}
+{%- set lastmodStr = (post.data.lastReviewed or post.data.date) | dateToIso %}
   <url>
     <loc>{{ site.url }}{{ normalizedUrl }}</loc>
     <lastmod>{{ lastmodStr | default(buildDate) }}</lastmod>

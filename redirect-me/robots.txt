@@ -3,3 +3,6 @@ User-agent: *
 Allow: /
 
 Sitemap: https://redkmotors.fr/sitemap.xml
+Sitemap: https://redkmotors.fr/sitemap-pages.xml
+Sitemap: https://redkmotors.fr/sitemap-blog.xml
+Sitemap: https://redkmotors.fr/sitemap-exemples.xml
