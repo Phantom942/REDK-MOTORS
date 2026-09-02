@@ -1,4 +1,4 @@
-module.exports = {
+﻿module.exports = {
   pillars: [
     {
       icon: "💰",
@@ -24,7 +24,7 @@ module.exports = {
       icon: "🚕",
       title: "Garage taxi & VTC Ivry-sur-Seine (94) | Entretien prioritaire | RED-K MOTORS",
       description:
-        "Garage taxi et VTC à Ivry-sur-Seine : entretien rapide, créneaux prioritaires, tarifs pro. Devis avant travaux · Lun–sam 9h–19h · 06 48 74 56 68.",
+        "Garage taxi et VTC à Ivry-sur-Seine : entretien rapide, créneaux prioritaires, tarifs pro. Devis avant travaux · Mar–sam 9h–19h · 06 48 74 56 68.",
       h1: "Taxis & VTC : votre véhicule remis sur la route rapidement",
       heroKicker: "Espace Pro · Taxis & VTC",
       heroDesc:
@@ -85,7 +85,7 @@ module.exports = {
         },
         {
           question: "Travaillez-vous le samedi ?",
-          answer: "Oui, l'atelier est ouvert du lundi au samedi, de 9h à 19h.",
+          answer: "Oui, l'atelier est ouvert du mardi au samedi, de 9h à 19h.",
         },
         {
           question: "Le devis est-il communiqué avant travaux ?",
@@ -378,7 +378,7 @@ module.exports = {
         },
         {
           title: "Flexibilité horaire",
-          description: "Ouvert lun–sam 9h–19h pour s'adapter à votre emploi du temps.",
+          description: "Ouvert mar–sam 9h–19h pour s'adapter à votre emploi du temps.",
         },
         {
           title: "Confiance & transparence",

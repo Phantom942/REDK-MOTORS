@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Contenu des landing pages — services + Google Ads.
  * URLs campagnes : adLandingUrls.js
  */
@@ -21,7 +21,7 @@ const TARIFS_FAQ_BY_KEY = {
     "Vidange : exemple sur /exemples/prix-vidange-moteur/ — devis ferme selon huile homologuée et filtres.",
 };
 const PROCESS_STEPS = [
-  { title: "Contactez-nous", desc: "Téléphone, WhatsApp ou formulaire — réponse en journée lun–sam 9h–19h." },
+  { title: "Contactez-nous", desc: "Téléphone, WhatsApp ou formulaire — réponse en journée mar–sam 9h–19h." },
   { title: "Devis clair", desc: "Inspection au véhicule, explication et chiffrage avant toute intervention." },
   { title: "Intervention validée", desc: "Les travaux démarrent uniquement après votre accord." },
 ];
@@ -62,7 +62,7 @@ const landingPages = {
     seoTitle: "Diagnostic auto à Ivry-sur-Seine",
     seoParagraphs: [
       "Voyant moteur, panne électronique ou recherche de panne mécanique : notre atelier réalise le diagnostic auto sur toutes marques, avec explication claire des codes défaut avant toute réparation.",
-      "Garage accessible depuis Vitry-sur-Seine, Villejuif, Paris 13 et le Val-de-Marne — 9 rue Michelet, lun–sam 9h–19h.",
+      "Garage accessible depuis Vitry-sur-Seine, Villejuif, Paris 13 et le Val-de-Marne — 9 rue Michelet, mar–sam 9h–19h.",
     ],
     seoFooter:
       "Besoin d'un diagnostic rapide ? Appelez ou passez directement : devis écrit gratuit, réparation possible sur place après validation.",
@@ -142,7 +142,7 @@ const landingPages = {
       "La clim ne refroidit plus ou sent mauvais ? Diagnostic du circuit avant recharge — réparation clim sur devis.",
     ],
     seoFooter:
-      "Vidange souvent le jour même sur rendez-vous. Garage à Ivry (94), ouvert lun–sam 9h–19h.",
+      "Vidange souvent le jour même sur rendez-vous. Garage à Ivry (94), ouvert mar–sam 9h–19h.",
   },
   carrosserie: {
     videoSrc: "carrosserie.mp4",
@@ -202,7 +202,7 @@ const landingPages = {
     faqs: [
       { question: "Proposez-vous un devis avant les réparations ?", answer: "Oui. Devis écrit gratuit — aucune intervention sans votre validation." },
       { question: "Intervenez-vous sur toutes les marques ?", answer: "Oui, essence et diesel, particuliers et professionnels." },
-      { question: "Comment prendre rendez-vous ?", answer: "Par téléphone au 06 48 74 56 68, WhatsApp ou formulaire contact. Lun–sam 9h–19h." },
+      { question: "Comment prendre rendez-vous ?", answer: "Par téléphone au 06 48 74 56 68, WhatsApp ou formulaire contact. Mar–sam 9h–19h." },
     ],
     seoTitle: "Réparation auto et mécanique générale",
     seoParagraphs: [

@@ -1,11 +1,11 @@
-/**
+﻿/**
  * Texte SEO unique par page ville indexable — FAQ, highlights et accroches locales.
  */
 module.exports = {
   "garage-ivry": {
     seoTitle: "Garage automobile Ivry-sur-Seine — 9 rue Michelet (94)",
     seoParagraphs: [
-      "RED-K MOTORS, garage automobile au 9 rue Michelet, 94200 Ivry-sur-Seine. Ouvert lun–sam 9h–19h. Tél. 06 48 74 56 68. Parking dépôt véhicule sur place.",
+      "RED-K MOTORS, garage automobile au 9 rue Michelet, 94200 Ivry-sur-Seine. Ouvert mar–sam 9h–19h. Tél. 06 48 74 56 68. Parking dépôt véhicule sur place.",
       "Ce qu'on fait vraiment ici : diagnostic OBD, vidange, freins, pneus/géométrie, clim, distribution, embrayage, carrosserie, pare-brise. Devis écrit avant travaux — pas de surprise.",
       "Accès depuis Vitry, Villejuif, Paris 13, Charenton, Maisons-Alfort. Multimarque essence/diesel. RDV recommandé, sans RDV possible selon charge atelier.",
     ],
@@ -19,13 +19,13 @@ module.exports = {
       "Parking dépôt sur place (9 rue Michelet)",
       "Devis écrit avant toute intervention",
       "Multimarque essence et diesel",
-      "Lun–sam 9h–19h — réponse en journée",
+      "Mar–sam 9h–19h — réponse en journée",
     ],
     faqs: [
       {
         question: "Quels sont vos horaires à Ivry ?",
         answer:
-          "Lun–sam 9h–19h, sans coupure. RDV conseillé pour garantir un créneau ; on essaie aussi de prendre les urgences dans la journée.",
+          "Mar–sam 9h–19h, sans coupure. RDV conseillé pour garantir un créneau ; on essaie aussi de prendre les urgences dans la journée.",
       },
       {
         question: "Y a-t-il une place pour laisser la voiture ?",
@@ -61,7 +61,7 @@ module.exports = {
       "Accès rapide depuis Vitry (centre ou Stalingrad)",
       "Navette possible selon disponibilité",
       "Diagnostic avant devis — pas de pièce changée « au feeling »",
-      "Lun–sam 9h–19h",
+      "Mar–sam 9h–19h",
     ],
     faqs: [
       {
@@ -133,7 +133,7 @@ module.exports = {
       "Voyant moteur, freins ou révision : valise multimarques et explication claire avant réparation.",
       "Flottes VTC et particuliers — créneau souvent sous 48 h sur RDV.",
     ],
-    seoFooter: "Garage ouvert lun–sam 9h–19h — RDV recommandé, sans RDV possible selon charge.",
+    seoFooter: "Garage ouvert mar–sam 9h–19h — RDV recommandé, sans RDV possible selon charge.",
     heroDesc:
       "Depuis Villejuif, l'atelier Ivry est à quelques minutes. Mécanique, entretien, freins — devis expliqué avant travaux.",
     introHeading: "Depuis Villejuif",
@@ -174,7 +174,7 @@ module.exports = {
       "Pneus, freins, clim, pare-brise : prestations complètes avec pièces adaptées au modèle.",
       "Devis écrit — pas d'intervention sans votre accord.",
     ],
-    seoFooter: "Accès périph' ou Ivry-centre — lun–sam 9h–19h.",
+    seoFooter: "Accès périph' ou Ivry-centre — mar–sam 9h–19h.",
     heroDesc:
       "Sud du 13e : l'atelier est à Ivry, à deux pas du périph'. Entretien, freins, diagnostic sans galère de stationnement parisien.",
     introHeading: "Depuis Paris 13e",
@@ -184,7 +184,7 @@ module.exports = {
       "Accès depuis Porte d'Ivry / Choisy",
       "Pas de surcoût « intra-muros »",
       "Pare-brise et carrosserie sur devis photo",
-      "Lun–sam 9h–19h",
+      "Mar–sam 9h–19h",
     ],
     faqs: [
       {
@@ -223,7 +223,7 @@ module.exports = {
       "Accès rapide depuis Charenton / Bercy",
       "Carrosserie : devis photo WhatsApp",
       "Clim et freins — contrôle avant remplacement",
-      "Lun–sam 9h–19h",
+      "Mar–sam 9h–19h",
     ],
     faqs: [
       {
@@ -262,7 +262,7 @@ module.exports = {
       "~10 min depuis Alfortville",
       "Distribution et embrayage sur devis ferme",
       "Montage pneus été/hiver sur RDV",
-      "Lun–sam 9h–19h",
+      "Mar–sam 9h–19h",
     ],
     faqs: [
       {
@@ -301,7 +301,7 @@ module.exports = {
       "Commune limitrophe — trajet court",
       "Révision carnet et vidange",
       "Contrôle freins avant long trajet",
-      "Lun–sam 9h–19h",
+      "Mar–sam 9h–19h",
     ],
     faqs: [
       {
@@ -339,7 +339,7 @@ module.exports = {
       "Proche métro ligne 7",
       "VTC et particuliers",
       "Diagnostic valise multimarques",
-      "Lun–sam 9h–19h",
+      "Mar–sam 9h–19h",
     ],
     faqs: [
       {
@@ -374,7 +374,7 @@ module.exports = {
       "Atelier central dans le 94 (Ivry)",
       "Révision carnet ou entretien ciblé",
       "Devis avant travaux",
-      "Lun–sam 9h–19h",
+      "Mar–sam 9h–19h",
     ],
   },
 };

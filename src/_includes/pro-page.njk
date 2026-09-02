@@ -1,4 +1,4 @@
-{% set waUrl = "https://wa.me/" ~ (site.phone | replace("+", "")) ~ "?text=" ~ (profil.whatsappText | urlencode) %}
+﻿{% set waUrl = "https://wa.me/" ~ (site.phone | replace("+", "")) ~ "?text=" ~ (profil.whatsappText | urlencode) %}
 {% set heroActions %}
 <a class="btn btn--primary" href="tel:{{ site.phone }}" data-track="click_call" data-track-pos="hero_pro">Appeler pour un devis Pro</a>
 <a class="btn btn--secondary" href="{{ waUrl }}" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp" data-track-pos="hero_pro">WhatsApp Pro</a>
@@ -24,7 +24,7 @@
     <aside class="pro-callout" aria-label="Contact rapide">
       <p class="pro-callout__label">Réponse rapide</p>
       <a class="pro-callout__phone" href="tel:{{ site.phone }}" data-track="click_call" data-track-pos="callout_pro">{{ site.phoneDisplay }}</a>
-      <p class="pro-callout__hours">Lun–sam · 9h–19h · Ivry-sur-Seine</p>
+      <p class="pro-callout__hours">Mar–sam · 9h–19h · Ivry-sur-Seine</p>
       <a class="btn btn--primary pro-callout__btn" href="{{ waUrl }}" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp" data-track-pos="callout_pro">WhatsApp Pro</a>
     </aside>
   </div>
@@ -142,7 +142,7 @@
 <section class="cta-block cta-block--pro" aria-labelledby="cta-pro-{{ profil.key }}" data-animate="slide-up">
   <div class="container cta-block__inner">
     <h2 id="cta-pro-{{ profil.key }}" class="cta-block__title">Devenir partenaire RED-K MOTORS</h2>
-    <p class="cta-block__sub">Lun–sam 9h–19h — réponse rapide par téléphone ou WhatsApp.</p>
+    <p class="cta-block__sub">Mar–sam 9h–19h — réponse rapide par téléphone ou WhatsApp.</p>
     <div class="cta-block__buttons">
       <a href="tel:{{ site.phone }}" class="btn btn--primary cta-block__btn" data-track="click_call" data-track-pos="cta_pro">Appeler {{ site.phoneDisplay }}</a>
       <a href="{{ waUrl }}" class="btn btn--secondary cta-block__btn" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp" data-track-pos="cta_pro">WhatsApp Pro</a>

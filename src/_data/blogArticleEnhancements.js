@@ -1,4 +1,4 @@
-/** Données SEO centralisées par slug d'article (permalink /blog/{slug}/). */
+﻿/** Données SEO centralisées par slug d'article (permalink /blog/{slug}/). */
 module.exports = {
   "voyant-moteur-allume-que-faire": {
     directAnswer: {
@@ -404,7 +404,7 @@ module.exports = {
       facts: [
         {
           label: "Horaires",
-          value: "Lun–sam 9h–19h",
+          value: "Mar–sam 9h–19h",
         },
         {
           label: "Adresse",
@@ -1452,7 +1452,7 @@ module.exports = {
         "Vidange, filtres (huile, air, habitacle, carburant), contrôle freins, courroie distribution ou chaîne selon plan, liquides (frein, refroidissement) et points de sécurité. Le détail exact est dans le carnet constructeur.",
       facts: [
         { label: "Palier", value: "60 000 km — révision majeure fréquente" },
-        { label: "Devis", value: "Gratuit · lun–sam 9h–19h · Ivry" },
+        { label: "Devis", value: "Gratuit · mar–sam 9h–19h · Ivry" },
       ],
     },
     relatedLinks: [
@@ -2097,7 +2097,7 @@ module.exports = {
           name: "Le devis plaquettes est-il gratuit à Ivry ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Oui : RED-K MOTORS mesure l'usure devant vous et établit un devis ferme avant toute intervention, lun–sam 9h–19h.",
+            text: "Oui : RED-K MOTORS mesure l'usure devant vous et établit un devis ferme avant toute intervention, mar–sam 9h–19h.",
           },
         },
       ],

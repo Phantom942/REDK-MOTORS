@@ -1,4 +1,4 @@
-const SITE_URL = "https://redkmotors.fr";
+﻿const SITE_URL = "https://redkmotors.fr";
 const { breadcrumbTrail } = require("../_data/priceExamplesHub.js");
 
 function buildBreadcrumb(data) {
@@ -55,7 +55,7 @@ function buildFaqSchema(data) {
   const devisFaq = {
     name: "Le devis est-il gratuit ?",
     text: ex.isGeneric
-      ? `Oui. Inspection et devis ferme pour ${ex.serviceLabel || "cette prestation"} avant intervention — lun–sam 9h–19h, Ivry-sur-Seine.`
+      ? `Oui. Inspection et devis ferme pour ${ex.serviceLabel || "cette prestation"} avant intervention — mar–sam 9h–19h, Ivry-sur-Seine.`
       : `Oui. Devis ferme pour ${ex.serviceLabel || "cette prestation"} sur ${ex.brand} ${ex.model} après inspection — rien sans votre accord.`,
   };
 

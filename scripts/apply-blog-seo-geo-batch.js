@@ -137,7 +137,7 @@ function fixConclusion(body) {
       if (ctaIdx > -1) {
         out =
           out.slice(0, ctaIdx) +
-          `<section id="conclusion">\n  <h2>Quand passer à l'atelier</h2>\n  <p>${DISCLAIMER}</p>\n  <p><strong>RED-K MOTORS</strong>, 9 rue Michelet, Ivry-sur-Seine (94) — lun–sam 9h–19h. <a href="/contact/">Prendre rendez-vous</a> pour un diagnostic ou un devis avant travaux.</p>\n</section>\n\n` +
+          `<section id="conclusion">\n  <h2>Quand passer à l'atelier</h2>\n  <p>${DISCLAIMER}</p>\n  <p><strong>RED-K MOTORS</strong>, 9 rue Michelet, Ivry-sur-Seine (94) — mar–sam 9h–19h. <a href="/contact/">Prendre rendez-vous</a> pour un diagnostic ou un devis avant travaux.</p>\n</section>\n\n` +
           out.slice(ctaIdx);
       }
     }

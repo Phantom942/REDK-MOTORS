@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Enrichissements UI/SEO pour pages local-seo-page.njk (~66 pages).
  * Fusionne citySeoContent, catégories thématiques et overrides par pageKey.
  */
@@ -8,7 +8,7 @@ const PROCESS_HIGHLIGHTS = [
   "Devis écrit avant intervention",
   "Atelier à Ivry-sur-Seine (94)",
   "Essence et diesel, toutes marques",
-  "Lun–sam 9h–19h — réponse en journée",
+  "Mar–sam 9h–19h — réponse en journée",
 ];
 
 const CATEGORY_HIGHLIGHTS = {
@@ -16,49 +16,49 @@ const CATEGORY_HIGHLIGHTS = {
     "Contrôle usure réel (plaquettes / disques)",
     "Pas de forfait imposé sans mesure",
     "Devis écrit avant travaux",
-    "Lun–sam 9h–19h",
+    "Mar–sam 9h–19h",
   ],
   diagnostic: [
     "Valise multimarques — codes expliqués",
     "Priorisation de ce qui bloque vraiment",
     "Devis avant réparation",
-    "Lun–sam 9h–19h",
+    "Mar–sam 9h–19h",
   ],
   revision: [
     "Carnet constructeur respecté",
     "Huiles et filtres adaptés au moteur",
     "Vidange souvent le jour même sur RDV",
-    "Lun–sam 9h–19h",
+    "Mar–sam 9h–19h",
   ],
   pneumatiques: [
     "Montage, équilibrage, géométrie",
     "Stock été/hiver selon arrivages",
     "Contrôle pression et usure",
-    "Lun–sam 9h–19h",
+    "Mar–sam 9h–19h",
   ],
   vidange: [
     "Huile homologuée constructeur",
     "Filtre neuf + contrôle niveaux",
     "30 min à 1 h en général",
-    "Lun–sam 9h–19h",
+    "Mar–sam 9h–19h",
   ],
   carrosserie: [
     "Devis sur photo WhatsApp",
     "Débosselage et peinture localisée",
     "Documents pour dossier assurance",
-    "Lun–sam 9h–19h",
+    "Mar–sam 9h–19h",
   ],
   clim: [
     "Test d'étanchéité avant recharge",
     "Pas de « remplissage à l'aveugle »",
     "Devis avant intervention",
-    "Lun–sam 9h–19h",
+    "Mar–sam 9h–19h",
   ],
   mecanique: [
     "Diagnostic puis devis écrit",
     "Distribution, embrayage, turbo, EGR…",
     "Multimarque essence et diesel",
-    "Lun–sam 9h–19h",
+    "Mar–sam 9h–19h",
   ],
 };
 
@@ -97,7 +97,7 @@ const CATEGORIES = {
     seoTitle: "Diagnostic auto à Ivry-sur-Seine",
     seoParagraphs: [
       "Lecture valise multimarques, recherche de panne et explication claire avant réparation. Voyant moteur, panne électronique ou mécanique : devis écrit gratuit.",
-      "Atelier accessible depuis Vitry, Villejuif, Paris 13 et tout le 94 — lun–sam 9h–19h.",
+      "Atelier accessible depuis Vitry, Villejuif, Paris 13 et tout le 94 — mar–sam 9h–19h.",
     ],
     seoProblems: [
       { text: "Voyant moteur", url: "/blog/voyant-moteur-allume-que-faire/" },
@@ -244,7 +244,7 @@ const CATEGORIES = {
       "Flottes VTC et taxis acceptées",
       "Entretien préventif planifié",
       "Devis avant intervention",
-      "Lun–sam 9h–19h",
+      "Mar–sam 9h–19h",
     ],
   },
   garageProximity: {
@@ -266,7 +266,7 @@ const CATEGORIES = {
     reviewKey: "mecanique",
     seoTitle: "Garage RED-K MOTORS — Ivry-sur-Seine (94)",
     seoParagraphs: [
-      "Devis gratuit, diagnostic et réparations multimarques. Ouvert lun–sam 9h–19h — réponse rapide par téléphone ou WhatsApp.",
+      "Devis gratuit, diagnostic et réparations multimarques. Ouvert mar–sam 9h–19h — réponse rapide par téléphone ou WhatsApp.",
       "Atelier 9 rue Michelet : entretien, freinage, mécanique, pneus et carrosserie.",
     ],
     highlights: PROCESS_HIGHLIGHTS,
@@ -380,7 +380,7 @@ const PAGE_OVERRIDES = {
     seoTitle: "Voiture qui ne démarre plus — diagnostic démarrage 94",
     seoParagraphs: [
       "Batterie, alternateur, démarreur, antivol ou panne électronique : on teste dans l'ordre pour éviter de changer une pièce inutile. Diagnostic clair avant devis.",
-      "Urgences démarrage à Ivry-sur-Seine sur rendez-vous — lun–sam 9h–19h.",
+      "Urgences démarrage à Ivry-sur-Seine sur rendez-vous — mar–sam 9h–19h.",
     ],
     seoProblems: [
       { text: "Causes demarrage", url: "/blog/voiture-ne-demarre-pas-causes/" },
@@ -451,7 +451,7 @@ const PAGE_OVERRIDES = {
     seoTitle: "Révision voiture à Ivry-sur-Seine — carnet respecté",
     seoParagraphs: [
       "Révision selon préconisations constructeur : vidange, filtres, niveaux, points de sécurité. On vous dit ce qui est dû maintenant et ce qui peut attendre — distinct d'une simple vidange express.",
-      "Idéal avant long trajet ou contrôle technique — créneaux lun–sam à Ivry.",
+      "Idéal avant long trajet ou contrôle technique — créneaux mar–sam à Ivry.",
     ],
     seoProblems: [
       { text: "Checklist 60 000 km", url: "/blog/revision-60000-km-checklist/" },
@@ -523,7 +523,7 @@ const PAGE_OVERRIDES = {
     seoTitle: "Réparation auto Paris sud — atelier à Ivry",
     seoParagraphs: [
       "Depuis Paris 13, 14, 15 ou le sud de la capitale : atelier accessible pour mécanique, freinage, diagnostic et entretien. Même exigence qu'en centre-ville, sans la galère logistique.",
-      "Devis gratuit, créneaux lun–sam — 9 rue Michelet, Ivry-sur-Seine.",
+      "Devis gratuit, créneaux mar–sam — 9 rue Michelet, Ivry-sur-Seine.",
     ],
   },
 };

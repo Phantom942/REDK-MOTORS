@@ -1,4 +1,4 @@
-{% if exemple.isGeneric %}
+﻿{% if exemple.isGeneric %}
   {% set modelLabel = "votre véhicule" %}
   {% set breadcrumbLabel = exemple.searchQuery | default(exemple.serviceLabel) %}
   {% set kicker = "Guide prix · Tous modèles · Ivry (94)" %}
@@ -133,7 +133,7 @@
           <li><strong>Contact</strong> — appel ou WhatsApp, photos utiles pour un premier avis.</li>
           <li><strong>Inspection</strong> — diagnostic offert, explication claire avant devis.</li>
           <li><strong>Devis ferme</strong> — vous validez seulement si le montant vous convient.</li>
-          <li><strong>Intervention</strong> — lun–sam 9h–19h, 9 rue Michelet, Ivry-sur-Seine.</li>
+          <li><strong>Intervention</strong> — mar–sam 9h–19h, 9 rue Michelet, Ivry-sur-Seine.</li>
         </ol>
       </section>
 
@@ -168,7 +168,7 @@
             <h2 id="exemple-atelier-title">{{ (exemple.shortService or exemple.serviceLabel) | capitalize }} à Ivry-sur-Seine</h2>
             <p>
               RED-K MOTORS, 9 rue Michelet, 94200 Ivry-sur-Seine — accessible depuis Vitry, Villejuif, Paris 13 et le Val-de-Marne.
-              Lun–sam 9h–19h. <strong>Diagnostic offert à chaque intervention.</strong>
+              Mar–sam 9h–19h. <strong>Diagnostic offert à chaque intervention.</strong>
             </p>
           </div>
           <p class="exemple-atelier__actions">

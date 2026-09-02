@@ -1,4 +1,4 @@
----
+﻿---
 layout: base.njk
 pagination:
   data: prestations.all
@@ -8,7 +8,7 @@ pagination:
 permalink: "/prestations/{{ prestation.slug }}/"
 eleventyComputed:
   title: "{{ prestation.name }} à Ivry | RED-K MOTORS"
-  description: "{{ prestation.lp.heroDesc | safe }} Devis écrit avant travaux · lun–sam 9h–19h."
+  description: "{{ prestation.lp.heroDesc | safe }} Devis écrit avant travaux · mar–sam 9h–19h."
   pageKey: "prestation-{{ prestation.slug }}"
 ---
 

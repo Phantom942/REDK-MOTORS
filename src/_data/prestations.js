@@ -1,4 +1,4 @@
-const reviewPages = require("./reviewPages.js");
+﻿const reviewPages = require("./reviewPages.js");
 const seoEnhance = require("./prestationSeoEnhancements.js");
 
 const TARIFS_FAQ =
@@ -740,7 +740,7 @@ const SEO_CONTENT = {
       "Changement de plaquettes de frein et disques sur devis ferme, après mesure d'usure à l'atelier — sans remplacement abusif.",
       "Grincement, pédale molle ou voyant ABS : contrôle gratuit avant intervention.",
     ],
-    seoFooter: "Freinage à Ivry-sur-Seine (94) — lun–sam 9h–19h.",
+    seoFooter: "Freinage à Ivry-sur-Seine (94) — mar–sam 9h–19h.",
   },
   "recharge-clim": {
     seoTitle: "Climatisation auto",
@@ -787,7 +787,7 @@ function buildLp(service, category) {
 
   return {
     heroTitle: ad.heroTitle || `${service.name} à Ivry — Devis gratuit`,
-    heroKicker: ad.heroKicker || `${category} · Lun–sam 9h–19h · ☎ 06 48 74 56 68`,
+    heroKicker: ad.heroKicker || `${category} · Mar–sam 9h–19h · ☎ 06 48 74 56 68`,
     heroDesc:
       ad.heroDesc ||
       `${service.name} à Ivry : diagnostic, devis écrit, travaux uniquement après votre accord. Réponse en journée.`,
@@ -831,8 +831,8 @@ function buildLp(service, category) {
           {
             question: "Comment prendre rendez-vous ?",
             answer: DIAGNOSTIC_ONLY_SLUGS.has(service.slug)
-              ? "Appelez le 06 48 74 56 68 ou WhatsApp avec plaque + symptômes — créneau diagnostic souvent le jour même lun–sam 9h–19h."
-              : "06 48 74 56 68, WhatsApp (photos utiles) ou formulaire contact — réponse en journée, lun–sam 9h–19h.",
+              ? "Appelez le 06 48 74 56 68 ou WhatsApp avec plaque + symptômes — créneau diagnostic souvent le jour même mar–sam 9h–19h."
+              : "06 48 74 56 68, WhatsApp (photos utiles) ou formulaire contact — réponse en journée, mar–sam 9h–19h.",
           },
           ...extraFaqs,
         ],
