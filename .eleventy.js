@@ -68,6 +68,16 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addFilter("urlencode", (value) => encodeURIComponent(String(value ?? "")));
 
+  /** Note Google affichée (ex. 4,9). */
+  eleventyConfig.addFilter("googleRatingDisplay", (rating) => {
+    const n = Number(rating);
+    if (!Number.isFinite(n)) return "—";
+    return n.toFixed(1).replace(".", ",");
+  });
+
+  /** Nombre d'étoiles pleines pour la note Google (ex. 4,9 → 5). */
+  eleventyConfig.addFilter("googleRatingStars", (rating) => Math.round(Number(rating) || 0));
+
   const { resolvePageReviews } = require("./src/_data/reviewResolver.js");
   eleventyConfig.addFilter("resolvePageReviews", (pageId, googleReviews, count, overrideAuthors) => {
     return resolvePageReviews(pageId, googleReviews, count || 2, overrideAuthors);

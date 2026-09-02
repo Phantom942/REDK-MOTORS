@@ -9,15 +9,15 @@
         aria-label="Note Google : {{ site.googleReviews.rating }} sur 5, {{ site.googleReviews.count }} avis"
       >
         <div class="reviews-section__score-wrap">
-          <span class="reviews-section__score" aria-hidden="true">{{ site.googleReviews.rating }}.0</span>
+          <span class="reviews-section__score" aria-hidden="true">{{ site.googleReviews.rating | googleRatingDisplay }}</span>
           <div class="reviews-section__stars-main" aria-hidden="true">
-            {% for i in range(0, site.googleReviews.rating) %}<span class="reviews-section__star">★</span>{% endfor %}
+            {% for i in range(0, site.googleReviews.rating | googleRatingStars) %}<span class="reviews-section__star">★</span>{% endfor %}
           </div>
         </div>
         <div class="reviews-section__badge-google">
           <span class="reviews-section__google-mark">G</span>
           <span class="reviews-section__badge-text">
-            <span class="reviews-section__badge-score">{{ site.googleReviews.rating }}.0</span>
+            <span class="reviews-section__badge-score">{{ site.googleReviews.rating | googleRatingDisplay }}</span>
             <span class="reviews-section__badge-sep">/</span>
             <span class="reviews-section__badge-count">{{ site.googleReviews.count }} avis</span>
           </span>

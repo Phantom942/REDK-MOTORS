@@ -19,7 +19,7 @@ eleventyExcludeFromCollections: true
 - Adresse : {{ site.addressFull }}, France
 - Horaires : {{ site.openingHours }}
 - SIRET : 103 462 537 00012
-- Avis Google : {{ site.googleReviews.rating }}/5 ({{ site.googleReviews.count }} avis)
+- Avis Google : {{ site.googleReviews.rating | googleRatingDisplay }}/5 ({{ site.googleReviews.count }} avis)
 - Google Maps : {{ site.googleReviews.mapsPlaceUrl }}
 - YouTube : {{ site.social.youtubeUrl }}
 - Fiche complète : {{ site.url }}/llms-full.txt

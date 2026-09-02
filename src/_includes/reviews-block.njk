@@ -11,15 +11,15 @@
         data-count="{{ site.googleReviews.count }}"
       >
         <div class="reviews-section__score-wrap">
-          <span class="reviews-section__score" id="google-reviews-score" aria-hidden="true">{{ site.googleReviews.rating }}.0</span>
+          <span class="reviews-section__score" id="google-reviews-score" aria-hidden="true">{{ site.googleReviews.rating | googleRatingDisplay }}</span>
           <div class="reviews-section__stars-main" id="google-reviews-stars" aria-hidden="true">
-            {% for i in range(0, site.googleReviews.rating) %}<span class="reviews-section__star">★</span>{% endfor %}
+            {% for i in range(0, site.googleReviews.rating | googleRatingStars) %}<span class="reviews-section__star">★</span>{% endfor %}
           </div>
         </div>
         <div class="reviews-section__badge-google">
           <span class="reviews-section__google-mark">G</span>
           <span class="reviews-section__badge-text">
-            <span class="reviews-section__badge-score" id="google-reviews-badge-score">{{ site.googleReviews.rating }}.0</span>
+            <span class="reviews-section__badge-score" id="google-reviews-badge-score">{{ site.googleReviews.rating | googleRatingDisplay }}</span>
             <span class="reviews-section__badge-sep">/</span>
             <span class="reviews-section__badge-count" id="google-reviews-badge-count">{{ site.googleReviews.count }} avis</span>
           </span>
