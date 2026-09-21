@@ -14,9 +14,9 @@
   "addressFull": "9 rue Michelet, 94200 Ivry-sur-Seine",
   "wazeUrl": "https://ul.waze.com/ul?venue_id=1573352.15602449.41728604&overview=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location",
   "region": "Île-de-France",
-  "openingHours": "Mar–sam 9h–19h",
+  "openingHours": "Lun–sam 9h–19h",
   "openingHoursSchema": {
-    "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
     "opens": "09:00",
     "closes": "19:00"
   },
@@ -122,13 +122,13 @@
     "youtubeUrl": "https://www.youtube.com/@REDKMOTORS",
     "youtubeChannelId": "UCaOY34TzoCzsBq4UrO8Db9A"
   },
-  "description": "Garage automobile RED-K MOTORS à Ivry-sur-Seine (94) : mécanique, diagnostic, entretien, freins et pneus. Devis gratuit · mar–sam 9h–19h · 9 rue Michelet · 06 48 74 56 68.",
+  "description": "Garage automobile RED-K MOTORS à Ivry-sur-Seine (94) : mécanique, diagnostic, entretien, freins et pneus. Devis gratuit · lun–sam 9h–19h · 9 rue Michelet · 06 48 74 56 68.",
   "googleReviews": {
     "shareUrl": "https://share.google/Gqy4uMiYFgsxEFCd5",
     "knowledgeGraphId": "/g/11y__lnrkb",
     "mapsFeatureId": "0x47e67337fbef5277:0xe6bcd3ccf746dd16",
     "rating": 4.9,
-    "count": 53,
+    "count": 42,
     "placeId": "ChIJd1Lv-zdz5kcRFt1G98zTvOY",
     "placeQuery": "RED-K MOTORS, 9 rue Michelet, 94200 Ivry-sur-Seine, France",
     "maxReviews": 4,
