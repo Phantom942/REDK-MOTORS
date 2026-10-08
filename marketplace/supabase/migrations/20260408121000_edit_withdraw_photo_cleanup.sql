@@ -31,6 +31,7 @@ begin
   update public.listing_photos
   set public_storage_path = null, published_version = null
   where listing_id = l.id;
+  -- Purge CDN/cache : serve-listing-photo renvoie 404 (max-age 60s)
 
   insert into public.moderation_events (listing_id, version_number, actor_id, action, internal_note)
   values (l.id, v, auth.uid(), 'submitted', 'owner_began_edit_after_publish');
@@ -60,6 +61,7 @@ begin
   update public.listing_photos
   set public_storage_path = null, published_version = null
   where listing_id = l.id;
+  -- Purge CDN/cache : serve-listing-photo renvoie 404 (max-age 60s)
 
   insert into public.moderation_events (listing_id, version_number, actor_id, action)
   values (l.id, l.current_version, auth.uid(), 'withdrawn');

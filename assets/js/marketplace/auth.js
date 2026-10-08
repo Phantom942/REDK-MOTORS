@@ -1,11 +1,6 @@
 import { getSupabase, isConfigured } from "./client.js";
 import { CONSENT_TEXT, readMarketplaceConfig } from "./config.js";
-import {
-  clearPendingConsents,
-  consentPayload,
-  flushPendingConsents,
-  queuePendingConsentsFromForm,
-} from "./consents.js";
+import { signupMetadataFromForm } from "./consents.js";
 import { isRecoveryFlow, loginReasonMessage, redirectToLogin, runWithNetwork } from "./session.js";
 
 function showMessage(root, type, text) {
@@ -31,11 +26,6 @@ export async function mountAuthApp(root) {
 
   const { data: sessionData } = await supabase.auth.getSession();
   if (sessionData.session && mode !== "reset") {
-    const flushed = await flushPendingConsents(supabase, sessionData.session.user.id);
-    if (flushed.ok && flushed.applied) {
-      window.location.href = `${readMarketplaceConfig().paths.account}?view=dashboard&consents=applied`;
-      return;
-    }
     window.location.href = `${readMarketplaceConfig().paths.account}?view=dashboard`;
     return;
   }
@@ -53,19 +43,6 @@ export async function mountAuthApp(root) {
   const panel = root.querySelector("#mp-auth-panel");
   if (reason && loginReasonMessage(reason)) {
     panel.insertAdjacentHTML("beforeend", `<div class="mp-alert mp-alert--info" role="status">${loginReasonMessage(reason)}</div>`);
-  }
-
-  async function afterLogin(session) {
-    const flushed = await flushPendingConsents(supabase, session.user.id);
-    if (!flushed.ok) {
-      showMessage(
-        panel,
-        "error",
-        "Connexion réussie, mais vos préférences commerciales n'ont pas pu être synchronisées. Mettez-les à jour dans « Préférences ».",
-      );
-      return;
-    }
-    window.location.href = `${readMarketplaceConfig().paths.account}?view=dashboard${flushed.applied ? "&consents=applied" : ""}`;
   }
 
   async function renderLogin() {
@@ -91,7 +68,7 @@ export async function mountAuthApp(root) {
         showMessage(panel, "error", "Connexion impossible. Vérifiez email et mot de passe.");
         return;
       }
-      await afterLogin(data.session);
+      window.location.href = `${readMarketplaceConfig().paths.account}?view=dashboard`;
     });
   }
 
@@ -116,53 +93,26 @@ export async function mountAuthApp(root) {
     panel.querySelector("#mp-signup-form").addEventListener("submit", async (e) => {
       e.preventDefault();
       const fd = new FormData(e.target);
-      const email = String(fd.get("email"));
-      const password = String(fd.get("password"));
+      const meta = signupMetadataFromForm(fd);
 
       const result = await runWithNetwork(panel, () =>
         supabase.auth.signUp({
-          email,
-          password,
+          email: String(fd.get("email")),
+          password: String(fd.get("password")),
           options: {
-            data: {
-              first_name: fd.get("first_name"),
-              last_name: fd.get("last_name"),
-              phone: fd.get("phone"),
-              city: fd.get("city"),
-              postal_code: fd.get("postal_code"),
-            },
+            data: meta,
             emailRedirectTo: `${window.location.origin}${readMarketplaceConfig().paths.account}?view=confirm`,
           },
         }),
       );
       if (result?.error === "network") return;
-      const { data, error } = result;
+      const { error } = result;
       if (error) {
         showMessage(panel, "error", "Inscription refusée. Vérifiez les champs ou utilisez un autre email.");
         return;
       }
 
-      queuePendingConsentsFromForm(fd);
-
-      if (data.user && data.session) {
-        const consents = [
-          consentPayload(data.user.id, "email_marketing", Boolean(fd.get("consent_email"))),
-          consentPayload(data.user.id, "sms_marketing", Boolean(fd.get("consent_sms"))),
-          consentPayload(data.user.id, "whatsapp_marketing", Boolean(fd.get("consent_whatsapp"))),
-        ];
-        const { error: consentErr } = await supabase.from("consent_records").insert(consents);
-        if (consentErr) {
-          showMessage(
-            panel,
-            "error",
-            "Compte créé, mais les préférences n'ont pas pu être enregistrées. Elles seront proposées à la prochaine connexion.",
-          );
-          return;
-        }
-        clearPendingConsents();
-      }
-
-      panel.innerHTML = `<div class="mp-alert mp-alert--success" role="status">Compte créé. Consultez votre email pour confirmer l'adresse. Vos choix commerciaux seront enregistrés à la première connexion après confirmation.</div>`;
+      panel.innerHTML = `<div class="mp-alert mp-alert--success" role="status">Compte créé. Consultez votre email pour confirmer l'adresse. Vos choix commerciaux sont enregistrés côté serveur lors de la création du compte — vous pourrez les modifier dans « Préférences » après connexion.</div>`;
     });
   }
 

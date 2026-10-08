@@ -29,6 +29,10 @@ const REQUIRED_SNIPPETS = [
   { file: /20900_photos/, needle: "listing_public_photos", label: "Vue photos publiques sans privé" },
   { file: /20900_photos/, needle: "published_photo_locked", label: "Photo publiée non supprimable" },
   { file: /21000_edit/, needle: "listing_photos_insert_owner", label: "Insert photo direct client retiré" },
+  { file: /21100_photos_server/, needle: "register_verified_listing_photo", label: "RPC photo vérifiée service" },
+  { file: /21100_photos_server/, needle: "server_verified", label: "Flag server_verified" },
+  { file: /21100_photos_server/, needle: "private_owner_upload", label: "Upload storage direct retiré" },
+  { file: /21200_consents/, needle: "sync_consents_from_auth_metadata", label: "Consentements depuis métadonnées Auth" },
 ];
 
 function readMigrations() {

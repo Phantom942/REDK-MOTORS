@@ -1,10 +1,6 @@
 import { getSupabase, isConfigured } from "./client.js";
 import { CONSENT_TEXT, readMarketplaceConfig } from "./config.js";
-import {
-  flushPendingConsents,
-  loadConsentState,
-  persistConsentChoices,
-} from "./consents.js";
+import { loadConsentState, persistConsentChoices } from "./consents.js";
 import { getValidSession, isRecoveryFlow, redirectToLogin, runWithNetwork } from "./session.js";
 
 function alertHtml(type, msg) {
@@ -96,13 +92,10 @@ export async function mountAccountApp(root) {
       )}<p><a class="btn btn--primary" href="?mode=login">Se connecter</a></p></div>`;
       return;
     }
-    const flushed = await flushPendingConsents(supabase, session.user.id);
     root.innerHTML = `<div class="container mp-account">${alertHtml(
       "success",
-      flushed.applied
-        ? "Adresse confirmée et préférences commerciales enregistrées."
-        : "Adresse email confirmée. Vous pouvez déposer une annonce.",
-    )}</div>`;
+      "Adresse email confirmée. Vous pouvez déposer une annonce.",
+    )}<p><a href="?view=consents">Vérifier vos préférences commerciales</a></p></div>`;
     return;
   }
 
@@ -112,9 +105,10 @@ export async function mountAccountApp(root) {
   }
 
   const uid = session.user.id;
-  await flushPendingConsents(supabase, uid);
-
   root.hidden = false;
+
+  const consentState = await loadConsentState(supabase, uid);
+  const needsConsentReview = !consentState.error && !consentState.hasAnyRecord;
 
   const { data: profile } = await supabase.from("profiles").select("*").eq("id", uid).single();
   const { data: listings } = await supabase
@@ -123,10 +117,12 @@ export async function mountAccountApp(root) {
     .eq("owner_id", uid)
     .order("updated_at", { ascending: false });
 
-  const consentsBanner =
-    params.get("consents") === "applied"
-      ? alertHtml("success", "Vos préférences commerciales ont été enregistrées.")
-      : "";
+  const consentsBanner = needsConsentReview
+    ? alertHtml(
+        "info",
+        "Nous n'avons pas d'enregistrement fiable de vos préférences commerciales. Merci de confirmer vos choix dans « Préférences » (aucune case n'est cochée par défaut).",
+      )
+    : "";
 
   root.innerHTML = `
     <div class="container mp-account">

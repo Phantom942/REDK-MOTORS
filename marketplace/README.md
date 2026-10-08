@@ -25,14 +25,22 @@ Espace annonces (particuliers + dépôt-vente garage) branché sur le site stati
 
 ## Démarrage local
 
+**Windows :** Docker Desktop obligatoire pour `supabase start`. CLI installable via `winget install Supabase.CLI` ou `npx supabase` (CLI seul ne suffit pas sans Docker).
+
+Emails de test : Inbucket sur `http://127.0.0.1:54324` après `supabase start` — pas de SMTP production.
+
 ```bash
-# Supabase CLI (https://supabase.com/docs/guides/cli)
 cd marketplace
 cp .env.example .env   # remplir localement, ne pas committer
 
-supabase start         # Docker : Postgres + Auth + Storage locaux
-supabase db reset      # applique migrations/
+supabase start         # Docker requis
+# db reset UNIQUEMENT si l'URL projet = 127.0.0.1 / localhost
+supabase db reset
 supabase functions serve
+
+# Tests (depuis la racine du repo)
+npm run test:marketplace-security
+npm run test:marketplace-live   # variables MARKETPLACE_TEST_* — localhost only
 ```
 
 Le site Eleventy consomme uniquement la **clé anon** + URL projet (publiques). Toute opération sensible passe par Edge Functions.

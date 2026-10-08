@@ -19,6 +19,31 @@ async function assertModerator(supabaseAdmin: ReturnType<typeof createClient>, u
   }
 }
 
+async function verifyPhotosReady(
+  admin: ReturnType<typeof createClient>,
+  listingId: string,
+  versionNumber: number,
+) {
+  const { data: photos, error } = await admin
+    .from("listing_photos")
+    .select("id, storage_path, server_verified")
+    .eq("listing_id", listingId)
+    .eq("version_number", versionNumber);
+
+  if (error || !photos?.length) {
+    return false;
+  }
+  if (photos.some((p) => !p.server_verified)) {
+    return false;
+  }
+
+  for (const ph of photos) {
+    const { error: dlErr } = await admin.storage.from("listing-photos-private").download(ph.storage_path);
+    if (dlErr) return false;
+  }
+  return true;
+}
+
 Deno.serve(async (req) => {
   if (req.method !== "POST") {
     return new Response(JSON.stringify({ error: "method_not_allowed" }), { status: 405 });
@@ -103,27 +128,9 @@ Deno.serve(async (req) => {
     });
   }
 
-  const internalSecret = Deno.env.get("MARKETPLACE_INTERNAL_SECRET");
-  const functionsBase = `${Deno.env.get("SUPABASE_URL")}/functions/v1`;
-
-  if (!internalSecret) {
-    return new Response(JSON.stringify({ error: "misconfigured" }), { status: 500 });
-  }
-
-  const photoRes = await fetch(`${functionsBase}/publish-listing-photos`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "X-Marketplace-Internal": internalSecret,
-    },
-    body: JSON.stringify({ listingId, versionNumber }),
-  });
-
-  if (!photoRes.ok) {
-    const errBody = await photoRes.text();
-    return new Response(JSON.stringify({ error: "photo_publish_failed", detail: errBody }), {
-      status: 502,
-    });
+  const photosOk = await verifyPhotosReady(supabaseAdmin, listingId, versionNumber);
+  if (!photosOk) {
+    return new Response(JSON.stringify({ error: "photos_not_ready" }), { status: 409 });
   }
 
   const { data: slug, error: pubErr } = await supabaseAdmin.rpc("apply_listing_approval", {
@@ -134,15 +141,7 @@ Deno.serve(async (req) => {
   });
 
   if (pubErr) {
-    await fetch(`${functionsBase}/purge-public-photos`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "X-Marketplace-Internal": internalSecret,
-      },
-      body: JSON.stringify({ listingId }),
-    });
-    return new Response(JSON.stringify({ error: pubErr.message }), { status: 500 });
+    return new Response(JSON.stringify({ error: pubErr.message }), { status: pubErr.message === "stale_version" ? 409 : 500 });
   }
 
   return new Response(JSON.stringify({ ok: true, status: "published", slug }), {

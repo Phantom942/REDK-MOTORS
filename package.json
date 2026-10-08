@@ -26,7 +26,8 @@
     "verify:prod": "node scripts/verify-prod-headers.js",
     "post-deploy": "node scripts/post-deploy.js",
     "cf:deploy-headers": "node scripts/deploy-kv-worker-headers.js",
-    "test:marketplace-security": "node scripts/marketplace-security-test.mjs"
+    "test:marketplace-security": "node scripts/marketplace-security-test.mjs",
+    "test:marketplace-live": "node scripts/marketplace-security-live.mjs"
   },
   "keywords": [
     "eleventy",
