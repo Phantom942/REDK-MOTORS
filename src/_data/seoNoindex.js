@@ -62,6 +62,10 @@ module.exports = {
     "/garage-ouvert-samedi-",
     "/lp-",
     "/liens",
+    "/achat-revente/publier",
+    "/achat-revente/compte",
+    "/achat-revente/admin",
+    "/achat-revente/vehicules/",
   ],
   /**
    * Landings fortes à garder indexables malgré un préfixe noindex.

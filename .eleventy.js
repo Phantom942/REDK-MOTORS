@@ -420,6 +420,19 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addGlobalData("buildDate", () => new Date().toISOString().slice(0, 10));
   eleventyConfig.addGlobalData("seoNoindex", seoNoindex);
 
+  if (process.env.MARKETPLACE_TEST_URL && process.env.MARKETPLACE_TEST_ANON_KEY) {
+    const { createListingDevMiddleware } = require("./scripts/lib/marketplace-listing-page.cjs");
+    eleventyConfig.setServerOptions({
+      middleware: [
+        createListingDevMiddleware(() => ({
+          url: process.env.MARKETPLACE_TEST_URL,
+          anonKey: process.env.MARKETPLACE_TEST_ANON_KEY,
+          allowIndex: process.env.MARKETPLACE_ALLOW_INDEX === "1",
+        })),
+      ],
+    });
+  }
+
   return {
     dir: {
       input: "src",
