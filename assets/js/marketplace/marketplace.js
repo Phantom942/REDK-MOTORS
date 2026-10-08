@@ -61,7 +61,7 @@ async function initCatalog(root, config) {
   root.innerHTML = `<div class="container mp-grid" aria-live="polite">${cards}</div>`;
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+function bootMarketplace() {
   const root = document.getElementById("marketplace-root");
   if (!root) return;
   const app = root.dataset.mpApp || "catalog";
@@ -83,4 +83,10 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     renderSetupMessage(root, "Espace en cours d'activation.");
   }
-});
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", bootMarketplace);
+} else {
+  bootMarketplace();
+}

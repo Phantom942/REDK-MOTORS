@@ -1,7 +1,8 @@
 -- Durcissement sécurité marketplace
 
 -- Vue publique : propriétaire actif uniquement, champs strictement publics
-create or replace view public.listings_public as
+drop view if exists public.listings_public;
+create view public.listings_public as
 select
   l.id,
   l.slug,

@@ -1,6 +1,6 @@
 /**
  * Upload photo annonce — seul point d'entrée vendeur.
- * Décode, contrôle pixels/taille, réencode WebP sans métadonnées, stockage privé, ligne DB vérifiée.
+ * Décode, contrôle pixels/taille, réencode JPEG (qualité 88) sans métadonnées, stockage privé, ligne DB vérifiée.
  */
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.49.1";
 import { decode, Image } from "https://deno.land/x/imagescript@1.3.0/mod.ts";
@@ -104,17 +104,17 @@ Deno.serve(async (req) => {
     img = img.resize(width, height);
   }
 
-  const encoded = await img.encodeWEBP(88);
+  const encoded = await img.encodeJPEG(88);
   if (encoded.length > MAX_BYTES) {
     return new Response(JSON.stringify({ error: "too_large_after_encode" }), { status: 413 });
   }
 
   const photoId = crypto.randomUUID();
-  const path = `${uid}/${listingId}/${photoId}.webp`;
+  const path = `${uid}/${listingId}/${photoId}.jpg`;
   const contentHash = await sha256Hex(encoded);
 
   const { error: upErr } = await admin.storage.from("listing-photos-private").upload(path, encoded, {
-    contentType: "image/webp",
+    contentType: "image/jpeg",
     upsert: false,
   });
   if (upErr) {

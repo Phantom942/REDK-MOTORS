@@ -55,7 +55,7 @@ Deno.serve(async (req) => {
 
   return new Response(blob.stream(), {
     headers: {
-      "Content-Type": "image/webp",
+      "Content-Type": "image/jpeg",
       "Cache-Control": `public, max-age=${CACHE_SECONDS}`,
       "X-Content-Type-Options": "nosniff",
     },

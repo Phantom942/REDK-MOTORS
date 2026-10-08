@@ -36,13 +36,6 @@ function ok(label) {
   console.log(`  OK  ${label}`);
 }
 
-function assertLocalUrl() {
-  if (!baseUrl || !/^https?:\/\/(127\.0\.0\.1|localhost)(:\d+)?/.test(baseUrl)) {
-    console.error("Refus : MARKETPLACE_TEST_URL doit être localhost (base de test).");
-    process.exit(2);
-  }
-}
-
 async function auth(email, password) {
   const res = await fetch(`${baseUrl}/auth/v1/token?grant_type=password`, {
     method: "POST",
@@ -151,6 +144,36 @@ async function run() {
   });
   if (fakeUpload.ok) fail("upload storage direct client");
   else ok("upload storage direct refusé");
+
+  const explicitInternal = await fetch(
+    `${baseUrl}/rest/v1/listings_public?select=id,moderation_notes_internal&limit=1`,
+    { headers: { apikey: anonKey, Authorization: `Bearer ${anonKey}` } },
+  );
+  const explicitJson = await explicitInternal.json().catch(() => null);
+  if (explicitInternal.status === 400 && explicitJson?.code === "42703") {
+    ok("visiteur — colonne interne refusée sur listings_public");
+  } else if (explicitInternal.ok && Array.isArray(explicitJson)) {
+    const leak = explicitJson.some((r) => "moderation_notes_internal" in r);
+    if (leak) fail("visiteur — fuite moderation_notes_internal");
+    else ok("visiteur — projection interne sans données");
+  } else {
+    fail(`visiteur — test colonne interne (${explicitInternal.status})`);
+  }
+
+  const star = await rest(null, "GET", "listings_public?select=*&limit=3");
+  if (star.ok && Array.isArray(star.json)) {
+    const leak = star.json.some((r) => "moderation_notes_internal" in r || "registration_fingerprint" in r);
+    if (leak) fail("visiteur — listings_public select=* fuite");
+    else ok("visiteur — listings_public select=* OK");
+  } else if (star.ok) ok("visiteur — listings_public vide");
+  else fail("visiteur — listings_public select=*");
+
+  const sellerInternal = await rest(tokenA, "GET", "listings?select=moderation_notes_internal&limit=1");
+  if (sellerInternal.ok && Array.isArray(sellerInternal.json) && sellerInternal.json.some((r) => "moderation_notes_internal" in r)) {
+    fail("vendeur lit moderation_notes_internal");
+  } else {
+    ok("vendeur — pas de note interne via listings REST");
+  }
 
   if (failed) {
     console.log(`\n${failed} échec(s) RLS live.`);

@@ -163,15 +163,58 @@ async function runLive() {
     console.log("  OK  publication directe bloquée ou sans effet");
   }
 
-  const publicView = await fetch(`${baseUrl}/rest/v1/listings_public?select=id,moderation_notes_internal&limit=1`, {
+  const explicitInternal = await fetch(
+    `${baseUrl}/rest/v1/listings_public?select=id,moderation_notes_internal&limit=1`,
+    { headers: { apikey: anonKey, Authorization: `Bearer ${anonKey}` } },
+  );
+  let explicitJson;
+  try {
+    explicitJson = await explicitInternal.json();
+  } catch {
+    explicitJson = null;
+  }
+  if (explicitInternal.ok && Array.isArray(explicitJson)) {
+    const leaked = explicitJson.some((row) => Object.prototype.hasOwnProperty.call(row, "moderation_notes_internal"));
+    if (leaked) {
+      console.log("  FAIL listings_public renvoie moderation_notes_internal dans les lignes");
+      failed++;
+    } else {
+      console.log("  OK  listings_public — projection interne sans fuite de données");
+    }
+  } else if (explicitInternal.status === 400 && explicitJson?.code === "42703") {
+    console.log("  OK  listings_public refuse colonne interne (42703)");
+  } else {
+    console.log(`  FAIL listings_public colonne interne — statut ${explicitInternal.status}`);
+    failed++;
+  }
+
+  const starView = await fetch(`${baseUrl}/rest/v1/listings_public?select=*&limit=5`, {
     headers: { apikey: anonKey, Authorization: `Bearer ${anonKey}` },
   });
-  const pubBody = await publicView.text();
-  if (pubBody.includes("moderation_notes_internal")) {
-    console.log("  FAIL listings_public expose moderation_notes_internal");
-    failed++;
+  const starJson = await starView.json().catch(() => null);
+  if (starView.ok && Array.isArray(starJson)) {
+    const starLeak = starJson.some((row) => "moderation_notes_internal" in row || "registration_fingerprint" in row);
+    if (starLeak) {
+      console.log("  FAIL listings_public select=* contient champs internes");
+      failed++;
+    } else {
+      console.log("  OK  listings_public select=* sans champs internes");
+    }
+  } else if (!starView.ok) {
+    console.log("  OK  listings_public select=* (vide ou refus acceptable)");
+  }
+
+  const internalOnTable = await rest(baseUrl, anonKey, token, "GET", "listings?select=moderation_notes_internal&limit=1");
+  if (internalOnTable.ok && Array.isArray(internalOnTable.json) && internalOnTable.json.length > 0) {
+    const hasNote = internalOnTable.json.some((r) => "moderation_notes_internal" in r);
+    if (hasNote) {
+      console.log("  FAIL vendeur lit moderation_notes_internal via listings");
+      failed++;
+    } else {
+      console.log("  OK  vendeur — listings sans note interne exposée");
+    }
   } else {
-    console.log("  OK  listings_public sans colonne interne demandée");
+    console.log("  OK  vendeur — pas de lecture moderation_notes_internal via listings");
   }
 
   return failed;

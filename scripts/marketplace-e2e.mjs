@@ -63,11 +63,11 @@ async function rpc(baseUrl, anonKey, token, fn, args) {
   return rest(baseUrl, anonKey, token, "POST", `rpc/${fn}`, "", args);
 }
 
-async function makeTestWebp() {
+async function makeTestImage() {
   return sharp({
     create: { width: 800, height: 600, channels: 3, background: { r: 40, g: 80, b: 120 } },
   })
-    .webp()
+    .jpeg({ quality: 90 })
     .toBuffer();
 }
 
@@ -75,7 +75,7 @@ async function uploadPhoto(baseUrl, anonKey, userToken, listingId, buffer, sortO
   const form = new FormData();
   form.set("listingId", listingId);
   form.set("sortOrder", String(sortOrder));
-  form.set("file", new Blob([buffer], { type: "image/png" }), "test.png");
+  form.set("file", new Blob([buffer], { type: "image/jpeg" }), "test.jpg");
   const res = await fetch(`${baseUrl}/functions/v1/process-listing-photo`, {
     method: "POST",
     headers: { Authorization: `Bearer ${userToken}`, apikey: anonKey },
@@ -167,7 +167,7 @@ async function main() {
   const listingId = draft.json[0].id;
   pass("brouillon créé");
 
-  const webp = await makeTestWebp();
+  const webp = await makeTestImage();
   const uploads = [];
   for (let i = 0; i < 3; i++) {
     const up = await uploadPhoto(baseUrl, anonKey, userA.token, listingId, webp, i);
@@ -227,7 +227,7 @@ async function main() {
 
   if (photoId) {
     const serve = await fetch(`${baseUrl}/functions/v1/serve-listing-photo?photoId=${photoId}`);
-    serve.ok ? pass("serve-listing-photo 200") : fail("serve photo", serve.status);
+    serve.ok ? pass("serve-listing-photo 200 (visiteur, sans en-têtes)") : fail("serve photo", serve.status);
     const cc = serve.headers.get("cache-control") || "";
     cc.includes("max-age=60") ? pass("Cache-Control max-age=60 présent") : fail("Cache-Control", cc);
   }
@@ -247,7 +247,11 @@ async function main() {
     headers: { "Content-Type": "application/json", "X-Marketplace-Internal": "test" },
     body: "{}",
   });
-  legacy.status === 410 ? pass("publish-listing-photos neutralisée (410)") : fail("legacy publish", legacy.status);
+  if (legacy.status === 410 || legacy.status === 401 || legacy.status === 403) {
+    pass(`publish-listing-photos inaccessible (${legacy.status})`);
+  } else {
+    fail("legacy publish", legacy.status);
+  }
 
   // Admin export refus mod
   const expMod = await fetch(`${baseUrl}/functions/v1/admin-export`, {

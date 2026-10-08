@@ -23,7 +23,9 @@ WSL sans distribution installée ne fournit pas Docker à l’agent tant qu’au
 | Edge functions | `npx supabase functions serve --env-file .env.local` (2e terminal) |
 | RLS rapide | `npm run test:marketplace-live` |
 | E2E runtime | `npm run test:marketplace:e2e` |
-| Orchestrateur | `npm run test:marketplace:local` (vérifie Docker, start, reset, seed, live) |
+| Orchestrateur complet | `npm run test:marketplace:local` (Docker, start, reset, seed, functions serve, security + RLS + E2E ×3) |
+| E2E étendu seul | `npm run test:marketplace:e2e:extended` |
+| E2E admin / staff | `npm run test:marketplace:e2e:admin` |
 
 Emails : **Inbucket** http://127.0.0.1:54324 — pas de SMTP production.
 

@@ -8,7 +8,7 @@
 ## Traitement obligatoire (serveur)
 
 - Upload **uniquement** via Edge Function `process-listing-photo` (pas d'upload Storage direct client).
-- Magic bytes, décodage, limites pixels/dimensions/poids, réencodage WebP **sans métadonnées**.
+- Magic bytes, décodage, limites pixels/dimensions/poids, réencodage **JPEG** (qualité 88, ImageScript) **sans métadonnées** — `Content-Type: image/jpeg` côté `serve-listing-photo`.
 - Ligne `listing_photos` avec `server_verified = true` et `verified_at` (RPC `register_verified_listing_photo`, service role).
 - Soumission refusée si photo non vérifiée ou fichier absent du bucket.
 

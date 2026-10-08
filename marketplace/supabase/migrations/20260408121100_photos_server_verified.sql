@@ -213,7 +213,8 @@ begin
 end;
 $$;
 
-create or replace view public.listing_public_photos as
+drop view if exists public.listing_public_photos;
+create view public.listing_public_photos as
 select
   p.id,
   p.listing_id,
