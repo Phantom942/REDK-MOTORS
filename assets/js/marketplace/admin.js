@@ -135,7 +135,7 @@ export async function mountAdminApp(root) {
       }
       fb.innerHTML = alert(
         "success",
-        `Brouillon créé. <a href="../publier/?listing=${data}">Ajouter photos et soumettre</a>`,
+        `Brouillon créé. <a href="../publier/?id=${data}">Ajouter photos et soumettre</a>`,
       );
     });
     return;

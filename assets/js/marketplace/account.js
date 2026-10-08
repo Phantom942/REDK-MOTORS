@@ -113,7 +113,7 @@ export async function mountAccountApp(root) {
   const { data: profile } = await supabase.from("profiles").select("*").eq("id", uid).single();
   const { data: listings } = await supabase
     .from("listings")
-    .select("id, make, model, model_year, status, rejection_reason_public, updated_at")
+    .select("id, slug, make, model, model_year, status, rejection_reason_public, updated_at")
     .eq("owner_id", uid)
     .order("updated_at", { ascending: false });
 
@@ -252,15 +252,62 @@ export async function mountAccountApp(root) {
         sold: "Vendue",
         expired: "Expirée",
       }[l.status] ?? l.status;
-      const edit = l.status === "draft" || l.status === "rejected" ? ` · <a href="${cfg.paths.publish}?id=${l.id}">Modifier</a>` : "";
-      return `<tr><td>${l.make} ${l.model} ${l.model_year}${edit}</td><td>${statusLabel}</td><td>${l.rejection_reason_public ?? "—"}</td></tr>`;
+      const edit =
+        l.status === "draft" || l.status === "rejected" || l.status === "pending_review"
+          ? ` · <a href="${cfg.paths.publish}?id=${l.id}">Modifier</a>`
+          : "";
+      const view =
+        l.status === "published" && l.slug
+          ? ` · <a href="${cfg.paths.listingPrefix}${encodeURIComponent(l.slug)}/">Voir</a>`
+          : "";
+      let actions = "";
+      if (l.status === "published") {
+        actions = `<button type="button" class="mp-link-btn" data-mp-action="edit-published" data-id="${l.id}">Modifier (modération)</button>
+          · <button type="button" class="mp-link-btn" data-mp-action="sold" data-id="${l.id}">Marquer vendue</button>
+          · <button type="button" class="mp-link-btn" data-mp-action="withdraw" data-id="${l.id}">Retirer</button>`;
+      } else if (l.status === "draft" || l.status === "rejected") {
+        actions = `<a href="${cfg.paths.publish}?id=${l.id}">Continuer le dépôt</a>`;
+      }
+      return `<tr><td>${l.make} ${l.model} ${l.model_year}${edit}${view}</td><td>${statusLabel}</td><td>${l.rejection_reason_public ?? "—"}</td><td class="mp-table__actions">${actions || "—"}</td></tr>`;
     })
     .join("");
 
   panel.innerHTML = `
     <p><a class="btn btn--primary" href="${cfg.paths.publish}">Déposer une annonce</a></p>
     <table class="mp-table">
-      <thead><tr><th>Véhicule</th><th>Statut</th><th>Motif</th></tr></thead>
-      <tbody>${rows || "<tr><td colspan=\"3\">Aucune annonce pour le moment.</td></tr>"}</tbody>
-    </table>`;
+      <thead><tr><th>Véhicule</th><th>Statut</th><th>Motif</th><th>Actions</th></tr></thead>
+      <tbody>${rows || "<tr><td colspan=\"4\">Aucune annonce pour le moment.</td></tr>"}</tbody>
+    </table>
+    <div id="mp-account-listing-feedback"></div>`;
+
+  const feedbackEl = panel.querySelector("#mp-account-listing-feedback");
+  panel.querySelector(".mp-table")?.addEventListener("click", async (e) => {
+    const btn = e.target.closest("[data-mp-action]");
+    if (!btn) return;
+    const id = btn.getAttribute("data-id");
+    const action = btn.getAttribute("data-mp-action");
+    if (!id || !action) return;
+    btn.disabled = true;
+    const result = await runWithNetwork(feedbackEl, async () => {
+      if (action === "edit-published") {
+        return supabase.rpc("begin_edit_published_listing", { p_listing_id: id });
+      }
+      if (action === "sold") {
+        if (!window.confirm("Confirmer que le véhicule est vendu ?")) return { cancelled: true };
+        return supabase.rpc("mark_listing_sold", { p_listing_id: id });
+      }
+      if (action === "withdraw") {
+        if (!window.confirm("Retirer l'annonce du catalogue ?")) return { cancelled: true };
+        return supabase.rpc("withdraw_listing", { p_listing_id: id });
+      }
+      return { error: "unknown" };
+    });
+    btn.disabled = false;
+    if (result?.error === "network" || result?.cancelled) return;
+    if (result?.error?.message || (result?.error && result.error !== "network")) {
+      feedbackEl.innerHTML = alertHtml("error", result.error.message ?? String(result.error));
+      return;
+    }
+    window.location.reload();
+  });
 }
