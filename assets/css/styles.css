@@ -449,7 +449,7 @@ p, li, td, th, span, a, h1, h2, h3, h4 {
     display: none;
   }
 
-  .main-nav__toggle {
+  .main-nav .main-nav__toggle.btn {
     display: none;
   }
 }
@@ -838,7 +838,7 @@ p, li, td, th, span, a, h1, h2, h3, h4 {
 }
 
 .main-nav__toggle {
-  display: inline-flex;
+  /* display défini par breakpoint (mobile/tablette uniquement) — voir @media max-width 1099px */
   align-items: center;
   gap: 7px;
   flex-shrink: 0;
@@ -1018,6 +1018,66 @@ body.is-nav-open .main-nav #primary-menu.is-open {
     width: min(100dvw, 420px);
     padding-left: 24px;
     padding-right: 24px;
+  }
+}
+
+/* Nav desktop : barre horizontale sans drawer ni doublons bar/mobile */
+@media (min-width: 1100px) {
+  .main-header__inner {
+    align-items: center;
+    gap: clamp(8px, 1.1vw, 14px);
+  }
+
+  .main-header .logo {
+    flex: 0 1 auto;
+    min-width: 0;
+    max-width: min(300px, 34vw);
+  }
+
+  .main-nav {
+    flex: 0 1 auto;
+    min-width: 0;
+    flex-wrap: nowrap;
+  }
+
+  .main-nav__bar-links {
+    flex: 0 1 auto;
+    min-width: 0;
+  }
+
+  .main-nav .main-nav__toggle.btn {
+    display: none;
+  }
+
+  .main-nav #primary-menu:not(.is-open) {
+    display: none;
+  }
+
+  .main-nav #primary-menu > .main-nav__item--bar-fallback {
+    display: none;
+  }
+}
+
+@media (min-width: 1100px) and (max-width: 1279px) {
+  .main-nav__google-count,
+  .main-nav__google-sep {
+    display: none;
+  }
+
+  .main-nav__google-rating {
+    padding: 0.42rem 0.7rem 0.42rem 0.48rem;
+    gap: 0.38rem;
+  }
+
+  .main-nav .main-nav__phone.btn,
+  .main-nav .main-nav__bar-link.btn {
+    padding: 8px 16px;
+    font-size: 0.78rem;
+    min-height: 42px;
+  }
+
+  .main-nav {
+    gap: 6px;
   }
 }
 
