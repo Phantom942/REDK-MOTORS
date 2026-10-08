@@ -5,9 +5,11 @@ import {
   loadListingPhotos,
   MAX_PHOTOS,
   MIN_PHOTOS,
+  reorderListingPhotos,
   signedPhotoUrl,
   uploadListingPhoto,
 } from "./photos.js";
+import { ensureRootVisible } from "./ui-shell.js";
 import { getValidSession, redirectToLogin, runWithNetwork } from "./session.js";
 
 const FUELS = ["essence", "diesel", "hybride", "hybride_rechargeable", "electrique", "gpl", "autre"];
@@ -54,15 +56,22 @@ async function renderPhotoGrid(container, listingId, version, editable) {
     <div class="mp-photos">
       ${items
         .map(
-          (p) => `<figure class="mp-photo"><img src="${p.url}" alt="" loading="lazy" />${
-            editable
-              ? `<button type="button" class="mp-photo__del" data-id="${p.id}" data-path="${p.storage_path}">Retirer</button>`
-              : ""
-          }</figure>`,
+          (p, idx) => `<figure class="mp-photo" data-photo-id="${p.id}">
+            <img src="${p.url}" alt="Photo ${idx + 1}" loading="lazy" />
+            ${
+              editable
+                ? `<div class="mp-photo__tools">
+              <button type="button" class="mp-photo__move" data-dir="up" data-id="${p.id}" ${idx === 0 ? "disabled" : ""} aria-label="Monter">↑</button>
+              <button type="button" class="mp-photo__move" data-dir="down" data-id="${p.id}" ${idx === items.length - 1 ? "disabled" : ""} aria-label="Descendre">↓</button>
+              <button type="button" class="mp-photo__del" data-id="${p.id}">Retirer</button>
+            </div>`
+                : ""
+            }
+          </figure>`,
         )
         .join("")}
     </div>
-    <p class="mp-form__hint">${photos.length} / ${MAX_PHOTOS} photos (minimum ${MIN_PHOTOS} pour soumettre).</p>`;
+    <p class="mp-form__hint">${photos.length} / ${MAX_PHOTOS} photos (minimum ${MIN_PHOTOS} pour soumettre). La première photo est la couverture.</p>`;
 
   if (editable) {
     container.querySelectorAll(".mp-photo__del").forEach((btn) => {
@@ -73,7 +82,52 @@ async function renderPhotoGrid(container, listingId, version, editable) {
         await renderPhotoGrid(container, listingId, version, editable);
       });
     });
+    container.querySelectorAll(".mp-photo__move").forEach((btn) => {
+      btn.addEventListener("click", async () => {
+        const dir = btn.dataset.dir;
+        const ids = items.map((x) => x.id);
+        const i = ids.indexOf(btn.dataset.id);
+        if (i < 0) return;
+        const j = dir === "up" ? i - 1 : i + 1;
+        if (j < 0 || j >= ids.length) return;
+        [ids[i], ids[j]] = [ids[j], ids[i]];
+        await reorderListingPhotos(listingId, ids);
+        await renderPhotoGrid(container, listingId, version, editable);
+      });
+    });
   }
+}
+
+function escHtml(s) {
+  return String(s ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+async function renderListingPreview(root, listing, session, version) {
+  ensureRootVisible(root);
+  const photoGrid = document.createElement("div");
+  await renderPhotoGrid(photoGrid, listing.id, version, false);
+  const price = (listing.price_cents / 100).toLocaleString("fr-FR", {
+    style: "currency",
+    currency: "EUR",
+    maximumFractionDigits: 0,
+  });
+  root.innerHTML = `
+    <div class="container mp-preview">
+      <p class="mp-form__hint">Prévisualisation — rendu proche de la fiche publiée (sans URL publique tant que non validée).</p>
+      <h2>${escHtml(listing.make)} ${escHtml(listing.model)} ${listing.model_year}</h2>
+      <p class="mp-detail__price">${escHtml(price)}</p>
+      <p>${listing.mileage_km.toLocaleString("fr-FR")} km · ${escHtml(listing.city)}</p>
+      <div class="mp-form__full">${photoGrid.innerHTML}</div>
+      <section><h3>Description</h3><p>${escHtml(listing.description).replace(/\n/g, "<br />")}</p></section>
+      <p class="mp-badge mp-badge--private">Contact affiché : ${escHtml(listing.contact_phone)}${listing.show_email ? ` · ${escHtml(session.user.email)}` : ""}</p>
+      <p class="mp-form__actions">
+        <a class="btn btn--secondary" href="?id=${listing.id}">Retour à l’édition</a>
+        <a class="btn btn--primary" href="${readMarketplaceConfig().paths.account}">Voir mes annonces</a>
+      </p>
+    </div>`;
 }
 
 export async function mountListingForm(root) {
@@ -116,7 +170,17 @@ export async function mountListingForm(root) {
     listing = data;
   }
 
-  root.hidden = false;
+  if (preview) {
+    if (!listing) {
+      ensureRootVisible(root);
+      root.innerHTML = `<div class="mp-alert mp-alert--info" role="status">Enregistrez d’abord un brouillon pour prévisualiser.</div>`;
+      return;
+    }
+    await renderListingPreview(root, listing, session, listing.current_version ?? 1);
+    return;
+  }
+
+  ensureRootVisible(root);
   const l = listing;
   root.innerHTML = `
     <div class="container">
@@ -145,7 +209,7 @@ export async function mountListingForm(root) {
         <div id="mp-photo-grid" class="mp-form__full"></div>
         <div class="mp-form__actions">
           <button type="submit" name="intent" value="draft" class="btn btn--secondary btn--dark">Enregistrer brouillon</button>
-          ${!preview ? `<a class="btn btn--secondary" href="?id=${l?.id ?? ""}&preview=1">Prévisualiser</a>` : ""}
+          <button type="button" class="btn btn--secondary" id="mp-preview-btn">Prévisualiser</button>
           <button type="submit" name="intent" value="submit" class="btn btn--primary">Soumettre à la modération</button>
         </div>
       </form>
@@ -202,6 +266,16 @@ export async function mountListingForm(root) {
       feedback.innerHTML = `<div class="mp-alert mp-alert--error" role="alert">Photo refusée (${err.message ?? "erreur"}).</div>`;
     }
     e.target.value = "";
+  });
+
+  root.querySelector("#mp-preview-btn")?.addEventListener("click", async () => {
+    const fd = new FormData(form);
+    try {
+      const id = await ensureListingId(fd);
+      window.location.href = `?id=${id}&preview=1`;
+    } catch (err) {
+      feedback.innerHTML = `<div class="mp-alert mp-alert--error" role="alert">Enregistrez le brouillon avant prévisualisation (${err.message ?? "erreur"}).</div>`;
+    }
   });
 
   form.addEventListener("submit", async (e) => {

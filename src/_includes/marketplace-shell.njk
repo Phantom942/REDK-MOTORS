@@ -17,7 +17,16 @@
     </p>
   </div>
 </section>
-<div id="marketplace-root" class="mp-root" data-mp-app="{{ mpApp | default('catalog') }}" hidden></div>
+<div id="marketplace-root" class="mp-root" data-mp-app="{{ mpApp | default('catalog') }}">
+  <noscript>
+    <div class="mp-state mp-state--error container" role="alert">
+      <p>Cet espace nécessite JavaScript (connexion, catalogue et dépôt d’annonce).</p>
+    </div>
+  </noscript>
+  <div class="mp-state mp-state--loading container" data-mp-fallback role="status">
+    <p>Chargement de l’espace annonces…</p>
+  </div>
+</div>
 <script type="application/json" id="marketplace-config">
 {{ {
   "enabled": mp.enabled,
@@ -33,4 +42,4 @@
   }
 } | json | safe }}
 </script>
-<script src="{{ '/assets/js/marketplace/marketplace.js' | cacheBust }}" type="module" defer></script>
+<script src="{{ '/assets/js/marketplace/marketplace.bundle.js' | cacheBust }}" type="module" defer></script>

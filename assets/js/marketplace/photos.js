@@ -68,3 +68,12 @@ export function publicPhotoUrl(photoId) {
   const cfg = readMarketplaceConfig();
   return `${cfg.supabaseUrl}/functions/v1/serve-listing-photo?photoId=${encodeURIComponent(photoId)}`;
 }
+
+export async function reorderListingPhotos(listingId, photoIdsInOrder) {
+  const supabase = getSupabase();
+  const { error } = await supabase.rpc("reorder_listing_photos", {
+    p_listing_id: listingId,
+    p_photo_ids: photoIdsInOrder,
+  });
+  if (error) throw error;
+}

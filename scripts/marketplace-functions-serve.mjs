@@ -6,7 +6,8 @@
 import { spawn, spawnSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
-import { marketplaceDir, repoRoot } from "./lib/marketplace-local-env.mjs";
+import { loadSupabaseLocalEnv, marketplaceDir, repoRoot } from "./lib/marketplace-local-env.mjs";
+import { probeEdgeFunctions, waitForEdgeFunctions } from "./lib/marketplace-functions-health.mjs";
 
 const LOCK = path.join(repoRoot, ".marketplace-functions-serve.lock.json");
 const LOG_DIR = path.join(repoRoot, ".logs");
@@ -125,9 +126,16 @@ function start() {
 
   console.log(`functions serve démarré (pid ${pid})`);
   console.log(`Log : ${logPath}`);
+
+  const loaded = loadSupabaseLocalEnv();
+  if (loaded.url) {
+    waitForEdgeFunctions(loaded.url, 90000)
+      .then(() => console.log("Edge functions joignables (sonde HTTP OK)."))
+      .catch((e) => console.error(e.message));
+  }
 }
 
-function stop() {
+async function stop() {
   const lock = readLock();
   if (lock) {
     writeLock({ ...lock, intentionalStop: true });
@@ -136,20 +144,29 @@ function stop() {
   console.log("functions serve arrêté.");
 }
 
-function status() {
+async function status() {
   const lock = readLock();
   if (!lock) {
     console.log("Aucune instance enregistrée.");
     return;
   }
   const alive = isAlive(lock.pid);
-  console.log(JSON.stringify({ ...lock, alive }, null, 2));
+  const loaded = loadSupabaseLocalEnv();
+  let functionsReachable = null;
+  if (loaded.url) {
+    functionsReachable = await probeEdgeFunctions(loaded.url);
+  }
+  console.log(JSON.stringify({ ...lock, alive, functionsReachable }, null, 2));
+  if (alive && functionsReachable && !functionsReachable.ok) {
+    console.error("⚠ PID vivant mais Edge Functions non joignables — conteneur peut être crashé (exit 137).");
+    console.error("  → node scripts/marketplace-docker-diagnose.mjs");
+  }
 }
 
 const cmd = process.argv[2] || "start";
 if (cmd === "start") start();
 else if (cmd === "stop") stop();
-else if (cmd === "status") status();
+else if (cmd === "status") status().catch(console.error);
 else {
   console.error("Usage: marketplace-functions-serve.mjs start|stop|status");
   process.exit(1);

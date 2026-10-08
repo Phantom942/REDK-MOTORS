@@ -4,18 +4,19 @@
  */
 
 import { readMarketplaceConfig } from "./config.js";
+import { getSupabase } from "./client.js";
 import { mountAuthApp } from "./auth.js";
 import { mountAccountApp } from "./account.js";
 import { mountListingForm } from "./listing-form.js";
 import { mountAdminApp } from "./admin.js";
+import { ensureRootVisible, renderFatalError, renderInfo, renderLoading } from "./ui-shell.js";
 
 function readConfig() {
   return readMarketplaceConfig();
 }
 
 function renderSetupMessage(root, message) {
-  root.hidden = false;
-  root.innerHTML = `<div class="mp-state mp-state--info" role="status"><p>${message}</p></div>`;
+  renderInfo(root, `<p>${message}</p>`);
 }
 
 function readCatalogFilters() {
@@ -64,20 +65,22 @@ async function initCatalog(root, config) {
     return;
   }
 
-  const { createClient } = await import("https://esm.sh/@supabase/supabase-js@2.49.1");
-  const supabase = createClient(config.supabaseUrl, config.supabaseAnonKey);
+  const supabase = getSupabase();
   const filters = readCatalogFilters();
 
-  root.hidden = false;
-  root.innerHTML = `${renderCatalogFilters(config, filters)}<div class="mp-state" role="status"><p>Chargement des annonces…</p></div>`;
+  ensureRootVisible(root);
+  root.innerHTML = `${renderCatalogFilters(config, filters)}<div class="mp-state mp-state--loading" role="status"><p>Chargement des annonces…</p></div>`;
 
   const { data, error } = await buildCatalogQuery(supabase, filters);
 
   if (error) {
-    renderSetupMessage(root, "Impossible de charger le catalogue pour le moment.");
+    root.removeAttribute("aria-busy");
+    root.innerHTML = `${renderCatalogFilters(config, filters)}<div class="mp-state mp-state--error" role="alert"><p>Impossible de charger le catalogue (${error.message ?? "erreur réseau"}).</p><button type="button" class="btn btn--secondary" data-mp-retry-catalog>Réessayer</button></div>`;
+    root.querySelector("[data-mp-retry-catalog]")?.addEventListener("click", () => initCatalog(root, config));
     console.error(error);
     return;
   }
+  root.removeAttribute("aria-busy");
 
   if (!data?.length) {
     root.innerHTML = `${renderCatalogFilters(config, filters)}<div class="mp-state mp-state--empty"><p>Aucune annonce ne correspond à vos critères.</p><p><a class="btn btn--primary" href="${config.paths.publish}">Déposer une annonce</a></p></div>`;
@@ -99,32 +102,55 @@ async function initCatalog(root, config) {
   root.innerHTML = `${renderCatalogFilters(config, filters)}<div class="container mp-grid" aria-live="polite">${cards}</div>`;
 }
 
-function bootMarketplace() {
+async function bootMarketplace() {
   const root = document.getElementById("marketplace-root");
   if (!root) return;
+
+  const fallback = root.querySelector("[data-mp-fallback]");
+  fallback?.remove();
+
+  renderLoading(root);
   const app = root.dataset.mpApp || "catalog";
-  if (app === "catalog") {
-    initCatalog(root, readConfig());
-  } else if (app === "auth") {
-    mountAuthApp(root);
-  } else if (app === "account") {
-    const params = new URLSearchParams(window.location.search);
-    if (params.get("mode")) {
-      mountAuthApp(root);
+
+  try {
+    if (app === "catalog") {
+      await initCatalog(root, readConfig());
+    } else if (app === "auth") {
+      await mountAuthApp(root);
+    } else if (app === "account") {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("mode")) {
+        await mountAuthApp(root);
+      } else {
+        await mountAccountApp(root);
+      }
+    } else if (app === "publish") {
+      await mountListingForm(root);
+    } else if (app === "admin") {
+      await mountAdminApp(root);
     } else {
-      mountAccountApp(root);
+      renderSetupMessage(root, "Espace en cours d'activation.");
     }
-  } else if (app === "publish") {
-    mountListingForm(root);
-  } else if (app === "admin") {
-    mountAdminApp(root);
-  } else {
-    renderSetupMessage(root, "Espace en cours d'activation.");
+  } catch (err) {
+    console.error("[marketplace]", err);
+    const msg =
+      err?.message === "marketplace_not_configured"
+        ? "Marketplace non configurée sur cette page."
+        : "Une erreur empêche l’affichage de l’espace. Vérifiez votre connexion et réessayez.";
+    renderFatalError(root, msg, "reload");
   }
 }
 
+function startBoot() {
+  bootMarketplace().catch((err) => {
+    console.error("[marketplace boot]", err);
+    const root = document.getElementById("marketplace-root");
+    if (root) renderFatalError(root, "Initialisation impossible.", "reload");
+  });
+}
+
 if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", bootMarketplace);
+  document.addEventListener("DOMContentLoaded", startBoot);
 } else {
-  bootMarketplace();
+  startBoot();
 }

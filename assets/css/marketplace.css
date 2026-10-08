@@ -286,10 +286,28 @@
   border-radius: 8px;
 }
 
-.mp-photo__del {
-  display: block;
+.mp-photo__tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
   margin-top: 0.25rem;
   font-size: 0.75rem;
+}
+
+.mp-photo__del,
+.mp-photo__move {
+  font: inherit;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.mp-photo__move:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.mp-preview {
+  padding-bottom: 2rem;
 }
 
 .mp-admin-card {

@@ -7,6 +7,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { marketplaceDir, repoRoot } from "./lib/marketplace-local-env.mjs";
 import { isLocalSupabaseUrl } from "./lib/marketplace-local-guard.mjs";
+import { waitForEdgeFunctions } from "./lib/marketplace-functions-health.mjs";
 
 
 function step(name, fn) {
@@ -59,19 +60,12 @@ function parseEnv(text) {
 }
 
 async function waitForFunctions(baseUrl, timeoutMs = 120000) {
-  await new Promise((r) => setTimeout(r, 5000));
-  const start = Date.now();
-  while (Date.now() - start < timeoutMs) {
-    try {
-      const r = await fetch(`${baseUrl}/functions/v1/process-listing-photo`, { method: "POST" });
-      if (r.status === 401 || r.status === 400 || r.status === 405) return;
-    } catch {
-      /* retry */
-    }
-    await new Promise((r) => setTimeout(r, 2000));
-  }
   const lock = readFunctionsLock();
-  throw new Error(`Edge functions non joignables — voir ${lock?.logPath ?? ".logs/"}`);
+  try {
+    await waitForEdgeFunctions(baseUrl, timeoutMs);
+  } catch {
+    throw new Error(`Edge functions non joignables — voir ${lock?.logPath ?? ".logs/"}`);
+  }
 }
 
 function readFunctionsLock() {

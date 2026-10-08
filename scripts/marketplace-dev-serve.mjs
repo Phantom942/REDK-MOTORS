@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /** Eleventy dev + overlay Supabase local (localhost uniquement). */
-import { spawn } from "node:child_process";
+import { spawn, spawnSync } from "node:child_process";
 import { loadSupabaseLocalEnv, repoRoot } from "./lib/marketplace-local-env.mjs";
 import { assertLocalSupabaseUrl } from "./lib/marketplace-local-guard.mjs";
 
@@ -19,6 +19,9 @@ const env = {
 
 console.log("Eleventy + marketplace locale (enabled via src/_data/site.js si env présents)");
 console.log(`  Supabase : ${loaded.url}`);
+
+const bundle = spawnSync("node", ["scripts/bundle-marketplace.mjs"], { cwd: repoRoot, stdio: "inherit" });
+if (bundle.status !== 0) process.exit(bundle.status ?? 1);
 
 const child = spawn("npx", ["eleventy", "--serve"], { cwd: repoRoot, env, stdio: "inherit", shell: true });
 child.on("exit", (code) => process.exit(code ?? 0));

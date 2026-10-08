@@ -241,7 +241,10 @@ export async function mountAdminApp(root) {
           .eq("id", btn.dataset.resolveReport);
         const fb = panel.querySelector("#mp-reports-fb");
         fb.innerHTML = error ? alert("error", "Clôture refusée.") : alert("success", "Signalement clos.");
-        if (!error) btn.closest("tr")?.querySelector("td:nth-child(3)").textContent = "Clos";
+        if (!error) {
+          const cell = btn.closest("tr")?.querySelector("td:nth-child(3)");
+          if (cell) cell.textContent = "Clos";
+        }
       });
     });
     return;
