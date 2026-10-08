@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 /**
  * Orchestrateur validation locale — base vierge → migrations → seed → functions → tests.
+ * Cible Supabase LOCAL uniquement (reset). Ne jamais utiliser contre la préproduction :
+ * voir npm run test:marketplace:preprod et docs/marketplace/PREPROD_PLAN.md.
  */
 import { execSync, spawnSync } from "node:child_process";
 import fs from "node:fs";

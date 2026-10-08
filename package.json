@@ -37,6 +37,7 @@
     "test:marketplace:moderation-regression": "node scripts/marketplace-moderation-action-regression.mjs",
     "test:marketplace:e2e:concurrency": "node scripts/marketplace-e2e-concurrency.mjs",
     "test:marketplace:local": "node scripts/marketplace-run-local-validation.mjs",
+    "test:marketplace:preprod": "node scripts/marketplace-preprod-smoke.mjs",
     "marketplace:functions": "node scripts/marketplace-functions-serve.mjs",
     "marketplace:sitemap": "node scripts/generate-marketplace-sitemap.mjs",
     "bundle:marketplace": "node scripts/bundle-marketplace.mjs",

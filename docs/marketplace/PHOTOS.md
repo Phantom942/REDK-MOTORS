@@ -21,7 +21,7 @@
 ## Retrait / suspension / edit après publish
 
 - `published_version` remis à `null` en base → `serve-listing-photo` répond **404**.
-- **Cache** : `Cache-Control: public, max-age=60` sur les images servies — retrait effectif sous ~60 s (purge CDN manuelle si urgence).
+- **Cache** : `Cache-Control: public, max-age=60` sur les images servies. Après retrait, la fonction renvoie **404** + `no-store` ; les caches peuvent encore servir un **200** pendant **≤ ~60 s** (config actuelle). **Pas** de purge CDN requise pour chaque retrait ordinaire. Purge manuelle : **urgence** uniquement. Une image déjà téléchargée par un visiteur **ne peut pas être effacée** côté serveur.
 - Objets privés conservés pour historique modération ; job de nettoyage des brouillons abandonnés à planifier.
 
 ## Buckets legacy `listing-photos-public`

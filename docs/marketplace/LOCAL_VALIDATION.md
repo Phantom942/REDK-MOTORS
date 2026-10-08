@@ -23,7 +23,8 @@ WSL sans distribution installée ne fournit pas Docker à l’agent tant qu’au
 | Edge functions (local) | `npx supabase functions serve --env-file .env.local` (2e terminal — **serveur de dev**, pas un déploiement CI) |
 | RLS rapide | `npm run test:marketplace-live` |
 | E2E runtime | `npm run test:marketplace:e2e` |
-| Orchestrateur complet | `npm run test:marketplace:local` (Docker, start, reset, seed, functions serve, security + RLS + E2E ×3) |
+| Orchestrateur complet | `npm run test:marketplace:local` (Docker, start, reset, seed, functions serve, security + RLS + E2E ×3) — **localhost uniquement, jamais préprod** |
+| Smoke préproduction | `npm run test:marketplace:preprod` — **sans reset** ; voir `PREPROD_PLAN.md` |
 | E2E étendu seul | `npm run test:marketplace:e2e:extended` |
 | E2E admin / staff | `npm run test:marketplace:e2e:admin` |
 
@@ -33,7 +34,10 @@ Le seed (`test:marketplace:local-seed`) est **réexécutable** : comptes existan
 
 Les scripts **refusent** toute URL qui n’est pas `127.0.0.1` ou `localhost`.
 
-Préproduction isolée (sans activation) : voir `PREPRODUCTION.md`.
+Préproduction isolée (sans activation) : voir `PREPRODUCTION.md` et `PREPROD_PLAN.md`.  
+Qualification recette (limites UI, manuel restant) : `RECETTE_QUALIFICATION.md`.
+
+**Important** : ne jamais lancer `test:marketplace:local` contre une URL Supabase distante — le script reset la base locale.
 
 ## Anciennes Edge Functions déployées
 
