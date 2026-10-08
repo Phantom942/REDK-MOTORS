@@ -33,6 +33,8 @@ const REQUIRED_SNIPPETS = [
   { file: /21100_photos_server/, needle: "server_verified", label: "Flag server_verified" },
   { file: /21100_photos_server/, needle: "private_owner_upload", label: "Upload storage direct retiré" },
   { file: /21200_consents/, needle: "sync_consents_from_auth_metadata", label: "Consentements depuis métadonnées Auth" },
+  { file: /21400_consents/, needle: "jsonb_bool_strict", label: "Consentements booléen JSON strict" },
+  { file: /21400_consents/, needle: "drop function if exists public.register_listing_photo", label: "RPC register_listing_photo supprimée" },
 ];
 
 function readMigrations() {
