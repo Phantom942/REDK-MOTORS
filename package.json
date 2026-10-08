@@ -8,6 +8,7 @@
     "google:reviews": "node scripts/sync-google-reviews.js",
     "serve": "eleventy --serve",
     "dev": "eleventy --serve",
+    "dev:marketplace-local": "node scripts/marketplace-dev-serve.mjs",
     "fonts:setup": "node scripts/setup-local-fonts.js",
     "logo:webp": "node scripts/generate-logo-webp.js",
     "favicon": "node scripts/generate-favicons.js",
@@ -31,6 +32,8 @@
     "test:marketplace:local-reset": "node scripts/marketplace-local-reset.mjs",
     "test:marketplace:local-seed": "node scripts/marketplace-local-seed.mjs",
     "test:marketplace:e2e": "node scripts/marketplace-e2e.mjs",
+    "test:marketplace:e2e:extended": "node scripts/marketplace-e2e-extended.mjs",
+    "test:marketplace:e2e:admin": "node scripts/marketplace-e2e-admin.mjs",
     "test:marketplace:local": "node scripts/marketplace-run-local-validation.mjs"
   },
   "keywords": [

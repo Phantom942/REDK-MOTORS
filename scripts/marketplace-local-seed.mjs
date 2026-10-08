@@ -10,6 +10,7 @@ const USERS = [
   { key: "B", email: "mp-vendeur-b@test.local", role: "user" },
   { key: "MOD", email: "mp-moderateur@test.local", role: "moderator" },
   { key: "ADMIN", email: "mp-admin@test.local", role: "admin" },
+  { key: "STAFF", email: "mp-staff@test.local", role: "garage_staff" },
   { key: "SUSP", email: "mp-suspendu@test.local", role: "user", suspended: true },
 ];
 
@@ -81,23 +82,23 @@ async function main() {
   }
 
   const susp = USERS.find((u) => u.suspended);
-  if (susp && ids.MOD && ids.SUSP) {
-    const modLogin = await fetch(`${baseUrl}/auth/v1/token?grant_type=password`, {
+  if (susp && ids.ADMIN && ids.SUSP) {
+    const adminLogin = await fetch(`${baseUrl}/auth/v1/token?grant_type=password`, {
       method: "POST",
       headers: { apikey: anonKey, "Content-Type": "application/json" },
-      body: JSON.stringify({ email: USERS.find((x) => x.key === "MOD").email, password: PASSWORD }),
+      body: JSON.stringify({ email: USERS.find((x) => x.key === "ADMIN").email, password: PASSWORD }),
     });
-    const modTok = (await modLogin.json()).access_token;
+    const adminTok = (await adminLogin.json()).access_token;
     await fetch(`${baseUrl}/rest/v1/rpc/suspend_account`, {
       method: "POST",
       headers: {
-        apikey: serviceKey,
-        Authorization: `Bearer ${modTok}`,
+        apikey: anonKey,
+        Authorization: `Bearer ${adminTok}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ p_user_id: ids.SUSP, p_reason: "seed_test" }),
     });
-    console.log("  seed SUSP suspendu via RPC modérateur");
+    console.log("  seed SUSP suspendu via RPC admin");
   }
 
   const out = {
@@ -118,6 +119,8 @@ async function main() {
   console.log(`MARKETPLACE_TEST_MOD_PASSWORD=${PASSWORD}`);
   console.log(`MARKETPLACE_TEST_ADMIN_EMAIL=${USERS[3].email}`);
   console.log(`MARKETPLACE_TEST_ADMIN_PASSWORD=${PASSWORD}`);
+  console.log(`MARKETPLACE_TEST_STAFF_EMAIL=${USERS.find((u) => u.key === "STAFF")?.email}`);
+  console.log(`MARKETPLACE_TEST_STAFF_PASSWORD=${PASSWORD}`);
   console.log(JSON.stringify(out, null, 2));
 }
 
