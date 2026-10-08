@@ -27,7 +27,11 @@
     "post-deploy": "node scripts/post-deploy.js",
     "cf:deploy-headers": "node scripts/deploy-kv-worker-headers.js",
     "test:marketplace-security": "node scripts/marketplace-security-test.mjs",
-    "test:marketplace-live": "node scripts/marketplace-security-live.mjs"
+    "test:marketplace-live": "node scripts/marketplace-security-live.mjs",
+    "test:marketplace:local-reset": "node scripts/marketplace-local-reset.mjs",
+    "test:marketplace:local-seed": "node scripts/marketplace-local-seed.mjs",
+    "test:marketplace:e2e": "node scripts/marketplace-e2e.mjs",
+    "test:marketplace:local": "node scripts/marketplace-run-local-validation.mjs"
   },
   "keywords": [
     "eleventy",

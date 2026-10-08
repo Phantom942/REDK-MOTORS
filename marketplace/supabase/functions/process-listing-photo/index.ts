@@ -71,6 +71,10 @@ Deno.serve(async (req) => {
     return new Response(JSON.stringify({ error: "listing_not_editable" }), { status: 409 });
   }
 
+  if (file.size > MAX_BYTES) {
+    return new Response(JSON.stringify({ error: "too_large" }), { status: 413 });
+  }
+
   const raw = new Uint8Array(await file.arrayBuffer());
   if (raw.length > MAX_BYTES) {
     return new Response(JSON.stringify({ error: "too_large" }), { status: 413 });

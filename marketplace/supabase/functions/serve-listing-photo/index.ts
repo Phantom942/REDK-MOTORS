@@ -29,7 +29,10 @@ Deno.serve(async (req) => {
     .maybeSingle();
 
   if (error || !row) {
-    return new Response("not_found", { status: 404, headers: { "Cache-Control": "no-store" } });
+    return new Response("not_found", {
+      status: 404,
+      headers: { "Cache-Control": "no-store, private", "CDN-Cache-Control": "no-store" },
+    });
   }
 
   const { data: photo, error: pErr } = await admin

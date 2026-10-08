@@ -11,9 +11,21 @@
  * MARKETPLACE_TEST_MOD_EMAIL / PASSWORD
  * MARKETPLACE_TEST_ADMIN_EMAIL / PASSWORD (optionnel si bootstrap)
  */
-const baseUrl = process.env.MARKETPLACE_TEST_URL?.replace(/\/$/, "");
-const anonKey = process.env.MARKETPLACE_TEST_ANON_KEY;
-const serviceKey = process.env.MARKETPLACE_TEST_SERVICE_ROLE_KEY;
+import { loadSupabaseLocalEnv } from "./lib/marketplace-local-env.mjs";
+import { assertLocalSupabaseUrl } from "./lib/marketplace-local-guard.mjs";
+
+let baseUrl = process.env.MARKETPLACE_TEST_URL?.replace(/\/$/, "");
+let anonKey = process.env.MARKETPLACE_TEST_ANON_KEY;
+let serviceKey = process.env.MARKETPLACE_TEST_SERVICE_ROLE_KEY;
+
+if (!baseUrl || !anonKey) {
+  const loaded = loadSupabaseLocalEnv();
+  if (!loaded.error && loaded.url && loaded.anonKey) {
+    baseUrl = loaded.url.replace(/\/$/, "");
+    anonKey = loaded.anonKey;
+    serviceKey = serviceKey || loaded.serviceKey;
+  }
+}
 
 let failed = 0;
 function fail(label) {
@@ -78,7 +90,7 @@ async function run() {
     process.exit(3);
   }
 
-  assertLocalUrl();
+  assertLocalSupabaseUrl(baseUrl, "tests RLS live");
 
   const emailA = process.env.MARKETPLACE_TEST_USER_A_EMAIL;
   const passA = process.env.MARKETPLACE_TEST_USER_A_PASSWORD;
