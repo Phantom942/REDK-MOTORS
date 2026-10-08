@@ -44,6 +44,7 @@ export async function mountAdminApp(root) {
   const roles = await rolesOf(supabase, uid);
   const isMod = roles.includes("moderator") || roles.includes("admin");
   const isAdmin = roles.includes("admin");
+  const isStaff = roles.includes("garage_staff") || isAdmin;
   if (!isMod) {
     root.hidden = false;
     root.innerHTML = alert("error", "Accès réservé aux modérateurs.");
@@ -70,6 +71,8 @@ export async function mountAdminApp(root) {
         <a href="?view=queue" class="${view === "queue" ? "is-active" : ""}">En attente (${pendingCount ?? 0})</a>
         <a href="?view=duplicates" class="${view === "duplicates" ? "is-active" : ""}">Doublons</a>
         <a href="?view=reports" class="${view === "reports" ? "is-active" : ""}">Signalements</a>
+        <a href="?view=published" class="${view === "published" ? "is-active" : ""}">Publiées</a>
+        ${isStaff ? `<a href="?view=consignment" class="${view === "consignment" ? "is-active" : ""}">Dépôt-vente</a>` : ""}
         <a href="?view=users" class="${view === "users" ? "is-active" : ""}">Utilisateurs</a>
         ${isAdmin ? `<a href="?view=export" class="${view === "export" ? "is-active" : ""}">Export CSV</a>` : ""}
       </nav>
@@ -86,7 +89,91 @@ export async function mountAdminApp(root) {
         <li>Signalements ouverts : <strong>${openReports ?? 0}</strong></li>
         <li>Alertes doublons : <strong>${dupCount ?? 0}</strong></li>
       </ul>
-      <p>Dépôt-vente : réservé au staff garage (création via procédure staff — pas de formulaire public).</p>`;
+      <p>Dépôt-vente : réservé au staff garage (${isStaff ? "formulaire « Dépôt-vente »" : "rôle garage_staff requis"}).</p>`;
+    return;
+  }
+
+  if (view === "consignment" && isStaff) {
+    panel.innerHTML = `
+      <p class="mp-form__hint">Crée un brouillon dépôt-vente (seller_type consignment). Complétez les photos via « Publier une annonce ».</p>
+      <form id="mp-consignment-form" class="mp-form">
+        <label>Marque<input name="make" required /></label>
+        <label>Modèle<input name="model" required /></label>
+        <label>Année<input name="model_year" type="number" min="1980" max="2030" required /></label>
+        <label>Kilométrage<input name="mileage_km" type="number" min="0" required /></label>
+        <label>Carburant<select name="fuel" required><option value="essence">Essence</option><option value="diesel">Diesel</option><option value="hybride">Hybride</option><option value="electrique">Électrique</option></select></label>
+        <label>Boîte<select name="gearbox" required><option value="manuelle">Manuelle</option><option value="automatique">Automatique</option></select></label>
+        <label>Prix (€)<input name="price_eur" type="number" min="1" required /></label>
+        <label>Ville<input name="city" value="Ivry-sur-Seine" required /></label>
+        <label>Code postal<input name="postal_code" value="94200" required /></label>
+        <label>Téléphone<input name="contact_phone" required /></label>
+        <label>Description (min. 40 caractères)<textarea name="description" rows="4" minlength="40" required></textarea></label>
+        <button type="submit" class="btn btn--primary">Créer le brouillon dépôt-vente</button>
+      </form>
+      <div id="mp-consignment-fb"></div>`;
+    panel.querySelector("#mp-consignment-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const fd = new FormData(e.target);
+      const fb = panel.querySelector("#mp-consignment-fb");
+      const payload = {
+        make: fd.get("make"),
+        model: fd.get("model"),
+        model_year: Number(fd.get("model_year")),
+        mileage_km: Number(fd.get("mileage_km")),
+        fuel: fd.get("fuel"),
+        gearbox: fd.get("gearbox"),
+        price_cents: Math.round(Number(fd.get("price_eur")) * 100),
+        city: fd.get("city"),
+        postal_code: fd.get("postal_code"),
+        description: fd.get("description"),
+        contact_phone: fd.get("contact_phone"),
+      };
+      const { data, error } = await supabase.rpc("create_consignment_listing", { p_payload: payload });
+      if (error) {
+        fb.innerHTML = alert("error", "Création refusée (vérifiez le rôle staff).");
+        return;
+      }
+      fb.innerHTML = alert(
+        "success",
+        `Brouillon créé. <a href="../publier/?listing=${data}">Ajouter photos et soumettre</a>`,
+      );
+    });
+    return;
+  }
+
+  if (view === "published") {
+    const { data: pubs } = await supabase
+      .from("listings")
+      .select("id, make, model, model_year, seller_type, slug, owner_id")
+      .eq("status", "published")
+      .order("published_at", { ascending: false })
+      .limit(40);
+    panel.innerHTML = `
+      <table class="mp-table"><thead><tr><th>Véhicule</th><th>Type</th><th>Actions</th></tr></thead>
+      <tbody>${(pubs ?? [])
+        .map(
+          (l) => `<tr>
+            <td>${l.make} ${l.model} ${l.model_year}${l.slug ? ` · ${l.slug}` : ""}</td>
+            <td>${l.seller_type}</td>
+            <td>${isMod ? `<button type="button" class="btn btn--secondary btn--dark" data-admin-withdraw="${l.id}">Retirer (mod)</button>` : "—"}</td>
+          </tr>`,
+        )
+        .join("")}</tbody></table>
+      <div id="mp-published-fb"></div>`;
+    panel.querySelectorAll("[data-admin-withdraw]").forEach((btn) => {
+      btn.addEventListener("click", async () => {
+        if (!window.confirm("Retirer cette annonce du catalogue public ?")) return;
+        const note = window.prompt("Note interne (optionnel) :") || null;
+        const { error } = await supabase.rpc("admin_withdraw_listing", {
+          p_listing_id: btn.dataset.adminWithdraw,
+          p_internal_note: note,
+        });
+        panel.querySelector("#mp-published-fb").innerHTML = error
+          ? alert("error", "Retrait refusé.")
+          : alert("success", "Annonce retirée.");
+        if (!error) btn.closest("tr")?.remove();
+      });
+    });
     return;
   }
 
@@ -136,12 +223,27 @@ export async function mountAdminApp(root) {
       .select("id, listing_id, reason, created_at, resolved_at")
       .order("created_at", { ascending: false })
       .limit(30);
-    panel.innerHTML = `<table class="mp-table"><thead><tr><th>Annonce</th><th>Motif</th><th>Statut</th></tr></thead><tbody>${(reps ?? [])
+    panel.innerHTML = `<table class="mp-table"><thead><tr><th>Annonce</th><th>Motif</th><th>Statut</th><th></th></tr></thead><tbody>${(reps ?? [])
       .map(
         (r) =>
-          `<tr><td>${r.listing_id}</td><td>${r.reason ?? ""}</td><td>${r.resolved_at ? "Clos" : "Ouvert"}</td></tr>`,
+          `<tr><td>${r.listing_id}</td><td>${r.reason ?? ""}</td><td>${r.resolved_at ? "Clos" : "Ouvert"}</td><td>${
+            !r.resolved_at && isMod
+              ? `<button type="button" class="btn btn--secondary" data-resolve-report="${r.id}">Clore</button>`
+              : ""
+          }</td></tr>`,
       )
-      .join("")}</tbody></table>`;
+      .join("")}</tbody></table><div id="mp-reports-fb"></div>`;
+    panel.querySelectorAll("[data-resolve-report]").forEach((btn) => {
+      btn.addEventListener("click", async () => {
+        const { error } = await supabase
+          .from("listing_reports")
+          .update({ status: "resolved", resolved_at: new Date().toISOString(), resolved_by: uid })
+          .eq("id", btn.dataset.resolveReport);
+        const fb = panel.querySelector("#mp-reports-fb");
+        fb.innerHTML = error ? alert("error", "Clôture refusée.") : alert("success", "Signalement clos.");
+        if (!error) btn.closest("tr")?.querySelector("td:nth-child(3)").textContent = "Clos";
+      });
+    });
     return;
   }
 
@@ -156,17 +258,41 @@ export async function mountAdminApp(root) {
       <tbody>${(profiles ?? [])
         .map((p) => {
           const suspendBtn =
-            p.account_status === "active" && isMod
+            p.account_status === "active" && isAdmin
               ? `<button type="button" data-suspend="${p.id}" class="btn btn--secondary btn--dark">Suspendre</button>`
               : "";
           const reactBtn =
             p.account_status === "suspended" && isAdmin
               ? `<button type="button" data-reactivate="${p.id}" class="btn btn--secondary">Réactiver</button>`
               : "";
-          return `<tr><td>${p.first_name ?? ""} ${p.last_name ?? ""}</td><td>${p.account_status}</td><td>${suspendBtn}${reactBtn}</td></tr>`;
+          const consentBtn = isAdmin
+            ? `<button type="button" data-consents="${p.id}" class="btn btn--secondary">Consentements</button>`
+            : "";
+          return `<tr><td>${p.first_name ?? ""} ${p.last_name ?? ""}</td><td>${p.account_status}</td><td>${suspendBtn}${reactBtn}${consentBtn}</td></tr>`;
         })
         .join("")}</tbody></table>
-      <div id="mp-user-fb"></div>`;
+      <div id="mp-user-fb"></div>
+      <div id="mp-consent-detail"></div>`;
+    panel.querySelectorAll("[data-consents]").forEach((btn) => {
+      btn.addEventListener("click", async () => {
+        const box = panel.querySelector("#mp-consent-detail");
+        const { data: rows, error } = await supabase
+          .from("consent_records")
+          .select("channel, granted, consent_text_version, recorded_at")
+          .eq("user_id", btn.dataset.consents)
+          .order("recorded_at", { ascending: false });
+        if (error) {
+          box.innerHTML = alert("error", "Lecture consentements refusée.");
+          return;
+        }
+        box.innerHTML = `<h3>Consentements</h3><ul>${(rows ?? [])
+          .map(
+            (c) =>
+              `<li>${c.channel} — ${c.granted ? "accordé" : "refusé"} (${c.consent_text_version}, ${new Date(c.recorded_at).toLocaleString("fr-FR")})</li>`,
+          )
+          .join("") || "<li>Aucun enregistrement</li>"}</ul>`;
+      });
+    });
     panel.querySelectorAll("[data-suspend]").forEach((btn) => {
       btn.addEventListener("click", async () => {
         const { error } = await supabase.rpc("suspend_account", { p_user_id: btn.dataset.suspend, p_reason: "admin_panel" });
