@@ -14,7 +14,30 @@ const USERS = [
   { key: "SUSP", email: "mp-suspendu@test.local", role: "user", suspended: true },
 ];
 
-async function adminCreateUser(baseUrl, serviceKey, { email, suspended }) {
+async function findUserIdByEmail(baseUrl, serviceKey, email) {
+  const res = await fetch(
+    `${baseUrl}/auth/v1/admin/users?email=${encodeURIComponent(email)}`,
+    {
+      headers: {
+        apikey: serviceKey,
+        Authorization: `Bearer ${serviceKey}`,
+      },
+    },
+  );
+  if (!res.ok) return null;
+  const data = await res.json();
+  const users = data.users ?? data;
+  const hit = Array.isArray(users) ? users.find((u) => u.email === email) : null;
+  return hit?.id ?? null;
+}
+
+async function adminCreateUser(baseUrl, serviceKey, { email }) {
+  const existing = await findUserIdByEmail(baseUrl, serviceKey, email);
+  if (existing) {
+    console.log(`  seed réutilise compte existant ${email}`);
+    return existing;
+  }
+
   const res = await fetch(`${baseUrl}/auth/v1/admin/users`, {
     method: "POST",
     headers: {
@@ -43,14 +66,21 @@ async function adminCreateUser(baseUrl, serviceKey, { email, suspended }) {
   });
   const data = await res.json();
   if (!res.ok) throw new Error(data.msg || data.message || JSON.stringify(data));
-  const userId = data.id;
-
-  return userId;
+  return data.id;
 }
 
 async function assignRole(baseUrl, serviceKey, userId, role) {
   if (role === "user") return;
-  await fetch(`${baseUrl}/rest/v1/user_roles`, {
+  const check = await fetch(
+    `${baseUrl}/rest/v1/user_roles?user_id=eq.${userId}&role=eq.${role}&select=role&limit=1`,
+    {
+      headers: { apikey: serviceKey, Authorization: `Bearer ${serviceKey}` },
+    },
+  );
+  const rows = await check.json();
+  if (Array.isArray(rows) && rows.length) return;
+
+  const res = await fetch(`${baseUrl}/rest/v1/user_roles`, {
     method: "POST",
     headers: {
       apikey: serviceKey,
@@ -60,6 +90,10 @@ async function assignRole(baseUrl, serviceKey, userId, role) {
     },
     body: JSON.stringify({ user_id: userId, role, granted_by: userId }),
   });
+  if (!res.ok) {
+    const t = await res.text();
+    throw new Error(`role ${role}: ${t}`);
+  }
 }
 
 async function main() {

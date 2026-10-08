@@ -38,17 +38,28 @@ Deno.serve(async (req) => {
     return new Response(JSON.stringify({ error: error.message }), { status: 500 });
   }
 
+  /** Export commercial = état courant par (user_id, canal), historique non supprimé en base. */
+  const latestByKey = new Map<string, (typeof rows)[number]>();
+  for (const r of rows ?? []) {
+    const key = `${r.user_id}\0${r.channel}`;
+    if (!latestByKey.has(key)) latestByKey.set(key, r);
+  }
+  const exportRows = [...latestByKey.values()].sort((a, b) =>
+    String(a.user_id).localeCompare(String(b.user_id)) ||
+    String(a.channel).localeCompare(String(b.channel))
+  );
+
   await admin.from("admin_audit_log").insert({
     actor_id: uid,
     action: "export_csv",
     target_type: "consent_records",
-    metadata: { row_count: rows?.length ?? 0 },
+    metadata: { row_count: exportRows.length, mode: "current_state" },
   });
 
   const header = "user_id,channel,granted,consent_text_version,recorded_at\n";
   const csv =
     header +
-    (rows ?? [])
+    exportRows
       .map((r) =>
         [r.user_id, r.channel, r.granted, r.consent_text_version, r.recorded_at]
           .map((c) => `"${String(c).replace(/"/g, '""')}"`)

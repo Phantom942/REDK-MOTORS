@@ -20,7 +20,7 @@ WSL sans distribution installée ne fournit pas Docker à l’agent tant qu’au
 | Démarrer stack | `cd marketplace` puis `npx supabase start` |
 | Reset (local **uniquement**) | `$env:MARKETPLACE_ALLOW_DB_RESET=1; node ..\scripts\marketplace-local-reset.mjs` |
 | Seed comptes + rôles | `node ..\scripts\marketplace-local-seed.mjs` |
-| Edge functions | `npx supabase functions serve --env-file .env.local` (2e terminal) |
+| Edge functions (local) | `npx supabase functions serve --env-file .env.local` (2e terminal — **serveur de dev**, pas un déploiement CI) |
 | RLS rapide | `npm run test:marketplace-live` |
 | E2E runtime | `npm run test:marketplace:e2e` |
 | Orchestrateur complet | `npm run test:marketplace:local` (Docker, start, reset, seed, functions serve, security + RLS + E2E ×3) |
@@ -29,7 +29,11 @@ WSL sans distribution installée ne fournit pas Docker à l’agent tant qu’au
 
 Emails : **Inbucket** http://127.0.0.1:54324 — pas de SMTP production.
 
+Le seed (`test:marketplace:local-seed`) est **réexécutable** : comptes existants réutilisés, rôles ajoutés seulement s’ils manquent (pas de double création Auth).
+
 Les scripts **refusent** toute URL qui n’est pas `127.0.0.1` ou `localhost`.
+
+Préproduction isolée (sans activation) : voir `PREPRODUCTION.md`.
 
 ## Anciennes Edge Functions déployées
 

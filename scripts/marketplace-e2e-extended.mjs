@@ -4,6 +4,7 @@
  */
 import { assertLocalSupabaseUrl } from "./lib/marketplace-local-guard.mjs";
 import { requireLocalEnv } from "./lib/marketplace-local-env.mjs";
+import { latestConsentsByChannel } from "./lib/consent-latest.mjs";
 import {
   DEFAULT_PASSWORD,
   authToken,
@@ -287,6 +288,22 @@ async function main() {
       consent_text_snapshot: "Test opt-out email",
     });
     rev.ok ? pass("consentement — révocation") : fail("consent revoke", JSON.stringify(rev.json));
+
+    const hist = await rest(
+      baseUrl,
+      anonKey,
+      userA.token,
+      "GET",
+      `consent_records?user_id=eq.${userA.userId}&channel=eq.email_marketing&select=channel,granted,recorded_at&order=recorded_at.desc`,
+    );
+    const emailRows = Array.isArray(hist.json) ? hist.json : [];
+    emailRows.length >= 2
+      ? pass("consentement — historique email_marketing conservé")
+      : fail("consentement historique", JSON.stringify(hist.json));
+    const latest = latestConsentsByChannel(emailRows);
+    latest.email_marketing?.granted === false
+      ? pass("consentement — état courant email refusé après révocation")
+      : fail("consentement état courant", JSON.stringify(latest));
   } catch (e) {
     fail("consentements", e.message);
   }

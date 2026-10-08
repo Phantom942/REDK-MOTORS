@@ -361,7 +361,7 @@ export async function mountAdminApp(root) {
         <input type="hidden" name="version" value="${row.pending_version}" />
         <label>Motif public (refus)<input name="publicReason" required /></label>
         <label>Note interne<input name="internalNote" /></label>
-        <button type="submit" name="action" value="approve" class="btn btn--primary">Valider</button>
+        <button type="submit" name="action" value="approve" class="btn btn--primary" formnovalidate>Valider</button>
         <button type="submit" name="action" value="reject" class="btn btn--secondary btn--dark">Refuser</button>
       </form>
       <div class="mp-admin-feedback"></div>`;
@@ -369,7 +369,7 @@ export async function mountAdminApp(root) {
     card.querySelector("form").addEventListener("submit", async (e) => {
       e.preventDefault();
       const fd = new FormData(e.target);
-      const action = fd.get("action");
+      const action = e.submitter?.value ?? fd.get("action");
       const fb = card.querySelector(".mp-admin-feedback");
       const token = (await supabase.auth.getSession()).data.session?.access_token;
       if (!token) {

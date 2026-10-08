@@ -9,6 +9,7 @@ import { fileURLToPath } from "node:url";
 import sharp from "sharp";
 import { assertLocalSupabaseUrl } from "./lib/marketplace-local-guard.mjs";
 import { requireLocalEnv } from "./lib/marketplace-local-env.mjs";
+import { latestConsentsByChannel, seedConsentStateOk } from "./lib/consent-latest.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PASSWORD = process.env.MARKETPLACE_TEST_USER_A_PASSWORD || "TestMarketplace-Local-2026!";
@@ -131,16 +132,18 @@ async function main() {
   });
   profileHack.ok ? fail("patch account_status") : pass("account_status protégé");
 
-  // Consentements : métadonnées invalides ne créent pas d'opt-in (vérif en base après signup seed = false)
+  // Consentements seed : état courant (dernier enregistrement par canal), pas l'historique complet
   const { json: consentsA } = await rest(
     baseUrl,
     anonKey,
     userA.token,
     "GET",
-    `consent_records?user_id=eq.${userA.userId}&select=channel,granted`,
+    `consent_records?user_id=eq.${userA.userId}&select=channel,granted,recorded_at&order=recorded_at.desc`,
   );
-  if (Array.isArray(consentsA) && consentsA.every((c) => c.granted === false)) pass("consentements seed default false");
-  else fail("consentements seed", JSON.stringify(consentsA));
+  const latestA = latestConsentsByChannel(Array.isArray(consentsA) ? consentsA : []);
+  const seedConsents = seedConsentStateOk(latestA);
+  if (seedConsents.ok) pass("consentements seed — état courant false par canal");
+  else fail("consentements seed", JSON.stringify({ latest: latestA, historyCount: consentsA?.length }));
 
   // --- Listing draft + photos ---
   const draft = await rest(baseUrl, anonKey, userA.token, "POST", "listings", "", {
