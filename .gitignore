@@ -83,3 +83,8 @@ workers/redkmotors-fr-redirect.js
 workers/redkmotors-fr-redirect-compact.js
 workers/*.payload.json
 workers/mcp-args-*.json
+
+# Marketplace local dev
+.logs/
+.marketplace-functions-serve.lock.json
+.marketplace-functions-serve.log

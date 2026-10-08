@@ -2,13 +2,12 @@
 /**
  * Orchestrateur validation locale — base vierge → migrations → seed → functions → tests.
  */
-import { execSync, spawn, spawnSync } from "node:child_process";
+import { execSync, spawnSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { marketplaceDir, repoRoot } from "./lib/marketplace-local-env.mjs";
 import { isLocalSupabaseUrl } from "./lib/marketplace-local-guard.mjs";
 
-const FUNCTIONS_LOG = path.join(repoRoot, ".marketplace-functions-serve.log");
 
 function step(name, fn) {
   console.log(`\n▶ ${name}`);
@@ -71,34 +70,20 @@ async function waitForFunctions(baseUrl, timeoutMs = 120000) {
     }
     await new Promise((r) => setTimeout(r, 2000));
   }
-  throw new Error("Edge functions non joignables — voir " + FUNCTIONS_LOG);
+  const lock = readFunctionsLock();
+  throw new Error(`Edge functions non joignables — voir ${lock?.logPath ?? ".logs/"}`);
+}
+
+function readFunctionsLock() {
+  try {
+    return JSON.parse(fs.readFileSync(path.join(repoRoot, ".marketplace-functions-serve.lock.json"), "utf8"));
+  } catch {
+    return null;
+  }
 }
 
 function startFunctionsServe() {
-  const envFile = path.join(marketplaceDir, ".env.local");
-  if (!fs.existsSync(envFile)) {
-    throw new Error("marketplace/.env.local manquant pour functions serve");
-  }
-  fs.writeFileSync(FUNCTIONS_LOG, "--- functions serve ---\n");
-  if (process.platform === "win32") {
-    spawnSync(
-      "powershell",
-      [
-        "-NoProfile",
-        "-Command",
-        `Start-Process -WindowStyle Hidden -FilePath npx -ArgumentList 'supabase','functions','serve','--env-file','.env.local' -WorkingDirectory '${marketplaceDir.replace(/'/g, "''")}' -RedirectStandardOutput '${FUNCTIONS_LOG.replace(/'/g, "''")}' -RedirectStandardError '${FUNCTIONS_LOG.replace(/'/g, "''")}'`,
-      ],
-      { stdio: "ignore" },
-    );
-  } else {
-    const out = fs.openSync(FUNCTIONS_LOG, "a");
-    const child = spawn("npx", ["supabase", "functions", "serve", "--env-file", ".env.local"], {
-      cwd: marketplaceDir,
-      detached: true,
-      stdio: ["ignore", out, out],
-    });
-    child.unref();
-  }
+  execSync("node scripts/marketplace-functions-serve.mjs start", { cwd: repoRoot, stdio: "inherit" });
 }
 
 function runNode(script, env) {
@@ -137,7 +122,6 @@ async function main() {
   });
 
   step("Edge functions serve", () => {
-    fs.writeFileSync(FUNCTIONS_LOG, "--- functions serve ---\n");
     startFunctionsServe();
   });
 
@@ -163,8 +147,13 @@ async function main() {
     runNode("marketplace-e2e-admin.mjs", testEnv);
   });
 
+  step("E2E concurrence", () => {
+    runNode("marketplace-e2e-concurrency.mjs", testEnv);
+  });
+
   console.log("\n=== Validation locale terminée avec succès ===");
-  console.log(`Log functions : ${FUNCTIONS_LOG}`);
+  const lock = readFunctionsLock();
+  if (lock?.logPath) console.log(`Log functions : ${lock.logPath}`);
 }
 
 async function stepAsync(name, fn) {
