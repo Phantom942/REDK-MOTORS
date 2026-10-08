@@ -1,0 +1,27 @@
+# Supabase local — lancer depuis marketplace/ :
+#   supabase start
+#   supabase db reset   # UNIQUEMENT si SUPABASE_URL pointe vers 127.0.0.1 / localhost
+#
+# Les migrations sont dans marketplace/supabase/migrations/
+
+project_id = "redk-motors-marketplace"
+
+[api]
+enabled = true
+port = 54321
+
+[db]
+port = 54322
+major_version = 15
+
+[studio]
+enabled = true
+port = 54323
+
+[auth]
+enabled = true
+site_url = "http://localhost:8080"
+additional_redirect_urls = ["http://localhost:8080/achat-revente/compte/"]
+
+[storage]
+enabled = true

@@ -1,0 +1,36 @@
+{% set mp = site.marketplace %}
+<section class="mp-hub" aria-labelledby="mp-hub-title">
+  <div class="container mp-hub__inner">
+    <p class="mp-hub__kicker">Véhicules d'occasion · Ivry-sur-Seine (94)</p>
+    <h1 id="mp-hub-title">{{ mpTitle | default("Annonces particuliers & dépôt-vente") }}</h1>
+    {% if mpLead %}
+    <p class="mp-hub__lead">{{ mpLead | safe }}</p>
+    {% endif %}
+    <div class="mp-hub__actions">
+      <a class="btn btn--primary" href="{{ mp.catalogPath }}">Voir les véhicules</a>
+      <a class="btn btn--secondary" href="{{ mp.publishPath }}">Déposer une annonce</a>
+      <a class="btn btn--secondary btn--dark" href="{{ mp.accountPath }}">Mon compte</a>
+    </div>
+    <p class="mp-hub__legal">
+      Annonces <strong>particuliers</strong> : contact direct avec le vendeur — Red-K Motors n'est pas partie à la vente.
+      Badge <strong>Dépôt-vente Red-K Motors</strong> : véhicules gérés par le garage uniquement.
+    </p>
+  </div>
+</section>
+<div id="marketplace-root" class="mp-root" data-mp-app="{{ mpApp | default('catalog') }}" hidden></div>
+<script type="application/json" id="marketplace-config">
+{{ {
+  "enabled": mp.enabled,
+  "supabaseUrl": mp.supabaseUrl,
+  "supabaseAnonKey": mp.supabaseAnonKey,
+  "turnstileSiteKey": mp.turnstileSiteKey,
+  "paths": {
+    "catalog": mp.catalogPath,
+    "publish": mp.publishPath,
+    "account": mp.accountPath,
+    "admin": mp.adminPath,
+    "listingPrefix": mp.listingPathPrefix
+  }
+} | json | safe }}
+</script>
+<script src="{{ '/assets/js/marketplace/marketplace.js' | cacheBust }}" type="module" defer></script>
