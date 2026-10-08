@@ -7511,34 +7511,63 @@ async function mountAccountApp(root) {
     return;
   }
   const cfg = readMarketplaceConfig();
+  const statusMeta = {
+    draft: { label: "Brouillon", mod: "draft" },
+    pending_review: { label: "En attente", mod: "pending" },
+    published: { label: "Publi\xE9e", mod: "published" },
+    rejected: { label: "Refus\xE9e", mod: "rejected" },
+    withdrawn: { label: "Retir\xE9e", mod: "withdrawn" },
+    sold: { label: "Vendue", mod: "sold" },
+    expired: { label: "Expir\xE9e", mod: "expired" }
+  };
   const rows = (listings ?? []).map((l) => {
-    const statusLabel = {
-      draft: "Brouillon",
-      pending_review: "En attente de validation",
-      published: "Publi\xE9e",
-      rejected: "Refus\xE9e",
-      withdrawn: "Retir\xE9e",
-      sold: "Vendue",
-      expired: "Expir\xE9e"
-    }[l.status] ?? l.status;
-    const edit = l.status === "draft" || l.status === "rejected" || l.status === "pending_review" ? ` \xB7 <a href="${cfg.paths.publish}?id=${l.id}">Modifier</a>` : "";
-    const view2 = l.status === "published" && l.slug ? ` \xB7 <a href="${cfg.paths.listingPrefix}${encodeURIComponent(l.slug)}/">Voir</a>` : "";
+    const st = statusMeta[l.status] ?? { label: l.status, mod: "draft" };
+    const links = [];
+    if (l.status === "draft" || l.status === "rejected" || l.status === "pending_review") {
+      links.push(`<a href="${cfg.paths.publish}?id=${l.id}">Modifier</a>`);
+    }
+    if (l.status === "published" && l.slug) {
+      links.push(
+        `<a href="${cfg.paths.listingPrefix}${encodeURIComponent(l.slug)}/" target="_blank" rel="noopener">Voir la fiche</a>`
+      );
+    }
+    const linksHtml = links.length ? `<div class="mp-listing-cell__links">${links.join("")}</div>` : "";
     let actions = "";
     if (l.status === "published") {
-      actions = `<button type="button" class="mp-link-btn" data-mp-action="edit-published" data-id="${l.id}">Modifier (mod\xE9ration)</button>
-          \xB7 <button type="button" class="mp-link-btn" data-mp-action="sold" data-id="${l.id}">Marquer vendue</button>
-          \xB7 <button type="button" class="mp-link-btn" data-mp-action="withdraw" data-id="${l.id}">Retirer</button>`;
+      actions = `<div class="mp-action-group">
+          <button type="button" class="mp-action-btn" data-mp-action="edit-published" data-id="${l.id}">Modifier</button>
+          <button type="button" class="mp-action-btn" data-mp-action="sold" data-id="${l.id}">Vendue</button>
+          <button type="button" class="mp-action-btn mp-action-btn--danger" data-mp-action="withdraw" data-id="${l.id}">Retirer</button>
+        </div>`;
     } else if (l.status === "draft" || l.status === "rejected") {
-      actions = `<a href="${cfg.paths.publish}?id=${l.id}">Continuer le d\xE9p\xF4t</a>`;
+      actions = `<a class="mp-action-btn mp-action-btn--primary" href="${cfg.paths.publish}?id=${l.id}">Continuer</a>`;
+    } else {
+      actions = `<span class="mp-table__muted">\u2014</span>`;
     }
-    return `<tr><td>${l.make} ${l.model} ${l.model_year}${edit}${view2}</td><td>${statusLabel}</td><td>${l.rejection_reason_public ?? "\u2014"}</td><td class="mp-table__actions">${actions || "\u2014"}</td></tr>`;
+    const motive = l.rejection_reason_public ? `<span class="mp-table__motive">${l.rejection_reason_public}</span>` : `<span class="mp-table__muted">\u2014</span>`;
+    return `<tr>
+        <td data-label="V\xE9hicule">
+          <div class="mp-listing-cell">
+            <strong class="mp-listing-cell__title">${l.make} ${l.model} ${l.model_year}</strong>
+            ${linksHtml}
+          </div>
+        </td>
+        <td data-label="Statut"><span class="mp-status mp-status--${st.mod}">${st.label}</span></td>
+        <td data-label="Motif">${motive}</td>
+        <td class="mp-table__actions" data-label="Actions">${actions}</td>
+      </tr>`;
   }).join("");
   panel.innerHTML = `
-    <p><a class="btn btn--primary" href="${cfg.paths.publish}">D\xE9poser une annonce</a></p>
-    <table class="mp-table">
-      <thead><tr><th>V\xE9hicule</th><th>Statut</th><th>Motif</th><th>Actions</th></tr></thead>
-      <tbody>${rows || '<tr><td colspan="4">Aucune annonce pour le moment.</td></tr>'}</tbody>
-    </table>
+    <div class="mp-account__toolbar">
+      <p class="mp-account__toolbar-text">G\xE9rez vos annonces : brouillon, validation, publication ou retrait.</p>
+      <a class="btn btn--primary mp-account__cta" href="${cfg.paths.publish}">D\xE9poser une annonce</a>
+    </div>
+    <div class="mp-panel">
+      <table class="mp-table mp-table--account">
+        <thead><tr><th>V\xE9hicule</th><th>Statut</th><th>Motif</th><th>Actions</th></tr></thead>
+        <tbody>${rows || '<tr><td colspan="4" class="mp-table__empty">Aucune annonce pour le moment.</td></tr>'}</tbody>
+      </table>
+    </div>
     <div id="mp-account-listing-feedback"></div>`;
   const feedbackEl = panel.querySelector("#mp-account-listing-feedback");
   panel.querySelector(".mp-table")?.addEventListener("click", async (e) => {

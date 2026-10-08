@@ -99,9 +99,12 @@ body.design-stitch .mp-root :is(h1, h2, h3, h4, p, li, dt, dd, label, legend, th
   color: inherit;
 }
 
-body.design-stitch .mp-root h2,
-body.design-stitch .mp-root h3 {
+body.design-stitch #main .mp-root h2,
+body.design-stitch #main .mp-root h3 {
   color: var(--mp-field-text);
+  text-transform: none;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 body.design-stitch .mp-root strong,
@@ -328,29 +331,100 @@ body.design-stitch .mp-root a:not(.btn):not([class*="btn--"]):hover {
   background: rgba(225, 6, 0, 0.08);
 }
 
+.mp-account {
+  max-width: 56rem;
+}
+
+.mp-account__head h2 {
+  font-family: var(--font-display, "Space Grotesk", system-ui, sans-serif);
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
+  margin: 0;
+  line-height: 1.2;
+}
+
 .mp-account__head {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
   flex-wrap: wrap;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #d4d4dc;
+  margin-bottom: 0.25rem;
 }
 
 .mp-account__nav {
   display: flex;
-  gap: 1rem;
-  margin: 1.25rem 0;
+  gap: 0.5rem;
+  margin: 1rem 0 1.25rem;
   flex-wrap: wrap;
 }
 
 .mp-account__nav a {
-  color: #333;
+  color: var(--mp-field-text);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.45rem 0.95rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.mp-account__nav a:hover {
+  background: #fff;
+  border-color: #ccc;
 }
 
 .mp-account__nav a.is-active {
-  color: var(--color-accent, #e10600);
+  color: #fff;
+  background: var(--color-red-dark, #8a0e12);
+  border-color: var(--color-red-dark, #8a0e12);
+}
+
+body.design-stitch #main .mp-root .mp-account__nav a.is-active {
+  color: #fff;
+}
+
+.mp-admin > h2 {
+  font-family: var(--font-display, "Space Grotesk", system-ui, sans-serif);
+  font-size: clamp(1.25rem, 3vw, 1.6rem);
+  margin: 0 0 0.5rem;
+}
+
+.mp-account__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.mp-account__toolbar-text {
+  margin: 0;
+  font-size: 0.925rem;
+  color: var(--mp-muted);
+  max-width: 28rem;
+  line-height: 1.45;
+}
+
+.mp-root .btn.btn--primary.mp-account__cta,
+.mp-root .mp-account__toolbar .btn.btn--primary {
+  box-shadow: 0 2px 10px rgba(179, 18, 23, 0.22);
+}
+
+.mp-panel {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+.mp-panel .mp-table {
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .mp-table {
@@ -362,12 +436,176 @@ body.design-stitch .mp-root a:not(.btn):not([class*="btn--"]):hover {
   font-size: 0.9rem;
 }
 
+.mp-table--account thead th {
+  background: #f3f3f6;
+  color: #2a2a32;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-bottom: 1px solid #ddd;
+}
+
 .mp-table th,
 .mp-table td {
-  padding: 0.65rem 0.75rem;
-  border-bottom: 1px solid #e5e5e5;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e8e8ec;
   text-align: left;
   color: var(--mp-field-text);
+  vertical-align: top;
+}
+
+.mp-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.mp-table tbody tr:hover td {
+  background: #fafafb;
+}
+
+.mp-table__empty {
+  text-align: center;
+  color: var(--mp-muted);
+  padding: 2rem 1rem !important;
+}
+
+.mp-table__muted {
+  color: #888;
+}
+
+.mp-table__motive {
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: #4a4a52;
+}
+
+.mp-listing-cell__title {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.mp-listing-cell__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  font-size: 0.85rem;
+}
+
+.mp-listing-cell__links a {
+  font-weight: 600;
+}
+
+/* Badges statut annonce */
+.mp-status {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.55rem;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.mp-status--published {
+  background: #e6f4ea;
+  color: #0d5c2e;
+}
+
+.mp-status--pending {
+  background: #fff4e0;
+  color: #8a5a00;
+}
+
+.mp-status--rejected {
+  background: #fde8e8;
+  color: #7a1010;
+}
+
+.mp-status--withdrawn,
+.mp-status--expired {
+  background: #eef0f4;
+  color: #444;
+}
+
+.mp-status--draft {
+  background: #e8eef8;
+  color: #1a3a6b;
+}
+
+.mp-status--sold {
+  background: #e8e8ec;
+  color: #333;
+}
+
+.mp-action-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.mp-action-btn {
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.35rem 0.65rem;
+  border-radius: 6px;
+  border: 1px solid #c8c8d0;
+  background: #fff;
+  color: var(--mp-field-text);
+  cursor: pointer;
+  text-decoration: none;
+  line-height: 1.25;
+}
+
+.mp-action-btn:hover {
+  border-color: #999;
+  background: #f6f6f8;
+}
+
+.mp-action-btn--primary {
+  background: rgba(179, 18, 23, 0.08);
+  border-color: rgba(179, 18, 23, 0.35);
+  color: var(--color-red-dark, #8a0e12);
+}
+
+.mp-action-btn--danger {
+  color: #7a1010;
+  border-color: rgba(122, 16, 16, 0.25);
+}
+
+@media (max-width: 720px) {
+  .mp-table--account thead {
+    display: none;
+  }
+
+  .mp-table--account tr {
+    display: block;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e8e8ec;
+  }
+
+  .mp-table--account td {
+    display: block;
+    border: none;
+    padding: 0.35rem 0;
+  }
+
+  .mp-table--account td::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #666;
+    margin-bottom: 0.15rem;
+  }
+
+  .mp-table__actions .mp-action-group {
+    margin-top: 0.25rem;
+  }
 }
 
 .mp-consents legend {
@@ -491,7 +729,7 @@ body.design-stitch .mp-root a:not(.btn):not([class*="btn--"]):hover {
 
 .mp-table__actions {
   font-size: 0.85rem;
-  max-width: 16rem;
+  min-width: 9rem;
 }
 
 .mp-detail-body {
