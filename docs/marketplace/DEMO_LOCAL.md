@@ -51,3 +51,9 @@ node scripts/marketplace-functions-serve.mjs stop
 ```
 
 Logs horodatés : `.logs/marketplace-functions-serve-*.log`
+
+Diagnostic crash conteneur (exit 137) : `node scripts/marketplace-docker-diagnose.mjs`  
+Statut functions (PID + sonde HTTP) : `node scripts/marketplace-functions-serve.mjs status`
+
+Tests SSR fiches (Eleventy doit tourner) :  
+`MARKETPLACE_SSR_BASE=http://localhost:8082 npm run test:marketplace:ssr`

@@ -5,6 +5,13 @@
   padding: 2.5rem 0 2rem;
 }
 
+.mp-hub__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
 .mp-hub__kicker {
   font-size: 0.85rem;
   letter-spacing: 0.06em;
@@ -17,6 +24,7 @@
   font-family: var(--font-display, "Space Grotesk", system-ui, sans-serif);
   font-size: clamp(1.5rem, 4vw, 2.25rem);
   margin: 0 0 0.75rem;
+  max-width: 36rem;
 }
 
 .mp-hub__lead {
@@ -28,15 +36,49 @@
 .mp-hub__actions {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   gap: 0.75rem;
   margin-bottom: 1rem;
+  width: 100%;
+  max-width: 40rem;
+}
+
+.mp-hub__actions .btn {
+  box-sizing: border-box;
+  min-height: 48px;
+  padding: 12px 1.5rem;
+  line-height: 1.25;
+  align-self: center;
+}
+
+.mp-hub__actions .btn--primary {
+  box-shadow: 0 4px 14px rgba(179, 18, 23, 0.25);
+}
+
+.mp-hub__actions .btn--primary:hover {
+  transform: translateY(-2px);
 }
 
 .mp-hub__legal {
   font-size: 0.875rem;
   color: #b0b0ba;
-  max-width: 48rem;
+  max-width: 44rem;
   margin: 0;
+  line-height: 1.55;
+  text-wrap: balance;
+}
+
+@media (max-width: 480px) {
+  .mp-hub__actions {
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 20rem;
+  }
+
+  .mp-hub__actions .btn {
+    width: 100%;
+  }
 }
 
 .mp-root {

@@ -7137,6 +7137,17 @@ function isRecoveryFlow() {
 function showMessage(root, type, text) {
   root.innerHTML = `<div class="mp-alert mp-alert--${type}" role="${type === "error" ? "alert" : "status"}">${text}</div>`;
 }
+function authErrorMessage(error) {
+  if (!error) return "Connexion impossible. V\xE9rifiez email et mot de passe.";
+  const msg = String(error.message ?? "").toLowerCase();
+  if (msg.includes("invalid login") || msg.includes("invalid credentials")) {
+    return "Email ou mot de passe incorrect.";
+  }
+  if (msg.includes("email not confirmed")) {
+    return "Confirmez votre adresse email avant de vous connecter.";
+  }
+  return "Connexion impossible. V\xE9rifiez email et mot de passe.";
+}
 async function mountAuthApp(root) {
   if (!isConfigured()) {
     showMessage(root, "info", "Espace compte en cours d'activation. Revenez prochainement.");
@@ -7174,23 +7185,43 @@ async function mountAuthApp(root) {
       <form id="mp-login-form" class="mp-form">
         <label>Email<input name="email" type="email" autocomplete="email" required /></label>
         <label>Mot de passe<input name="password" type="password" autocomplete="current-password" required /></label>
-        <button type="submit" class="btn btn--primary">Se connecter</button>
+        <button type="submit" class="btn btn--primary" id="mp-login-submit">Se connecter</button>
+        <div id="mp-login-feedback" aria-live="polite"></div>
         <p class="mp-form__meta"><a href="?mode=reset">Mot de passe oubli\xE9</a></p>
       </form>`;
     panel.querySelector("#mp-login-form").addEventListener("submit", async (e) => {
       e.preventDefault();
-      const fd = new FormData(e.target);
+      const form = e.target;
+      const submitBtn = form.querySelector("#mp-login-submit");
+      const feedback = form.querySelector("#mp-login-feedback");
+      feedback.innerHTML = "";
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Connexion\u2026";
+      const fd = new FormData(form);
       const result = await runWithNetwork(
-        panel,
+        feedback,
         () => supabase.auth.signInWithPassword({
           email: String(fd.get("email")),
           password: String(fd.get("password"))
         })
       );
-      if (result?.error === "network") return;
+      if (result?.error === "network") {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Se connecter";
+        return;
+      }
       const { data, error } = result;
       if (error || !data.session) {
-        showMessage(panel, "error", "Connexion impossible. V\xE9rifiez email et mot de passe.");
+        feedback.innerHTML = `<div class="mp-alert mp-alert--error" role="alert">${authErrorMessage(error)}</div>`;
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Se connecter";
+        return;
+      }
+      const check = await getValidSession(supabase);
+      if (!check.session) {
+        feedback.innerHTML = `<div class="mp-alert mp-alert--error" role="alert">Session enregistr\xE9e mais validation impossible (${check.reason ?? "erreur"}). R\xE9essayez ou v\xE9rifiez votre connexion r\xE9seau.</div>`;
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Se connecter";
         return;
       }
       window.location.href = `${readMarketplaceConfig().paths.account}?view=dashboard`;
