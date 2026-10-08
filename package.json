@@ -34,6 +34,7 @@
     "test:marketplace:e2e": "node scripts/marketplace-e2e.mjs",
     "test:marketplace:e2e:extended": "node scripts/marketplace-e2e-extended.mjs",
     "test:marketplace:e2e:admin": "node scripts/marketplace-e2e-admin.mjs",
+    "test:marketplace:moderation-regression": "node scripts/marketplace-moderation-action-regression.mjs",
     "test:marketplace:e2e:concurrency": "node scripts/marketplace-e2e-concurrency.mjs",
     "test:marketplace:local": "node scripts/marketplace-run-local-validation.mjs",
     "marketplace:functions": "node scripts/marketplace-functions-serve.mjs",

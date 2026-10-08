@@ -7951,12 +7951,16 @@ async function mountAdminApp(root) {
   const isMod = roles.includes("moderator") || roles.includes("admin");
   const isAdmin = roles.includes("admin");
   const isStaff = roles.includes("garage_staff") || isAdmin;
-  if (!isMod) {
+  const canAccessAdmin = isMod || isStaff;
+  if (!canAccessAdmin) {
     root.hidden = false;
-    root.innerHTML = alert("error", "Acc\xE8s r\xE9serv\xE9 aux mod\xE9rateurs.");
+    root.innerHTML = alert("error", "Acc\xE8s r\xE9serv\xE9 aux mod\xE9rateurs et au staff garage.");
     return;
   }
-  const view = new URLSearchParams(window.location.search).get("view") || "overview";
+  let view = new URLSearchParams(window.location.search).get("view") || "overview";
+  if (!isMod && isStaff && view !== "consignment") {
+    view = "consignment";
+  }
   root.hidden = false;
   const [{ count: pendingCount }, { count: publishedCount }, { count: openReports }, { count: dupCount }] = await Promise.all([
     supabase.from("listings").select("*", { count: "exact", head: true }).eq("status", "pending_review"),
