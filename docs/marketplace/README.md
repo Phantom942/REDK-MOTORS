@@ -2,6 +2,7 @@
 
 | Document | Contenu |
 |----------|---------|
+| **[BESOIN_UTILISATEUR.md](./BESOIN_UTILISATEUR.md)** | **Ce que seul vous pouvez fournir (secrets / clics)** |
 | **[MISE_EN_PLACE.md](./MISE_EN_PLACE.md)** | **Démarrer local + créer préprod (étapes)** |
 | **[OPERATIONS.md](./OPERATIONS.md)** | Docker, où sont les données, automatisation local → prod |
 | **[PREPROD_PLAN.md](./PREPROD_PLAN.md)** | Proposition `preprod.redkmotors.fr` (non activée) |
