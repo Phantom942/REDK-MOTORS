@@ -11,6 +11,7 @@
     "dev:marketplace-local": "node scripts/marketplace-dev-serve.mjs",
     "setup:marketplace-local": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/setup-marketplace-local.ps1",
     "setup:marketplace-preprod": "node scripts/marketplace-setup-preprod.mjs",
+    "create:supabase-preprod": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/create-supabase-preprod.ps1",
     "setup:marketplace-all": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/setup-all-interactive.ps1",
     "fonts:setup": "node scripts/setup-local-fonts.js",
     "logo:webp": "node scripts/generate-logo-webp.js",

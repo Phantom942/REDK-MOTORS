@@ -64,7 +64,20 @@ async function main() {
     process.exit(2);
   }
 
-  const orgId = req("SUPABASE_ORG_ID");
+  let orgId = process.env.SUPABASE_ORG_ID?.trim();
+  if (!orgId) {
+    const orgs = await api("GET", "/organizations");
+    const list = Array.isArray(orgs) ? orgs : orgs?.organizations ?? [];
+    if (list.length === 0) throw new Error("Aucune organisation Supabase — créez-en une sur le dashboard.");
+    if (list.length === 1) {
+      orgId = list[0].id;
+      console.log(`Organisation : ${list[0].name ?? orgId}`);
+    } else {
+      console.log("Organisations disponibles :");
+      list.forEach((o, i) => console.log(`  [${i}] ${o.name ?? "?"} → ${o.id}`));
+      throw new Error("Plusieurs orgs : définir SUPABASE_ORG_ID avec l’id ci-dessus.");
+    }
+  }
   let projectRef = process.env.MARKETPLACE_PREPROD_ALLOWED_PROJECT_REF?.trim();
 
   if (!projectRef) {
@@ -84,10 +97,13 @@ async function main() {
     console.log(`Réutilisation projet existant ref=${projectRef}`);
   }
 
-  const keys = await api("GET", `/projects/${projectRef}/api-keys`);
-  const anon = keys.find((k) => k.name === "anon" || k.api_key?.includes("anon"))?.api_key
-    ?? keys.find((k) => k.name === "anon")?.api_key;
-  const service = keys.find((k) => k.name === "service_role")?.api_key;
+  const keysRaw = await api("GET", `/projects/${projectRef}/api-keys`);
+  const keys = Array.isArray(keysRaw) ? keysRaw : keysRaw?.api_keys ?? [];
+  const anon =
+    keys.find((k) => k.name === "anon")?.api_key ?? keys.find((k) => k.name === "anon")?.key;
+  const service =
+    keys.find((k) => k.name === "service_role")?.api_key
+    ?? keys.find((k) => k.name === "service_role")?.key;
   const url = `https://${projectRef}.supabase.co`;
 
   const envLines = [
@@ -106,8 +122,17 @@ async function main() {
   process.env.MARKETPLACE_REMOTE_DEPLOY_CONFIRM = "preprod-redkmotors-deploy";
   process.env.MARKETPLACE_PREPROD_SUPABASE_URL = url;
 
-  run(`npx supabase link --project-ref ${projectRef}`);
-  run("npx supabase db push --linked");
+  const deployEnv = {
+    ...process.env,
+    SUPABASE_ACCESS_TOKEN: req("SUPABASE_ACCESS_TOKEN"),
+  };
+  const runWithToken = (cmd, cwd = marketplaceDir) => {
+    console.log(`\n▶ ${cmd}`);
+    execSync(cmd, { cwd, stdio: "inherit", env: deployEnv });
+  };
+
+  runWithToken(`npx supabase link --project-ref ${projectRef}`);
+  runWithToken("npx supabase db push --linked");
 
   const functions = [
     "process-listing-photo",
@@ -117,7 +142,7 @@ async function main() {
     "bootstrap-admin",
   ];
   for (const fn of functions) {
-    run(`npx supabase functions deploy ${fn} --project-ref ${projectRef}`);
+    runWithToken(`npx supabase functions deploy ${fn} --project-ref ${projectRef}`);
   }
 
   console.log(`
