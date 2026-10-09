@@ -54,10 +54,10 @@ Sans automatisation dans ce repo (comptes Cloudflare requis) :
 
 ## D. CI GitHub
 
-```powershell
-gh auth login
-git push -u origin feat/marketplace-occasions
-```
+Branche poussée : **`feat/marketplace-occasions`** →  
+https://github.com/Phantom942/REDK-MOTORS/compare/main...feat/marketplace-occasions?expand=1
+
+(Ouvrir le lien → **Create pull request**. `gh auth login` seulement si vous voulez la CLI.)
 
 - **Marketplace validation** : se lance sur push/PR
 - **Preprod build** : Actions → manuel → saisir `PREPROD-OK`
