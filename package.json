@@ -9,6 +9,8 @@
     "serve": "eleventy --serve",
     "dev": "eleventy --serve",
     "dev:marketplace-local": "node scripts/marketplace-dev-serve.mjs",
+    "setup:marketplace-local": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/setup-marketplace-local.ps1",
+    "setup:marketplace-preprod": "node scripts/marketplace-setup-preprod.mjs",
     "fonts:setup": "node scripts/setup-local-fonts.js",
     "logo:webp": "node scripts/generate-logo-webp.js",
     "favicon": "node scripts/generate-favicons.js",

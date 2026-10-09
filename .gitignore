@@ -39,6 +39,7 @@ _sitemap-*.xml
 # Variables d'environnement (si nécessaire)
 .env
 .env.local
+.env.preprod.local
 
 # Hors site web (impression, prospection locale, exports bureau)
 /print/

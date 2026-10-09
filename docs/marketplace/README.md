@@ -2,6 +2,7 @@
 
 | Document | Contenu |
 |----------|---------|
+| **[MISE_EN_PLACE.md](./MISE_EN_PLACE.md)** | **Démarrer local + créer préprod (étapes)** |
 | **[OPERATIONS.md](./OPERATIONS.md)** | Docker, où sont les données, automatisation local → prod |
 | **[PREPROD_PLAN.md](./PREPROD_PLAN.md)** | Proposition `preprod.redkmotors.fr` (non activée) |
 | **[PREPRODUCTION.md](./PREPRODUCTION.md)** | Principes, cache, checklist |
