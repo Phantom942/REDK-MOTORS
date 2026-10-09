@@ -2,7 +2,8 @@
 
 Document de préparation — **ne pas confondre** avec la production du site vitrine **https://redkmotors.fr/** ni avec la base Supabase locale.
 
-**Proposition opérationnelle détaillée** : `PREPROD_PLAN.md` (sous-domaine `preprod.redkmotors.fr`, hébergement préprod, Workers, Auth, tests distants).
+**Proposition opérationnelle détaillée** : `PREPROD_PLAN.md` (sous-domaine `preprod.redkmotors.fr`, hébergement préprod, Workers, Auth, tests distants).  
+**Runbook (Docker, données, CI)** : `OPERATIONS.md` · **Secrets** : `SECRETS_AND_CI.md`.
 
 ## Contexte infrastructure actuel
 
