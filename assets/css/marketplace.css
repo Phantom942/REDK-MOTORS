@@ -1,0 +1,775 @@
+/* Marketplace — aligné charte RED-K (anthracite + accent rouge) */
+.mp-hub {
+  background: linear-gradient(180deg, #131317 0%, #1a1a20 100%);
+  color: #f4f4f6;
+  padding: 2.5rem 0 2rem;
+}
+
+.mp-hub__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.mp-hub__kicker {
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #a8a8b3;
+  margin: 0 0 0.5rem;
+}
+
+.mp-hub h1 {
+  font-family: var(--font-display, "Space Grotesk", system-ui, sans-serif);
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  margin: 0 0 0.75rem;
+  max-width: 36rem;
+}
+
+.mp-hub__lead {
+  max-width: 42rem;
+  color: #d8d8de;
+  margin: 0 0 1.25rem;
+}
+
+.mp-hub__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  max-width: 40rem;
+}
+
+.mp-hub__actions .btn {
+  box-sizing: border-box;
+  min-height: 48px;
+  padding: 12px 1.5rem;
+  line-height: 1.25;
+  align-self: center;
+}
+
+.mp-hub__actions .btn--primary {
+  box-shadow: 0 4px 14px rgba(179, 18, 23, 0.25);
+}
+
+.mp-hub__actions .btn--primary:hover {
+  transform: translateY(-2px);
+}
+
+.mp-hub__legal {
+  font-size: 0.875rem;
+  color: #b0b0ba;
+  max-width: 44rem;
+  margin: 0;
+  line-height: 1.55;
+  text-wrap: balance;
+}
+
+@media (max-width: 480px) {
+  .mp-hub__actions {
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 20rem;
+  }
+
+  .mp-hub__actions .btn {
+    width: 100%;
+  }
+}
+
+.mp-root {
+  padding: 2rem 0 3rem;
+  background: var(--color-gray-light, #ececec);
+  min-height: 12rem;
+  /* Zone « claire » : lisible malgré body.design-stitch (texte clair hérité) */
+  color: var(--color-black, #1f1f1f);
+  --mp-field-bg: #fff;
+  --mp-field-text: #1f1f1f;
+  --mp-field-border: #b8b8c4;
+  --mp-field-placeholder: #75757d;
+  --mp-muted: #555;
+}
+
+/* Surcharge thème sombre global sur tout le contenu marketplace */
+body.design-stitch .mp-root :is(h1, h2, h3, h4, p, li, dt, dd, label, legend, th, td) {
+  color: inherit;
+}
+
+body.design-stitch #main .mp-root h2,
+body.design-stitch #main .mp-root h3 {
+  color: var(--mp-field-text);
+  text-transform: none;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+body.design-stitch .mp-root strong,
+body.design-stitch .mp-root b {
+  color: var(--mp-field-text);
+}
+
+body.design-stitch .mp-root a:not(.btn):not([class*="btn--"]) {
+  color: var(--color-red-dark, #8a0e12);
+}
+
+body.design-stitch .mp-root a:not(.btn):not([class*="btn--"]):hover {
+  color: var(--color-red, #b31217);
+}
+
+.mp-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr));
+}
+
+.mp-card {
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.mp-card a {
+  display: block;
+  padding: 1rem 1.1rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.mp-card a:focus-visible {
+  outline: 2px solid var(--color-accent, #e10600);
+  outline-offset: 2px;
+}
+
+.mp-card__title {
+  font-size: 1.05rem;
+  margin: 0 0 0.35rem;
+}
+
+.mp-card__meta {
+  font-size: 0.875rem;
+  color: #555;
+  margin: 0 0 0.5rem;
+}
+
+.mp-card__price {
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin: 0 0 0.75rem;
+  color: #111;
+}
+
+.mp-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.mp-badge--garage {
+  background: rgba(225, 6, 0, 0.12);
+  color: #a80400;
+}
+
+.mp-badge--private {
+  background: #eef0f4;
+  color: #333;
+}
+
+.mp-state {
+  max-width: 36rem;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--mp-field-text, #1f1f1f);
+}
+
+.mp-state--empty p + p {
+  margin-top: 1rem;
+}
+
+.mp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  max-width: 28rem;
+  margin: 0 auto;
+  padding: 1.35rem 1.25rem;
+  background: var(--mp-field-bg);
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+.mp-form--listing {
+  max-width: 42rem;
+}
+
+.mp-form__grid {
+  display: grid;
+  gap: 0.85rem;
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+}
+
+.mp-form__full {
+  grid-column: 1 / -1;
+}
+
+.mp-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--mp-field-text);
+}
+
+.mp-form input:not([type="checkbox"]):not([type="radio"]):not([type="file"]),
+.mp-form select,
+.mp-form textarea,
+.mp-root .mp-filters input,
+.mp-root .mp-filters select {
+  font: inherit;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid var(--mp-field-border);
+  border-radius: 8px;
+  background: var(--mp-field-bg);
+  color: var(--mp-field-text);
+  min-height: 2.75rem;
+  box-sizing: border-box;
+}
+
+.mp-form textarea {
+  min-height: 7rem;
+  resize: vertical;
+  line-height: 1.45;
+}
+
+.mp-form input::placeholder,
+.mp-form textarea::placeholder {
+  color: var(--mp-field-placeholder);
+  opacity: 1;
+}
+
+.mp-form input:not([type="checkbox"]):not([type="radio"]):focus,
+.mp-form select:focus,
+.mp-form textarea:focus,
+.mp-root .mp-filters input:focus,
+.mp-root .mp-filters select:focus {
+  outline: none;
+  border-color: var(--color-accent, #b31217);
+  box-shadow: 0 0 0 3px rgba(179, 18, 23, 0.18);
+}
+
+.mp-form input[type="checkbox"],
+.mp-form input[type="radio"] {
+  accent-color: var(--color-accent, #b31217);
+}
+
+.mp-form__hint,
+.mp-form__meta {
+  font-size: 0.875rem;
+  color: var(--mp-muted);
+}
+
+.mp-form__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.mp-alert {
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  font-size: 0.925rem;
+}
+
+.mp-alert--error {
+  background: #fde8e8;
+  color: #7a1010;
+}
+
+.mp-alert--success {
+  background: #e6f4ea;
+  color: #0d5c2e;
+}
+
+.mp-alert--info {
+  background: #eef3fb;
+  color: #1a3a6b;
+}
+
+.mp-auth__tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  justify-content: center;
+}
+
+.mp-auth__tab {
+  font: inherit;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  background: #fff;
+  color: var(--mp-field-text);
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.mp-auth__tab.is-active {
+  border-color: var(--color-accent, #e10600);
+  background: rgba(225, 6, 0, 0.08);
+}
+
+.mp-account {
+  max-width: 56rem;
+}
+
+.mp-account__head h2 {
+  font-family: var(--font-display, "Space Grotesk", system-ui, sans-serif);
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.mp-account__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #d4d4dc;
+  margin-bottom: 0.25rem;
+}
+
+.mp-account__nav {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1rem 0 1.25rem;
+  flex-wrap: wrap;
+}
+
+.mp-account__nav a {
+  color: var(--mp-field-text);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.45rem 0.95rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.mp-account__nav a:hover {
+  background: #fff;
+  border-color: #ccc;
+}
+
+.mp-account__nav a.is-active {
+  color: #fff;
+  background: var(--color-red-dark, #8a0e12);
+  border-color: var(--color-red-dark, #8a0e12);
+}
+
+body.design-stitch #main .mp-root .mp-account__nav a.is-active {
+  color: #fff;
+}
+
+.mp-admin > h2 {
+  font-family: var(--font-display, "Space Grotesk", system-ui, sans-serif);
+  font-size: clamp(1.25rem, 3vw, 1.6rem);
+  margin: 0 0 0.5rem;
+}
+
+.mp-account__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.mp-account__toolbar-text {
+  margin: 0;
+  font-size: 0.925rem;
+  color: var(--mp-muted);
+  max-width: 28rem;
+  line-height: 1.45;
+}
+
+.mp-root .btn.btn--primary.mp-account__cta,
+.mp-root .mp-account__toolbar .btn.btn--primary {
+  box-shadow: 0 2px 10px rgba(179, 18, 23, 0.22);
+}
+
+.mp-panel {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+.mp-panel .mp-table {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.mp-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  font-size: 0.9rem;
+}
+
+.mp-table--account thead th {
+  background: #f3f3f6;
+  color: #2a2a32;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-bottom: 1px solid #ddd;
+}
+
+.mp-table th,
+.mp-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e8e8ec;
+  text-align: left;
+  color: var(--mp-field-text);
+  vertical-align: top;
+}
+
+.mp-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.mp-table tbody tr:hover td {
+  background: #fafafb;
+}
+
+.mp-table__empty {
+  text-align: center;
+  color: var(--mp-muted);
+  padding: 2rem 1rem !important;
+}
+
+.mp-table__muted {
+  color: #888;
+}
+
+.mp-table__motive {
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: #4a4a52;
+}
+
+.mp-listing-cell__title {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.mp-listing-cell__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  font-size: 0.85rem;
+}
+
+.mp-listing-cell__links a {
+  font-weight: 600;
+}
+
+/* Badges statut annonce */
+.mp-status {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.55rem;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.mp-status--published {
+  background: #e6f4ea;
+  color: #0d5c2e;
+}
+
+.mp-status--pending {
+  background: #fff4e0;
+  color: #8a5a00;
+}
+
+.mp-status--rejected {
+  background: #fde8e8;
+  color: #7a1010;
+}
+
+.mp-status--withdrawn,
+.mp-status--expired {
+  background: #eef0f4;
+  color: #444;
+}
+
+.mp-status--draft {
+  background: #e8eef8;
+  color: #1a3a6b;
+}
+
+.mp-status--sold {
+  background: #e8e8ec;
+  color: #333;
+}
+
+.mp-action-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.mp-action-btn {
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.35rem 0.65rem;
+  border-radius: 6px;
+  border: 1px solid #c8c8d0;
+  background: #fff;
+  color: var(--mp-field-text);
+  cursor: pointer;
+  text-decoration: none;
+  line-height: 1.25;
+}
+
+.mp-action-btn:hover {
+  border-color: #999;
+  background: #f6f6f8;
+}
+
+.mp-action-btn--primary {
+  background: rgba(179, 18, 23, 0.08);
+  border-color: rgba(179, 18, 23, 0.35);
+  color: var(--color-red-dark, #8a0e12);
+}
+
+.mp-action-btn--danger {
+  color: #7a1010;
+  border-color: rgba(122, 16, 16, 0.25);
+}
+
+@media (max-width: 720px) {
+  .mp-table--account thead {
+    display: none;
+  }
+
+  .mp-table--account tr {
+    display: block;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e8e8ec;
+  }
+
+  .mp-table--account td {
+    display: block;
+    border: none;
+    padding: 0.35rem 0;
+  }
+
+  .mp-table--account td::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #666;
+    margin-bottom: 0.15rem;
+  }
+
+  .mp-table__actions .mp-action-group {
+    margin-top: 0.25rem;
+  }
+}
+
+.mp-consents legend {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.mp-consents label {
+  font-weight: 400;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.mp-photos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.mp-photo {
+  margin: 0;
+  position: relative;
+}
+
+.mp-photo img {
+  width: 120px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.mp-photo__tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+}
+
+.mp-photo__del,
+.mp-photo__move {
+  font: inherit;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.mp-photo__move:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.mp-preview {
+  padding-bottom: 2rem;
+}
+
+.mp-admin-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.mp-admin-thumb {
+  width: 96px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.mp-admin-stats {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.mp-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  align-items: flex-end;
+  margin-bottom: 1.5rem;
+}
+
+.mp-filters label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.85rem;
+  gap: 0.25rem;
+  color: var(--mp-field-text);
+  font-weight: 500;
+}
+
+.mp-filters__reset {
+  font-size: 0.9rem;
+  align-self: center;
+}
+
+.mp-link-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--color-red-dark, #8a0e12);
+  text-decoration: underline;
+  cursor: pointer;
+  font: inherit;
+}
+
+.mp-admin-card :is(h3, p) {
+  color: var(--mp-field-text);
+}
+
+.mp-admin-card .mp-form {
+  max-width: none;
+  margin: 0.75rem 0 0;
+  box-shadow: none;
+  border: 1px solid #e8e8ec;
+}
+
+.mp-table__actions {
+  font-size: 0.85rem;
+  min-width: 9rem;
+}
+
+.mp-detail-body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+}
+
+.mp-detail {
+  padding: 1.5rem 0 3rem;
+}
+
+.mp-detail__price {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.mp-detail__gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+
+.mp-detail__photo img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+
+.mp-detail__contact {
+  margin-top: 2rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+}
+
+.mp-detail__contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
