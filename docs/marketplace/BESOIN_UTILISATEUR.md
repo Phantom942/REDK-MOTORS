@@ -10,7 +10,10 @@ Les étapes **cloud** exigent des **secrets** que seul vous possédez (ne les co
 - Branche **`feat/marketplace-occasions`** poussée sur GitHub
 - Workflows : `marketplace-validation.yml`, `marketplace-preprod-build.yml`
 - Local : `npm run setup:marketplace-local` + E2E 19/19 (quand Docker tourne)
-- Cloudflare : zone **redkmotors.fr** visible (lecture seule)
+- **Supabase préprod** : projet `redk-motors-marketplace-preprod` (`sotydbejclnybweswplr`), migrations, fonctions, Auth URLs, comptes `@recette.redkmotors.fr`, admin bootstrap, smoke **7/7**
+- Scripts : `npm run create:supabase-preprod`, `npm run finish:marketplace-preprod`, `npm run test:marketplace:preprod`, `npm run github:secrets-preprod`
+- Build préprod : `npm run build:marketplace-preprod` → `_site/`
+- Cloudflare : zone **redkmotors.fr** (lecture seule ; **Pages préprod** = droits API écriture ou dashboard)
 
 ---
 

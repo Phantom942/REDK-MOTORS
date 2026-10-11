@@ -11,6 +11,25 @@ Write-Host @"
 
 "@ -ForegroundColor Cyan
 
+$TokenFile = Join-Path $RepoRoot ".supabase-setup.local"
+if (-not $env:SUPABASE_ACCESS_TOKEN -and (Test-Path -LiteralPath $TokenFile)) {
+  $fileToken = (Get-Content -LiteralPath $TokenFile -Raw).Trim()
+  if ($fileToken -match '^sbp_[^\s]+$') {
+    $env:SUPABASE_ACCESS_TOKEN = $fileToken
+    Write-Host "Token lu depuis .supabase-setup.local" -ForegroundColor DarkGray
+  }
+}
+if (-not $env:SUPABASE_ACCESS_TOKEN) {
+  $clip = Get-Clipboard -ErrorAction SilentlyContinue
+  if ($clip) { $clip = $clip.Trim() }
+  if ($clip -match '^sbp_[^\s]+$') {
+    $env:SUPABASE_ACCESS_TOKEN = $clip
+    Write-Host "Token pris depuis le presse-papiers." -ForegroundColor DarkGray
+  } elseif ($clip -match '(sbp_[A-Za-z0-9_-]+)') {
+    $env:SUPABASE_ACCESS_TOKEN = $Matches[1]
+    Write-Host "Token extrait du presse-papiers." -ForegroundColor DarkGray
+  }
+}
 if (-not $env:SUPABASE_ACCESS_TOKEN) {
   $env:SUPABASE_ACCESS_TOKEN = Read-Host "Collez SUPABASE_ACCESS_TOKEN (sbp_...)"
 }
@@ -21,6 +40,8 @@ Write-Host "`nLancement (org détectée automatiquement si possible)…`n" -Fore
 node scripts/marketplace-setup-preprod.mjs
 
 if ($LASTEXITCODE -eq 0) {
-  Write-Host "`nOK — voir .env.preprod.local (ne pas committer)." -ForegroundColor Green
-  Write-Host "Ensuite : Auth → Site URL https://preprod.redkmotors.fr/ dans le dashboard Supabase." -ForegroundColor Yellow
+  Write-Host "`nOK - voir .env.preprod.local (ne pas committer)." -ForegroundColor Green
+  Write-Host "Ensuite: Auth / Site URL https://preprod.redkmotors.fr/ dans le dashboard Supabase." -ForegroundColor Yellow
+} else {
+  exit $LASTEXITCODE
 }

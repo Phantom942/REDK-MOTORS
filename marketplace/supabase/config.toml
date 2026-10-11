@@ -29,3 +29,7 @@ enabled = true
 # Photos publiques : GET sans JWT (contrôle métier dans la function + vue listing_public_photos)
 [functions.serve-listing-photo]
 verify_jwt = false
+
+# Opérateur uniquement (X-Bootstrap-Secret) — pas de JWT utilisateur
+[functions.bootstrap-admin]
+verify_jwt = false

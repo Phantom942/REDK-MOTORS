@@ -10,6 +10,7 @@
  *   node scripts/marketplace-setup-preprod.mjs
  */
 import { execSync } from "node:child_process";
+import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -79,14 +80,17 @@ async function main() {
     }
   }
   let projectRef = process.env.MARKETPLACE_PREPROD_ALLOWED_PROJECT_REF?.trim();
+  let savedDbPassword = process.env.SUPABASE_DB_PASSWORD?.trim() || null;
 
   if (!projectRef) {
     console.log(`Création projet « ${PROJECT_NAME} » (org ${orgId}, ${REGION})…`);
+    const dbPass = savedDbPassword || crypto.randomBytes(24).toString("base64url");
+    if (!savedDbPassword) savedDbPassword = dbPass;
     const created = await api("POST", "/projects", {
       organization_id: orgId,
       name: PROJECT_NAME,
       region: REGION,
-      db_pass: process.env.SUPABASE_DB_PASSWORD || undefined,
+      db_pass: dbPass,
     });
     projectRef = created.ref ?? created.id;
     if (!projectRef) throw new Error("Réponse création projet sans ref");
@@ -108,6 +112,9 @@ async function main() {
 
   const envLines = [
     `# Généré ${new Date().toISOString()} — NE PAS COMMITTER`,
+    ...(savedDbPassword
+      ? [`# Mot de passe Postgres (dashboard / connexion directe)`, `SUPABASE_DB_PASSWORD=${savedDbPassword}`, ""]
+      : []),
     `MARKETPLACE_PREPROD_ALLOWED_PROJECT_REF=${projectRef}`,
     `MARKETPLACE_PREPROD_SUPABASE_URL=${url}`,
     `MARKETPLACE_PREPROD_ANON_KEY=${anon ?? ""}`,

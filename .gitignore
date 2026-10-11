@@ -40,6 +40,9 @@ _sitemap-*.xml
 .env
 .env.local
 .env.preprod.local
+.supabase-setup.local
+.github-setup.local
+.cloudflare-setup.local
 
 # Hors site web (impression, prospection locale, exports bureau)
 /print/
