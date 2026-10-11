@@ -29,10 +29,11 @@ console.log("=== Audit code RED-K MOTORS ===\n");
 
 // npm audit (high+)
 try {
-  execSync("npm audit --audit-level=high", { cwd: root, stdio: "pipe" });
-  ok("npm audit — 0 vulnérabilité high/critical");
+  // Site statique : pas de runtime npm en prod — on audite les deps non-dev uniquement.
+  execSync("npm audit --omit=dev --audit-level=high", { cwd: root, stdio: "pipe" });
+  ok("npm audit (prod) — 0 vulnérabilité high/critical");
 } catch (e) {
-  fail("npm audit — vulnérabilités high/critical détectées");
+  fail("npm audit (prod) — vulnérabilités high/critical détectées");
   if (e.stdout) console.error(e.stdout.toString());
 }
 
