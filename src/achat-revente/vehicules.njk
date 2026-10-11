@@ -1,0 +1,34 @@
+---
+layout: base.njk
+title: "Véhicules d'occasion · catalogue | RED-K MOTORS"
+description: "Annonces de particuliers et dépôts-vente Red-K Motors à Ivry-sur-Seine (94). Filtres marque, prix, année — contact direct avec le vendeur."
+pageKey: marketplace-catalog
+robots: "noindex, follow"
+scripts:
+  effects: false
+permalink: /achat-revente/vehicules/
+sitemap:
+  ignore: true
+breadcrumb:
+  "@context": "https://schema.org"
+  "@type": "BreadcrumbList"
+  itemListElement:
+    - "@type": "ListItem"
+      position: 1
+      name: "Accueil"
+      item: "https://redkmotors.fr/"
+    - "@type": "ListItem"
+      position: 2
+      name: "Achat & revente"
+      item: "https://redkmotors.fr/achat-revente/"
+    - "@type": "ListItem"
+      position: 3
+      name: "Véhicules"
+      item: "https://redkmotors.fr/achat-revente/vehicules/"
+mpApp: catalog
+mpTitle: "Catalogue véhicules d'occasion"
+mpLead: "Filtrez par marque, prix, année et type de vendeur. Les annonces de particuliers affichent les coordonnées du vendeur — pas celles du garage."
+---
+
+<link rel="stylesheet" href="{{ '/assets/css/marketplace.css' | cacheBust }}" />
+{% include "marketplace-shell.njk" %}

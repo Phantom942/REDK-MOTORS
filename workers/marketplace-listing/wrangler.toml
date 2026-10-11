@@ -1,0 +1,10 @@
+# Non déployé par défaut — voir docs/marketplace/LISTING_PAGES.md
+name = "redkmotors-marketplace-listing"
+main = "src/index.js"
+compatibility_date = "2024-11-01"
+
+# Exemple de route (à activer après accord) :
+# routes = [{ pattern = "redkmotors.fr/achat-revente/vehicules/*", zone_name = "redkmotors.fr" }]
+
+[vars]
+MARKETPLACE_ALLOW_INDEX = "0"

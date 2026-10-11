@@ -122,13 +122,24 @@
     "youtubeUrl": "https://www.youtube.com/@REDKMOTORS",
     "youtubeChannelId": "UCaOY34TzoCzsBq4UrO8Db9A"
   },
+  "marketplace": {
+    "enabled": false,
+    "supabaseUrl": "",
+    "supabaseAnonKey": "",
+    "turnstileSiteKey": "",
+    "catalogPath": "/achat-revente/vehicules/",
+    "publishPath": "/achat-revente/publier/",
+    "accountPath": "/achat-revente/compte/",
+    "adminPath": "/achat-revente/admin/",
+    "listingPathPrefix": "/achat-revente/vehicules/"
+  },
   "description": "Garage automobile RED-K MOTORS à Ivry-sur-Seine (94) : mécanique, diagnostic, entretien, freins et pneus. Devis gratuit · lun–sam 9h–19h · 9 rue Michelet · 06 48 74 56 68.",
   "googleReviews": {
     "shareUrl": "https://share.google/Gqy4uMiYFgsxEFCd5",
     "knowledgeGraphId": "/g/11y__lnrkb",
     "mapsFeatureId": "0x47e67337fbef5277:0xe6bcd3ccf746dd16",
     "rating": 4.9,
-    "count": 42,
+    "count": 44,
     "placeId": "ChIJd1Lv-zdz5kcRFt1G98zTvOY",
     "placeQuery": "RED-K MOTORS, 9 rue Michelet, 94200 Ivry-sur-Seine, France",
     "maxReviews": 4,

@@ -39,6 +39,10 @@ _sitemap-*.xml
 # Variables d'environnement (si nécessaire)
 .env
 .env.local
+.env.preprod.local
+.supabase-setup.local
+.github-setup.local
+.cloudflare-setup.local
 
 # Hors site web (impression, prospection locale, exports bureau)
 /print/
@@ -83,3 +87,8 @@ workers/redkmotors-fr-redirect.js
 workers/redkmotors-fr-redirect-compact.js
 workers/*.payload.json
 workers/mcp-args-*.json
+
+# Marketplace local dev
+.logs/
+.marketplace-functions-serve.lock.json
+.marketplace-functions-serve.log

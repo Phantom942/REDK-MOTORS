@@ -27,9 +27,7 @@ fs.readdirSync(cssDir).filter(f => f.endsWith('.css')).forEach(file => {
   }
 });
 
-const jsDir = path.join(siteDir, 'assets', 'js');
-fs.readdirSync(jsDir).filter(f => f.endsWith('.js')).forEach(file => {
-  const filePath = path.join(jsDir, file);
+function minifyJsFile(filePath, label) {
   const input = fs.readFileSync(filePath, 'utf8');
   const output = input
     .replace(/\/\*[\s\S]*?\*\//g, '')
@@ -37,7 +35,19 @@ fs.readdirSync(jsDir).filter(f => f.endsWith('.js')).forEach(file => {
     .trim();
   fs.writeFileSync(filePath, output);
   const saved = ((1 - output.length / input.length) * 100).toFixed(1);
-  console.log(`JS  ${file}: ${(input.length / 1024).toFixed(1)}KB -> ${(output.length / 1024).toFixed(1)}KB (-${saved}%)`);
+  console.log(`JS  ${label}: ${(input.length / 1024).toFixed(1)}KB -> ${(output.length / 1024).toFixed(1)}KB (-${saved}%)`);
+}
+
+const jsDir = path.join(siteDir, 'assets', 'js');
+fs.readdirSync(jsDir).filter(f => f.endsWith('.js')).forEach(file => {
+  minifyJsFile(path.join(jsDir, file), file);
 });
+
+const mpDir = path.join(jsDir, 'marketplace');
+if (fs.existsSync(mpDir)) {
+  fs.readdirSync(mpDir)
+    .filter((f) => f.endsWith('.bundle.js'))
+    .forEach((file) => minifyJsFile(path.join(mpDir, file), `marketplace/${file}`));
+}
 
 console.log('Minification terminée.');

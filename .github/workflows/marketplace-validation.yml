@@ -1,0 +1,60 @@
+# Tests marketplace sur Supabase LOCAL (Docker).
+# Ne touche pas à la préproduction. Déclenchement : PR/push marketplace ou manuel.
+name: Marketplace validation (local)
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "marketplace/**"
+      - "assets/js/marketplace/**"
+      - "scripts/marketplace-*.mjs"
+      - "scripts/lib/marketplace-*.mjs"
+      - ".github/workflows/marketplace-validation.yml"
+  push:
+    branches: [feat/marketplace-occasions, main]
+    paths:
+      - "marketplace/**"
+      - "assets/js/marketplace/**"
+      - "scripts/marketplace-*.mjs"
+      - "scripts/lib/marketplace-*.mjs"
+
+concurrency:
+  group: marketplace-validation-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  marketplace-e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+
+      - run: npm ci
+
+      - name: Supabase local (Docker)
+        working-directory: marketplace
+        run: |
+          npx supabase start
+          npx supabase db reset
+          node ../scripts/marketplace-local-seed.mjs
+
+      - name: Edge Functions (background)
+        run: |
+          node scripts/marketplace-functions-serve.mjs start
+          sleep 3
+
+      - name: Moderation regression
+        run: npm run test:marketplace:moderation-regression
+
+      - name: E2E runtime
+        run: npm run test:marketplace:e2e
+
+      - name: Stop functions
+        if: always()
+        run: node scripts/marketplace-functions-serve.mjs stop || true

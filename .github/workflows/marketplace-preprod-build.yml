@@ -1,0 +1,52 @@
+# Build Eleventy avec marketplace activé (préprod) — ARTIFACT uniquement.
+# Ne déploie pas sur Cloudflare / DNS. Déclenchement MANUEL après accord opérateur.
+name: Marketplace preprod build (artifact)
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: "Tapez PREPROD-OK pour confirmer (pas de prod redkmotors.fr)"
+        required: true
+        type: string
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  build-preprod:
+    if: github.event.inputs.confirm == 'PREPROD-OK'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build with marketplace preprod
+        env:
+          MARKETPLACE_BUILD_TARGET: preprod
+          MARKETPLACE_BUILD_ENABLE: "1"
+          MARKETPLACE_SUPABASE_URL: ${{ secrets.MARKETPLACE_PREPROD_SUPABASE_URL }}
+          MARKETPLACE_SUPABASE_ANON_KEY: ${{ secrets.MARKETPLACE_PREPROD_ANON_KEY }}
+          GOOGLE_PLACES_API_KEY: ${{ secrets.GOOGLE_PLACES_API_KEY }}
+          GOOGLE_PLACES_PLACE_ID: ${{ secrets.GOOGLE_PLACES_PLACE_ID }}
+        run: npm run build
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: site-preprod-marketplace
+          path: _site
+          retention-days: 14
+
+  guard-rejected:
+    if: github.event.inputs.confirm != 'PREPROD-OK'
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "::error::Confirmation invalide. Saisir exactement PREPROD-OK."
+          exit 1
