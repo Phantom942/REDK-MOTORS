@@ -1,0 +1,102 @@
+# Déploie les shards KV + Worker redirects blog.
+# Secret : CLOUDFLARE_API_TOKEN
+#   Account — Workers Scripts:Edit
+#   Account — Workers KV Storage:Edit
+#   Zone — Zone:Read + Workers Routes:Edit (si routes à (re)lier)
+#
+# Ordre : après merge Pages OK. Déclenchement manuel uniquement.
+name: Deploy blog redirects KV
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+on:
+  workflow_dispatch:
+    inputs:
+      skip_backup:
+        description: "Skip KV remote backup (non recommandé)"
+        required: false
+        default: "false"
+        type: choice
+        options:
+          - "false"
+          - "true"
+      deploy_worker:
+        description: "Redeploy Worker JS"
+        required: false
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+
+permissions:
+  contents: read
+  actions: write
+
+jobs:
+  deploy-kv:
+    runs-on: ubuntu-latest
+    if: github.repository == 'Phantom942/REDK-MOTORS'
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: "npm"
+
+      - name: Install
+        run: npm ci
+
+      - name: Build + generate redirects / shards
+        env:
+          GOOGLE_PLACES_API_KEY: ${{ secrets.GOOGLE_PLACES_API_KEY }}
+          GOOGLE_PLACES_PLACE_ID: ${{ secrets.GOOGLE_PLACES_PLACE_ID }}
+        run: |
+          npm run build
+          npm run test:blog-migration
+          npm run redirects:kv-shards
+
+      - name: Require CLOUDFLARE_API_TOKEN
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
+            echo "::error::CLOUDFLARE_API_TOKEN absent — impossible d’uploader le KV"
+            exit 1
+          fi
+
+      - name: Backup + upload KV shards
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          if [ "${{ inputs.skip_backup }}" = "true" ]; then
+            node scripts/deploy-kv-shards.js --skip-backup
+          else
+            node scripts/deploy-kv-shards.js
+          fi
+
+      - name: Upload KV backup artifact
+        if: success() && inputs.skip_backup != 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: kv-backup-${{ github.run_id }}
+          path: workers/kv-backup-*/
+          retention-days: 30
+          if-no-files-found: warn
+
+      - name: Deploy Worker
+        if: inputs.deploy_worker == 'true'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: npm run cf:deploy-headers
+
+      - name: Verify production redirects (strict)
+        env:
+          SITE_URL: https://redkmotors.fr
+          VERIFY_BLOG_REDIRECTS_STRICT: "1"
+        run: |
+          # Propagation KV parfois courte
+          sleep 15
+          node scripts/verify-blog-redirects-prod.js --strict
