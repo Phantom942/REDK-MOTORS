@@ -47,6 +47,9 @@ jobs:
           GOOGLE_PLACES_PLACE_ID: ${{ secrets.GOOGLE_PLACES_PLACE_ID }}
         run: npm run build
 
+      - name: Test migration blog redirects (mapping + HTML)
+        run: npm run test:blog-migration
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
@@ -138,6 +141,47 @@ jobs:
           check_seo_asset "https://redkmotors.fr/ai.txt" "Llms-Txt:" "ai.txt"
           check_seo_asset "https://redkmotors.fr/" "fonts-local.css" "fonts self-hosted (fonts-local.css)"
           check_seo_asset "https://redkmotors.fr/" "logo-redk-motors.webp" "logo WebP (picture)"
+
+          # Migration blog : nouvelles URL doivent répondre 200
+          BLOG_NEW=(
+            "https://redkmotors.fr/blog/articles/suppression-fap-controle-technique-2026/"
+            "https://redkmotors.fr/blog/articles/prix-recharge-climatisation-94/"
+            "https://redkmotors.fr/blog/articles/revision-60000-km-checklist/"
+            "https://redkmotors.fr/blog/articles/combien-coute-vidange-voiture/"
+          )
+          for url in "${BLOG_NEW[@]}"; do
+            code=$(curl -sS -o /dev/null -w "%{http_code}" --max-time 20 "$url")
+            if [ "$code" != "200" ]; then
+              echo "❌ blog new $url → HTTP $code"
+              FAILED=1
+            else
+              echo "✅ blog new $url → 200"
+            fi
+          done
+
+          # Anciennes URL : informatif seulement ici (Pages ≠ KV).
+          # Le contrôle STRICT (échec si 404) est le workflow verify-blog-redirects.yml
+          # à lancer APRÈS upload KV + deploy Worker.
+          BLOG_OLD_MAP=(
+            "https://redkmotors.fr/blog/suppression-fap-controle-technique-2026/|https://redkmotors.fr/blog/articles/suppression-fap-controle-technique-2026/"
+            "https://redkmotors.fr/blog/prix-recharge-climatisation-94/|https://redkmotors.fr/blog/articles/prix-recharge-climatisation-94/"
+            "https://redkmotors.fr/blog/revision-60000-km-checklist/|https://redkmotors.fr/blog/articles/revision-60000-km-checklist/"
+            "https://redkmotors.fr/blog/combien-coute-vidange-voiture/|https://redkmotors.fr/blog/articles/combien-coute-vidange-voiture/"
+          )
+          for entry in "${BLOG_OLD_MAP[@]}"; do
+            old="${entry%%|*}"
+            expect="${entry##*|}"
+            headers=$(curl -sSI --max-redirs 0 --max-time 20 "$old" || true)
+            code=$(echo "$headers" | tr -d '\r' | awk 'BEGIN{c=""} /^HTTP/{c=$2} END{print c}')
+            loc=$(echo "$headers" | tr -d '\r' | awk 'BEGIN{l=""} tolower($1)=="location:"{l=$2} END{print l}')
+            if [ "$code" = "301" ] && [ "$loc" = "$expect" ]; then
+              echo "✅ blog old 301 $old → $loc"
+            elif [ "$code" = "404" ]; then
+              echo "⚠ blog old encore 404 $old — étape suivante: runbook docs/cloudflare-kv-blog-redirects-runbook.md puis workflow Verify blog redirects"
+            else
+              echo "⚠ blog old $old → HTTP $code Location=$loc (attendu 301 $expect) — vérifier KV"
+            fi
+          done
 
           sec_headers=$(curl -sSL --max-redirs 3 -I "https://redkmotors.fr/")
           if echo "$sec_headers" | grep -qi "x-content-type-options: nosniff"; then

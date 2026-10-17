@@ -1,0 +1,34 @@
+# Vérification HTTP post-déploiement Pages + Cloudflare KV/Worker.
+# ÉCHEC si les anciennes URL prioritaires retournent encore 404.
+#
+# Déclenchement :
+#   - manuel (après upload KV)
+#   - workflow_call depuis un autre workflow
+name: Verify blog redirects (prod)
+
+on:
+  workflow_dispatch:
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: "npm"
+
+      - name: Install
+        run: npm ci
+
+      - name: Verify production redirects (strict)
+        env:
+          SITE_URL: https://redkmotors.fr
+          VERIFY_BLOG_REDIRECTS_STRICT: "1"
+        run: node scripts/verify-blog-redirects-prod.js --strict

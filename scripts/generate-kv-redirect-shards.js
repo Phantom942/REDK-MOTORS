@@ -26,6 +26,10 @@ function parseCsv(text) {
 
 function pathKeys(p) {
   const keys = new Set([p]);
+  if (p.endsWith(".html")) {
+    // Pas de variante ".html/" — le Worker gère .html à part
+    return [...keys];
+  }
   if (p.endsWith("/") && p.length > 1) keys.add(p.slice(0, -1));
   else if (!p.endsWith("/")) keys.add(`${p}/`);
   return [...keys];

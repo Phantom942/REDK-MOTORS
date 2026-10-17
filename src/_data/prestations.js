@@ -43,15 +43,15 @@ const PRICE_FAQ_BY_SLUG = {
   "diagnostic-securite":
     "Check-up freins, pneus, éclairage : forfait /tarifs/ — corrections chiffrées séparément si besoin.",
   "changement-bougies":
-    "Bougies selon cylindres et type : devis après identification moteur — voir /blog/bougies-allumage-quand-changer/.",
+    "Bougies selon cylindres et type : devis après identification moteur — voir /blog/articles/bougies-allumage-quand-changer/.",
   "filtre-habitacle":
-    "Filtre pollen / charbon actif : pièce + pose rapide — voir /blog/filtre-habitacle-pollen-quand-changer/.",
+    "Filtre pollen / charbon actif : pièce + pose rapide — voir /blog/articles/filtre-habitacle-pollen-quand-changer/.",
   "liquide-refroidissement":
     "Contrôle niveau inclus ; vidange circuit si liquide usé — tarif /tarifs/ après inspection.",
   injecteurs:
     "Nettoyage ou remplacement injecteurs : devis diagnostic — fréquent sur diesel urbain encrassé.",
   "vanne-egr":
-    "Nettoyage ou remplacement EGR : chiffré après lecture codes — voir /blog/vanne-egr-encrassee-symptomes/.",
+    "Nettoyage ou remplacement EGR : chiffré après lecture codes — voir /blog/articles/vanne-egr-encrassee-symptomes/.",
   "courroie-accessoires":
     "Courroie + galets tendeurs : fourchette /tarifs/ — distincte de la courroie de distribution.",
   "decalaminage-moteur":
@@ -67,7 +67,7 @@ const PRICE_FAQ_BY_SLUG = {
   "reparation-crevaison":
     "Réparation si bande de roulement OK — sinon remplacement pneu chiffré au modèle.",
   "test-batterie":
-    "Test capacité + charge : souvent inclus au passage atelier — voir /blog/batterie-voiture-quand-changer/.",
+    "Test capacité + charge : souvent inclus au passage atelier — voir /blog/articles/batterie-voiture-quand-changer/.",
   "controle-alternateur":
     "Test charge alternateur : /tarifs/ — remplacement chiffré si hors tolérance.",
   demarreur:
@@ -81,7 +81,7 @@ const PRICE_FAQ_BY_SLUG = {
   "controle-compresseur":
     "Diagnostic pressions clim : /tarifs/ — réparation compresseur chiffrée séparément.",
   debosselage:
-    "DSP selon nombre de bosses : devis photo — voir /blog/debosselage-sans-peinture-dsp/.",
+    "DSP selon nombre de bosses : devis photo — voir /blog/articles/debosselage-sans-peinture-dsp/.",
   "peinture-localisee":
     "Retouche panneau selon préparation : devis inspection ou photos WhatsApp.",
   "retouches-finitions":

@@ -20,6 +20,10 @@ const path = require("path");
 const adLandingUrls = require("../src/_data/adLandingUrls.js");
 const garageProcheRedirects = require("../src/_data/garageProcheRedirects.js");
 const blogTagRedirects = require("../src/_data/blogTagRedirects.js");
+const {
+  classifyArticles,
+  getMigratedBlogRedirectPairs,
+} = require("./lib/blog-article-redirects.js");
 
 const SITE_URL = "https://redkmotors.fr";
 const ROOT = path.join(__dirname, "..");
@@ -29,6 +33,7 @@ const BULK_CSV = path.join(OUT_DIR, "cloudflare-bulk-redirects.csv");
 const ROOT_BULK_CSV = path.join(ROOT, "cloudflare-bulk-redirects.csv");
 const ROOT_BULK_IMPORT_CSV = path.join(ROOT, "cloudflare-bulk-redirects-import.csv");
 const ROOT_MAP_CSV = path.join(ROOT, "redirects-map.csv");
+const BLOG_MIGRATION_CSV = path.join(ROOT, "blog-migration-redirects.csv");
 
 /** @type {Array<[string, string]>} from → to (chemins absolus site) */
 const STATIC_REDIRECTS = [
@@ -43,7 +48,8 @@ const STATIC_REDIRECTS = [
   ["/confidentialite.html", "/confidentialite/"],
   ["/cookies.html", "/cookies/"],
   ["/mentions-legales.html", "/mentions-legales/"],
-  ["/blog/5-points-controle-avant-ct-ivry.html", "/blog/5-points-controle-avant-ct-ivry/"],
+  // Ne PAS mapper /blog/<slug>.html → /blog/<slug>/ pour les articles migrés :
+  // collectBlogArticleRedirects() gère /blog/<slug>/ → /blog/articles/<slug>/.
   ["/blog/tag/mecanique/confidentialite.html", "/confidentialite/"],
   ["/liens/", "/links/"],
   ["/liens", "/links/"],
@@ -84,17 +90,45 @@ function collectLpRedirects() {
 
 function collectBlogArticleRedirects() {
   const redirects = [];
-  if (!fs.existsSync(ARTICLES_DIR)) return redirects;
+  const { kept, migrated } = classifyArticles();
 
-  for (const file of fs.readdirSync(ARTICLES_DIR)) {
-    if (!file.endsWith(".njk")) continue;
-    const content = fs.readFileSync(path.join(ARTICLES_DIR, file), "utf8");
-    const match = content.match(/permalink:\s*(\/blog\/[^/\s]+\/)/);
-    if (!match) continue;
-    const canonical = match[1];
-    redirects.push([`${canonical.slice(0, -1)}.html`, canonical]);
+  // Articles encore légitimes sous /blog/<slug>/ : seulement .html → slash
+  for (const { permalink } of kept) {
+    redirects.push([`${permalink.slice(0, -1)}.html`, permalink]);
   }
+
+  // Articles migrés sous /blog/articles/<slug>/ : anciennes URL → nouvelle
+  redirects.push(...getMigratedBlogRedirectPairs());
+
+  // .html sous le nouveau chemin → slash (au cas où)
+  for (const { newPath } of migrated) {
+    redirects.push([`${newPath.slice(0, -1)}.html`, newPath]);
+  }
+
   return redirects;
+}
+
+function writeBlogMigrationTable(pairs) {
+  const lines = ["old_url,new_url,note"];
+  const seen = new Set();
+  for (const [from, to] of pairs) {
+    if (!from.startsWith("/blog/") || !to.startsWith("/blog/articles/")) continue;
+    if (from.includes("/articles/") || from.includes("/tag/") || from.includes("/page/")) continue;
+    const key = `${from}|${to}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    lines.push(
+      [
+        `${SITE_URL}${from}`,
+        `${SITE_URL}${to}`,
+        "article migré /blog/<slug>/ → /blog/articles/<slug>/",
+      ]
+        .map(csvEscape)
+        .join(","),
+    );
+  }
+  fs.writeFileSync(BLOG_MIGRATION_CSV, `${lines.join("\n")}\n`, "utf8");
+  return lines.length - 1;
 }
 
 /**
@@ -145,10 +179,44 @@ function collectDirectoryRedirects() {
   return redirects;
 }
 
+function assertNoRedirectConflicts(pairs) {
+  const byFrom = new Map();
+  for (const [from, to] of pairs) {
+    if (byFrom.has(from) && byFrom.get(from) !== to) {
+      throw new Error(`Conflit redirect: ${from} → ${byFrom.get(from)} vs ${to}`);
+    }
+    byFrom.set(from, to);
+  }
+
+  // Pas de boucle directe A→B→A
+  for (const [from, to] of pairs) {
+    if (byFrom.get(to) === from) {
+      throw new Error(`Boucle redirect: ${from} ⇄ ${to}`);
+    }
+  }
+
+  // Ne jamais rediriger une page encore valide /blog/<kept>/
+  const { kept } = classifyArticles();
+  for (const { permalink, slug } of kept) {
+    if (byFrom.has(permalink) && byFrom.get(permalink) !== permalink) {
+      throw new Error(`Redirect écrase article conservé: ${permalink}`);
+    }
+    const noSlash = `/blog/${slug}`;
+    if (byFrom.has(noSlash) && !byFrom.get(noSlash).startsWith(`/blog/${slug}`)) {
+      // slashless → slash OK ; slashless → articles NOT OK for kept
+      if (byFrom.get(noSlash).includes("/articles/")) {
+        throw new Error(`Redirect migre à tort un article conservé: ${noSlash}`);
+      }
+    }
+  }
+}
+
 function collectAll() {
   const blogRedirects = collectBlogArticleRedirects();
   const lpRedirects = collectLpRedirects();
   const directoryRedirects = collectDirectoryRedirects();
+  // Blog migration AVANT directory redirects pour ne pas écraser
+  // /blog/<slug> → /blog/<slug>/ (identitaire) au détriment de → /blog/articles/<slug>/
   const all = [...STATIC_REDIRECTS, ...lpRedirects, ...blogRedirects, ...directoryRedirects];
   const seen = new Set();
   const pairs = [];
@@ -160,6 +228,7 @@ function collectAll() {
     pairs.push([from, to]);
   }
 
+  assertNoRedirectConflicts(pairs);
   return { pairs, blogRedirects, lpRedirects, directoryRedirects };
 }
 
@@ -196,7 +265,9 @@ function writeRootMap(pairs) {
     else if (from.startsWith("/lp-")) note = "landing Ads legacy";
     else if (from.startsWith("/garage-proche-")) note = "garage-proche → page ville/money";
     else if (from.startsWith("/blog/tag/")) note = "tag blog orphelin → indexable";
-    else if (from.startsWith("/blog/") && from.endsWith(".html")) note = "article blog .html → slash";
+    else if (to.startsWith("/blog/articles/") && from.startsWith("/blog/")) {
+      note = "article migré /blog/<slug>/ → /blog/articles/<slug>/";
+    } else if (from.startsWith("/blog/") && from.endsWith(".html")) note = "article blog .html → slash";
     else if (!from.endsWith("/") && to === `${from}/`) note = "sans slash → avec slash";
     lines.push(
       [
@@ -252,12 +323,16 @@ function main() {
   const { pairs, blogRedirects, lpRedirects, directoryRedirects } = collectAll();
   writeCloudflareBulk(pairs);
   writeRootMap(pairs);
+  const blogMigrationCount = writeBlogMigrationTable(pairs);
   assertNoSoftRedirectStubs();
 
+  const { kept, migrated } = classifyArticles();
   console.log(
     `generate-legacy-redirects: 0 stub HTML écrit (soft-redirect désactivé). ` +
       `${pairs.length} règles exportées → cloudflare-bulk-redirects.csv ` +
-      `(${blogRedirects.length} articles, ${lpRedirects.length} lp-*, ${directoryRedirects.length} dossiers).`,
+      `(${blogRedirects.length} blog, ${lpRedirects.length} lp-*, ${directoryRedirects.length} dossiers). ` +
+      `Migration blog: ${migrated.length} articles → /blog/articles/ (${blogMigrationCount} URL sources), ` +
+      `${kept.length} conservés sous /blog/<slug>/.`,
   );
 }
 

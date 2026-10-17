@@ -78,10 +78,10 @@ const CATEGORIES = {
       "Conducteurs du Val-de-Marne : intervention sur rendez-vous, souvent sous 48 h.",
     ],
     seoProblems: [
-      { text: "Plaquettes usées", url: "/blog/plaquettes-frein-usure-signaux-a-ne-pas-ignorer/" },
-      { text: "Voyant ABS", url: "/blog/voyant-abs-allume-causes-conduite/" },
-      { text: "Pédale molle", url: "/blog/freinage-mou-pedale-spongieuse/" },
-      { text: "Changement plaquettes 94", url: "/blog/prix-changement-plaquettes-frein-94/" },
+      { text: "Plaquettes usées", url: "/blog/articles/plaquettes-frein-usure-signaux-a-ne-pas-ignorer/" },
+      { text: "Voyant ABS", url: "/blog/articles/voyant-abs-allume-causes-conduite/" },
+      { text: "Pédale molle", url: "/blog/articles/freinage-mou-pedale-spongieuse/" },
+      { text: "Changement plaquettes 94", url: "/blog/articles/prix-changement-plaquettes-frein-94/" },
     ],
     highlights: CATEGORY_HIGHLIGHTS.freinage,
   },
@@ -100,10 +100,10 @@ const CATEGORIES = {
       "Atelier accessible depuis Vitry, Villejuif, Paris 13 et tout le 94 — lun–sam 9h–19h.",
     ],
     seoProblems: [
-      { text: "Voyant moteur", url: "/blog/voyant-moteur-allume-que-faire/" },
-      { text: "Prix diagnostic 94", url: "/blog/prix-diagnostic-auto-94/" },
-      { text: "Turbo en panne", url: "/blog/turbo-compresseur-symptomes-panne/" },
-      { text: "Vanne EGR", url: "/blog/vanne-egr-encrassee-symptomes/" },
+      { text: "Voyant moteur", url: "/blog/articles/voyant-moteur-allume-que-faire/" },
+      { text: "Prix diagnostic 94", url: "/blog/articles/prix-diagnostic-auto-94/" },
+      { text: "Turbo en panne", url: "/blog/articles/turbo-compresseur-symptomes-panne/" },
+      { text: "Vanne EGR", url: "/blog/articles/vanne-egr-encrassee-symptomes/" },
     ],
     highlights: CATEGORY_HIGHLIGHTS.diagnostic,
   },
@@ -122,8 +122,8 @@ const CATEGORIES = {
       "Garage du Val-de-Marne : créneau souvent disponible sous 48 h sur rendez-vous.",
     ],
     seoProblems: [
-      { text: "Révision 60 000 km", url: "/blog/revision-60000-km-checklist/" },
-      { text: "Vidange moteur", url: "/blog/combien-coute-vidange-voiture/" },
+      { text: "Révision 60 000 km", url: "/blog/articles/revision-60000-km-checklist/" },
+      { text: "Vidange moteur", url: "/blog/articles/combien-coute-vidange-voiture/" },
       { text: "Recharge clim", url: "/blog/climatisation-voiture-recharge-ivry/" },
     ],
     highlights: CATEGORY_HIGHLIGHTS.revision,
@@ -143,9 +143,9 @@ const CATEGORIES = {
       "Contrôle usure et pression inclus — devis au modèle avant intervention.",
     ],
     seoProblems: [
-      { text: "Quand changer les pneus", url: "/blog/quand-changer-pneus-usure-securite/" },
-      { text: "Géométrie des roues", url: "/blog/geometrie-roues-signes-mauvais-alignement/" },
-      { text: "Prix pneus 94", url: "/blog/prix-changement-pneus-94/" },
+      { text: "Quand changer les pneus", url: "/blog/articles/quand-changer-pneus-usure-securite/" },
+      { text: "Géométrie des roues", url: "/blog/articles/geometrie-roues-signes-mauvais-alignement/" },
+      { text: "Prix pneus 94", url: "/blog/articles/prix-changement-pneus-94/" },
     ],
     highlights: CATEGORY_HIGHLIGHTS.pneumatiques,
   },
@@ -163,7 +163,7 @@ const CATEGORIES = {
       "Complément idéal d'une révision ou préparation contrôle technique.",
     ],
     seoProblems: [
-      { text: "Combien coûte une vidange", url: "/blog/combien-coute-vidange-voiture/" },
+      { text: "Combien coûte une vidange", url: "/blog/articles/combien-coute-vidange-voiture/" },
     ],
     highlights: CATEGORY_HIGHLIGHTS.vidange,
   },
@@ -181,8 +181,8 @@ const CATEGORIES = {
       "Documents pour dossier assurance — intervention après validation du devis.",
     ],
     seoProblems: [
-      { text: "Rayure carrosserie", url: "/blog/rayure-carrosserie-quand-reparer/" },
-      { text: "Après un accident", url: "/blog/que-faire-apres-accident-carrosserie/" },
+      { text: "Rayure carrosserie", url: "/blog/articles/rayure-carrosserie-quand-reparer/" },
+      { text: "Après un accident", url: "/blog/articles/que-faire-apres-accident-carrosserie/" },
     ],
     highlights: CATEGORY_HIGHLIGHTS.carrosserie,
   },
@@ -201,7 +201,7 @@ const CATEGORIES = {
     ],
     seoProblems: [
       { text: "Recharge clim Ivry", url: "/blog/climatisation-voiture-recharge-ivry/" },
-      { text: "Prix recharge clim 94", url: "/blog/prix-recharge-climatisation-94/" },
+      { text: "Prix recharge clim 94", url: "/blog/articles/prix-recharge-climatisation-94/" },
     ],
     highlights: CATEGORY_HIGHLIGHTS.clim,
   },
@@ -221,9 +221,9 @@ const CATEGORIES = {
       "Atelier multimarque essence et diesel — flottes et particuliers.",
     ],
     seoProblems: [
-      { text: "Perte de puissance", url: "/blog/voiture-broute-acceleration-causes-94/" },
-      { text: "Turbo", url: "/blog/turbo-compresseur-symptomes-panne/" },
-      { text: "Batterie voiture", url: "/blog/batterie-voiture-quand-changer/" },
+      { text: "Perte de puissance", url: "/blog/articles/voiture-broute-acceleration-causes-94/" },
+      { text: "Turbo", url: "/blog/articles/turbo-compresseur-symptomes-panne/" },
+      { text: "Batterie voiture", url: "/blog/articles/batterie-voiture-quand-changer/" },
     ],
     highlights: CATEGORY_HIGHLIGHTS.mecanique,
   },
@@ -296,9 +296,9 @@ const PAGE_OVERRIDES = {
       "À Ivry-sur-Seine, le diagnostic ABS est souvent réalisable sous 48 h sur rendez-vous — devis écrit avant toute pièce.",
     ],
     seoProblems: [
-      { text: "Voyant ABS : causes", url: "/blog/voyant-abs-allume-causes-conduite/" },
-      { text: "Pédale spongieuse", url: "/blog/freinage-mou-pedale-spongieuse/" },
-      { text: "Prix plaquettes 94", url: "/blog/prix-changement-plaquettes-frein-94/" },
+      { text: "Voyant ABS : causes", url: "/blog/articles/voyant-abs-allume-causes-conduite/" },
+      { text: "Pédale spongieuse", url: "/blog/articles/freinage-mou-pedale-spongieuse/" },
+      { text: "Prix plaquettes 94", url: "/blog/articles/prix-changement-plaquettes-frein-94/" },
     ],
   },
   voyant94Seo: {
@@ -314,9 +314,9 @@ const PAGE_OVERRIDES = {
       "Pas de « boîte noire » : vous repartez avec un diagnostic clair et un devis avant réparation, atelier 9 rue Michelet.",
     ],
     seoProblems: [
-      { text: "Que faire si voyant moteur", url: "/blog/voyant-moteur-allume-que-faire/" },
-      { text: "Prix diagnostic 94", url: "/blog/prix-diagnostic-auto-94/" },
-      { text: "Perte de puissance", url: "/blog/perte-puissance-soudaine-causes/" },
+      { text: "Que faire si voyant moteur", url: "/blog/articles/voyant-moteur-allume-que-faire/" },
+      { text: "Prix diagnostic 94", url: "/blog/articles/prix-diagnostic-auto-94/" },
+      { text: "Perte de puissance", url: "/blog/articles/perte-puissance-soudaine-causes/" },
     ],
   },
   bruitFrein94Seo: {
@@ -333,7 +333,7 @@ const PAGE_OVERRIDES = {
       "Objectif : distinguer usure normale, disque rayé ou autre cause — atelier Ivry, sans forfait opaque.",
     ],
     seoProblems: [
-      { text: "Signaux d'usure plaquettes", url: "/blog/plaquettes-frein-usure-signaux-a-ne-pas-ignorer/" },
+      { text: "Signaux d'usure plaquettes", url: "/blog/articles/plaquettes-frein-usure-signaux-a-ne-pas-ignorer/" },
       { text: "Hub freinage Ivry", url: "/freins/" },
       { text: "Changement plaquettes 94", url: "/changement-plaquettes-frein-94/" },
     ],
@@ -354,8 +354,8 @@ const PAGE_OVERRIDES = {
     seoProblems: [
       { text: "Réparation clim Ivry", url: "/reparation-climatisation-ivry/" },
       { text: "Recharge clim prestation", url: "/prestations/recharge-clim/" },
-      { text: "Prix recharge clim", url: "/blog/prix-recharge-climatisation-94/" },
-      { text: "Odeur moisi clim", url: "/blog/clim-odeur-moisi-que-faire/" },
+      { text: "Prix recharge clim", url: "/blog/articles/prix-recharge-climatisation-94/" },
+      { text: "Odeur moisi clim", url: "/blog/articles/clim-odeur-moisi-que-faire/" },
     ],
   },
   climIvrySeo: {
@@ -383,8 +383,8 @@ const PAGE_OVERRIDES = {
       "Urgences démarrage à Ivry-sur-Seine sur rendez-vous — lun–sam 9h–19h.",
     ],
     seoProblems: [
-      { text: "Causes demarrage", url: "/blog/voiture-ne-demarre-pas-causes/" },
-      { text: "Batterie à changer", url: "/blog/batterie-voiture-quand-changer/" },
+      { text: "Causes demarrage", url: "/blog/articles/voiture-ne-demarre-pas-causes/" },
+      { text: "Batterie à changer", url: "/blog/articles/batterie-voiture-quand-changer/" },
       { text: "Changement batterie 94", url: "/changement-batterie-94/" },
     ],
   },
@@ -401,7 +401,7 @@ const PAGE_OVERRIDES = {
       "Diagnostic vibrations à Ivry — devis avant réglage ou remplacement.",
     ],
     seoProblems: [
-      { text: "Géométrie des roues", url: "/blog/geometrie-roues-signes-mauvais-alignement/" },
+      { text: "Géométrie des roues", url: "/blog/articles/geometrie-roues-signes-mauvais-alignement/" },
       { text: "Montage pneus", url: "/prestations/montage-equilibrage/" },
       { text: "Hub pneumatiques", url: "/pneumatiques/" },
     ],
@@ -414,10 +414,10 @@ const PAGE_OVERRIDES = {
       "Pose adaptée au véhicule (y compris start & stop quand compatible) — devis avant intervention à l'atelier RED-K MOTORS.",
     ],
     seoProblems: [
-      { text: "Quand changer la batterie", url: "/blog/batterie-voiture-quand-changer/" },
-      { text: "Prix batterie 94", url: "/blog/prix-changement-batterie-94/" },
+      { text: "Quand changer la batterie", url: "/blog/articles/batterie-voiture-quand-changer/" },
+      { text: "Prix batterie 94", url: "/blog/articles/prix-changement-batterie-94/" },
       { text: "Prestation batterie atelier", url: "/prestations/remplacement-batterie/" },
-      { text: "Voiture qui ne démarre pas", url: "/blog/voiture-ne-demarre-pas-causes/" },
+      { text: "Voiture qui ne démarre pas", url: "/blog/articles/voiture-ne-demarre-pas-causes/" },
     ],
   },
   plaquettes94Seo: {
@@ -428,8 +428,8 @@ const PAGE_OVERRIDES = {
       "Freinage sécurisé pour trajets urbains 94 / Paris sud — devis écrit, contrôle ABS si voyant associé. Pour le diagnostic freinage général, voir aussi le hub freins.",
     ],
     seoProblems: [
-      { text: "Signaux d'usure plaquettes", url: "/blog/plaquettes-frein-usure-signaux-a-ne-pas-ignorer/" },
-      { text: "Prix plaquettes 94", url: "/blog/prix-changement-plaquettes-frein-94/" },
+      { text: "Signaux d'usure plaquettes", url: "/blog/articles/plaquettes-frein-usure-signaux-a-ne-pas-ignorer/" },
+      { text: "Prix plaquettes 94", url: "/blog/articles/prix-changement-plaquettes-frein-94/" },
       { text: "Hub freinage Ivry", url: "/freins/" },
       { text: "Exemple prix plaquettes", url: "/exemples/prix-plaquettes-frein/" },
     ],
@@ -441,8 +441,8 @@ const PAGE_OVERRIDES = {
       "Stock selon arrivages ou montage de vos pneus — devis au modèle avant pose, atelier Ivry.",
     ],
     seoProblems: [
-      { text: "Quand changer les pneus", url: "/blog/quand-changer-pneus-usure-securite/" },
-      { text: "Prix pneus 94", url: "/blog/prix-changement-pneus-94/" },
+      { text: "Quand changer les pneus", url: "/blog/articles/quand-changer-pneus-usure-securite/" },
+      { text: "Prix pneus 94", url: "/blog/articles/prix-changement-pneus-94/" },
       { text: "Freinage", url: "/freins/" },
     ],
   },
@@ -454,7 +454,7 @@ const PAGE_OVERRIDES = {
       "Idéal avant long trajet ou contrôle technique — créneaux lun–sam à Ivry.",
     ],
     seoProblems: [
-      { text: "Checklist 60 000 km", url: "/blog/revision-60000-km-checklist/" },
+      { text: "Checklist 60 000 km", url: "/blog/articles/revision-60000-km-checklist/" },
       { text: "Hub entretien Ivry", url: "/entretien/" },
       { text: "Vidange seule", url: "/vidange/" },
       { text: "Tarifs indicatifs", url: "/tarifs/" },
@@ -500,9 +500,9 @@ const PAGE_OVERRIDES = {
       "Diagnostic perte de puissance à Ivry — rapport clair + devis réparation.",
     ],
     seoProblems: [
-      { text: "Causes perte de puissance", url: "/blog/perte-puissance-soudaine-causes/" },
-      { text: "Turbo", url: "/blog/turbo-compresseur-symptomes-panne/" },
-      { text: "FAP encrassé", url: "/blog/fap-dpf-encrasse-trajets-ville/" },
+      { text: "Causes perte de puissance", url: "/blog/articles/perte-puissance-soudaine-causes/" },
+      { text: "Turbo", url: "/blog/articles/turbo-compresseur-symptomes-panne/" },
+      { text: "FAP encrassé", url: "/blog/articles/fap-dpf-encrasse-trajets-ville/" },
     ],
   },
   vidangeRapideIvrySeo: {
@@ -514,7 +514,7 @@ const PAGE_OVERRIDES = {
     ],
     seoProblems: [
       { text: "Hub vidange Ivry", url: "/vidange/" },
-      { text: "Prix vidange", url: "/blog/combien-coute-vidange-voiture/" },
+      { text: "Prix vidange", url: "/blog/articles/combien-coute-vidange-voiture/" },
       { text: "Révision constructeur", url: "/revision-voiture-ivry/" },
       { text: "Exemple prix vidange", url: "/exemples/prix-vidange-moteur/" },
     ],
