@@ -302,7 +302,7 @@ const SERVICES = {
     specifics: [
       "Capteur pluie, caméra ou athermique : le prix pièce varie selon finition.",
       "Réparation d'impact possible si l'éclat reste petit — photo WhatsApp pour avis rapide.",
-      "Navette possible sur Ivry, Vitry, Villejuif et alentours du 94.",
+      "Parking pour dépôt de véhicule sur place à Ivry (9 rue Michelet).",
     ],
   },
   distribution: {

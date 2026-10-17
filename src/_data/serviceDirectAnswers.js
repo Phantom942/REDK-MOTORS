@@ -62,7 +62,7 @@ module.exports = {
   pareBrise: {
     question: "Le pare-brise est-il pris en charge par l'assurance bris de glace à Ivry ?",
     answer:
-      "Oui, si votre contrat inclut la garantie bris de glace. L'atelier accompagne la déclaration et propose jusqu'à 150 € + franchise offerte sur remplacement (conditions au devis). Sans garantie, devis avant travaux. Navette possible sur Ivry, Vitry, Villejuif.",
+      "Oui, si votre contrat inclut la garantie bris de glace. L'atelier accompagne la déclaration et propose jusqu'à 150 € + franchise offerte sur remplacement (conditions au devis). Sans garantie, devis avant travaux. Parking pour dépôt de véhicule sur place à Ivry.",
     priceLabel: "Offre atelier",
     price: "Jusqu'à 150 € + franchise offerte",
     duration: "Impact ~45 min · pose 2–3 h",

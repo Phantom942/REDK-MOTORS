@@ -247,8 +247,8 @@ const AD_OVERRIDES = {
   },
   "pare-brise-vitrage": {
     heroTitle: "Pare-Brise & Vitrage à Ivry — Bris de Glace",
-    heroKicker: "Assurance · Navette possible",
-    heroDesc: "Impact ou vitrage cassé ? Dossier assurance accompagné, intervention rapide.",
+    heroKicker: "Assurance · Parking dépôt sur place",
+    heroDesc: "Impact ou vitrage cassé ? Dossier assurance accompagné, intervention rapide. Parking pour dépôt de véhicule sur place.",
   },
   "recharge-clim": {
     heroTitle: "Recharge climatisation à Ivry-sur-Seine",
@@ -726,7 +726,7 @@ const SEO_CONTENT = {
     seoTitle: "Pare-brise et vitrage",
     seoParagraphs: [
       "Impact, fissure ou bris de glace : remplacement pare-brise avec accompagnement assurance si applicable.",
-      "Navette possible selon disponibilité.",
+      "Parking pour dépôt de véhicule sur place à Ivry (lun–sam 9h–19h).",
     ],
   },
   "retouches-finitions": {

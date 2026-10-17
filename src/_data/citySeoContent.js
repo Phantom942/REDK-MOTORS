@@ -5,32 +5,32 @@ module.exports = {
   "garage-ivry": {
     seoTitle: "Garage au 9 rue Michelet, Ivry-sur-Seine (94200)",
     seoParagraphs: [
-      "RED-K MOTORS, garage automobile au 9 rue Michelet, 94200 Ivry-sur-Seine. Ouvert lun–sam 9h–19h. Tél. 06 48 74 56 68.",
+      "RED-K MOTORS, garage automobile au 9 rue Michelet, 94200 Ivry-sur-Seine. Ouvert lun–sam 9h–19h, fermé dimanche. Tél. 06 48 74 56 68. Parking pour dépôt de véhicule sur place.",
       "Diagnostic OBD, vidange, freins, pneus/géométrie, clim, distribution, embrayage, carrosserie, pare-brise. Devis écrit avant travaux.",
       "Point d'accès pour Vitry, Villejuif, Paris 13, Charenton, Maisons-Alfort. Multimarque essence/diesel. RDV recommandé.",
     ],
     seoFooter: "Plan et formulaire : redkmotors.fr/contact/ — WhatsApp pour photos et premier avis.",
     heroDesc:
-      "Atelier au 9 rue Michelet, 94200 Ivry-sur-Seine. Diagnostic, freins, pneus, clim, carrosserie — devis écrit avant travaux.",
+      "Atelier au 9 rue Michelet, 94200 Ivry-sur-Seine. Diagnostic, freins, pneus, clim, carrosserie — devis écrit avant travaux. Parking pour dépôt de véhicule sur place.",
     introHeading: "Adresse & accès — Ivry-centre",
     introText:
-      "L'atelier est au 9 rue Michelet, au cœur d'Ivry. Pas de centre d'appels : vous échangez directement avec l'équipe atelier pour le devis et le suivi.",
+      "L'atelier est au 9 rue Michelet, au cœur d'Ivry. Parking pour dépôt de véhicule sur place. Pas de centre d'appels : vous échangez directement avec l'équipe atelier pour le devis et le suivi.",
     highlights: [
       "Adresse : 9 rue Michelet, 94200",
+      "Parking pour dépôt de véhicule sur place",
       "Devis écrit avant toute intervention",
-      "Multimarque essence et diesel",
-      "Lun–sam 9h–19h — réponse en journée",
+      "Lun–sam 9h–19h — fermé dimanche",
     ],
     faqs: [
       {
         question: "Quels sont vos horaires à Ivry ?",
         answer:
-          "Lun–sam 9h–19h, sans coupure. RDV conseillé pour garantir un créneau.",
+          "Lundi au samedi, 9h–19h, sans coupure. Fermé le dimanche. RDV conseillé pour garantir un créneau.",
       },
       {
-        question: "Où se trouve exactement l'atelier ?",
+        question: "Y a-t-il un parking pour déposer le véhicule ?",
         answer:
-          "9 rue Michelet, 94200 Ivry-sur-Seine. Itinéraire et plan sur la page contact.",
+          "Oui — parking pour dépôt de véhicule sur place au 9 rue Michelet. Stationnement possible aussi dans les rues adjacentes.",
       },
       {
         question: "Comment obtenir un devis ?",
@@ -59,7 +59,7 @@ module.exports = {
       "Vous roulez souvent entre Vitry et Paris sud ? L'atelier est à Ivry : même équipe, même adresse — pas une succursale Vitry.",
     highlights: [
       "Atelier à Ivry (pas de site Vitry)",
-      "Accessible depuis Vitry (trajet selon trafic)",
+      "Parking pour dépôt de véhicule sur place",
       "Devis écrit avant toute intervention",
       "Lun–sam 9h–19h",
     ],
@@ -72,7 +72,7 @@ module.exports = {
       {
         question: "Puis-je déposer la voiture le matin avant le travail ?",
         answer:
-          "Oui, sur RDV. Modalités de dépôt à confirmer au téléphone selon l'organisation du jour.",
+          "Oui, sur RDV. Parking pour dépôt de véhicule sur place à Ivry (9 rue Michelet). Modalités du créneau à confirmer au téléphone.",
       },
       {
         question: "Intervenez-vous sur les véhicules récents (Start-Stop, AdBlue) ?",
@@ -90,17 +90,17 @@ module.exports = {
     seoParagraphs: [
       "Pas de succursale à Vitry : l'atelier RED-K MOTORS est à Ivry-sur-Seine. Depuis Mairie, Stalingrad, Les Malassis ou les bords de Seine, l'accès se fait vers le 9 rue Michelet à Ivry.",
       "Révision, freins, diagnostic diesel (FAP, EGR, AdBlue), carrosserie et pare-brise : même équipe qu'à Ivry-centre.",
-      "Dépôt sur RDV — rappel avant validation des travaux.",
+      "Dépôt sur RDV — parking pour dépôt de véhicule sur place à Ivry. Rappel avant validation des travaux.",
     ],
     seoFooter: "Itinéraire via Ivry-centre — créneau sur rendez-vous.",
     heroDesc:
       "Depuis Vitry, direction l'atelier Ivry (9 rue Michelet). Entretien, freins, diagnostic — devis avant intervention.",
     introHeading: "Vitry-sur-Seine → atelier Ivry",
     introText:
-      "Si vous cherchez un garage sans traverser Paris intra-muros, l'adresse rue Michelet à Ivry est un point d'accès pratique : atelier indépendant, suivi direct avec l'équipe.",
+      "Si vous cherchez un garage sans traverser Paris intra-muros, l'adresse rue Michelet à Ivry est un point d'accès pratique : atelier indépendant, parking pour dépôt de véhicule sur place, suivi direct avec l'équipe.",
     highlights: [
       "Adresse unique : 9 rue Michelet, Ivry",
-      "Pas de succursale à Vitry",
+      "Parking pour dépôt de véhicule sur place",
       "Devis écrit — aucune pièce sans accord",
       "Lun–sam 9h–19h",
     ],
@@ -118,7 +118,7 @@ module.exports = {
       {
         question: "Puis-je déposer la voiture avant le travail ?",
         answer:
-          "Oui, sur RDV. Les modalités exactes se confirment au téléphone.",
+          "Oui, sur RDV. Parking pour dépôt de véhicule sur place au 9 rue Michelet. Les modalités du créneau se confirment au téléphone.",
       },
       {
         question: "Comment vous joindre depuis Vitry ?",
@@ -141,7 +141,7 @@ module.exports = {
       "Beaucoup de clients viennent de Villejuif pour un suivi atelier direct. Pas de franchise ni d'antenne Villejuif : même adresse, même équipe qu'à Ivry.",
     highlights: [
       "Atelier à Ivry (pas de site Villejuif)",
-      "Accès depuis Louis Aragon / centre",
+      "Parking pour dépôt de véhicule sur place",
       "Valise multimarques",
       "Devis détaillé avant validation",
     ],
@@ -154,7 +154,7 @@ module.exports = {
       {
         question: "Le garage est-il vraiment plus proche qu'un concessionnaire ?",
         answer:
-          "Pour Villejuif, souvent oui : quelques minutes jusqu'à Ivry-centre, sans entrer dans Paris. Pratique pour déposer le véhicule le matin sur RDV.",
+          "Pour Villejuif, souvent oui : quelques minutes jusqu'à Ivry-centre, sans entrer dans Paris. Parking pour dépôt de véhicule sur place — pratique pour déposer le véhicule le matin sur RDV.",
       },
       {
         question: "Faites-vous la révision sans perdre la garantie ?",

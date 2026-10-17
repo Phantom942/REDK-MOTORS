@@ -79,15 +79,15 @@ Le site pousse vers `dataLayer` (`GTM-NTC72X2G`). La configuration des **tags/tr
 6. Events GTM ci-dessus
 7. Devis qualifiés atelier (hors site)
 
-## Confirmations humaines requises
+## Confirmations commerciales (propriétaire — 17 oct. 2026)
 
-| Sujet | État code | Action |
-|---|---|---|
-| Horaires | Lun–sam 9h–19h (inchangé) | Confirmer vs GBP si divergence |
-| Navette | **Retirée** des textes Vitry/Villejuif/Ivry de cette PR | Ne réintroduire qu’après validation |
-| Parking / dépôt sur place | **Retiré** des highlights Ivry | Confirmer avant republication |
-| Délais « sous 48 h » | Évités sur pages villes touchées | Confirmer avant tout engagement |
-| Paiement plusieurs fois | Formulé « à confirmer avec l’atelier » | Valider politique réelle |
+| Sujet | État code |
+|---|---|
+| Horaires | Lun–sam 9h–19h, **fermé dimanche** (conservé + explicité FAQ / schema) |
+| Parking dépôt véhicule | **Oui** — mention « Parking pour dépôt de véhicule sur place » réintroduite (pages, FAQ, JSON-LD `amenityFeature`) |
+| Navette | **Non** — toutes mentions supprimées (y compris « selon disponibilité ») |
+| Délais « sous 48 h » | Évités sur pages villes touchées — confirmer avant engagement |
+| Paiement plusieurs fois | Formulé « à confirmer avec l’atelier » |
 
 ## Hors scope
 

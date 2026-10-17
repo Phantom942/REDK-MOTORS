@@ -1,9 +1,18 @@
 #!/usr/bin/env node
 /**
- * Tests funnel conversion formulaire (sans navigateur / sans PII).
+ * Tests funnel conversion formulaire (sans navigateur / sans PII)
+ * + garde-fous source tracking (ordre scripts, consent, idempotence).
  */
 const assert = require("assert");
+const fs = require("fs");
+const path = require("path");
 const funnel = require("../assets/js/conversion-funnel.js");
+
+const ROOT = path.join(__dirname, "..");
+
+function readSrc(rel) {
+  return fs.readFileSync(path.join(ROOT, rel), "utf8");
+}
 
 function ok(msg) {
   console.log(`OK: ${msg}`);
@@ -173,6 +182,54 @@ function main() {
     }),
   );
   ok("shouldPushFormSubmitSuccess aligné sur success");
+
+  // --- Garde-fous techniques tracking (source) ---
+  {
+    const cookies = readSrc("assets/js/cookies.js");
+    const track = readSrc("assets/js/track.js");
+    const merci = readSrc("src/merci.njk");
+
+    assert.ok(
+      cookies.includes("loadScriptOnce('/assets/js/conversion-funnel.js')") &&
+        cookies.includes("loadScriptOnce('/assets/js/track.js')"),
+      "cookies.js doit charger funnel puis track",
+    );
+    const funnelPos = cookies.indexOf("loadScriptOnce('/assets/js/conversion-funnel.js')");
+    const trackPos = cookies.indexOf("loadScriptOnce('/assets/js/track.js')");
+    assert.ok(funnelPos >= 0 && trackPos > funnelPos, "ordre funnel → track dans loadAnalytics");
+
+    assert.ok(
+      cookies.includes("analyticsBootstrapped") &&
+        cookies.includes("analyticsScriptsLoading") &&
+        cookies.includes("loadScriptOnce"),
+      "loadAnalytics idempotente (flags + loadScriptOnce)",
+    );
+    assert.ok(
+      cookies.includes("__REDK_ANALYTICS_DISABLED__ = false") &&
+        cookies.includes("if (analyticsBootstrapped)"),
+      "réactivation consentement sans rechargement scripts",
+    );
+
+    assert.ok(
+      track.includes("hasAnalyticsConsent") &&
+        track.includes("__REDK_ANALYTICS_DISABLED__") &&
+        track.includes("hasConsent('analytics')"),
+      "track.js re-vérifie le consentement",
+    );
+    assert.ok(track.includes("__REDK_TRACK_BOUND__"), "listeners track one-shot");
+
+    assert.ok(
+      merci.includes("form_submit_redirect") &&
+        merci.includes("form_submit_success") &&
+        merci.includes("form_submit_redirect_unverified"),
+      "merci distingue redirect / success / unverified",
+    );
+    assert.ok(
+      merci.includes("n'est PAS mesurable") || merci.includes("n’est PAS mesurable"),
+      "merci documente ≠ livraison e-mail FormSubmit",
+    );
+    ok("garde-fous source tracking (ordre, idempotence, consent, merci)");
+  }
 
   console.log("Tests conversion tracking: OK");
 }
