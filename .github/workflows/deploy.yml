@@ -159,7 +159,9 @@ jobs:
             fi
           done
 
-          # Anciennes URL : 301 unique vers /blog/articles/… (nécessite KV Worker à jour)
+          # Anciennes URL : informatif seulement ici (Pages ≠ KV).
+          # Le contrôle STRICT (échec si 404) est le workflow verify-blog-redirects.yml
+          # à lancer APRÈS upload KV + deploy Worker.
           BLOG_OLD_MAP=(
             "https://redkmotors.fr/blog/suppression-fap-controle-technique-2026/|https://redkmotors.fr/blog/articles/suppression-fap-controle-technique-2026/"
             "https://redkmotors.fr/blog/prix-recharge-climatisation-94/|https://redkmotors.fr/blog/articles/prix-recharge-climatisation-94/"
@@ -175,11 +177,9 @@ jobs:
             if [ "$code" = "301" ] && [ "$loc" = "$expect" ]; then
               echo "✅ blog old 301 $old → $loc"
             elif [ "$code" = "404" ]; then
-              echo "⚠ blog old encore 404 $old — publier KV Worker (npm run redirects:kv-shards + wrangler kv put)"
-              # Ne bloque pas le deploy Pages : le HTML est correct, KV est une étape manuelle
+              echo "⚠ blog old encore 404 $old — étape suivante: runbook docs/cloudflare-kv-blog-redirects-runbook.md puis workflow Verify blog redirects"
             else
-              echo "❌ blog old $old → HTTP $code Location=$loc (attendu 301 $expect)"
-              FAILED=1
+              echo "⚠ blog old $old → HTTP $code Location=$loc (attendu 301 $expect) — vérifier KV"
             fi
           done
 
