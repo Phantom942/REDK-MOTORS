@@ -4,84 +4,77 @@
 
 1. Merger la PR GitHub (Pages build + HTML/sitemap/schémas)
 2. Attendre le déploiement GitHub Pages (smoke Pages OK)
-3. **Sauvegarder** les shards KV distants actuels
-4. Régénérer les shards locaux depuis le code mergé
-5. Uploader **tous** les shards générés (pas seulement `r:b` si d’autres ont changé)
-6. Déployer le Worker si le JS a changé
-7. Lancer `npm run verify:blog-redirects:prod` (échec si 404)
-8. Search Console : inspection des nouvelles URL + suivi 404
+3. Lancer **manuellement** le workflow [Deploy blog redirects KV](https://github.com/Phantom942/REDK-MOTORS/actions/workflows/deploy-blog-redirects-kv.yml)
+   - `mode=deploy`
+   - `deploy_worker=true`
+4. Le workflow :
+   - build + `test:blog-migration`
+   - **backup KV obligatoire** (échec = stop)
+   - **publie l’artefact** `kv-backup-<run_id>` **avant** tout upload
+   - upload shards + deploy Worker
+   - `verify-blog-redirects-prod.js --all --strict` (234 anciennes + 78 nouvelles + 11 conservés)
+5. Search Console : inspection des nouvelles URL + suivi 404
+
+**Pas de déclenchement automatique sur push.**
 
 ## Prérequis
 
-- `npx wrangler login` ou `CLOUDFLARE_API_TOKEN` avec droits Workers + KV
+- Secret GitHub Actions `CLOUDFLARE_API_TOKEN` :
+  - Workers Scripts:Edit
+  - Workers KV Storage:Edit
 - Namespace id : `5d9807d363a24a089326f8d24f4f340c` (voir `workers/wrangler.toml`)
 
-## Sauvegarde (rollback)
+## Rollback (fiable)
+
+### Via GitHub Actions (préféré)
+
+1. Noter le `run_id` du déploiement (URL du run, ou message d’échec « Rollback… rollback_run_id=… »)
+2. Actions → **Deploy blog redirects KV** → Run workflow
+   - `mode=rollback`
+   - `rollback_run_id=<run_id>`
+3. Le job télécharge l’artefact `kv-backup-<run_id>` et restaure toutes les clés.
+
+### Via CLI local
 
 ```bash
-mkdir -p /tmp/redk-kv-backup-$(date +%Y%m%d)
-cd workers
-# Lister les clés r:*
-npx wrangler kv key list --namespace-id=5d9807d363a24a089326f8d24f4f340c --remote | tee /tmp/redk-kv-backup-$(date +%Y%m%d)/keys.json
+# Télécharger l’artefact depuis le run (UI GitHub → Artifacts)
+# ou depuis un backup local workers/kv-backup/
 
-# Exporter chaque shard existant (exemple)
-for key in r:a r:b r:c r:d r:f r:g r:j r:l r:r r:en r:eq r:ex0 r:ex1 r:ex2 r:ex3; do
-  npx wrangler kv key get --namespace-id=5d9807d363a24a089326f8d24f4f340c "$key" --remote \
-    > "/tmp/redk-kv-backup-$(date +%Y%m%d)/${key//:/_}.json" || true
-done
+export CLOUDFLARE_API_TOKEN=…   # ne pas coller le token dans un chat
+node scripts/deploy-kv-shards.js --restore --dir workers/kv-backup
+
+# Si le Worker JS a changé et pose problème :
+git checkout <commit-avant> -- workers/redkmotors-fr-redirect-kv.js
+npm run cf:deploy-headers
 ```
 
-Conserver ce dossier jusqu’à validation GSC (≥ 7 jours).
+Conserver l’artefact ≥ 7 jours (rétention workflow = 30 jours).
 
-## Régénération + upload
+## CLI local (deploy)
 
 ```bash
 npm ci
 npm run build
 npm run test:blog-migration
 npm run redirects:kv-shards
-# Inspecter workers/kv-shards/ avant upload
-ls -la workers/kv-shards/
 
-cd workers
-# Upload CHAQUE fichier généré — ne pas omettre de shards
-for f in kv-shards/r-*.json; do
-  key=$(basename "$f" .json | sed 's/-/:/')
-  echo "PUT $key ← $f"
-  npx wrangler kv key put --namespace-id=5d9807d363a24a089326f8d24f340c "$key" --path="$f" --remote
-done
+# 1) Backup seul
+node scripts/deploy-kv-shards.js --backup-only --dir workers/kv-backup
+# Copier/archiver workers/kv-backup/ avant la suite
 
-# Si workers/redkmotors-fr-redirect-kv.js a changé :
-npx wrangler deploy
-```
+# 2) Upload
+node scripts/deploy-kv-shards.js --upload-only
 
-## Vérification
+# 3) Worker
+npm run cf:deploy-headers
 
-```bash
-npm run verify:blog-redirects:prod
-# ou workflow GitHub : Verify blog redirects (prod)
-
-curl -sI https://redkmotors.fr/blog/suppression-fap-controle-technique-2026/
-# → 301 Location: https://redkmotors.fr/blog/articles/suppression-fap-controle-technique-2026/
-```
-
-## Rollback
-
-```bash
-BACKUP=/tmp/redk-kv-backup-YYYYMMDD
-cd workers
-for f in "$BACKUP"/r_*.json; do
-  key=$(basename "$f" .json | sed 's/_/:/')
-  npx wrangler kv key put --namespace-id=5d9807d363a24a089326f8d24f340c "$key" --path="$f" --remote
-done
-# Si besoin : redéployer l’ancien Worker depuis un commit précédent
-git checkout <commit-avant> -- workers/redkmotors-fr-redirect-kv.js
-npx wrangler deploy
+# 4) Verify exhaustif
+npm run verify:blog-redirects:prod:all
 ```
 
 ## Interdits
 
-- Écraser KV avec un shard partiel sans avoir régénéré depuis `npm run build`
-- Déployer sans sauvegarde
+- Déclencher l’upload sans backup + artefact
+- Écraser KV avec un shard partiel
 - Remplacer les 301 HTTP par meta-refresh / JS
 - Wildcard `/blog/*` → `/blog/articles/*`
