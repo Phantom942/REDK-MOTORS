@@ -39,8 +39,14 @@ async function main() {
 
   let failed = 0;
   let warned = 0;
+  let okNew = 0;
+  let okOld = 0;
+  let okKept = 0;
 
-  console.log(`Vérification prod ${SITE} — ${slugs.length} slugs (kept=${kept.length})`);
+  const expectedOld = ALL ? migrated.length * 3 : PRIORITY.length * 3;
+  console.log(
+    `Vérification prod ${SITE} — migrated=${slugs.length} (old variants attendues=${expectedOld}), kept=${kept.length}, strict=${STRICT}`,
+  );
 
   for (const slug of slugs) {
     const destPath = `/blog/articles/${slug}/`;
@@ -52,6 +58,7 @@ async function main() {
       failed += 1;
     } else {
       console.log(`✅ NEW ${destUrl} → 200`);
+      okNew += 1;
     }
 
     for (const from of [`/blog/${slug}/`, `/blog/${slug}`, `/blog/${slug}.html`]) {
@@ -70,13 +77,14 @@ async function main() {
             failed += 1;
           } else {
             console.log(`✅ OLD ${oldUrl} → 301 ${normalized} → 200`);
+            okOld += 1;
           }
         } else {
           console.error(`❌ OLD ${oldUrl} → 301 Location=${res.location} (attendu ${expect})`);
           failed += 1;
         }
       } else if (res.status === 404) {
-        // Prioritaires : toujours échec. --all hors PRIORITY : warning sauf STRICT.
+        // --strict ou prioritaire : échec. --all sans strict : warning hors PRIORITY.
         const msg = `OLD ${oldUrl} → 404 (KV Worker non à jour ?)`;
         if (STRICT || PRIORITY.includes(slug)) {
           console.error(`❌ ${msg}`);
@@ -92,8 +100,7 @@ async function main() {
     }
   }
 
-  // Conservés : doivent rester 200
-  for (const { slug, permalink } of kept) {
+  for (const { permalink } of kept) {
     const url = `${SITE}${permalink}`;
     const res = await head(url);
     if (res.status !== 200) {
@@ -101,8 +108,13 @@ async function main() {
       failed += 1;
     } else {
       console.log(`✅ KEPT ${url} → 200`);
+      okKept += 1;
     }
   }
+
+  console.log(
+    `Résumé: NEW ${okNew}/${slugs.length} · OLD ${okOld}/${expectedOld} · KEPT ${okKept}/${kept.length}`,
+  );
 
   if (failed) {
     console.error(`ÉCHEC verify-blog-redirects-prod: ${failed} erreur(s), ${warned} warning(s)`);

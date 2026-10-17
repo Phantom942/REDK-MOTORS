@@ -1,44 +1,52 @@
-# Déploie les shards KV + Worker redirects blog.
+# Déploie les shards KV + Worker redirects blog — DÉCLENCHEMENT MANUEL UNIQUEMENT.
+#
 # Secret : CLOUDFLARE_API_TOKEN
 #   Account — Workers Scripts:Edit
 #   Account — Workers KV Storage:Edit
-#   Zone — Zone:Read + Workers Routes:Edit (si routes à (re)lier)
 #
-# Ordre : après merge Pages OK. Déclenchement manuel uniquement.
+# Ordre sécurisé :
+#   1) Build + tests
+#   2) Backup KV distant (obligatoire) → échoue = stop
+#   3) Artefact GitHub du backup (obligatoire) → avant tout upload
+#   4) Upload shards + deploy Worker
+#   5) Verify --all --strict avec retries (propagation CF)
+#
+# Rollback : mode=rollback + run_id de l’artefact kv-backup-*.
+#   Clés absentes au backup → DELETE ; clés présentes → PUT valeur précédente.
 name: Deploy blog redirects KV
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 on:
-  # Manuel (préféré au quotidien)
   workflow_dispatch:
     inputs:
-      skip_backup:
-        description: "Skip KV remote backup (non recommandé)"
-        required: false
-        default: "false"
+      mode:
+        description: "deploy = upload KV ; rollback = restaurer depuis un artefact"
+        required: true
+        default: deploy
         type: choice
         options:
-          - "false"
-          - "true"
+          - deploy
+          - rollback
+      rollback_run_id:
+        description: "Rollback uniquement — run_id GitHub Actions contenant l’artefact kv-backup-*"
+        required: false
+        type: string
+        default: ""
       deploy_worker:
-        description: "Redeploy Worker JS"
+        description: "Redeploy Worker JS (mode deploy)"
         required: false
         default: "true"
         type: choice
         options:
           - "true"
           - "false"
-  # Auto après merge des scripts / Worker redirects (déploiement KV)
-  push:
-    branches: [main]
-    paths:
-      - ".github/workflows/deploy-blog-redirects-kv.yml"
-      - "scripts/deploy-kv-shards.js"
-      - "scripts/generate-kv-redirect-shards.js"
-      - "scripts/lib/blog-article-redirects.js"
-      - "workers/redkmotors-fr-redirect-kv.js"
+
+# Un seul déploiement / rollback KV à la fois — ne pas annuler un run en cours
+concurrency:
+  group: deploy-blog-redirects-kv
+  cancel-in-progress: false
 
 permissions:
   contents: read
@@ -46,8 +54,8 @@ permissions:
 
 jobs:
   deploy-kv:
+    if: github.repository == 'Phantom942/REDK-MOTORS' && inputs.mode == 'deploy'
     runs-on: ubuntu-latest
-    if: github.repository == 'Phantom942/REDK-MOTORS'
     steps:
       - uses: actions/checkout@v4
 
@@ -66,6 +74,7 @@ jobs:
         run: |
           npm run build
           npm run test:blog-migration
+          npm run test:kv-restore
           npm run redirects:kv-shards
 
       - name: Require CLOUDFLARE_API_TOKEN
@@ -73,41 +82,143 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: |
           if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
-            echo "::error::CLOUDFLARE_API_TOKEN absent — impossible d’uploader le KV"
+            echo "::error::CLOUDFLARE_API_TOKEN absent — impossible de continuer"
             exit 1
           fi
 
-      - name: Backup + upload KV shards
+      - name: Backup KV distant (obligatoire)
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: |
-          # Sur push, inputs est vide → backup + upload
-          if [ "${{ inputs.skip_backup }}" = "true" ]; then
-            node scripts/deploy-kv-shards.js --skip-backup
-          else
-            node scripts/deploy-kv-shards.js
-          fi
+          set -euo pipefail
+          node scripts/deploy-kv-shards.js --backup-only --dir workers/kv-backup
+          test -f workers/kv-backup/manifest.json
+          test -s workers/kv-backup/manifest.json
+          echo "Backup local OK — $(find workers/kv-backup -type f | wc -l) fichier(s)"
 
-      - name: Upload KV backup artifact
-        if: success() && inputs.skip_backup != 'true'
+      - name: Publier artefact backup (avant tout upload)
         uses: actions/upload-artifact@v4
         with:
           name: kv-backup-${{ github.run_id }}
-          path: workers/kv-backup-*/
+          path: workers/kv-backup/
           retention-days: 30
-          if-no-files-found: warn
+          if-no-files-found: error
+
+      - name: Upload KV shards
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: node scripts/deploy-kv-shards.js --upload-only
 
       - name: Deploy Worker
-        if: inputs.deploy_worker != 'false'
+        if: inputs.deploy_worker == 'true'
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: npm run cf:deploy-headers
 
-      - name: Verify production redirects (strict)
+      - name: Verify production redirects (all + strict, retries)
         env:
           SITE_URL: https://redkmotors.fr
           VERIFY_BLOG_REDIRECTS_STRICT: "1"
         run: |
-          # Propagation KV parfois courte
-          sleep 15
-          node scripts/verify-blog-redirects-prod.js --strict
+          set -euo pipefail
+          # Propagation Cloudflare KV / edge : plusieurs tentatives
+          MAX_ATTEMPTS=6
+          SLEEP_SECS=20
+          for attempt in $(seq 1 "$MAX_ATTEMPTS"); do
+            echo "=== Verify attempt $attempt/$MAX_ATTEMPTS ==="
+            if node scripts/verify-blog-redirects-prod.js --all --strict; then
+              echo "Verify OK (attempt $attempt)"
+              exit 0
+            fi
+            if [ "$attempt" -lt "$MAX_ATTEMPTS" ]; then
+              echo "Propagation CF possible — retry dans ${SLEEP_SECS}s…"
+              sleep "$SLEEP_SECS"
+              SLEEP_SECS=$((SLEEP_SECS + 10))
+            fi
+          done
+          echo "::error::Verify échoué après $MAX_ATTEMPTS tentatives"
+          exit 1
+
+      - name: Rollback hint on failure
+        if: failure()
+        run: |
+          echo "::error::Déploiement ou vérif échoué. Rollback KV :"
+          echo "  Actions → Deploy blog redirects KV → Run workflow"
+          echo "  mode=rollback , rollback_run_id=${{ github.run_id }}"
+          echo "Artefact : kv-backup-${{ github.run_id }}"
+          echo "Si Worker JS modifié : voir docs/cloudflare-kv-blog-redirects-runbook.md § Worker JS"
+
+  rollback-kv:
+    if: github.repository == 'Phantom942/REDK-MOTORS' && inputs.mode == 'rollback'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: "npm"
+
+      - name: Install
+        run: npm ci
+
+      - name: Require inputs + token
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
+            echo "::error::CLOUDFLARE_API_TOKEN absent"
+            exit 1
+          fi
+          if [ -z "${{ inputs.rollback_run_id }}" ]; then
+            echo "::error::rollback_run_id requis (run_id de l’artefact kv-backup-*)"
+            exit 1
+          fi
+
+      - name: Télécharger artefact backup
+        uses: actions/download-artifact@v4
+        with:
+          name: kv-backup-${{ inputs.rollback_run_id }}
+          run-id: ${{ inputs.rollback_run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: workers/kv-backup
+
+      - name: Restore KV depuis backup
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          set -euo pipefail
+          test -f workers/kv-backup/manifest.json
+          npm run test:kv-restore
+          node scripts/deploy-kv-shards.js --restore --dir workers/kv-backup
+
+      - name: Verify production after rollback
+        env:
+          SITE_URL: https://redkmotors.fr
+        run: |
+          set -euo pipefail
+          MAX_ATTEMPTS=4
+          SLEEP_SECS=15
+          for attempt in $(seq 1 "$MAX_ATTEMPTS"); do
+            echo "=== Rollback verify attempt $attempt/$MAX_ATTEMPTS ==="
+            if node -e "
+              const kept = require('./scripts/lib/blog-article-redirects.js').classifyArticles().kept;
+              (async () => {
+                let failed = 0;
+                for (const { permalink } of kept) {
+                  const res = await fetch('https://redkmotors.fr' + permalink, { redirect: 'manual' });
+                  console.log(res.status, permalink);
+                  if (res.status !== 200) failed++;
+                }
+                const home = await fetch('https://redkmotors.fr/', { redirect: 'manual' });
+                console.log(home.status, '/');
+                if (home.status !== 200) failed++;
+                if (failed) process.exit(1);
+                console.log('Rollback verify kept+home OK');
+              })();
+            "; then
+              exit 0
+            fi
+            [ "$attempt" -lt "$MAX_ATTEMPTS" ] && sleep "$SLEEP_SECS"
+          done
+          exit 1
