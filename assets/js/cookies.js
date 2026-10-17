@@ -276,45 +276,120 @@
     }, 3000);
   }
 
-  // Charger GTM + track.js uniquement après consentement (RGPD)
-  function loadAnalytics() {
-    if (!consentState.analytics) return;
-    var gtmId = document.body.getAttribute('data-gtm-id');
-    if (!gtmId) return;
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({'event': 'cookie_consent', 'analytics': true, 'marketing': consentState.marketing});
-    var gtm = document.createElement('script');
-    gtm.async = true;
-    gtm.src = 'https://www.googletagmanager.com/gtm.js?id=' + gtmId;
-    document.head.appendChild(gtm);
-    var funnel = document.createElement('script');
-    funnel.src = '/assets/js/conversion-funnel.js';
-    document.body.appendChild(funnel);
-    var track = document.createElement('script');
-    track.src = '/assets/js/track.js';
-    track.defer = true;
-    document.body.appendChild(track);
-    try {
-      document.dispatchEvent(new CustomEvent('redk:analytics-consent', { detail: { analytics: true } }));
-    } catch (e) { /* IE ignore */ }
+  // État chargement analytics (idempotence)
+  var analyticsBootstrapped = false;
+  var analyticsScriptsLoading = false;
+
+  function loadScriptOnce(src) {
+    return new Promise(function (resolve, reject) {
+      var existing = document.querySelector('script[data-redk-src="' + src + '"]');
+      if (existing) {
+        if (existing.getAttribute('data-redk-loaded') === '1') {
+          resolve();
+          return;
+        }
+        existing.addEventListener('load', function onLoad() {
+          existing.removeEventListener('load', onLoad);
+          resolve();
+        });
+        existing.addEventListener('error', function onErr() {
+          existing.removeEventListener('error', onErr);
+          reject(new Error('load failed: ' + src));
+        });
+        return;
+      }
+      var s = document.createElement('script');
+      s.src = src;
+      s.async = false;
+      s.setAttribute('data-redk-src', src);
+      s.onload = function () {
+        s.setAttribute('data-redk-loaded', '1');
+        resolve();
+      };
+      s.onerror = function () {
+        reject(new Error('load failed: ' + src));
+      };
+      document.body.appendChild(s);
+    });
   }
 
-  // Retirer les scripts d'analytics
+  function notifyAnalyticsConsent() {
+    try {
+      document.dispatchEvent(
+        new CustomEvent('redk:analytics-consent', { detail: { analytics: true } }),
+      );
+    } catch (e) { /* ignore */ }
+  }
+
+  // Charger GTM + funnel puis track — ordre strict, idempotent
+  function loadAnalytics() {
+    if (!consentState.analytics) return;
+
+    // Toujours réactiver après (re)consentement — même si déjà bootstrappé
+    window.__REDK_ANALYTICS_DISABLED__ = false;
+
+    if (analyticsBootstrapped) {
+      notifyAnalyticsConsent();
+      return;
+    }
+    if (analyticsScriptsLoading) return;
+
+    var gtmId = document.body.getAttribute('data-gtm-id');
+    if (!gtmId) return;
+
+    analyticsScriptsLoading = true;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'cookie_consent',
+      analytics: true,
+      marketing: consentState.marketing,
+    });
+
+    if (!document.querySelector('script[data-redk-gtm]')) {
+      var gtm = document.createElement('script');
+      gtm.async = true;
+      gtm.src = 'https://www.googletagmanager.com/gtm.js?id=' + gtmId;
+      gtm.setAttribute('data-redk-gtm', '1');
+      document.head.appendChild(gtm);
+    }
+
+    // conversion-funnel.js AVANT track.js (chaîne onload — y compris injection post-consentement)
+    loadScriptOnce('/assets/js/conversion-funnel.js')
+      .then(function () {
+        return loadScriptOnce('/assets/js/track.js');
+      })
+      .then(function () {
+        analyticsBootstrapped = true;
+        analyticsScriptsLoading = false;
+        notifyAnalyticsConsent();
+      })
+      .catch(function (err) {
+        analyticsScriptsLoading = false;
+        console.warn('[REDK] loadAnalytics failed', err);
+      });
+  }
+
+  // Retirer les cookies analytics + couper les events (listeners restent no-op via consent check)
   function removeAnalytics() {
+    window.__REDK_ANALYTICS_DISABLED__ = true;
     var gtmId = document.body.getAttribute('data-gtm-id') || 'GTM-NTC72X2G';
     var analyticsCookies = ['_ga', '_gid', '_gat', '_gat_gtag_' + gtmId.replace(/[^a-zA-Z0-9]/g, '_')];
     analyticsCookies.forEach(cookie => {
       deleteCookie(cookie);
     });
-    
-    // Signaler à dataLayer
+
     if (window.dataLayer) {
       window.dataLayer.push({
-        'event': 'cookie_consent',
-        'analytics': false,
-        'marketing': false
+        event: 'cookie_consent',
+        analytics: false,
+        marketing: false,
       });
     }
+    try {
+      document.dispatchEvent(
+        new CustomEvent('redk:analytics-consent-revoked', { detail: { analytics: false } }),
+      );
+    } catch (e) { /* ignore */ }
   }
 
   // API publique

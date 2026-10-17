@@ -43,11 +43,11 @@ scripts:
 
 <script>
 /**
- * Funnel formulaire (sans PII) :
- * - source=form + jeton session (posé au submit valide) → form_submit_success (one-shot)
- * - source=form sans jeton (accès direct / reload) → UI OK, aucun event conversion
- * - hors source=form → message générique
- * Consentement analytics requis pour tout push dataLayer.
+ * Funnel merci (sans PII) :
+ * - form_submit_redirect : page succès affichée après redirect FormSubmit (_next), avec jeton
+ * - form_submit_success : jeton session = funnel client confirmé (proxy POST accepté)
+ * - form_submit_redirect_unverified : source=form sans jeton (accès direct / session perdue)
+ * La livraison e-mail FormSubmit n'est PAS mesurable côté client.
  */
 (function () {
   function boot() {
@@ -60,7 +60,7 @@ scripts:
     var fromForm = new URLSearchParams(window.location.search).get('source') === 'form';
     var formMsg = document.getElementById('merci-form-msg');
     var defaultMsg = document.getElementById('merci-default-msg');
-    var successPushed = false;
+    var pushed = {};
 
     if (!fromForm) return;
 
@@ -69,45 +69,65 @@ scripts:
 
     function hasAnalyticsConsent() {
       try {
+        if (window.__REDK_ANALYTICS_DISABLED__) return false;
         return !!(window.REDKMotorsCookies && window.REDKMotorsCookies.hasConsent('analytics'));
       } catch (e) {
         return false;
       }
     }
 
-    function pushSuccess() {
-      if (successPushed) return;
-      if (!funnel.shouldPushFormSubmitSuccess({
-        sourceForm: true,
-        hasConsent: hasAnalyticsConsent(),
-        pendingConsumed: true
-      })) return;
-      successPushed = true;
+    function pushOnce(eventName) {
+      if (pushed[eventName]) return;
+      if (!hasAnalyticsConsent()) return;
+      pushed[eventName] = true;
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
-        event: 'form_submit_success',
+        event: eventName,
         page_key: 'merci',
         location: window.location.pathname,
         cta_position: 'merci'
       });
     }
 
-    // Consommer le jeton immédiatement (anti reload / accès direct)
-    var pendingOk = funnel.consumeFormSubmitPending();
-    if (!pendingOk) return;
+    function runFunnelEvents() {
+      if (!hasAnalyticsConsent()) return;
+
+      var hadPending = funnel.peekFormSubmitPending();
+      var allowRedirectSlot = funnel.shouldFireRedirectEvent();
+      var plan = funnel.resolveMerciEvents({
+        sourceForm: true,
+        hasConsent: true,
+        hadPending: hadPending,
+        allowRedirectSlot: allowRedirectSlot
+      });
+
+      // Consommer le jeton après décision (one-shot success)
+      var consumed = funnel.consumeFormSubmitPending();
+      if (hadPending && !consumed) {
+        plan.success = false;
+        plan.redirect = false;
+      }
+
+      if (plan.redirect) pushOnce('form_submit_redirect');
+      if (plan.success) pushOnce('form_submit_success');
+      if (plan.unverifiedLanding) pushOnce('form_submit_redirect_unverified');
+    }
 
     if (hasAnalyticsConsent()) {
-      pushSuccess();
+      runFunnelEvents();
       return;
     }
 
-    document.addEventListener('redk:analytics-consent', pushSuccess, { once: true });
+    document.addEventListener('redk:analytics-consent', function () {
+      runFunnelEvents();
+    }, { once: true });
+
     var tries = 0;
     var timer = setInterval(function () {
       tries += 1;
       if (hasAnalyticsConsent()) {
         clearInterval(timer);
-        pushSuccess();
+        runFunnelEvents();
       } else if (tries > 40) {
         clearInterval(timer);
       }

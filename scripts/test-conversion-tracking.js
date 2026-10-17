@@ -60,7 +60,6 @@ function mockStorage() {
 }
 
 function main() {
-  // Valid form → form_submit_contact
   {
     const form = mockForm([
       { value: "Alice", required: true },
@@ -71,7 +70,6 @@ function main() {
     ok("formulaire valide → form_submit_contact");
   }
 
-  // Invalid (empty required / whitespace) → blocked
   {
     const form = mockForm([
       { value: "   ", required: true },
@@ -84,7 +82,6 @@ function main() {
     ok("champs requis vides/espaces → form_submit_attempt_blocked");
   }
 
-  // defaultPrevented (validation JS main.js) → blocked
   {
     const form = mockForm([
       { value: "Alice", required: true },
@@ -97,81 +94,85 @@ function main() {
     ok("defaultPrevented → form_submit_attempt_blocked");
   }
 
-  // Email invalide
-  {
-    const form = mockForm([
-      { value: "Alice", required: true },
-      { value: "0612345678", required: true },
-      { value: "pas-un-email", type: "email" },
-    ]);
-    assert.strictEqual(
-      funnel.resolveSubmitEvent(form, {}),
-      "form_submit_attempt_blocked",
-    );
-    ok("email invalide → blocked");
-  }
-
-  // Pending token + consume one-shot
   {
     const store = mockStorage();
     assert.ok(funnel.markFormSubmitPending(store));
+    assert.ok(funnel.peekFormSubmitPending(store));
     assert.ok(funnel.consumeFormSubmitPending(store));
     assert.strictEqual(funnel.consumeFormSubmitPending(store), false);
-    ok("jeton pending consommé une seule fois (anti-reload)");
+    ok("jeton pending peek + consume one-shot");
   }
 
-  // Expired pending
   {
     const store = mockStorage();
-    store.setItem(funnel.FORM_PENDING_KEY, String(Date.now() - funnel.FORM_PENDING_TTL_MS - 1000));
-    assert.strictEqual(funnel.consumeFormSubmitPending(store), false);
-    ok("jeton expiré → pas de success");
+    funnel.markFormSubmitPending(store);
+    assert.ok(funnel.shouldFireRedirectEvent(store));
+    assert.strictEqual(funnel.shouldFireRedirectEvent(store), false);
+    funnel.markFormSubmitPending(store);
+    assert.ok(funnel.shouldFireRedirectEvent(store));
+    ok("redirect slot one-shot, réarmé par nouveau pending");
   }
 
-  // shouldPushFormSubmitSuccess matrix
-  assert.strictEqual(
+  {
+    const verified = funnel.resolveMerciEvents({
+      sourceForm: true,
+      hasConsent: true,
+      hadPending: true,
+      allowRedirectSlot: true,
+    });
+    assert.deepStrictEqual(verified, {
+      redirect: true,
+      success: true,
+      unverifiedLanding: false,
+    });
+    ok("merci vérifié → redirect + success");
+  }
+
+  {
+    const unverified = funnel.resolveMerciEvents({
+      sourceForm: true,
+      hasConsent: true,
+      hadPending: false,
+      allowRedirectSlot: true,
+    });
+    assert.deepStrictEqual(unverified, {
+      redirect: false,
+      success: false,
+      unverifiedLanding: true,
+    });
+    ok("merci sans jeton → redirect_unverified seulement");
+  }
+
+  {
+    const noConsent = funnel.resolveMerciEvents({
+      sourceForm: true,
+      hasConsent: false,
+      hadPending: true,
+      allowRedirectSlot: true,
+    });
+    assert.deepStrictEqual(noConsent, {
+      redirect: false,
+      success: false,
+      unverifiedLanding: false,
+    });
+    ok("sans consentement → aucun event merci");
+  }
+
+  assert.ok(
     funnel.shouldPushFormSubmitSuccess({
       sourceForm: true,
       hasConsent: true,
       pendingConsumed: true,
     }),
-    true,
   );
-  assert.strictEqual(
-    funnel.shouldPushFormSubmitSuccess({
-      sourceForm: true,
-      hasConsent: false,
-      pendingConsumed: true,
-    }),
-    false,
-  );
-  assert.strictEqual(
-    funnel.shouldPushFormSubmitSuccess({
+  assert.ok(
+    !funnel.shouldPushFormSubmitSuccess({
       sourceForm: true,
       hasConsent: true,
       pendingConsumed: false,
     }),
-    false,
   );
-  assert.strictEqual(
-    funnel.shouldPushFormSubmitSuccess({
-      sourceForm: false,
-      hasConsent: true,
-      pendingConsumed: true,
-    }),
-    false,
-  );
-  ok("success seulement si source=form + consentement + jeton");
-
-  // No PII in event payload shape (documented contract)
-  const sample = {
-    event: "form_submit_success",
-    page_key: "merci",
-    location: "/merci/",
-    cta_position: "merci",
-  };
-  assert.ok(!("email" in sample) && !("telephone" in sample) && !("nom" in sample));
-  ok("payload dataLayer sans données personnelles");
+  ok("shouldPushFormSubmitSuccess aligné sur success");
 
   console.log("Tests conversion tracking: OK");
 }

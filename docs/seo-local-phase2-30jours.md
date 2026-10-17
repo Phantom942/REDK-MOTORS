@@ -19,23 +19,55 @@ Canonical : chaque page pointe vers sa propre URL. Maillage : accueil → page g
 
 ## Funnel dataLayer (après consentement analytics)
 
-| Event | Signification |
-|---|---|
-| `form_submit_attempt_blocked` | Submit bloqué (validation HTML/JS) |
-| `form_submit_contact` | Submit **valide** → envoi FormSubmit (tentative confirmée côté client) |
-| `form_submit_success` | `/merci/?source=form` **+** jeton session one-shot **+** consentement |
+| Event | Signification | Ce que ce n’est **pas** |
+|---|---|---|
+| `form_submit_attempt_blocked` | Submit bloqué (validation HTML/JS) | — |
+| `form_submit_contact` | Submit **valide** côté client → POST FormSubmit démarré (+ jeton session) | Preuve que FormSubmit a accepté / livré l’e-mail |
+| `form_submit_redirect` | Page `/merci/?source=form` affichée **avec** jeton (redirection `_next`) | Livraison e-mail FormSubmit |
+| `form_submit_success` | Jeton session one-shot consommé + consentement = meilleur proxy « POST accepté / redirect `_next` » | Confirmation e-mail FormSubmit, devis atelier, lead qualifié |
+| `form_submit_redirect_unverified` | `/merci/?source=form` **sans** jeton (URL manuelle / session perdue) | Succès formulaire |
 
-**≠** client atelier confirmé. Pas de PII dans les payloads (`event`, `page_key`, `location`, `cta_position` uniquement).
+**Distinction explicite :** la redirection de succès (`_next` → `/merci/?source=form`) ≠ livraison e-mail confirmée par FormSubmit. FormSubmit ne expose pas de callback client de livraison ; seuls redirect + jeton session sont mesurables.
 
-### GTM → GA4
+Pas de PII dans les payloads (`event`, `page_key`, `location`, `cta_position` uniquement).
 
-Le site pousse vers `dataLayer` (`GTM-NTC72X2G`). La configuration des **tags/triggers GA4 dans l’UI GTM** n’est **pas** vérifiable depuis cet agent (pas d’accès console GTM). À contrôler manuellement :
+### Sécurisation tracking (PR #10)
+
+1. `conversion-funnel.js` est toujours chargé **avant** `track.js` (chaîne `onload` dans `cookies.js`, y compris injection post-consentement).
+2. `loadAnalytics()` est **idempotente** (pas de scripts / listeners dupliqués ; réactivation après retrait sans rechargement).
+3. Consentement analytics **re-vérifié à chaque event** (`hasConsent` + `__REDK_ANALYTICS_DISABLED__`), y compris après retrait.
+
+Tests : `npm run test:conversion-tracking` (unit) · `npm run test:conversion-browser` (Playwright, après `npm run build`).
+
+## Contrôles GitHub Actions disponibles
+
+Workflows **actifs** sur le dépôt (API Actions) :
+
+| Workflow | Fichier | Ce qu’il couvre | Tracking / GTM |
+|---|---|---|---|
+| Deploy to GitHub Pages | `.github/workflows/deploy.yml` | `audit:code`, `audit:exemples`, build, `test:blog-migration`, `test:conversion-tracking`, `test:conversion-browser`, deploy Pages, smoke prod | Unit + browser dataLayer **oui** ; tags GTM/GA4 UI **non** |
+| Verify blog redirects (prod) | `.github/workflows/verify-blog-redirects.yml` | 301 blog en prod (KV) | Non |
+| Deploy blog redirects KV | `.github/workflows/deploy-blog-redirects-kv.yml` | Upload shards KV | Non |
+| Cloudflare response headers | `.github/workflows/cloudflare-headers.yml` | Headers Worker | Non |
+| Marketplace validation (local) | `.github/workflows/marketplace-validation.yml` | Marketplace (hors scope SEO) | Non |
+| pages-build-deployment | (dynamique GitHub Pages) | Build Pages legacy | Non |
+
+Permissions agent : `workflow_dispatch` / secrets Actions souvent en **403** — lancer manuellement les workflows sensibles depuis l’UI GitHub si besoin.
+
+## GTM → GA4 (intervention manuelle obligatoire)
+
+Le site pousse vers `dataLayer` (`GTM-NTC72X2G`). La configuration des **tags/triggers GA4 dans l’UI GTM** n’est **pas** vérifiable depuis cet agent (pas d’accès console GTM / GA4). CI ne peut que vérifier les pushes `dataLayer` locaux.
+
+À contrôler manuellement dans GTM Preview + GA4 DebugView :
 
 - [ ] Trigger Custom Event `form_submit_contact`
+- [ ] Trigger Custom Event `form_submit_redirect`
 - [ ] Trigger Custom Event `form_submit_success`
+- [ ] Trigger Custom Event `form_submit_redirect_unverified` (debug / qualité)
 - [ ] Trigger Custom Event `form_submit_attempt_blocked` (optionnel debug)
-- [ ] Aucun paramètre email / téléphone / nom
-- [ ] Consent Mode / balise conditionnée au consentement
+- [ ] Aucun paramètre email / téléphone / nom dans les tags
+- [ ] Consent Mode / balise conditionnée au consentement analytics
+- [ ] Distinguer dans les rapports GA4 : `form_submit_redirect` (page succès) vs `form_submit_success` (jeton) — **ne pas** interpréter comme e-mail livré
 
 ## Indicateurs 30 jours
 
