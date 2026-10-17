@@ -11,6 +11,7 @@ env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 on:
+  # Manuel (préféré au quotidien)
   workflow_dispatch:
     inputs:
       skip_backup:
@@ -29,6 +30,15 @@ on:
         options:
           - "true"
           - "false"
+  # Auto après merge des scripts / Worker redirects (déploiement KV)
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/deploy-blog-redirects-kv.yml"
+      - "scripts/deploy-kv-shards.js"
+      - "scripts/generate-kv-redirect-shards.js"
+      - "scripts/lib/blog-article-redirects.js"
+      - "workers/redkmotors-fr-redirect-kv.js"
 
 permissions:
   contents: read
@@ -71,6 +81,7 @@ jobs:
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: |
+          # Sur push, inputs est vide → backup + upload
           if [ "${{ inputs.skip_backup }}" = "true" ]; then
             node scripts/deploy-kv-shards.js --skip-backup
           else
@@ -87,7 +98,7 @@ jobs:
           if-no-files-found: warn
 
       - name: Deploy Worker
-        if: inputs.deploy_worker == 'true'
+        if: inputs.deploy_worker != 'false'
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: npm run cf:deploy-headers
