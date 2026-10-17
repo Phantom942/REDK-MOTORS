@@ -5,32 +5,32 @@ module.exports = {
   featured: [
     {
       label: "Voyant moteur allumé",
-      url: "/blog/voyant-moteur-allume-que-faire/",
+      url: "/blog/articles/voyant-moteur-allume-que-faire/",
       hint: "Que faire tout de suite",
     },
     {
       label: "Combien de temps entre deux vidanges",
-      url: "/blog/combien-temps-entre-deux-vidanges/",
+      url: "/blog/articles/combien-temps-entre-deux-vidanges/",
       hint: "Km, mois & usage ville",
     },
     {
       label: "Voiture qui ne démarre pas",
-      url: "/blog/voiture-ne-demarre-pas-causes/",
+      url: "/blog/articles/voiture-ne-demarre-pas-causes/",
       hint: "Batterie, démarreur…",
     },
     {
       label: "Contrôle technique 2026",
-      url: "/blog/controle-technique-2026-nouveautes/",
+      url: "/blog/articles/controle-technique-2026-nouveautes/",
       hint: "Nouveautés & refus",
     },
     {
       label: "Plaquettes de frein usées",
-      url: "/blog/plaquettes-frein-usure-signaux-a-ne-pas-ignorer/",
+      url: "/blog/articles/plaquettes-frein-usure-signaux-a-ne-pas-ignorer/",
       hint: "Signaux à ne pas ignorer",
     },
     {
       label: "Pneus : quand les changer",
-      url: "/blog/quand-changer-pneus-usure-securite/",
+      url: "/blog/articles/quand-changer-pneus-usure-securite/",
       hint: "Usure & sécurité",
     },
   ],

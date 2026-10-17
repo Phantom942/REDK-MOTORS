@@ -173,55 +173,55 @@ module.exports = {
 
   seoProblems: {
     "recherche-de-panne": [
-      { text: "Turbo ou compresseur en panne", url: "/blog/turbo-compresseur-symptomes-panne/" },
-      { text: "Vanne EGR encrassée", url: "/blog/vanne-egr-encrassee-symptomes/" },
-      { text: "FAP / DPF saturé", url: "/blog/fap-dpf-encrasse-trajets-ville/" },
-      { text: "Voyant moteur allumé", url: "/blog/voyant-moteur-allume-que-faire/" },
-      { text: "Voiture qui broute à l'accélération", url: "/blog/voiture-broute-acceleration-causes-94/" },
+      { text: "Turbo ou compresseur en panne", url: "/blog/articles/turbo-compresseur-symptomes-panne/" },
+      { text: "Vanne EGR encrassée", url: "/blog/articles/vanne-egr-encrassee-symptomes/" },
+      { text: "FAP / DPF saturé", url: "/blog/articles/fap-dpf-encrasse-trajets-ville/" },
+      { text: "Voyant moteur allumé", url: "/blog/articles/voyant-moteur-allume-que-faire/" },
+      { text: "Voiture qui broute à l'accélération", url: "/blog/articles/voiture-broute-acceleration-causes-94/" },
       { text: "Perte de puissance moteur", url: "/mecanique/" },
     ],
     "diagnostic-voyant-moteur": [
-      { text: "Codes défaut turbo", url: "/blog/turbo-compresseur-symptomes-panne/" },
-      { text: "Défaut vanne EGR", url: "/blog/vanne-egr-encrassee-symptomes/" },
-      { text: "Encrassement FAP / DPF", url: "/blog/fap-dpf-encrasse-trajets-ville/" },
-      { text: "Catalyseur bouche", url: "/blog/catalyseur-bouche-symptomes-causes/" },
+      { text: "Codes défaut turbo", url: "/blog/articles/turbo-compresseur-symptomes-panne/" },
+      { text: "Défaut vanne EGR", url: "/blog/articles/vanne-egr-encrassee-symptomes/" },
+      { text: "Encrassement FAP / DPF", url: "/blog/articles/fap-dpf-encrasse-trajets-ville/" },
+      { text: "Catalyseur bouche", url: "/blog/articles/catalyseur-bouche-symptomes-causes/" },
       { text: "Sonde lambda ou injection", url: "/prestations/distribution-injection/" },
     ],
     "decalaminage-moteur": [
-      { text: "Vanne EGR encrassée (trajets urbains)", url: "/blog/vanne-egr-encrassee-symptomes/" },
-      { text: "FAP saturé en conduite ville", url: "/blog/fap-dpf-encrasse-trajets-ville/" },
-      { text: "Turbo encrassé ou grippé", url: "/blog/turbo-compresseur-symptomes-panne/" },
-      { text: "Surconsommation et fumée noire", url: "/blog/voiture-broute-acceleration-causes-94/" },
+      { text: "Vanne EGR encrassée (trajets urbains)", url: "/blog/articles/vanne-egr-encrassee-symptomes/" },
+      { text: "FAP saturé en conduite ville", url: "/blog/articles/fap-dpf-encrasse-trajets-ville/" },
+      { text: "Turbo encrassé ou grippé", url: "/blog/articles/turbo-compresseur-symptomes-panne/" },
+      { text: "Surconsommation et fumée noire", url: "/blog/articles/voiture-broute-acceleration-causes-94/" },
     ],
     "distribution-injection": [
-      { text: "Courroie distribution à changer", url: "/blog/courroie-distribution-quand-changer-94/" },
-      { text: "Courroie accessoires usée", url: "/blog/courroie-accessoires-symptomes-usure/" },
+      { text: "Courroie distribution à changer", url: "/blog/articles/courroie-distribution-quand-changer-94/" },
+      { text: "Courroie accessoires usée", url: "/blog/articles/courroie-accessoires-symptomes-usure/" },
       { text: "Injecteurs encrassés", url: "/prestations/distribution-injection/" },
       { text: "Perte de puissance moteur", url: "/mecanique/" },
     ],
     embrayage: [
-      { text: "Embrayage qui patine en côte", url: "/blog/embrayage-qui-patine-causes/" },
+      { text: "Embrayage qui patine en côte", url: "/blog/articles/embrayage-qui-patine-causes/" },
       { text: "Pédale d'embrayage dure ou haute", url: "/prestations/embrayage/" },
       { text: "Bruits à la débrayage", url: "/prestations/embrayage/" },
     ],
     "revision-entretien": [
-      { text: "Filtre habitacle / pollen", url: "/blog/filtre-habitacle-pollen-quand-changer/" },
-      { text: "Liquide de refroidissement", url: "/blog/liquide-refroidissement-quand-verifier/" },
-      { text: "Bougies d'allumage", url: "/blog/bougies-allumage-quand-changer/" },
-      { text: "Préparation contrôle technique", url: "/blog/5-points-controle-avant-ct-ivry/" },
+      { text: "Filtre habitacle / pollen", url: "/blog/articles/filtre-habitacle-pollen-quand-changer/" },
+      { text: "Liquide de refroidissement", url: "/blog/articles/liquide-refroidissement-quand-verifier/" },
+      { text: "Bougies d'allumage", url: "/blog/articles/bougies-allumage-quand-changer/" },
+      { text: "Préparation contrôle technique", url: "/blog/articles/5-points-controle-avant-ct-ivry/" },
     ],
     "vidange-moteur": [
-      { text: "Huile moteur usée ou noire", url: "/blog/combien-coute-vidange-voiture/" },
+      { text: "Huile moteur usée ou noire", url: "/blog/articles/combien-coute-vidange-voiture/" },
       { text: "Filtre à huile encrassé", url: "/prestations/vidange-moteur/" },
       { text: "Consommation d'huile anormale", url: "/prestations/recherche-de-panne/" },
     ],
     "plaquettes-disques": [
-      { text: "Plaquettes usées ou bruyantes", url: "/blog/plaquettes-frein-usure-signaux-a-ne-pas-ignorer/" },
-      { text: "Disques voilés ou rayés", url: "/blog/disques-frein-voiles-usure-signes/" },
-      { text: "Pédale de frein molle", url: "/blog/freinage-mou-pedale-spongieuse/" },
+      { text: "Plaquettes usées ou bruyantes", url: "/blog/articles/plaquettes-frein-usure-signaux-a-ne-pas-ignorer/" },
+      { text: "Disques voilés ou rayés", url: "/blog/articles/disques-frein-voiles-usure-signes/" },
+      { text: "Pédale de frein molle", url: "/blog/articles/freinage-mou-pedale-spongieuse/" },
     ],
     "diagnostic-abs": [
-      { text: "Voyant ABS allumé", url: "/blog/voyant-abs-allume-causes-conduite/" },
+      { text: "Voyant ABS allumé", url: "/blog/articles/voyant-abs-allume-causes-conduite/" },
       { text: "Capteur ABS ou roulement défaillant", url: "/prestations/diagnostic-abs/" },
     ],
     "recharge-clim": [
@@ -230,24 +230,24 @@ module.exports = {
       { text: "Odeur moisi au démarrage clim", url: "/prestations/desinfection-circuit-clim/" },
     ],
     "remplacement-batterie": [
-      { text: "Batterie Start-Stop faible", url: "/blog/batterie-start-stop-usure-prematuree/" },
-      { text: "Quand changer la batterie", url: "/blog/batterie-voiture-quand-changer/" },
+      { text: "Batterie Start-Stop faible", url: "/blog/articles/batterie-start-stop-usure-prematuree/" },
+      { text: "Quand changer la batterie", url: "/blog/articles/batterie-voiture-quand-changer/" },
     ],
     "vidange-boite": [
-      { text: "Vidange boîte automatique", url: "/blog/vidange-boite-automatique-quand-faire/" },
+      { text: "Vidange boîte automatique", url: "/blog/articles/vidange-boite-automatique-quand-faire/" },
       { text: "Passages de vitesses difficiles", url: "/prestations/vidange-boite/" },
     ],
     amortisseurs: [
-      { text: "Amortisseurs usés", url: "/blog/amortisseurs-usures-symptomes/" },
+      { text: "Amortisseurs usés", url: "/blog/articles/amortisseurs-usures-symptomes/" },
       { text: "Géométrie à refaire après choc", url: "/prestations/geometrie/" },
     ],
     geometrie: [
-      { text: "Mauvais alignement des roues", url: "/blog/geometrie-roues-signes-mauvais-alignement/" },
+      { text: "Mauvais alignement des roues", url: "/blog/articles/geometrie-roues-signes-mauvais-alignement/" },
       { text: "Volant qui tremble en autoroute", url: "/prestations/geometrie/" },
     ],
     "montage-equilibrage": [
-      { text: "Usure pneus anormale", url: "/blog/quand-changer-pneus-usure-securite/" },
-      { text: "Pneus été / hiver : quand changer", url: "/blog/pneus-ete-quand-passer-hiver-ile-de-france/" },
+      { text: "Usure pneus anormale", url: "/blog/articles/quand-changer-pneus-usure-securite/" },
+      { text: "Pneus été / hiver : quand changer", url: "/blog/articles/pneus-ete-quand-passer-hiver-ile-de-france/" },
     ],
   },
 
@@ -351,7 +351,7 @@ module.exports = {
       {
         question: "Combien coûte un changement de batterie ?",
         answer:
-          "Selon technologie (plomb, AGM, EFB Start-Stop) et véhicule. Voir /tarifs/ et /blog/prix-changement-batterie-94/ — devis après test, pose souvent le jour même.",
+          "Selon technologie (plomb, AGM, EFB Start-Stop) et véhicule. Voir /tarifs/ et /blog/articles/prix-changement-batterie-94/ — devis après test, pose souvent le jour même.",
       },
       {
         question: "Testez-vous l'alternateur avant de remplacer ?",
@@ -368,7 +368,7 @@ module.exports = {
       {
         question: "Combien coûte un kit distribution ?",
         answer:
-          "Variable selon moteur (courroie/chaîne, pompe à eau incluse ou non). Indicatif blog /blog/prix-kit-distribution-94/ — devis ferme après identification du kit adapté.",
+          "Variable selon moteur (courroie/chaîne, pompe à eau incluse ou non). Indicatif blog /blog/articles/prix-kit-distribution-94/ — devis ferme après identification du kit adapté.",
       },
       {
         question: "Pourquoi un devis avant démontage ?",
@@ -385,7 +385,7 @@ module.exports = {
       {
         question: "Combien coûte une recharge clim ?",
         answer:
-          "Selon gaz (R134a / R1234yf) et état du circuit. Voir /tarifs/ et /blog/prix-recharge-climatisation-94/ — devis après contrôle d'étanchéité.",
+          "Selon gaz (R134a / R1234yf) et état du circuit. Voir /tarifs/ et /blog/articles/prix-recharge-climatisation-94/ — devis après contrôle d'étanchéité.",
       },
       {
         question: "Recharge seule ou réparation ?",
@@ -402,7 +402,7 @@ module.exports = {
       {
         question: "Combien coûte un diagnostic voyant ?",
         answer:
-          "Forfait lecture + explication selon la grille /tarifs/ et /blog/prix-diagnostic-auto-94/. Le coût de réparation est séparé et validé après diagnostic.",
+          "Forfait lecture + explication selon la grille /tarifs/ et /blog/articles/prix-diagnostic-auto-94/. Le coût de réparation est séparé et validé après diagnostic.",
       },
       {
         question: "Le voyant peut-il venir du turbo ou de l'EGR ?",
@@ -419,7 +419,7 @@ module.exports = {
       {
         question: "Combien coûte un changement d'amortisseurs ?",
         answer:
-          "Selon essieu et modèle (souvent par paire AV ou AR). Devis après inspection — voir aussi /blog/amortisseurs-usures-symptomes/.",
+          "Selon essieu et modèle (souvent par paire AV ou AR). Devis après inspection — voir aussi /blog/articles/amortisseurs-usures-symptomes/.",
       },
       {
         question: "Faut-il refaire la géométrie après ?",
@@ -436,7 +436,7 @@ module.exports = {
       {
         question: "Combien coûte un changement d'embrayage ?",
         answer:
-          "Kit + main-d'œuvre selon boîte et véhicule. Indicatif /blog/prix-changement-embrayage-94/ — devis ferme après inspection (volant moteur inclus ou non).",
+          "Kit + main-d'œuvre selon boîte et véhicule. Indicatif /blog/articles/prix-changement-embrayage-94/ — devis ferme après inspection (volant moteur inclus ou non).",
       },
       {
         question: "Peut-on seulement changer le disque ?",
@@ -470,7 +470,7 @@ module.exports = {
       {
         question: "Combien coûte un montage / équilibrage ?",
         answer:
-          "Selon nombre de pneus et services (valve, équilibrage, géométrie). Voir /tarifs/ et /blog/prix-changement-pneus-94/ — devis au modèle.",
+          "Selon nombre de pneus et services (valve, équilibrage, géométrie). Voir /tarifs/ et /blog/articles/prix-changement-pneus-94/ — devis au modèle.",
       },
       {
         question: "Fournissez-vous les pneus ?",
@@ -487,7 +487,7 @@ module.exports = {
       {
         question: "Combien coûte un réglage géométrie ?",
         answer:
-          "Selon train (AV / AV+AR) et véhicule. Indicatif /blog/prix-geometrie-parallelisme-94/ — devis après mesure sur banc.",
+          "Selon train (AV / AV+AR) et véhicule. Indicatif /blog/articles/prix-geometrie-parallelisme-94/ — devis après mesure sur banc.",
       },
       {
         question: "La géométrie suffit-elle si les pneus sont usés ?",
@@ -521,7 +521,7 @@ module.exports = {
       {
         question: "Combien coûte un pré-CT ?",
         answer:
-          "Forfait contrôle + devis des corrections. Indicatif /blog/prix-pre-controle-technique-ivry/ — pas de réparation sans votre accord.",
+          "Forfait contrôle + devis des corrections. Indicatif /blog/articles/prix-pre-controle-technique-ivry/ — pas de réparation sans votre accord.",
       },
       {
         question: "Corrigez-vous les défauts sur place ?",
@@ -878,7 +878,7 @@ module.exports = {
       {
         question: "Combien coûte une vidange boîte auto ?",
         answer:
-          "Partielle ou intégrale selon boîte et méthode. Devis au modèle — voir /blog/vidange-boite-automatique-quand-faire/.",
+          "Partielle ou intégrale selon boîte et méthode. Devis au modèle — voir /blog/articles/vidange-boite-automatique-quand-faire/.",
       },
       {
         question: "Vidange boîte manuelle aussi ?",
@@ -929,7 +929,7 @@ module.exports = {
       {
         question: "Combien coûte un débosselage ?",
         answer:
-          "Selon nombre de bosses, accessibilité, taille. Devis photo WhatsApp possible — voir /blog/debosselage-sans-peinture-dsp/.",
+          "Selon nombre de bosses, accessibilité, taille. Devis photo WhatsApp possible — voir /blog/articles/debosselage-sans-peinture-dsp/.",
       },
       {
         question: "DSP ou carrosserie peinture ?",
@@ -946,7 +946,7 @@ module.exports = {
       {
         question: "Combien coûte une retouche peinture ?",
         answer:
-          "Variable selon panneau et préparation. Devis après photos ou inspection — voir /blog/peinture-localisee-retouche-carrosserie/.",
+          "Variable selon panneau et préparation. Devis après photos ou inspection — voir /blog/articles/peinture-localisee-retouche-carrosserie/.",
       },
       {
         question: "Retouche visible ou invisible ?",
@@ -1004,14 +1004,14 @@ module.exports = {
         "Surconsommation carburant",
       ],
       seoProblems: [
-        { text: "Turbo en panne — sifflement ou fumée bleue", url: "/blog/turbo-compresseur-symptomes-panne/" },
-        { text: "Vanne EGR encrassée", url: "/blog/vanne-egr-encrassee-symptomes/" },
-        { text: "FAP saturé (trajets ville)", url: "/blog/fap-dpf-encrasse-trajets-ville/" },
-        { text: "Courroie de distribution", url: "/blog/courroie-distribution-quand-changer-94/" },
-        { text: "Embrayage qui patine", url: "/blog/embrayage-qui-patine-causes/" },
-        { text: "Voiture qui broute", url: "/blog/voiture-broute-acceleration-causes-94/" },
-        { text: "Voyant moteur", url: "/blog/voyant-moteur-allume-que-faire/" },
-        { text: "Catalyseur bouche", url: "/blog/catalyseur-bouche-symptomes-causes/" },
+        { text: "Turbo en panne — sifflement ou fumée bleue", url: "/blog/articles/turbo-compresseur-symptomes-panne/" },
+        { text: "Vanne EGR encrassée", url: "/blog/articles/vanne-egr-encrassee-symptomes/" },
+        { text: "FAP saturé (trajets ville)", url: "/blog/articles/fap-dpf-encrasse-trajets-ville/" },
+        { text: "Courroie de distribution", url: "/blog/articles/courroie-distribution-quand-changer-94/" },
+        { text: "Embrayage qui patine", url: "/blog/articles/embrayage-qui-patine-causes/" },
+        { text: "Voiture qui broute", url: "/blog/articles/voiture-broute-acceleration-causes-94/" },
+        { text: "Voyant moteur", url: "/blog/articles/voyant-moteur-allume-que-faire/" },
+        { text: "Catalyseur bouche", url: "/blog/articles/catalyseur-bouche-symptomes-causes/" },
       ],
       extraSeoParagraphs: [
         "Atelier mécanique multimarque à Ivry-sur-Seine : nous traitons turbo, vanne EGR, FAP, injecteurs, distribution, embrayage, boîte automatique, suspension et recherche de panne — toujours avec devis écrit avant travaux.",
@@ -1034,12 +1034,12 @@ module.exports = {
         "Voiture qui ne démarre plus",
       ],
       seoProblems: [
-        { text: "Voyant moteur allumé", url: "/blog/voyant-moteur-allume-que-faire/" },
-        { text: "Diagnostic turbo", url: "/blog/turbo-compresseur-symptomes-panne/" },
-        { text: "Défaut vanne EGR", url: "/blog/vanne-egr-encrassee-symptomes/" },
-        { text: "Problème FAP / DPF", url: "/blog/fap-dpf-encrasse-trajets-ville/" },
-        { text: "Voyant ABS", url: "/blog/voyant-abs-allume-causes-conduite/" },
-        { text: "Prix diagnostic auto 94", url: "/blog/prix-diagnostic-auto-94/" },
+        { text: "Voyant moteur allumé", url: "/blog/articles/voyant-moteur-allume-que-faire/" },
+        { text: "Diagnostic turbo", url: "/blog/articles/turbo-compresseur-symptomes-panne/" },
+        { text: "Défaut vanne EGR", url: "/blog/articles/vanne-egr-encrassee-symptomes/" },
+        { text: "Problème FAP / DPF", url: "/blog/articles/fap-dpf-encrasse-trajets-ville/" },
+        { text: "Voyant ABS", url: "/blog/articles/voyant-abs-allume-causes-conduite/" },
+        { text: "Prix diagnostic auto 94", url: "/blog/articles/prix-diagnostic-auto-94/" },
       ],
       extraSeoParagraphs: [
         "Diagnostic valise multimarques + contrôle mécanique : nous identifions les causes fréquentes (turbo, EGR, FAP, injecteurs, allumage, capteurs) et vous remettons un devis clair avant toute réparation.",
@@ -1047,10 +1047,10 @@ module.exports = {
     },
     freinage: {
       seoProblems: [
-        { text: "Plaquettes usées", url: "/blog/plaquettes-frein-usure-signaux-a-ne-pas-ignorer/" },
-        { text: "Disques voilés", url: "/blog/disques-frein-voiles-usure-signes/" },
-        { text: "Pédale molle", url: "/blog/freinage-mou-pedale-spongieuse/" },
-        { text: "Voyant ABS", url: "/blog/voyant-abs-allume-causes-conduite/" },
+        { text: "Plaquettes usées", url: "/blog/articles/plaquettes-frein-usure-signaux-a-ne-pas-ignorer/" },
+        { text: "Disques voilés", url: "/blog/articles/disques-frein-voiles-usure-signes/" },
+        { text: "Pédale molle", url: "/blog/articles/freinage-mou-pedale-spongieuse/" },
+        { text: "Voyant ABS", url: "/blog/articles/voyant-abs-allume-causes-conduite/" },
       ],
     },
     revision: {
@@ -1062,10 +1062,10 @@ module.exports = {
         "Préparation contrôle technique",
       ],
       seoProblems: [
-        { text: "Révision 60 000 km", url: "/blog/revision-60000-km-checklist/" },
-        { text: "Vidange moteur", url: "/blog/combien-coute-vidange-voiture/" },
-        { text: "Filtre habitacle", url: "/blog/filtre-habitacle-pollen-quand-changer/" },
-        { text: "Contrôle avant CT", url: "/blog/5-points-controle-avant-ct-ivry/" },
+        { text: "Révision 60 000 km", url: "/blog/articles/revision-60000-km-checklist/" },
+        { text: "Vidange moteur", url: "/blog/articles/combien-coute-vidange-voiture/" },
+        { text: "Filtre habitacle", url: "/blog/articles/filtre-habitacle-pollen-quand-changer/" },
+        { text: "Contrôle avant CT", url: "/blog/articles/5-points-controle-avant-ct-ivry/" },
         { text: "Recharge climatisation", url: "/blog/climatisation-voiture-recharge-ivry/" },
       ],
     },
@@ -1077,9 +1077,9 @@ module.exports = {
         "Pneus été / hiver à monter",
       ],
       seoProblems: [
-        { text: "Usure pneus anormale", url: "/blog/quand-changer-pneus-usure-securite/" },
-        { text: "Géométrie / parallélisme", url: "/blog/geometrie-roues-signes-mauvais-alignement/" },
-        { text: "Pneus été / hiver", url: "/blog/pneus-ete-quand-passer-hiver-ile-de-france/" },
+        { text: "Usure pneus anormale", url: "/blog/articles/quand-changer-pneus-usure-securite/" },
+        { text: "Géométrie / parallélisme", url: "/blog/articles/geometrie-roues-signes-mauvais-alignement/" },
+        { text: "Pneus été / hiver", url: "/blog/articles/pneus-ete-quand-passer-hiver-ile-de-france/" },
       ],
     },
     carrosserie: {
@@ -1090,8 +1090,8 @@ module.exports = {
         "Dégâts après accrochage",
       ],
       seoProblems: [
-        { text: "Rayure carrosserie", url: "/blog/rayure-carrosserie-quand-reparer/" },
-        { text: "Après un accident", url: "/blog/que-faire-apres-accident-carrosserie/" },
+        { text: "Rayure carrosserie", url: "/blog/articles/rayure-carrosserie-quand-reparer/" },
+        { text: "Après un accident", url: "/blog/articles/que-faire-apres-accident-carrosserie/" },
       ],
     },
     vidange: {
@@ -1102,7 +1102,7 @@ module.exports = {
         "Moteur bruyant au démarrage",
       ],
       seoProblems: [
-        { text: "Combien coûte une vidange", url: "/blog/combien-coute-vidange-voiture/" },
+        { text: "Combien coûte une vidange", url: "/blog/articles/combien-coute-vidange-voiture/" },
       ],
     },
     "pare-brise": {

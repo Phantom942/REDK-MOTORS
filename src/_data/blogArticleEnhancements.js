@@ -265,7 +265,7 @@ module.exports = {
         label: "Garage à Ivry",
       },
       {
-        url: "/blog/revision-garage-independant-garantie-constructeur/",
+        url: "/blog/articles/revision-garage-independant-garantie-constructeur/",
         label: "Garantie & indépendant",
       },
       {
@@ -317,8 +317,8 @@ module.exports = {
     },
     relatedLinks: [
       { url: "/prestations/pre-controle-technique/", label: "Pré-contrôle technique" },
-      { url: "/blog/5-points-controle-avant-ct-ivry/", label: "5 checks avant le CT" },
-      { url: "/blog/suppression-fap-controle-technique-2026/", label: "FAP et CT 2026" },
+      { url: "/blog/articles/5-points-controle-avant-ct-ivry/", label: "5 checks avant le CT" },
+      { url: "/blog/articles/suppression-fap-controle-technique-2026/", label: "FAP et CT 2026" },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -363,7 +363,7 @@ module.exports = {
     },
     relatedLinks: [
       { url: "/prestations/pre-controle-technique/", label: "Pré-contrôle technique" },
-      { url: "/blog/controle-technique-2026-nouveautes/", label: "Liste points CT 2026" },
+      { url: "/blog/articles/controle-technique-2026-nouveautes/", label: "Liste points CT 2026" },
       { url: "/freins/", label: "Freinage" },
     ],
     faqSchema: {
@@ -418,7 +418,7 @@ module.exports = {
         label: "Entretien & révision",
       },
       {
-        url: "/blog/revision-kilometrage-usage-urbain-94/",
+        url: "/blog/articles/revision-kilometrage-usage-urbain-94/",
         label: "Révision usage urbain",
       },
       {
@@ -469,8 +469,8 @@ module.exports = {
     },
     relatedLinks: [
       { url: "/entretien/", label: "Entretien auto" },
-      { url: "/blog/preparer-voiture-hiver-conseils/", label: "Préparer sa voiture pour l'hiver" },
-      { url: "/blog/pare-brise-fissure-controle-technique/", label: "Pare-brise et CT" },
+      { url: "/blog/articles/preparer-voiture-hiver-conseils/", label: "Préparer sa voiture pour l'hiver" },
+      { url: "/blog/articles/pare-brise-fissure-controle-technique/", label: "Pare-brise et CT" },
       { url: "/contact/", label: "Prendre rendez-vous" },
     ],
     faqSchema: {
@@ -562,8 +562,8 @@ module.exports = {
       ],
     },
     relatedLinks: [
-      { url: "/blog/batterie-morte-matin-que-faire/", label: "Batterie morte le matin" },
-      { url: "/blog/voiture-ne-demarre-pas-causes/", label: "Voiture ne démarre pas" },
+      { url: "/blog/articles/batterie-morte-matin-que-faire/", label: "Batterie morte le matin" },
+      { url: "/blog/articles/voiture-ne-demarre-pas-causes/", label: "Voiture ne démarre pas" },
       { url: "/mecanique/", label: "Mécanique & électricité" },
       { url: "/contact/", label: "Prendre rendez-vous" },
     ],
@@ -610,7 +610,7 @@ module.exports = {
     },
     relatedLinks: [
       { url: "/pneumatiques/", label: "Pneus & géométrie" },
-      { url: "/blog/quand-changer-pneus-usure-securite/", label: "Usure et témoin TWI" },
+      { url: "/blog/articles/quand-changer-pneus-usure-securite/", label: "Usure et témoin TWI" },
       { url: "/contact/", label: "Prendre rendez-vous" },
     ],
     faqSchema: {
@@ -694,7 +694,7 @@ module.exports = {
     },
     relatedLinks: [
       { url: "/carrosserie/", label: "Carrosserie" },
-      { url: "/blog/debosselage-sans-peinture-dsp/", label: "Débosselage sans peinture" },
+      { url: "/blog/articles/debosselage-sans-peinture-dsp/", label: "Débosselage sans peinture" },
       { url: "/contact/", label: "Devis carrosserie" },
     ],
     faqSchema: {
@@ -740,7 +740,7 @@ module.exports = {
     },
     relatedLinks: [
       { url: "/entretien/", label: "Entretien & révision" },
-      { url: "/blog/revision-60000-km-checklist/", label: "Checklist 60 000 km" },
+      { url: "/blog/articles/revision-60000-km-checklist/", label: "Checklist 60 000 km" },
       { url: "/tarifs/", label: "Tarifs" },
     ],
     faqSchema: {
@@ -790,7 +790,7 @@ module.exports = {
         label: "Mécanique & distribution",
       },
       {
-        url: "/blog/prix-kit-distribution-94/",
+        url: "/blog/articles/prix-kit-distribution-94/",
         label: "Prix kit distribution",
       },
       {
@@ -850,8 +850,8 @@ module.exports = {
     relatedLinks: [
       { url: "/diagnostic/", label: "Diagnostic auto" },
       { url: "/blog/fumee-echappement-couleur-signification/", label: "Fumée échappement : couleurs" },
-      { url: "/blog/fumee-bleue-echappement-causes/", label: "Fumée bleue échappement" },
-      { url: "/blog/joint-culasse-signes-symptomes/", label: "Joint de culasse" },
+      { url: "/blog/articles/fumee-bleue-echappement-causes/", label: "Fumée bleue échappement" },
+      { url: "/blog/articles/joint-culasse-signes-symptomes/", label: "Joint de culasse" },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -896,9 +896,9 @@ module.exports = {
     },
     relatedLinks: [
       { url: "/diagnostic/", label: "Diagnostic auto" },
-      { url: "/blog/fumee-blanche-echappement-que-faire/", label: "Fumée blanche" },
-      { url: "/blog/fumee-bleue-echappement-causes/", label: "Fumée bleue" },
-      { url: "/blog/controle-antipollution-refuse-que-faire/", label: "Antipollution refusé" },
+      { url: "/blog/articles/fumee-blanche-echappement-que-faire/", label: "Fumée blanche" },
+      { url: "/blog/articles/fumee-bleue-echappement-causes/", label: "Fumée bleue" },
+      { url: "/blog/articles/controle-antipollution-refuse-que-faire/", label: "Antipollution refusé" },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -944,7 +944,7 @@ module.exports = {
     relatedLinks: [
       { url: "/diagnostic/", label: "Diagnostic" },
       { url: "/mecanique/", label: "Mécanique" },
-      { url: "/blog/voyant-moteur-allume-que-faire/", label: "Voyant moteur" },
+      { url: "/blog/articles/voyant-moteur-allume-que-faire/", label: "Voyant moteur" },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -1034,7 +1034,7 @@ module.exports = {
       ],
     },
     relatedLinks: [
-      { url: "/blog/fuite-huile-moteur-causes-que-faire/", label: "Fuite huile moteur" },
+      { url: "/blog/articles/fuite-huile-moteur-causes-que-faire/", label: "Fuite huile moteur" },
       { url: "/entretien/", label: "Entretien auto" },
       { url: "/contact/", label: "Prendre rendez-vous" },
     ],
@@ -1081,8 +1081,8 @@ module.exports = {
     },
     relatedLinks: [
       { url: "/entretien/", label: "Entretien mécanique" },
-      { url: "/blog/embrayage-qui-patine-causes/", label: "Embrayage qui patine" },
-      { url: "/blog/prix-changement-embrayage-94/", label: "Prix embrayage 94" },
+      { url: "/blog/articles/embrayage-qui-patine-causes/", label: "Embrayage qui patine" },
+      { url: "/blog/articles/prix-changement-embrayage-94/", label: "Prix embrayage 94" },
       { url: "/contact/", label: "Diagnostic atelier" },
     ],
     faqSchema: {
@@ -1137,7 +1137,7 @@ module.exports = {
         label: "Pneus & géométrie",
       },
       {
-        url: "/blog/prix-geometrie-parallelisme-94/",
+        url: "/blog/articles/prix-geometrie-parallelisme-94/",
         label: "Prix géométrie 94",
       },
       {
@@ -1244,7 +1244,7 @@ module.exports = {
         label: "Entretien",
       },
       {
-        url: "/blog/clim-odeur-moisi-que-faire/",
+        url: "/blog/articles/clim-odeur-moisi-que-faire/",
         label: "Clim odeur moisi",
       },
       {
@@ -1304,7 +1304,7 @@ module.exports = {
         label: "Mécanique & réparations",
       },
       {
-        url: "/blog/prix-changement-embrayage-94/",
+        url: "/blog/articles/prix-changement-embrayage-94/",
         label: "Prix embrayage 94",
       },
       {
@@ -1360,11 +1360,11 @@ module.exports = {
         label: "Diagnostic diesel",
       },
       {
-        url: "/blog/decalaminage-moteur-utile-ou-arnaque/",
+        url: "/blog/articles/decalaminage-moteur-utile-ou-arnaque/",
         label: "Décalaminage moteur",
       },
       {
-        url: "/blog/voyant-moteur-allume-que-faire/",
+        url: "/blog/articles/voyant-moteur-allume-que-faire/",
         label: "Voyant moteur",
       },
     ],
@@ -1412,7 +1412,7 @@ module.exports = {
     relatedLinks: [
       { url: "/freins/", label: "Freinage" },
       { url: "/diagnostic/", label: "Diagnostic électronique" },
-      { url: "/blog/voyant-moteur-allume-que-faire/", label: "Voyant moteur" },
+      { url: "/blog/articles/voyant-moteur-allume-que-faire/", label: "Voyant moteur" },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -1457,8 +1457,8 @@ module.exports = {
     },
     relatedLinks: [
       { url: "/entretien/", label: "Entretien & révision" },
-      { url: "/blog/revision-constructeur-que-comprend-vraiment-service/", label: "Révision constructeur" },
-      { url: "/blog/courroie-distribution-quand-changer-94/", label: "Courroie distribution" },
+      { url: "/blog/articles/revision-constructeur-que-comprend-vraiment-service/", label: "Révision constructeur" },
+      { url: "/blog/articles/courroie-distribution-quand-changer-94/", label: "Courroie distribution" },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -1503,7 +1503,7 @@ module.exports = {
     },
     relatedLinks: [
       { url: "/carrosserie/", label: "Carrosserie & peinture" },
-      { url: "/blog/rayure-carrosserie-quand-reparer/", label: "Rayure : quand réparer ?" },
+      { url: "/blog/articles/rayure-carrosserie-quand-reparer/", label: "Rayure : quand réparer ?" },
       { url: "/contact/", label: "Devis carrosserie" },
     ],
     faqSchema: {
@@ -1542,11 +1542,11 @@ module.exports = {
         label: "Freinage",
       },
       {
-        url: "/blog/fuite-liquide-frein-reconnaitre/",
+        url: "/blog/articles/fuite-liquide-frein-reconnaitre/",
         label: "Fuite liquide frein",
       },
       {
-        url: "/blog/liquide-frein-quand-changer/",
+        url: "/blog/articles/liquide-frein-quand-changer/",
         label: "Liquide de frein",
       },
     ],
@@ -1593,7 +1593,7 @@ module.exports = {
     },
     relatedLinks: [
       { url: "/mecanique/", label: "Mécanique & réparations" },
-      { url: "/blog/voyant-moteur-allume-que-faire/", label: "Voyant moteur" },
+      { url: "/blog/articles/voyant-moteur-allume-que-faire/", label: "Voyant moteur" },
       { url: "/entretien/", label: "Entretien véhicule" },
     ],
     faqSchema: {
@@ -1639,7 +1639,7 @@ module.exports = {
     },
     relatedLinks: [
       { url: "/mecanique/", label: "Mécanique" },
-      { url: "/blog/courroie-distribution-quand-changer-94/", label: "Courroie de distribution" },
+      { url: "/blog/articles/courroie-distribution-quand-changer-94/", label: "Courroie de distribution" },
       { url: "/entretien/", label: "Entretien" },
     ],
     faqSchema: {
@@ -1686,7 +1686,7 @@ module.exports = {
     relatedLinks: [
       { url: "/entretien/", label: "Entretien" },
       { url: "/mecanique/", label: "Mécanique" },
-      { url: "/blog/fumee-blanche-echappement-que-faire/", label: "Fumée blanche échappement" },
+      { url: "/blog/articles/fumee-blanche-echappement-que-faire/", label: "Fumée blanche échappement" },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -1723,8 +1723,8 @@ module.exports = {
     },
     relatedLinks: [
       { url: "/diagnostic/", label: "Diagnostic auto" },
-      { url: "/blog/fap-dpf-encrasse-trajets-ville/", label: "FAP encrassé" },
-      { url: "/blog/voyant-moteur-allume-que-faire/", label: "Voyant moteur" },
+      { url: "/blog/articles/fap-dpf-encrasse-trajets-ville/", label: "FAP encrassé" },
+      { url: "/blog/articles/voyant-moteur-allume-que-faire/", label: "Voyant moteur" },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -1765,11 +1765,11 @@ module.exports = {
         label: "Freinage",
       },
       {
-        url: "/blog/plaquettes-frein-usure-signaux-a-ne-pas-ignorer/",
+        url: "/blog/articles/plaquettes-frein-usure-signaux-a-ne-pas-ignorer/",
         label: "Plaquettes usées",
       },
       {
-        url: "/blog/prix-changement-plaquettes-frein-94/",
+        url: "/blog/articles/prix-changement-plaquettes-frein-94/",
         label: "Prix plaquettes 94",
       },
     ],
@@ -1816,7 +1816,7 @@ module.exports = {
     },
     relatedLinks: [
       { url: "/mecanique/", label: "Mécanique" },
-      { url: "/blog/batterie-voiture-quand-changer/", label: "Batterie voiture" },
+      { url: "/blog/articles/batterie-voiture-quand-changer/", label: "Batterie voiture" },
       { url: "/entretien/", label: "Entretien" },
     ],
     faqSchema: {
@@ -1861,8 +1861,8 @@ module.exports = {
       ],
     },
     relatedLinks: [
-      { url: "/blog/quand-changer-pneus-usure-securite/", label: "Usure pneus" },
-      { url: "/blog/preparer-voiture-hiver-conseils/", label: "Préparer sa voiture pour l'hiver" },
+      { url: "/blog/articles/quand-changer-pneus-usure-securite/", label: "Usure pneus" },
+      { url: "/blog/articles/preparer-voiture-hiver-conseils/", label: "Préparer sa voiture pour l'hiver" },
       { url: "/entretien/", label: "Entretien" },
     ],
     faqSchema: {
@@ -1908,8 +1908,8 @@ module.exports = {
     },
     relatedLinks: [
       { url: "/diagnostic/", label: "Diagnostic" },
-      { url: "/blog/voyant-moteur-allume-que-faire/", label: "Voyant moteur" },
-      { url: "/blog/bougies-allumage-quand-changer/", label: "Bougies d'allumage" },
+      { url: "/blog/articles/voyant-moteur-allume-que-faire/", label: "Voyant moteur" },
+      { url: "/blog/articles/bougies-allumage-quand-changer/", label: "Bougies d'allumage" },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -1955,7 +1955,7 @@ module.exports = {
     relatedLinks: [
       { url: "/entretien/", label: "Entretien" },
       { url: "/mecanique/", label: "Mécanique" },
-      { url: "/blog/combien-coute-vidange-voiture/", label: "Vidange moteur" },
+      { url: "/blog/articles/combien-coute-vidange-voiture/", label: "Vidange moteur" },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -1993,7 +1993,7 @@ module.exports = {
     relatedLinks: [
       { url: "/diagnostic/", label: "Diagnostic" },
       { url: "/mecanique/", label: "Mécanique" },
-      { url: "/blog/voyant-moteur-allume-que-faire/", label: "Voyant moteur" },
+      { url: "/blog/articles/voyant-moteur-allume-que-faire/", label: "Voyant moteur" },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -2029,8 +2029,8 @@ module.exports = {
       ],
     },
     relatedLinks: [
-      { url: "/blog/controle-technique-2026-nouveautes/", label: "Contrôle technique 2026" },
-      { url: "/blog/fap-dpf-encrasse-trajets-ville/", label: "FAP encrassé" },
+      { url: "/blog/articles/controle-technique-2026-nouveautes/", label: "Contrôle technique 2026" },
+      { url: "/blog/articles/fap-dpf-encrasse-trajets-ville/", label: "FAP encrassé" },
       { url: "/diagnostic/", label: "Diagnostic diesel" },
     ],
     faqSchema: {
@@ -2068,8 +2068,8 @@ module.exports = {
     },
     relatedLinks: [
       { url: "/freins/", label: "Changement plaquettes frein" },
-      { url: "/blog/plaquettes-frein-usure-signaux-a-ne-pas-ignorer/", label: "Signes plaquettes usées" },
-      { url: "/blog/disques-frein-voiles-usure-signes/", label: "Disques voilés" },
+      { url: "/blog/articles/plaquettes-frein-usure-signaux-a-ne-pas-ignorer/", label: "Signes plaquettes usées" },
+      { url: "/blog/articles/disques-frein-voiles-usure-signes/", label: "Disques voilés" },
       { url: "/tarifs/", label: "Grille tarifaire" },
     ],
     faqSchema: {
@@ -2115,7 +2115,7 @@ module.exports = {
     },
     relatedLinks: [
       { url: "/prestations/recharge-clim/", label: "Réparation climatisation" },
-      { url: "/blog/compresseur-clim-mort-symptomes/", label: "Compresseur clim HS" },
+      { url: "/blog/articles/compresseur-clim-mort-symptomes/", label: "Compresseur clim HS" },
       { url: "/blog/climatisation-voiture-recharge-ivry/", label: "Recharge clim Ivry" },
       { url: "/tarifs/", label: "Grille tarifaire" },
     ],
@@ -2162,8 +2162,8 @@ module.exports = {
     },
     relatedLinks: [
       { url: "/pneumatiques/", label: "Changement pneus" },
-      { url: "/blog/quand-changer-pneus-usure-securite/", label: "Quand changer ses pneus" },
-      { url: "/blog/prix-geometrie-parallelisme-94/", label: "Prix géométrie 94" },
+      { url: "/blog/articles/quand-changer-pneus-usure-securite/", label: "Quand changer ses pneus" },
+      { url: "/blog/articles/prix-geometrie-parallelisme-94/", label: "Prix géométrie 94" },
       { url: "/tarifs/", label: "Grille tarifaire" },
     ],
     faqSchema: {
@@ -2222,7 +2222,7 @@ module.exports = {
         label: "Vidange",
       },
       {
-        url: "/blog/consommation-huile-anormale-causes/",
+        url: "/blog/articles/consommation-huile-anormale-causes/",
         label: "Consommation huile",
       },
     ],
@@ -2270,7 +2270,7 @@ module.exports = {
     relatedLinks: [
       { url: "/diagnostic/", label: "Diagnostic auto" },
       { url: "/mecanique/", label: "Mécanique & réparations" },
-      { url: "/blog/batterie-voiture-quand-changer/", label: "Quand changer la batterie" },
+      { url: "/blog/articles/batterie-voiture-quand-changer/", label: "Quand changer la batterie" },
       { url: "/contact/", label: "Prendre rendez-vous" },
     ],
     faqSchema: {
@@ -2325,11 +2325,11 @@ module.exports = {
         label: "Mécanique",
       },
       {
-        url: "/blog/fumee-blanche-echappement-que-faire/",
+        url: "/blog/articles/fumee-blanche-echappement-que-faire/",
         label: "Fumée blanche",
       },
       {
-        url: "/blog/turbo-compresseur-symptomes-panne/",
+        url: "/blog/articles/turbo-compresseur-symptomes-panne/",
         label: "Turbo HS",
       },
     ],
@@ -2377,8 +2377,8 @@ module.exports = {
     relatedLinks: [
       { url: "/vidange/", label: "Vidange moteur" },
       { url: "/mecanique/", label: "Mécanique" },
-      { url: "/blog/fuite-huile-moteur-causes-que-faire/", label: "Fuite d'huile moteur" },
-      { url: "/blog/fumee-bleue-echappement-causes/", label: "Fumée bleue" },
+      { url: "/blog/articles/fuite-huile-moteur-causes-que-faire/", label: "Fuite d'huile moteur" },
+      { url: "/blog/articles/fumee-bleue-echappement-causes/", label: "Fumée bleue" },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -2423,7 +2423,7 @@ module.exports = {
       ],
     },
     relatedLinks: [
-      { url: "/blog/preparer-voiture-hiver-conseils/", label: "Préparer sa voiture pour l'hiver" },
+      { url: "/blog/articles/preparer-voiture-hiver-conseils/", label: "Préparer sa voiture pour l'hiver" },
       { url: "/blog/pression-pneus-verification-tpms/", label: "Pression des pneus" },
       { url: "/diagnostic/", label: "Diagnostic auto" },
       { url: "/contact/", label: "Prendre rendez-vous" },
@@ -2472,8 +2472,8 @@ module.exports = {
     relatedLinks: [
       { url: "/diagnostic/", label: "Diagnostic auto" },
       { url: "/mecanique/", label: "Mécanique" },
-      { url: "/blog/surchauffe-moteur-que-faire/", label: "Surchauffe moteur" },
-      { url: "/blog/fumee-blanche-echappement-que-faire/", label: "Fumée blanche" },
+      { url: "/blog/articles/surchauffe-moteur-que-faire/", label: "Surchauffe moteur" },
+      { url: "/blog/articles/fumee-blanche-echappement-que-faire/", label: "Fumée blanche" },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -2519,7 +2519,7 @@ module.exports = {
     relatedLinks: [
       { url: "/mecanique/", label: "Mécanique" },
       { url: "/pneumatiques/", label: "Pneus & géométrie" },
-      { url: "/blog/geometrie-roues-signes-mauvais-alignement/", label: "Géométrie des roues" },
+      { url: "/blog/articles/geometrie-roues-signes-mauvais-alignement/", label: "Géométrie des roues" },
       { url: "/contact/", label: "Diagnostic train roulant" },
     ],
     faqSchema: {
@@ -2558,7 +2558,7 @@ module.exports = {
     relatedLinks: [
       { url: "/mecanique/", label: "Mécanique & réparations" },
       { url: "/pneumatiques/", label: "Géométrie" },
-      { url: "/blog/embrayage-qui-patine-causes/", label: "Embrayage qui patine" },
+      { url: "/blog/articles/embrayage-qui-patine-causes/", label: "Embrayage qui patine" },
       { url: "/contact/", label: "Devis cardan" },
     ],
     faqSchema: {
@@ -2605,8 +2605,8 @@ module.exports = {
     relatedLinks: [
       { url: "/pneumatiques/", label: "Pneus & géométrie" },
       { url: "/freins/", label: "Freinage" },
-      { url: "/blog/disques-frein-voiles-usure-signes/", label: "Disques voilés" },
-      { url: "/blog/geometrie-roues-signes-mauvais-alignement/", label: "Mauvais alignement" },
+      { url: "/blog/articles/disques-frein-voiles-usure-signes/", label: "Disques voilés" },
+      { url: "/blog/articles/geometrie-roues-signes-mauvais-alignement/", label: "Mauvais alignement" },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -2644,8 +2644,8 @@ module.exports = {
     relatedLinks: [
       { url: "/mecanique/", label: "Mécanique" },
       { url: "/diagnostic/", label: "Diagnostic" },
-      { url: "/blog/liquide-refroidissement-quand-verifier/", label: "Liquide de refroidissement" },
-      { url: "/blog/joint-culasse-signes-symptomes/", label: "Joint de culasse" },
+      { url: "/blog/articles/liquide-refroidissement-quand-verifier/", label: "Liquide de refroidissement" },
+      { url: "/blog/articles/joint-culasse-signes-symptomes/", label: "Joint de culasse" },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -2691,8 +2691,8 @@ module.exports = {
     relatedLinks: [
       { url: "/mecanique/", label: "Mécanique" },
       { url: "/diagnostic/", label: "Diagnostic" },
-      { url: "/blog/batterie-voiture-quand-changer/", label: "Batterie voiture" },
-      { url: "/blog/courroie-accessoires-symptomes-usure/", label: "Courroie d'accessoires" },
+      { url: "/blog/articles/batterie-voiture-quand-changer/", label: "Batterie voiture" },
+      { url: "/blog/articles/courroie-accessoires-symptomes-usure/", label: "Courroie d'accessoires" },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -2737,8 +2737,8 @@ module.exports = {
     },
     relatedLinks: [
       { url: "/pare-brise/", label: "Pare-brise" },
-      { url: "/blog/5-points-controle-avant-ct-ivry/", label: "5 points avant le CT" },
-      { url: "/blog/controle-technique-2026-nouveautes/", label: "CT 2026" },
+      { url: "/blog/articles/5-points-controle-avant-ct-ivry/", label: "5 points avant le CT" },
+      { url: "/blog/articles/controle-technique-2026-nouveautes/", label: "CT 2026" },
       { url: "/contact/", label: "Devis vitrage" },
     ],
     faqSchema: {
@@ -2785,7 +2785,7 @@ module.exports = {
     relatedLinks: [
       { url: "/mecanique/", label: "Mécanique" },
       { url: "/exemples/prix-courroie-distribution/", label: "Guide prix distribution" },
-      { url: "/blog/courroie-distribution-quand-changer-94/", label: "Quand changer la distribution" },
+      { url: "/blog/articles/courroie-distribution-quand-changer-94/", label: "Quand changer la distribution" },
       { url: "/tarifs/", label: "Grille tarifaire" },
     ],
     faqSchema: {
@@ -2832,7 +2832,7 @@ module.exports = {
     relatedLinks: [
       { url: "/mecanique/", label: "Mécanique" },
       { url: "/exemples/prix-embrayage/", label: "Guide prix embrayage" },
-      { url: "/blog/embrayage-qui-patine-causes/", label: "Embrayage qui patine" },
+      { url: "/blog/articles/embrayage-qui-patine-causes/", label: "Embrayage qui patine" },
       { url: "/tarifs/", label: "Grille tarifaire" },
     ],
     faqSchema: {
@@ -2879,7 +2879,7 @@ module.exports = {
     relatedLinks: [
       { url: "/mecanique/", label: "Mécanique" },
       { url: "/exemples/prix-batterie/", label: "Guide prix batterie" },
-      { url: "/blog/batterie-voiture-quand-changer/", label: "Quand changer la batterie" },
+      { url: "/blog/articles/batterie-voiture-quand-changer/", label: "Quand changer la batterie" },
       { url: "/tarifs/", label: "Grille tarifaire" },
     ],
     faqSchema: {
@@ -2917,8 +2917,8 @@ module.exports = {
     },
     relatedLinks: [
       { url: "/pneumatiques/", label: "Pneus & géométrie" },
-      { url: "/blog/geometrie-roues-signes-mauvais-alignement/", label: "Signes de mauvais alignement" },
-      { url: "/blog/volant-qui-vibre-causes/", label: "Volant qui vibre" },
+      { url: "/blog/articles/geometrie-roues-signes-mauvais-alignement/", label: "Signes de mauvais alignement" },
+      { url: "/blog/articles/volant-qui-vibre-causes/", label: "Volant qui vibre" },
       { url: "/tarifs/", label: "Grille tarifaire" },
     ],
     faqSchema: {
@@ -2964,8 +2964,8 @@ module.exports = {
     },
     relatedLinks: [
       { url: "/entretien/", label: "Entretien" },
-      { url: "/blog/5-points-controle-avant-ct-ivry/", label: "5 points avant le CT" },
-      { url: "/blog/controle-technique-2026-nouveautes/", label: "Nouveautés CT 2026" },
+      { url: "/blog/articles/5-points-controle-avant-ct-ivry/", label: "5 points avant le CT" },
+      { url: "/blog/articles/controle-technique-2026-nouveautes/", label: "Nouveautés CT 2026" },
       { url: "/contact/", label: "Réserver un pré-CT" },
     ],
     faqSchema: {
@@ -3012,7 +3012,7 @@ module.exports = {
     relatedLinks: [
       { url: "/diagnostic/", label: "Diagnostic diesel" },
       { url: "/mecanique/", label: "Mécanique" },
-      { url: "/blog/voyant-moteur-allume-que-faire/", label: "Voyant moteur" },
+      { url: "/blog/articles/voyant-moteur-allume-que-faire/", label: "Voyant moteur" },
       { url: "/contact/", label: "Prendre rendez-vous" },
     ],
     faqSchema: {
@@ -3067,7 +3067,7 @@ module.exports = {
         label: "Entretien & révision",
       },
       {
-        url: "/blog/injecteurs-encrasses-symptomes/",
+        url: "/blog/articles/injecteurs-encrasses-symptomes/",
         label: "Injecteurs encrassés",
       },
       {
@@ -3127,11 +3127,11 @@ module.exports = {
         label: "Diagnostic auto",
       },
       {
-        url: "/blog/filtre-gasoil-quand-changer/",
+        url: "/blog/articles/filtre-gasoil-quand-changer/",
         label: "Filtre gasoil",
       },
       {
-        url: "/blog/voiture-broute-acceleration-causes-94/",
+        url: "/blog/articles/voiture-broute-acceleration-causes-94/",
         label: "Voiture qui broute",
       },
     ],
@@ -3187,7 +3187,7 @@ module.exports = {
         label: "Carrosserie & peinture",
       },
       {
-        url: "/blog/rayure-carrosserie-quand-reparer/",
+        url: "/blog/articles/rayure-carrosserie-quand-reparer/",
         label: "Rayure : quand réparer",
       },
       {
@@ -3239,8 +3239,8 @@ module.exports = {
     relatedLinks: [
       { url: "/carrosserie/", label: "Carrosserie & peinture" },
       { url: "/prestations/peinture-localisee/", label: "Peinture localisée" },
-      { url: "/blog/rayure-carrosserie-quand-reparer/", label: "Quand réparer une rayure" },
-      { url: "/blog/debosselage-sans-peinture-dsp/", label: "Débosselage sans peinture" },
+      { url: "/blog/articles/rayure-carrosserie-quand-reparer/", label: "Quand réparer une rayure" },
+      { url: "/blog/articles/debosselage-sans-peinture-dsp/", label: "Débosselage sans peinture" },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -3286,8 +3286,8 @@ module.exports = {
     relatedLinks: [
       { url: "/mecanique/", label: "Mécanique" },
       { url: "/pneumatiques/", label: "Pneus & géométrie" },
-      { url: "/blog/amortisseurs-usures-symptomes/", label: "Amortisseurs usés" },
-      { url: "/blog/geometrie-roues-signes-mauvais-alignement/", label: "Géométrie" },
+      { url: "/blog/articles/amortisseurs-usures-symptomes/", label: "Amortisseurs usés" },
+      { url: "/blog/articles/geometrie-roues-signes-mauvais-alignement/", label: "Géométrie" },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -3345,7 +3345,7 @@ module.exports = {
         label: "Diagnostic OBD",
       },
       {
-        url: "/blog/geometrie-roues-signes-mauvais-alignement/",
+        url: "/blog/articles/geometrie-roues-signes-mauvais-alignement/",
         label: "Géométrie roues",
       },
     ],
@@ -3393,7 +3393,7 @@ module.exports = {
     relatedLinks: [
       { url: "/entretien/", label: "Entretien & révision" },
       { url: "/pneumatiques/", label: "Pneus & géométrie" },
-      { url: "/blog/combien-temps-entre-deux-vidanges/", label: "Intervalle vidange" },
+      { url: "/blog/articles/combien-temps-entre-deux-vidanges/", label: "Intervalle vidange" },
       { url: "/contact/", label: "Contrôle avant départ" },
     ],
     faqSchema: {
@@ -3439,9 +3439,9 @@ module.exports = {
     },
     relatedLinks: [
       { url: "/reparation-climatisation-ivry/", label: "Réparation climatisation" },
-      { url: "/blog/filtre-habitacle-pollen-quand-changer/", label: "Filtre d'habitacle" },
+      { url: "/blog/articles/filtre-habitacle-pollen-quand-changer/", label: "Filtre d'habitacle" },
       { url: "/blog/climatisation-voiture-recharge-ivry/", label: "Recharge clim" },
-      { url: "/blog/prix-recharge-climatisation-94/", label: "Prix recharge clim" },
+      { url: "/blog/articles/prix-recharge-climatisation-94/", label: "Prix recharge clim" },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -3487,8 +3487,8 @@ module.exports = {
     relatedLinks: [
       { url: "/diagnostic/", label: "Diagnostic auto" },
       { url: "/mecanique/", label: "Mécanique" },
-      { url: "/blog/turbo-compresseur-symptomes-panne/", label: "Panne de turbo" },
-      { url: "/blog/voyant-moteur-allume-que-faire/", label: "Voyant moteur" },
+      { url: "/blog/articles/turbo-compresseur-symptomes-panne/", label: "Panne de turbo" },
+      { url: "/blog/articles/voyant-moteur-allume-que-faire/", label: "Voyant moteur" },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -3533,9 +3533,9 @@ module.exports = {
     },
     relatedLinks: [
       { url: "/diagnostic/", label: "Diagnostic pollution" },
-      { url: "/blog/fap-dpf-encrasse-trajets-ville/", label: "FAP encrassé" },
-      { url: "/blog/catalyseur-bouche-symptomes-causes/", label: "Catalyseur bouché" },
-      { url: "/blog/controle-technique-2026-nouveautes/", label: "CT 2026" },
+      { url: "/blog/articles/fap-dpf-encrasse-trajets-ville/", label: "FAP encrassé" },
+      { url: "/blog/articles/catalyseur-bouche-symptomes-causes/", label: "Catalyseur bouché" },
+      { url: "/blog/articles/controle-technique-2026-nouveautes/", label: "CT 2026" },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -3580,7 +3580,7 @@ module.exports = {
     },
     relatedLinks: [
       { url: "/vidange/", label: "Prestation vidange" },
-      { url: "/blog/combien-coute-vidange-voiture/", label: "Prix vidange" },
+      { url: "/blog/articles/combien-coute-vidange-voiture/", label: "Prix vidange" },
       { url: "/contact/", label: "Prendre rendez-vous" },
     ],
     faqSchema: {
@@ -3626,7 +3626,7 @@ module.exports = {
     },
     relatedLinks: [
       { url: "/entretien/", label: "Révision auto" },
-      { url: "/blog/revision-constructeur-que-comprend-vraiment-service/", label: "Contenu d'une révision" },
+      { url: "/blog/articles/revision-constructeur-que-comprend-vraiment-service/", label: "Contenu d'une révision" },
       { url: "/contact/", label: "Prendre rendez-vous" },
     ],
     faqSchema: {
@@ -3672,7 +3672,7 @@ module.exports = {
       ],
     },
     relatedLinks: [
-      { url: "/blog/voiture-ne-demarre-pas-causes/", label: "Voiture ne démarre pas" },
+      { url: "/blog/articles/voiture-ne-demarre-pas-causes/", label: "Voiture ne démarre pas" },
       { url: "/mecanique/", label: "Mécanique" },
       { url: "/contact/", label: "Prendre rendez-vous" },
     ],
@@ -3719,7 +3719,7 @@ module.exports = {
     },
     relatedLinks: [
       { url: "/diagnostic/", label: "Diagnostic auto" },
-      { url: "/blog/roulement-roue-sifflement-symptomes/", label: "Bruit de roulement" },
+      { url: "/blog/articles/roulement-roue-sifflement-symptomes/", label: "Bruit de roulement" },
       { url: "/contact/", label: "Prendre rendez-vous" },
     ],
     faqSchema: {
@@ -3774,7 +3774,7 @@ module.exports = {
         label: "Freinage",
       },
       {
-        url: "/blog/freinage-mou-pedale-spongieuse/",
+        url: "/blog/articles/freinage-mou-pedale-spongieuse/",
         label: "Pédale spongieuse",
       },
       {
@@ -3834,11 +3834,11 @@ module.exports = {
         label: "Démarreur & batterie",
       },
       {
-        url: "/blog/batterie-voiture-quand-changer/",
+        url: "/blog/articles/batterie-voiture-quand-changer/",
         label: "Batterie voiture",
       },
       {
-        url: "/blog/voiture-ne-demarre-pas-causes/",
+        url: "/blog/articles/voiture-ne-demarre-pas-causes/",
         label: "Voiture ne démarre pas",
       },
     ],
@@ -3885,7 +3885,7 @@ module.exports = {
     },
     relatedLinks: [
       { url: "/reparation-climatisation-ivry/", label: "Réparation clim Ivry" },
-      { url: "/blog/prix-recharge-climatisation-94/", label: "Prix recharge clim" },
+      { url: "/blog/articles/prix-recharge-climatisation-94/", label: "Prix recharge clim" },
       { url: "/contact/", label: "Prendre rendez-vous" },
     ],
     faqSchema: {
@@ -3931,7 +3931,7 @@ module.exports = {
     },
     relatedLinks: [
       { url: "/entretien/", label: "Entretien auto" },
-      { url: "/blog/voiture-ne-demarre-pas-causes/", label: "Voiture ne démarre pas" },
+      { url: "/blog/articles/voiture-ne-demarre-pas-causes/", label: "Voiture ne démarre pas" },
       { url: "/contact/", label: "Diagnostic atelier" },
     ],
     faqSchema: {
@@ -3977,8 +3977,8 @@ module.exports = {
     },
     relatedLinks: [
       { url: "/carrosserie/", label: "Carrosserie" },
-      { url: "/blog/rayure-carrosserie-quand-reparer/", label: "Rayure : quand réparer" },
-      { url: "/blog/peinture-localisee-retouche-carrosserie/", label: "Peinture localisée" },
+      { url: "/blog/articles/rayure-carrosserie-quand-reparer/", label: "Rayure : quand réparer" },
+      { url: "/blog/articles/peinture-localisee-retouche-carrosserie/", label: "Peinture localisée" },
       { url: "/contact/", label: "Inspection carrosserie" },
     ],
     faqSchema: {
@@ -4025,7 +4025,7 @@ module.exports = {
     relatedLinks: [
       { url: "/prestations/rotule-direction/", label: "Rotule de direction" },
       { url: "/pneumatiques/", label: "Géométrie & pneus" },
-      { url: "/blog/geometrie-roues-signes-mauvais-alignement/", label: "Signes mauvais alignement" },
+      { url: "/blog/articles/geometrie-roues-signes-mauvais-alignement/", label: "Signes mauvais alignement" },
     ],
     faqSchema: {
       "@context": "https://schema.org",
@@ -4071,7 +4071,7 @@ module.exports = {
         label: "Décalaminage moteur",
       },
       {
-        url: "/blog/fap-dpf-encrasse-trajets-ville/",
+        url: "/blog/articles/fap-dpf-encrasse-trajets-ville/",
         label: "FAP encrassé",
       },
       {
@@ -4135,7 +4135,7 @@ module.exports = {
         label: "Réparation crevaison",
       },
       {
-        url: "/blog/quand-changer-pneus-usure-securite/",
+        url: "/blog/articles/quand-changer-pneus-usure-securite/",
         label: "Usure des pneus",
       },
     ],
@@ -4182,7 +4182,7 @@ module.exports = {
     },
     relatedLinks: [
       { url: "/diagnostic/", label: "Diagnostic & contrôle" },
-      { url: "/blog/courroie-distribution-quand-changer-94/", label: "Courroie distribution" },
+      { url: "/blog/articles/courroie-distribution-quand-changer-94/", label: "Courroie distribution" },
       { url: "/contact/", label: "Prendre rendez-vous" },
     ],
     faqSchema: {
@@ -4221,7 +4221,7 @@ module.exports = {
     relatedLinks: [
       { url: "/vidange/", label: "Vidange moteur" },
       { url: "/revision-voiture-ivry/", label: "Révision Ivry" },
-      { url: "/blog/combien-temps-entre-deux-vidanges/", label: "Entre deux vidanges" },
+      { url: "/blog/articles/combien-temps-entre-deux-vidanges/", label: "Entre deux vidanges" },
     ],
     faqSchema: {
       "@context": "https://schema.org",

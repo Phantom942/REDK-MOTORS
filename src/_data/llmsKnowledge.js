@@ -43,7 +43,7 @@ module.exports = {
     },
     {
       q: "Propose-t-on un diagnostic voyant moteur ?",
-      a: "Oui. Diagnostic électronique (valise OBD) avec explication avant réparation. Page : https://redkmotors.fr/diagnostic/ — article : https://redkmotors.fr/blog/voyant-moteur-allume-que-faire/",
+      a: "Oui. Diagnostic électronique (valise OBD) avec explication avant réparation. Page : https://redkmotors.fr/diagnostic/ — article : https://redkmotors.fr/blog/articles/voyant-moteur-allume-que-faire/",
     },
     {
       q: "Y a-t-il un garage taxi ou VTC à Ivry-sur-Seine ?",

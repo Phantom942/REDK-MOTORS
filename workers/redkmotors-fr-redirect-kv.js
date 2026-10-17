@@ -32,41 +32,61 @@ async function fetchWithHeaders(request, path) {
   return applyResponseHeaders(await fetch(request), path);
 }
 
+function shardKeysForPath(path) {
+  const bucket = path.charAt(1) || "_";
+  if (bucket === "e") {
+    return ["r:en", "r:eq", "r:ex0", "r:ex1", "r:ex2", "r:ex3"];
+  }
+  return [`r:${bucket}`];
+}
+
+async function lookupRedirect(env, path) {
+  for (const key of shardKeysForPath(path)) {
+    let shard = await env.REDIRECTS.get(key, { type: "json" });
+    if (typeof shard === "string") {
+      try {
+        shard = JSON.parse(shard);
+      } catch {
+        /* ignore malformed shard */
+      }
+    }
+    const targetPath = shard?.[path];
+    if (targetPath && targetPath !== path) {
+      return targetPath;
+    }
+  }
+  return null;
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     const path = url.pathname;
 
-    if (path.endsWith(".html")) {
-      // Fichiers racine requis tels quels (Google Search Console, etc.)
-      if (/^\/google[a-f0-9]+\.html$/i.test(path)) {
-        return fetchWithHeaders(request, path);
-      }
-      const dest = new URL(path.slice(0, -5) + "/" + url.search, "https://redkmotors.fr");
+    // Fichiers racine Google Search Console : ne jamais rediriger
+    if (/^\/google[a-f0-9]+\.html$/i.test(path)) {
+      return fetchWithHeaders(request, path);
+    }
+
+    // 1) Lookup KV exact (y compris .html) → 301 unique vers la cible finale
+    const exactTarget = await lookupRedirect(env, path);
+    if (exactTarget) {
+      const dest = new URL(exactTarget, "https://redkmotors.fr");
+      dest.search = url.search;
       return Response.redirect(dest.toString(), 301);
     }
 
-    const bucket = path.charAt(1) || "_";
-    const keys =
-      bucket === "e"
-        ? ["r:en", "r:eq", "r:ex0", "r:ex1", "r:ex2", "r:ex3"]
-        : [`r:${bucket}`];
-
-    for (const key of keys) {
-      let shard = await env.REDIRECTS.get(key, { type: "json" });
-      if (typeof shard === "string") {
-        try {
-          shard = JSON.parse(shard);
-        } catch {
-          /* ignore malformed shard */
-        }
-      }
-      const targetPath = shard?.[path];
-      if (targetPath && targetPath !== path) {
-        const dest = new URL(targetPath, "https://redkmotors.fr");
+    // 2) .html sans entrée KV : normalise vers slash (comportement historique)
+    if (path.endsWith(".html")) {
+      const slashPath = `${path.slice(0, -5)}/`;
+      const slashTarget = await lookupRedirect(env, slashPath);
+      if (slashTarget) {
+        const dest = new URL(slashTarget, "https://redkmotors.fr");
         dest.search = url.search;
         return Response.redirect(dest.toString(), 301);
       }
+      const dest = new URL(slashPath + url.search, "https://redkmotors.fr");
+      return Response.redirect(dest.toString(), 301);
     }
 
     return fetchWithHeaders(request, path);

@@ -6,19 +6,49 @@ const SITE_URL = "https://redkmotors.fr";
 const LOGO_URL = `${SITE_URL}/assets/img/logo-redk-motors.png`;
 const OG_DEFAULT = `${SITE_URL}/assets/img/og-brand.png`;
 
-function slugFromPermalink(permalink) {
-  if (!permalink || typeof permalink !== "string") return "";
-  const match = permalink.match(/\/blog\/([^/]+)\/?$/);
-  return match ? match[1] : "";
+function normalizePagePath(url) {
+  if (!url || typeof url !== "string") return "";
+  return url.replace(/\/index\.html$/, "/");
+}
+
+function slugFromPath(urlPath) {
+  if (!urlPath || typeof urlPath !== "string") return "";
+  const articles = urlPath.match(/\/blog\/articles\/([^/]+)\/?$/);
+  if (articles) return articles[1];
+  const match = urlPath.match(/\/blog\/([^/]+)\/?$/);
+  if (!match) return "";
+  const slug = match[1];
+  if (slug === "articles" || slug === "tag" || slug === "page") return "";
+  return slug;
+}
+
+function slugFromData(data) {
+  return (
+    slugFromPath(data.permalink) ||
+    slugFromPath(normalizePagePath(data.page?.url)) ||
+    data.page?.fileSlug ||
+    ""
+  );
+}
+
+function canonicalFromData(data) {
+  const pagePath = normalizePagePath(data.page?.url);
+  if (pagePath) return `${SITE_URL}${pagePath}`;
+  if (data.permalink) {
+    const p = data.permalink.endsWith("/") ? data.permalink : `${data.permalink}/`;
+    return `${SITE_URL}${p}`;
+  }
+  const slug = slugFromData(data);
+  return slug ? `${SITE_URL}/blog/articles/${slug}/` : SITE_URL;
 }
 
 function pickEnhancement(data) {
-  const slug = slugFromPermalink(data.permalink);
+  const slug = slugFromData(data);
   return enhancements[slug] || {};
 }
 
 function pickKeywords(data) {
-  const slug = slugFromPermalink(data.permalink);
+  const slug = slugFromData(data);
   return blogKeywords[slug] || null;
 }
 
@@ -57,12 +87,23 @@ module.exports = {
       const extra = pickEnhancement(data).faqSchema;
       return extra || undefined;
     },
+    breadcrumb: (data) => {
+      if (!data.breadcrumb) return undefined;
+      const bc = JSON.parse(JSON.stringify(data.breadcrumb));
+      const canonical = canonicalFromData(data);
+      const items = bc.itemListElement;
+      if (Array.isArray(items) && items.length) {
+        items[items.length - 1].item = canonical;
+      }
+      return bc;
+    },
     articleSchema: (data) => {
       if (!data.articleSchema) return undefined;
 
       const schema = JSON.parse(JSON.stringify(data.articleSchema));
       const reviewed = data.lastReviewed || data.date;
       const kwString = keywordsToSchemaString(pickKeywords(data));
+      const canonical = canonicalFromData(data);
 
       if (kwString) {
         schema.keywords = kwString;
@@ -86,6 +127,11 @@ module.exports = {
       };
       schema.image = data.ogImage || OG_DEFAULT;
       schema.dateModified = reviewed;
+      schema.mainEntityOfPage = {
+        "@type": "WebPage",
+        "@id": canonical,
+      };
+      schema.url = canonical;
       return schema;
     },
   },

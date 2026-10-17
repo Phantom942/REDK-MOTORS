@@ -18,6 +18,7 @@
     "indexnow:priority": "node scripts/indexnow-priority.js",
     "redirects:export-me": "node scripts/export-cloudflare-me-redirects.js",
     "redirects:kv-shards": "node scripts/generate-kv-redirect-shards.js",
+    "test:blog-migration": "node scripts/test-blog-migration-redirects.js",
     "audit:blog": "node scripts/audit-blog-seo.js && node scripts/audit-blog-geo.js",
     "audit:sitemap": "node scripts/audit-sitemap.js",
     "blog:refresh": "node scripts/refresh-blog-freshness.js",
