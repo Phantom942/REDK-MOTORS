@@ -9,10 +9,17 @@
  *   node scripts/deploy-kv-shards.js --restore --dir workers/kv-backup
  *   node scripts/deploy-kv-shards.js   # backup puis upload (local interactif)
  *
- * Interdit en CI : --skip-backup. Le workflow sépare backup → artefact → upload.
+ * Restore :
+ *   - clé présente au backup → PUT valeur précédente
+ *   - clé absente au backup → DELETE (supprime ce que le deploy a créé)
  */
 const fs = require("fs");
 const path = require("path");
+const {
+  fileToKey,
+  keyToFile,
+  runRestore: runRestoreOps,
+} = require("./lib/kv-shards-ops.js");
 
 const ROOT = path.join(__dirname, "..");
 const ACCOUNT_ID = "82e31c401bb561864cba4a522774e8b8";
@@ -40,24 +47,14 @@ function argValue(flag) {
 
 const backupDir = path.resolve(argValue("--dir") || DEFAULT_BACKUP_DIR);
 
-function fileToKey(filename) {
-  const base = filename.replace(/\.json$/, "");
-  return base.replace("-", ":");
-}
-
-function keyToFile(key) {
-  return `${key.replace(/:/g, "_")}.json`;
-}
-
 async function cfFetch(url, options = {}) {
-  const res = await fetch(url, {
+  return fetch(url, {
     ...options,
     headers: {
       Authorization: `Bearer ${token}`,
       ...(options.headers || {}),
     },
   });
-  return res;
 }
 
 async function listAllKeys(prefix = "r:") {
@@ -79,8 +76,7 @@ async function listAllKeys(prefix = "r:") {
       keys.push(item.name);
     }
     cursor = json.result_info?.cursor;
-    if (!cursor || !(json.result_info?.count > 0)) break;
-    if ((json.result || []).length === 0) break;
+    if (!cursor || (json.result || []).length === 0) break;
   }
   return keys.sort();
 }
@@ -109,6 +105,19 @@ async function kvPut(key, value) {
   }
 }
 
+async function kvDelete(key) {
+  const url = `https://api.cloudflare.com/client/v4/accounts/${ACCOUNT_ID}/storage/kv/namespaces/${NAMESPACE_ID}/values/${encodeURIComponent(key)}`;
+  const res = await cfFetch(url, { method: "DELETE" });
+  // 404 = déjà absente → OK pour idempotence
+  if (res.status === 404) return;
+  const json = await res.json().catch(() => ({}));
+  if (!res.ok || json.success === false) {
+    throw new Error(`DELETE ${key} → ${res.status}: ${JSON.stringify(json.errors || json)}`);
+  }
+}
+
+const kvClient = { kvGet, kvPut, kvDelete, listKeys: listAllKeys };
+
 function listLocalShardFiles() {
   if (!fs.existsSync(SHARDS_DIR)) {
     throw new Error(`Dossier absent: ${SHARDS_DIR} — lancer npm run redirects:kv-shards`);
@@ -131,7 +140,6 @@ async function runBackup() {
   const remoteKeys = await listAllKeys("r:");
   console.log(`  ${remoteKeys.length} clé(s) distante(s)`);
 
-  // Toujours inclure les clés des shards locaux même si absentes au remote
   const localKeys = listLocalShardFiles().map(fileToKey);
   const allKeys = [...new Set([...remoteKeys, ...localKeys])].sort();
 
@@ -154,7 +162,6 @@ async function runBackup() {
       absent += 1;
       console.log(`  backup ${key}: (absent)`);
     } else {
-      // Valider JSON si possible
       try {
         JSON.parse(remote);
       } catch {
@@ -185,6 +192,10 @@ async function runBackup() {
       `node scripts/deploy-kv-shards.js --restore --dir ${path.relative(ROOT, backupDir)}`,
       "```",
       "",
+      "Comportement :",
+      "- clé présente au backup → restaure la valeur",
+      "- clé absente au backup → DELETE la clé (annule une création post-deploy)",
+      "",
       `Créé : ${manifest.createdAt}`,
       `Clés sauvegardées : ${ok} (+ ${absent} absentes)`,
       "",
@@ -210,38 +221,7 @@ async function runUpload() {
 }
 
 async function runRestore() {
-  if (!fs.existsSync(backupDir)) {
-    throw new Error(`Dossier backup absent: ${backupDir}`);
-  }
-  const manifestPath = path.join(backupDir, "manifest.json");
-  let keys;
-  if (fs.existsSync(manifestPath)) {
-    const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
-    keys = manifest.keys.map((k) => k.key);
-  } else {
-    keys = fs
-      .readdirSync(backupDir)
-      .filter((f) => f.startsWith("r_") && f.endsWith(".json"))
-      .map((f) => f.replace(/\.json$/, "").replace("_", ":"));
-  }
-  if (!keys.length) throw new Error("Aucune clé à restaurer dans le backup");
-
-  console.log(`Restore KV depuis ${backupDir} (${keys.length} clés)`);
-  for (const key of keys) {
-    const file = path.join(backupDir, keyToFile(key));
-    if (!fs.existsSync(file)) {
-      throw new Error(`Fichier manquant pour ${key}: ${file}`);
-    }
-    const raw = fs.readFileSync(file, "utf8").trim();
-    if (raw === "null") {
-      console.log(`  SKIP ${key} (était absent au backup — pas d’écrasement)`);
-      continue;
-    }
-    JSON.parse(raw);
-    await kvPut(key, raw);
-    console.log(`  RESTORED ${key} (${raw.length} bytes)`);
-  }
-  console.log("Restore KV OK");
+  await runRestoreOps(backupDir, kvClient);
 }
 
 async function main() {
@@ -254,18 +234,14 @@ async function main() {
     await runRestore();
     return;
   }
-
   if (BACKUP_ONLY) {
     await runBackup();
     return;
   }
-
   if (UPLOAD_ONLY) {
     await runUpload();
     return;
   }
-
-  // Mode local combiné
   await runBackup();
   await runUpload();
 }

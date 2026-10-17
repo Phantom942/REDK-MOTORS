@@ -9,9 +9,10 @@
 #   2) Backup KV distant (obligatoire) → échoue = stop
 #   3) Artefact GitHub du backup (obligatoire) → avant tout upload
 #   4) Upload shards + deploy Worker
-#   5) Verify --all --strict (234 anciennes + 78 nouvelles + 11 conservés)
+#   5) Verify --all --strict avec retries (propagation CF)
 #
 # Rollback : mode=rollback + run_id de l’artefact kv-backup-*.
+#   Clés absentes au backup → DELETE ; clés présentes → PUT valeur précédente.
 name: Deploy blog redirects KV
 
 env:
@@ -42,6 +43,11 @@ on:
           - "true"
           - "false"
 
+# Un seul déploiement / rollback KV à la fois — ne pas annuler un run en cours
+concurrency:
+  group: deploy-blog-redirects-kv
+  cancel-in-progress: false
+
 permissions:
   contents: read
   actions: write
@@ -68,6 +74,7 @@ jobs:
         run: |
           npm run build
           npm run test:blog-migration
+          npm run test:kv-restore
           npm run redirects:kv-shards
 
       - name: Require CLOUDFLARE_API_TOKEN
@@ -108,23 +115,38 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: npm run cf:deploy-headers
 
-      - name: Verify production redirects (all + strict)
+      - name: Verify production redirects (all + strict, retries)
         env:
           SITE_URL: https://redkmotors.fr
           VERIFY_BLOG_REDIRECTS_STRICT: "1"
         run: |
           set -euo pipefail
-          # Propagation KV
-          sleep 20
-          node scripts/verify-blog-redirects-prod.js --all --strict
+          # Propagation Cloudflare KV / edge : plusieurs tentatives
+          MAX_ATTEMPTS=6
+          SLEEP_SECS=20
+          for attempt in $(seq 1 "$MAX_ATTEMPTS"); do
+            echo "=== Verify attempt $attempt/$MAX_ATTEMPTS ==="
+            if node scripts/verify-blog-redirects-prod.js --all --strict; then
+              echo "Verify OK (attempt $attempt)"
+              exit 0
+            fi
+            if [ "$attempt" -lt "$MAX_ATTEMPTS" ]; then
+              echo "Propagation CF possible — retry dans ${SLEEP_SECS}s…"
+              sleep "$SLEEP_SECS"
+              SLEEP_SECS=$((SLEEP_SECS + 10))
+            fi
+          done
+          echo "::error::Verify échoué après $MAX_ATTEMPTS tentatives"
+          exit 1
 
       - name: Rollback hint on failure
         if: failure()
         run: |
-          echo "::error::Déploiement ou vérif échoué. Rollback :"
+          echo "::error::Déploiement ou vérif échoué. Rollback KV :"
           echo "  Actions → Deploy blog redirects KV → Run workflow"
           echo "  mode=rollback , rollback_run_id=${{ github.run_id }}"
           echo "Artefact : kv-backup-${{ github.run_id }}"
+          echo "Si Worker JS modifié : voir docs/cloudflare-kv-blog-redirects-runbook.md § Worker JS"
 
   rollback-kv:
     if: github.repository == 'Phantom942/REDK-MOTORS' && inputs.mode == 'rollback'
@@ -167,29 +189,36 @@ jobs:
         run: |
           set -euo pipefail
           test -f workers/kv-backup/manifest.json
+          npm run test:kv-restore
           node scripts/deploy-kv-shards.js --restore --dir workers/kv-backup
 
       - name: Verify production after rollback
         env:
           SITE_URL: https://redkmotors.fr
-          VERIFY_BLOG_REDIRECTS_STRICT: "1"
         run: |
-          sleep 15
-          # Après rollback les anciennes URL migrées peuvent re-404 :
-          # on vérifie au moins que les 11 conservés + chemins critiques restent 200
-          node -e "
-          const kept = require('./scripts/lib/blog-article-redirects.js').classifyArticles().kept;
-          (async () => {
-            let failed = 0;
-            for (const { permalink } of kept) {
-              const res = await fetch('https://redkmotors.fr' + permalink, { redirect: 'manual' });
-              console.log(res.status, permalink);
-              if (res.status !== 200) failed++;
-            }
-            const home = await fetch('https://redkmotors.fr/', { redirect: 'manual' });
-            console.log(home.status, '/');
-            if (home.status !== 200) failed++;
-            if (failed) process.exit(1);
-            console.log('Rollback verify kept+home OK');
-          })();
-          "
+          set -euo pipefail
+          MAX_ATTEMPTS=4
+          SLEEP_SECS=15
+          for attempt in $(seq 1 "$MAX_ATTEMPTS"); do
+            echo "=== Rollback verify attempt $attempt/$MAX_ATTEMPTS ==="
+            if node -e "
+              const kept = require('./scripts/lib/blog-article-redirects.js').classifyArticles().kept;
+              (async () => {
+                let failed = 0;
+                for (const { permalink } of kept) {
+                  const res = await fetch('https://redkmotors.fr' + permalink, { redirect: 'manual' });
+                  console.log(res.status, permalink);
+                  if (res.status !== 200) failed++;
+                }
+                const home = await fetch('https://redkmotors.fr/', { redirect: 'manual' });
+                console.log(home.status, '/');
+                if (home.status !== 200) failed++;
+                if (failed) process.exit(1);
+                console.log('Rollback verify kept+home OK');
+              })();
+            "; then
+              exit 0
+            fi
+            [ "$attempt" -lt "$MAX_ATTEMPTS" ] && sleep "$SLEEP_SECS"
+          done
+          exit 1

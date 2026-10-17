@@ -8,14 +8,15 @@
    - `mode=deploy`
    - `deploy_worker=true`
 4. Le workflow :
-   - build + `test:blog-migration`
+   - build + `test:blog-migration` + `test:kv-restore`
    - **backup KV obligatoire** (échec = stop)
    - **publie l’artefact** `kv-backup-<run_id>` **avant** tout upload
    - upload shards + deploy Worker
-   - `verify-blog-redirects-prod.js --all --strict` (234 anciennes + 78 nouvelles + 11 conservés)
+   - `verify-blog-redirects-prod.js --all --strict` avec **retries** (propagation CF)
 5. Search Console : inspection des nouvelles URL + suivi 404
 
-**Pas de déclenchement automatique sur push.**
+**Pas de déclenchement automatique sur push.**  
+**Concurrency** : un seul run `deploy-blog-redirects-kv` à la fois (`cancel-in-progress: false`).
 
 ## Prérequis
 
@@ -24,7 +25,18 @@
   - Workers KV Storage:Edit
 - Namespace id : `5d9807d363a24a089326f8d24f4f340c` (voir `workers/wrangler.toml`)
 
-## Rollback (fiable)
+## Rollback KV (fiable)
+
+### Comportement restore
+
+Pour chaque entrée du `manifest.json` :
+
+| État au backup | Action restore |
+|---|---|
+| `absent: false` | `PUT` de la valeur exacte sauvegardée |
+| `absent: true` | `DELETE` de la clé (annule une création post-deploy) |
+
+Validation **intégrale** du manifest + fichiers **avant** toute écriture. Sauvegarde incomplète → échec, aucune mutation KV.
 
 ### Via GitHub Actions (préféré)
 
@@ -32,7 +44,7 @@
 2. Actions → **Deploy blog redirects KV** → Run workflow
    - `mode=rollback`
    - `rollback_run_id=<run_id>`
-3. Le job télécharge l’artefact `kv-backup-<run_id>` et restaure toutes les clés.
+3. Le job télécharge l’artefact `kv-backup-<run_id>` et restaure / supprime les clés.
 
 ### Via CLI local
 
@@ -42,13 +54,34 @@
 
 export CLOUDFLARE_API_TOKEN=…   # ne pas coller le token dans un chat
 node scripts/deploy-kv-shards.js --restore --dir workers/kv-backup
-
-# Si le Worker JS a changé et pose problème :
-git checkout <commit-avant> -- workers/redkmotors-fr-redirect-kv.js
-npm run cf:deploy-headers
 ```
 
 Conserver l’artefact ≥ 7 jours (rétention workflow = 30 jours).
+
+## Rollback Worker JavaScript
+
+Le workflow KV restaure **uniquement** le namespace KV. Si `workers/redkmotors-fr-redirect-kv.js` a été modifié et déployé (`deploy_worker=true`), un rollback KV **ne** ramène **pas** l’ancien script Worker.
+
+### Procédure Worker
+
+1. Identifier le commit **avant** le déploiement du nouveau Worker :
+   ```bash
+   git log --oneline -- workers/redkmotors-fr-redirect-kv.js
+   ```
+2. Restaurer le fichier puis redéployer :
+   ```bash
+   git checkout <commit-avant> -- workers/redkmotors-fr-redirect-kv.js
+   export CLOUDFLARE_API_TOKEN=…
+   npm run cf:deploy-headers
+   ```
+3. Ordre recommandé en incident :
+   1. Rollback **KV** (`mode=rollback`) pour rétablir les mappings
+   2. Rollback **Worker JS** si le comportement du script est en cause
+   3. Vérifier une URL prioritaire : `curl -sI https://redkmotors.fr/blog/<slug>/`
+
+### Note
+
+Ne pas mélanger un Worker neuf avec un KV ancien (ou l’inverse) sans vérifier : le Worker actuel lit le KV **avant** la normalisation `.html` ; un Worker antérieur peut se comporter différemment.
 
 ## CLI local (deploy)
 
@@ -56,6 +89,7 @@ Conserver l’artefact ≥ 7 jours (rétention workflow = 30 jours).
 npm ci
 npm run build
 npm run test:blog-migration
+npm run test:kv-restore
 npm run redirects:kv-shards
 
 # 1) Backup seul
@@ -78,3 +112,4 @@ npm run verify:blog-redirects:prod:all
 - Écraser KV avec un shard partiel
 - Remplacer les 301 HTTP par meta-refresh / JS
 - Wildcard `/blog/*` → `/blog/articles/*`
+- Deux déploiements KV simultanés (évité par `concurrency`)

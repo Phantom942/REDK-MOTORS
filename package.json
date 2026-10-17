@@ -22,6 +22,7 @@
     "redirects:kv-upload": "node scripts/deploy-kv-shards.js --upload-only",
     "redirects:kv-restore": "node scripts/deploy-kv-shards.js --restore --dir workers/kv-backup",
     "test:blog-migration": "node scripts/test-blog-migration-redirects.js",
+    "test:kv-restore": "node scripts/test-kv-shards-restore.js",
     "verify:blog-redirects:prod": "node scripts/verify-blog-redirects-prod.js --strict",
     "verify:blog-redirects:prod:all": "node scripts/verify-blog-redirects-prod.js --all --strict",
     "audit:blog": "node scripts/audit-blog-seo.js && node scripts/audit-blog-geo.js",
