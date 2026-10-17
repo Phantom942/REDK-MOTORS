@@ -229,7 +229,7 @@ const landingPages = {
       points: [
         "Jusqu'à 150 € offerts par RED-K MOTORS sur chaque remplacement",
         "Franchise bris de glace offerte par l'atelier",
-        "Navette à domicile possible sur Ivry, Vitry, Villejuif et alentours",
+        "Parking pour dépôt de véhicule sur place à Ivry",
       ],
       disclaimer:
         "Offre valable sur remplacement de pare-brise avec garantie bris de glace au contrat. Jusqu'à 150 € TTC offerts par RED-K MOTORS + prise en charge de la franchise, par intervention. Sous réserve d'acceptation du dossier par votre assureur et conditions précisées au devis.",
@@ -242,7 +242,7 @@ const landingPages = {
       "Réparation d'impact ~45 min",
       "Remplacement pare-brise",
       "Dossier assurance bris de glace",
-      "Navette à domicile sur le 94",
+      "Parking pour dépôt de véhicule sur place",
     ],
     processSteps: PROCESS_STEPS,
     services: [
@@ -254,13 +254,13 @@ const landingPages = {
     faqs: [
       { question: "Comment fonctionne l'offre ?", answer: "Sur chaque remplacement de pare-brise, RED-K MOTORS vous offre jusqu'à 150 € et prend en charge votre franchise bris de glace. On vous accompagne pour la déclaration et le dossier assurance." },
       { question: "L'assurance bris de glace couvre-t-elle le pare-brise ?", answer: "Oui si la garantie figure sur votre contrat. En plus de la prise en charge assurance, l'atelier offre jusqu'à 150 € + votre franchise." },
-      { question: "Proposez-vous une navette ?", answer: "Oui — récupération et restitution à domicile sur Ivry, Vitry, Villejuif et alentours." },
+      { question: "Y a-t-il un parking pour déposer le véhicule ?", answer: "Oui — parking pour dépôt de véhicule sur place au 9 rue Michelet, Ivry-sur-Seine. Pas de service de navette." },
       { question: "Puis-je envoyer une photo ?", answer: "Oui par WhatsApp pour lancer le dossier rapidement." },
     ],
     seoTitle: "Pare-brise et bris de glace",
     seoParagraphs: [
       "Impact, fissure ou remplacement pare-brise : réparation rapide ou pose neuve, avec accompagnement dossier assurance bris de glace.",
-      "Offre en cours : jusqu'à 150 € offerts par RED-K MOTORS + franchise sur chaque remplacement de pare-brise. Navette possible sur Ivry, Vitry-sur-Seine et communes voisines du 94.",
+      "Offre en cours : jusqu'à 150 € offerts par RED-K MOTORS + franchise sur chaque remplacement de pare-brise. Parking pour dépôt de véhicule sur place à Ivry (lun–sam 9h–19h).",
     ],
     seoFooter: "Envoyez une photo de l'impact par WhatsApp pour lancer le dossier.",
   },

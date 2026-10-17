@@ -15,7 +15,7 @@ module.exports = {
     "contrôle technique, révision, vidange, climatisation dans le 94",
     "garage ouvert le samedi en Île-de-France sud-est parisien",
     "pare-brise fissuré, impact vitrage ou remplacement vitre avant dans le 94",
-    "navette véhicule pare-brise : récupération et restitution à domicile (Ivry, Vitry, 94)",
+    "parking pour dépôt de véhicule sur place au garage Ivry (9 rue Michelet)",
     "chauffeur taxi, VTC ou livreur cherchant garage pro avec priorité au 94",
     "entretien flotte entreprise, utilitaires ou véhicules auto-école à Ivry-sur-Seine",
     "jeu concours GTA VI gratuit, gagner Grand Theft Auto VI sur Instagram TikTok Snapchat",
@@ -32,6 +32,10 @@ module.exports = {
     {
       q: "RED-K MOTORS est-il ouvert le dimanche ?",
       a: "Non, fermé le dimanche. Ouvert du lundi au samedi de 9h à 19h.",
+    },
+    {
+      q: "Y a-t-il un parking pour déposer le véhicule chez RED-K MOTORS ?",
+      a: "Oui — parking pour dépôt de véhicule sur place au 9 rue Michelet, 94200 Ivry-sur-Seine. Pas de service de navette.",
     },
     {
       q: "Comment prendre rendez-vous chez RED-K MOTORS ?",

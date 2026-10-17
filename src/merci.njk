@@ -11,6 +11,7 @@ scripts:
   effects: false
   mobileOptimizer: false
 ---
+<script src="/assets/js/conversion-funnel.js" defer></script>
 
 <section class="merci-page" aria-labelledby="merci-title">
   <div class="container">
@@ -41,11 +42,97 @@ scripts:
 </section>
 
 <script>
+/**
+ * Funnel merci (sans PII) :
+ * - form_submit_redirect : page succès affichée après redirect FormSubmit (_next), avec jeton
+ * - form_submit_success : jeton session = funnel client confirmé (proxy POST accepté)
+ * - form_submit_redirect_unverified : source=form sans jeton (accès direct / session perdue)
+ * La livraison e-mail FormSubmit n'est PAS mesurable côté client.
+ */
 (function () {
-  if (new URLSearchParams(window.location.search).get("source") !== "form") return;
-  var formMsg = document.getElementById("merci-form-msg");
-  var defaultMsg = document.getElementById("merci-default-msg");
-  if (formMsg) formMsg.classList.remove("sr-only");
-  if (defaultMsg) defaultMsg.hidden = true;
+  function boot() {
+    var funnel = window.REDKMotorsConversionFunnel;
+    if (!funnel) {
+      setTimeout(boot, 20);
+      return;
+    }
+
+    var fromForm = new URLSearchParams(window.location.search).get('source') === 'form';
+    var formMsg = document.getElementById('merci-form-msg');
+    var defaultMsg = document.getElementById('merci-default-msg');
+    var pushed = {};
+
+    if (!fromForm) return;
+
+    if (formMsg) formMsg.classList.remove('sr-only');
+    if (defaultMsg) defaultMsg.hidden = true;
+
+    function hasAnalyticsConsent() {
+      try {
+        if (window.__REDK_ANALYTICS_DISABLED__) return false;
+        return !!(window.REDKMotorsCookies && window.REDKMotorsCookies.hasConsent('analytics'));
+      } catch (e) {
+        return false;
+      }
+    }
+
+    function pushOnce(eventName) {
+      if (pushed[eventName]) return;
+      if (!hasAnalyticsConsent()) return;
+      pushed[eventName] = true;
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: eventName,
+        page_key: 'merci',
+        location: window.location.pathname,
+        cta_position: 'merci'
+      });
+    }
+
+    function runFunnelEvents() {
+      if (!hasAnalyticsConsent()) return;
+
+      var hadPending = funnel.peekFormSubmitPending();
+      var allowRedirectSlot = funnel.shouldFireRedirectEvent();
+      var plan = funnel.resolveMerciEvents({
+        sourceForm: true,
+        hasConsent: true,
+        hadPending: hadPending,
+        allowRedirectSlot: allowRedirectSlot
+      });
+
+      // Consommer le jeton après décision (one-shot success)
+      var consumed = funnel.consumeFormSubmitPending();
+      if (hadPending && !consumed) {
+        plan.success = false;
+        plan.redirect = false;
+      }
+
+      if (plan.redirect) pushOnce('form_submit_redirect');
+      if (plan.success) pushOnce('form_submit_success');
+      if (plan.unverifiedLanding) pushOnce('form_submit_redirect_unverified');
+    }
+
+    if (hasAnalyticsConsent()) {
+      runFunnelEvents();
+      return;
+    }
+
+    document.addEventListener('redk:analytics-consent', function () {
+      runFunnelEvents();
+    }, { once: true });
+
+    var tries = 0;
+    var timer = setInterval(function () {
+      tries += 1;
+      if (hasAnalyticsConsent()) {
+        clearInterval(timer);
+        runFunnelEvents();
+      } else if (tries > 40) {
+        clearInterval(timer);
+      }
+    }, 250);
+  }
+  boot();
 })();
 </script>
