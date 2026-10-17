@@ -251,9 +251,10 @@ const AD_OVERRIDES = {
     heroDesc: "Impact ou vitrage cassé ? Dossier assurance accompagné, intervention rapide.",
   },
   "recharge-clim": {
-    heroTitle: "Recharge Climatisation à Ivry",
-    heroKicker: "Clim · Confort été",
-    heroDesc: "Air tiède ou odeur ? Recharge gaz, contrôle étanchéité, devis avant travaux.",
+    heroTitle: "Recharge climatisation à Ivry-sur-Seine",
+    heroKicker: "Contrôle étanchéité · Devis avant recharge",
+    heroDesc:
+      "Air tiède, buée ou odeur ? Test de pression et étanchéité avant recharge. Devis écrit — pas de remplissage à l'aveugle.",
   },
   geometrie: {
     heroTitle: "Géométrie & Parallélisme à Ivry",
@@ -743,12 +744,17 @@ const SEO_CONTENT = {
     seoFooter: "Freinage à Ivry-sur-Seine (94) — lun–sam 9h–19h.",
   },
   "recharge-clim": {
-    seoTitle: "Climatisation auto",
+    seoTitle: "Recharge clim à Ivry-sur-Seine",
     seoParagraphs: [
-      "Recharge climatisation après contrôle d'étanchéité. Clim qui ne refroidit plus, air tiède ou odeur : diagnostic avant recharge.",
-      "Réparation climatisation (fuite, compresseur) chiffrée au devis après inspection du circuit.",
+      "Recharge climatisation à Ivry après contrôle d'étanchéité. Clim qui ne refroidit plus, air tiède ou odeur : on mesure les pressions avant toute recharge.",
+      "Si fuite ou compresseur HS, la réparation est chiffrée au devis après inspection — distincte d'une simple recharge. Voir aussi le guide prix clim 94.",
     ],
-    seoFooter: "Pensez à la clim avant l'été — créneau sur rendez-vous.",
+    seoFooter: "RDV clim : téléphone, WhatsApp ou formulaire contact — atelier 9 rue Michelet.",
+    seoProblems: [
+      { text: "Prix recharge clim 94", url: "/blog/articles/prix-recharge-climatisation-94/" },
+      { text: "Odeur moisi clim", url: "/blog/articles/clim-odeur-moisi-que-faire/" },
+      { text: "Exemple de prix", url: "/exemples/prix-recharge-climatisation/" },
+    ],
   },
   "montage-equilibrage": {
     seoTitle: "Montage et changement de pneus",

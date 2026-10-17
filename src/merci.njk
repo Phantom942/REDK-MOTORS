@@ -47,5 +47,17 @@ scripts:
   var defaultMsg = document.getElementById("merci-default-msg");
   if (formMsg) formMsg.classList.remove("sr-only");
   if (defaultMsg) defaultMsg.hidden = true;
+  // Conversion réelle formulaire (≠ clic téléphone). Pas de données personnelles.
+  // Respecte le consentement analytics s'il est déjà chargé.
+  try {
+    if (window.REDKMotorsCookies && !window.REDKMotorsCookies.hasConsent("analytics")) return;
+  } catch (e) { /* ignore */ }
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: "form_submit_success",
+    page_key: "merci",
+    location: window.location.pathname,
+    cta_position: "merci"
+  });
 })();
 </script>
