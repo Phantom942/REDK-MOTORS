@@ -3,34 +3,34 @@
  */
 module.exports = {
   "garage-ivry": {
-    seoTitle: "Garage à Ivry-sur-Seine — 9 rue Michelet (94200)",
+    seoTitle: "Garage au 9 rue Michelet, Ivry-sur-Seine (94200)",
     seoParagraphs: [
-      "RED-K MOTORS, garage automobile au 9 rue Michelet, 94200 Ivry-sur-Seine. Ouvert lun–sam 9h–19h. Tél. 06 48 74 56 68. Parking dépôt véhicule sur place.",
-      "Diagnostic OBD, vidange, freins, pneus/géométrie, clim, distribution, embrayage, carrosserie, pare-brise. Devis écrit avant travaux — pas de surprise.",
-      "Point d'accès pour Vitry, Villejuif, Paris 13, Charenton, Maisons-Alfort. Multimarque essence/diesel. RDV recommandé ; sans RDV possible selon charge atelier.",
+      "RED-K MOTORS, garage automobile au 9 rue Michelet, 94200 Ivry-sur-Seine. Ouvert lun–sam 9h–19h. Tél. 06 48 74 56 68.",
+      "Diagnostic OBD, vidange, freins, pneus/géométrie, clim, distribution, embrayage, carrosserie, pare-brise. Devis écrit avant travaux.",
+      "Point d'accès pour Vitry, Villejuif, Paris 13, Charenton, Maisons-Alfort. Multimarque essence/diesel. RDV recommandé.",
     ],
     seoFooter: "Plan et formulaire : redkmotors.fr/contact/ — WhatsApp pour photos et premier avis.",
     heroDesc:
-      "Atelier au 9 rue Michelet, 94200 Ivry-sur-Seine. Diagnostic, freins, pneus, clim, carrosserie — devis écrit avant travaux. Parking dépôt sur place.",
-    introHeading: "Votre garage à Ivry-centre",
+      "Atelier au 9 rue Michelet, 94200 Ivry-sur-Seine. Diagnostic, freins, pneus, clim, carrosserie — devis écrit avant travaux.",
+    introHeading: "Adresse & accès — Ivry-centre",
     introText:
-      "L'atelier est au cœur d'Ivry : quartier, flottes VTC du 94 et conducteurs du périph'. Pas de centre d'appels — vous parlez directement à l'équipe atelier.",
+      "L'atelier est au 9 rue Michelet, au cœur d'Ivry. Pas de centre d'appels : vous échangez directement avec l'équipe atelier pour le devis et le suivi.",
     highlights: [
       "Adresse : 9 rue Michelet, 94200",
-      "Parking dépôt sur place",
       "Devis écrit avant toute intervention",
+      "Multimarque essence et diesel",
       "Lun–sam 9h–19h — réponse en journée",
     ],
     faqs: [
       {
         question: "Quels sont vos horaires à Ivry ?",
         answer:
-          "Lun–sam 9h–19h, sans coupure. RDV conseillé pour garantir un créneau ; on essaie aussi de prendre les urgences dans la journée.",
+          "Lun–sam 9h–19h, sans coupure. RDV conseillé pour garantir un créneau.",
       },
       {
-        question: "Y a-t-il une place pour laisser la voiture ?",
+        question: "Où se trouve exactement l'atelier ?",
         answer:
-          "Oui — espace dépôt sur place. Sinon, stationnement possible dans les rues adjacentes au 9 rue Michelet.",
+          "9 rue Michelet, 94200 Ivry-sur-Seine. Itinéraire et plan sur la page contact.",
       },
       {
         question: "Comment obtenir un devis ?",
@@ -40,39 +40,39 @@ module.exports = {
       {
         question: "Quels moyens de paiement acceptez-vous ?",
         answer:
-          "Carte bancaire, espèces et virement. Paiement en plusieurs fois possible selon le montant — à voir avec l'atelier.",
+          "Carte bancaire, espèces et virement. Autres modalités éventuelles : à confirmer avec l'atelier.",
       },
     ],
   },
   vitry: {
     seoTitle: "Garage à Ivry, accessible depuis Vitry-sur-Seine",
     seoParagraphs: [
-      "RED-K MOTORS n'a pas d'atelier à Vitry : le garage est à Ivry-sur-Seine (9 rue Michelet). Depuis Vitry (Mairie, Stalingrad, bords de Seine), le trajet est en général de quelques minutes.",
-      "Révision, freins, diagnostic et carrosserie — devis écrit avant travaux. Navette dépôt possible selon disponibilité atelier.",
+      "RED-K MOTORS n'a pas d'atelier à Vitry : le garage est à Ivry-sur-Seine (9 rue Michelet). Depuis Vitry (Mairie, Stalingrad, bords de Seine), le trajet dépend du trafic et du quartier.",
+      "Révision, freins, diagnostic et carrosserie — devis écrit avant travaux.",
       "Plaquettes, pneus, recharge clim : chiffrage après inspection du véhicule, pas au téléphone.",
     ],
     seoFooter: "Plan et RDV : redkmotors.fr/contact/ — WhatsApp pour photos.",
     heroDesc:
-      "Atelier unique à Ivry, à quelques minutes de Vitry. Entretien, freins, diagnostic — devis expliqué avant intervention.",
+      "Atelier unique à Ivry, accessible depuis Vitry. Entretien, freins, diagnostic — devis expliqué avant intervention.",
     introHeading: "Depuis Vitry-sur-Seine",
     introText:
-      "Vous roulez souvent entre Vitry et Paris sud ? L'atelier est à Ivry : même équipe, même adresse — pas une succursale Vitry. Pratique si vous évitez les garages en centre parisien.",
+      "Vous roulez souvent entre Vitry et Paris sud ? L'atelier est à Ivry : même équipe, même adresse — pas une succursale Vitry.",
     highlights: [
       "Atelier à Ivry (pas de site Vitry)",
-      "Accès rapide depuis Vitry (centre ou Stalingrad)",
-      "Navette possible selon disponibilité",
+      "Accessible depuis Vitry (trajet selon trafic)",
       "Devis écrit avant toute intervention",
+      "Lun–sam 9h–19h",
     ],
     faqs: [
       {
         question: "Avez-vous un garage à Vitry ?",
         answer:
-          "Non. L'atelier est au 9 rue Michelet à Ivry-sur-Seine. Depuis Vitry, comptez en général 5 à 10 minutes selon le trafic et votre quartier.",
+          "Non. L'atelier est au 9 rue Michelet à Ivry-sur-Seine. Le temps de trajet depuis Vitry dépend du quartier et du trafic.",
       },
       {
         question: "Puis-je déposer la voiture le matin avant le travail ?",
         answer:
-          "Oui, sur RDV. On fait le diagnostic dans la journée et on vous rappelle avant toute réparation.",
+          "Oui, sur RDV. Modalités de dépôt à confirmer au téléphone selon l'organisation du jour.",
       },
       {
         question: "Intervenez-vous sur les véhicules récents (Start-Stop, AdBlue) ?",
@@ -88,21 +88,21 @@ module.exports = {
   "vitry-sur-seine": {
     seoTitle: "Garage Ivry proche Vitry-sur-Seine",
     seoParagraphs: [
-      "Pas de succursale à Vitry : l'atelier RED-K MOTORS est à Ivry-sur-Seine. Depuis Mairie, Stalingrad, Les Malassis ou les bords de Seine, le trajet reste court sans entrer dans Paris.",
+      "Pas de succursale à Vitry : l'atelier RED-K MOTORS est à Ivry-sur-Seine. Depuis Mairie, Stalingrad, Les Malassis ou les bords de Seine, l'accès se fait vers le 9 rue Michelet à Ivry.",
       "Révision, freins, diagnostic diesel (FAP, EGR, AdBlue), carrosserie et pare-brise : même équipe qu'à Ivry-centre.",
-      "Dépôt matin possible sur RDV — navette selon disponibilité, rappel avant validation des travaux.",
+      "Dépôt sur RDV — rappel avant validation des travaux.",
     ],
     seoFooter: "Itinéraire via Ivry-centre — créneau sur rendez-vous.",
     heroDesc:
-      "Depuis Vitry, l'atelier Ivry est à quelques minutes. Entretien, freins, diagnostic — devis avant intervention.",
+      "Depuis Vitry, direction l'atelier Ivry (9 rue Michelet). Entretien, freins, diagnostic — devis avant intervention.",
     introHeading: "Vitry-sur-Seine → atelier Ivry",
     introText:
-      "Si vous cherchez un garage sans traverser Paris intra-muros, l'adresse rue Michelet à Ivry est un compromis pratique : atelier indépendant, suivi direct avec l'équipe.",
+      "Si vous cherchez un garage sans traverser Paris intra-muros, l'adresse rue Michelet à Ivry est un point d'accès pratique : atelier indépendant, suivi direct avec l'équipe.",
     highlights: [
       "Adresse unique : 9 rue Michelet, Ivry",
-      "Quelques minutes depuis Mairie / Stalingrad",
-      "Navette dépôt possible selon dispo",
+      "Pas de succursale à Vitry",
       "Devis écrit — aucune pièce sans accord",
+      "Lun–sam 9h–19h",
     ],
     faqs: [
       {
@@ -118,7 +118,7 @@ module.exports = {
       {
         question: "Puis-je déposer la voiture avant le travail ?",
         answer:
-          "Oui, sur RDV. Diagnostic dans la journée, rappel avant toute réparation validée.",
+          "Oui, sur RDV. Les modalités exactes se confirment au téléphone.",
       },
       {
         question: "Comment vous joindre depuis Vitry ?",

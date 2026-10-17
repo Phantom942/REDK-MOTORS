@@ -287,10 +287,16 @@
     gtm.async = true;
     gtm.src = 'https://www.googletagmanager.com/gtm.js?id=' + gtmId;
     document.head.appendChild(gtm);
+    var funnel = document.createElement('script');
+    funnel.src = '/assets/js/conversion-funnel.js';
+    document.body.appendChild(funnel);
     var track = document.createElement('script');
     track.src = '/assets/js/track.js';
     track.defer = true;
     document.body.appendChild(track);
+    try {
+      document.dispatchEvent(new CustomEvent('redk:analytics-consent', { detail: { analytics: true } }));
+    } catch (e) { /* IE ignore */ }
   }
 
   // Retirer les scripts d'analytics

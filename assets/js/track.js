@@ -1,6 +1,9 @@
 // RED-K MOTORS — GTM dataLayer tracking (chargé uniquement après consentement)
 (function() {
   if (!window.REDKMotorsCookies || !window.REDKMotorsCookies.hasConsent('analytics')) return;
+  var funnel = window.REDKMotorsConversionFunnel;
+  if (!funnel) return;
+
   var pageKey = document.body.getAttribute('data-page') || 'unknown';
   var pagePath = window.location.pathname;
 
@@ -58,8 +61,16 @@
 
   var forms = document.querySelectorAll('[data-track-submit]');
   for (var i = 0; i < forms.length; i++) {
-    forms[i].addEventListener('submit', function() {
-      pushEvent(this.getAttribute('data-track-submit'), 'contact');
+    forms[i].addEventListener('submit', function(e) {
+      var configured = this.getAttribute('data-track-submit');
+      if (!configured) return;
+      var resolved = funnel.resolveSubmitEvent(this, e);
+      if (resolved === 'form_submit_contact') {
+        funnel.markFormSubmitPending();
+        pushEvent(configured, 'contact');
+      } else if (resolved === 'form_submit_attempt_blocked') {
+        pushEvent('form_submit_attempt_blocked', 'contact');
+      }
     });
   }
 })();
