@@ -8,6 +8,8 @@ env:
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -59,15 +61,21 @@ jobs:
       - name: Test conversion tracking (browser)
         run: npm run test:conversion-browser
 
+      - name: Test GTM GA4 page_view (Playwright, réseau + conteneur publié)
+        run: npm run test:gtm-pageview
+
       - name: Setup Pages
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: actions/configure-pages@v4
 
       - name: Upload artifact
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v3
         with:
           path: _site
 
   deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

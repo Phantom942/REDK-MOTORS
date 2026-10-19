@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * Vérifie bootstrap GTM post-consentement + hit page_view GA4 (Playwright).
- * URL : TEST_GTM_URL (défaut https://redkmotors.fr/) ou serveur local _site via TEST_GTM_BASE.
+ * Bootstrap GTM post-consentement + exactement 1 page_view GA4 par chargement.
+ * Nécessite : _site (npm run build), réseau, conteneur GTM-NTC72X2G publié.
  */
 import { chromium } from "playwright";
 import { createServer } from "node:http";
@@ -11,7 +11,6 @@ import { fileURLToPath } from "url";
 
 const ROOT = join(fileURLToPath(new URL(".", import.meta.url)), "..");
 const GA4 = "G-BN0P1VLZR5";
-const PROD = process.env.TEST_GTM_URL || "https://redkmotors.fr/";
 
 const MIME = {
   ".html": "text/html; charset=utf-8",
@@ -27,33 +26,71 @@ function ok(msg) {
   console.log(`OK: ${msg}`);
 }
 
-function parseMeasurement(url, postData) {
-  const out = { en: null, tid: null, url };
+/** @returns {'script' | 'measurement' | 'other_google' | null} */
+function classifyGoogleUrl(url) {
+  if (!/google|googletagmanager|doubleclick|gstatic/i.test(url)) return null;
+  if (/googletagmanager\.com\/gtm\.js(\?|$)/.test(url)) return "script";
+  if (/googletagmanager\.com\/gtag\/js(\?|$)/.test(url)) return "script";
+  if (
+    /\/g\/collect|\/j\/collect|googletagmanager\.com\/td\?|google-analytics\.com\/g\/collect|analytics\.google\.com\/g\/collect|region\d+\.google-analytics\.com\/g\/collect/.test(
+      url,
+    )
+  ) {
+    return "measurement";
+  }
+  if (/google|googletagmanager|doubleclick/i.test(url)) return "other_google";
+  return null;
+}
+
+function mergeParams(url, postData) {
+  const params = {};
   try {
-    const u = new URL(url);
-    u.searchParams.forEach((v, k) => {
-      if (k === "en" || k === "tid" || k === "id") out[k === "id" ? "tid" : k] = v;
+    new URL(url).searchParams.forEach((v, k) => {
+      params[k] = v;
     });
   } catch {
     /* ignore */
   }
   if (postData) {
     try {
-      const p = Object.fromEntries(new URLSearchParams(postData));
-      out.en = out.en || p.en;
-      out.tid = out.tid || p.tid;
+      new URLSearchParams(postData).forEach((v, k) => {
+        params[k] = v;
+      });
     } catch {
       /* ignore */
     }
   }
-  if (url.includes(GA4)) out.tid = out.tid || GA4;
-  return out;
+  return params;
 }
 
-function isMeasurementUrl(url) {
-  return /\/g\/collect|\/j\/collect|googletagmanager\.com\/td|google-analytics\.com|analytics\.google/i.test(
-    url,
-  );
+/** Hit GA4 page_view strict : en=page_view et tid/id = G-BN0P1VLZR5 */
+function parseGa4PageViewHit(url, postData, status) {
+  const kind = classifyGoogleUrl(url);
+  if (kind !== "measurement") return null;
+  const params = mergeParams(url, postData);
+  const en = params.en;
+  const tid = params.tid || params.id;
+  if (en !== "page_view" || tid !== GA4) return null;
+  return { en, tid, status, url: url.split("?")[0] };
+}
+
+function assertExactlyOnePageView(hits, label) {
+  if (hits.length === 0) {
+    fail(`${label}: aucun hit en=page_view tid=${GA4}`);
+    return;
+  }
+  if (hits.length > 1) {
+    fail(
+      `${label}: ${hits.length} hits page_view tid=${GA4} (attendu: 1) — ${JSON.stringify(hits)}`,
+    );
+    return;
+  }
+  const h = hits[0];
+  if (h.status < 200 || h.status >= 400) {
+    fail(`${label}: page_view HTTP ${h.status} (attendu 2xx/204)`);
+    return;
+  }
+  ok(`${label}: exactement 1 page_view tid=${GA4} (HTTP ${h.status})`);
 }
 
 async function startLocalSite() {
@@ -79,41 +116,76 @@ async function startLocalSite() {
   });
 }
 
-async function runScenario(baseUrl, label) {
-  const browser = await chromium.launch({ headless: true });
-  const context = await browser.newContext();
-  const page = await context.newPage();
-  const googleBeforeAccept = [];
-  const afterConsent = [];
-  let accepted = false;
+function createNetworkCollector(page, { onlyAfterConsent = false } = {}) {
+  let consentGranted = !onlyAfterConsent;
+  const googleBeforeConsent = [];
+  const scripts = [];
+  const measurements = [];
+  const otherGoogle = [];
 
   page.on("request", (req) => {
     const u = req.url();
-    if (!/googletagmanager|google-analytics|analytics\.google/i.test(u)) return;
-    if (!accepted) googleBeforeAccept.push(u);
+    const kind = classifyGoogleUrl(u);
+    if (!kind) return;
+    if (!consentGranted) googleBeforeConsent.push({ kind, url: u });
   });
 
   page.on("response", (res) => {
-    if (!accepted) return;
+    if (onlyAfterConsent && !consentGranted) return;
     const u = res.url();
-    if (!/google|googletagmanager|analytics/i.test(u)) return;
+    const kind = classifyGoogleUrl(u);
+    if (!kind) return;
     const req = res.request();
-    afterConsent.push({
+    const entry = {
+      kind,
       status: res.status(),
-      ...parseMeasurement(u, req.postData()),
-    });
+      url: u,
+      postData: req.postData(),
+    };
+    if (kind === "script") scripts.push(entry);
+    else if (kind === "measurement") measurements.push(entry);
+    else otherGoogle.push(entry);
   });
+
+  return {
+    grantConsent() {
+      consentGranted = true;
+    },
+    googleBeforeConsent,
+    scripts,
+    measurements,
+    otherGoogle,
+    pageViewHits() {
+      return measurements
+        .map((m) => parseGa4PageViewHit(m.url, m.postData, m.status))
+        .filter(Boolean);
+    },
+    resetMeasurements() {
+      measurements.length = 0;
+    },
+  };
+}
+
+async function runScenario(baseUrl, label) {
+  const browser = await chromium.launch({ headless: true });
+  const page = await browser.newPage();
+  const net = createNetworkCollector(page, { onlyAfterConsent: true });
 
   await page.goto(baseUrl, { waitUntil: "domcontentloaded", timeout: 60000 });
   await page.waitForTimeout(800);
 
-  if (googleBeforeAccept.length > 0) {
-    fail(`${label}: requêtes Google avant consentement (${googleBeforeAccept.length})`);
+  const blockedBeforeConsent = net.googleBeforeConsent.filter(
+    (x) => x.kind === "script" || x.kind === "measurement",
+  );
+  if (blockedBeforeConsent.length > 0) {
+    fail(
+      `${label}: script/mesure Google avant consentement (${blockedBeforeConsent.length})`,
+    );
   } else {
-    ok(`${label}: aucune requête Google avant consentement`);
+    ok(`${label}: aucune requête GTM/GA4 (script/mesure) avant consentement`);
   }
 
-  accepted = true;
+  net.grantConsent();
   await page.locator("#cookie-accept-all").click();
   await page.waitForTimeout(12000);
 
@@ -122,80 +194,71 @@ async function runScenario(baseUrl, label) {
     const gtmJsEntries = dl.filter(
       (x) => x && typeof x === "object" && x.event === "gtm.js" && x["gtm.start"],
     );
-    return {
-      bootstrapCount: gtmJsEntries.length,
-      bootstrap: gtmJsEntries[0] || null,
-      gtmScript: !!document.querySelector("script[data-redk-gtm]"),
-      gaCookies: document.cookie.split(";").map((c) => c.trim()).filter((c) => c.startsWith("_ga")),
-    };
+    return { bootstrapCount: gtmJsEntries.length };
   });
 
   if (dlState.bootstrapCount !== 1) {
     fail(`${label}: attendu 1 push gtm.js/gtm.start, obtenu ${dlState.bootstrapCount}`);
   } else {
-    ok(`${label}: bootstrap GTM standard (gtm.start + event gtm.js) une fois`);
+    ok(`${label}: bootstrap GTM (gtm.start + gtm.js) une fois`);
   }
 
-  const pageViews = afterConsent.filter(
-    (h) =>
-      h.en === "page_view" ||
-      (h.url && h.url.includes(GA4) && /page_view|en=page_view/.test(JSON.stringify(h))),
-  );
-
-  const collectOrTd = afterConsent.filter(
-    (h) => isMeasurementUrl(h.url) && (h.tid === GA4 || h.url.includes(GA4)),
-  );
-
-  if (collectOrTd.length === 0) {
-    fail(`${label}: aucun hit mesure GA4 (${GA4}) après consentement`);
+  if (net.scripts.length === 0) {
+    fail(`${label}: aucun script GTM/gtag chargé après consentement`);
   } else {
-    ok(`${label}: ${collectOrTd.length} requête(s) mesure GA4 (HTTP ${collectOrTd.map((c) => c.status).join(", ")})`);
+    ok(`${label}: ${net.scripts.length} requête(s) script (gtm.js/gtag/js), distinctes des hits mesure`);
   }
 
-  if (pageViews.length === 0 && collectOrTd.every((c) => !c.en)) {
+  const firstLoadPageViews = net.pageViewHits();
+  assertExactlyOnePageView(firstLoadPageViews, `${label} [1er chargement]`);
+
+  const nonPageViewMeasurements = net.measurements.filter((m) => {
+    const pv = parseGa4PageViewHit(m.url, m.postData, m.status);
+    return !pv;
+  });
+  if (nonPageViewMeasurements.length > 0) {
     console.log(
-      `WARN: ${label}: en=page_view non trouvé en query — hits:`,
-      collectOrTd.map((c) => c.url?.slice(0, 120)),
+      `INFO: ${label}: ${nonPageViewMeasurements.length} autre(s) requête(s) mesure GA4/GTM (non page_view)`,
     );
-  } else if (pageViews.length > 0) {
-    ok(`${label}: page_view confirmé (${pageViews.length} hit(s))`);
   }
 
-  // Rechargement même session — pas de double bootstrap sur même navigation idempotente
-  const pvBeforeReload = collectOrTd.length;
+  net.resetMeasurements();
   await page.reload({ waitUntil: "domcontentloaded" });
   await page.waitForTimeout(12000);
-  const reloadState = await page.evaluate(() => {
+
+  const reloadBootstrap = await page.evaluate(() => {
     const dl = window.dataLayer || [];
-    return {
-      bootstrapCount: dl.filter(
-        (x) => x && typeof x === "object" && x.event === "gtm.js" && x["gtm.start"],
-      ).length,
-      gaCookies: document.cookie.split(";").map((c) => c.trim()).filter((c) => c.startsWith("_ga")),
-    };
+    return dl.filter(
+      (x) => x && typeof x === "object" && x.event === "gtm.js" && x["gtm.start"],
+    ).length;
   });
-  if (reloadState.bootstrapCount !== 1) {
-    fail(`${label}: après reload, attendu 1 bootstrap par page, obtenu ${reloadState.bootstrapCount}`);
+  if (reloadBootstrap !== 1) {
+    fail(`${label}: après reload, attendu 1 bootstrap gtm.js, obtenu ${reloadBootstrap}`);
   } else {
-    ok(`${label}: un seul bootstrap gtm.js par chargement (reload)`);
+    ok(`${label}: un seul bootstrap gtm.js après reload`);
   }
 
+  const reloadPageViews = net.pageViewHits();
+  assertExactlyOnePageView(reloadPageViews, `${label} [reload]`);
+
   await browser.close();
-  return { collectOrTd: collectOrTd.length, pvBeforeReload, dlState };
 }
 
 async function main() {
+  const prodUrl = process.env.TEST_GTM_URL;
+  const runProd = process.env.TEST_GTM_PROD === "1";
+
   const { server, base } = await startLocalSite();
   try {
     await runScenario(base, "local");
   } finally {
     server.close();
   }
-  if (process.env.TEST_GTM_PROD === "1") {
-    await runScenario(PROD, "prod");
-  } else {
-    console.log("INFO: test prod ignoré (déployer le fix puis TEST_GTM_PROD=1)");
+
+  if (runProd) {
+    await runScenario(prodUrl || "https://redkmotors.fr/", "prod");
   }
+
   if (process.exitCode) process.exit(process.exitCode);
   console.log("Tests GTM page_view: OK");
 }
