@@ -161,6 +161,19 @@ async function main() {
       ok("funnel + track initialisés");
     }
 
+    const gtmBootstrap = await page.evaluate(() => {
+      const dl = window.dataLayer || [];
+      const entries = dl.filter(
+        (x) => x && typeof x === "object" && x.event === "gtm.js" && x["gtm.start"],
+      );
+      return { count: entries.length, flag: !!window.__REDK_GTM_BOOTSTRAP__ };
+    });
+    if (gtmBootstrap.count !== 1 || !gtmBootstrap.flag) {
+      fail(`bootstrap GTM invalide: ${JSON.stringify(gtmBootstrap)}`);
+    } else {
+      ok("gtm.start + gtm.js poussés une fois avant gtm.js");
+    }
+
     // Double accept / re-loadAnalytics → pas de scripts dupliqués
     await page.evaluate(() => {
       if (window.REDKMotorsCookies && window.REDKMotorsCookies.openPreferences) {
