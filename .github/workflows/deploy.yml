@@ -2,9 +2,6 @@
 # Réglage requis : Settings → Pages → Build and deployment → Source = "GitHub Actions"
 name: Deploy to GitHub Pages
 
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 on:
   push:
     branches: [main]
@@ -18,18 +15,18 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  group: pages-${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: "24"
           cache: "npm"
@@ -70,7 +67,7 @@ jobs:
 
       - name: Upload artifact
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: _site
 
@@ -87,7 +84,7 @@ jobs:
         uses: actions/deploy-pages@v4
 
   smoke-test:
-    if: github.ref == 'refs/heads/main'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     needs: deploy
     steps:
@@ -159,6 +156,14 @@ jobs:
           check_seo_asset "https://redkmotors.fr/" "fonts-local.css" "fonts self-hosted (fonts-local.css)"
           check_seo_asset "https://redkmotors.fr/" "logo-redk-motors.webp" "logo WebP (picture)"
 
+          cookies_js=$(curl -sSL --max-time 20 "https://redkmotors.fr/assets/js/cookies.js" || true)
+          if echo "$cookies_js" | grep -q "gtm.start" && echo "$cookies_js" | grep -q "pushGtmBootstrapOnce"; then
+            echo "✅ cookies.js → bootstrap GTM post-consentement (gtm.start)"
+          else
+            echo "❌ cookies.js → bootstrap GTM absent (fix tracking non déployé ?)"
+            FAILED=1
+          fi
+
           # Migration blog : nouvelles URL doivent répondre 200
           BLOG_NEW=(
             "https://redkmotors.fr/blog/articles/suppression-fap-controle-technique-2026/"
@@ -226,14 +231,14 @@ jobs:
           echo "Tous les smoke tests sont passés ✅"
 
   indexnow:
-    if: github.ref == 'refs/heads/main'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     needs: smoke-test
     continue-on-error: true
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: "24"
 
