@@ -205,6 +205,13 @@ function main() {
       "loadAnalytics idempotente (flags + loadScriptOnce)",
     );
     assert.ok(
+      cookies.includes("pushGtmBootstrapOnce") &&
+        cookies.includes("'gtm.start'") &&
+        cookies.includes("event: 'gtm.js'") &&
+        cookies.includes("__REDK_GTM_BOOTSTRAP__"),
+      "cookies.js doit pousser gtm.start + gtm.js avant injection GTM (une fois)",
+    );
+    assert.ok(
       cookies.includes("__REDK_ANALYTICS_DISABLED__ = false") &&
         cookies.includes("if (analyticsBootstrapped)"),
       "réactivation consentement sans rechargement scripts",

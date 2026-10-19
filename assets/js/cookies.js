@@ -321,6 +321,17 @@
     } catch (e) { /* ignore */ }
   }
 
+  // Snippet GTM standard (gtm.start + event gtm.js) — une seule fois par chargement de page
+  function pushGtmBootstrapOnce() {
+    if (window.__REDK_GTM_BOOTSTRAP__) return;
+    window.__REDK_GTM_BOOTSTRAP__ = true;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'gtm.start': new Date().getTime(),
+      event: 'gtm.js',
+    });
+  }
+
   // Charger GTM + funnel puis track — ordre strict, idempotent
   function loadAnalytics() {
     if (!consentState.analytics) return;
@@ -346,6 +357,7 @@
     });
 
     if (!document.querySelector('script[data-redk-gtm]')) {
+      pushGtmBootstrapOnce();
       var gtm = document.createElement('script');
       gtm.async = true;
       gtm.src = 'https://www.googletagmanager.com/gtm.js?id=' + gtmId;
