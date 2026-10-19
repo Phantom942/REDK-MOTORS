@@ -50,6 +50,15 @@ jobs:
       - name: Test migration blog redirects (mapping + HTML)
         run: npm run test:blog-migration
 
+      - name: Test conversion tracking (unit)
+        run: npm run test:conversion-tracking
+
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Test conversion tracking (browser)
+        run: npm run test:conversion-browser
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 

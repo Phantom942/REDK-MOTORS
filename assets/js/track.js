@@ -1,8 +1,27 @@
 // RED-K MOTORS — GTM dataLayer tracking (chargé uniquement après consentement)
+// Prérequis : conversion-funnel.js déjà exécuté (chargement séquentiel dans cookies.js).
 (function() {
+  if (window.__REDK_TRACK_BOUND__) return;
   if (!window.REDKMotorsCookies || !window.REDKMotorsCookies.hasConsent('analytics')) return;
+  var funnel = window.REDKMotorsConversionFunnel;
+  if (!funnel) {
+    console.warn('[REDK] track.js: conversion-funnel.js absent — abandon');
+    return;
+  }
+
+  window.__REDK_TRACK_BOUND__ = true;
+
   var pageKey = document.body.getAttribute('data-page') || 'unknown';
   var pagePath = window.location.pathname;
+
+  function hasAnalyticsConsent() {
+    try {
+      if (window.__REDK_ANALYTICS_DISABLED__) return false;
+      return !!(window.REDKMotorsCookies && window.REDKMotorsCookies.hasConsent('analytics'));
+    } catch (e) {
+      return false;
+    }
+  }
 
   function resolvePosition(el) {
     if (!el) return '';
@@ -21,6 +40,8 @@
   }
 
   function pushEvent(eventName, ctaPosition) {
+    // Re-vérifier le consentement à CHAQUE event (y compris après retrait)
+    if (!hasAnalyticsConsent()) return;
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       event: eventName,
@@ -30,7 +51,8 @@
     });
   }
 
-  document.addEventListener('click', function(e) {
+  function onClick(e) {
+    if (!hasAnalyticsConsent()) return;
     var el = e.target.closest('[data-track]');
     if (el) {
       pushEvent(el.getAttribute('data-track'), resolvePosition(el));
@@ -54,12 +76,27 @@
     if (waLink && !waLink.hasAttribute('data-track')) {
       pushEvent('click_whatsapp', resolvePosition(waLink));
     }
-  });
-
-  var forms = document.querySelectorAll('[data-track-submit]');
-  for (var i = 0; i < forms.length; i++) {
-    forms[i].addEventListener('submit', function() {
-      pushEvent(this.getAttribute('data-track-submit'), 'contact');
-    });
   }
+
+  function onSubmit(e) {
+    if (!hasAnalyticsConsent()) return;
+    var form = e.target;
+    if (!form || !form.getAttribute) return;
+    var configured = form.getAttribute('data-track-submit');
+    if (!configured) return;
+    var resolved = funnel.resolveSubmitEvent(form, e);
+    if (resolved === 'form_submit_contact') {
+      funnel.markFormSubmitPending();
+      pushEvent(configured, 'contact');
+    } else if (resolved === 'form_submit_attempt_blocked') {
+      pushEvent('form_submit_attempt_blocked', 'contact');
+    }
+  }
+
+  document.addEventListener('click', onClick);
+  document.addEventListener('submit', onSubmit, true);
+
+  document.addEventListener('redk:analytics-consent-revoked', function() {
+    window.__REDK_ANALYTICS_DISABLED__ = true;
+  });
 })();
