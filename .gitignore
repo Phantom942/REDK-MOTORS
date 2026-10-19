@@ -47,6 +47,9 @@ _sitemap-*.xml
 .supabase-setup.local
 .marketplace-functions-serve.lock.json
 .tmp-gtm.js
+scripts/diagnose-ga4-measurement.mjs
+scripts/diagnose-ga4-post.mjs
+scripts/parse-gtm-container.mjs
 
 # Hors site web (impression, prospection locale, exports bureau)
 /print/

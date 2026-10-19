@@ -1,0 +1,5 @@
+# Copiez ce fichier en .github-setup.local (gitignore) puis collez UN SEUL ligne :
+# un Personal Access Token GitHub (scope repo) créé sur :
+# https://github.com/settings/tokens
+#
+# Révoquez tout ancien token exposé avant d'en créer un nouveau.
