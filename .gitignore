@@ -39,6 +39,14 @@ _sitemap-*.xml
 # Variables d'environnement (si nécessaire)
 .env
 .env.local
+.env.preprod.local
+
+# Secrets / setup local (tokens GitHub, Cloudflare, Supabase — jamais committer)
+.github-setup.local
+.cloudflare-setup.local
+.supabase-setup.local
+.marketplace-functions-serve.lock.json
+.tmp-gtm.js
 
 # Hors site web (impression, prospection locale, exports bureau)
 /print/
