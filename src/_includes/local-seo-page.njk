@@ -12,6 +12,20 @@
 
 {% include "lp-trust-bar.njk" %}
 
+{% if pageKey == 'garage-ivry' %}
+<section class="service-focus service-focus--compact" aria-label="Fiche Google Maps">
+  <div class="container service-focus__inner">
+    <p>
+      <a href="{{ site.googleReviews.mapsPlaceUrl }}" target="_blank" rel="noopener noreferrer" data-track="click_maps" data-track-pos="garage_ivry">Itinéraire Google Maps</a>
+      ·
+      <a href="{{ site.googleReviews.writeReviewUrl }}" target="_blank" rel="noopener noreferrer" data-track="click_link_hub" data-track-pos="garage_ivry_avis">Laisser un avis Google</a>
+      ·
+      <a href="{{ site.googleReviews.shareUrl }}" target="_blank" rel="noopener noreferrer" data-track="click_link_hub" data-track-pos="garage_ivry_fiche">Voir la fiche Google</a>
+    </p>
+  </div>
+</section>
+{% endif %}
+
 {% if introHeading or introText %}
 <section class="service-focus service-focus--compact" aria-labelledby="local-intro-{{ pageKey }}">
   <div class="container service-focus__inner">

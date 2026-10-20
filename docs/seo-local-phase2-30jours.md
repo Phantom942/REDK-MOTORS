@@ -89,6 +89,18 @@ Le site pousse vers `dataLayer` (`GTM-NTC72X2G`). La configuration des **tags/tr
 | Délais « sous 48 h » | Évités sur pages villes touchées — confirmer avant engagement |
 | Paiement plusieurs fois | Formulé « à confirmer avec l’atelier » |
 
+## Pack fiche Google & audit NAP (oct. 2026)
+
+L’agent ne peut pas publier sur Google Business ; le contenu prêt à coller est dans le repo :
+
+| Document | Contenu |
+|---|---|
+| `docs/google-business-profile-pack.md` | 8 posts, liste services, modèles réponse avis, photos |
+| `docs/nap-schema-audit-2026-10-20.md` | NAP / JSON-LD / écarts Maps |
+| `docs/sync-google-reviews.md` | Sync note & avis via Places API au build |
+
+Site : CTA Maps / avis sur `/garage-ivry-sur-seine/` · lien « Laisser un avis » sur `/links/`.
+
 ## Hors scope
 
 Cloudflare KV / Worker / 301 · marketplace · nouveaux contenus massifs

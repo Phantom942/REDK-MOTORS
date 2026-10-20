@@ -74,6 +74,16 @@ module.exports = {
       track: "click_maps",
       trackPos: "liens_hub",
     },
+    {
+      id: "google-review",
+      label: "Laisser un avis Google",
+      hint: "Aidez-nous sur Maps",
+      hrefKey: "googleReviewsWrite",
+      icon: "google",
+      external: true,
+      track: "click_link_hub",
+      trackPos: "liens_hub_avis",
+    },
   ],
   social: [
     {
