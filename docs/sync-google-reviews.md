@@ -51,18 +51,17 @@ Le nombre **4** correspond à `site.googleReviews.maxReviews` (cartes affichées
 
 ## GitHub Actions (optionnel)
 
-Dans **Settings → Secrets → Actions**, ajouter :
+Le workflow **Deploy to GitHub Pages** injecte déjà :
 
 - `GOOGLE_PLACES_API_KEY`
+- `GOOGLE_PLACES_PLACE_ID`
 
-Puis dans `.github/workflows/deploy.yml`, avant le build :
+Dans **Settings → Secrets and variables → Actions**, ajouter la clé Places si vous voulez la sync auto à chaque build.
 
-```yaml
-env:
-  GOOGLE_PLACES_API_KEY: ${{ secrets.GOOGLE_PLACES_API_KEY }}
-```
+Sans secret, le déploiement continue avec les valeurs commitées dans le repo (ex. 51 avis manuels).  
+Runbook complet : **`docs/github-actions-ops-runbook.md`**.
 
-Sans secret, le déploiement continue avec les valeurs commitées dans le repo (ex. 51 avis manuels).
+Après build CI : `scripts/ops-build-report.js` vérifie cohérence count + fichiers GEO + clé IndexNow.
 
 ## Dépannage
 

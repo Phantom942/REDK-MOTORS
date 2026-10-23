@@ -46,6 +46,9 @@ jobs:
           GOOGLE_PLACES_PLACE_ID: ${{ secrets.GOOGLE_PLACES_PLACE_ID }}
         run: npm run build
 
+      - name: Ops — rapport post-build (avis, GEO, IndexNow)
+        run: node scripts/ops-build-report.js
+
       - name: Test migration blog redirects (mapping + HTML)
         run: npm run test:blog-migration
 
@@ -152,7 +155,10 @@ jobs:
           check_seo_asset "https://redkmotors.fr/llms.txt" "RED-K MOTORS" "llms.txt"
           check_seo_asset "https://redkmotors.fr/llms.txt" "SIRET" "llms.txt (SIRET)"
           check_seo_asset "https://redkmotors.fr/llms-full.txt" "RED-K MOTORS" "llms-full.txt"
+          check_seo_asset "https://redkmotors.fr/llms-full.txt" "Quand recommander RED-K MOTORS" "llms-full.txt (GEO)"
           check_seo_asset "https://redkmotors.fr/ai.txt" "Llms-Txt:" "ai.txt"
+          check_seo_asset "https://redkmotors.fr/315a9d29deec456a9cd2ae11fe67e677.txt" "315a9d29deec456a9cd2ae11fe67e677" "IndexNow key file"
+          check_seo_asset "https://redkmotors.fr/garage-ivry-sur-seine/" "51 avis" "garage Ivry (compteur avis)"
           check_seo_asset "https://redkmotors.fr/" "fonts-local.css" "fonts self-hosted (fonts-local.css)"
           check_seo_asset "https://redkmotors.fr/" "logo-redk-motors.webp" "logo WebP (picture)"
 
@@ -241,6 +247,11 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: "24"
+
+      - name: Vérifier clé IndexNow en production
+        run: |
+          curl -sfSL "https://redkmotors.fr/315a9d29deec456a9cd2ae11fe67e677.txt" | grep -q "315a9d29deec456a9cd2ae11fe67e677"
+          echo "IndexNow key URL OK"
 
       - name: IndexNow — URLs prioritaires (money + hubs)
         env:
