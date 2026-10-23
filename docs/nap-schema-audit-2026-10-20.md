@@ -1,6 +1,6 @@
 # Audit NAP & schéma — RED-K MOTORS (20 oct. 2026)
 
-Contexte utilisateur : fiche Google **Publiée**, **46 avis**, trouvable sur recherche marque **RED-K MOTORS**.
+Contexte utilisateur : fiche Google **Publiée**, **51 avis** (màj. oct. 2026), trouvable sur recherche marque **RED-K MOTORS**.
 
 ## NAP (Name · Address · Phone)
 
@@ -22,7 +22,7 @@ Contexte utilisateur : fiche Google **Publiée**, **46 avis**, trouvable sur rec
 
 ### Avis Google (site)
 
-- `googleReviews.count` : **46**  
+- `googleReviews.count` : **51**  
 - `googleReviews.rating` : **4.9**  
 - `placeId` : `ChIJd1Lv-zdz5kcRFt1G98zTvOY`  
 - Pas de `aggregateRating` / `review` en JSON-LD (choix conforme aux consignes Google — avis hébergés sur Google).
@@ -49,7 +49,7 @@ Contexte utilisateur : fiche Google **Publiée**, **46 avis**, trouvable sur rec
 
 ## Actions site réalisées (lot oct. 2026)
 
-1. Compteur avis **46** dans `site.json` + `googleReviews.json`.  
+1. Compteur avis **51** dans `site.json` + `googleReviews.json`.  
 2. CTA **Maps / avis / fiche** sur `/garage-ivry-sur-seine/`.  
 3. Lien **Laisser un avis Google** sur `/links/`.  
 4. Pack contenu fiche : `docs/google-business-profile-pack.md`.  
