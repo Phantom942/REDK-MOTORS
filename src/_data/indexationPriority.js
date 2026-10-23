@@ -33,6 +33,7 @@ module.exports = {
     "/jeu-concours-gta-vi/",
     "/exemples/",
     "/llms.txt",
+    "/llms-full.txt",
     "/ai.txt",
     "/vitry-sur-seine/",
     "/villejuif/",

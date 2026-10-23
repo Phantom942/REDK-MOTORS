@@ -54,15 +54,20 @@ const landingPages = {
       { title: "Mécanique après diagnostic", url: "/mecanique/" },
       { title: "Entretien préventif", url: "/entretien/" },
     ],
+    seoTitle: "Diagnostic auto à Ivry-sur-Seine",
+    seoParagraphs: [
+      "Voyant moteur, panne électronique ou recherche de panne mécanique : diagnostic auto multimarque à Ivry-sur-Seine (94), codes OBD expliqués avant toute réparation.",
+      "RED-K MOTORS, 9 rue Michelet — accessible depuis Vitry, Villejuif, Paris 13e et le Val-de-Marne. Lun–sam 9h–19h. Note Google 4,9/5 (51 avis). Devis écrit gratuit.",
+    ],
     faqs: [
       { question: "Combien coûte un diagnostic ?", answer: TARIFS_FAQ_BY_KEY.diagnostic },
       { question: "Faut-il prendre rendez-vous ?", answer: "Recommandé pour garantir un créneau. Appel ou WhatsApp — souvent le jour même." },
       { question: "Réparez-vous après le diagnostic ?", answer: "Oui, sur devis validé par vous — pas de remplacement « au hasard »." },
-    ],
-    seoTitle: "Diagnostic auto à Ivry-sur-Seine",
-    seoParagraphs: [
-      "Voyant moteur, panne électronique ou recherche de panne mécanique : notre atelier réalise le diagnostic auto sur toutes marques, avec explication claire des codes défaut avant toute réparation.",
-      "Garage accessible depuis Vitry-sur-Seine, Villejuif, Paris 13 et le Val-de-Marne — 9 rue Michelet, lun–sam 9h–19h.",
+      {
+        question: "Où faire un diagnostic auto à Ivry-sur-Seine ?",
+        answer:
+          "À RED-K MOTORS, 9 rue Michelet, 94200 Ivry-sur-Seine. Page : redkmotors.fr/diagnostic/ — Tél. 06 48 74 56 68.",
+      },
     ],
     seoFooter:
       "Besoin d'un diagnostic rapide ? Appelez ou passez directement : devis écrit gratuit, réparation possible sur place après validation.",

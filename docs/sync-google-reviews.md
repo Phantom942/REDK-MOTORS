@@ -44,7 +44,7 @@ npm run build
 Sortie attendue :
 
 ```text
-sync-google-reviews: OK — note 4.9/5, 46 avis, 4 cartes exportées.
+sync-google-reviews: OK — note 4.9/5, 51 avis, 4 cartes exportées.
 ```
 
 Le nombre **4** correspond à `site.googleReviews.maxReviews` (cartes affichées sur le site). Le **count** total vient de `userRatingCount` Google.
@@ -62,7 +62,7 @@ env:
   GOOGLE_PLACES_API_KEY: ${{ secrets.GOOGLE_PLACES_API_KEY }}
 ```
 
-Sans secret, le déploiement continue avec les valeurs commitées dans le repo (ex. 46 avis manuels).
+Sans secret, le déploiement continue avec les valeurs commitées dans le repo (ex. 51 avis manuels).
 
 ## Dépannage
 

@@ -47,6 +47,11 @@ module.exports = {
         answer:
           "La fiche Google Maps « RED-K MOTORS » au 9 rue Michelet regroupe nos avis clients. Vous pouvez aussi passer par redkmotors.fr/links/ pour l'itinéraire ou laisser un avis après votre passage.",
       },
+      {
+        question: "Proposez-vous mécanique, diagnostic et carrosserie au même endroit ?",
+        answer:
+          "Oui — garage multimarque au 9 rue Michelet : diagnostic valise, entretien, freins, pneus, clim, carrosserie et pare-brise. Devis écrit avant travaux.",
+      },
     ],
   },
   vitry: {

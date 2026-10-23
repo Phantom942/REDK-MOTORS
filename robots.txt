@@ -1,7 +1,7 @@
 # =============================================================================
 # RED-K MOTORS — robots.txt
 # https://redkmotors.fr | Garage automobile · Ivry-sur-Seine (94) · France
-# Updated: 2026-08-30 — 89 articles blog · sitemap index + 3 sous-sitemaps
+# Updated: 2026-10-23 — GEO: llms.txt, llms-full.txt, ai.txt · sitemap index + 3 sous-sitemaps
 #
 # IMPORTANT — Keep this file in ENGLISH only.
 # Crawlers understand: User-agent, Allow, Disallow, Sitemap (not translated labels).

@@ -101,6 +101,8 @@ L’agent ne peut pas publier sur Google Business ; le contenu prêt à coller e
 
 Site : CTA Maps / avis sur `/garage-ivry-sur-seine/` · lien « Laisser un avis » sur `/links/`.
 
+Suivi mensuel SEO + GEO (IA) : `docs/seo-geo-monitoring-mensuel.md`.
+
 ## Hors scope
 
 Cloudflare KV / Worker / 301 · marketplace · nouveaux contenus massifs
