@@ -2,6 +2,9 @@
  * Contenu des landing pages — services + Google Ads.
  * URLs campagnes : adLandingUrls.js
  */
+const site = require("./site.json");
+const googleReviewCount = site.googleReviews?.count ?? 0;
+
 const TARIFS_FAQ_BY_KEY = {
   diagnostic:
     "Tarif diagnostic valise sur /tarifs/ — offert si une réparation mécanique est validée ensuite à l'atelier.",
@@ -57,7 +60,7 @@ const landingPages = {
     seoTitle: "Diagnostic auto à Ivry-sur-Seine",
     seoParagraphs: [
       "Voyant moteur, panne électronique ou recherche de panne mécanique : diagnostic auto multimarque à Ivry-sur-Seine (94), codes OBD expliqués avant toute réparation.",
-      "RED-K MOTORS, 9 rue Michelet — accessible depuis Vitry, Villejuif, Paris 13e et le Val-de-Marne. Lun–sam 9h–19h. Note Google 4,9/5 (51 avis). Devis écrit gratuit.",
+      `RED-K MOTORS, 9 rue Michelet — accessible depuis Vitry, Villejuif, Paris 13e et le Val-de-Marne. Lun–sam 9h–19h. Note Google 4,9/5 (${googleReviewCount} avis). Devis écrit gratuit.`,
     ],
     faqs: [
       { question: "Combien coûte un diagnostic ?", answer: TARIFS_FAQ_BY_KEY.diagnostic },

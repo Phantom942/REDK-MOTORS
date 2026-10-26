@@ -1,6 +1,6 @@
 # Audit NAP & schéma — RED-K MOTORS (20 oct. 2026)
 
-Contexte utilisateur : fiche Google **Publiée**, **51 avis** (màj. oct. 2026), trouvable sur recherche marque **RED-K MOTORS**.
+Contexte utilisateur : fiche Google **Publiée**, **53 avis** (màj. oct. 2026), trouvable sur recherche marque **RED-K MOTORS**.
 
 ## NAP (Name · Address · Phone)
 

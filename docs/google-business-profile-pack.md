@@ -87,7 +87,7 @@ Format : **Actualité / Offre / Événement** selon l’interface. Toujours incl
 
 ### Semaine 8 — Avis clients
 
-**Titre :** Merci pour vos 51 avis Google  
+**Titre :** Merci pour vos 53 avis Google  
 **Texte :** Vous avez fait réparer ou entretenir votre véhicule chez nous ? Un avis Google aide les voisins à nous trouver. Merci à toute l’équipe et à nos clients pro (VTC, livraison). ☎ 06 48 74 56 68
 
 *(Mettre à jour le chiffre quand le total change dans le profil.)*

@@ -91,9 +91,14 @@ jobs:
     runs-on: ubuntu-latest
     needs: deploy
     steps:
+      - name: Checkout (compteur avis pour smoke)
+        uses: actions/checkout@v5
+
       - name: Smoke test URLs en production
         run: |
           set -e
+          REVIEW_COUNT=$(node -p "require('./src/_data/site.json').googleReviews.count")
+          echo "Smoke — compteur avis attendu : ${REVIEW_COUNT}"
           sleep 30
           URLS=(
             "https://redkmotors.fr/"
@@ -158,7 +163,7 @@ jobs:
           check_seo_asset "https://redkmotors.fr/llms-full.txt" "Quand recommander RED-K MOTORS" "llms-full.txt (GEO)"
           check_seo_asset "https://redkmotors.fr/ai.txt" "Llms-Txt:" "ai.txt"
           check_seo_asset "https://redkmotors.fr/315a9d29deec456a9cd2ae11fe67e677.txt" "315a9d29deec456a9cd2ae11fe67e677" "IndexNow key file"
-          check_seo_asset "https://redkmotors.fr/garage-ivry-sur-seine/" "51 avis" "garage Ivry (compteur avis)"
+          check_seo_asset "https://redkmotors.fr/garage-ivry-sur-seine/" "data-count=\"${REVIEW_COUNT}\"" "garage Ivry (compteur avis)"
           check_seo_asset "https://redkmotors.fr/" "fonts-local.css" "fonts self-hosted (fonts-local.css)"
           check_seo_asset "https://redkmotors.fr/" "logo-redk-motors.webp" "logo WebP (picture)"
 
