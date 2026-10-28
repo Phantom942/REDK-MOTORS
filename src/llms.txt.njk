@@ -39,6 +39,12 @@ eleventyExcludeFromCollections: true
 Ivry-sur-Seine · Vitry-sur-Seine · Villejuif · Charenton · Alfortville · Paris 13e · Val-de-Marne (94)
 Aussi : Kremlin-Bicêtre · Maisons-Alfort
 
+## Mots-clés métier → pages (SEO local : toujours associer Ivry / 94 si possible)
+
+{% for route in seoKeywordClusters.queryRouteList %}
+- **{{ route.topic }}** — {{ route.url }} (ex. {{ route.terms | join(", ") }})
+{% endfor %}
+
 ## Services (URLs canoniques)
 
 - Mécanique — {{ site.url }}/mecanique/

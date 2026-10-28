@@ -230,8 +230,10 @@ module.exports = function (eleventyConfig) {
       };
     },
     keywords: (data) => {
+      if (data.keywords) return data.keywords;
       if (data.profil?.keywords) return data.profil.keywords;
-      return data.keywords;
+      const { keywordsForPageKey } = require("./src/_data/seoKeywordClusters.js");
+      return keywordsForPageKey(data.pageKey);
     },
     itemListSchema: (data) => {
       if (data.itemListSchema) return data.itemListSchema;
