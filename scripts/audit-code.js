@@ -77,6 +77,13 @@ try {
   fail("Exemples — audit en échec");
 }
 
+try {
+  execSync("node scripts/audit-prestations-seo.js", { cwd: root, stdio: "inherit" });
+  ok("Prestations — meta keywords");
+} catch {
+  fail("Prestations — audit SEO en échec");
+}
+
 console.log("");
 if (failed) {
   console.error(`Audit code : ${failed} échec(s)`);

@@ -196,9 +196,16 @@ const PAGE_KEYWORDS = {
   "exemples-hub": "exemples prix garage, guide prix vidange freins clim, ivry-sur-seine",
 };
 
+const prestationKeywords = require("./prestationKeywords.js");
+
 function keywordsForPageKey(pageKey) {
-  if (!pageKey) return undefined;
-  return PAGE_KEYWORDS[pageKey];
+  if (typeof pageKey !== "string" || !pageKey) return undefined;
+  const key = pageKey;
+  if (key.startsWith("prestation-")) {
+    const slug = key.slice("prestation-".length);
+    return prestationKeywords[slug];
+  }
+  return PAGE_KEYWORDS[key];
 }
 
 /** Lignes « requête → URL » pour llms-full.txt */
