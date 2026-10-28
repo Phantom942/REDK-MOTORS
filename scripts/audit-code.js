@@ -84,6 +84,13 @@ try {
   fail("Prestations — audit SEO en échec");
 }
 
+try {
+  execSync("node scripts/audit-page-keywords.js", { cwd: root, stdio: "inherit" });
+  ok("PageKey — meta keywords indexables");
+} catch {
+  fail("PageKey — audit keywords en échec");
+}
+
 console.log("");
 if (failed) {
   console.error(`Audit code : ${failed} échec(s)`);

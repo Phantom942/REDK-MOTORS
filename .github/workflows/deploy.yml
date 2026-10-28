@@ -46,6 +46,12 @@ jobs:
           GOOGLE_PLACES_PLACE_ID: ${{ secrets.GOOGLE_PLACES_PLACE_ID }}
         run: npm run build
 
+      - name: Audit sitemap (post-build)
+        run: npm run audit:sitemap
+
+      - name: Audit liens internes (post-build)
+        run: npm run audit:links
+
       - name: Ops — rapport post-build (avis, GEO, IndexNow)
         run: node scripts/ops-build-report.js
 

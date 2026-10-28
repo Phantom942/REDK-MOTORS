@@ -32,6 +32,7 @@
     "audit:sitemap": "node scripts/audit-sitemap.js",
     "blog:refresh": "node scripts/refresh-blog-freshness.js",
     "audit:exemples": "node scripts/audit-exemples.js",
+    "audit:links": "node scripts/audit-internal-links.js",
     "audit:code": "node scripts/audit-code.js",
     "verify:prod": "node scripts/verify-prod-headers.js",
     "post-deploy": "node scripts/post-deploy.js",

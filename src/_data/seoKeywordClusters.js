@@ -197,6 +197,7 @@ const PAGE_KEYWORDS = {
 };
 
 const prestationKeywords = require("./prestationKeywords.js");
+const pageKeywords = require("./pageKeywords.js");
 
 function keywordsForPageKey(pageKey) {
   if (typeof pageKey !== "string" || !pageKey) return undefined;
@@ -205,7 +206,7 @@ function keywordsForPageKey(pageKey) {
     const slug = key.slice("prestation-".length);
     return prestationKeywords[slug];
   }
-  return PAGE_KEYWORDS[key];
+  return PAGE_KEYWORDS[key] || pageKeywords[key];
 }
 
 /** Lignes « requête → URL » pour llms-full.txt */
