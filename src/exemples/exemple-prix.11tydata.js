@@ -1,5 +1,11 @@
 ﻿const SITE_URL = "https://redkmotors.fr";
-const { breadcrumbTrail } = require("../_data/priceExamplesHub.js");
+const {
+  breadcrumbTrail,
+  genericGuideForService,
+  POPULAR_MODEL_SLUGS,
+} = require("../_data/priceExamplesHub.js");
+
+const POPULAR_MODEL_SLUG_SET = new Set(POPULAR_MODEL_SLUGS);
 
 function buildBreadcrumb(data) {
   const ex = data.exemple;
@@ -95,7 +101,7 @@ function buildArticleSchema(data) {
   const ex = data.exemple;
   if (!ex) return undefined;
   const pageUrl = `${SITE_URL}/exemples/${ex.slug}/`;
-  return {
+  const schema = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: ex.title,
@@ -106,6 +112,17 @@ function buildArticleSchema(data) {
     author: { "@type": "Organization", name: "RED-K MOTORS", url: SITE_URL },
     publisher: { "@id": `${SITE_URL}/#business` },
   };
+  if (!ex.isGeneric) {
+    const parentGuide = genericGuideForService(ex.serviceKey);
+    if (parentGuide) {
+      schema.isPartOf = {
+        "@type": "WebPage",
+        "@id": `${SITE_URL}/exemples/${parentGuide.slug}/`,
+        name: parentGuide.searchQuery || parentGuide.title,
+      };
+    }
+  }
+  return schema;
 }
 
 function buildOfferSchema(data) {
@@ -143,8 +160,7 @@ module.exports = {
     seoOnly: () => true,
     hideFromSiteNav: () => true,
     hideServiceAreas: () => true,
-    robots: (data) =>
-      data.exemple && !data.exemple.isGeneric ? "noindex, follow" : "index, follow",
+    robots: () => "index, follow",
     directAnswer: (data) => {
       const ex = data.exemple;
       if (!ex) return undefined;
@@ -181,10 +197,20 @@ module.exports = {
       if (!ex) return [];
       const { all } = require("../_data/priceExamples.js");
       if (ex.isGeneric) {
-        return all
-          .filter((item) => !item.isGeneric && item.serviceKey === ex.serviceKey)
-          .slice(0, 8)
-          .map((item, i) => ({
+        const sameService = all.filter(
+          (item) => !item.isGeneric && item.serviceKey === ex.serviceKey
+        );
+        const byModelSlug = Object.fromEntries(
+          sameService.map((item) => [item.modelSlug, item])
+        );
+        const ordered = [];
+        for (const slug of POPULAR_MODEL_SLUGS) {
+          if (byModelSlug[slug]) ordered.push(byModelSlug[slug]);
+        }
+        for (const item of sameService) {
+          if (!POPULAR_MODEL_SLUG_SET.has(item.modelSlug)) ordered.push(item);
+        }
+        return ordered.slice(0, 8).map((item, i) => ({
             ...item,
             anchor:
               i % 3 === 0
@@ -196,7 +222,7 @@ module.exports = {
       }
       return all
         .filter((item) => !item.isGeneric && item.slug !== ex.slug && item.serviceKey === ex.serviceKey)
-        .slice(0, 6)
+        .slice(0, 4)
         .map((item, i) => ({
           ...item,
           anchor:

@@ -9205,6 +9205,44 @@ html:has(.page-link-hub) {
   max-width: 22rem;
 }
 
+.conversion-price-guides {
+  margin-top: 1.25rem;
+  width: 100%;
+  max-width: 52rem;
+}
+
+.conversion-price-guides__label {
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.conversion-price-guides__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.65rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  justify-content: center;
+}
+
+.conversion-price-guides__list a {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.92);
+  text-decoration: none;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.conversion-price-guides__list a:hover {
+  border-color: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.06);
+}
+
 /* Teaser blog — maillage symptômes / conseils */
 .conversion-blog-teaser {
   padding: clamp(2rem, 4vw, 3rem) 0;

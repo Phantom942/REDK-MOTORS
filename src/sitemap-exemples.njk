@@ -4,30 +4,13 @@ layout: null
 eleventyExcludeFromCollections: true
 ---
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>{{ site.url }}/exemples/</loc>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>{{ site.url }}/sitemap-exemples-core.xml</loc>
     <lastmod>{{ buildDate }}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  {% for ex in priceExamples.all %}
-  {% if ex.isGeneric %}
-  <url>
-    <loc>{{ site.url }}/exemples/{{ ex.slug }}/</loc>
-    {% set lastmodStr = ex.date | dateToIso %}
-    <lastmod>{{ lastmodStr | default(buildDate) }}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-  </url>
-  {% endif %}
-  {% endfor %}
-  {% for hub in priceExamplesHub.indexableModelHubs() %}
-  <url>
-    <loc>{{ site.url }}{{ hub.url }}</loc>
+  </sitemap>
+  <sitemap>
+    <loc>{{ site.url }}/sitemap-exemples-fiches.xml</loc>
     <lastmod>{{ buildDate }}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  {% endfor %}
-</urlset>
+  </sitemap>
+</sitemapindex>

@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /**
- * Audit politique /exemples/ — 32 indexables, 508 noindex thin.
+ * Audit /exemples/ — index, follow sur 480 fiches + 59 hubs ;
+ * sitemaps en 2 niveaux (core + fiches) pour limiter le risque SEO.
  */
 const fs = require("fs");
 const path = require("path");
@@ -24,19 +25,43 @@ function check(cond, msg) {
   }
 }
 
+function parseLocs(xml) {
+  return [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1].trim());
+}
+
+function countUrlsFromSitemapFiles(baseDir, relPaths) {
+  let total = 0;
+  for (const rel of relPaths) {
+    const p = path.join(baseDir, rel);
+    if (!fs.existsSync(p)) return null;
+    const xml = fs.readFileSync(p, "utf8");
+    total += parseLocs(xml).length;
+  }
+  return total;
+}
+
 console.log("=== Audit exemples ===\n");
 check(all.length === 480, `480 pages prix (${all.length})`);
-check(generic.length === 8, `8 guides génériques indexables (${generic.length})`);
-check(thin.length === 472, `472 pages modèle thin (${thin.length})`);
-check(indexableHubs.length === 23, `23 hubs modèles whitelist (${indexableHubs.length})`);
+check(generic.length === 8, `8 guides génériques (${generic.length})`);
+check(thin.length === 472, `472 fiches modèle (${thin.length})`);
+check(indexableHubs.length === 23, `23 hubs modèles prioritaires (${indexableHubs.length})`);
 check(modelHubs.length === 59, `59 hubs modèles total (${modelHubs.length})`);
 
-const sitemapPath = path.join(root, "_site/sitemap-exemples.xml");
-if (fs.existsSync(sitemapPath)) {
-  const xml = fs.readFileSync(sitemapPath, "utf8");
-  const count = (xml.match(/<loc>/g) || []).length;
-  const expected = 1 + 8 + 23; // hub + generic + indexable model hubs
-  check(count === expected, `sitemap-exemples.xml = ${expected} URLs (${count})`);
+const siteDir = path.join(root, "_site");
+const indexPath = path.join(siteDir, "sitemap-exemples.xml");
+if (fs.existsSync(indexPath)) {
+  const indexXml = fs.readFileSync(indexPath, "utf8");
+  check(indexXml.includes("<sitemapindex"), "sitemap-exemples.xml = index (core + fiches)");
+  const coreCount = countUrlsFromSitemapFiles(siteDir, ["sitemap-exemples-core.xml"]);
+  const fichesCount = countUrlsFromSitemapFiles(siteDir, ["sitemap-exemples-fiches.xml"]);
+  const expectedCore = 1 + 8 + modelHubs.length;
+  const expectedFiches = thin.length;
+  const expectedTotal = expectedCore + expectedFiches;
+  if (coreCount != null) check(coreCount === expectedCore, `sitemap-exemples-core = ${expectedCore} URLs (${coreCount})`);
+  if (fichesCount != null) check(fichesCount === expectedFiches, `sitemap-exemples-fiches = ${expectedFiches} URLs (${fichesCount})`);
+  if (coreCount != null && fichesCount != null) {
+    check(coreCount + fichesCount === expectedTotal, `total sitemap exemples = ${expectedTotal} URLs`);
+  }
 } else {
   console.log("⚠ _site/sitemap-exemples.xml absent — lancer npm run build");
 }

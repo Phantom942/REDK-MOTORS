@@ -27,8 +27,7 @@ module.exports = {
     seoOnly: () => true,
     hideFromSiteNav: () => true,
     hideServiceAreas: () => true,
-    robots: (data) =>
-      isIndexableModelHub(data.modele.slug) ? "index, follow" : "noindex, follow",
+    robots: () => "index, follow",
     serviceLinks: (data) => modelServiceLinks(data.modele.slug),
     relatedModelHubs: (data) => {
       const hubs = indexableModelHubs().filter((h) => h.slug !== data.modele.slug);

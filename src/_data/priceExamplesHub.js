@@ -175,10 +175,8 @@ const SERVICE_GUIDE_SLUG = {
 };
 
 /**
- * Hubs modèles indexables (sitemap + index, follow).
- * Critères type « helpful content » local : parc auto IDF/94, requêtes prix entretien,
- * hub réellement utile (pas un duplicate du guide générique).
- * Les 36 autres hubs restent en noindex, follow pour le maillage interne.
+ * Hubs modèles « prioritaires » (mise en avant UI, geo description enrichie).
+ * Tous les hubs /exemples/modeles/* sont index, follow ; sitemap-exemples-core priorise guides + hubs.
  */
 const INDEXABLE_MODEL_HUB_SLUGS = [
   // Citadines — cœur de parc 94
@@ -218,6 +216,11 @@ const POPULAR_MODEL_SLUGS = INDEXABLE_MODEL_HUB_SLUGS.slice(0, 12);
 
 function isIndexableModelHub(slug) {
   return INDEXABLE_MODEL_HUB_SET.has(slug);
+}
+
+/** Fiches modèle prioritaires (sitemap + maillage depuis guides génériques). */
+function isPriorityModelExample(modelSlug) {
+  return INDEXABLE_MODEL_HUB_SET.has(modelSlug);
 }
 
 function hubLabelFromService(serviceLabel) {
@@ -386,9 +389,10 @@ module.exports = {
   popularModelHubs,
   indexableModelHubs,
   isIndexableModelHub,
+  isPriorityModelExample,
+  POPULAR_MODEL_SLUGS,
   PAGE_GUIDE_SLUGS,
   TARIFS_HUB,
   EXAMPLES_HUB,
-  POPULAR_MODEL_SLUGS,
   INDEXABLE_MODEL_HUB_SLUGS,
 };

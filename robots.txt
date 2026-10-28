@@ -189,7 +189,7 @@ Sitemap: https://redkmotors.fr/sitemap-exemples.xml
 # Sub-sitemaps breakdown:
 #   sitemap-pages.xml    — services, landings money, villes, prestations (~88 URLs)
 #   sitemap-blog.xml     — blog index + 89 articles + 13 tags indexables (~103 URLs)
-#   sitemap-exemples.xml — guides prix génériques indexables (~32 URLs)
+#   sitemap-exemples.xml — index → core (hub + 8 guides + 59 hubs) + fiches (472 modèles)
 
 # LLMs-Txt: https://redkmotors.fr/llms.txt
 # LLMs-Full-Txt: https://redkmotors.fr/llms-full.txt

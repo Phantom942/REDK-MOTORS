@@ -26,5 +26,22 @@
         <p class="tarifs-teaser__hint">Symptômes, fourchettes RED-K, exemples par modèle (208, Clio, Golf…).</p>
       </a>
     </div>
+    {% set priceGuides = priceExamplesHub.allGuides() %}
+    {% if priceGuides.length %}
+    <nav class="conversion-price-guides" aria-label="Guides prix par prestation">
+      <p class="conversion-price-guides__label">Guides détaillés (indexables) :</p>
+      <ul class="conversion-price-guides__list">
+        {% for guide in priceGuides %}
+        <li>
+          <a
+            href="{{ guide.url }}"
+            data-track="click_price_example"
+            data-track-pos="{{ tarifsTeaserTrack | default('tarifs_teaser') }}_guide_{{ guide.slug }}"
+          >{{ guide.hubLabel }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+    {% endif %}
   </div>
 </section>

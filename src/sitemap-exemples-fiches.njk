@@ -1,0 +1,19 @@
+---
+permalink: /sitemap-exemples-fiches.xml
+layout: null
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {% for ex in priceExamples.all %}
+  {% if not ex.isGeneric %}
+  <url>
+    <loc>{{ site.url }}/exemples/{{ ex.slug }}/</loc>
+    {% set lastmodStr = ex.date | dateToIso %}
+    <lastmod>{{ lastmodStr | default(buildDate) }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>{% if priceExamplesHub.isPriorityModelExample(ex.modelSlug) %}0.55{% else %}0.42{% endif %}</priority>
+  </url>
+  {% endif %}
+  {% endfor %}
+</urlset>

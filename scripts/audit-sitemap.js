@@ -43,12 +43,16 @@ function main() {
   const pagesXml = read("sitemap-pages.xml");
   const blogXml = read("sitemap-blog.xml");
   const exemplesXml = read("sitemap-exemples.xml");
+  const exemplesCoreXml = read("sitemap-exemples-core.xml");
+  const exemplesFichesXml = read("sitemap-exemples-fiches.xml");
 
   check(!!robots, "robots.txt présent dans _site");
   check(!!indexXml, "sitemap.xml présent");
   check(!!pagesXml, "sitemap-pages.xml présent");
   check(!!blogXml, "sitemap-blog.xml présent");
   check(!!exemplesXml, "sitemap-exemples.xml présent");
+  check(!!exemplesCoreXml, "sitemap-exemples-core.xml présent");
+  check(!!exemplesFichesXml, "sitemap-exemples-fiches.xml présent");
 
   if (robots) {
     check(/Sitemap: https:\/\/redkmotors\.fr\/sitemap\.xml/.test(robots), "robots.txt → sitemap index");
@@ -81,9 +85,13 @@ function main() {
     check(!pageLocs.some((u) => u.includes("/exemples/")), "sitemap-pages sans URLs exemples");
   }
 
-  if (exemplesXml) {
-    const exLocs = parseLocs(exemplesXml);
-    check(exLocs.length >= 8, `sitemap-exemples ≥ 8 URLs (${exLocs.length})`);
+  if (exemplesXml && exemplesCoreXml && exemplesFichesXml) {
+    check(exemplesXml.includes("<sitemapindex"), "sitemap-exemples = index core+fiches");
+    const coreLocs = parseLocs(exemplesCoreXml);
+    const fichesLocs = parseLocs(exemplesFichesXml);
+    check(coreLocs.length >= 60, `sitemap-exemples-core ≥ 60 URLs (${coreLocs.length})`);
+    check(fichesLocs.length >= 470, `sitemap-exemples-fiches ≥ 470 URLs (${fichesLocs.length})`);
+    check(coreLocs.length + fichesLocs.length >= 500, `exemples total ≥ 500 URLs (${coreLocs.length + fichesLocs.length})`);
   }
 
   if (failed > 0) {

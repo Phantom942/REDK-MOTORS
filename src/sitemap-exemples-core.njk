@@ -1,0 +1,33 @@
+---
+permalink: /sitemap-exemples-core.xml
+layout: null
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>{{ site.url }}/exemples/</loc>
+    <lastmod>{{ buildDate }}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  {% for ex in priceExamples.all %}
+  {% if ex.isGeneric %}
+  <url>
+    <loc>{{ site.url }}/exemples/{{ ex.slug }}/</loc>
+    {% set lastmodStr = ex.date | dateToIso %}
+    <lastmod>{{ lastmodStr | default(buildDate) }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  {% endif %}
+  {% endfor %}
+  {% for m in priceExamples.MODELS %}
+  <url>
+    <loc>{{ site.url }}/exemples/modeles/{{ m.slug }}/</loc>
+    <lastmod>{{ buildDate }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>{% if priceExamplesHub.isIndexableModelHub(m.slug) %}0.7{% else %}0.62{% endif %}</priority>
+  </url>
+  {% endfor %}
+</urlset>

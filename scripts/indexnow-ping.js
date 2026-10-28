@@ -18,6 +18,23 @@ function parseLocs(xml) {
   return [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1].trim());
 }
 
+function isSitemapIndex(xml) {
+  return /<sitemapindex[\s>]/i.test(xml);
+}
+
+function expandSitemapXml(xml, readSibling) {
+  if (isSitemapIndex(xml)) {
+    const urls = [];
+    for (const loc of parseLocs(xml)) {
+      const childPath = loc.replace(/^https?:\/\/[^/]+/, "");
+      const childXml = readSibling(childPath.replace(/^\//, ""));
+      if (childXml) urls.push(...expandSitemapXml(childXml, readSibling));
+    }
+    return urls;
+  }
+  return parseLocs(xml);
+}
+
 async function fetchText(url) {
   const res = await fetch(url, { redirect: "follow" });
   if (!res.ok) {
@@ -26,27 +43,40 @@ async function fetchText(url) {
   return res.text();
 }
 
+async function expandSitemapFromUrl(url) {
+  const xml = await fetchText(url);
+  if (isSitemapIndex(xml)) {
+    const urls = [];
+    for (const loc of parseLocs(xml)) {
+      urls.push(...(await expandSitemapFromUrl(loc)));
+    }
+    return urls;
+  }
+  return parseLocs(xml);
+}
+
 async function collectFromLive(baseUrl) {
   const indexXml = await fetchText(`${baseUrl}/sitemap.xml`);
   const submaps = parseLocs(indexXml);
   const urls = [];
-
   for (const sm of submaps) {
-    const xml = await fetchText(sm);
-    urls.push(...parseLocs(xml));
+    urls.push(...(await expandSitemapFromUrl(sm)));
   }
-
   return urls.filter((u) => u.startsWith(baseUrl));
 }
 
 function collectFromLocal() {
   const urls = [];
-  const files = ["sitemap-pages.xml", "sitemap-blog.xml", "sitemap-exemples.xml"];
+  const readSibling = (rel) => {
+    const filePath = path.join(LOCAL_SITE, rel);
+    if (!fs.existsSync(filePath)) return null;
+    return fs.readFileSync(filePath, "utf8");
+  };
 
-  for (const file of files) {
+  for (const file of ["sitemap-pages.xml", "sitemap-blog.xml", "sitemap-exemples.xml"]) {
     const filePath = path.join(LOCAL_SITE, file);
     if (!fs.existsSync(filePath)) continue;
-    urls.push(...parseLocs(fs.readFileSync(filePath, "utf8")));
+    urls.push(...expandSitemapXml(fs.readFileSync(filePath, "utf8"), readSibling));
   }
 
   return [...new Set(urls)];
