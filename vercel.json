@@ -197,6 +197,12 @@
     { "source": "/blog/tag/batterie/", "destination": "/blog/tag/mecanique/", "permanent": true },
     { "source": "/blog/tag/batterie", "destination": "/blog/tag/mecanique/", "permanent": true },
     { "source": "/blog/tag/diesel/", "destination": "/blog/tag/moteur/", "permanent": true },
-    { "source": "/blog/tag/diesel", "destination": "/blog/tag/moteur/", "permanent": true }
+    { "source": "/blog/tag/diesel", "destination": "/blog/tag/moteur/", "permanent": true },
+    { "source": "/blog/suppression-fap-controle-technique-2023/", "destination": "/blog/articles/suppression-fap-controle-technique-2026/", "permanent": true },
+    { "source": "/blog/suppression-fap-controle-technique-2023", "destination": "/blog/articles/suppression-fap-controle-technique-2026/", "permanent": true },
+    { "source": "/blog/suppression-fap-controle-technique-2023.html", "destination": "/blog/articles/suppression-fap-controle-technique-2026/", "permanent": true },
+    { "source": "/blog/articles/suppression-fap-controle-technique-2023/", "destination": "/blog/articles/suppression-fap-controle-technique-2026/", "permanent": true },
+    { "source": "/blog/articles/suppression-fap-controle-technique-2023", "destination": "/blog/articles/suppression-fap-controle-technique-2026/", "permanent": true },
+    { "source": "/blog/articles/suppression-fap-controle-technique-2023.html", "destination": "/blog/articles/suppression-fap-controle-technique-2026/", "permanent": true }
   ]
 }

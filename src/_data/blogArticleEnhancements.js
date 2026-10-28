@@ -2031,7 +2031,9 @@ module.exports = {
     relatedLinks: [
       { url: "/blog/articles/controle-technique-2026-nouveautes/", label: "Contrôle technique 2026" },
       { url: "/blog/articles/fap-dpf-encrasse-trajets-ville/", label: "FAP encrassé" },
+      { url: "/prestations/pre-controle-technique/", label: "Pré-contrôle technique Ivry" },
       { url: "/diagnostic/", label: "Diagnostic diesel" },
+      { url: "/garage-ivry-sur-seine/", label: "Garage Ivry-sur-Seine" },
     ],
     faqSchema: {
       "@context": "https://schema.org",

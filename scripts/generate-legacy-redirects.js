@@ -20,6 +20,7 @@ const path = require("path");
 const adLandingUrls = require("../src/_data/adLandingUrls.js");
 const garageProcheRedirects = require("../src/_data/garageProcheRedirects.js");
 const blogTagRedirects = require("../src/_data/blogTagRedirects.js");
+const blogSlugRenames = require("../src/_data/blogSlugRenames.js");
 const {
   classifyArticles,
   getMigratedBlogRedirectPairs,
@@ -86,6 +87,19 @@ function collectLpRedirects() {
     }
   }
   return redirects;
+}
+
+function collectBlogSlugRenameRedirects() {
+  const pairs = [];
+  for (const { oldSlug, to } of blogSlugRenames) {
+    pairs.push([`/blog/${oldSlug}/`, to]);
+    pairs.push([`/blog/${oldSlug}`, to]);
+    pairs.push([`/blog/${oldSlug}.html`, to]);
+    pairs.push([`/blog/articles/${oldSlug}/`, to]);
+    pairs.push([`/blog/articles/${oldSlug}`, to]);
+    pairs.push([`/blog/articles/${oldSlug}.html`, to]);
+  }
+  return pairs;
 }
 
 function collectBlogArticleRedirects() {
@@ -217,7 +231,8 @@ function collectAll() {
   const directoryRedirects = collectDirectoryRedirects();
   // Blog migration AVANT directory redirects pour ne pas écraser
   // /blog/<slug> → /blog/<slug>/ (identitaire) au détriment de → /blog/articles/<slug>/
-  const all = [...STATIC_REDIRECTS, ...lpRedirects, ...blogRedirects, ...directoryRedirects];
+  const slugRenames = collectBlogSlugRenameRedirects();
+  const all = [...STATIC_REDIRECTS, ...lpRedirects, ...blogRedirects, ...slugRenames, ...directoryRedirects];
   const seen = new Set();
   const pairs = [];
 

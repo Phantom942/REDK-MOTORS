@@ -202,6 +202,7 @@ jobs:
             "https://redkmotors.fr/blog/prix-recharge-climatisation-94/|https://redkmotors.fr/blog/articles/prix-recharge-climatisation-94/"
             "https://redkmotors.fr/blog/revision-60000-km-checklist/|https://redkmotors.fr/blog/articles/revision-60000-km-checklist/"
             "https://redkmotors.fr/blog/combien-coute-vidange-voiture/|https://redkmotors.fr/blog/articles/combien-coute-vidange-voiture/"
+            "https://redkmotors.fr/blog/suppression-fap-controle-technique-2023/|https://redkmotors.fr/blog/articles/suppression-fap-controle-technique-2026/"
           )
           for entry in "${BLOG_OLD_MAP[@]}"; do
             old="${entry%%|*}"

@@ -144,3 +144,11 @@
 /blog/tag/batterie         /blog/tag/mecanique/       301
 /blog/tag/diesel/          /blog/tag/moteur/          301
 /blog/tag/diesel           /blog/tag/moteur/          301
+
+# Slug blog renommé (GSC) → article canonique
+/blog/suppression-fap-controle-technique-2023/     /blog/articles/suppression-fap-controle-technique-2026/     301
+/blog/suppression-fap-controle-technique-2023      /blog/articles/suppression-fap-controle-technique-2026/     301
+/blog/suppression-fap-controle-technique-2023.html /blog/articles/suppression-fap-controle-technique-2026/     301
+/blog/articles/suppression-fap-controle-technique-2023/     /blog/articles/suppression-fap-controle-technique-2026/     301
+/blog/articles/suppression-fap-controle-technique-2023      /blog/articles/suppression-fap-controle-technique-2026/     301
+/blog/articles/suppression-fap-controle-technique-2023.html /blog/articles/suppression-fap-controle-technique-2026/     301
