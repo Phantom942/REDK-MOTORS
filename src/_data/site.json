@@ -1,6 +1,6 @@
 {
   "name": "RED-K MOTORS",
-  "seoTitle": "RED-K MOTORS | Garage automobile Ivry-sur-Seine (94)",
+  "seoTitle": "RED-K MOTORS | Garage Ivry-sur-Seine (94200)",
   "url": "https://redkmotors.fr",
   "locale": "fr_FR",
   "phone": "+33648745668",
@@ -68,7 +68,7 @@
       "children": [
         { "title": "Notre équipe", "url": "/equipe/", "key": "equipe" },
         { "title": "Comment ça se passe", "url": "/processus/", "key": "processus" },
-        { "title": "Garage à Ivry-sur-Seine", "url": "/garage-ivry-sur-seine/", "key": "garage-ivry" }
+        { "title": "Garage Ivry (94200)", "url": "/garage-ivry-sur-seine/", "key": "garage-ivry" }
       ]
     },
     {

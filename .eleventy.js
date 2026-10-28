@@ -214,11 +214,12 @@ module.exports = function (eleventyConfig) {
     },
     faqSchema: (data) => {
       if (data.faqSchema) return data.faqSchema;
-      if (!data.profil?.faqs) return undefined;
+      const faqList = data.faqs || data.profil?.faqs;
+      if (!faqList?.length) return undefined;
       return {
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        mainEntity: data.profil.faqs.map((faq) => ({
+        mainEntity: faqList.map((faq) => ({
           "@type": "Question",
           name: faq.question,
           acceptedAnswer: {

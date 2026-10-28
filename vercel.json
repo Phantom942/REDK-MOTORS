@@ -128,6 +128,8 @@
     { "source": "/garage-proche-creteil", "destination": "/vitry-sur-seine/", "permanent": true },
     { "source": "/garage-proche-fontenay-sous-bois/", "destination": "/paris-13/", "permanent": true },
     { "source": "/garage-proche-fontenay-sous-bois", "destination": "/paris-13/", "permanent": true },
+    { "source": "/garage-ivry/", "destination": "/garage-ivry-sur-seine/", "permanent": true },
+    { "source": "/garage-ivry", "destination": "/garage-ivry-sur-seine/", "permanent": true },
     { "source": "/garage-proche-gentilly/", "destination": "/garage-ivry-sur-seine/", "permanent": true },
     { "source": "/garage-proche-gentilly", "destination": "/garage-ivry-sur-seine/", "permanent": true },
     { "source": "/garage-proche-joinville-le-pont/", "destination": "/charenton-le-pont/", "permanent": true },

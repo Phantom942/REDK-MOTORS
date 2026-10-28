@@ -13,9 +13,9 @@ module.exports = {
   /** URLs pingées à chaque deploy (IndexNow) — ordre ≈ importance business */
   urls: [
     "/",
+    "/garage-ivry-sur-seine/",
     "/contact/",
     "/tarifs/",
-    "/garage-ivry-sur-seine/",
     "/links/",
     "/diagnostic/",
     "/mecanique/",

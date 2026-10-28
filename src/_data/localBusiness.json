@@ -4,6 +4,13 @@
     "@type": ["AutoRepair", "AutomotiveBusiness", "LocalBusiness"],
     "@id": "https://redkmotors.fr/#business",
     "name": "RED-K MOTORS",
+    "alternateName": [
+      "REDK MOTORS",
+      "Red-K Motors",
+      "Garage RED-K Ivry",
+      "Garage Ivry-sur-Seine",
+      "Garage Ivry"
+    ],
     "legalName": "RED-KMOTORS",
     "taxID": "10346253700012",
     "description": "Garage automobile RED-K MOTORS à Ivry-sur-Seine (94200) : mécanique, diagnostic, carrosserie et entretien multimarque. 9 rue Michelet. Parking pour dépôt de véhicule sur place. Devis gratuit avant travaux. Ouvert lun–sam 9h–19h, fermé dimanche.",

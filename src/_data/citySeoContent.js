@@ -6,18 +6,18 @@ const googleReviewCount = site.googleReviews?.count ?? 0;
 
 module.exports = {
   "garage-ivry": {
-    seoTitle: "Garage au 9 rue Michelet, Ivry-sur-Seine (94200)",
+    seoTitle: "Garage Ivry-sur-Seine — adresse & accès (94200)",
     seoParagraphs: [
-      `RED-K MOTORS, garage automobile au 9 rue Michelet, 94200 Ivry-sur-Seine. Note Google 4,9/5 (${googleReviewCount} avis clients). Ouvert lun–sam 9h–19h, fermé dimanche. Tél. 06 48 74 56 68. Parking pour dépôt de véhicule sur place.`,
+      `Vous cherchez un garage à Ivry ou Ivry-sur-Seine ? RED-K MOTORS est un garage automobile multimarque au 9 rue Michelet, 94200. Note Google 4,9/5 (${googleReviewCount} avis). Lun–sam 9h–19h · 06 48 74 56 68 · parking dépôt sur place.`,
       "Diagnostic OBD, vidange, freins, pneus/géométrie, clim, distribution, embrayage, carrosserie, pare-brise. Devis écrit avant travaux.",
       "Point d'accès pour Vitry, Villejuif, Paris 13, Charenton, Maisons-Alfort. Multimarque essence/diesel. RDV recommandé.",
     ],
     seoFooter: "Plan et formulaire : redkmotors.fr/contact/ — WhatsApp pour photos et premier avis.",
     heroDesc:
       "Atelier au 9 rue Michelet, 94200 Ivry-sur-Seine. Diagnostic, freins, pneus, clim, carrosserie — devis écrit avant travaux. Parking pour dépôt de véhicule sur place.",
-    introHeading: "Adresse & accès — Ivry-centre",
+    introHeading: "Garage Ivry — adresse & accès",
     introText:
-      "L'atelier est au 9 rue Michelet, au cœur d'Ivry. Parking pour dépôt de véhicule sur place. Pas de centre d'appels : vous échangez directement avec l'équipe atelier pour le devis et le suivi.",
+      "L'atelier RED-K MOTORS est votre garage à Ivry-sur-Seine : 9 rue Michelet, 94200, au cœur de la ville. Parking pour dépôt de véhicule sur place. Vous parlez directement avec l'équipe atelier pour le devis et le suivi — pas de centre d'appels.",
     highlights: [
       "Adresse : 9 rue Michelet, 94200",
       "Parking pour dépôt de véhicule sur place",
@@ -25,6 +25,11 @@ module.exports = {
       "Lun–sam 9h–19h — fermé dimanche",
     ],
     faqs: [
+      {
+        question: "Quel garage choisir à Ivry-sur-Seine ?",
+        answer:
+          "RED-K MOTORS, 9 rue Michelet (94200) : garage multimarque avec diagnostic, freins, pneus, clim et carrosserie. Environ 4,9/5 sur Google, devis écrit avant travaux, parking dépôt sur place. RDV : 06 48 74 56 68 ou redkmotors.fr/contact/.",
+      },
       {
         question: "Quels sont vos horaires à Ivry ?",
         answer:

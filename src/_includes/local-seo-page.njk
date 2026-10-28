@@ -12,6 +12,10 @@
 
 {% include "lp-trust-bar.njk" %}
 
+{% if directAnswer %}
+{% include "blog-direct-answer.njk" %}
+{% endif %}
+
 {% if pageKey == 'garage-ivry' %}
 <section class="service-focus service-focus--compact" aria-label="Fiche Google Maps">
   <div class="container service-focus__inner">
