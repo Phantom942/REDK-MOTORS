@@ -20,6 +20,10 @@
 
 {% include "lp-trust-bar.njk" %}
 
+{% if directAnswer %}
+{% include "blog-direct-answer.njk" %}
+{% endif %}
+
 {% include "lp-offer.njk" %}
 
 {% set showDiagnosticInterventionOffer = lp.showDiagnosticInterventionOffer | default(lpKey != "diagnostic") %}

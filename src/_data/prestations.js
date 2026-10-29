@@ -1,8 +1,11 @@
 ﻿const reviewPages = require("./reviewPages.js");
 const seoEnhance = require("./prestationSeoEnhancements.js");
 
+const ATELIER =
+  " Chez RED-K MOTORS, 9 rue Michelet, 94200 Ivry-sur-Seine (06 48 74 56 68, lun–sam 9h–19h).";
+
 const TARIFS_FAQ =
-  "Consultez notre grille tarifaire sur redkmotors.fr/tarifs/ — devis fermé après inspection.";
+  "La fourchette est sur redkmotors.fr/tarifs/. Le devis ferme est donné après inspection du véhicule.";
 
 /** Réponses prix différenciées (évite le même texte ×40 prestations). */
 const PRICE_FAQ_BY_SLUG = {
@@ -832,13 +835,13 @@ function buildLp(service, category) {
           },
           {
             question: `Combien coûte ${service.name.toLowerCase()} ?`,
-            answer: PRICE_FAQ_BY_SLUG[service.slug] || TARIFS_FAQ,
+            answer: `${PRICE_FAQ_BY_SLUG[service.slug] || TARIFS_FAQ}${ATELIER}`,
           },
           {
             question: "Comment prendre rendez-vous ?",
             answer: DIAGNOSTIC_ONLY_SLUGS.has(service.slug)
-              ? "Appelez le 06 48 74 56 68 ou WhatsApp avec plaque + symptômes — créneau diagnostic souvent le jour même lun–sam 9h–19h."
-              : "06 48 74 56 68, WhatsApp (photos utiles) ou formulaire contact — réponse en journée, lun–sam 9h–19h.",
+              ? "Appelez le 06 48 74 56 68 ou WhatsApp avec la plaque et les symptômes. Atelier au 9 rue Michelet, 94200 Ivry-sur-Seine, lun–sam 9h–19h."
+              : "06 48 74 56 68, WhatsApp ou le formulaire, au 9 rue Michelet, 94200 Ivry-sur-Seine. Réponse en journée, lun–sam 9h–19h.",
           },
           ...extraFaqs,
         ],

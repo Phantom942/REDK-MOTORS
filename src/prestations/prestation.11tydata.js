@@ -1,4 +1,23 @@
 const SITE_URL = "https://redkmotors.fr";
+const site = require("../_data/site.json");
+
+function buildDirectAnswer(data) {
+  const prestation = data.prestation;
+  if (!prestation) return undefined;
+  const rating = Number(site.googleReviews?.rating);
+  const ratingLabel = Number.isFinite(rating) ? rating.toFixed(1).replace(".", ",") : "4,9";
+  const count = site.googleReviews?.count ?? 0;
+  const detail = (prestation.lp?.heroDesc || prestation.summary || "").trim();
+  return {
+    question: `${prestation.name} à Ivry-sur-Seine : où le faire ?`,
+    answer: `${detail} Chez RED-K MOTORS, ${site.addressFull}. Téléphone ${site.phoneDisplayCompact}. Note Google ${ratingLabel}/5 (${count} avis). ${site.openingHours}, fermé le dimanche. Parking pour déposer le véhicule. Devis écrit avant travaux.`,
+    facts: [
+      { label: "Atelier", value: site.addressFull },
+      { label: "Téléphone", value: site.phoneDisplayCompact },
+      { label: "Note Google", value: `${ratingLabel}/5 · ${count} avis` },
+    ],
+  };
+}
 
 function buildBreadcrumb(data) {
   const prestation = data.prestation;
@@ -85,6 +104,7 @@ module.exports = {
     faqSchema: (data) => buildFaqSchema(data),
     localServiceSchema: (data) => buildServiceSchema(data),
     lp: (data) => data.prestation?.lp,
+    directAnswer: (data) => buildDirectAnswer(data),
     lpPageId: (data) => (data.prestation ? `prestation-${data.prestation.slug}` : undefined),
     hideServiceAreas: () => true,
     hasHeroVideo: () => true,

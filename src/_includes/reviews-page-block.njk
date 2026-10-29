@@ -7,6 +7,8 @@
         class="reviews-section__rating"
         role="group"
         aria-label="Note Google : {{ site.googleReviews.rating }} sur 5, {{ site.googleReviews.count }} avis"
+        data-rating="{{ site.googleReviews.rating }}"
+        data-count="{{ site.googleReviews.count }}"
       >
         <div class="reviews-section__score-wrap">
           <span class="reviews-section__score" aria-hidden="true">{{ site.googleReviews.rating | googleRatingDisplay }}</span>
