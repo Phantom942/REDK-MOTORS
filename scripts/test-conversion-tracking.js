@@ -235,7 +235,29 @@ function main() {
       merci.includes("n'est PAS mesurable") || merci.includes("n’est PAS mesurable"),
       "merci documente ≠ livraison e-mail FormSubmit",
     );
-    ok("garde-fous source tracking (ordre, idempotence, consent, merci)");
+    assert.ok(
+      merci.includes("prestataire") || merci.includes("dès réception"),
+      "merci utilisateur ne promet pas livraison e-mail garantie",
+    );
+
+    const contactForm = readSrc("src/_includes/contact-form.njk");
+    const proForm = readSrc("src/_includes/pro-contact-form.njk");
+    assert.ok(
+      contactForm.includes('data-track-submit="form_submit_contact"') &&
+        contactForm.includes('name="parcours"') &&
+        contactForm.includes('value="particulier"'),
+      "formulaire particulier tagué form_submit_contact + parcours",
+    );
+    assert.ok(
+      proForm.includes('data-track-submit="form_submit_pro"') &&
+        proForm.includes('value="professionnel"'),
+      "formulaire Pro tagué form_submit_pro + parcours professionnel",
+    );
+    assert.ok(
+      track.includes("form_submit_pro") && track.includes("'pro'"),
+      "track.js sépare position pro vs contact",
+    );
+    ok("garde-fous source tracking (ordre, idempotence, consent, merci, pro)");
   }
 
   console.log("Tests conversion tracking: OK");

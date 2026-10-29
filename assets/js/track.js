@@ -85,11 +85,24 @@
     var configured = form.getAttribute('data-track-submit');
     if (!configured) return;
     var resolved = funnel.resolveSubmitEvent(form, e);
+    var pos = configured === 'form_submit_pro' ? 'pro' : 'contact';
     if (resolved === 'form_submit_contact') {
       funnel.markFormSubmitPending();
-      pushEvent(configured, 'contact');
+      pushEvent(configured, pos);
+      var btn = form.querySelector('[data-contact-submit]');
+      var status = form.querySelector('[data-contact-status]');
+      if (btn) {
+        btn.disabled = true;
+        btn.setAttribute('aria-busy', 'true');
+        btn.textContent = 'Envoi en cours…';
+      }
+      if (status) {
+        status.hidden = false;
+        status.textContent =
+          'Envoi vers notre messagerie… La page de confirmation n’indique pas encore que l’e-mail est livré.';
+      }
     } else if (resolved === 'form_submit_attempt_blocked') {
-      pushEvent('form_submit_attempt_blocked', 'contact');
+      pushEvent('form_submit_attempt_blocked', pos);
     }
   }
 

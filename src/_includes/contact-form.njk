@@ -17,6 +17,7 @@
       <input type="hidden" name="_template" value="table" />
       <input type="hidden" name="_captcha" value="true" />
       <input type="hidden" name="_blacklist" value="viagra,casino,crypto,bitcoin,seo,loan,forex,porn" />
+      <input type="hidden" name="parcours" value="particulier" />
       <input type="text" name="_honey" class="contact-form__honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
       <div class="contact-form__grid">
@@ -32,8 +33,24 @@
           <label for="contact-email">Email</label>
           <input id="contact-email" name="email" type="email" autocomplete="email" maxlength="120" />
         </div>
+        <div class="contact-form__field">
+          <label for="contact-marque">Marque</label>
+          <input id="contact-marque" name="marque" type="text" maxlength="40" placeholder="ex. Renault" autocomplete="off" />
+        </div>
+        <div class="contact-form__field">
+          <label for="contact-modele">Modèle</label>
+          <input id="contact-modele" name="modele" type="text" maxlength="40" placeholder="ex. Clio" autocomplete="off" />
+        </div>
+        <div class="contact-form__field">
+          <label for="contact-annee">Année</label>
+          <input id="contact-annee" name="annee" type="text" inputmode="numeric" maxlength="4" placeholder="ex. 2018" pattern="[0-9]{4}" autocomplete="off" />
+        </div>
+        <div class="contact-form__field">
+          <label for="contact-km">Kilométrage</label>
+          <input id="contact-km" name="kilometrage" type="text" inputmode="numeric" maxlength="10" placeholder="ex. 120000" autocomplete="off" />
+        </div>
         <div class="contact-form__field contact-form__field--full">
-          <label for="contact-need">Votre besoin</label>
+          <label for="contact-need">Type d'intervention</label>
           <select id="contact-need" name="besoin">
             <option value="Diagnostic / voyant moteur">Diagnostic / voyant moteur</option>
             <option value="Entretien / révision">Entretien / révision</option>
@@ -50,14 +67,21 @@
           <input id="contact-plate" name="plaque" type="text" inputmode="text" maxlength="10" placeholder="AB-123-CD" autocomplete="off" data-contact-plate pattern="[A-Za-z0-9-]{1,10}" />
         </div>
         <div class="contact-form__field contact-form__field--full">
-          <label for="contact-message">Message</label>
-          <textarea id="contact-message" name="message" rows="4" maxlength="2000" placeholder="Décrivez votre besoin, vos disponibilités…"></textarea>
+          <label for="contact-dispo">Disponibilité souhaitée</label>
+          <input id="contact-dispo" name="disponibilite" type="text" maxlength="120" placeholder="ex. mardi matin, samedi…" autocomplete="off" />
+        </div>
+        <div class="contact-form__field contact-form__field--full">
+          <label for="contact-message">Problème rencontré / message</label>
+          <textarea id="contact-message" name="message" rows="4" maxlength="2000" placeholder="Décrivez le symptôme, le voyant, ou votre besoin…"></textarea>
         </div>
       </div>
 
       <div class="contact-form__actions">
-        <button type="submit" class="btn btn--primary contact-form__submit">Envoyer ma demande</button>
-        <p class="contact-form__privacy">En envoyant ce formulaire, vous acceptez que vos données soient transmises via <a href="https://formsubmit.co/" rel="noopener noreferrer">FormSubmit</a> pour nous contacter. Voir notre <a href="/confidentialite/">politique de confidentialité</a>.</p>
+        <button type="submit" class="btn btn--primary contact-form__submit" data-contact-submit>
+          Envoyer ma demande
+        </button>
+        <p class="contact-form__status" data-contact-status hidden aria-live="polite"></p>
+        <p class="contact-form__privacy">En envoyant ce formulaire, vous acceptez que vos données (nom, téléphone, email éventuel, infos véhicule et message) soient transmises via <a href="https://formsubmit.co/" rel="noopener noreferrer">FormSubmit</a> vers {{ site.email }} pour traiter votre demande. Voir notre <a href="/confidentialite/">politique de confidentialité</a>.</p>
         <p class="contact-form__alt">Ou écrivez-nous sur <a href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp" data-track-pos="contact_form">WhatsApp</a>.</p>
       </div>
     </form>
