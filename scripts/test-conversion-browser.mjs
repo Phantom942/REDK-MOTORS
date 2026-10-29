@@ -273,283 +273,54 @@ async function main() {
       ok("click_call après réactivation (scripts non rechargés)");
     }
 
-    // --- 3) Formulaire invalide / valide ---
-    await page.evaluate(() => {
-      window.__REDK_ANALYTICS_DISABLED__ = false;
-      window.REDKMotorsCookies.hasConsent = (t) =>
-        t === "essentiels" || t === "analytics";
-    });
-    await clearEvents(page);
-
-    await page.fill("#contact-name", "   ");
-    await page.fill("#contact-phone", "0612345678");
-    await page.evaluate(() => {
-      const form = document.querySelector("form[data-track-submit]");
-      form.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
-    });
-    await page.waitForTimeout(150);
-    events = await eventNames(page);
-    if (!events.includes("form_submit_attempt_blocked")) {
-      fail(`blocked attendu: ${JSON.stringify(events)}`);
-    } else {
-      ok("formulaire invalide → form_submit_attempt_blocked");
-    }
-
-    await clearEvents(page);
-    await page.fill("#contact-name", "Test User");
-    await page.fill("#contact-phone", "0612345678");
-    // Empêcher POST FormSubmit réel tout en laissant le listener capture de track.js s'exécuter
-    await page.evaluate(() => {
-      const form = document.querySelector("form[data-track-submit]");
-      form.addEventListener(
-        "submit",
-        (e) => {
-          // Après track (capture) : bubble phase → bloquer navigation
-          e.preventDefault();
-        },
-        false,
-      );
-    });
-    await page.evaluate(() => {
-      const form = document.querySelector("form[data-track-submit]");
-      form.requestSubmit
-        ? form.requestSubmit()
-        : form.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
-    });
-    await page.waitForTimeout(200);
-    const submitState = await page.evaluate(() => {
-      const funnel = window.REDKMotorsConversionFunnel;
-      return {
-        events: (window.__TEST_EVENTS__ || []).map((e) => e.event),
-        pending: !!sessionStorage.getItem(funnel.FORM_PENDING_KEY),
-      };
-    });
-    if (
-      !submitState.events.includes("form_submit_contact") ||
-      !submitState.pending
-    ) {
-      fail(`submit valide: ${JSON.stringify(submitState)}`);
-    } else {
-      ok("formulaire valide → form_submit_contact + jeton pending (proxy POST FormSubmit)");
-    }
-
-    // --- 4) Merci : parcours form → _next (redirect) vs success confirmé ---
-    // Session conserve le jeton = « FormSubmit a redirigé via _next après submit client »
-    await page.goto(`${base}/merci/?source=form`, { waitUntil: "domcontentloaded" });
-    await acceptCookies(page);
-    await page.waitForTimeout(500);
-    events = await eventNames(page);
-    const hasRedirect = events.includes("form_submit_redirect");
-    const hasSuccess = events.includes("form_submit_success");
-    const hasUnverified = events.includes("form_submit_redirect_unverified");
-    if (!hasRedirect || !hasSuccess || hasUnverified) {
-      fail(
-        `merci vérifié attendu redirect+success: ${JSON.stringify(events)}`,
-      );
-    } else {
-      ok(
-        "parcours form→merci : form_submit_redirect (page succès) + form_submit_success (jeton confirmé)",
-      );
-    }
-
-    // Reload / accès direct sans jeton → unverified (≠ livraison confirmée)
-    await page.evaluate(() => {
-      sessionStorage.clear();
-      window.__TEST_EVENTS__ = [];
-    });
-    await page.goto(`${base}/merci/?source=form`, { waitUntil: "domcontentloaded" });
-    // Consent déjà en cookie — loadAnalytics doit tourner
-    await page.waitForFunction(() => !!window.REDKMotorsConversionFunnel, {
-      timeout: 5000,
-    });
-    // Si bandeau réapparaît (cookie perdu dans evaluate clear ≠ cookie jar)
+    // --- 3) Contact call-first : aucun formulaire FormSubmit ---
+    await page.goto(`${base}/contact/`, { waitUntil: "domcontentloaded" });
     if (await page.locator("#cookie-accept-all").count()) {
       await acceptCookies(page);
     }
-    await page.waitForTimeout(600);
-    events = await eventNames(page);
-    if (
-      events.includes("form_submit_success") ||
-      !events.includes("form_submit_redirect_unverified")
-    ) {
-      fail(`merci non vérifié: ${JSON.stringify(events)}`);
+    const contactForms = await page.locator("form[action*='formsubmit'], form[data-track-submit]").count();
+    const callCta = await page.locator('#contact-call-title, a[data-track-pos="contact_call_block"]').count();
+    if (contactForms > 0) {
+      fail(`formulaire encore présent sur /contact/ (${contactForms})`);
+    } else if (!callCta) {
+      fail("CTA appel absent sur /contact/");
     } else {
-      ok(
-        "merci sans jeton → form_submit_redirect_unverified (pas success ; ≠ livraison e-mail)",
-      );
+      ok("/contact/ : pas de formulaire, CTA appel présent");
     }
 
-    // Distinction explicite documentée dans les events capturés
-    ok(
-      "distinction : redirect = page /merci affichée ; success = jeton session (proxy POST accepté) ; jamais preuve e-mail FormSubmit",
-    );
-
-    // Merci UI : source=form sans jeton ≠ succès affiché
-    const unverifiedUi = await page.evaluate(() => {
-      const u = document.getElementById("merci-form-unverified");
-      const i = document.getElementById("merci-form-initiated");
-      const title = document.getElementById("merci-title");
-      return {
-        unverifiedVisible: u && !u.classList.contains("sr-only"),
-        initiatedHidden: !i || i.classList.contains("sr-only"),
-        title: title ? title.textContent : "",
-      };
-    });
-    if (!unverifiedUi.unverifiedVisible || !unverifiedUi.initiatedHidden) {
-      fail(`merci UI unverified: ${JSON.stringify(unverifiedUi)}`);
+    // --- 4) Merci recentré téléphone ---
+    await page.goto(`${base}/merci/`, { waitUntil: "domcontentloaded" });
+    const merciCopy = await page.locator("#merci-default-msg").innerText();
+    if (!/Pas de formulaire/i.test(merciCopy)) {
+      fail("merci doit indiquer l'absence de formulaire");
     } else {
-      ok("merci UI : URL source=form seule → message non confirmé (pas de faux succès)");
+      ok("merci : message call-first");
     }
 
-    // --- 5) Formulaire Pro /professionnels/ ---
+    // --- 5) Espace Pro : appel, pas de formulaire ---
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto(`${base}/professionnels/`, { waitUntil: "domcontentloaded" });
-    await page.waitForFunction(
-      () => !!window.REDKMotorsConversionFunnel && !!window.__REDK_FORM_UX_BOUND__,
-      { timeout: 8000 },
-    );
-
-    const proFormVisible = await page.locator('form[data-track-submit="form_submit_pro"]').count();
-    if (!proFormVisible) {
-      fail("formulaire Pro absent sur /professionnels/");
+    if (await page.locator("#cookie-accept-all").count()) {
+      await acceptCookies(page);
+    }
+    const proForms = await page.locator("form[action*='formsubmit'], form[data-track-submit]").count();
+    const proCall = await page.locator("#pro-call-title, a[data-track-pos='pro_call_block']").count();
+    if (proForms > 0) {
+      fail(`formulaire encore présent sur /professionnels/ (${proForms})`);
+    } else if (!proCall) {
+      fail("CTA appel Pro absent");
     } else {
-      ok("formulaire Pro affiché (viewport mobile)");
+      ok("/professionnels/ mobile : pas de formulaire, CTA appel");
     }
 
-    // Sans consentement Analytics : UX OK, aucun event GA
-    await page.evaluate(() => {
-      window.__REDK_ANALYTICS_DISABLED__ = true;
-      window.__TEST_EVENTS__ = [];
-      sessionStorage.clear();
-      const api = window.REDKMotorsCookies;
-      if (api) {
-        api.hasConsent = (t) => t === "essentiels";
-      }
-    });
-    await page.fill("#pro-entreprise", "Test Flotte SARL");
-    await page.fill("#pro-contact", "Alice Pro");
-    await page.fill("#pro-phone", "0612345678");
-    await page.evaluate(() => {
-      const form = document.querySelector('form[data-track-submit="form_submit_pro"]');
-      form.addEventListener("submit", (e) => e.preventDefault(), false);
-    });
-    await page.evaluate(() => {
-      const form = document.querySelector('form[data-track-submit="form_submit_pro"]');
-      form.requestSubmit
-        ? form.requestSubmit()
-        : form.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
-    });
-    await page.waitForTimeout(250);
-    const noConsentState = await page.evaluate(() => {
-      const btn = document.querySelector("[data-contact-submit]");
-      const funnel = window.REDKMotorsConversionFunnel;
-      return {
-        events: (window.__TEST_EVENTS__ || []).map((e) => e.event),
-        pending: !!sessionStorage.getItem(funnel.FORM_PENDING_KEY),
-        busy: btn && btn.getAttribute("aria-busy") === "true",
-        label: btn ? btn.textContent : "",
-      };
-    });
-    if (noConsentState.events.includes("form_submit_pro")) {
-      fail(`form_submit_pro sans consentement: ${JSON.stringify(noConsentState.events)}`);
-    } else if (!noConsentState.pending) {
-      fail("jeton pending absent sans consentement (UX doit quand même marquer)");
-    } else {
-      ok("Pro sans consentement : UX/pending OK, aucun form_submit_pro GA4");
-    }
-
-    // Échec simulé : restauration bouton (restoreAll)
-    await page.evaluate(() => {
-      if (window.REDKMotorsContactFormUx) {
-        window.REDKMotorsContactFormUx.restoreAll();
-      }
-    });
-    const restored = await page.evaluate(() => {
-      const btn = document.querySelector(
-        'form[data-track-submit="form_submit_pro"] [data-contact-submit]',
-      );
-      return {
-        disabled: btn ? btn.disabled : true,
-        busy: btn ? btn.getAttribute("aria-busy") : "true",
-        label: btn ? btn.textContent.trim() : "",
-      };
-    });
-    if (restored.disabled || restored.busy === "true") {
-      fail(`bouton Pro non rétabli après échec simulé: ${JSON.stringify(restored)}`);
-    } else {
-      ok("échec simulé : bouton Pro rétabli (pas de blocage définitif)");
-    }
-
-    // Avec consentement : form_submit_pro, sans PII dans dataLayer
-    await page.evaluate(() => {
-      window.__REDK_ANALYTICS_DISABLED__ = false;
-      if (window.REDKMotorsCookies) {
-        window.REDKMotorsCookies.hasConsent = (t) =>
-          t === "essentiels" || t === "analytics" || t === "marketing";
-      }
-      document.dispatchEvent(
-        new CustomEvent("redk:analytics-consent", { detail: { analytics: true } }),
-      );
-    });
-    // Recharger pour réinitialiser les listeners track après overrides de test
-    await page.goto(`${base}/professionnels/`, { waitUntil: "domcontentloaded" });
-    await acceptCookies(page);
-    await page.waitForFunction(
-      () =>
-        !!window.REDKMotorsConversionFunnel &&
-        !!window.__REDK_FORM_UX_BOUND__ &&
-        !!window.__REDK_TRACK_BOUND__,
-      { timeout: 10000 },
-    );
     await clearEvents(page);
-    await page.evaluate(() => {
-      sessionStorage.clear();
-      window.__REDK_ANALYTICS_DISABLED__ = false;
-    });
-    await page.fill("#pro-entreprise", "Test Flotte SARL");
-    await page.fill("#pro-contact", "Alice Pro");
-    await page.fill("#pro-phone", "0612345678");
-    await page.fill("#pro-email", "alice-pro@example.test");
-    await page.evaluate(() => {
-      const form = document.querySelector('form[data-track-submit="form_submit_pro"]');
-      // Empêcher POST réel
-      form.addEventListener("submit", (e) => e.preventDefault(), false);
-      form.requestSubmit
-        ? form.requestSubmit()
-        : form.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
-    });
-    await page.waitForTimeout(300);
-    const withConsent = await page.evaluate(() => {
-      const events = window.__TEST_EVENTS__ || [];
-      const payload = JSON.stringify(events);
-      return {
-        names: events.map((e) => e.event),
-        hasPii:
-          /alice-pro@example\.test|0612345678|Test Flotte|Alice Pro/i.test(payload),
-        fields: events.filter((e) => e.event === "form_submit_pro"),
-      };
-    });
-    if (!withConsent.names.includes("form_submit_pro")) {
-      fail(`form_submit_pro attendu avec consentement: ${JSON.stringify(withConsent.names)}`);
-    } else if (withConsent.hasPii) {
-      fail("PII détectées dans dataLayer GA4");
-    } else {
-      ok("Pro avec consentement → form_submit_pro sans PII");
-    }
-
-    // Validation : champs requis vides → blocked (avec consentement)
-    await clearEvents(page);
-    await page.fill("#pro-entreprise", "   ");
-    await page.evaluate(() => {
-      const form = document.querySelector('form[data-track-submit="form_submit_pro"]');
-      form.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
-    });
+    await page.locator('a[data-track-pos="pro_call_block"][href^="tel:"]').click();
     await page.waitForTimeout(150);
     events = await eventNames(page);
-    if (!events.includes("form_submit_attempt_blocked")) {
-      fail(`Pro invalide blocked attendu: ${JSON.stringify(events)}`);
+    if (!events.includes("click_call")) {
+      fail(`click_call Pro attendu: ${JSON.stringify(events)}`);
     } else {
-      ok("Pro validation échouée → form_submit_attempt_blocked");
+      ok("Espace Pro : click_call tracké (sans PII formulaire)");
     }
 
     if (!process.exitCode) {

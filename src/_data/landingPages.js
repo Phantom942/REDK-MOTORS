@@ -20,7 +20,7 @@ const TARIFS_FAQ_BY_KEY = {
   vidange: `Vidange : exemple sur redkmotors.fr/exemples/prix-vidange-moteur/. Devis ferme selon l'huile homologuée et les filtres. ${ATELIER}`,
 };
 const PROCESS_STEPS = [
-  { title: "Contactez-nous", desc: "Téléphone, WhatsApp ou formulaire — réponse en journée lun–sam 9h–19h." },
+  { title: "Contactez-nous", desc: "Téléphone, WhatsApp — réponse en journée lun–sam 9h–19h." },
   { title: "Devis clair", desc: "Inspection au véhicule, explication et chiffrage avant toute intervention." },
   { title: "Intervention validée", desc: "Les travaux démarrent uniquement après votre accord." },
 ];
@@ -206,7 +206,7 @@ const landingPages = {
     faqs: [
       { question: "Proposez-vous un devis avant les réparations ?", answer: "Oui. Devis écrit gratuit — aucune intervention sans votre validation." },
       { question: "Intervenez-vous sur toutes les marques ?", answer: "Oui, essence et diesel, particuliers et professionnels." },
-      { question: "Comment prendre rendez-vous ?", answer: "Par téléphone au 06 48 74 56 68, WhatsApp ou formulaire contact. Lun–sam 9h–19h." },
+      { question: "Comment prendre rendez-vous ?", answer: "Par téléphone au 06 48 74 56 68, WhatsApp. Lun–sam 9h–19h." },
     ],
     seoTitle: "Réparation auto et mécanique générale",
     seoParagraphs: [

@@ -171,7 +171,7 @@ const WHEN_FAQ_BY_SLUG = {
 };
 
 const PROCESS_STEPS = [
-  { title: "Contactez-nous", desc: "Téléphone, WhatsApp ou formulaire — réponse en journée." },
+  { title: "Contactez-nous", desc: "Téléphone, WhatsApp — réponse en journée." },
   { title: "Devis clair", desc: "Inspection, explication et chiffrage avant travaux." },
   { title: "Intervention validée", desc: "On intervient uniquement après votre accord." },
 ];
@@ -752,7 +752,7 @@ const SEO_CONTENT = {
       "Recharge climatisation à Ivry après contrôle d'étanchéité. Clim qui ne refroidit plus, air tiède ou odeur : on mesure les pressions avant toute recharge.",
       "Si fuite ou compresseur HS, la réparation est chiffrée au devis après inspection — distincte d'une simple recharge. Voir aussi le guide prix clim 94.",
     ],
-    seoFooter: "RDV clim : téléphone, WhatsApp ou formulaire contact — atelier 9 rue Michelet.",
+    seoFooter: "RDV clim : téléphone, WhatsApp — atelier 9 rue Michelet.",
     seoProblems: [
       { text: "Prix recharge clim 94", url: "/blog/articles/prix-recharge-climatisation-94/" },
       { text: "Odeur moisi clim", url: "/blog/articles/clim-odeur-moisi-que-faire/" },
@@ -841,7 +841,7 @@ function buildLp(service, category) {
             question: "Comment prendre rendez-vous ?",
             answer: DIAGNOSTIC_ONLY_SLUGS.has(service.slug)
               ? "Appelez le 06 48 74 56 68 ou WhatsApp avec la plaque et les symptômes. Atelier au 9 rue Michelet, 94200 Ivry-sur-Seine, lun–sam 9h–19h."
-              : "06 48 74 56 68, WhatsApp ou le formulaire, au 9 rue Michelet, 94200 Ivry-sur-Seine. Réponse en journée, lun–sam 9h–19h.",
+              : "06 48 74 56 68 ou WhatsApp, au 9 rue Michelet, 94200 Ivry-sur-Seine. Réponse en journée, lun–sam 9h–19h.",
           },
           ...extraFaqs,
         ],

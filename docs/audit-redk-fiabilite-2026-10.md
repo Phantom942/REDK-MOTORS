@@ -4,7 +4,8 @@
 **PR :** https://github.com/Phantom942/REDK-MOTORS/pull/14  
 **Commit de référence initial relecture :** `69dbd5a`  
 **Statut annoncé :** **TECHNIQUEMENT PRÊTE — VALIDATIONS PROPRIÉTAIRE RESTANTES**  
-**Merge / déploiement :** **non effectués** (autorisation requise)
+**Merge / déploiement :** **non effectués** (autorisation requise)  
+**Contact :** formulaires retirés — **appel / WhatsApp uniquement** (demande propriétaire)
 
 ---
 

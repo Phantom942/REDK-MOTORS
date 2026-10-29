@@ -486,7 +486,7 @@ const PAGE_OVERRIDES = {
     seoTitle: "Devis garage 94 — gratuit et détaillé",
     seoParagraphs: [
       "Demandez un devis clair : pièces, main-d'œuvre, délai. On ne démarre les travaux qu'après votre validation. Photo WhatsApp possible pour une première estimation carrosserie.",
-      "Devis gratuit à Ivry-sur-Seine — téléphone, WhatsApp ou formulaire contact.",
+      "Devis gratuit à Ivry-sur-Seine — téléphone, WhatsApp.",
     ],
     seoProblems: [
       { text: "Contact & RDV", url: "/contact/" },

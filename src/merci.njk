@@ -15,16 +15,10 @@ scripts:
 <section class="merci-page" aria-labelledby="merci-title">
   <div class="container">
     <div class="merci-page__box">
-      <p class="merci-page__badge" id="merci-badge" aria-hidden="true">·</p>
-      <h1 id="merci-title" class="merci-page__title">Contact</h1>
-      <p class="merci-page__text merci-page__text--form sr-only" id="merci-form-initiated">
-        Demande <strong>initiée</strong> : elle a été transmise à notre prestataire d’acheminement (FormSubmit). Cela ne confirme pas encore l’acceptation définitive du prestataire ni la <strong>livraison</strong> dans notre boîte mail. Nous revenons vers vous en journée (lun–sam, 9h–19h) dès réception. Sans réponse sous 1 jour ouvré : {{ site.phoneDisplayCompact | default(site.phoneDisplay) }}.
-      </p>
-      <p class="merci-page__text merci-page__text--form sr-only" id="merci-form-unverified">
-        Un paramètre de formulaire est présent dans l’URL, mais <strong>aucun envoi n’a pu être confirmé</strong> depuis cette session (accès direct, retour arrière ou session expirée). Ce n’est pas une preuve de succès. Si vous venez d’envoyer une demande, appelez le {{ site.phoneDisplayCompact | default(site.phoneDisplay) }} ou renvoyez via <a href="/contact/">le formulaire</a>.
-      </p>
+      <p class="merci-page__badge" aria-hidden="true">·</p>
+      <h1 id="merci-title" class="merci-page__title">Contactez-nous</h1>
       <p class="merci-page__text" id="merci-default-msg">
-        Pour <strong>un créneau, un tarif ou une urgence</strong>, en heures d'ouverture (lun–sam, 9h–19h), le téléphone reste souvent le plus direct — numéro ci-dessous.
+        Pour <strong>un créneau, un tarif ou une urgence</strong>, en heures d'ouverture (lun–sam, 9h–19h), le téléphone reste le plus direct — numéro ci-dessous. Pas de formulaire en ligne.
       </p>
       <p class="merci-page__sub">
         Vous pouvez aussi nous écrire sur <a href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer">WhatsApp</a> (photos utiles pour la carrosserie ou un voyant).
@@ -42,128 +36,3 @@ scripts:
     </div>
   </div>
 </section>
-
-<script>
-/**
- * Funnel merci (sans PII) :
- * - form_submit_redirect : landing après _next + jeton session (demande initiée / proxy POST)
- * - form_submit_success : même jeton consommé (proxy « POST accepté ») — ≠ e-mail livré
- * - form_submit_redirect_unverified : source=form SANS jeton (URL seule ≠ succès)
- * La livraison e-mail FormSubmit n'est PAS mesurable côté client.
- * L'UI ne traite jamais source=form seul comme une soumission réussie.
- */
-(function () {
-  function boot() {
-    var funnel = window.REDKMotorsConversionFunnel;
-    if (!funnel) {
-      setTimeout(boot, 20);
-      return;
-    }
-
-    var fromForm = new URLSearchParams(window.location.search).get('source') === 'form';
-    var initiated = document.getElementById('merci-form-initiated');
-    var unverified = document.getElementById('merci-form-unverified');
-    var defaultMsg = document.getElementById('merci-default-msg');
-    var badge = document.getElementById('merci-badge');
-    var title = document.getElementById('merci-title');
-    var pushed = {};
-
-    function show(el) {
-      if (el) el.classList.remove('sr-only');
-    }
-    function hide(el) {
-      if (el) {
-        el.classList.add('sr-only');
-        el.hidden = false;
-      }
-    }
-
-    if (!fromForm) {
-      if (badge) badge.textContent = '·';
-      return;
-    }
-
-    var hadPending = funnel.peekFormSubmitPending();
-
-    if (defaultMsg) defaultMsg.hidden = true;
-
-    if (hadPending) {
-      show(initiated);
-      hide(unverified);
-      if (badge) badge.textContent = '→';
-      if (title) title.textContent = 'Demande initiée';
-    } else {
-      hide(initiated);
-      show(unverified);
-      if (badge) badge.textContent = '?';
-      if (title) title.textContent = 'Envoi non confirmé';
-    }
-
-    function hasAnalyticsConsent() {
-      try {
-        if (window.__REDK_ANALYTICS_DISABLED__) return false;
-        return !!(window.REDKMotorsCookies && window.REDKMotorsCookies.hasConsent('analytics'));
-      } catch (e) {
-        return false;
-      }
-    }
-
-    function pushOnce(eventName) {
-      if (pushed[eventName]) return;
-      if (!hasAnalyticsConsent()) return;
-      pushed[eventName] = true;
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: eventName,
-        page_key: 'merci',
-        location: window.location.pathname,
-        cta_position: 'merci'
-      });
-    }
-
-    function runFunnelEvents() {
-      if (!hasAnalyticsConsent()) return;
-
-      var pendingNow = funnel.peekFormSubmitPending();
-      var allowRedirectSlot = funnel.shouldFireRedirectEvent();
-      var plan = funnel.resolveMerciEvents({
-        sourceForm: true,
-        hasConsent: true,
-        hadPending: pendingNow,
-        allowRedirectSlot: allowRedirectSlot
-      });
-
-      var consumed = funnel.consumeFormSubmitPending();
-      if (pendingNow && !consumed) {
-        plan.success = false;
-        plan.redirect = false;
-      }
-
-      if (plan.redirect) pushOnce('form_submit_redirect');
-      if (plan.success) pushOnce('form_submit_success');
-      if (plan.unverifiedLanding) pushOnce('form_submit_redirect_unverified');
-    }
-
-    if (hasAnalyticsConsent()) {
-      runFunnelEvents();
-      return;
-    }
-
-    document.addEventListener('redk:analytics-consent', function () {
-      runFunnelEvents();
-    }, { once: true });
-
-    var tries = 0;
-    var timer = setInterval(function () {
-      tries += 1;
-      if (hasAnalyticsConsent()) {
-        clearInterval(timer);
-        runFunnelEvents();
-      } else if (tries > 40) {
-        clearInterval(timer);
-      }
-    }, 250);
-  }
-  boot();
-})();
-</script>

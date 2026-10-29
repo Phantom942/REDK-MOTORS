@@ -1,4 +1,4 @@
-const site = require("./_data/site.json");
+﻿const site = require("./_data/site.json");
 const reviews = site.googleReviews || {};
 const ratingLabel = String(reviews.rating ?? "4.9").replace(".", ",");
 const reviewCount = reviews.count ?? 0;
@@ -27,7 +27,7 @@ module.exports = {
       },
       {
         question: "Comment vous contacter ?",
-        answer: "06 48 74 56 68, WhatsApp ou formulaire contact. Réponse rapide en journée.",
+        answer: "06 48 74 56 68, WhatsApp. Réponse rapide en journée.",
       },
       {
         question: "Faites-vous pneus, freins, vidange et clim ?",

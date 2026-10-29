@@ -57,7 +57,7 @@ module.exports = {
     },
     {
       q: "Comment prendre rendez-vous chez RED-K MOTORS ?",
-      a: "Par téléphone (06 48 74 56 68), WhatsApp, ou formulaire sur https://redkmotors.fr/contact/ — réponse en journée lun–sam 9h–19h.",
+      a: "Par téléphone (06 48 74 56 68) ou WhatsApp — pas de formulaire en ligne. Réponse en journée lun–sam 9h–19h. Page : https://redkmotors.fr/contact/",
     },
     {
       q: "RED-K MOTORS intervient dans quelles villes ?",
