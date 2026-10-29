@@ -44,10 +44,12 @@ npm run build
 Sortie attendue :
 
 ```text
-sync-google-reviews: OK — note 4.9/5, 53 avis, 4 cartes exportées.
+sync-google-reviews: OK — note 4.9/5, 53 avis (pool curaté N cartes, +K nouveaux).
 ```
 
-Le nombre **4** correspond à `site.googleReviews.maxReviews` (cartes affichées sur le site). Le **count** total vient de `userRatingCount` Google.
+**Important :** le pool d’avis de `googleReviews.json` (auteurs utilisés par `reviewPages.js` pour les témoignages) n’est **jamais remplacé** par le slice API. La sync met à jour `rating` / `count` et peut **ajouter** de nouveaux auteurs absents du pool ; les textes déjà sélectionnés sont conservés.
+
+Test de non-régression : `npm run test:sync-reviews`.
 
 ## GitHub Actions (optionnel)
 

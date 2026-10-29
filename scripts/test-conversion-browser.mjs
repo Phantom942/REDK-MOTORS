@@ -384,6 +384,174 @@ async function main() {
       "distinction : redirect = page /merci affichée ; success = jeton session (proxy POST accepté) ; jamais preuve e-mail FormSubmit",
     );
 
+    // Merci UI : source=form sans jeton ≠ succès affiché
+    const unverifiedUi = await page.evaluate(() => {
+      const u = document.getElementById("merci-form-unverified");
+      const i = document.getElementById("merci-form-initiated");
+      const title = document.getElementById("merci-title");
+      return {
+        unverifiedVisible: u && !u.classList.contains("sr-only"),
+        initiatedHidden: !i || i.classList.contains("sr-only"),
+        title: title ? title.textContent : "",
+      };
+    });
+    if (!unverifiedUi.unverifiedVisible || !unverifiedUi.initiatedHidden) {
+      fail(`merci UI unverified: ${JSON.stringify(unverifiedUi)}`);
+    } else {
+      ok("merci UI : URL source=form seule → message non confirmé (pas de faux succès)");
+    }
+
+    // --- 5) Formulaire Pro /professionnels/ ---
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto(`${base}/professionnels/`, { waitUntil: "domcontentloaded" });
+    await page.waitForFunction(
+      () => !!window.REDKMotorsConversionFunnel && !!window.__REDK_FORM_UX_BOUND__,
+      { timeout: 8000 },
+    );
+
+    const proFormVisible = await page.locator('form[data-track-submit="form_submit_pro"]').count();
+    if (!proFormVisible) {
+      fail("formulaire Pro absent sur /professionnels/");
+    } else {
+      ok("formulaire Pro affiché (viewport mobile)");
+    }
+
+    // Sans consentement Analytics : UX OK, aucun event GA
+    await page.evaluate(() => {
+      window.__REDK_ANALYTICS_DISABLED__ = true;
+      window.__TEST_EVENTS__ = [];
+      sessionStorage.clear();
+      const api = window.REDKMotorsCookies;
+      if (api) {
+        api.hasConsent = (t) => t === "essentiels";
+      }
+    });
+    await page.fill("#pro-entreprise", "Test Flotte SARL");
+    await page.fill("#pro-contact", "Alice Pro");
+    await page.fill("#pro-phone", "0612345678");
+    await page.evaluate(() => {
+      const form = document.querySelector('form[data-track-submit="form_submit_pro"]');
+      form.addEventListener("submit", (e) => e.preventDefault(), false);
+    });
+    await page.evaluate(() => {
+      const form = document.querySelector('form[data-track-submit="form_submit_pro"]');
+      form.requestSubmit
+        ? form.requestSubmit()
+        : form.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
+    });
+    await page.waitForTimeout(250);
+    const noConsentState = await page.evaluate(() => {
+      const btn = document.querySelector("[data-contact-submit]");
+      const funnel = window.REDKMotorsConversionFunnel;
+      return {
+        events: (window.__TEST_EVENTS__ || []).map((e) => e.event),
+        pending: !!sessionStorage.getItem(funnel.FORM_PENDING_KEY),
+        busy: btn && btn.getAttribute("aria-busy") === "true",
+        label: btn ? btn.textContent : "",
+      };
+    });
+    if (noConsentState.events.includes("form_submit_pro")) {
+      fail(`form_submit_pro sans consentement: ${JSON.stringify(noConsentState.events)}`);
+    } else if (!noConsentState.pending) {
+      fail("jeton pending absent sans consentement (UX doit quand même marquer)");
+    } else {
+      ok("Pro sans consentement : UX/pending OK, aucun form_submit_pro GA4");
+    }
+
+    // Échec simulé : restauration bouton (restoreAll)
+    await page.evaluate(() => {
+      if (window.REDKMotorsContactFormUx) {
+        window.REDKMotorsContactFormUx.restoreAll();
+      }
+    });
+    const restored = await page.evaluate(() => {
+      const btn = document.querySelector(
+        'form[data-track-submit="form_submit_pro"] [data-contact-submit]',
+      );
+      return {
+        disabled: btn ? btn.disabled : true,
+        busy: btn ? btn.getAttribute("aria-busy") : "true",
+        label: btn ? btn.textContent.trim() : "",
+      };
+    });
+    if (restored.disabled || restored.busy === "true") {
+      fail(`bouton Pro non rétabli après échec simulé: ${JSON.stringify(restored)}`);
+    } else {
+      ok("échec simulé : bouton Pro rétabli (pas de blocage définitif)");
+    }
+
+    // Avec consentement : form_submit_pro, sans PII dans dataLayer
+    await page.evaluate(() => {
+      window.__REDK_ANALYTICS_DISABLED__ = false;
+      if (window.REDKMotorsCookies) {
+        window.REDKMotorsCookies.hasConsent = (t) =>
+          t === "essentiels" || t === "analytics" || t === "marketing";
+      }
+      document.dispatchEvent(
+        new CustomEvent("redk:analytics-consent", { detail: { analytics: true } }),
+      );
+    });
+    // Recharger pour réinitialiser les listeners track après overrides de test
+    await page.goto(`${base}/professionnels/`, { waitUntil: "domcontentloaded" });
+    await acceptCookies(page);
+    await page.waitForFunction(
+      () =>
+        !!window.REDKMotorsConversionFunnel &&
+        !!window.__REDK_FORM_UX_BOUND__ &&
+        !!window.__REDK_TRACK_BOUND__,
+      { timeout: 10000 },
+    );
+    await clearEvents(page);
+    await page.evaluate(() => {
+      sessionStorage.clear();
+      window.__REDK_ANALYTICS_DISABLED__ = false;
+    });
+    await page.fill("#pro-entreprise", "Test Flotte SARL");
+    await page.fill("#pro-contact", "Alice Pro");
+    await page.fill("#pro-phone", "0612345678");
+    await page.fill("#pro-email", "alice-pro@example.test");
+    await page.evaluate(() => {
+      const form = document.querySelector('form[data-track-submit="form_submit_pro"]');
+      // Empêcher POST réel
+      form.addEventListener("submit", (e) => e.preventDefault(), false);
+      form.requestSubmit
+        ? form.requestSubmit()
+        : form.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
+    });
+    await page.waitForTimeout(300);
+    const withConsent = await page.evaluate(() => {
+      const events = window.__TEST_EVENTS__ || [];
+      const payload = JSON.stringify(events);
+      return {
+        names: events.map((e) => e.event),
+        hasPii:
+          /alice-pro@example\.test|0612345678|Test Flotte|Alice Pro/i.test(payload),
+        fields: events.filter((e) => e.event === "form_submit_pro"),
+      };
+    });
+    if (!withConsent.names.includes("form_submit_pro")) {
+      fail(`form_submit_pro attendu avec consentement: ${JSON.stringify(withConsent.names)}`);
+    } else if (withConsent.hasPii) {
+      fail("PII détectées dans dataLayer GA4");
+    } else {
+      ok("Pro avec consentement → form_submit_pro sans PII");
+    }
+
+    // Validation : champs requis vides → blocked (avec consentement)
+    await clearEvents(page);
+    await page.fill("#pro-entreprise", "   ");
+    await page.evaluate(() => {
+      const form = document.querySelector('form[data-track-submit="form_submit_pro"]');
+      form.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
+    });
+    await page.waitForTimeout(150);
+    events = await eventNames(page);
+    if (!events.includes("form_submit_attempt_blocked")) {
+      fail(`Pro invalide blocked attendu: ${JSON.stringify(events)}`);
+    } else {
+      ok("Pro validation échouée → form_submit_attempt_blocked");
+    }
+
     if (!process.exitCode) {
       console.log("Tests conversion browser: OK");
     }

@@ -119,6 +119,7 @@
         {% if offerCatalogSchema %},{{ offerCatalogSchema | jsonLdNode | safe }}{% endif %}
         {% if contactPageSchema %},{{ contactPageSchema | jsonLdNode | safe }}{% endif %}
         {% if personSchema %},{{ personSchema | jsonLdNode | safe }}{% endif %}
+        {% if teamOrganizationSchema %},{{ teamOrganizationSchema | jsonLdNode | safe }}{% endif %}
       ]
     }
     </script>
@@ -201,6 +202,9 @@
     {% if scripts and scripts.mobileOptimizer == false %}{% else %}
     <script src="{{ '/assets/js/mobile-optimizer.js' | cacheBust }}" defer></script>
     {% endif %}
+    {# Funnel + UX formulaires : essentiels, hors consentement Analytics #}
+    <script src="{{ '/assets/js/conversion-funnel.js' | cacheBust }}" defer></script>
+    <script src="{{ '/assets/js/contact-form-ux.js' | cacheBust }}" defer></script>
     <script src="{{ '/assets/js/cookies.js' | cacheBust }}" defer></script>
     {% if hasHeroVideo %}
     <script src="{{ '/assets/js/video-lazy.js' | cacheBust }}" defer></script>

@@ -1,5 +1,6 @@
 // RED-K MOTORS — GTM dataLayer tracking (chargé uniquement après consentement)
 // Prérequis : conversion-funnel.js déjà exécuté (chargement séquentiel dans cookies.js).
+// L'UX formulaire (bouton / statut) est gérée par contact-form-ux.js — hors consentement.
 (function() {
   if (window.__REDK_TRACK_BOUND__) return;
   if (!window.REDKMotorsCookies || !window.REDKMotorsCookies.hasConsent('analytics')) return;
@@ -39,8 +40,8 @@
     return 'inline';
   }
 
+  /** Events analytics uniquement — jamais de PII (pas de nom, email, téléphone, message). */
   function pushEvent(eventName, ctaPosition) {
-    // Re-vérifier le consentement à CHAQUE event (y compris après retrait)
     if (!hasAnalyticsConsent()) return;
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
@@ -87,20 +88,11 @@
     var resolved = funnel.resolveSubmitEvent(form, e);
     var pos = configured === 'form_submit_pro' ? 'pro' : 'contact';
     if (resolved === 'form_submit_contact') {
-      funnel.markFormSubmitPending();
+      // Pending déjà posé par contact-form-ux.js ; filet de sécurité si UX absent
+      if (!funnel.peekFormSubmitPending()) {
+        funnel.markFormSubmitPending();
+      }
       pushEvent(configured, pos);
-      var btn = form.querySelector('[data-contact-submit]');
-      var status = form.querySelector('[data-contact-status]');
-      if (btn) {
-        btn.disabled = true;
-        btn.setAttribute('aria-busy', 'true');
-        btn.textContent = 'Envoi en cours…';
-      }
-      if (status) {
-        status.hidden = false;
-        status.textContent =
-          'Envoi vers notre messagerie… La page de confirmation n’indique pas encore que l’e-mail est livré.';
-      }
     } else if (resolved === 'form_submit_attempt_blocked') {
       pushEvent('form_submit_attempt_blocked', pos);
     }

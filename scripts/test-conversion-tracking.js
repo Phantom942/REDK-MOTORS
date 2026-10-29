@@ -236,12 +236,20 @@ function main() {
       "merci documente ≠ livraison e-mail FormSubmit",
     );
     assert.ok(
-      merci.includes("prestataire") || merci.includes("dès réception"),
-      "merci utilisateur ne promet pas livraison e-mail garantie",
+      merci.includes("merci-form-initiated") && merci.includes("merci-form-unverified"),
+      "merci sépare UI initiée vs non confirmée",
+    );
+    assert.ok(
+      merci.includes("source=form seul") ||
+        merci.includes("aucun envoi n’a pu être confirmé") ||
+        merci.includes("aucun envoi n'a pu être confirmé"),
+      "merci ne traite pas l’URL seule comme succès",
     );
 
     const contactForm = readSrc("src/_includes/contact-form.njk");
     const proForm = readSrc("src/_includes/pro-contact-form.njk");
+    const formUx = readSrc("assets/js/contact-form-ux.js");
+    const base = readSrc("src/_includes/base.njk");
     assert.ok(
       contactForm.includes('data-track-submit="form_submit_contact"') &&
         contactForm.includes('name="parcours"') &&
@@ -257,7 +265,15 @@ function main() {
       track.includes("form_submit_pro") && track.includes("'pro'"),
       "track.js sépare position pro vs contact",
     );
-    ok("garde-fous source tracking (ordre, idempotence, consent, merci, pro)");
+    assert.ok(
+      !track.includes("Envoi en cours") && formUx.includes("Envoi en cours"),
+      "UX bouton hors track.js (indépendant du consentement)",
+    );
+    assert.ok(
+      base.includes("contact-form-ux.js") && base.includes("conversion-funnel.js"),
+      "base.njk charge funnel + form UX sans consentement Analytics",
+    );
+    ok("garde-fous source tracking (ordre, idempotence, consent, merci, pro, UX)");
   }
 
   console.log("Tests conversion tracking: OK");

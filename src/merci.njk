@@ -11,15 +11,17 @@ scripts:
   effects: false
   mobileOptimizer: false
 ---
-<script src="/assets/js/conversion-funnel.js" defer></script>
 
 <section class="merci-page" aria-labelledby="merci-title">
   <div class="container">
     <div class="merci-page__box">
-      <p class="merci-page__badge" aria-hidden="true">✓</p>
-      <h1 id="merci-title" class="merci-page__title">Merci</h1>
-      <p class="merci-page__text merci-page__text--form sr-only" id="merci-form-msg">
-        Votre demande a été transmise à notre prestataire d’acheminement. Nous revenons vers vous en journée (lun–sam, 9h–19h) dès réception. Si vous n’avez pas de réponse sous 1 jour ouvré, appelez le {{ site.phoneDisplayCompact | default(site.phoneDisplay) }}.
+      <p class="merci-page__badge" id="merci-badge" aria-hidden="true">·</p>
+      <h1 id="merci-title" class="merci-page__title">Contact</h1>
+      <p class="merci-page__text merci-page__text--form sr-only" id="merci-form-initiated">
+        Demande <strong>initiée</strong> : elle a été transmise à notre prestataire d’acheminement (FormSubmit). Cela ne confirme pas encore l’acceptation définitive du prestataire ni la <strong>livraison</strong> dans notre boîte mail. Nous revenons vers vous en journée (lun–sam, 9h–19h) dès réception. Sans réponse sous 1 jour ouvré : {{ site.phoneDisplayCompact | default(site.phoneDisplay) }}.
+      </p>
+      <p class="merci-page__text merci-page__text--form sr-only" id="merci-form-unverified">
+        Un paramètre de formulaire est présent dans l’URL, mais <strong>aucun envoi n’a pu être confirmé</strong> depuis cette session (accès direct, retour arrière ou session expirée). Ce n’est pas une preuve de succès. Si vous venez d’envoyer une demande, appelez le {{ site.phoneDisplayCompact | default(site.phoneDisplay) }} ou renvoyez via <a href="/contact/">le formulaire</a>.
       </p>
       <p class="merci-page__text" id="merci-default-msg">
         Pour <strong>un créneau, un tarif ou une urgence</strong>, en heures d'ouverture (lun–sam, 9h–19h), le téléphone reste souvent le plus direct — numéro ci-dessous.
@@ -44,10 +46,11 @@ scripts:
 <script>
 /**
  * Funnel merci (sans PII) :
- * - form_submit_redirect : page succès affichée après redirect FormSubmit (_next), avec jeton
- * - form_submit_success : jeton session = funnel client confirmé (proxy POST accepté)
- * - form_submit_redirect_unverified : source=form sans jeton (accès direct / session perdue)
+ * - form_submit_redirect : landing après _next + jeton session (demande initiée / proxy POST)
+ * - form_submit_success : même jeton consommé (proxy « POST accepté ») — ≠ e-mail livré
+ * - form_submit_redirect_unverified : source=form SANS jeton (URL seule ≠ succès)
  * La livraison e-mail FormSubmit n'est PAS mesurable côté client.
+ * L'UI ne traite jamais source=form seul comme une soumission réussie.
  */
 (function () {
   function boot() {
@@ -58,14 +61,43 @@ scripts:
     }
 
     var fromForm = new URLSearchParams(window.location.search).get('source') === 'form';
-    var formMsg = document.getElementById('merci-form-msg');
+    var initiated = document.getElementById('merci-form-initiated');
+    var unverified = document.getElementById('merci-form-unverified');
     var defaultMsg = document.getElementById('merci-default-msg');
+    var badge = document.getElementById('merci-badge');
+    var title = document.getElementById('merci-title');
     var pushed = {};
 
-    if (!fromForm) return;
+    function show(el) {
+      if (el) el.classList.remove('sr-only');
+    }
+    function hide(el) {
+      if (el) {
+        el.classList.add('sr-only');
+        el.hidden = false;
+      }
+    }
 
-    if (formMsg) formMsg.classList.remove('sr-only');
+    if (!fromForm) {
+      if (badge) badge.textContent = '·';
+      return;
+    }
+
+    var hadPending = funnel.peekFormSubmitPending();
+
     if (defaultMsg) defaultMsg.hidden = true;
+
+    if (hadPending) {
+      show(initiated);
+      hide(unverified);
+      if (badge) badge.textContent = '→';
+      if (title) title.textContent = 'Demande initiée';
+    } else {
+      hide(initiated);
+      show(unverified);
+      if (badge) badge.textContent = '?';
+      if (title) title.textContent = 'Envoi non confirmé';
+    }
 
     function hasAnalyticsConsent() {
       try {
@@ -92,18 +124,17 @@ scripts:
     function runFunnelEvents() {
       if (!hasAnalyticsConsent()) return;
 
-      var hadPending = funnel.peekFormSubmitPending();
+      var pendingNow = funnel.peekFormSubmitPending();
       var allowRedirectSlot = funnel.shouldFireRedirectEvent();
       var plan = funnel.resolveMerciEvents({
         sourceForm: true,
         hasConsent: true,
-        hadPending: hadPending,
+        hadPending: pendingNow,
         allowRedirectSlot: allowRedirectSlot
       });
 
-      // Consommer le jeton après décision (one-shot success)
       var consumed = funnel.consumeFormSubmitPending();
-      if (hadPending && !consumed) {
+      if (pendingNow && !consumed) {
         plan.success = false;
         plan.redirect = false;
       }
