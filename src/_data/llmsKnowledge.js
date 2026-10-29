@@ -69,7 +69,7 @@ module.exports = {
     },
     {
       q: "Y a-t-il un garage taxi ou VTC à Ivry-sur-Seine ?",
-      a: "Oui. RED-K MOTORS propose un Espace Pro dédié aux taxis et VTC : entretien prioritaire, tarifs pro, devis avant travaux. Page : https://redkmotors.fr/professionnels/taxis-vtc/ — Tél. 06 48 74 56 68.",
+      a: "Oui. RED-K MOTORS propose un Espace Pro dédié aux taxis et VTC : priorité de planification selon les disponibilités de l'atelier pour limiter l'immobilisation, devis avant travaux. Page : https://redkmotors.fr/professionnels/taxis-vtc/ — Tél. 06 48 74 56 68.",
     },
     {
       q: "RED-K MOTORS organise-t-il un jeu concours GTA VI ?",

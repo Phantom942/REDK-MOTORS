@@ -12,7 +12,8 @@ module.exports = {
     {
       icon: "⚡",
       title: "Moins d'immobilisation",
-      description: "Priorité aux véhicules pro : une panne, c'est un chantier, une course ou une tournée perdus.",
+      description:
+        "Priorité de planification selon les disponibilités de l'atelier, afin de limiter autant que possible l'immobilisation des véhicules.",
     },
     {
       icon: "🛠️",
@@ -28,12 +29,12 @@ module.exports = {
       icon: "🚕",
       title: "Garage taxi & VTC Ivry-sur-Seine (94) | Entretien prioritaire | RED-K MOTORS",
       description:
-        "Garage taxi et VTC à Ivry-sur-Seine : entretien rapide, créneaux prioritaires, tarifs pro. Devis avant travaux · Lun–sam 9h–19h · 06 48 74 56 68.",
-      h1: "Taxis & VTC : votre véhicule remis sur la route rapidement",
+        "Garage taxi et VTC à Ivry-sur-Seine : entretien adapté au roulage intensif, planification selon disponibilités atelier, devis avant travaux · Lun–sam 9h–19h · 06 48 74 56 68.",
+      h1: "Taxis & VTC : limiter l'immobilisation de votre outil de travail",
       heroKicker: "Espace Pro · Taxis & VTC",
       heroDesc:
-        "Entretien, révision et réparation avec priorité. Chaque heure d'immobilisation coûte cher — on le sait.",
-      cardTeaser: "Entretien adapté au roulage intensif, devis HT, planning priorisé.",
+        "Votre véhicule est votre outil de travail. Chaque heure d'immobilisation compte — priorité de planification selon les disponibilités de l'atelier.",
+      cardTeaser: "Entretien adapté au roulage intensif, devis HT, planification atelier.",
       introHeading: "Un partenaire atelier pour chauffeurs taxi et VTC",
       introText:
         "Vous roulez tous les jours, parfois la nuit. Chez RED-K MOTORS, on traite votre véhicule comme un outil de travail : diagnostic, créneaux planifiés selon disponibilités atelier et devis clair avant intervention.",
@@ -77,7 +78,7 @@ module.exports = {
         verified: true,
       },
       highlights: [
-        "Créneaux prioritaires pour limiter la perte de courses",
+        "Planification selon disponibilités atelier pour limiter la perte de courses",
         "Entretien adapté au roulage intensif et aux forts kilométrages",
         "Devis écrit avant intervention — facture HT sur demande",
         `Ouvert lun–sam 9h–19h · 9 rue Michelet, Ivry · ${googleRatingLabel}/5 Google (${googleReviewCount} avis)`,
@@ -86,7 +87,7 @@ module.exports = {
         {
           question: "Proposez-vous une priorité pour les taxis et VTC ?",
           answer:
-            "Oui. Nous adaptons les créneaux et la planification pour réduire au maximum l'immobilisation de votre véhicule.",
+            "Oui : priorité de planification selon les disponibilités de l'atelier, afin de limiter autant que possible l'immobilisation — sans délai garanti ni réparation immédiate promise.",
         },
         {
           question: "Travaillez-vous le samedi ?",
@@ -123,7 +124,7 @@ module.exports = {
       cardTeaser: "Fiabilité mécanique et entretien préventif pour vos tournées.",
       introHeading: "Votre véhicule ne doit jamais vous lâcher en tournée",
       introText:
-        "Livraison, courses, transport léger : vous avez besoin d'un garage qui comprend l'urgence. Nous planifions l'entretien, anticipons l'usure et réparons vite quand une panne survient.",
+        "Livraison, courses, transport léger : vous avez besoin d'un garage qui comprend l'enjeu d'immobilisation. Nous planifions l'entretien selon les disponibilités de l'atelier et anticipons l'usure — sans promettre un délai universel.",
       benefits: [
         {
           title: "Entretien préventif",
@@ -223,9 +224,9 @@ module.exports = {
           description: "Devis écrit, facture au nom de l'entreprise, pièces et main-d'œuvre lisibles.",
         },
         {
-          title: "Priorité chantier",
+          title: "Priorité de planification",
           description:
-            "Urgence freins, batterie, voyant ou CT avant une échéance : on priorise selon l'impact sur votre activité.",
+            "Selon les disponibilités de l'atelier, afin de limiter autant que possible l'immobilisation (freins, batterie, voyant, CT) — sans délai garanti.",
         },
       ],
       services: [
@@ -237,7 +238,7 @@ module.exports = {
         {
           title: "Diagnostic & panne",
           description:
-            "Identification rapide pour limiter l'immobilisation avant un chantier ou une tournée.",
+            "Diagnostic pour cadrer l'intervention et limiter l'immobilisation avant un chantier ou une tournée.",
         },
         {
           title: "Contrôle technique",

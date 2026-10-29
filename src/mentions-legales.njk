@@ -15,7 +15,7 @@ scripts:
   <div class="container">
     <div class="legal-content__inner">
       <p class="legal-content__intro"><strong>Dernière mise à jour :</strong> 29 octobre 2026</p>
-      <p class="legal-content__intro" role="note"><strong>Attention :</strong> cette page distingue les informations <em>vérifiées</em> des informations <em>manquantes</em>. Les champs encore à fournir par le propriétaire <strong>n’établissent pas une conformité légale complète</strong>.</p>
+      <p class="legal-content__intro" role="note"><strong>Périmètre :</strong> les informations ci-dessous distinguent les données d’identité vérifiées (annonces légales / BODACC) et les éléments encore <strong>manquants</strong> (médiation). L’absence de médiateur publié n’établit <strong>pas</strong> une conformité réglementaire complète.</p>
 
       <nav class="legal-content__related" aria-label="Voir aussi">
         <a class="legal-content__related-link" href="/confidentialite/">Politique de confidentialité</a>
@@ -23,7 +23,7 @@ scripts:
         <a class="legal-content__related-link" href="/contact/">Coordonnées</a>
       </nav>
 
-      <h2>1. Éditeur du site — informations vérifiées</h2>
+      <h2>1. Éditeur du site</h2>
       <ul>
         <li><strong>Enseigne :</strong> RED-K MOTORS</li>
         <li><strong>Dénomination sociale :</strong> RED-KMOTORS</li>
@@ -32,18 +32,15 @@ scripts:
         <li><strong>SIREN :</strong> 103 462 537</li>
         <li><strong>SIRET :</strong> 103 462 537 00012</li>
         <li><strong>Code NAF / APE :</strong> 4520A - Entretien et réparation de véhicules automobiles légers</li>
-        <li><strong>Date d'immatriculation :</strong> 13 avril 2026</li>
+        <li><strong>Date d'immatriculation RCS :</strong> 13 avril 2026 (annonce BODACC A n°20260073 du 16/04/2026)</li>
         <li><strong>TVA intracommunautaire :</strong> FR39103462537</li>
+        <li><strong>Capital social :</strong> 1&nbsp;000&nbsp;€ — source : BODACC A n°20260073 (16/04/2026) et annonce légale de constitution (mesinfos.fr n°99023, 31/03/2026)</li>
+        <li><strong>Président / directeur de la publication :</strong> Karim MOUSSAOUI — source : BODACC A n°20260073 (Président) et annonce légale de constitution</li>
       </ul>
+      <p><em>Vérification recommandée : extrait RNE / Kbis à jour via <a href="https://registre.entreprises.gouv.fr/" rel="noopener noreferrer">registre.entreprises.gouv.fr</a> (consultation INPI).</em></p>
 
-      <h2>2. Informations à fournir par le propriétaire (non publiées)</h2>
-      <p>Les éléments suivants sont <strong>obligatoires ou attendus</strong> pour des mentions légales complètes. Ils ne figurent pas ci-dessus faute de document officiel transmis — <strong>ne pas les inventer</strong>.</p>
-      <ul>
-        <li><strong>Capital social</strong> — à communiquer (extrait Kbis / statuts).</li>
-        <li><strong>Directeur / responsable de la publication</strong> — identité à confirmer (souvent le président de la SAS).</li>
-        <li><strong>Médiateur de la consommation agréé</strong> — nom, adresse postale, site et e-mail du médiateur désigné par RED-K MOTORS.</li>
-        <li><strong>Hébergement effectif</strong> — confirmation écrite de la chaîne réelle (voir section 5 : hypothèse technique actuelle à valider).</li>
-      </ul>
+      <h2>2. Élément réglementaire manquant — médiation</h2>
+      <p>Le <strong>médiateur de la consommation agréé</strong> désigné par RED-K MOTORS n’a pas été communiqué. Sans ces coordonnées, cette page <strong>ne peut pas être présentée comme juridiquement complète</strong> sur ce point. À fournir : nom, adresse postale, site et e-mail du médiateur (liste CECMC).</p>
 
       <h2>3. Coordonnées de contact</h2>
       <ul>
@@ -60,18 +57,19 @@ scripts:
         <li><strong>Greffe compétent :</strong> Greffe du Tribunal de Commerce de Créteil</li>
       </ul>
 
-      <h2>6. Hébergement du site — à confirmer</h2>
-      <p>Chaîne technique <strong>observée</strong> dans le dépôt et le déploiement (hypothèse de travail, <strong>pas une attestation juridique du propriétaire</strong>) :</p>
+      <h2>6. Hébergement du site (chaîne technique vérifiée)</h2>
+      <p>Mesures DNS / HTTP du {{ "29 octobre 2026" }} :</p>
       <ul>
-        <li><strong>Publication des fichiers statiques :</strong> GitHub Pages (GitHub, Inc.), 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis — <a href="https://pages.github.com/" rel="noopener noreferrer">pages.github.com</a></li>
-        <li><strong>DNS / protection :</strong> Cloudflare — compte lié au domaine redkmotors.fr</li>
+        <li><strong>DNS :</strong> Cloudflare (<code>elisabeth.ns.cloudflare.com</code> / <code>dns.cloudflare.com</code>)</li>
+        <li><strong>Proxy / CDN :</strong> Cloudflare (en-têtes <code>Server: cloudflare</code>, <code>CF-Ray</code> sur https://redkmotors.fr)</li>
+        <li><strong>Origine des fichiers statiques :</strong> GitHub Pages (GitHub, Inc.), 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis — en-têtes <code>x-github-request-id</code> / edge GitHub observés derrière Cloudflare</li>
+        <li><strong>Site hébergeur :</strong> <a href="https://pages.github.com/" rel="noopener noreferrer">https://pages.github.com/</a></li>
       </ul>
-      <p>Le propriétaire doit confirmer que cette description correspond à l’hébergement effectif avant de la considérer comme mention légale définitive.</p>
+      <p>Le DNS/CDN (Cloudflare) et l’hébergement des fichiers (GitHub Pages) sont des prestataires distincts.</p>
 
-      <h2>7. Médiation de la consommation — action propriétaire requise</h2>
+      <h2>7. Médiation de la consommation</h2>
       <p>Conformément aux articles L.611-1 et suivants du Code de la consommation, tout consommateur a le droit de recourir gratuitement à un médiateur de la consommation en vue de la résolution amiable d’un litige.</p>
-      <p><strong>Statut sur ce site :</strong> aucun médiateur agréé n’a encore été communiqué par RED-K MOTORS. <strong>Cette absence n’est pas une conformité</strong> — les coordonnées seront publiées dès réception (nom, adresse, site, e-mail).</p>
-      <p>En attendant, contactez {{ site.email }} / {{ site.phoneDisplayCompact }}. Liste des médiateurs : <a href="https://www.economie.gouv.fr/mediation-conso" rel="noopener noreferrer">economie.gouv.fr/mediation-conso</a>.</p>
+      <p><strong>Statut :</strong> aucun médiateur agréé n’est publié ici — <strong>action propriétaire requise</strong> avant toute affirmation de conformité. En attendant : {{ site.email }} / {{ site.phoneDisplayCompact }}. Liste officielle : <a href="https://www.economie.gouv.fr/mediation-conso" rel="noopener noreferrer">economie.gouv.fr/mediation-conso</a>.</p>
 
       <h2>8. Propriété intellectuelle</h2>
       <p>L'ensemble des contenus du site (textes, visuels, logos, éléments graphiques, structure) est protégé par le droit de la propriété intellectuelle. Toute reproduction, représentation, adaptation ou exploitation, totale ou partielle, sans autorisation écrite préalable est interdite.</p>

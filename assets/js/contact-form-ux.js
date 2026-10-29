@@ -47,6 +47,7 @@
 
   function restoreAll() {
     document.querySelectorAll("form[data-contact-form]").forEach(function (form) {
+      form.__redkSubmitting = false;
       setSubmitting(form, false);
       if (form.__redkRestoreTimer) {
         clearTimeout(form.__redkRestoreTimer);
@@ -66,8 +67,16 @@
     var resolved = api.resolveSubmitEvent(form, e);
     if (resolved !== "form_submit_contact") {
       setSubmitting(form, false);
+      form.__redkSubmitting = false;
       return;
     }
+
+    // Anti double-clic : ignorer un second submit tant que le premier est en cours
+    if (form.__redkSubmitting) {
+      if (e && typeof e.preventDefault === "function") e.preventDefault();
+      return;
+    }
+    form.__redkSubmitting = true;
 
     api.markFormSubmitPending();
     setSubmitting(form, true);
