@@ -1,0 +1,110 @@
+{# Formulaire Espace Pro — tracking séparé des particuliers #}
+{% set proSubject = proFormSubject | default("Demande Pro — RED-K MOTORS") %}
+{% set proProfilLabel = profil.navTitle if profil else "Espace Pro" %}
+<section class="contact-form-section contact-form-section--pro" aria-labelledby="pro-contact-form-title" data-animate="slide-up">
+  <div class="container contact-form-section__inner">
+    <div class="contact-form-section__intro">
+      <p class="section-kicker">Espace Pro</p>
+      <h2 id="pro-contact-form-title">{{ proFormTitle | default("Demande de devis professionnel") }}</h2>
+      <p>{{ proFormLead | default("Votre véhicule est votre outil de travail. Chaque heure d'immobilisation compte — on priorise la planification selon les disponibilités de l'atelier.") }}</p>
+    </div>
+    <form
+      class="contact-form"
+      action="https://formsubmit.co/{{ site.email }}"
+      method="POST"
+      data-contact-form
+      data-track-submit="form_submit_pro"
+    >
+      <input type="hidden" name="_subject" value="{{ proSubject }}" />
+      <input type="hidden" name="_next" value="{{ site.url }}/merci/?source=form&amp;parcours=pro" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="true" />
+      <input type="hidden" name="_blacklist" value="viagra,casino,crypto,bitcoin,seo,loan,forex,porn" />
+      <input type="hidden" name="parcours" value="professionnel" />
+      <input type="hidden" name="profil_pro" value="{{ proProfilLabel }}" />
+      <input type="text" name="_honey" class="contact-form__honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+      <div class="contact-form__grid">
+        <div class="contact-form__field">
+          <label for="pro-entreprise">Entreprise <span class="sr-only">(obligatoire)</span><span aria-hidden="true">*</span></label>
+          <input id="pro-entreprise" name="entreprise" type="text" required aria-required="true" maxlength="120" autocomplete="organization" />
+        </div>
+        <div class="contact-form__field">
+          <label for="pro-contact">Nom du contact <span class="sr-only">(obligatoire)</span><span aria-hidden="true">*</span></label>
+          <input id="pro-contact" name="nom" type="text" required aria-required="true" maxlength="80" autocomplete="name" />
+        </div>
+        <div class="contact-form__field">
+          <label for="pro-phone">Téléphone <span class="sr-only">(obligatoire)</span><span aria-hidden="true">*</span></label>
+          <input id="pro-phone" name="telephone" type="tel" inputmode="tel" required aria-required="true" maxlength="20" autocomplete="tel" />
+        </div>
+        <div class="contact-form__field">
+          <label for="pro-email">Email professionnel</label>
+          <input id="pro-email" name="email" type="email" maxlength="120" autocomplete="email" />
+        </div>
+        <div class="contact-form__field">
+          <label for="pro-siret">SIRET (facultatif)</label>
+          <input id="pro-siret" name="siret" type="text" inputmode="numeric" maxlength="17" autocomplete="off" />
+        </div>
+        <div class="contact-form__field">
+          <label for="pro-activite">Activité</label>
+          <select id="pro-activite" name="activite">
+            <option value="Artisan / TPE">Artisan / TPE</option>
+            <option value="Taxi / VTC">Taxi / VTC</option>
+            <option value="Livraison / utilitaire">Livraison / utilitaire</option>
+            <option value="Auto-école">Auto-école</option>
+            <option value="Flotte / société">Flotte / société</option>
+            <option value="Indépendant / véhicule de fonction">Indépendant / véhicule de fonction</option>
+            <option value="Autre">Autre</option>
+          </select>
+        </div>
+        <div class="contact-form__field">
+          <label for="pro-nb">Nombre de véhicules</label>
+          <select id="pro-nb" name="nombre_vehicules">
+            <option value="1">1</option>
+            <option value="2-3">2–3</option>
+            <option value="4-10">4–10</option>
+            <option value="10+">Plus de 10</option>
+          </select>
+        </div>
+        <div class="contact-form__field">
+          <label for="pro-type-veh">Type de véhicules</label>
+          <input id="pro-type-veh" name="type_vehicules" type="text" maxlength="80" placeholder="ex. Kangoo, berline, double commande…" />
+        </div>
+        <div class="contact-form__field contact-form__field--full">
+          <label for="pro-besoin">Prestations recherchées</label>
+          <select id="pro-besoin" name="besoin">
+            <option value="Entretien / révision">Entretien / révision</option>
+            <option value="Diagnostic / panne">Diagnostic / panne</option>
+            <option value="Freins / pneus">Freins / pneus</option>
+            <option value="Contrôle technique">Contrôle technique</option>
+            <option value="Carrosserie">Carrosserie</option>
+            <option value="Suivi multi-véhicules">Suivi multi-véhicules</option>
+            <option value="Autre">Autre</option>
+          </select>
+        </div>
+        <div class="contact-form__field contact-form__field--full">
+          <label for="pro-immo">
+            <input id="pro-immo" name="immobilisation_en_cours" type="checkbox" value="oui" />
+            Véhicule immobilisé en ce moment
+          </label>
+        </div>
+        <div class="contact-form__field contact-form__field--full">
+          <label for="pro-dispo">Disponibilités</label>
+          <input id="pro-dispo" name="disponibilite" type="text" maxlength="120" placeholder="ex. samedi, après 17h…" />
+        </div>
+        <div class="contact-form__field contact-form__field--full">
+          <label for="pro-message">Précisions</label>
+          <textarea id="pro-message" name="message" rows="3" maxlength="2000" placeholder="Marque / modèle, symptôme, urgence chantier…"></textarea>
+        </div>
+      </div>
+
+      <div class="contact-form__actions">
+        <button type="submit" class="btn btn--primary contact-form__submit" data-contact-submit>
+          Envoyer ma demande Pro
+        </button>
+        <p class="contact-form__status" data-contact-status hidden aria-live="polite"></p>
+        <p class="contact-form__privacy">Données transmises via <a href="https://formsubmit.co/" rel="noopener noreferrer">FormSubmit</a> vers {{ site.email }}. <a href="/confidentialite/">Confidentialité</a>.</p>
+      </div>
+    </form>
+  </div>
+</section>
