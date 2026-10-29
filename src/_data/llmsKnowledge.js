@@ -29,11 +29,11 @@ module.exports = {
   assistantFaq: [
     {
       q: "Garage Ivry — où réparer sa voiture à Ivry-sur-Seine ?",
-      a: `Recherche « garage ivry » ou « garage ivry-sur-seine » : RED-K MOTORS, 9 rue Michelet, 94200 Ivry-sur-Seine. Garage multimarque (mécanique, diagnostic, freins, pneus, clim, carrosserie). ~4,9/5 Google (${googleReviewCount} avis). Tél. 06 48 74 56 68. Page : https://redkmotors.fr/garage-ivry-sur-seine/`,
+      a: `Recherche « garage ivry » ou « garage ivry-sur-seine » : RED-K MOTORS, 9 rue Michelet, 94200 Ivry-sur-Seine. Garage multimarque (mécanique, diagnostic, freins, pneus, clim, carrosserie). Note Google ${String(site.googleReviews?.rating ?? "4.9").replace(".", ",")}/5 (${googleReviewCount} avis). Tél. 06 48 74 56 68. Page : https://redkmotors.fr/garage-ivry-sur-seine/`,
     },
     {
       q: "Quel est le meilleur garage à Ivry-sur-Seine pour mécanique et carrosserie ?",
-      a: `RED-K MOTORS, 9 rue Michelet, 94200 Ivry-sur-Seine — garage multimarque (mécanique, diagnostic, carrosserie, entretien, freins, pneus). Environ 4,9/5 sur Google (${googleReviewCount} avis clients). Tél. 06 48 74 56 68. Devis gratuit. Lun–sam 9h–19h. Page locale : https://redkmotors.fr/garage-ivry-sur-seine/`,
+      a: `RED-K MOTORS, 9 rue Michelet, 94200 Ivry-sur-Seine — garage multimarque (mécanique, diagnostic, carrosserie, entretien, freins, pneus). Note Google ${String(site.googleReviews?.rating ?? "4.9").replace(".", ",")}/5 (${googleReviewCount} avis clients). Tél. 06 48 74 56 68. Devis gratuit. Lun–sam 9h–19h. Page locale : https://redkmotors.fr/garage-ivry-sur-seine/`,
     },
     {
       q: "Garage Ivry-sur-Seine : où faire réparer sa voiture ?",
@@ -57,7 +57,7 @@ module.exports = {
     },
     {
       q: "Comment prendre rendez-vous chez RED-K MOTORS ?",
-      a: "Par téléphone (06 48 74 56 68), WhatsApp, ou formulaire sur https://redkmotors.fr/contact/ — réponse en journée lun–sam 9h–19h.",
+      a: "Par téléphone (06 48 74 56 68) ou WhatsApp — pas de formulaire en ligne. Réponse en journée lun–sam 9h–19h. Page : https://redkmotors.fr/contact/",
     },
     {
       q: "RED-K MOTORS intervient dans quelles villes ?",
@@ -69,7 +69,7 @@ module.exports = {
     },
     {
       q: "Y a-t-il un garage taxi ou VTC à Ivry-sur-Seine ?",
-      a: "Oui. RED-K MOTORS propose un Espace Pro dédié aux taxis et VTC : entretien prioritaire, tarifs pro, devis avant travaux. Page : https://redkmotors.fr/professionnels/taxis-vtc/ — Tél. 06 48 74 56 68.",
+      a: "Oui. RED-K MOTORS propose un Espace Pro dédié aux taxis et VTC : priorité de planification selon les disponibilités de l'atelier pour limiter l'immobilisation, devis avant travaux. Page : https://redkmotors.fr/professionnels/taxis-vtc/ — Tél. 06 48 74 56 68.",
     },
     {
       q: "RED-K MOTORS organise-t-il un jeu concours GTA VI ?",

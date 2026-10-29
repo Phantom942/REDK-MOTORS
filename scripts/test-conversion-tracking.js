@@ -226,16 +226,28 @@ function main() {
     assert.ok(track.includes("__REDK_TRACK_BOUND__"), "listeners track one-shot");
 
     assert.ok(
-      merci.includes("form_submit_redirect") &&
-        merci.includes("form_submit_success") &&
-        merci.includes("form_submit_redirect_unverified"),
-      "merci distingue redirect / success / unverified",
+      merci.includes("click_call") && merci.includes("Pas de formulaire"),
+      "merci recentré téléphone / sans formulaire",
+    );
+
+    const contactCall = readSrc("src/_includes/contact-form.njk");
+    const proCall = readSrc("src/_includes/pro-contact-form.njk");
+    const base = readSrc("src/_includes/base.njk");
+    assert.ok(
+      !contactCall.includes("formsubmit.co") &&
+        contactCall.includes('data-track="click_call"') &&
+        contactCall.includes("Pas de formulaire"),
+      "bloc contact = appel, pas FormSubmit",
     );
     assert.ok(
-      merci.includes("n'est PAS mesurable") || merci.includes("n’est PAS mesurable"),
-      "merci documente ≠ livraison e-mail FormSubmit",
+      !proCall.includes("formsubmit.co") && proCall.includes('data-track="click_call"'),
+      "bloc Pro = appel, pas FormSubmit",
     );
-    ok("garde-fous source tracking (ordre, idempotence, consent, merci)");
+    assert.ok(
+      !base.includes("contact-form-ux.js") && base.includes("conversion-funnel.js"),
+      "base.njk sans UX formulaire ; funnel conservé",
+    );
+    ok("garde-fous source tracking (ordre, idempotence, consent, call-first)");
   }
 
   console.log("Tests conversion tracking: OK");

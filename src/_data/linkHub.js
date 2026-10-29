@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Hub /links/ — actions + réseaux (bio Instagram / TikTok / Snap).
  * Les href dynamiques (tel, WhatsApp, avis) sont résolus dans le template via site.*.
  */
@@ -37,7 +37,7 @@ module.exports = {
     {
       id: "contact",
       label: "Prendre rendez-vous",
-      hint: "Adresse & formulaire",
+      hint: "Adresse & téléphone",
       href: "/contact/",
       icon: "calendar",
       external: false,

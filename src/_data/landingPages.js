@@ -4,6 +4,7 @@
  */
 const site = require("./site.json");
 const googleReviewCount = site.googleReviews?.count ?? 0;
+const googleRatingLabel = String(site.googleReviews?.rating ?? "4.9").replace(".", ",");
 
 const ATELIER =
   "Chez RED-K MOTORS, 9 rue Michelet, 94200 Ivry-sur-Seine (06 48 74 56 68, lun–sam 9h–19h).";
@@ -19,7 +20,7 @@ const TARIFS_FAQ_BY_KEY = {
   vidange: `Vidange : exemple sur redkmotors.fr/exemples/prix-vidange-moteur/. Devis ferme selon l'huile homologuée et les filtres. ${ATELIER}`,
 };
 const PROCESS_STEPS = [
-  { title: "Contactez-nous", desc: "Téléphone, WhatsApp ou formulaire — réponse en journée lun–sam 9h–19h." },
+  { title: "Contactez-nous", desc: "Téléphone, WhatsApp — réponse en journée lun–sam 9h–19h." },
   { title: "Devis clair", desc: "Inspection au véhicule, explication et chiffrage avant toute intervention." },
   { title: "Intervention validée", desc: "Les travaux démarrent uniquement après votre accord." },
 ];
@@ -55,7 +56,7 @@ const landingPages = {
     seoTitle: "Diagnostic auto à Ivry-sur-Seine",
     seoParagraphs: [
       "Voyant moteur, panne électronique ou recherche de panne mécanique : diagnostic auto multimarque à Ivry-sur-Seine (94), codes OBD expliqués avant toute réparation.",
-      `RED-K MOTORS, 9 rue Michelet — accessible depuis Vitry, Villejuif, Paris 13e et le Val-de-Marne. Lun–sam 9h–19h. Note Google 4,9/5 (${googleReviewCount} avis). Devis écrit gratuit.`,
+      `RED-K MOTORS, 9 rue Michelet — accessible depuis Vitry, Villejuif, Paris 13e et le Val-de-Marne. Lun–sam 9h–19h. Note Google ${googleRatingLabel}/5 (${googleReviewCount} avis). Devis écrit gratuit.`,
     ],
     faqs: [
       { question: "Combien coûte un diagnostic ?", answer: TARIFS_FAQ_BY_KEY.diagnostic },
@@ -205,7 +206,7 @@ const landingPages = {
     faqs: [
       { question: "Proposez-vous un devis avant les réparations ?", answer: "Oui. Devis écrit gratuit — aucune intervention sans votre validation." },
       { question: "Intervenez-vous sur toutes les marques ?", answer: "Oui, essence et diesel, particuliers et professionnels." },
-      { question: "Comment prendre rendez-vous ?", answer: "Par téléphone au 06 48 74 56 68, WhatsApp ou formulaire contact. Lun–sam 9h–19h." },
+      { question: "Comment prendre rendez-vous ?", answer: "Par téléphone au 06 48 74 56 68, WhatsApp. Lun–sam 9h–19h." },
     ],
     seoTitle: "Réparation auto et mécanique générale",
     seoParagraphs: [

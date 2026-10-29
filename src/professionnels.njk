@@ -1,7 +1,7 @@
 ﻿---
 layout: base.njk
 title: "Espace Pro — Garage artisans, taxis, VTC & utilitaires Ivry (94) | RED-K MOTORS"
-description: "Garage partenaire B2B à Ivry-sur-Seine : artisans, taxis, VTC, livreurs, petites flottes, auto-écoles. Devis HT, créneaux prioritaires. 06 48 74 56 68 · Lun–sam 9h–19h."
+description: "Garage partenaire B2B à Ivry-sur-Seine : artisans, taxis, VTC, livreurs, petites flottes, auto-écoles. Devis HT, priorité de planification selon disponibilités atelier. 06 48 74 56 68 · Lun–sam 9h–19h."
 keywords: "garage professionnel ivry-sur-seine, garage artisan 94, entretien utilitaire val-de-marne, garage taxi vtc ivry, garage flotte entreprise, devis garage pro"
 pageKey: professionnels
 date: 2026-06-28
@@ -45,10 +45,10 @@ faqSchema:
   "@type": "FAQPage"
   mainEntity:
     - "@type": "Question"
-      name: "Proposez-vous des tarifs préférentiels pour les professionnels ?"
+      name: "Proposez-vous des conditions pour les professionnels ?"
       acceptedAnswer:
         "@type": "Answer"
-        text: "Oui, des conditions adaptées sont possibles selon votre activité et le volume d'entretien. Facture HT sur demande."
+        text: "Oui : devis écrit, facture HT sur présentation du SIRET, conditions adaptées selon l'activité et le volume. Détails au devis."
     - "@type": "Question"
       name: "Quels types de professionnels accompagnez-vous ?"
       acceptedAnswer:
@@ -87,9 +87,13 @@ faqSchema:
 {% set videoSrc = "hero.mp4" %}
 {% include "hero-video.njk" %}
 
-{% set contactTitle = "Devis Pro immédiat" %}
-{% set contactLead = "Véhicule immobilisé = chiffre perdu — on priorise les pros, y compris avec un seul utilitaire." %}
+{% set contactTitle = "Devis Pro" %}
+{% set contactLead = "Véhicule immobilisé = chiffre perdu — on priorise la planification selon les disponibilités atelier, y compris avec un seul utilitaire." %}
 {% include "conversion-contact.njk" %}
+
+{% set proFormTitle = "Demande Espace Pro" %}
+{% set proFormLead = "Votre véhicule est votre outil de travail. Chaque heure d'immobilisation compte — devis HT, planning adapté aux pros." %}
+{% include "pro-contact-form.njk" %}
 
 {% if professionnels.pillars and professionnels.pillars.length %}
 <section class="promesse pro-pillars" aria-labelledby="pro-hub-pillars" data-animate="slide-up">

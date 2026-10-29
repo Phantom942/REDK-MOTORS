@@ -3,7 +3,8 @@
  */
 const site = require("./site.json");
 const googleReviewCount = site.googleReviews?.count ?? 0;
-const ficheTail = ` RED-K MOTORS, 9 rue Michelet, 94200 Ivry-sur-Seine. Tél. ${site.phoneDisplayCompact}. ${site.openingHours}, fermé le dimanche. Note Google 4,9/5 (${googleReviewCount} avis).`;
+const googleRatingLabel = String(site.googleReviews?.rating ?? "4.9").replace(".", ",");
+const ficheTail = ` RED-K MOTORS, 9 rue Michelet, 94200 Ivry-sur-Seine. Tél. ${site.phoneDisplayCompact}. ${site.openingHours}, fermé le dimanche. Note Google ${googleRatingLabel}/5 (${googleReviewCount} avis).`;
 
 function cite(text) {
   if (!text || text.includes("06 48 74 56 68")) return text;
@@ -14,11 +15,11 @@ const pages = {
   "garage-ivry": {
     seoTitle: "Garage Ivry-sur-Seine — adresse & accès (94200)",
     seoParagraphs: [
-      `Vous cherchez un garage à Ivry ou Ivry-sur-Seine ? RED-K MOTORS est un garage automobile multimarque au 9 rue Michelet, 94200. Note Google 4,9/5 (${googleReviewCount} avis). Lun–sam 9h–19h · 06 48 74 56 68 · parking dépôt sur place.`,
+      `Vous cherchez un garage à Ivry ou Ivry-sur-Seine ? RED-K MOTORS est un garage automobile multimarque au 9 rue Michelet, 94200. Note Google ${googleRatingLabel}/5 (${googleReviewCount} avis). Lun–sam 9h–19h · 06 48 74 56 68 · parking dépôt sur place.`,
       "Diagnostic OBD, vidange, freins, pneus/géométrie, clim, distribution, embrayage, carrosserie, pare-brise. Devis écrit avant travaux.",
       "Point d'accès pour Vitry, Villejuif, Paris 13, Charenton, Maisons-Alfort. Multimarque essence/diesel. RDV recommandé.",
     ],
-    seoFooter: "Plan et formulaire : redkmotors.fr/contact/ — WhatsApp pour photos et premier avis.",
+    seoFooter: "Adresse et plan : redkmotors.fr/contact/ — WhatsApp pour photos et premier avis.",
     heroDesc:
       "Atelier au 9 rue Michelet, 94200 Ivry-sur-Seine. Diagnostic, freins, pneus, clim, carrosserie — devis écrit avant travaux. Parking pour dépôt de véhicule sur place.",
     introHeading: "Garage Ivry — adresse & accès",
@@ -34,7 +35,7 @@ const pages = {
       {
         question: "Quel garage choisir à Ivry-sur-Seine ?",
         answer:
-          "RED-K MOTORS, 9 rue Michelet (94200) : garage multimarque avec diagnostic, freins, pneus, clim et carrosserie. Environ 4,9/5 sur Google, devis écrit avant travaux, parking dépôt sur place. RDV : 06 48 74 56 68 ou redkmotors.fr/contact/.",
+          `RED-K MOTORS, 9 rue Michelet (94200) : garage multimarque avec diagnostic, freins, pneus, clim et carrosserie. Note Google ${googleRatingLabel}/5 (${googleReviewCount} avis), devis écrit avant travaux, parking dépôt sur place. RDV : 06 48 74 56 68 ou redkmotors.fr/contact/.`,
       },
       {
         question: "Quels sont vos horaires à Ivry ?",
@@ -49,7 +50,7 @@ const pages = {
       {
         question: "Comment obtenir un devis ?",
         answer:
-          "Par téléphone (06 48 74 56 68), WhatsApp ou formulaire contact. Pour la carrosserie, une photo suffit souvent pour une première estimation.",
+          "Par téléphone (06 48 74 56 68), WhatsApp. Pour la carrosserie, une photo suffit souvent pour une première estimation.",
       },
       {
         question: "Quels moyens de paiement acceptez-vous ?",
@@ -105,7 +106,7 @@ const pages = {
       },
       {
         question: "Comment vous joindre depuis Vitry ?",
-        answer: "06 48 74 56 68 ou WhatsApp. Plan et formulaire sur redkmotors.fr/contact/.",
+        answer: "06 48 74 56 68 ou WhatsApp. Adresse et plan sur redkmotors.fr/contact/.",
       },
     ],
   },
@@ -187,7 +188,7 @@ const pages = {
       },
       {
         question: "Comment prendre rendez-vous depuis Villejuif ?",
-        answer: "Téléphone, WhatsApp ou formulaire contact. Réponse en général dans la journée ouvrée.",
+        answer: "Téléphone, WhatsApp. Réponse en général dans la journée ouvrée.",
       },
     ],
   },
@@ -267,7 +268,7 @@ const pages = {
       },
       {
         question: "Comment obtenir un créneau ?",
-        answer: "06 48 74 56 68 ou WhatsApp. Formulaire contact pour les demandes détaillées.",
+        answer: "06 48 74 56 68 ou WhatsApp. WhatsApp pour les photos et demandes détaillées.",
       },
     ],
   },

@@ -1,4 +1,8 @@
-﻿module.exports = {
+﻿const site = require("./site.json");
+const googleRatingLabel = String(site.googleReviews?.rating ?? "4.9").replace(".", ",");
+const googleReviewCount = site.googleReviews?.count ?? 0;
+
+module.exports = {
   pillars: [
     {
       icon: "💰",
@@ -8,7 +12,8 @@
     {
       icon: "⚡",
       title: "Moins d'immobilisation",
-      description: "Priorité aux véhicules pro : une panne, c'est un chantier, une course ou une tournée perdus.",
+      description:
+        "Priorité de planification selon les disponibilités de l'atelier, afin de limiter autant que possible l'immobilisation des véhicules.",
     },
     {
       icon: "🛠️",
@@ -24,23 +29,23 @@
       icon: "🚕",
       title: "Garage taxi & VTC Ivry-sur-Seine (94) | Entretien prioritaire | RED-K MOTORS",
       description:
-        "Garage taxi et VTC à Ivry-sur-Seine : entretien rapide, créneaux prioritaires, tarifs pro. Devis avant travaux · Lun–sam 9h–19h · 06 48 74 56 68.",
-      h1: "Taxis & VTC : votre véhicule remis sur la route rapidement",
+        "Garage taxi et VTC à Ivry-sur-Seine : entretien adapté au roulage intensif, planification selon disponibilités atelier, devis avant travaux · Lun–sam 9h–19h · 06 48 74 56 68.",
+      h1: "Taxis & VTC : limiter l'immobilisation de votre outil de travail",
       heroKicker: "Espace Pro · Taxis & VTC",
       heroDesc:
-        "Entretien, révision et réparation avec priorité. Chaque heure d'immobilisation coûte cher — on le sait.",
-      cardTeaser: "Entretien rapide, priorité véhicule pro et tarifs préférentiels.",
+        "Votre véhicule est votre outil de travail. Chaque heure d'immobilisation compte — priorité de planification selon les disponibilités de l'atelier.",
+      cardTeaser: "Entretien adapté au roulage intensif, devis HT, planification atelier.",
       introHeading: "Un partenaire atelier pour chauffeurs taxi et VTC",
       introText:
-        "Vous roulez tous les jours, parfois la nuit. Chez RED-K MOTORS, on traite votre véhicule comme un outil de travail : diagnostic rapide, créneaux prioritaires et devis clair avant intervention.",
+        "Vous roulez tous les jours, parfois la nuit. Chez RED-K MOTORS, on traite votre véhicule comme un outil de travail : diagnostic, créneaux planifiés selon disponibilités atelier et devis clair avant intervention.",
       benefits: [
         {
-          title: "Tarifs préférentiels",
-          description: "Grille adaptée aux professionnels et remises sur entretiens récurrents.",
+          title: "Conditions pro",
+          description: "Devis écrit, facture HT sur présentation SIRET, conditions adaptées aux entretiens récurrents.",
         },
         {
-          title: "Priorité & rapidité",
-          description: "Prise en charge accélérée pour limiter la perte de courses.",
+          title: "Priorité de planification",
+          description: "Selon disponibilités atelier, pour limiter la perte de courses — sans délai garanti.",
         },
         {
           title: "Véhicule propre & fiable",
@@ -73,16 +78,16 @@
         verified: true,
       },
       highlights: [
-        "Créneaux prioritaires pour limiter la perte de courses",
+        "Planification selon disponibilités atelier pour limiter la perte de courses",
         "Entretien adapté au roulage intensif et aux forts kilométrages",
         "Devis écrit avant intervention — facture HT sur demande",
-        "Ouvert lun–sam 9h–19h · 9 rue Michelet, Ivry · 4,9/5 Google",
+        `Ouvert lun–sam 9h–19h · 9 rue Michelet, Ivry · ${googleRatingLabel}/5 Google (${googleReviewCount} avis)`,
       ],
       faqs: [
         {
           question: "Proposez-vous une priorité pour les taxis et VTC ?",
           answer:
-            "Oui. Nous adaptons les créneaux et la planification pour réduire au maximum l'immobilisation de votre véhicule.",
+            "Oui : priorité de planification selon les disponibilités de l'atelier, afin de limiter autant que possible l'immobilisation — sans délai garanti ni réparation immédiate promise.",
         },
         {
           question: "Travaillez-vous le samedi ?",
@@ -119,7 +124,7 @@
       cardTeaser: "Fiabilité mécanique et entretien préventif pour vos tournées.",
       introHeading: "Votre véhicule ne doit jamais vous lâcher en tournée",
       introText:
-        "Livraison, courses, transport léger : vous avez besoin d'un garage qui comprend l'urgence. Nous planifions l'entretien, anticipons l'usure et réparons vite quand une panne survient.",
+        "Livraison, courses, transport léger : vous avez besoin d'un garage qui comprend l'enjeu d'immobilisation. Nous planifions l'entretien selon les disponibilités de l'atelier et anticipons l'usure — sans promettre un délai universel.",
       benefits: [
         {
           title: "Entretien préventif",
@@ -219,9 +224,9 @@
           description: "Devis écrit, facture au nom de l'entreprise, pièces et main-d'œuvre lisibles.",
         },
         {
-          title: "Priorité chantier",
+          title: "Priorité de planification",
           description:
-            "Urgence freins, batterie, voyant ou CT avant une échéance : on priorise selon l'impact sur votre activité.",
+            "Selon les disponibilités de l'atelier, afin de limiter autant que possible l'immobilisation (freins, batterie, voyant, CT) — sans délai garanti.",
         },
       ],
       services: [
@@ -233,7 +238,7 @@
         {
           title: "Diagnostic & panne",
           description:
-            "Identification rapide pour limiter l'immobilisation avant un chantier ou une tournée.",
+            "Diagnostic pour cadrer l'intervention et limiter l'immobilisation avant un chantier ou une tournée.",
         },
         {
           title: "Contrôle technique",
@@ -299,33 +304,36 @@
       icon: "🎓",
       title: "Garage auto-écoles Ivry-sur-Seine (94) | Véhicules d'examen | RED-K MOTORS",
       description:
-        "Entretien véhicules auto-école à Ivry : double commande préservée, délais courts, priorité examens. Ne bloquez plus vos créneaux · Devis pro.",
-      h1: "Auto-écoles : vos véhicules d'examen toujours prêts",
+        "Entretien véhicules auto-école à Ivry : planning adapté aux examens, devis écrit, contrôle de la double commande au cas par cas. Devis pro · 06 48 74 56 68.",
+      h1: "Auto-écoles : limiter l'immobilisation avant un examen",
       heroKicker: "Espace Pro · Auto-écoles",
       heroDesc:
-        "Double commande respectée, contrôles réguliers et interventions rapides pour ne jamais manquer un créneau d'examen.",
-      cardTeaser: "Double commande préservée, délais courts pour vos examens.",
+        "Créneaux planifiés selon les disponibilités atelier. La double commande est un équipement spécifique : on l'examine avant intervention, véhicule par véhicule.",
+      cardTeaser: "Planning adapté aux examens, double commande contrôlée au cas par cas.",
       introHeading: "Un atelier qui comprend les contraintes des auto-écoles",
       introText:
-        "Véhicule d'examen immobilisé = élèves bloqués, planning décalé, stress. Nous priorisons les auto-écoles avec des délais courts et un respect strict des équipements pédagogiques.",
+        "Véhicule d'examen immobilisé = élèves bloqués et planning décalé. Nous adaptons la planification selon les disponibilités de l'atelier pour limiter l'immobilisation. Les équipements pédagogiques (dont la double commande) sont vérifiés avant travaux : aucune intervention « universelle » n'est promise sans inspection.",
       benefits: [
         {
-          title: "Priorité absolue",
-          description: "Créneaux dédiés et traitement accéléré pour les véhicules d'école.",
+          title: "Priorité de planification",
+          description:
+            "Selon les disponibilités atelier, on priorise les véhicules liés à un examen ou un créneau pédagogique.",
         },
         {
-          title: "Double commande préservée",
-          description: "Interventions compatibles avec les équipements pédagogiques homologués.",
+          title: "Double commande : cas par cas",
+          description:
+            "Contrôle de l'équipement avant travaux. Compatibilité et préconisations constructeur vérifiées sur le véhicule présenté.",
         },
         {
-          title: "Délais mini",
-          description: "Objectif : remettre le véhicule en service le plus vite possible.",
+          title: "Objectif : remise en service rapide",
+          description:
+            "On vise le délai le plus court possible — sans promettre une réparation immédiate ni un délai garanti.",
         },
       ],
       services: [
         {
           title: "Entretien périodique",
-          description: "Révisions, vidanges et contrôles sécurité pour véhicules à double commande.",
+          description: "Révisions, vidanges et contrôles sécurité sur véhicules d'école intensément utilisés.",
         },
         {
           title: "Freins & embrayage",
@@ -348,20 +356,21 @@
         verified: true,
       },
       highlights: [
-        "Priorité pour les véhicules d'examen et créneaux serrés",
-        "Double commande préservée selon préconisations",
+        "Priorité de planification selon disponibilités atelier",
+        "Double commande : inspection avant travaux, pas de promesse universelle",
         "Pré-contrôle technique avant passage au CT",
-        "Devis écrit · lun–sam 9h–19h · 4,9/5 Google",
+        `Devis écrit · lun–sam 9h–19h · ${googleRatingLabel}/5 Google (${googleReviewCount} avis)`,
       ],
       faqs: [
         {
-          question: "Préservez-vous la double commande ?",
+          question: "Préservez-vous systématiquement la double commande ?",
           answer:
-            "Oui. Nous respectons les équipements pédagogiques et les préconisations constructeur.",
+            "Nous inspectons l'équipement pédagogique avant intervention et respectons les préconisations constructeur. La compatibilité dépend du véhicule et des travaux : elle est confirmée au devis, pas promise par défaut.",
         },
         {
           question: "Proposez-vous une priorité auto-école ?",
-          answer: "Oui, nous adaptons la planification pour limiter l'impact sur vos examens.",
+          answer:
+            "Oui, dans la mesure des créneaux disponibles : on adapte la planification pour limiter l'impact sur vos examens, sans garantie de délai fixe.",
         },
         {
           question: "Préparez-vous au contrôle technique ?",
@@ -438,7 +447,7 @@
         "Indépendants, libéraux et véhicules de société bienvenus",
         "Devis écrit + facture HT",
         "Atelier 9 rue Michelet, 94200 Ivry-sur-Seine",
-        "4,9/5 Google · 06 48 74 56 68",
+        `${googleRatingLabel}/5 Google (${googleReviewCount} avis) · 06 48 74 56 68`,
       ],
       faqs: [
         {

@@ -98,6 +98,27 @@ try {
   fail("GSC top — audit maillage en échec");
 }
 
+try {
+  execSync("node scripts/audit-google-reviews-consistency.js", { cwd: root, stdio: "inherit" });
+  ok("Avis Google — cohérence count/rating");
+} catch {
+  fail("Avis Google — cohérence en échec");
+}
+
+try {
+  execSync("node scripts/audit-schema-types.js", { cwd: root, stdio: "inherit" });
+  ok("Schema.org — types sémantiques");
+} catch {
+  fail("Schema.org — types sémantiques en échec");
+}
+
+try {
+  execSync("node scripts/test-sync-google-reviews.js", { cwd: root, stdio: "inherit" });
+  ok("Sync avis — conservation pool curaté");
+} catch {
+  fail("Sync avis — test conservation en échec");
+}
+
 console.log("");
 if (failed) {
   console.error(`Audit code : ${failed} échec(s)`);

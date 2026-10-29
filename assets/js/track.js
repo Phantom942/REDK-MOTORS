@@ -1,5 +1,6 @@
 // RED-K MOTORS — GTM dataLayer tracking (chargé uniquement après consentement)
 // Prérequis : conversion-funnel.js déjà exécuté (chargement séquentiel dans cookies.js).
+// L'UX formulaire (bouton / statut) est gérée par contact-form-ux.js — hors consentement.
 (function() {
   if (window.__REDK_TRACK_BOUND__) return;
   if (!window.REDKMotorsCookies || !window.REDKMotorsCookies.hasConsent('analytics')) return;
@@ -39,8 +40,8 @@
     return 'inline';
   }
 
+  /** Events analytics uniquement — jamais de PII (pas de nom, email, téléphone, message). */
   function pushEvent(eventName, ctaPosition) {
-    // Re-vérifier le consentement à CHAQUE event (y compris après retrait)
     if (!hasAnalyticsConsent()) return;
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
@@ -85,11 +86,15 @@
     var configured = form.getAttribute('data-track-submit');
     if (!configured) return;
     var resolved = funnel.resolveSubmitEvent(form, e);
+    var pos = configured === 'form_submit_pro' ? 'pro' : 'contact';
     if (resolved === 'form_submit_contact') {
-      funnel.markFormSubmitPending();
-      pushEvent(configured, 'contact');
+      // Pending déjà posé par contact-form-ux.js ; filet de sécurité si UX absent
+      if (!funnel.peekFormSubmitPending()) {
+        funnel.markFormSubmitPending();
+      }
+      pushEvent(configured, pos);
     } else if (resolved === 'form_submit_attempt_blocked') {
-      pushEvent('form_submit_attempt_blocked', 'contact');
+      pushEvent('form_submit_attempt_blocked', pos);
     }
   }
 

@@ -1,0 +1,20 @@
+{# Formulaires Pro retirés — contact téléphone / WhatsApp #}
+{% set proProfilLabel = profil.navTitle if profil else "Espace Pro" %}
+<section class="contact-form-section contact-form-section--pro contact-form-section--call" aria-labelledby="pro-call-title" data-animate="slide-up">
+  <div class="container contact-form-section__inner">
+    <div class="contact-form-section__intro">
+      <p class="section-kicker">Espace Pro</p>
+      <h2 id="pro-call-title">{{ proFormTitle | default("Contact professionnel") }}</h2>
+      <p>{{ proFormLead | default("Votre véhicule est votre outil de travail. Chaque heure d'immobilisation compte — appelez-nous pour une priorité de planification selon les disponibilités de l'atelier.") }}</p>
+    </div>
+    <div class="contact-form__actions contact-form__actions--call">
+      <a class="btn btn--primary contact-form__submit" href="tel:{{ site.phone }}" data-track="click_call" data-track-pos="pro_call_block">
+        Appeler {{ site.phoneDisplayCompact | default(site.phoneDisplay) }}
+      </a>
+      <a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp" data-track-pos="pro_call_block">
+        WhatsApp Pro
+      </a>
+      <p class="contact-form__alt">Profil : {{ proProfilLabel }} · <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+    </div>
+  </div>
+</section>

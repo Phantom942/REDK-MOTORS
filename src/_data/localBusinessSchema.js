@@ -1,6 +1,5 @@
 const localBusiness = require("./localBusiness.json");
 const site = require("./site.json");
-const team = require("./team.json");
 const { all: prestationCatalog } = require("./prestations.js");
 
 const SITE_URL = "https://redkmotors.fr";
@@ -33,13 +32,11 @@ module.exports = function localBusinessSchema() {
     geoCircle.geoMidpoint.longitude = longitude;
   }
 
-  schema.employee = {
-    "@type": "Person",
-    "@id": `${SITE_URL}/#${team.author.id}`,
-    name: team.author.name,
-    jobTitle: team.author.jobTitle,
-    url: `${SITE_URL}/equipe/`,
-  };
+  // Ne pas lier l'équipe via `employee` (attendu : Person) ni via `department`
+  // tant qu'aucun département juridique / organigramme n'est confirmé.
+  // L'entité équipe reste décrite uniquement sur /equipe/ (Organization autonome).
+  delete schema.employee;
+  delete schema.department;
 
   schema.knowsAbout = [
     ...CORE_KNOWS_ABOUT,

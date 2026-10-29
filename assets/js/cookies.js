@@ -5,8 +5,9 @@
 
   // Configuration
   const COOKIE_CONSENT_NAME = 'redk-motors-cookie-consent';
-  const COOKIE_EXPIRY_DAYS = 365;
-  const CONSENT_VERSION = '1.0';
+  // Choix de consentement : 6 mois (recommandation CNIL) — pas 13 mois analytics
+  const COOKIE_EXPIRY_DAYS = 180;
+  const CONSENT_VERSION = '1.1';
 
   // Types de cookies
   const COOKIE_TYPES = {
