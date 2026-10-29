@@ -3,8 +3,14 @@
  */
 const site = require("./site.json");
 const googleReviewCount = site.googleReviews?.count ?? 0;
+const ficheTail = ` RED-K MOTORS, 9 rue Michelet, 94200 Ivry-sur-Seine. Tél. ${site.phoneDisplayCompact}. ${site.openingHours}, fermé le dimanche. Note Google 4,9/5 (${googleReviewCount} avis).`;
 
-module.exports = {
+function cite(text) {
+  if (!text || text.includes("06 48 74 56 68")) return text;
+  return `${text.trim()}${ficheTail}`;
+}
+
+const pages = {
   "garage-ivry": {
     seoTitle: "Garage Ivry-sur-Seine — adresse & accès (94200)",
     seoParagraphs: [
@@ -396,3 +402,11 @@ module.exports = {
     ],
   },
 };
+
+for (const page of Object.values(pages)) {
+  if (page.heroDesc) page.heroDesc = cite(page.heroDesc);
+  if (page.seoParagraphs?.[0]) page.seoParagraphs[0] = cite(page.seoParagraphs[0]);
+  if (page.faqs?.[0]?.answer) page.faqs[0].answer = cite(page.faqs[0].answer);
+}
+
+module.exports = pages;
