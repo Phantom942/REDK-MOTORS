@@ -7,6 +7,15 @@ const {
 
 const POPULAR_MODEL_SLUG_SET = new Set(POPULAR_MODEL_SLUGS);
 
+function priceSubject(ex) {
+  if (ex.isGeneric) return ex.serviceLabel || "cette prestation";
+  return `${ex.serviceLabel} sur ${ex.brand} ${ex.model}`;
+}
+
+function workshopPriceAnswer(ex) {
+  return `Chez RED-K MOTORS, 9 rue Michelet, 94200 Ivry-sur-Seine : ${ex.redkPrice} pour ${priceSubject(ex)}. ${ex.redkHighlight}. Montant indicatif, devis ferme après inspection du véhicule. Tél. 06 48 74 56 68, lun–sam 9h–19h.`;
+}
+
 function buildBreadcrumb(data) {
   const ex = data.exemple;
   if (!ex) return undefined;
@@ -32,9 +41,7 @@ function buildFaqSchema(data) {
   const faqQuestion =
     ex.isGeneric && ex.searchQuery ? `Combien coûte ${ex.searchQuery.toLowerCase()} ?` : questionLabel;
 
-  const priceAnswer = ex.isGeneric
-    ? `Exemple à Ivry : ${ex.redkPrice}. ${ex.redkHighlight}. ${ex.redkNote}`
-    : `Exemple à Ivry pour ce modèle : ${ex.redkPrice}. ${ex.redkHighlight}. ${ex.redkNote}`;
+  const priceAnswer = `${workshopPriceAnswer(ex)} ${ex.redkNote}`;
 
   const serviceKey = ex.serviceKey || "";
   const diagnosticFaq =
@@ -60,9 +67,7 @@ function buildFaqSchema(data) {
 
   const devisFaq = {
     name: "Le devis est-il gratuit ?",
-    text: ex.isGeneric
-      ? `Oui. Inspection et devis ferme pour ${ex.serviceLabel || "cette prestation"} avant intervention — lun–sam 9h–19h, Ivry-sur-Seine.`
-      : `Oui. Devis ferme pour ${ex.serviceLabel || "cette prestation"} sur ${ex.brand} ${ex.model} après inspection — rien sans votre accord.`,
+    text: `Oui. Chez RED-K MOTORS, 9 rue Michelet, 94200 Ivry-sur-Seine (06 48 74 56 68, lun–sam 9h–19h), inspection et devis ferme pour ${priceSubject(ex)} avant intervention — rien sans votre accord.`,
   };
 
   return {
@@ -179,10 +184,11 @@ module.exports = {
       } else {
         facts.push({ label: "Génération", value: ex.yearRange });
       }
-      facts.push({ label: "Grille tarifs", value: "Voir /tarifs/" });
+      facts.push({ label: "Atelier", value: "RED-K MOTORS · 9 rue Michelet, 94200 · 06 48 74 56 68" });
+      facts.push({ label: "Grille tarifs", value: "redkmotors.fr/tarifs/" });
       return {
         question: questionLabel,
-        answer: `Exemple à Ivry : ${ex.redkPrice} — ${ex.redkHighlight}. Grille complète sur redkmotors.fr/tarifs/.`,
+        answer: workshopPriceAnswer(ex),
         facts,
       };
     },

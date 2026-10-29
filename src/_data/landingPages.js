@@ -5,23 +5,18 @@
 const site = require("./site.json");
 const googleReviewCount = site.googleReviews?.count ?? 0;
 
+const ATELIER =
+  "Chez RED-K MOTORS, 9 rue Michelet, 94200 Ivry-sur-Seine (06 48 74 56 68, lun–sam 9h–19h).";
+
 const TARIFS_FAQ_BY_KEY = {
-  diagnostic:
-    "Tarif diagnostic valise sur /tarifs/ — offert si une réparation mécanique est validée ensuite à l'atelier.",
-  freinage:
-    "Fourchettes plaquettes/disques sur /tarifs/ et /exemples/prix-plaquettes-frein/ — devis après mesure d'usure, pas de forfait « kit complet » imposé.",
-  revision:
-    "Révision / vidange : fourchettes sur /tarifs/ — devis selon carnet constructeur, huile et filtres adaptés.",
-  mecanique:
-    "Le montant dépend de la panne (distribution, embrayage, turbo…). Voir /tarifs/ puis devis écrit après diagnostic.",
-  pneumatiques:
-    "Montage / équilibrage : exemples sur /exemples/prix-montage-pneus/ — devis selon dimensions et type de pneu.",
-  carrosserie:
-    "Débosselage / peinture : devis sur photo WhatsApp possible — chiffrage ferme après inspection en atelier.",
-  "pare-brise":
-    "Pare-brise / vitrage : fourchette sur /exemples/prix-pare-brise/ — devis selon impact et modèle.",
-  vidange:
-    "Vidange : exemple sur /exemples/prix-vidange-moteur/ — devis ferme selon huile homologuée et filtres.",
+  diagnostic: `Un diagnostic électronique à la valise coûte en général 50 à 100 €. Il est offert si une réparation mécanique est validée ensuite à l'atelier. ${ATELIER}`,
+  freinage: `Les fourchettes plaquettes et disques sont sur redkmotors.fr/tarifs/ et redkmotors.fr/exemples/prix-plaquettes-frein/. Devis après mesure d'usure, pas de forfait « kit complet » imposé. ${ATELIER}`,
+  revision: `Révision et vidange : fourchettes sur redkmotors.fr/tarifs/, devis selon le carnet constructeur, l'huile et les filtres adaptés. ${ATELIER}`,
+  mecanique: `Le montant dépend de la panne (distribution, embrayage, turbo). Fourchettes sur redkmotors.fr/tarifs/, devis écrit après diagnostic. ${ATELIER}`,
+  pneumatiques: `Montage et équilibrage : exemples sur redkmotors.fr/exemples/prix-montage-pneus/. Devis selon les dimensions et le type de pneu. ${ATELIER}`,
+  carrosserie: `Débosselage et peinture : un premier avis est possible sur photo WhatsApp, le chiffrage ferme se fait après inspection du véhicule. ${ATELIER}`,
+  "pare-brise": `Pare-brise et vitrage : fourchette sur redkmotors.fr/exemples/prix-pare-brise/. Devis selon l'impact et le modèle. ${ATELIER}`,
+  vidange: `Vidange : exemple sur redkmotors.fr/exemples/prix-vidange-moteur/. Devis ferme selon l'huile homologuée et les filtres. ${ATELIER}`,
 };
 const PROCESS_STEPS = [
   { title: "Contactez-nous", desc: "Téléphone, WhatsApp ou formulaire — réponse en journée lun–sam 9h–19h." },

@@ -1,6 +1,18 @@
 const team = require("../_data/team.json");
 const enhancements = require("../_data/blogArticleEnhancements.js");
 const blogKeywords = require("../_data/blogKeywords.js");
+const gscTopMoneyLinks = require("../_data/gscTopMoneyLinks.js");
+
+function mergeRelatedLinks(priority, base) {
+  const seen = new Set();
+  const out = [];
+  for (const link of [...(priority || []), ...(base || [])]) {
+    if (!link?.url || seen.has(link.url)) continue;
+    seen.add(link.url);
+    out.push(link);
+  }
+  return out;
+}
 
 const SITE_URL = "https://redkmotors.fr";
 const LOGO_URL = `${SITE_URL}/assets/img/logo-redk-motors.png`;
@@ -47,6 +59,14 @@ function pickEnhancement(data) {
   return enhancements[slug] || {};
 }
 
+const WORKSHOP_CITE =
+  " À l'atelier RED-K MOTORS, 9 rue Michelet, 94200 Ivry-sur-Seine (06 48 74 56 68, lun–sam 9h–19h), le devis est écrit avant toute intervention.";
+
+function withWorkshopCite(da) {
+  if (!da?.answer || /RED-K MOTORS/i.test(da.answer)) return da;
+  return { ...da, answer: `${da.answer.trim()}${WORKSHOP_CITE}` };
+}
+
 function pickKeywords(data) {
   const slug = slugFromData(data);
   return blogKeywords[slug] || null;
@@ -63,10 +83,10 @@ module.exports = {
     ogImage: (data) => data.ogImage || OG_DEFAULT,
     lastReviewed: (data) => data.lastReviewed || data.date,
     seoKeywords: (data) => pickKeywords(data),
-    directAnswer: (data) => data.directAnswer || pickEnhancement(data).directAnswer,
+    directAnswer: (data) => withWorkshopCite(data.directAnswer || pickEnhancement(data).directAnswer),
     directAnswerSchema: (data) => {
       if (data.directAnswerSchema) return data.directAnswerSchema;
-      const da = data.directAnswer || pickEnhancement(data).directAnswer;
+      const da = withWorkshopCite(data.directAnswer || pickEnhancement(data).directAnswer);
       if (!da) return undefined;
       const factText = Array.isArray(da.facts)
         ? da.facts.map((f) => `${f.label} : ${f.value}`).join(". ")
@@ -81,7 +101,25 @@ module.exports = {
         },
       };
     },
-    relatedLinks: (data) => data.relatedLinks || pickEnhancement(data).relatedLinks,
+    relatedLinks: (data) => {
+      if (data.relatedLinks) return data.relatedLinks;
+      const slug = slugFromData(data);
+      const base = pickEnhancement(data).relatedLinks;
+      const top = gscTopMoneyLinks[slug];
+      if (!top) return base;
+      return mergeRelatedLinks(top.priority, base);
+    },
+    gscMoneyBlock: (data) => {
+      const slug = slugFromData(data);
+      const top = gscTopMoneyLinks[slug];
+      if (!top?.ctaLead || !top.priority?.length) return undefined;
+      const primary = top.priority[0];
+      return {
+        ctaLead: top.ctaLead,
+        primaryUrl: primary.url,
+        primaryLabel: primary.label,
+      };
+    },
     faqSchema: (data) => {
       if (data.faqSchema) return data.faqSchema;
       const extra = pickEnhancement(data).faqSchema;

@@ -92,6 +92,9 @@ npm run test:blog-migration
 npm run test:kv-restore
 npm run redirects:kv-shards
 
+# Option rapide (Wrangler OAuth, sans CLOUDFLARE_API_TOKEN) :
+# npm run redirects:kv-deploy
+
 # 1) Backup seul
 node scripts/deploy-kv-shards.js --backup-only --dir workers/kv-backup
 # Copier/archiver workers/kv-backup/ avant la suite

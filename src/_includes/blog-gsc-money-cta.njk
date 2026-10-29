@@ -1,0 +1,9 @@
+{% if gscMoneyBlock %}
+<aside class="article-gsc-money" aria-label="Atelier RED-K MOTORS Ivry">
+  <p class="article-gsc-money__lead">{{ gscMoneyBlock.ctaLead }}</p>
+  <p class="article-gsc-money__actions">
+    <a href="{{ gscMoneyBlock.primaryUrl }}" class="btn btn--primary">{{ gscMoneyBlock.primaryLabel }}</a>
+    <a href="/contact/" class="btn btn--secondary">Devis &amp; RDV</a>
+  </p>
+</aside>
+{% endif %}

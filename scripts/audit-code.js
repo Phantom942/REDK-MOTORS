@@ -91,6 +91,13 @@ try {
   fail("PageKey — audit keywords en échec");
 }
 
+try {
+  execSync("node scripts/audit-gsc-top-links.js", { cwd: root, stdio: "inherit" });
+  ok("GSC top — maillage garage Ivry");
+} catch {
+  fail("GSC top — audit maillage en échec");
+}
+
 console.log("");
 if (failed) {
   console.error(`Audit code : ${failed} échec(s)`);

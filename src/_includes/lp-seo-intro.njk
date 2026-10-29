@@ -8,6 +8,10 @@
       {% for paragraph in lp.seoParagraphs %}
       <p>{{ paragraph }}</p>
       {% endfor %}
+      {% set seoBlob = lp.seoParagraphs | join(" ") %}
+      {% if "9 rue Michelet" not in seoBlob %}
+      <p>RED-K MOTORS, {{ site.addressFull }}. Téléphone {{ site.phoneDisplayCompact | default(site.phoneDisplay) }}. Note Google {{ site.googleReviews.rating | googleRatingDisplay }}/5 ({{ site.googleReviews.count }} avis). {{ site.openingHours }}, fermé le dimanche. Parking pour déposer le véhicule sur place. Devis écrit avant travaux.</p>
+      {% endif %}
       {% if lp.seoProblems and lp.seoProblems.length %}
       {% set problemLinks = lp.seoProblems | evenItems %}
       {% if problemLinks.length %}

@@ -56,10 +56,17 @@ Le workflow **Deploy to GitHub Pages** injecte déjà :
 - `GOOGLE_PLACES_API_KEY`
 - `GOOGLE_PLACES_PLACE_ID`
 
-Dans **Settings → Secrets and variables → Actions**, ajouter la clé Places si vous voulez la sync auto à chaque build.
+### Ajouter les secrets (une fois)
+
+1. Ouvrir le dépôt GitHub → **Settings** → **Secrets and variables** → **Actions**.
+2. **New repository secret** :
+   - Nom : `GOOGLE_PLACES_API_KEY` — valeur : clé API **serveur** (Places API New), jamais une clé « navigateur ».
+   - (Optionnel) `GOOGLE_PLACES_PLACE_ID` = `ChIJd1Lv-zdz5kcRFt1G98zTvOY` si vous devez surcharger `site.json`.
+3. Relancer un workflow **Deploy** : le job build exécute `sync-google-reviews.js` avant Eleventy.
+4. Contrôle : dans les logs du build, chercher `sync-google-reviews: OK` ; sinon le message « pas de GOOGLE_PLACES_API_KEY » (build OK, données statiques).
 
 Sans secret, le déploiement continue avec les valeurs commitées dans le repo (ex. 53 avis manuels).  
-Runbook complet : **`docs/github-actions-ops-runbook.md`**.
+Runbook complet : **`docs/github-actions-ops-runbook.md`**. Checklist propriétaire : **`docs/checklist-proprietaire-seo-ops.md`**.
 
 Après build CI : `scripts/ops-build-report.js` vérifie cohérence count + fichiers GEO + clé IndexNow.
 

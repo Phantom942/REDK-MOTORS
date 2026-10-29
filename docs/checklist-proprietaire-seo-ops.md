@@ -4,7 +4,7 @@
 
 ## Cloudflare (301 blog + headers)
 
-- [ ] Après chaque gros changement de redirects : importer `cloudflare-bulk-redirects.csv` ou lancer le workflow **Deploy blog redirects KV**
+- [ ] Après chaque gros changement de redirects : `npm run build` puis **`npm run redirects:kv-deploy`** (Wrangler OAuth) — ou workflow **Deploy blog redirects KV** / import CSV
 - [ ] Vérifier strict : workflow **Verify blog redirects** (ou `npm run verify:blog-redirects:prod:all`)
 - [ ] Headers Worker : `npm run cf:deploy-headers` si smoke CI signale cache fonts ⚠
 
