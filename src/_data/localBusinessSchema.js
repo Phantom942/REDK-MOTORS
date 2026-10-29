@@ -33,12 +33,14 @@ module.exports = function localBusinessSchema() {
     geoCircle.geoMidpoint.longitude = longitude;
   }
 
+  // Équipe collective : Organization (pas Person) — conforme Schema.org / Google
   schema.employee = {
-    "@type": "Person",
+    "@type": "Organization",
     "@id": `${SITE_URL}/#${team.author.id}`,
     name: team.author.name,
-    jobTitle: team.author.jobTitle,
+    description: team.author.jobTitle,
     url: `${SITE_URL}/equipe/`,
+    parentOrganization: { "@id": `${SITE_URL}/#business` },
   };
 
   schema.knowsAbout = [
