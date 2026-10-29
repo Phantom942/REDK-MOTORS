@@ -35,10 +35,13 @@ module.exports = {
     "exemple prix garage ivry, fourchette réparation auto, devis indicatif ivry-sur-seine 94",
   "exemple-modele-hub":
     "prix réparation par modèle, exemple devis auto, garage multimarque ivry 94",
-  professionnels: "garage professionnels ivry, flotte VTC taxi, entretien véhicule pro 94",
+  professionnels:
+    "garage professionnels ivry, garage artisan 94, flotte VTC taxi, entretien utilitaire val-de-marne",
   "pro-taxis-vtc": "entretien taxi VTC ivry, garage VTC 94, révision véhicule professionnel",
-  "pro-chauffeurs": "entretien chauffeur privé, garage flotte ivry-sur-seine, VTC 94",
-  "pro-flottes": "garage flotte entreprise ivry, entretien parc auto 94, maintenance véhicules",
+  "pro-chauffeurs":
+    "garage livreur ivry, entretien utilitaire 94, garage fourgon val-de-marne, révision véhicule livraison",
+  "pro-flottes":
+    "garage artisan ivry, garage utilitaire 94, entretien Kangoo Partner, plombier électricien garage, flotte entreprise 94",
   "pro-auto-ecoles": "entretien auto-école ivry, véhicule apprentissage, garage 94",
   "pro-autres": "garage professionnels ivry, artisans livraison, entretien utilitaire 94",
   equipe: "équipe garage ivry, mécaniciens ivry-sur-seine, atelier RED-K MOTORS",

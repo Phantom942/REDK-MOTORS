@@ -94,7 +94,7 @@
       "children": [
         { "title": "Taxis & VTC", "url": "/professionnels/taxis-vtc/", "key": "pro-taxis-vtc" },
         { "title": "Chauffeurs & livreurs", "url": "/professionnels/chauffeurs-livreurs/", "key": "pro-chauffeurs" },
-        { "title": "Artisans & flottes", "url": "/professionnels/artisans-flottes/", "key": "pro-flottes" },
+        { "title": "Artisans & utilitaires", "url": "/professionnels/artisans-flottes/", "key": "pro-flottes" },
         { "title": "Auto-écoles", "url": "/professionnels/auto-ecoles/", "key": "pro-auto-ecoles" },
         { "title": "Autres professionnels", "url": "/professionnels/autres-professionnels/", "key": "pro-autres" }
       ]

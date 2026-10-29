@@ -1,11 +1,11 @@
 ﻿---
 layout: base.njk
-title: "Espace Pro — Garage professionnels Ivry-sur-Seine (94) | Taxis, VTC, flottes | RED-K MOTORS"
-description: "Garage partenaire B2B à Ivry-sur-Seine : taxis, VTC, livreurs, flottes, auto-écoles. Tarifs pro, créneaux prioritaires, devis transparent. 06 48 74 56 68 · Lun–sam 9h–19h."
-keywords: "garage professionnel ivry-sur-seine, espace pro garage 94, entretien flotte val-de-marne, garage taxi vtc ivry, garage auto école 94, devis garage pro"
+title: "Espace Pro — Garage artisans, taxis, VTC & utilitaires Ivry (94) | RED-K MOTORS"
+description: "Garage partenaire B2B à Ivry-sur-Seine : artisans, taxis, VTC, livreurs, petites flottes, auto-écoles. Devis HT, créneaux prioritaires. 06 48 74 56 68 · Lun–sam 9h–19h."
+keywords: "garage professionnel ivry-sur-seine, garage artisan 94, entretien utilitaire val-de-marne, garage taxi vtc ivry, garage flotte entreprise, devis garage pro"
 pageKey: professionnels
 date: 2026-06-28
-lastReviewed: 2026-07-01
+lastReviewed: 2026-10-29
 hasHeroVideo: true
 hideServiceAreas: true
 permalink: /professionnels/index.html
@@ -35,7 +35,7 @@ localServiceSchema:
       name: "Ivry-sur-Seine"
     - "@type": "AdministrativeArea"
       name: "Val-de-Marne"
-  description: "Partenaire atelier pour taxis, VTC, livreurs, flottes et auto-écoles dans le 94."
+  description: "Partenaire atelier pour artisans, taxis, VTC, livreurs, petites flottes et auto-écoles dans le 94."
   offers:
     "@type": "Offer"
     priceCurrency: "EUR"
@@ -48,57 +48,65 @@ faqSchema:
       name: "Proposez-vous des tarifs préférentiels pour les professionnels ?"
       acceptedAnswer:
         "@type": "Answer"
-        text: "Oui, des conditions adaptées sont possibles selon votre activité et le volume d'entretien."
+        text: "Oui, des conditions adaptées sont possibles selon votre activité et le volume d'entretien. Facture HT sur demande."
     - "@type": "Question"
       name: "Quels types de professionnels accompagnez-vous ?"
       acceptedAnswer:
         "@type": "Answer"
-        text: "Taxis, VTC, chauffeurs-livreurs, artisans, flottes entreprise, auto-écoles et tous véhicules professionnels."
+        text: "Artisans (plombier, électricien, peintre, BTP), taxis, VTC, chauffeurs-livreurs, petites flottes entreprise, auto-écoles et tous véhicules professionnels."
+    - "@type": "Question"
+      name: "Un artisan avec un seul utilitaire peut-il venir ?"
+      acceptedAnswer:
+        "@type": "Answer"
+        text: "Oui. La plupart de nos clients pro ont 1 à 3 véhicules. Devis écrit, facture HT, atelier lun–sam 9h–19h à Ivry-sur-Seine."
     - "@type": "Question"
       name: "Comment obtenir un devis pro ?"
       acceptedAnswer:
         "@type": "Answer"
-        text: "Par téléphone au 06 48 74 56 68, WhatsApp ou via la page contact. Réponse rapide."
+        text: "Par téléphone au 06 48 74 56 68, WhatsApp ou via la page contact. Indiquez métier, véhicule et le besoin."
     - "@type": "Question"
       name: "Intervenez-vous en priorité pour les véhicules pro ?"
       acceptedAnswer:
         "@type": "Answer"
-        text: "Oui, nous adaptons la planification pour limiter l'immobilisation de votre véhicule."
+        text: "Oui, nous adaptons la planification pour limiter l'immobilisation quand une panne bloque un chantier, une course ou une tournée."
 ---
+
+{% set waProText = "Bonjour, je suis artisan / professionnel et je souhaite un devis partenaire chez RED-K MOTORS.\nMétier : \nVéhicule : \nLe besoin : " %}
+{% set waProUrl = "https://wa.me/" ~ (site.phone | replace("+", "")) ~ "?text=" ~ (waProText | urlencode) %}
 
 {% set heroActions %}
 <a class="btn btn--primary" href="tel:{{ site.phone }}" data-track="click_call" data-track-pos="hero_pro_hub">Appeler pour un devis Pro</a>
-<a class="btn btn--secondary" href="{{ site.whatsappUrl }}" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp" data-track-pos="hero_pro_hub">WhatsApp Pro</a>
+<a class="btn btn--secondary" href="{{ waProUrl }}" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp" data-track-pos="hero_pro_hub">WhatsApp Pro</a>
 {% endset %}
 {% set heroClass = "hero--subpage hero--pro hero--conversion" %}
 {% set heroAria = "professionnels-hero-title" %}
 {% set heroTitle = "Espace Pro" %}
 {% set heroSubtitle = "Véhicule immobilisé = chiffre perdu" %}
 {% set heroKicker = "Partenaire des professionnels du 94" %}
-{% set heroDesc = "Taxis, VTC, livreurs, flottes, auto-écoles : tarifs avantageux, délais minimisés et expertise atelier à Ivry-sur-Seine." %}
+{% set heroDesc = "Artisans, taxis, VTC, livreurs, petites flottes, auto-écoles : devis HT, délais minimisés et atelier à Ivry-sur-Seine, lun–sam 9h–19h." %}
 {% set videoSrc = "hero.mp4" %}
 {% include "hero-video.njk" %}
 
 {% set contactTitle = "Devis Pro immédiat" %}
-{% set contactLead = "Véhicule immobilisé = chiffre perdu — on priorise les pros." %}
+{% set contactLead = "Véhicule immobilisé = chiffre perdu — on priorise les pros, y compris avec un seul utilitaire." %}
 {% include "conversion-contact.njk" %}
 
-<section class="conversion-services" aria-labelledby="pro-profiles-title">
-  <div class="container">
+<section class="services-links pro-related" aria-labelledby="pro-profiles-title" data-animate="slide-up">
+  <div class="container services-links__inner">
     {% set sectionKicker = "Espace Pro" %}
     {% set sectionTitle = "Votre profil" %}
     {% set sectionHeadId = "pro-profiles-title" %}
     {% include "conversion-section-head.njk" %}
-    <ul class="conversion-services__list">
-      {% for profil in professionnels.profiles | evenItems %}
-      <li><a href="/professionnels/{{ profil.slug }}/" class="conversion-services__link">{{ profil.navTitle }}</a></li>
+    <div class="services-links__grid pro-hub__grid">
+      {% for profil in professionnels.profiles %}
+      <a class="services-links__card pro-hub__card" href="/professionnels/{{ profil.slug }}/">
+        <span class="services-links__icon pro-hub__icon" aria-hidden="true">{{ profil.icon }}</span>
+        <strong>{{ profil.navTitle }}</strong>
+        <span class="pro-hub__teaser">{{ profil.cardTeaser }}</span>
+        <span class="pro-hub__link">Découvrir →</span>
+      </a>
       {% endfor %}
-    </ul>
-    {% if professionnels.profiles.length % 2 == 1 %}
-    <p class="conversion-services__more">
-      <a href="/professionnels/{{ professionnels.profiles[professionnels.profiles.length - 1].slug }}/">{{ professionnels.profiles[professionnels.profiles.length - 1].navTitle }} →</a>
-    </p>
-    {% endif %}
+    </div>
   </div>
 </section>
 

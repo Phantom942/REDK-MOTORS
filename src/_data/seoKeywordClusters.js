@@ -155,9 +155,18 @@ const CLUSTERS = [
   {
     id: "pro",
     label: "Professionnels",
-    terms: ["garage taxi", "garage VTC", "entretien flotte", "garage professionnel", "auto-école"],
+    terms: [
+      "garage taxi",
+      "garage VTC",
+      "garage artisan",
+      "garage utilitaire",
+      "entretien flotte",
+      "garage professionnel",
+      "auto-école",
+    ],
     path: "/professionnels/",
     geo: true,
+    also: ["/professionnels/artisans-flottes/", "/professionnels/taxis-vtc/"],
   },
 ];
 

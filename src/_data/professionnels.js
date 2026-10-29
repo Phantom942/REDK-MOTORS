@@ -187,49 +187,55 @@
     {
       slug: "artisans-flottes",
       key: "pro-flottes",
-      navTitle: "Artisans & flottes",
+      navTitle: "Artisans & utilitaires",
       icon: "🏗️",
-      title: "Garage flotte entreprise & artisans Ivry-sur-Seine (94) | RED-K MOTORS",
+      title:
+        "Garage artisans & utilitaires Ivry-sur-Seine (94) | Plombier, électricien, PME | RED-K MOTORS",
       description:
-        "Maintenance flotte auto pour artisans, commerçants et PME à Ivry : multi-véhicules, facturation centralisée HT, réactivité. Devis pro gratuit.",
-      h1: "Artisans & flottes : ne laissez pas une panne bloquer votre activité",
-      heroKicker: "Espace Pro · Flottes & entreprises",
+        "Garage partenaire artisans et TPE à Ivry : 1 à 3 utilitaires ou petite flotte. Devis HT écrit, créneaux adaptés aux chantiers, Kangoo, Partner, Trafic. 06 48 74 56 68.",
+      h1: "Artisans & utilitaires : votre fourgon ne doit pas bloquer un chantier",
+      heroKicker: "Espace Pro · Artisans, TPE & petites flottes",
       heroDesc:
-        "Un interlocuteur atelier, un suivi clair par véhicule et des tarifs adaptés aux flottes de 2 à 20 véhicules.",
-      cardTeaser: "Gestion multi-véhicules et facturation centralisée.",
-      introHeading: "Un garage partenaire pour artisans, commerçants et PME",
+        "Un utilitaire en panne, c'est un chantier reporté. Devis écrit avant travaux, facture HT, atelier ouvert lun–sam 9h–19h à Ivry-sur-Seine.",
+      cardTeaser: "1 utilitaire ou petite flotte : devis HT, délais adaptés aux chantiers.",
+      introHeading: "Le garage des artisans et des petites structures du 94",
       introText:
-        "Plombier, électricien, commerçant, société de services : vos véhicules sont votre outil de travail. Nous organisons l'entretien de votre flotte avec des devis par véhicule et une facturation simplifiée.",
+        "Plombier, électricien, peintre, chauffagiste, multi-services BTP, commerçant : votre Kangoo, Partner ou Trafic est votre outil de travail. Que vous ayez un seul utilitaire ou 2 à 10 véhicules, nous organisons l'entretien avec un devis par véhicule, une facturation HT sur demande et une priorité quand une panne menace un chantier ou un client.",
       benefits: [
         {
-          title: "Gestion multi-véhicules",
-          description: "Plan de maintenance par véhicule, vision claire des échéances.",
+          title: "Un véhicule ou une petite flotte",
+          description:
+            "Auto-entrepreneur comme TPE : même interlocuteur atelier, même devis clair avant intervention.",
         },
         {
-          title: "Facturation centralisée",
-          description: "Un interlocuteur, des devis lisibles, facturation HT sur demande.",
+          title: "Facturation HT / SIRET",
+          description: "Devis écrit, facture au nom de l'entreprise, pièces et main-d'œuvre lisibles.",
         },
         {
-          title: "Réactivité garantie",
-          description: "Priorisation des urgences selon impact sur votre activité.",
+          title: "Priorité chantier",
+          description:
+            "Urgence freins, batterie, voyant ou CT avant une échéance : on priorise selon l'impact sur votre activité.",
         },
       ],
       services: [
         {
-          title: "Plan d'entretien flotte",
-          description: "Organisation des passages atelier par véhicule et par échéance.",
+          title: "Entretien utilitaires",
+          description:
+            "Révision, vidange, freins, pneus, distribution sur utilitaires légers et véhicules de société.",
         },
         {
-          title: "Diagnostic & réparations",
-          description: "Priorisation selon criticité pour garder la flotte disponible.",
+          title: "Diagnostic & panne",
+          description:
+            "Identification rapide pour limiter l'immobilisation avant un chantier ou une tournée.",
         },
         {
-          title: "Freins, pneus, distribution",
-          description: "Postes d'usure suivis pour anticiper les immobilisations.",
+          title: "Contrôle technique",
+          description: "Préparation CT et correction des points bloquants avant la date limite.",
         },
         {
-          title: "Reporting atelier",
-          description: "Suivi des interventions réalisées et à prévoir.",
+          title: "Suivi multi-véhicules",
+          description:
+            "Pour les petites flottes : plan de passages, devis par véhicule, un seul contact atelier.",
         },
       ],
       testimonial: {
@@ -240,34 +246,44 @@
         verified: false,
       },
       highlights: [
-        "Un interlocuteur unique pour toute la flotte",
-        "Plan de maintenance par véhicule et par échéance",
-        "Facturation HT sur demande",
+        "1 utilitaire ou petite flotte : même qualité de suivi",
+        "Devis écrit et facture HT au nom de l'entreprise",
+        "Ouvert samedi 9h–19h pour caler un passage hors chantier",
+        "Atelier à Ivry : parking sur place, 06 48 74 56 68",
       ],
       faqs: [
         {
+          question: "Vous acceptez un artisan avec un seul utilitaire ?",
+          answer:
+            "Oui. La majorité de nos clients pro ont 1 à 3 véhicules. Pas besoin d'une grosse flotte pour bénéficier d'un devis HT et d'un suivi atelier.",
+        },
+        {
+          question: "Que faire si mon fourgon tombe en panne avant un chantier ?",
+          answer:
+            "Appelez ou WhatsApp au 06 48 74 56 68 en indiquant marque, modèle et le symptôme. On priorise selon l'urgence et la disponibilité atelier, lun–sam 9h–19h.",
+        },
+        {
+          question: "Facturez-vous en HT avec mon SIRET ?",
+          answer:
+            "Oui. Devis écrit avant travaux, puis facture au nom de l'entreprise. Paiement espèces, carte ou virement.",
+        },
+        {
+          question: "Travaillez-vous sur Kangoo, Partner, Trafic et autres utilitaires ?",
+          answer:
+            "Oui, essence et diesel, marques courantes d'utilitaires légers et véhicules de société. Le devis est ferme après inspection.",
+        },
+        {
           question: "Pouvez-vous suivre plusieurs véhicules ?",
-          answer: "Oui, nous organisons un plan de maintenance adapté à la taille de votre flotte.",
-        },
-        {
-          question: "Proposez-vous des tarifs flotte ?",
-          answer: "Oui, des conditions préférentielles sont possibles selon volume et fréquence.",
-        },
-        {
-          question: "Un seul interlocuteur atelier ?",
-          answer: "Oui, pour simplifier la coordination et le suivi.",
-        },
-        {
-          question: "Intervenez-vous en urgence flotte ?",
-          answer: "Oui, selon disponibilité atelier et criticité de la panne.",
+          answer:
+            "Oui. Pour 2 véhicules ou plus, on organise un plan de maintenance par véhicule avec un seul interlocuteur.",
         },
       ],
       whatsappText:
-        "Bonjour, je gère une flotte/activité pro et je souhaite un devis partenaire chez RED-K MOTORS.",
-      serviceType: "Maintenance flotte entreprise et artisans",
+        "Bonjour, je suis artisan / TPE et je souhaite un devis pro chez RED-K MOTORS.\nMétier : \nVéhicule (marque / modèle) : \nLe besoin : ",
+      serviceType: "Entretien utilitaires artisans et petites flottes entreprise",
       keywords:
-        "garage flotte entreprise 94, entretien flotte auto ivry, maintenance véhicules artisans, garage utilitaire pro val-de-marne",
-      audienceType: "Artisans, commerçants et gestionnaires de flotte",
+        "garage artisan ivry, garage utilitaire 94, entretien Kangoo Partner Trafic, plombier électricien garage ivry, maintenance véhicules artisans val-de-marne, garage flotte entreprise 94",
+      audienceType: "Artisans, TPE et petites flottes utilitaires",
     },
     {
       slug: "auto-ecoles",

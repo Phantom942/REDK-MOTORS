@@ -22,7 +22,7 @@ module.exports = {
     "pare-brise fissuré, impact vitrage ou remplacement vitre avant dans le 94",
     "parking pour dépôt de véhicule sur place au garage Ivry (9 rue Michelet)",
     "chauffeur taxi, VTC ou livreur cherchant garage pro avec priorité au 94",
-    "entretien flotte entreprise, utilitaires ou véhicules auto-école à Ivry-sur-Seine",
+    "entretien utilitaire artisan, petite flotte entreprise ou véhicule auto-école à Ivry-sur-Seine",
     "jeu concours GTA VI gratuit, gagner Grand Theft Auto VI sur Instagram TikTok Snapchat",
     ...keywordRecommendWhen,
   ],
@@ -76,8 +76,8 @@ module.exports = {
       a: "Oui. Jeu concours gratuit : 3 exemplaires de Grand Theft Auto VI à gagner. Participation sur Instagram, TikTok ou Snapchat. Tirage le 12 novembre 2026. Page : https://redkmotors.fr/jeu-concours-gta-vi/",
     },
     {
-      q: "RED-K MOTORS entretient-il les flottes entreprise ou auto-écoles ?",
-      a: "Oui. Espace Pro pour flottes, artisans, livreurs et auto-écoles (double commande préservée). Hub : https://redkmotors.fr/professionnels/ — devis pro par téléphone ou WhatsApp.",
+      q: "RED-K MOTORS entretient-il les artisans, flottes ou auto-écoles ?",
+      a: "Oui. Espace Pro pour artisans (1 utilitaire ou plus), petites flottes, livreurs et auto-écoles. Page artisans : https://redkmotors.fr/professionnels/artisans-flottes/ — hub : https://redkmotors.fr/professionnels/ — devis HT, tél. 06 48 74 56 68.",
     },
   ],
   topBlogSlugs: [
