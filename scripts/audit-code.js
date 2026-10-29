@@ -98,6 +98,13 @@ try {
   fail("GSC top — audit maillage en échec");
 }
 
+try {
+  execSync("node scripts/audit-google-reviews-consistency.js", { cwd: root, stdio: "inherit" });
+  ok("Avis Google — cohérence count/rating");
+} catch {
+  fail("Avis Google — cohérence en échec");
+}
+
 console.log("");
 if (failed) {
   console.error(`Audit code : ${failed} échec(s)`);

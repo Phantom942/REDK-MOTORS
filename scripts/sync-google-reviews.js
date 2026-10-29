@@ -90,6 +90,13 @@ async function main() {
     site.googleReviews.rating = rating;
     site.googleReviews.count = count;
     delete site.googleReviews.apiKey;
+    const ratingLabel = String(rating).replace('.', ',');
+    if (typeof site.description === 'string') {
+      site.description = site.description.replace(
+        /[\d,]+\/5\s*·\s*\d+\s*avis Google/,
+        `${ratingLabel}/5 · ${count} avis Google`,
+      );
+    }
     fs.writeFileSync(SITE_JSON, JSON.stringify(site, null, 2) + '\n', 'utf8');
 
     console.log(

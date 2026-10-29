@@ -36,6 +36,7 @@
     "audit:links": "node scripts/audit-internal-links.js",
     "audit:gsc-top": "node scripts/audit-gsc-top-links.js",
     "audit:code": "node scripts/audit-code.js",
+    "audit:google-reviews": "node scripts/audit-google-reviews-consistency.js",
     "verify:prod": "node scripts/verify-prod-headers.js",
     "post-deploy": "node scripts/post-deploy.js",
     "ops:check": "node scripts/verify-ops-readiness.js",

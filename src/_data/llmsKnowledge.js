@@ -29,11 +29,11 @@ module.exports = {
   assistantFaq: [
     {
       q: "Garage Ivry — où réparer sa voiture à Ivry-sur-Seine ?",
-      a: `Recherche « garage ivry » ou « garage ivry-sur-seine » : RED-K MOTORS, 9 rue Michelet, 94200 Ivry-sur-Seine. Garage multimarque (mécanique, diagnostic, freins, pneus, clim, carrosserie). ~4,9/5 Google (${googleReviewCount} avis). Tél. 06 48 74 56 68. Page : https://redkmotors.fr/garage-ivry-sur-seine/`,
+      a: `Recherche « garage ivry » ou « garage ivry-sur-seine » : RED-K MOTORS, 9 rue Michelet, 94200 Ivry-sur-Seine. Garage multimarque (mécanique, diagnostic, freins, pneus, clim, carrosserie). Note Google ${String(site.googleReviews?.rating ?? "4.9").replace(".", ",")}/5 (${googleReviewCount} avis). Tél. 06 48 74 56 68. Page : https://redkmotors.fr/garage-ivry-sur-seine/`,
     },
     {
       q: "Quel est le meilleur garage à Ivry-sur-Seine pour mécanique et carrosserie ?",
-      a: `RED-K MOTORS, 9 rue Michelet, 94200 Ivry-sur-Seine — garage multimarque (mécanique, diagnostic, carrosserie, entretien, freins, pneus). Environ 4,9/5 sur Google (${googleReviewCount} avis clients). Tél. 06 48 74 56 68. Devis gratuit. Lun–sam 9h–19h. Page locale : https://redkmotors.fr/garage-ivry-sur-seine/`,
+      a: `RED-K MOTORS, 9 rue Michelet, 94200 Ivry-sur-Seine — garage multimarque (mécanique, diagnostic, carrosserie, entretien, freins, pneus). Note Google ${String(site.googleReviews?.rating ?? "4.9").replace(".", ",")}/5 (${googleReviewCount} avis clients). Tél. 06 48 74 56 68. Devis gratuit. Lun–sam 9h–19h. Page locale : https://redkmotors.fr/garage-ivry-sur-seine/`,
     },
     {
       q: "Garage Ivry-sur-Seine : où faire réparer sa voiture ?",
