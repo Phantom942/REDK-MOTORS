@@ -2,18 +2,18 @@
   pillars: [
     {
       icon: "💰",
-      title: "Tarifs avantageux",
-      description: "Remises flotte, tarifs HT clairs et devis détaillé avant toute intervention.",
+      title: "Devis HT clair",
+      description: "Devis écrit avant travaux, facture au nom de l'entreprise sur présentation du SIRET.",
     },
     {
       icon: "⚡",
-      title: "Délais minimisés",
-      description: "Priorité aux véhicules pro : un véhicule immobilisé, c'est du chiffre perdu.",
+      title: "Moins d'immobilisation",
+      description: "Priorité aux véhicules pro : une panne, c'est un chantier, une course ou une tournée perdus.",
     },
     {
       icon: "🛠️",
-      title: "Expertise & sérénité",
-      description: "Garantie constructeur préservée, pièces adaptées et transparence totale.",
+      title: "1 véhicule ou plus",
+      description: "Artisan solo, indépendant ou petite flotte : même interlocuteur atelier à Ivry.",
     },
   ],
   profiles: [
@@ -67,15 +67,16 @@
       ],
       testimonial: {
         quote:
-          "Depuis que j'entretiens mon VTC ici, je perds moins de journées. Devis clair, intervention rapide — exactement ce qu'il faut quand on vit de la route.",
-        author: "Chauffeur VTC",
-        role: "Client professionnel · Val-de-Marne",
-        verified: false,
+          "Excellent garage, travail sérieux. Ça fait plaisir de faire confiance à des mécaniciens qui ont pour seul but de réparer votre véhicule. Je recommande fortement.",
+        author: "Tristan Vallade",
+        role: "Avis Google vérifié",
+        verified: true,
       },
       highlights: [
         "Créneaux prioritaires pour limiter la perte de courses",
         "Entretien adapté au roulage intensif et aux forts kilométrages",
-        "Devis détaillé avant intervention, sans surprise",
+        "Devis écrit avant intervention — facture HT sur demande",
+        "Ouvert lun–sam 9h–19h · 9 rue Michelet, Ivry · 4,9/5 Google",
       ],
       faqs: [
         {
@@ -153,11 +154,17 @@
       ],
       testimonial: {
         quote:
-          "Excellent garage, j'entretiens mes véhicules de livraisons chez ce prestataire. Excellent rapport qualité-prix sur les entretiens et les révisions. Je recommande fortement.",
-        author: "Moove City",
-        role: "Flotte livraison · Avis Google vérifié",
+          "Je suis passé pour une vidange de mon camion. Garage pro avec mécanos compétents, rapide et efficace. Je repasserai dès que nécessaire, je recommande à 100 %.",
+        author: "W F",
+        role: "Avis Google vérifié · utilitaire",
         verified: true,
       },
+      highlights: [
+        "Utilitaires et fourgons : entretien adapté au fort kilométrage",
+        "Devis écrit, facture HT pour les pros",
+        "Objectif : éviter la panne qui bloque une tournée",
+        "Atelier Ivry · lun–sam 9h–19h · 06 48 74 56 68",
+      ],
       faqs: [
         {
           question: "Entretenez-vous les utilitaires et fourgons ?",
@@ -240,10 +247,10 @@
       ],
       testimonial: {
         quote:
-          "On a confié nos utilitaires à RED-K MOTORS. Devis clair par véhicule, un seul contact atelier — ça simplifie la gestion au quotidien.",
-        author: "Artisan BTP",
-        role: "Flotte utilitaires · 94",
-        verified: false,
+          "Je remercie beaucoup l'équipe pour leur travail sur mon Kangoo : voyant moteur et injection depuis des mois. Tous les garages parlaient de la maladie des Renault. Chez eux, en moins d'une heure, ils ont diagnostiqué et résolu le problème. Je les conseille vivement.",
+        author: "Sekou S",
+        role: "Avis Google vérifié · Kangoo",
+        verified: true,
       },
       highlights: [
         "1 utilitaire ou petite flotte : même qualité de suivi",
@@ -335,15 +342,16 @@
       ],
       testimonial: {
         quote:
-          "Véhicule d'examen remis rapidement, double commande intacte — exactement ce qu'il nous fallait pour ne pas décaler les examens.",
-        author: "Auto-école",
-        role: "Véhicule d'examen · Paris sud",
-        verified: false,
+          "Je recommande vivement ce garage ! Ma voiture a été prise en charge rapidement et réparée en moins de 2 jours, avec un service efficace et professionnel. L'équipe a été à l'écoute, disponible et très réactive.",
+        author: "ibraa750",
+        role: "Avis Google vérifié",
+        verified: true,
       },
       highlights: [
-        "Priorité absolue pour les véhicules d'examen",
+        "Priorité pour les véhicules d'examen et créneaux serrés",
         "Double commande préservée selon préconisations",
         "Pré-contrôle technique avant passage au CT",
+        "Devis écrit · lun–sam 9h–19h · 4,9/5 Google",
       ],
       faqs: [
         {
@@ -376,80 +384,90 @@
       key: "pro-autres",
       navTitle: "Autres professionnels",
       icon: "🚗",
-      title: "Garage véhicules professionnels Ivry-sur-Seine (94) | RED-K MOTORS",
+      title:
+        "Garage véhicules de fonction & indépendants Ivry-sur-Seine (94) | RED-K MOTORS",
       description:
-        "Entretien et réparation pour tous les professionnels du 94 : agents, commerciaux, sociétés de services. Tarifs pro HT, délais courts, devis transparent.",
-      h1: "Autres professionnels : un garage adapté à votre activité",
-      heroKicker: "Espace Pro · Tous métiers",
+        "Garage pro à Ivry pour agents immobiliers, commerciaux, infirmiers libéraux, associations et sociétés de services. Devis HT, lun–sam 9h–19h. 06 48 74 56 68.",
+      h1: "Véhicule de fonction ou indépendant : l'atelier qui suit votre rythme",
+      heroKicker: "Espace Pro · Indépendants & véhicules de société",
       heroDesc:
-        "Agent immobilier, commercial, infirmier libéral, société de services… Votre véhicule pro mérite un entretien sérieux et rapide.",
-      cardTeaser: "Tarifs pro et suivi transparent pour tous métiers.",
-      introHeading: "Un partenaire atelier pour tous les véhicules professionnels",
+        "Votre voiture sert aux rendez-vous clients, aux tournées ou aux déplacements pro. Devis écrit, facture HT, remise en service sans perdre une journée inutile.",
+      cardTeaser: "Indépendants et véhicules de société : devis HT, délais courts.",
+      introHeading: "Quand la voiture est un outil de travail, pas un hobby",
       introText:
-        "Quel que soit votre métier, si votre véhicule est indispensable à votre activité, nous adaptons notre prise en charge : devis clair, tarifs pro et suivi transparent.",
+        "Agent immobilier, commercial, infirmier libéral, consultant, association ou société de services : si une panne bloque vos rendez-vous, on priorise le diagnostic et un devis clair avant travaux. Facturation HT sur présentation du SIRET, atelier à Ivry-sur-Seine avec parking.",
       benefits: [
         {
-          title: "Tarifs professionnels",
-          description: "Grille adaptée et facturation HT sur présentation de vos informations pro.",
+          title: "Facture HT / SIRET",
+          description: "Devis écrit au nom de l'entreprise, pièces et main-d'œuvre lisibles.",
         },
         {
-          title: "Flexibilité horaire",
-          description: "Ouvert lun–sam 9h–19h pour s'adapter à votre emploi du temps.",
+          title: "Créneaux lun–sam 9h–19h",
+          description: "Passage possible hors horaires de bureau classiques, y compris le samedi.",
         },
         {
-          title: "Confiance & transparence",
-          description: "Devis avant travaux, garantie constructeur préservée.",
+          title: "Moins d'immobilisation",
+          description: "On vise une remise en service rapide pour ne pas casser votre planning client.",
         },
       ],
       services: [
         {
           title: "Entretien courant",
-          description: "Vidange, révision, filtres — selon carnet constructeur.",
+          description: "Vidange, révision, filtres — selon carnet et kilométrage réel.",
         },
         {
           title: "Mécanique & diagnostic",
-          description: "Pannes, voyants, distribution, embrayage, freinage.",
+          description: "Voyants, freins, distribution, embrayage, panne avant un rendez-vous.",
         },
         {
           title: "Pneus & pare-brise",
-          description: "Montage pneus, géométrie, remplacement vitrage.",
+          description: "Montage pneus, géométrie, impact ou remplacement vitrage.",
         },
         {
-          title: "Carrosserie",
-          description: "Réparations esthétiques et sinistres pour véhicules de fonction.",
+          title: "Carrosserie légère",
+          description: "Petites réparations pour garder un véhicule présentable chez le client.",
         },
       ],
       testimonial: {
-        quote:
-          "Garage très professionnel, très bien accueilli et personnel agréable. Je recommande pour tout professionnel qui cherche un atelier fiable près d'Ivry.",
-        author: "Rania K.",
-        role: "Cliente · Avis Google vérifié",
+        quote: "Équipe professionnelle et à l'écoute, je recommande.",
+        author: "Issa Fofana",
+        role: "Avis Google vérifié",
         verified: true,
       },
+      highlights: [
+        "Indépendants, libéraux et véhicules de société bienvenus",
+        "Devis écrit + facture HT",
+        "Atelier 9 rue Michelet, 94200 Ivry-sur-Seine",
+        "4,9/5 Google · 06 48 74 56 68",
+      ],
       faqs: [
         {
-          question: "Acceptez-vous tous les types de véhicules pro ?",
-          answer: "Oui, berlines, SUV, utilitaires légers — contactez-nous pour les cas spécifiques.",
+          question: "Je suis auto-entrepreneur : puis-je avoir une facture HT ?",
+          answer:
+            "Oui, sur présentation de votre SIRET. Devis écrit avant travaux, puis facture au nom de l'activité.",
         },
         {
-          question: "Proposez-vous des tarifs HT ?",
-          answer: "Oui, sur présentation de votre numéro SIRET ou carte pro.",
+          question: "Acceptez-vous berlines, SUV et petits utilitaires ?",
+          answer:
+            "Oui, véhicules de fonction et utilitaires légers. Pour un fourgon artisan, voir aussi la page Artisans & utilitaires.",
         },
         {
-          question: "Comment obtenir un devis pro ?",
-          answer: "Par téléphone, WhatsApp ou via notre page contact — réponse rapide.",
+          question: "Comment obtenir un devis pro rapidement ?",
+          answer:
+            "Téléphone ou WhatsApp au 06 48 74 56 68 : indiquez marque, modèle et le besoin. Réponse aux heures d'ouverture.",
         },
         {
-          question: "Intervenez-vous sur quelle zone ?",
-          answer: "Ivry-sur-Seine et communes limitrophes du 94, Paris sud et petite couronne.",
+          question: "Sur quelle zone intervenez-vous ?",
+          answer:
+            "Atelier à Ivry-sur-Seine : clients du 94, Paris 13e et communes limitrophes (Vitry, Villejuif, Charenton…).",
         },
       ],
       whatsappText:
-        "Bonjour, je suis un professionnel et je souhaite un devis chez RED-K MOTORS.",
-      serviceType: "Entretien véhicules professionnels",
+        "Bonjour, je suis indépendant / société et je souhaite un devis pro chez RED-K MOTORS.\nMétier : \nVéhicule : \nLe besoin : ",
+      serviceType: "Entretien véhicules de fonction et indépendants",
       keywords:
-        "garage véhicule professionnel 94, entretien voiture de fonction ivry, garage pro val-de-marne, réparation véhicule entreprise",
-      audienceType: "Professionnels et véhicules de fonction",
+        "garage véhicule de fonction 94, entretien voiture indépendant ivry, garage pro SIRET val-de-marne, réparation véhicule entreprise ivry",
+      audienceType: "Indépendants, libéraux et véhicules de société",
     },
   ],
 };

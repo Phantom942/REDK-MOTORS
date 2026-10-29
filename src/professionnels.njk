@@ -91,6 +91,23 @@ faqSchema:
 {% set contactLead = "Véhicule immobilisé = chiffre perdu — on priorise les pros, y compris avec un seul utilitaire." %}
 {% include "conversion-contact.njk" %}
 
+{% if professionnels.pillars and professionnels.pillars.length %}
+<section class="promesse pro-pillars" aria-labelledby="pro-hub-pillars" data-animate="slide-up">
+  <div class="container">
+    <h2 id="pro-hub-pillars" class="promesse__title">Ce qu'on garantit aux pros</h2>
+    <div class="promesse__grid pro-pillars__grid">
+      {% for pillar in professionnels.pillars %}
+      <article class="pro-pillar-card">
+        <span class="pro-pillar-card__icon" aria-hidden="true">{{ pillar.icon }}</span>
+        <h3>{{ pillar.title }}</h3>
+        <p>{{ pillar.description }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
 <section class="services-links pro-related" aria-labelledby="pro-profiles-title" data-animate="slide-up">
   <div class="container services-links__inner">
     {% set sectionKicker = "Espace Pro" %}

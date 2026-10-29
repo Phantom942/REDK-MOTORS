@@ -107,16 +107,6 @@ module.exports = {
       trackPos: "liens_x",
     },
     {
-      id: "threads",
-      label: "Threads",
-      hint: "@REDKMOTORS",
-      hrefKey: "threadsUrl",
-      icon: "threads",
-      external: true,
-      track: "click_social",
-      trackPos: "liens_threads",
-    },
-    {
       id: "tiktok",
       label: "TikTok",
       hint: "@redkmotors",

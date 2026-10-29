@@ -62,10 +62,10 @@
   </div>
 </section>
 
-{% if profil.testimonial.verified %}
+{% if profil.testimonial and profil.testimonial.verified %}
 <section class="pro-testimonial" aria-labelledby="testimonial-{{ profil.key }}" data-animate="slide-up">
   <div class="container">
-    <h2 id="testimonial-{{ profil.key }}" class="pro-testimonial__heading">Avis client professionnel</h2>
+    <h2 id="testimonial-{{ profil.key }}" class="pro-testimonial__heading">Avis Google vérifié</h2>
     <blockquote class="pro-testimonial__card">
       <div class="pro-testimonial__stars" aria-hidden="true">★★★★★</div>
       <p class="pro-testimonial__quote">« {{ profil.testimonial.quote }} »</p>
@@ -76,7 +76,9 @@
     </blockquote>
   </div>
 </section>
-{% else %}
+{% endif %}
+
+{% if profil.highlights and profil.highlights.length %}
 <section class="pro-highlights" aria-labelledby="highlights-{{ profil.key }}" data-animate="slide-up">
   <div class="container">
     <h2 id="highlights-{{ profil.key }}" class="pro-testimonial__heading">Pourquoi choisir RED-K MOTORS</h2>
@@ -91,27 +93,27 @@
 
 <section class="workflow workflow--pro" aria-labelledby="process-{{ profil.key }}" data-animate="slide-up">
   <div class="container">
-    <h2 id="process-{{ profil.key }}" class="workflow__title">Comment devenir partenaire ?</h2>
+    <h2 id="process-{{ profil.key }}" class="workflow__title">Comment ça se passe ?</h2>
     <ol class="workflow__steps">
       <li class="workflow__step">
         <span class="workflow__step-number">1</span>
         <div>
-          <strong>Appelez-nous</strong>
-          <p>Décrivez votre activité, votre véhicule et votre urgence — réponse rapide.</p>
+          <strong>Vous nous contactez</strong>
+          <p>Téléphone ou WhatsApp : métier, véhicule et le besoin — réponse aux heures d'ouverture.</p>
         </div>
       </li>
       <li class="workflow__step">
         <span class="workflow__step-number">2</span>
         <div>
-          <strong>Devis pro transparent</strong>
-          <p>Estimation détaillée avant intervention, tarifs adaptés aux professionnels.</p>
+          <strong>Devis écrit avant travaux</strong>
+          <p>Estimation claire, facture HT sur demande, rien n'est lancé sans votre accord.</p>
         </div>
       </li>
       <li class="workflow__step">
         <span class="workflow__step-number">3</span>
         <div>
-          <strong>Intervention prioritaire</strong>
-          <p>Remise en service dans les meilleurs délais pour limiter la perte d'activité.</p>
+          <strong>Remise en service</strong>
+          <p>On priorise pour limiter l'immobilisation quand votre activité dépend du véhicule.</p>
         </div>
       </li>
     </ol>
@@ -139,10 +141,15 @@
 
 {% include "pro-related.njk" %}
 
+{% set contactTitle = "Devis Pro — " ~ profil.navTitle %}
+{% set contactLead = "Indiquez votre métier et votre véhicule : on vous répond aux heures d'ouverture." %}
+{% set contactWhatsappUrl = waUrl %}
+{% include "conversion-contact.njk" %}
+
 <section class="cta-block cta-block--pro" aria-labelledby="cta-pro-{{ profil.key }}" data-animate="slide-up">
   <div class="container cta-block__inner">
-    <h2 id="cta-pro-{{ profil.key }}" class="cta-block__title">Devenir partenaire RED-K MOTORS</h2>
-    <p class="cta-block__sub">Lun–sam 9h–19h — réponse rapide par téléphone ou WhatsApp.</p>
+    <h2 id="cta-pro-{{ profil.key }}" class="cta-block__title">Besoin d'un créneau atelier ?</h2>
+    <p class="cta-block__sub">Lun–sam 9h–19h — 9 rue Michelet, 94200 Ivry-sur-Seine.</p>
     <div class="cta-block__buttons">
       <a href="tel:{{ site.phone }}" class="btn btn--primary cta-block__btn" data-track="click_call" data-track-pos="cta_pro">Appeler {{ site.phoneDisplay }}</a>
       <a href="{{ waUrl }}" class="btn btn--secondary cta-block__btn" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp" data-track-pos="cta_pro">WhatsApp Pro</a>
